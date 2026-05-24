@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connotation &amp; Nuance — Unit 2</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #c05621; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #c05621; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #c05621, #9c4221); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+
+.rule-box { background: #fff5e6; border: 1px solid #fbd38d; border-left: 4px solid #c05621; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c05621; margin-bottom: 4px; }
+.rule-box p { color: #7b341e; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.tip-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* CONNOTATION SPECTRUM */
+.spectrum { display: flex; gap: 0; margin: 16px 0; border-radius: 10px; overflow: hidden; }
+.spec-item { flex: 1; padding: 12px 10px; text-align: center; }
+.spec-neg  { background: #fee2e2; }
+.spec-neut { background: #f7f9fd; }
+.spec-pos  { background: #dcfce7; }
+.spec-item .spec-word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.spec-item .spec-tone { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+.tone-neg  { color: #991b1b; }
+.tone-neut { color: #4a5568; }
+.tone-pos  { color: #166534; }
+
+/* NUANCE GRID */
+.nuance-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 14px 0; }
+.nuance-card { border: 1px solid #e8edf5; border-radius: 8px; padding: 12px 14px; }
+.nc-neg  { border-top: 3px solid #e53e3e; background: #fff5f5; }
+.nc-neut { border-top: 3px solid #a0aec0; background: #f7f9fd; }
+.nc-pos  { border-top: 3px solid #38a169; background: #f0fff4; }
+.nuance-card .nc-word { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.nuance-card .nc-def  { font-size: 11px; color: #718096; }
+
+/* WORKED */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #fff5e6; color: #c05621; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #fff5e6; border-top: 1px solid #fbd38d; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #c05621; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #c05621; background: #fff5e6; }
+.pq-opt.selected { border-color: #c05621; background: #fff5e6; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #c05621; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #9c4221; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #c05621; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #c05621; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Connotation &amp; Nuance</span>
+    <span class="lesson-badge">Unit 2 · Lesson 3</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Grammar_Lesson_ZeroFirstConditionals.html">&#8592; Grammar</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 2 · Phase 1: Foundation Hardening</div>
+    <h1>Connotation &amp; Nuance</h1>
+    <div class="subtitle">Words can mean the same thing but feel completely different. Learn to feel the difference.</div>
+    <span class="gap-tag">&#127775; Unit 1 Strength (83%) — push to expert level</span>
+  </div>
+
+  <!-- SECTION 1: WHAT IS CONNOTATION -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#127775; What Is Connotation?</h2>
+    <p>The <strong>denotation</strong> of a word is its dictionary meaning — the plain fact of what it means. The <strong>connotation</strong> is the feeling or emotion it carries on top of that meaning.</p>
+    <p>For example: <em>thin</em>, <em>slender</em>, and <em>skinny</em> all describe someone who doesn't weigh much. But they feel very different:</p>
+
+    <div class="spectrum">
+      <div class="spec-item spec-neg">
+        <div class="spec-word">skinny</div>
+        <div class="spec-tone tone-neg">Negative</div>
+        <div style="font-size:11px;color:#718096;margin-top:4px">Too thin — unhealthy feel</div>
+      </div>
+      <div class="spec-item spec-neut">
+        <div class="spec-word">thin</div>
+        <div class="spec-tone tone-neut">Neutral</div>
+        <div style="font-size:11px;color:#718096;margin-top:4px">Just a fact — no judgment</div>
+      </div>
+      <div class="spec-item spec-pos">
+        <div class="spec-word">slender</div>
+        <div class="spec-tone tone-pos">Positive</div>
+        <div style="font-size:11px;color:#718096;margin-top:4px">Elegant — a compliment</div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">The Key Idea</div>
+      <p>Denotation = what the word means. Connotation = how the word makes you feel. ISA questions test whether you can feel the difference.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: THREE LEVELS -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#129392; The Three Connotation Levels</h2>
+
+    <h3>Positive connotation</h3>
+    <p>The word carries warmth, approval, or admiration. Example: <em>determined</em> (strong and focused).</p>
+
+    <h3>Neutral connotation</h3>
+    <p>The word is factual — no judgment either way. Example: <em>persistent</em> (keeps trying — could be good or bad).</p>
+
+    <h3>Negative connotation</h3>
+    <p>The word carries criticism, disapproval, or a bad feeling. Example: <em>stubborn</em> (refuses to change — feels annoying).</p>
+
+    <div style="margin-top:14px">
+      <div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:10px">More examples — same denotation, different connotation:</div>
+      <div class="nuance-grid">
+        <div class="nuance-card nc-neg"><div class="nc-word">nosy</div><div class="nc-def">Negative — prying into others' business rudely</div></div>
+        <div class="nuance-card nc-neut"><div class="nc-word">curious</div><div class="nc-def">Neutral — wants to know things</div></div>
+        <div class="nuance-card nc-pos"><div class="nc-word">inquisitive</div><div class="nc-def">Positive — eager to learn and explore</div></div>
+      </div>
+      <div class="nuance-grid">
+        <div class="nuance-card nc-neg"><div class="nc-word">cheap</div><div class="nc-def">Negative — unwilling to spend money; mean</div></div>
+        <div class="nuance-card nc-neut"><div class="nc-word">economical</div><div class="nc-def">Neutral — careful with money</div></div>
+        <div class="nuance-card nc-pos"><div class="nc-word">thrifty</div><div class="nc-def">Positive — smart with money; admirable</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HOW TO ANSWER CONNOTATION QUESTIONS -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#128269; How to Answer Connotation Questions in a Test</h2>
+    <p>ISA vocabulary questions often give you a sentence with a word in bold or italics and ask: <em>What is the connotation of this word?</em> or <em>Which sentence uses this word with the correct connotation?</em></p>
+
+    <h3>Step 1: Find the emotional charge</h3>
+    <p>Ask: does this word make me feel good, bad, or nothing in particular? That's the connotation.</p>
+
+    <h3>Step 2: Check the context</h3>
+    <p>The context of the sentence can also reinforce whether the word is used positively or negatively. Watch for words around the target word that signal approval or disapproval.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Unit 1 Miss — Q15</div>
+      <p>In Unit 1, <em>arid</em> was in the sentence: "a vast, arid desert where no rain had fallen for three years." The clue <em>"no rain for three years"</em> tells you the desert is <strong>dry</strong> — not sandy. "Covered in sand" is about appearance, not about the lack of water. Slow down and read every clue in the sentence.</p>
+    </div>
+
+    <h3>Step 3: Eliminate obviously wrong connotations</h3>
+    <p>If a question asks which sentence uses <em>exquisite</em> correctly (positive word meaning exceptionally beautiful or refined), cross out any answer that pairs it with something negative — a rubbish bin, a broken machine, a storm. <em>Exquisite</em> does not belong near unpleasant things.</p>
+  </div>
+
+  <!-- SECTION 4: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#9997;&#65039; Worked Examples</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        "The athlete's <strong>relentless</strong> training schedule left him exhausted." — What is the connotation of <em>relentless</em>?
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>What does <em>relentless</em> mean? — Never stopping; continuing without rest.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Emotional charge: the sentence says he was <em>exhausted</em>. The word feels harsh — no break allowed.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Connotation: <strong>Negative</strong> — relentless here feels punishing and intense, not admirable.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Negative connotation — relentless implies something that goes too far without mercy.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        "The entrepreneur had an <strong>audacious</strong> vision that transformed the industry." — What is the connotation of <em>audacious</em>?
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>What does <em>audacious</em> mean? — Daring; willing to take bold risks.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Context clue: it <em>transformed the industry</em> — a positive, powerful outcome.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Connotation: <strong>Positive</strong> — audacious here means impressively bold and visionary.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Positive connotation — audacious = admirably daring when paired with great achievement.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 · Practice</div>
+    <h2>&#127919; Practice Questions</h2>
+    <div class="practice-intro">Read each question carefully. Ask yourself: what emotion does this word carry? Check the context around the word before choosing.</div>
+
+    <!-- PQ1 -->
+    <div class="pq" id="pq1">
+      <div class="pq-num"><span>Question 1 · <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">"The politician gave a <strong>lengthy</strong> speech that tested the patience of everyone in the room." — What is the connotation of <em>lengthy</em>?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','A')">A. &nbsp;Positive — impressive and thorough</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','B')">B. &nbsp;Neutral — simply describes duration</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','C')">C. &nbsp;Negative — too long; tried people's patience</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','D')">D. &nbsp;Positive — shows dedication and hard work</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq1','C','The context clue is \'tested the patience of everyone\'. That tells you the length was a problem — negative connotation.')">Check</button>
+      <div class="feedback" id="pq1-fb"></div>
+    </div>
+
+    <!-- PQ2 -->
+    <div class="pq" id="pq2">
+      <div class="pq-num"><span>Question 2 · <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">Which sentence uses <em>vibrant</em> with the correct (positive) connotation?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','A')">A. &nbsp;The vibrant smell from the drain filled the corridor.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','B')">B. &nbsp;The market was vibrant with colour, music, and laughter.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','C')">C. &nbsp;The vibrant noise from the construction kept everyone awake.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','D')">D. &nbsp;Her vibrant cough echoed through the quiet library.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq2','B','Vibrant means full of life and energy — a positive word. Only B pairs it with positive things (colour, music, laughter). A, C, D pair it with unpleasant things.')">Check</button>
+      <div class="feedback" id="pq2-fb"></div>
+    </div>
+
+    <!-- PQ3 -->
+    <div class="pq" id="pq3">
+      <div class="pq-num"><span>Question 3 · <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">Which word has a <strong>negative</strong> connotation compared to the others?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','A')">A. &nbsp;confident</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','B')">B. &nbsp;assertive</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','C')">C. &nbsp;arrogant</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','D')">D. &nbsp;self-assured</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq3','C','Confident, assertive, and self-assured are all positive — they mean believing in yourself. Arrogant means thinking you are better than everyone else — a criticism.')">Check</button>
+      <div class="feedback" id="pq3-fb"></div>
+    </div>
+
+    <!-- PQ4 -->
+    <div class="pq" id="pq4">
+      <div class="pq-num"><span>Question 4 · <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">"The investigators pored over every <strong>minuscule</strong> detail of the ancient document." — What does <em>minuscule</em> most likely mean in this context?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','A')">A. &nbsp;extremely small</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','B')">B. &nbsp;very important</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','C')">C. &nbsp;difficult to understand</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','D')">D. &nbsp;carefully written</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq4','A','Minuscule means extremely small — from the Latin for \'very small letter\'. The context shows the investigators looking closely (pored over) even the tiniest details.')">Check</button>
+      <div class="feedback" id="pq4-fb"></div>
+    </div>
+
+    <!-- PQ5 -->
+    <div class="pq" id="pq5">
+      <div class="pq-num"><span>Question 5 · <span class="diff-pill da">Advanced</span></span></div>
+      <div class="pq-text">"Despite warnings from experts, the director pursued his <strong>maverick</strong> approach and delivered a film unlike anything seen before." — The connotation of <em>maverick</em> in this context is:</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','A')">A. &nbsp;Negative — reckless and irresponsible</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','B')">B. &nbsp;Positive — boldly original and independent</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','C')">C. &nbsp;Neutral — simply describes his working method</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','D')">D. &nbsp;Negative — ignored experts who knew better</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq5','B','The result was \'a film unlike anything seen before\' — a positive outcome. Despite warnings, he succeeded. The context makes maverick feel bold and admirable here, not reckless.')">Check</button>
+      <div class="feedback" id="pq5-fb"></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-tag">Summary</div>
+    <h2>&#9989; What to Remember</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>The Three Levels</h4>
+        <ul>
+          <li>Positive — feels good, warm, admiring</li>
+          <li>Neutral — factual, no judgment</li>
+          <li>Negative — feels critical, disapproving</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>The Method</h4>
+        <ul>
+          <li>Ask: what emotion does this word carry?</li>
+          <li>Read context clues around the word</li>
+          <li>Eliminate answers that mismatch the tone</li>
+          <li>Slow down — the clue is always in the sentence</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var selected = {};
+function selectOpt(el, qid, val) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = val;
+}
+function checkOpt(qid, correct, explanation) {
+  var fb = document.getElementById(qid + '-fb');
+  var ans = selected[qid];
+  if (!ans) { fb.innerHTML = '<span style="color:#718096">Please choose an answer first.</span>'; return; }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) {
+    var letter = o.textContent.trim().charAt(0);
+    if (letter === correct) o.classList.add('correct');
+    else if (letter === ans && ans !== correct) o.classList.add('wrong');
+  });
+  if (ans === correct) {
+    fb.innerHTML = '<span class="fb-correct">✓ Correct! ' + explanation + '</span>';
+  } else {
+    fb.innerHTML = '<span class="fb-wrong">✗ Not quite. Answer is ' + correct + '. ' + explanation + '</span>';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero &amp; First Conditionals — Unit 2</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #6b46c1; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #6b46c1; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+.nav-btn.next { background: #6b46c1; }
+.nav-btn.next:hover { background: #553c9a; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+
+.rule-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.rule-box p { color: #44337a; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.tip-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* COMPARISON TABLE */
+.cmp-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.cmp-table th { padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; }
+.cmp-table th:first-child { border-radius: 8px 0 0 0; }
+.cmp-table th:last-child { border-radius: 0 8px 0 0; }
+.cmp-table td { padding: 10px 14px; border-bottom: 1px solid #f0f4f8; color: #4a5568; vertical-align: top; }
+.cmp-table tr:last-child td { border-bottom: none; }
+.th-zero { background: #1e40af; color: white; }
+.th-first { background: #6b46c1; color: white; }
+.td-zero { background: #eff6ff; }
+.td-first { background: #faf5ff; }
+.formula { display: inline-block; background: #1a1a2e; color: #89F336; font-family: monospace; font-size: 12px; padding: 3px 10px; border-radius: 6px; font-weight: 700; }
+.formula-purple { background: #44337a; color: #d6bcfa; }
+
+/* WORKED */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #faf5ff; color: #6b46c1; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #faf5ff; border-top: 1px solid #d6bcfa; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #6b46c1; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #6b46c1; background: #faf5ff; }
+.pq-opt.selected { border-color: #6b46c1; background: #faf5ff; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #553c9a; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #6b46c1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #6b46c1; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Zero &amp; First Conditionals</span>
+    <span class="lesson-badge">Unit 2 · Lesson 2</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Cloze_Lesson_SignalWords.html">&#8592; Cloze</a>
+    <a class="nav-btn next" href="Vocab_Lesson_ConnotationNuance.html">Next: Vocab &#8594;</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 2 · Phase 1: Foundation Hardening</div>
+    <h1>Zero &amp; First Conditionals</h1>
+    <div class="subtitle">Understand the formula, the meaning, and how to tell them apart — every time.</div>
+    <span class="gap-tag">&#9888; Unit 1 Critical Gap — Grammar 1/7 · Conditionals not yet secure</span>
+  </div>
+
+  <!-- SECTION 1: WHAT IS A CONDITIONAL -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128161; What Is a Conditional Sentence?</h2>
+    <p>A <strong>conditional sentence</strong> has two parts: a condition (the <em>if</em> part) and a result (what happens because of that condition).</p>
+    <p>Think of it like a machine: <em>you press a button</em> (the condition) and <em>a light turns on</em> (the result). The word <strong>if</strong> starts the condition.</p>
+
+    <div class="rule-box">
+      <div class="rule-label">Structure</div>
+      <p>Every conditional = IF clause (condition) + Result clause (what happens). The IF clause can go first or second in the sentence — the comma moves but the meaning stays the same.</p>
+    </div>
+
+    <p>Example: <em>"If you press the button, the light turns on."</em> = same as <em>"The light turns on if you press the button."</em></p>
+  </div>
+
+  <!-- SECTION 2: SIDE-BY-SIDE COMPARISON -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#128200; Zero vs First — Side by Side</h2>
+
+    <table class="cmp-table">
+      <tr>
+        <th style="background:#e8edf5;color:#1a1a2e;width:22%">Feature</th>
+        <th class="th-zero">Zero Conditional</th>
+        <th class="th-first">First Conditional</th>
+      </tr>
+      <tr>
+        <td><strong>Meaning</strong></td>
+        <td class="td-zero">Always true — scientific facts, universal truths, habits</td>
+        <td class="td-first">Real possibility in the future — likely to happen</td>
+      </tr>
+      <tr>
+        <td><strong>IF clause</strong></td>
+        <td class="td-zero"><span class="formula">If + present simple</span><br><em>If you heat water…</em></td>
+        <td class="td-first"><span class="formula formula-purple">If + present simple</span><br><em>If she arrives…</em></td>
+      </tr>
+      <tr>
+        <td><strong>Result clause</strong></td>
+        <td class="td-zero"><span class="formula">present simple</span><br><em>…it boils.</em></td>
+        <td class="td-first"><span class="formula formula-purple">will + base verb</span><br><em>…we will start.</em></td>
+      </tr>
+      <tr>
+        <td><strong>Full example</strong></td>
+        <td class="td-zero"><em>"If you heat water to 100°C, it boils."</em></td>
+        <td class="td-first"><em>"If she arrives on time, we will start the meeting."</em></td>
+      </tr>
+      <tr>
+        <td><strong>Quick test</strong></td>
+        <td class="td-zero">Is this ALWAYS true, no matter when? → Zero</td>
+        <td class="td-first">Could this happen in the future? Is it possible? → First</td>
+      </tr>
+    </table>
+
+    <div class="warn-box">
+      <div class="warn-label">The Most Common Mistake — Unit 1</div>
+      <p>Both Zero and First Conditionals use <strong>present simple</strong> in the IF clause. The difference is the result clause: Zero uses present simple (<em>it boils</em>), First uses will + base (<em>it will boil</em>). That one word — <strong>will</strong> — is the tell.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HOW TO IDENTIFY THEM -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#128269; How to Identify Which One It Is</h2>
+
+    <h3>Step 1: Look at the result clause</h3>
+    <p>The IF clause is the same for both (present simple). So ignore the IF clause first and look at the <strong>result clause</strong>.</p>
+    <ul style="padding-left:20px;color:#4a5568;margin:10px 0;">
+      <li style="margin-bottom:6px">Result clause has <strong>will/won't</strong> → <strong>First Conditional</strong></li>
+      <li style="margin-bottom:6px">Result clause has <strong>present simple</strong> (no will) → <strong>Zero Conditional</strong></li>
+    </ul>
+
+    <h3>Step 2: Ask the meaning question</h3>
+    <p>Is this sentence about something that is <em>always</em> true (like a fact of nature or a rule)? → Zero. Is it about something that <em>might happen</em> in the future if a condition is met? → First.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Memory Hook</div>
+      <p><strong>Zero</strong> = 0 surprises. It always happens. It's a FACT.<br>
+      <strong>First</strong> = the FIRST possible future. It WILL happen IF the condition is met.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#9997;&#65039; Worked Examples</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        Identify: "If plants don't get enough sunlight, they wilt."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Look at the IF clause: <em>"plants don't get enough sunlight"</em> → present simple ✓</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Look at the result clause: <em>"they wilt"</em> → present simple (no will).</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Meaning check: Is this always true? Yes — it's a fact of nature. → <strong>Zero Conditional</strong>.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Zero Conditional — always-true fact of nature. Formula: If + present simple, present simple.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        Identify: "If it rains tomorrow, we will cancel the picnic."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Look at the IF clause: <em>"it rains tomorrow"</em> → present simple ✓</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Look at the result clause: <em>"we will cancel the picnic"</em> → will + base verb. Key word: <strong>will</strong>.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Meaning check: Is this a real future possibility? Yes — it might rain tomorrow. → <strong>First Conditional</strong>.</span></div>
+      </div>
+      <div class="answer-reveal">✓ First Conditional — real future possibility. Formula: If + present simple, will + base verb.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        Fill the blank: "If she __________ the final round, she will win the championship." (pass)
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Check the result clause: <em>"she will win"</em> → will + base. This is a First Conditional.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>First Conditional rule: IF clause uses <strong>present simple</strong>.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Present simple of "pass" for "she" → <strong>passes</strong>.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: passes — "If she passes the final round, she will win the championship."</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 · Practice</div>
+    <h2>&#127919; Practice Questions</h2>
+    <div class="practice-intro">For each question, identify whether it is Zero or First Conditional — or choose the correct word to complete the sentence. Look at the result clause first.</div>
+
+    <!-- PQ1 -->
+    <div class="pq" id="pq1">
+      <div class="pq-num"><span>Question 1 · <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">Which sentence is a Zero Conditional?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','A')">A. &nbsp;If you study tonight, you will pass tomorrow.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','B')">B. &nbsp;If you mix red and blue, you get purple.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','C')">C. &nbsp;If she calls, I will answer immediately.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','D')">D. &nbsp;If the train is late, we will miss the flight.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq1','B','Zero Conditional — mixing red and blue is always true. Result clause: you get purple (present simple, no will).')">Check</button>
+      <div class="feedback" id="pq1-fb"></div>
+    </div>
+
+    <!-- PQ2 -->
+    <div class="pq" id="pq2">
+      <div class="pq-num"><span>Question 2 · <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">Fill in the blank — First Conditional: "If he __________ his homework, his teacher will be pleased." (finish)</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','A')">A. &nbsp;finished</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','B')">B. &nbsp;will finish</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','C')">C. &nbsp;finishes</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','D')">D. &nbsp;had finished</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq2','C','First Conditional: IF clause = present simple. \'He finishes\' is present simple. Never use will in the IF clause.')">Check</button>
+      <div class="feedback" id="pq2-fb"></div>
+    </div>
+
+    <!-- PQ3 -->
+    <div class="pq" id="pq3">
+      <div class="pq-num"><span>Question 3 · <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">Which sentence is a First Conditional?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','A')">A. &nbsp;If you leave food out, it attracts insects.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','B')">B. &nbsp;If water freezes, it expands.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','C')">C. &nbsp;If the storm continues, the roads will be closed.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','D')">D. &nbsp;If you drop a ball, it falls.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq3','C','First Conditional — result clause has \'will be closed\'. A, B, D all use present simple in the result clause → Zero Conditional.')">Check</button>
+      <div class="feedback" id="pq3-fb"></div>
+    </div>
+
+    <!-- PQ4 -->
+    <div class="pq" id="pq4">
+      <div class="pq-num"><span>Question 4 · <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">Spot the error: "If you will press the button, the alarm rings."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','A')">A. &nbsp;'will press' should be 'press'</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','B')">B. &nbsp;'rings' should be 'will ring'</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','C')">C. &nbsp;'button' should be 'buttons'</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','D')">D. &nbsp;There is no error.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq4','A','Never use WILL in the IF clause — for both Zero and First Conditional, the IF clause uses present simple. \'If you press the button, the alarm rings.\' (Zero)')">Check</button>
+      <div class="feedback" id="pq4-fb"></div>
+    </div>
+
+    <!-- PQ5 -->
+    <div class="pq" id="pq5">
+      <div class="pq-num"><span>Question 5 · <span class="diff-pill da">Advanced</span></span></div>
+      <div class="pq-text">"If the council __________ the new park, local residents will benefit for decades." — Which form of 'approve' is correct?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','A')">A. &nbsp;will approve</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','B')">B. &nbsp;approved</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','C')">C. &nbsp;approves</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','D')">D. &nbsp;had approved</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq5','C','Result clause: \'will benefit\' → this is First Conditional. IF clause = present simple → \'approves\'. The council (singular) + present simple = approves.')">Check</button>
+      <div class="feedback" id="pq5-fb"></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-tag">Summary</div>
+    <h2>&#9989; What to Remember</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>Zero Conditional</h4>
+        <ul>
+          <li>Always-true facts and habits</li>
+          <li>IF + present simple</li>
+          <li>Result = present simple (no will)</li>
+          <li>Example: If you heat ice, it melts.</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>First Conditional</h4>
+        <ul>
+          <li>Real future possibility</li>
+          <li>IF + present simple</li>
+          <li>Result = will + base verb</li>
+          <li>Example: If it rains, we will stay inside.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="warn-box" style="margin-top:14px">
+      <div class="warn-label">Never forget</div>
+      <p>NEVER put <strong>will</strong> in the IF clause. The IF clause always uses present simple for both Zero and First Conditionals.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var selected = {};
+function selectOpt(el, qid, val) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = val;
+}
+function checkOpt(qid, correct, explanation) {
+  var fb = document.getElementById(qid + '-fb');
+  var ans = selected[qid];
+  if (!ans) { fb.innerHTML = '<span style="color:#718096">Please choose an answer first.</span>'; return; }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) {
+    var letter = o.textContent.trim().charAt(0);
+    if (letter === correct) o.classList.add('correct');
+    else if (letter === ans && ans !== correct) o.classList.add('wrong');
+  });
+  if (ans === correct) {
+    fb.innerHTML = '<span class="fb-correct">✓ Correct! ' + explanation + '</span>';
+  } else {
+    fb.innerHTML = '<span class="fb-wrong">✗ Not quite. Answer is ' + correct + '. ' + explanation + '</span>';
+  }
+}
+</script>
+</body>
+</html>

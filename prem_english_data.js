@@ -15,60 +15,56 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '23 May 2026',
+  updated:        '24 May 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           1,
+    n:           2,
     status:      'Lessons In Progress',
     testPending: false
   },
 
-  // Baseline = ASMOPSS 2025 assessment (no unit tests done yet)
+  // Baseline = ASMOPSS 2025 assessment (reference — scores hardcoded in renderHero)
+  baseline: {
+    n: 'BL', label: 'Baseline', score: 67, outOf: 100, pct: 67,
+    patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
+  },
+
+  // Last completed unit test (updated after each test)
   lastUnit: {
-    n: 'BL', label: 'Baseline', score: 67, outOf: 100, pct: 67, delta: null, prevScore: null,
+    n: 1, label: 'Unit 1', score: 11, outOf: 20, pct: 55, delta: null, prevScore: null,
 
-    patternLabel:   'Baseline &mdash; ASMOPSS 2025 &middot; 67/100 (90th pct Thailand) &middot; 227 / 2,441 students',
-    patternInsight: '<strong>Conversation: 20/20 (100%) &mdash; a genuine strength.</strong> Reading Skills: 13/20 (65%) &mdash; strong relative performance, including getting Q27&#9733; (only 24.8% correct) and Q30 (only 18.4% correct). Key gaps revealed: Cloze Test 10/20 (50%) with errors at <em>all</em> difficulty levels including Basic (Q23 &#10007;) &mdash; a systemic issue. Vocabulary 12/20 (60%) &mdash; errors at Intermediate/Applied, not Basic. Grammar 12/20 (60%) &mdash; same pattern. Missing Basic-level questions (Q23 Cloze, Q26 Reading) is more concerning than missing Applied ones. These need addressing before pushing into harder material.',
+    patternLabel:   'Unit 1 &mdash; 24 May 2026 &middot; 11/20 (55%) &middot; Cloze 5/7 &middot; Grammar 1/7 &middot; Vocab 5/6',
+    patternInsight: '<strong>Grammar Conditionals collapsed (1/7 = 14%) &mdash; the critical result of Unit 1.</strong> Prem got every structural question wrong (Q8&ndash;Q13). He can spot an error in a given sentence (Q14 &#10003;) but cannot identify or apply Zero / First / Second Conditional forms. This needs re-teaching from scratch before Unit 2 Grammar. Cloze was decent (5/7 = 71%) with one telling error: Q5 and Q6 were swapped &mdash; he knows &ldquo;however&rdquo; and &ldquo;consequently&rdquo; individually but confused which connector fits which context. Vocabulary was the standout (5/6 = 83%) &mdash; only Q15 wrong, where he chose &ldquo;covered in sand&rdquo; for <em>arid</em> despite the clue &ldquo;no rain for three years&rdquo; pointing clearly to dryness. His vocabulary instincts are solid; he needs to slow down and read context clues more deliberately.',
 
-    analysisLabel:   'Baseline Analysis &mdash; ASMOPSS 2025 Full Subject Breakdown',
-    analysisInsight: '<strong>Score: 67/100 &mdash; 9 misses across 30 questions. T-Score: 65.79 &middot; 90th pct nationally &middot; Rank 227/2,441.</strong> Conversation 6/6 &#10003; (20/20 &mdash; including Q6&#9733; only 21.6% correct). Vocab 4/6 &#10003; (12/20 &mdash; Q8&#10007; Intermediate, Q9&#10007; Applied). Grammar 4/6 &#10003; (12/20 &mdash; Q15&#10007; Intermediate, Q17&#10007; Applied; Q18&#9733; &#10003; only 28.2% correct). Cloze 3/6 &#10003; (10/20 &mdash; Q19&#10007; Intermediate, Q23&#10007; <strong>Basic &mdash; red flag</strong>, Q24&#10007; Applied). Reading 4/6 &#10003; (13/20 &mdash; Q26&#10007; <strong>Basic &mdash; red flag</strong>, Q28&#10007; Applied hardest Q at 16.8%; Q27&#9733; &#10003; 24.8%, Q30 &#10003; 18.4%).',
+    analysisLabel:   'Unit 1 Result Analysis &mdash; 24 May 2026',
+    analysisInsight: '<strong>Score: 11/20 (55%) &mdash; 9 questions wrong.</strong> Cloze 5/7 &#10003; (71%): Q5 &#10007; wrote F (consequently) needed A (however); Q6 &#10007; wrote A (however) needed F (consequently) &mdash; a straight connector swap, both words known but positions confused. Grammar 1/7 &#10007;&#10007; (14%): Q8 &#10007; chose Second Cond. for Zero Cond. Q; Q9 &#10007; wrote &ldquo;had arrived&rdquo; (Third Cond.) for First Cond. fill-in; Q10 &#10007; chose First Cond. sentence as Second Cond.; Q11 &#10007; identified Second Cond. sentence as First Cond.; Q12 &#10007; spotted wrong element as the tense error; Q13 &#10007; clause embedding not secure; Q14 &#10003; correctly identified Third Cond. error. Vocabulary 5/6 &#10003; (83%): Q15 &#10007; chose &ldquo;covered in sand&rdquo; for <em>arid</em> &mdash; missed the &ldquo;no rain for three years&rdquo; context clue; Q16&ndash;Q20 all correct including the Advanced word-root question (Q20 &#10003; demolition).',
 
-    qSummary: '<strong>Conversation 6/6 &#127775; &middot; Vocabulary 4/6 (Q8&#10007; Int, Q9&#10007; App) &middot; Grammar 4/6 (Q15&#10007; Int, Q17&#10007; App) &middot; Cloze Test 3/6 (Q23&#10007; BASIC &mdash; flag, Q19&#10007;, Q24&#10007;) &middot; Reading Skills 4/6 (Q26&#10007; BASIC &mdash; flag, Q28&#10007; App).</strong>',
+    qSummary: '<strong>Cloze 5/7 (Q5 &#10007; Q6 &#10007; &mdash; connector swap) &middot; Grammar 1/7 &#10007;&#10007; (Q8&ndash;Q13 all wrong &mdash; Conditional forms not yet understood) &middot; Vocab 5/6 (Q15 &#10007; &mdash; context clue miss on &ldquo;arid&rdquo;).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Conversation',    lvl:'i', pass:true,  note:'&#10003; 40.5% correct &mdash; Intermediate.' },
-      { q:'Q2',  topic:'Conversation',    lvl:'b', pass:true,  note:'&#10003; 62.2% correct &mdash; Basic.' },
-      { q:'Q3',  topic:'Conversation',    lvl:'a', pass:true,  note:'&#10003; 30.1% correct &mdash; Applied. Strong.' },
-      { q:'Q4',  topic:'Conversation',    lvl:'b', pass:true,  note:'&#10003; 48.8% correct &mdash; Basic.' },
-      { q:'Q5',  topic:'Conversation',    lvl:'i', pass:true,  note:'&#10003; 76.9% correct &mdash; Intermediate.' },
-      { q:'Q6',  topic:'Conversation',    lvl:'a', pass:true,  note:'&#10003; Only 21.6% correct &mdash; Applied. Very strong.' },
-      { q:'Q7',  topic:'Vocabulary',      lvl:'b', pass:true,  note:'&#10003; 76.3% correct &mdash; Basic.' },
-      { q:'Q8',  topic:'Vocabulary',      lvl:'i', pass:false, note:'&#10007; 31.8% correct &mdash; Intermediate. Vocabulary in context gap.' },
-      { q:'Q9',  topic:'Vocabulary',      lvl:'a', pass:false, note:'&#10007; 40.5% correct &mdash; Applied. Nuance / connotation gap.' },
-      { q:'Q10', topic:'Vocabulary',      lvl:'b', pass:true,  note:'&#10003; 61.9% correct &mdash; Basic.' },
-      { q:'Q11', topic:'Vocabulary',      lvl:'i', pass:true,  note:'&#10003; 54.0% correct &mdash; Intermediate.' },
-      { q:'Q12', topic:'Vocabulary',      lvl:'a', pass:true,  note:'&#10003; 38.6% correct &mdash; Applied.' },
-      { q:'Q13', topic:'Grammar',         lvl:'b', pass:true,  note:'&#10003; 56.9% correct &mdash; Basic.' },
-      { q:'Q14', topic:'Grammar',         lvl:'b', pass:true,  note:'&#10003; 62.8% correct &mdash; Basic.' },
-      { q:'Q15', topic:'Grammar',         lvl:'i', pass:false, note:'&#10007; 35.3% correct &mdash; Intermediate. Complex clause / tense structure gap.' },
-      { q:'Q16', topic:'Grammar',         lvl:'i', pass:true,  note:'&#10003; 39.9% correct &mdash; Intermediate.' },
-      { q:'Q17', topic:'Grammar',         lvl:'a', pass:false, note:'&#10007; 34.9% correct &mdash; Applied. Advanced grammar gap.' },
-      { q:'Q18', topic:'Grammar',         lvl:'a', pass:true,  note:'&#10003; Only 28.2% correct &mdash; Applied. Strong performance on hard question.' },
-      { q:'Q19', topic:'Cloze Test',      lvl:'i', pass:false, note:'&#10007; Only 22.5% correct &mdash; Intermediate. Very hard; near-expected miss.' },
-      { q:'Q20', topic:'Cloze Test',      lvl:'i', pass:true,  note:'&#10003; 32.9% correct &mdash; Intermediate.' },
-      { q:'Q21', topic:'Cloze Test',      lvl:'b', pass:true,  note:'&#10003; 57.4% correct &mdash; Basic.' },
-      { q:'Q22', topic:'Cloze Test',      lvl:'a', pass:true,  note:'&#10003; 38.1% correct &mdash; Applied.' },
-      { q:'Q23', topic:'Cloze Test',      lvl:'b', pass:false, note:'&#10007; 38.1% correct &mdash; <strong>BASIC level &mdash; red flag.</strong> Should not miss a Basic cloze question. Systemic gap.' },
-      { q:'Q24', topic:'Cloze Test',      lvl:'a', pass:false, note:'&#10007; 43.7% correct &mdash; Applied. Complex text-flow prediction gap.' },
-      { q:'Q25', topic:'Reading Skills',  lvl:'i', pass:true,  note:'&#10003; 31.8% correct &mdash; Intermediate.' },
-      { q:'Q26', topic:'Reading Skills',  lvl:'b', pass:false, note:'&#10007; 29.2% correct &mdash; <strong>BASIC level &mdash; red flag.</strong> Inconsistency in foundational reading comprehension.' },
-      { q:'Q27', topic:'Reading Skills',  lvl:'a', pass:true,  note:'&#10003; Only 24.8% correct &mdash; Applied. Strong inference on hard question.' },
-      { q:'Q28', topic:'Reading Skills',  lvl:'a', pass:false, note:'&#10007; 16.8% correct &mdash; Applied. Hardest question in test (expected miss).' },
-      { q:'Q29', topic:'Reading Skills',  lvl:'b', pass:true,  note:'&#10003; 29.3% correct &mdash; Basic.' },
-      { q:'Q30', topic:'Reading Skills',  lvl:'i', pass:true,  note:'&#10003; Only 18.4% correct &mdash; Intermediate. Excellent performance on very hard question.' }
+      { q:'Q1',  topic:'Cloze',    lvl:'i', pass:true,  note:'&#10003; Correctly chose C (discovery) &mdash; Developing.' },
+      { q:'Q2',  topic:'Cloze',    lvl:'b', pass:true,  note:'&#10003; Correctly chose D (precision) &mdash; Foundational.' },
+      { q:'Q3',  topic:'Cloze',    lvl:'b', pass:true,  note:'&#10003; Correctly chose E (damage) &mdash; Foundational.' },
+      { q:'Q4',  topic:'Cloze',    lvl:'b', pass:true,  note:'&#10003; Correctly chose G (silent) &mdash; Foundational.' },
+      { q:'Q5',  topic:'Cloze',    lvl:'i', pass:false, note:'&#10007; Wrote F (consequently) &mdash; needed A (however). Connector swap with Q6. Contrast vs result signal confused.' },
+      { q:'Q6',  topic:'Cloze',    lvl:'i', pass:false, note:'&#10007; Wrote A (however) &mdash; needed F (consequently). Connector swap with Q5. Both words known but context positions confused.' },
+      { q:'Q7',  topic:'Cloze',    lvl:'i', pass:true,  note:'&#10003; Correctly chose B (lit) &mdash; Developing.' },
+      { q:'Q8',  topic:'Grammar',  lvl:'b', pass:false, note:'&#10007; Chose C (&ldquo;If you heated ice, it would melt&rdquo; = Second Cond.) &mdash; needed B (Zero Cond.). Cannot identify Zero Conditional.' },
+      { q:'Q9',  topic:'Grammar',  lvl:'i', pass:false, note:'&#10007; Chose D (had arrived = Third Cond. form) &mdash; needed C (arrives = present simple for First Cond. if-clause).' },
+      { q:'Q10', topic:'Grammar',  lvl:'b', pass:false, note:'&#10007; Chose A (First Cond. sentence) &mdash; needed B (Second Cond.). Cannot distinguish First from Second Conditional.' },
+      { q:'Q11', topic:'Grammar',  lvl:'i', pass:false, note:'&#10007; Identified as First Conditional &mdash; it was Second Conditional (&ldquo;went out / would shut down&rdquo;).' },
+      { q:'Q12', topic:'Grammar',  lvl:'i', pass:false, note:'&#10007; Chose A (&ldquo;studied should be study&rdquo;) &mdash; actual error is B (&ldquo;will pass should be would pass&rdquo; for Second Cond. result clause).' },
+      { q:'Q13', topic:'Grammar',  lvl:'a', pass:false, note:'&#10007; Chose A &mdash; needed C (&ldquo;She will, if she practises daily, improve her skills&rdquo;). Clause embedding not secure.' },
+      { q:'Q14', topic:'Grammar',  lvl:'a', pass:true,  note:'&#10003; Correctly chose A &mdash; &ldquo;would have listened&rdquo; should be &ldquo;had listened&rdquo; (Third Cond. if-clause). Good error-spotting instinct.' },
+      { q:'Q15', topic:'Vocab',    lvl:'i', pass:false, note:'&#10007; Chose D (covered in sand) for <em>arid</em> &mdash; needed B (extremely dry). Missed &ldquo;no rain for three years&rdquo; context clue.' },
+      { q:'Q16', topic:'Vocab',    lvl:'i', pass:true,  note:'&#10003; Correctly chose A &mdash; <em>exquisite</em> used correctly with positive connotation (chef&rsquo;s meal).' },
+      { q:'Q17', topic:'Vocab',    lvl:'b', pass:true,  note:'&#10003; Correctly chose C (victory) &mdash; same word family as <em>victorious</em>. Foundational.' },
+      { q:'Q18', topic:'Vocab',    lvl:'i', pass:true,  note:'&#10003; Correctly chose B (dragged) &mdash; near synonym of <em>shuffled</em> in context.' },
+      { q:'Q19', topic:'Vocab',    lvl:'i', pass:true,  note:'&#10003; Correctly chose C &mdash; <em>tedious</em> = negative connotation (boring and tiring).' },
+      { q:'Q20', topic:'Vocab',    lvl:'a', pass:true,  note:'&#10003; Correctly chose B (planned destruction of a building) &mdash; Advanced word-root inference for <em>demolition</em>.' }
     ]
   },
 
@@ -77,9 +73,9 @@ var PREM_ENGLISH = {
   // Current: 476 / 657 = 72%
   skills: [
     { name: 'Reading Compr.',    c: 62, t: 85 },
-    { name: 'Vocabulary',        c: 58, t: 82 },
-    { name: 'Grammar',           c: 58, t: 82 },
-    { name: 'Cloze Test',        c: 46, t: 80 },
+    { name: 'Vocabulary',        c: 63, t: 82 },   // U1: 5/6 (83%) — nudged up
+    { name: 'Grammar',           c: 50, t: 82 },   // U1: 1/7 (14%) — critical drop; Conditionals not understood
+    { name: 'Cloze Test',        c: 50, t: 80 },   // U1: 5/7 (71%) — improvement from baseline
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
     { name: 'Critical Thinking', c: 50, t: 80 },
@@ -87,17 +83,32 @@ var PREM_ENGLISH = {
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [62, 58, 58, 46, 65, 95, 50, 42],
+  radarCurrent:  [62, 63, 50, 50, 65, 95, 50, 42],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Baseline',
+  radarLegendUnit: 'Unit 1',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
-  scores: [],   // will populate after Unit 1 test
+  scores: [
+    { n:1, score:11, outOf:20, delta:null, color:'#fc4e4e', star:false, label:'U1' }
+  ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
-  unitLog: [],  // will populate after Unit 1 test
+  unitLog: [
+    {
+      n: 1,
+      title: 'Unit 1 &mdash; Cloze &middot; Grammar: Conditionals &middot; Vocab in Context',
+      badge: '#fc4e4e',
+      status: 'done',
+      note: '11/20 (55%) &middot; Cloze 5/7 &#10003; &middot; Grammar 1/7 &#10007;&#10007; (critical) &middot; Vocab 5/6 &#10003; &middot; Connector swap Q5/Q6 &middot; Conditional forms need re-teaching from Zero upward',
+      tags: [
+        { t:'Cloze 5/7',    s:'background:#e6fffa;color:#1e8b68' },
+        { t:'Grammar 1/7',  s:'background:#fff0f0;color:#c53030' },
+        { t:'Vocab 5/6',    s:'background:#f0fff4;color:#276749' }
+      ]
+    }
+  ],
 
   // ── Priority gaps ────────────────────────────────────────────────
   priorityGaps: [

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Words &amp; Connectors — Unit 2</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.next { background: #1e8b68; }
+.nav-btn.next:hover { background: #0d6e4f; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.tip-box p { color: #44337a; margin: 0; font-size: 13px; }
+
+.passage { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 18px 20px; margin: 14px 0; font-size: 14px; line-height: 1.9; color: #2d3748; }
+.blank { display: inline-block; min-width: 80px; border-bottom: 2px solid #1e8b68; text-align: center; font-weight: 700; color: #1e8b68; padding: 0 4px; margin: 0 2px; }
+
+/* CONNECTOR TABLE */
+.conn-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.conn-table th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; }
+.conn-table th:first-child { border-radius: 8px 0 0 0; }
+.conn-table th:last-child { border-radius: 0 8px 0 0; }
+.conn-table td { padding: 10px 14px; border-bottom: 1px solid #f0f4f8; color: #4a5568; vertical-align: top; }
+.conn-table tr:last-child td { border-bottom: none; }
+.conn-table tr:nth-child(even) td { background: #f7f9fd; }
+.ct-contrast { background: #fff0f0 !important; }
+.ct-result   { background: #f0fff4 !important; }
+.ct-addition { background: #ebf4ff !important; }
+.ct-time     { background: #faf5ff !important; }
+.signal-pill { display: inline-block; font-weight: 700; font-size: 11px; padding: 2px 10px; border-radius: 10px; }
+.sp-contrast { background: #fee2e2; color: #991b1b; }
+.sp-result   { background: #dcfce7; color: #166534; }
+.sp-addition { background: #dbeafe; color: #1e40af; }
+.sp-time     { background: #ede9fe; color: #4c1d95; }
+
+/* WORKED */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #e6fffa; color: #1e8b68; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #e6fffa; border-top: 1px solid #c6f6d5; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #1e8b68; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #1e8b68; background: #e6fffa; }
+.pq-opt.selected { border-color: #1e8b68; background: #e6fffa; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #0d6e4f; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #1e8b68; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Signal Words &amp; Connectors</span>
+    <span class="lesson-badge">Unit 2 · Lesson 1</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn next" href="Grammar_Lesson_ZeroFirstConditionals.html">Next: Grammar &#8594;</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 2 · Phase 1: Foundation Hardening</div>
+    <h1>Signal Words &amp; Connectors</h1>
+    <div class="subtitle">How to tell CONTRAST from RESULT from ADDITION — and never mix them up again.</div>
+    <span class="gap-tag">&#9888; Unit 1 Gap — Q5/Q6 connector swap · Targeted fix</span>
+  </div>
+
+  <!-- SECTION 1: WHY CONNECTORS MATTER -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128279; Why Connectors Are the Key to Cloze</h2>
+    <p>In Unit 1, you got Q5 and Q6 wrong — not because you didn't know the words, but because you put <em>however</em> and <em>consequently</em> in the wrong gaps. You knew both words. You just confused which idea called for which connector.</p>
+    <p>Connectors (also called <strong>signal words</strong> or <strong>linking words</strong>) are the glue of a passage. They tell the reader: <em>"Hold on, something is about to change"</em> or <em>"Here comes the result"</em> or <em>"There's more of the same idea."</em></p>
+
+    <div class="rule-box">
+      <div class="rule-label">The Golden Rule</div>
+      <p>Before choosing a connector, ask: what is the relationship between the two ideas? Contrast? Result? Addition? Time? The relationship tells you the connector — not the other way around.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: THE FOUR TYPES -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#128196; The Four Connector Types</h2>
+    <p>There are four main types of signal words you will see in cloze passages. Learn to spot which type you need <em>before</em> looking at the word bank.</p>
+
+    <table class="conn-table">
+      <tr>
+        <th>Type</th>
+        <th>What it signals</th>
+        <th>Key words</th>
+        <th>Quick test</th>
+      </tr>
+      <tr class="ct-contrast">
+        <td><span class="signal-pill sp-contrast">CONTRAST</span></td>
+        <td>Ideas that are opposite or surprising given what came before</td>
+        <td><strong>however, although, yet, even though, despite, on the other hand, nevertheless</strong></td>
+        <td>Could you say "but" here? → CONTRAST</td>
+      </tr>
+      <tr class="ct-result">
+        <td><span class="signal-pill sp-result">RESULT</span></td>
+        <td>The second idea is caused by / follows from the first</td>
+        <td><strong>consequently, therefore, as a result, thus, so, hence</strong></td>
+        <td>Could you say "so" here? → RESULT</td>
+      </tr>
+      <tr class="ct-addition">
+        <td><span class="signal-pill sp-addition">ADDITION</span></td>
+        <td>Adding more of the same kind of idea</td>
+        <td><strong>furthermore, moreover, in addition, also, besides, additionally</strong></td>
+        <td>Could you say "and also" here? → ADDITION</td>
+      </tr>
+      <tr class="ct-time">
+        <td><span class="signal-pill sp-time">TIME</span></td>
+        <td>Showing when or in what order something happened</td>
+        <td><strong>eventually, meanwhile, subsequently, once, finally, afterwards</strong></td>
+        <td>Is one event before or after another? → TIME</td>
+      </tr>
+    </table>
+
+    <div class="warn-box">
+      <div class="warn-label">The Trap in Unit 1</div>
+      <p>"However" and "consequently" look similar in length and both feel formal — but they are complete opposites in meaning. "However" says CONTRAST (something unexpected follows). "Consequently" says RESULT (something expected follows because of what came before).</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HOW TO IDENTIFY THE TYPE IN A PASSAGE -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#128269; How to Identify the Type from the Passage</h2>
+    <p>Here is the two-sentence method. Read the sentence <em>before</em> the gap and the sentence <em>after</em> it. Then ask: are the two ideas going in the <strong>same direction</strong> or <strong>opposite directions</strong>?</p>
+
+    <h3>Same direction → RESULT or ADDITION</h3>
+    <p>If idea A causes or leads to idea B, use a <span class="signal-pill sp-result">RESULT</span> connector. If idea B just adds more of idea A, use an <span class="signal-pill sp-addition">ADDITION</span> connector.</p>
+
+    <h3>Opposite direction → CONTRAST</h3>
+    <p>If idea B surprises you given idea A, or they pull in opposite directions, use a <span class="signal-pill sp-contrast">CONTRAST</span> connector.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Shortcut: the Substitution Test</div>
+      <p>Replace the gap with "but." Does the sentence make sense? If yes → CONTRAST. Now replace it with "so." Does it make sense? If yes → RESULT. Replace with "and also" → ADDITION. This takes 5 seconds and works every time.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#9997;&#65039; Worked Examples</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        Example 1 — "The team trained hard every day. <span class="blank">__________</span>, they lost the final match."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Read both ideas: <em>trained hard</em> vs <em>lost the final</em>.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Are they going the same direction? Training hard → winning seems expected. Losing is a SURPRISE.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Substitution test: "But, they lost." ✓ Makes sense → this is a CONTRAST.</span></div>
+        <div class="ws"><div class="ws-num">4</div><span>Choose a CONTRAST connector: <strong>However</strong>, they lost the final match.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: However &nbsp;|&nbsp; <span class="signal-pill sp-contrast">CONTRAST</span></div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        Example 2 — "The water pipes burst during the storm. <span class="blank">__________</span>, the entire ground floor was flooded."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Read both ideas: <em>pipes burst</em> → <em>floor flooded</em>.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Same direction? Yes — burst pipes causing flooding is expected. No surprise.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Substitution test: "So, the entire ground floor was flooded." ✓ Makes sense → RESULT.</span></div>
+        <div class="ws"><div class="ws-num">4</div><span>Choose a RESULT connector: <strong>Consequently</strong>, the entire ground floor was flooded.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: Consequently &nbsp;|&nbsp; <span class="signal-pill sp-result">RESULT</span></div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        Example 3 — "The museum has paintings from over fifty countries. <span class="blank">__________</span>, it houses one of the world's largest sculpture collections."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Read both ideas: <em>paintings from 50 countries</em> + <em>large sculpture collection</em>.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>Both ideas describe impressive things in the museum — same direction, more of the same.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Substitution test: "And also, it houses…" ✓ Makes sense → ADDITION.</span></div>
+        <div class="ws"><div class="ws-num">4</div><span>Choose an ADDITION connector: <strong>Furthermore</strong>, it houses one of the world's largest sculpture collections.</span></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: Furthermore &nbsp;|&nbsp; <span class="signal-pill sp-addition">ADDITION</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 · Practice</div>
+    <h2>&#127919; Practice Questions</h2>
+
+    <div class="practice-intro">Read the sentence carefully. Identify the relationship between the two ideas, then pick the right connector. Use the substitution test if you're unsure.</div>
+
+    <!-- PQ1 -->
+    <div class="pq" id="pq1">
+      <div class="pq-num">
+        <span>Question 1 · <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">"The scientist expected the experiment to fail. <strong>__________</strong>, it produced a remarkable result."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','A')">A. &nbsp;Consequently</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','B')">B. &nbsp;Furthermore</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','C')">C. &nbsp;However</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','D')">D. &nbsp;Subsequently</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq1','C','CONTRAST — failure expected; remarkable result is the surprise.')">Check</button>
+      <div class="feedback" id="pq1-fb"></div>
+    </div>
+
+    <!-- PQ2 -->
+    <div class="pq" id="pq2">
+      <div class="pq-num">
+        <span>Question 2 · <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">"The factory released chemicals into the river. <strong>__________</strong>, hundreds of fish died within hours."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','A')">A. &nbsp;However</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','B')">B. &nbsp;As a result</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','C')">C. &nbsp;Although</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','D')">D. &nbsp;Moreover</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq2','B','RESULT — chemicals in the river directly caused the fish to die.')">Check</button>
+      <div class="feedback" id="pq2-fb"></div>
+    </div>
+
+    <!-- PQ3 -->
+    <div class="pq" id="pq3">
+      <div class="pq-num">
+        <span>Question 3 · <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">"The new library offers free workshops for adults. <strong>__________</strong>, it provides after-school programmes for children."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','A')">A. &nbsp;Therefore</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','B')">B. &nbsp;On the other hand</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','C')">C. &nbsp;In addition</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','D')">D. &nbsp;Despite</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq3','C','ADDITION — both sentences list positive things the library offers. No contrast, no cause-effect.')">Check</button>
+      <div class="feedback" id="pq3-fb"></div>
+    </div>
+
+    <!-- PQ4 -->
+    <div class="pq" id="pq4">
+      <div class="pq-num">
+        <span>Question 4 · <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">"Mia had studied every night for three weeks. <strong>__________</strong>, she felt completely confident walking into the exam."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','A')">A. &nbsp;Nevertheless</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','B')">B. &nbsp;Consequently</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','C')">C. &nbsp;Although</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','D')">D. &nbsp;Furthermore</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq4','B','RESULT — studying hard caused her confidence. One idea leads to the other.')">Check</button>
+      <div class="feedback" id="pq4-fb"></div>
+    </div>
+
+    <!-- PQ5 -->
+    <div class="pq" id="pq5">
+      <div class="pq-num">
+        <span>Question 5 · <span class="diff-pill da">Advanced</span></span>
+      </div>
+      <div class="pq-text">"The charity had raised millions of pounds for the project. <strong>__________</strong>, the government refused to grant them planning permission."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','A')">A. &nbsp;Therefore</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','B')">B. &nbsp;Moreover</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','C')">C. &nbsp;Subsequently</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','D')">D. &nbsp;However</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq5','D','CONTRAST — raising millions suggests success ahead; the refusal is completely unexpected. Classic \'however\' setup.')">Check</button>
+      <div class="feedback" id="pq5-fb"></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-tag">Summary</div>
+    <h2>&#9989; What to Remember</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>The Four Types</h4>
+        <ul>
+          <li>CONTRAST — however, although, yet, despite</li>
+          <li>RESULT — consequently, therefore, as a result</li>
+          <li>ADDITION — furthermore, moreover, in addition</li>
+          <li>TIME — eventually, meanwhile, subsequently</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>The Method</h4>
+        <ul>
+          <li>Read both sentences first</li>
+          <li>Ask: same direction or opposite?</li>
+          <li>Use the substitution test (but / so / and also)</li>
+          <li>Choose the right type, then pick the word</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var selected = {};
+function selectOpt(el, qid, val) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = val;
+}
+function checkOpt(qid, correct, explanation) {
+  var fb = document.getElementById(qid + '-fb');
+  var ans = selected[qid];
+  if (!ans) { fb.innerHTML = '<span style="color:#718096">Please choose an answer first.</span>'; return; }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) {
+    var letter = o.textContent.trim().charAt(0);
+    if (letter === correct) o.classList.add('correct');
+    else if (letter === ans && ans !== correct) o.classList.add('wrong');
+  });
+  if (ans === correct) {
+    fb.innerHTML = '<span class="fb-correct">✓ Correct! ' + explanation + '</span>';
+  } else {
+    fb.innerHTML = '<span class="fb-wrong">✗ Not quite. Answer is ' + correct + '. ' + explanation + '</span>';
+  }
+}
+</script>
+</body>
+</html>
