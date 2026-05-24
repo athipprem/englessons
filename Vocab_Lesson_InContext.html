@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary in Context — Unit 1</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #c05621; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #c05621; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #c05621, #9c4221); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+
+.rule-box { background: #fff5e6; border: 1px solid #fbd38d; border-left: 4px solid #c05621; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c05621; margin-bottom: 4px; }
+.rule-box p { color: #652b19; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+/* CONNOTATION DISPLAY */
+.connot-row { display: flex; gap: 10px; margin: 14px 0; align-items: stretch; }
+.connot-card { flex: 1; border-radius: 10px; padding: 14px 16px; text-align: center; }
+.cc-neg { background: #fff5f5; border: 1px solid #fed7d7; }
+.cc-neu { background: #f7f9fd; border: 1px solid #e8edf5; }
+.cc-pos { background: #f0fff4; border: 1px solid #c6f6d5; }
+.connot-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.cc-neg .connot-label { color: #c53030; }
+.cc-neu .connot-label { color: #718096; }
+.cc-pos .connot-label { color: #276749; }
+.connot-word { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+.cc-neg .connot-word { color: #c53030; }
+.cc-neu .connot-word { color: #718096; }
+.cc-pos .connot-word { color: #276749; }
+.connot-note { font-size: 11px; color: #718096; }
+
+/* WORD FAMILY TABLE */
+.wf-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+.wf-table th { padding: 8px 12px; text-align: left; background: #f7f9fd; border-bottom: 2px solid #e8edf5; color: #718096; font-size: 11px; text-transform: uppercase; }
+.wf-table td { padding: 8px 12px; border-bottom: 1px solid #f0f4f8; vertical-align: top; }
+.wf-table tr:last-child td { border-bottom: none; }
+.wf-root { font-weight: 700; color: #c05621; }
+.wf-form { color: #1a1a2e; font-weight: 600; }
+.wf-use { color: #718096; font-style: italic; }
+
+/* CONTEXT CLUE TYPES */
+.cc-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.cc-type { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.cc-type-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #c05621; margin-bottom: 6px; }
+.cc-type-desc { font-size: 12px; color: #718096; margin-bottom: 6px; }
+.cc-type-ex { font-size: 13px; color: #2d3748; line-height: 1.6; }
+.cc-type-ex .unk { text-decoration: underline; text-decoration-style: dashed; color: #c05621; font-weight: 700; }
+.cc-type-ex .clue { background: #fff8e1; padding: 1px 3px; border-radius: 3px; }
+
+/* SYNONYM COMPARISON */
+.syn-compare { margin: 14px 0; }
+.syn-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+.syn-word { min-width: 100px; font-weight: 700; font-size: 13px; padding: 4px 10px; border-radius: 6px; text-align: center; }
+.syn-ok { background: #f0fff4; color: #276749; }
+.syn-close { background: #fff8e1; color: #b7791f; }
+.syn-wrong { background: #fff5f5; color: #c53030; }
+.syn-note { font-size: 12px; color: #718096; padding-top: 4px; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 12px; }
+.pq-options { display: flex; flex-direction: column; gap: 6px; }
+.pq-opt { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; font-size: 13px; color: #4a5568; transition: all 0.15s; }
+.pq-opt:hover { background: #fff5e6; border-color: #c05621; }
+.pq-opt.correct { background: #f0fff4; border-color: #276749; color: #276749; font-weight: 700; }
+.pq-opt.wrong { background: #fff5f5; border-color: #e53e3e; color: #e53e3e; }
+.opt-radio { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #cbd5e0; flex-shrink: 0; }
+.pq-feedback { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; display: none; }
+.pq-feedback.show { display: block; }
+.pfb-ok { background: #f0fff4; color: #276749; font-weight: 600; }
+.pfb-no { background: #fff5f5; color: #c53030; font-weight: 600; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; } .dd { background: #ebf4ff; color: #2b6cb0; } .da { background: #faf5ff; color: #6b46c1; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #c05621; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #c05621; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Vocabulary in Context</span>
+    <span class="lesson-badge">Unit 1 · Lesson 3</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn" href="Grammar_Lesson_Conditionals.html">&#8592; Grammar</a>
+    <a class="nav-btn" href="index.html">Hub &#8962;</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 1 · Phase 1: Foundation Hardening</div>
+    <h1>Vocabulary in Context</h1>
+    <div class="subtitle">Stop guessing words in isolation. Use the passage, connotation, and word families to find the precise answer.</div>
+    <span class="gap-tag">&#9888; Vocabulary Gap — ASMOPSS: Q8 &#10007; Intermediate, Q9 &#10007; Applied (connotation &amp; nuance)</span>
+  </div>
+
+  <!-- SECTION 1: CONTEXT NOT ISOLATION -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128214; Read the Context, Not Just the Word</h2>
+    <p>The biggest vocabulary mistake is trying to remember what a word means in isolation — on its own, out of context. In a real passage, the <strong>surrounding sentences always tell you what a word means</strong>, even if you have never seen it before.</p>
+
+    <div class="rule-box">
+      <div class="rule-label">The Core Rule</div>
+      <p>Never skip an unknown word and guess. Instead, read the sentences before and after it. The passage is giving you the definition — you just need to spot it.</p>
+    </div>
+
+    <p>Look at this example:</p>
+    <div style="background:#f7f9fd;border:1px solid #e8edf5;border-radius:10px;padding:16px 20px;margin:12px 0;font-size:14px;color:#2d3748;line-height:1.9">
+      "The desert is an <strong style="color:#c05621">arid</strong> environment. Rain rarely falls there, and the soil is too dry for most plants to survive."
+    </div>
+    <p>Even if you don't know the word <em>arid</em>, the sentences after it tell you: rain rarely falls, soil is too dry. → <strong>Arid means very dry.</strong></p>
+  </div>
+
+  <!-- SECTION 2: FOUR CONTEXT CLUE TYPES -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#128269; Four Types of Context Clues</h2>
+    <p>Writers give you clues in four main ways. Learn to spot which type is in the passage.</p>
+
+    <div class="cc-type-grid">
+      <div class="cc-type">
+        <div class="cc-type-name">1. Definition Clue</div>
+        <div class="cc-type-desc">The author explains the word directly, often using "is", "means", or a comma.</div>
+        <div class="cc-type-ex">"A <span class="unk">palaeontologist</span>, <span class="clue">a scientist who studies fossils</span>, found a new dinosaur species."</div>
+      </div>
+      <div class="cc-type">
+        <div class="cc-type-name">2. Example Clue</div>
+        <div class="cc-type-desc">Examples are given to illustrate the meaning. Look for "such as", "for example", "like".</div>
+        <div class="cc-type-ex">"The island had many <span class="unk">indigenous</span> animals, <span class="clue">such as the kiwi bird and the tuatara lizard</span>, found nowhere else on Earth."</div>
+      </div>
+      <div class="cc-type">
+        <div class="cc-type-name">3. Contrast Clue</div>
+        <div class="cc-type-desc">The opposite meaning is given. Look for "but", "however", "unlike", "although".</div>
+        <div class="cc-type-ex">"The speaker was <span class="unk">eloquent</span>, <span class="clue">but her assistant could barely string two sentences together</span>."</div>
+      </div>
+      <div class="cc-type">
+        <div class="cc-type-name">4. Inference Clue</div>
+        <div class="cc-type-desc">No direct clue — you piece together the meaning from the overall situation.</div>
+        <div class="cc-type-ex">"After the long race, the runners were <span class="unk">fatigued</span>. They sat down, drank water, and could barely move."</div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-label">Inference Clues Need the Whole Passage</div>
+      <p>For inference clues, read at least two sentences before and after the unknown word. The clue is scattered — not in one place.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: CONNOTATION -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#127775; Connotation — The Feeling Behind the Word</h2>
+    <p>Two words can have almost the same <em>dictionary meaning</em> (denotation) but very different <em>feelings</em> attached to them (connotation). ISA vocabulary questions often test whether you can feel this difference.</p>
+
+    <h3>Example: Words for "thin"</h3>
+    <div class="connot-row">
+      <div class="connot-card cc-neg">
+        <div class="connot-label">&#128308; Negative</div>
+        <div class="connot-word">scrawny</div>
+        <div class="connot-note">Thin in an unhealthy, unappealing way</div>
+      </div>
+      <div class="connot-card cc-neu">
+        <div class="connot-label">&#9898; Neutral</div>
+        <div class="connot-word">thin</div>
+        <div class="connot-note">Simply describes body shape — no judgement</div>
+      </div>
+      <div class="connot-card cc-pos">
+        <div class="connot-label">&#128994; Positive</div>
+        <div class="connot-word">slender</div>
+        <div class="connot-note">Thin in an elegant, graceful way</div>
+      </div>
+    </div>
+
+    <h3>Example: Words for "determined"</h3>
+    <div class="connot-row">
+      <div class="connot-card cc-neg">
+        <div class="connot-label">&#128308; Negative</div>
+        <div class="connot-word">stubborn</div>
+        <div class="connot-note">Refuses to change; annoyingly fixed</div>
+      </div>
+      <div class="connot-card cc-neu">
+        <div class="connot-label">&#9898; Neutral</div>
+        <div class="connot-word">firm</div>
+        <div class="connot-note">Steady in a decision — no strong feeling</div>
+      </div>
+      <div class="connot-card cc-pos">
+        <div class="connot-label">&#128994; Positive</div>
+        <div class="connot-word">resolute</div>
+        <div class="connot-note">Strong-willed in an admirable way</div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">How to spot connotation in a question</div>
+      <p>Look at the tone of the surrounding passage. Is the author praising, criticising, or being neutral? That tells you whether the gap needs a positive, negative, or neutral word.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WORD FAMILIES -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#127968; Word Families — One Root, Many Forms</h2>
+    <p>Many English words belong to the same family — they share a root but change form depending on how they are used in a sentence. Knowing a word's family dramatically increases your vocabulary.</p>
+
+    <h3>How to read a word family table:</h3>
+    <table class="wf-table">
+      <tr><th>Root / Base</th><th>Noun</th><th>Verb</th><th>Adjective</th><th>Adverb</th></tr>
+      <tr>
+        <td><span class="wf-root">discover</span></td>
+        <td><span class="wf-form">discovery</span></td>
+        <td><span class="wf-form">discover / discovered</span></td>
+        <td><span class="wf-form">discoverable</span></td>
+        <td><span class="wf-use">—</span></td>
+      </tr>
+      <tr>
+        <td><span class="wf-root">courage</span></td>
+        <td><span class="wf-form">courage / encouragement</span></td>
+        <td><span class="wf-form">encourage</span></td>
+        <td><span class="wf-form">courageous</span></td>
+        <td><span class="wf-form">courageously</span></td>
+      </tr>
+      <tr>
+        <td><span class="wf-root">possible</span></td>
+        <td><span class="wf-form">possibility</span></td>
+        <td><span class="wf-use">—</span></td>
+        <td><span class="wf-form">possible / impossible</span></td>
+        <td><span class="wf-form">possibly</span></td>
+      </tr>
+      <tr>
+        <td><span class="wf-root">vary</span></td>
+        <td><span class="wf-form">variety / variation</span></td>
+        <td><span class="wf-form">vary</span></td>
+        <td><span class="wf-form">various / variable</span></td>
+        <td><span class="wf-form">variously</span></td>
+      </tr>
+      <tr>
+        <td><span class="wf-root">precise</span></td>
+        <td><span class="wf-form">precision</span></td>
+        <td><span class="wf-use">—</span></td>
+        <td><span class="wf-form">precise / imprecise</span></td>
+        <td><span class="wf-form">precisely</span></td>
+      </tr>
+    </table>
+
+    <div class="rule-box">
+      <div class="rule-label">The Word Family Test</div>
+      <p>When you see an unknown word, strip away the ending (-tion, -ous, -ly, -ment, -able) and see if you recognise the root. Then rebuild the meaning from there.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: NEAR SYNONYMS -->
+  <div class="section">
+    <div class="section-tag">Section 5</div>
+    <h2>&#127919; Near Synonyms — Almost Right vs Exactly Right</h2>
+    <p>ISA vocabulary questions often give you four words that all mean <em>roughly</em> the same thing. Your job is to find the one that fits <em>precisely</em> in the context. This is what closes Q8 and Q9 type errors.</p>
+
+    <h3>Example: Words for "walked quickly"</h3>
+    <div class="syn-compare">
+      <div class="syn-row"><div class="syn-word syn-ok">strode</div><div class="syn-note">Walked with long, confident steps — fits a determined character</div></div>
+      <div class="syn-row"><div class="syn-word syn-close">marched</div><div class="syn-note">Walked in a stiff, military way — fits a soldier or protest</div></div>
+      <div class="syn-row"><div class="syn-word syn-close">scurried</div><div class="syn-note">Moved quickly in a small, nervous way — fits a small animal or anxious person</div></div>
+      <div class="syn-row"><div class="syn-word syn-wrong">sprinted</div><div class="syn-note">Ran at full speed — not walking</div></div>
+    </div>
+
+    <p style="font-size:13px;color:#4a5568;margin-top:4px">If the passage says: <em>"The general strode into the room, his medals gleaming."</em> — you can't replace <em>strode</em> with <em>scurried</em> (too timid) or <em>sprinted</em> (wrong action). Only <em>strode</em> or <em>marched</em> would fit — and only one fits the character.</p>
+
+    <div class="warn-box">
+      <div class="warn-label">The Near Synonym Trap</div>
+      <p>All four choices will seem correct if you only look at the word. Always check: does the full passage support this exact choice? The passage is more important than your memory of the word.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 6 · Practice</div>
+    <h2>&#127947; Your Turn</h2>
+    <div class="practice-intro">Read the full passage for each question before choosing your answer. The context is your best tool.</div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num"><span>Question 1 <span class="diff-pill df">Foundational — Context Clue</span></span></div>
+      <div class="pq-text">The old bridge was <strong>dilapidated</strong>. Its wooden boards were broken, the metal railings were rusted and bent, and local officials had placed warning signs to keep people away.</div>
+      <div class="pq-text" style="margin-top:-4px;font-size:13px;color:#718096">What does "dilapidated" most likely mean?</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q1','a','b')"><span class="opt-radio"></span> very old but beautiful</div>
+        <div class="pq-opt" onclick="mcq('q1','b','b')"><span class="opt-radio"></span> in a poor, broken-down condition</div>
+        <div class="pq-opt" onclick="mcq('q1','c','b')"><span class="opt-radio"></span> too narrow for traffic</div>
+        <div class="pq-opt" onclick="mcq('q1','d','b')"><span class="opt-radio"></span> newly constructed</div>
+      </div>
+      <div class="pq-feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2">
+      <div class="pq-num"><span>Question 2 <span class="diff-pill df">Foundational — Connotation</span></span></div>
+      <div class="pq-text">The journalist wrote an article celebrating the athlete's achievement. She described him as a ___ competitor who never gave up, even when the odds were against him.</div>
+      <div class="pq-text" style="margin-top:-4px;font-size:13px;color:#718096">Which word fits best, given the positive tone of the passage?</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q2','a','c')"><span class="opt-radio"></span> stubborn</div>
+        <div class="pq-opt" onclick="mcq('q2','b','c')"><span class="opt-radio"></span> aggressive</div>
+        <div class="pq-opt" onclick="mcq('q2','c','c')"><span class="opt-radio"></span> determined</div>
+        <div class="pq-opt" onclick="mcq('q2','d','c')"><span class="opt-radio"></span> obsessive</div>
+      </div>
+      <div class="pq-feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3">
+      <div class="pq-num"><span>Question 3 <span class="diff-pill dd">Developing — Word Family</span></span></div>
+      <div class="pq-text">The team showed great ___ when they continued training despite the rain, the injuries, and the months of poor results.</div>
+      <div class="pq-text" style="margin-top:-4px;font-size:13px;color:#718096">The root word is "persevere." Which word family member fits this gap?</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q3','a','d')"><span class="opt-radio"></span> persevered</div>
+        <div class="pq-opt" onclick="mcq('q3','b','d')"><span class="opt-radio"></span> persevering</div>
+        <div class="pq-opt" onclick="mcq('q3','c','d')"><span class="opt-radio"></span> perseveringly</div>
+        <div class="pq-opt" onclick="mcq('q3','d','d')"><span class="opt-radio"></span> perseverance</div>
+      </div>
+      <div class="pq-feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4">
+      <div class="pq-num"><span>Question 4 <span class="diff-pill dd">Developing — Near Synonyms</span></span></div>
+      <div class="pq-text">The fox <strong>___</strong> silently through the tall grass, moving slowly and carefully so that the rabbits would not hear it approaching.</div>
+      <div class="pq-text" style="margin-top:-4px;font-size:13px;color:#718096">Which word best captures the fox's quiet, careful movement?</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q4','a','c')"><span class="opt-radio"></span> charged</div>
+        <div class="pq-opt" onclick="mcq('q4','b','c')"><span class="opt-radio"></span> marched</div>
+        <div class="pq-opt" onclick="mcq('q4','c','c')"><span class="opt-radio"></span> crept</div>
+        <div class="pq-opt" onclick="mcq('q4','d','c')"><span class="opt-radio"></span> strolled</div>
+      </div>
+      <div class="pq-feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5">
+      <div class="pq-num"><span>Question 5 <span class="diff-pill da">Advanced — Connotation + Context</span></span></div>
+      <div class="pq-text">The new mayor had promised to improve the city's public transport system. Within a year, three new train lines had opened and bus routes had doubled. The changes were <strong>___</strong> — within eighteen months, the number of car journeys had fallen by forty percent.</div>
+      <div class="pq-text" style="margin-top:-4px;font-size:13px;color:#718096">Which word best describes changes that had a dramatic and far-reaching effect?</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q5','a','b')"><span class="opt-radio"></span> satisfactory</div>
+        <div class="pq-opt" onclick="mcq('q5','b','b')"><span class="opt-radio"></span> transformative</div>
+        <div class="pq-opt" onclick="mcq('q5','c','b')"><span class="opt-radio"></span> slight</div>
+        <div class="pq-opt" onclick="mcq('q5','d','b')"><span class="opt-radio"></span> acceptable</div>
+      </div>
+      <div class="pq-feedback" id="q5-fb"></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-tag">Lesson Summary</div>
+    <h2>&#127942; What to Remember</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>Context Clue Types</h4>
+        <ul>
+          <li>Definition — explained directly</li>
+          <li>Example — "such as", "for example"</li>
+          <li>Contrast — "but", "however", "unlike"</li>
+          <li>Inference — piece it together</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Connotation</h4>
+        <ul>
+          <li>Negative / Neutral / Positive feeling</li>
+          <li>Match the tone of the passage</li>
+          <li>e.g. scrawny ✗ vs slender ✓ (positive text)</li>
+          <li>stubborn ✗ vs resolute ✓ (praise text)</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Word Families</h4>
+        <ul>
+          <li>Strip the ending to find the root</li>
+          <li>Rebuild: noun / verb / adjective / adverb</li>
+          <li>e.g. courage → courageous → courageously</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Near Synonyms</h4>
+        <ul>
+          <li>All choices look similar — that's the trap</li>
+          <li>The passage tells you which is exactly right</li>
+          <li>Check: who is doing what, and how?</li>
+          <li>e.g. crept ≠ marched ≠ charged</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px">
+      <a href="Grammar_Lesson_Conditionals.html" style="background:#f7f9fd;color:#4a5568;text-align:center;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px;border:1px solid #e8edf5">&#8592; Grammar Lesson</a>
+      <a href="index.html" style="flex:1;background:#c05621;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px">&#8962; Back to Lesson Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var explanations = {
+  q1: { correct:'b', text:'Inference clue: "broken boards, rusted railings, warning signs" all indicate something in very poor condition. Dilapidated = in a broken-down, neglected state.' },
+  q2: { correct:'c', text:'Connotation: the journalist is celebrating, so a positive word is needed. "Determined" is positive — never giving up. "Stubborn" and "aggressive" are negative; "obsessive" is also negative.' },
+  q3: { correct:'d', text:'Word family: the gap comes after "great ___" — it needs a noun. "Perseverance" is the noun form of "persevere". "Persevered" is a verb, "persevering" is an adjective/participle.' },
+  q4: { correct:'c', text:'Near synonyms: "silently", "slowly and carefully", "not heard" → the fox is moving in a secretive, stealthy way. "Crept" = moved slowly and quietly. "Charged" = fast and forceful. "Marched" = stiff and loud. "Strolled" = casual.' },
+  q5: { correct:'b', text:'Context: three new train lines, doubled bus routes, 40% drop in car journeys — this is a dramatic, large-scale change. "Transformative" = bringing about a fundamental change. "Satisfactory" and "acceptable" are too mild for a 40% shift.' }
+};
+function mcq(qid, chosen, correct) {
+  var q = document.getElementById(qid);
+  var opts = q.querySelectorAll('.pq-opt');
+  var letters = ['a','b','c','d'];
+  opts.forEach(function(o, i) {
+    o.onclick = null;
+    if (letters[i] === correct) o.classList.add('correct');
+    else if (letters[i] === chosen && chosen !== correct) o.classList.add('wrong');
+  });
+  var fb = document.getElementById(qid + '-fb');
+  var data = explanations[qid];
+  fb.textContent = (chosen === data.correct ? '✓ Correct! ' : '✗ Not quite. ') + data.text;
+  fb.className = 'pq-feedback show ' + (chosen === data.correct ? 'pfb-ok' : 'pfb-no');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prem's English Lessons</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 13px; line-height: 1.5; height: 100vh; overflow: hidden; }
+
+/* PASSWORD OVERLAY */
+#pw-overlay { position:fixed; inset:0; background:rgba(10,30,20,0.92); display:flex; align-items:center; justify-content:center; z-index:9999; backdrop-filter:blur(4px); }
+#pw-overlay.hidden { display:none; }
+.pw-box { background:#fff; border-radius:18px; padding:36px 32px 30px; width:320px; text-align:center; box-shadow:0 12px 40px rgba(0,0,0,0.35); }
+.pw-box h2 { font-size:1.4rem; color:#1e8b68; margin-bottom:6px; }
+.pw-box p { font-size:0.85rem; color:#718096; margin-bottom:20px; }
+.pw-input { width:100%; padding:11px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:1rem; outline:none; margin-bottom:10px; transition:border-color 0.2s; }
+.pw-input:focus { border-color:#1e8b68; }
+.pw-btn { width:100%; padding:11px; background:linear-gradient(135deg,#1e8b68,#25a882); color:white; border:none; border-radius:10px; font-size:1rem; font-weight:600; cursor:pointer; }
+.pw-btn:hover { opacity:0.92; }
+.pw-error { font-size:0.8rem; color:#e53e3e; margin-top:8px; min-height:16px; }
+
+/* APP SHELL */
+#app { display:flex; height:100vh; overflow:hidden; }
+
+/* SIDEBAR */
+#sidebar { width:64px; background:#0d3d20; display:flex; flex-direction:column; align-items:center; padding:14px 0; gap:4px; flex-shrink:0; }
+.sb-logo { width:38px; height:38px; border-radius:12px; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:12px; }
+.sb-btn { width:44px; height:44px; border-radius:10px; border:none; background:transparent; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:rgba(255,255,255,0.45); transition:all 0.15s; }
+.sb-btn:hover { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); }
+.sb-btn.active { background:rgba(255,255,255,0.18); color:white; }
+.sb-btn .sb-icon { font-size:18px; line-height:1; }
+.sb-btn .sb-lbl { font-size:7.5px; font-weight:600; letter-spacing:0.3px; text-transform:uppercase; opacity:0.8; }
+.sb-divider { width:28px; height:1px; background:rgba(255,255,255,0.12); margin:6px 0; }
+.sb-spacer { flex:1; }
+
+/* MAIN AREA */
+#main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+
+/* TOPBAR */
+#topbar { background:#fff; border-bottom:1px solid #e8edf5; padding:0 20px; height:52px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+#topbar-title { font-size:15px; font-weight:700; color:#1a1a2e; }
+#topbar-sub { font-size:11px; color:#718096; margin-left:10px; }
+.topbar-right { display:flex; align-items:center; gap:12px; }
+.tb-badge { border-radius:20px; padding:3px 10px; font-size:11px; font-weight:600; }
+.tb-teal   { background:#e6fffa; border:1px solid #81e6d9; color:#1e8b68; }
+.tb-orange { background:#fff5e6; border:1px solid #fbd38d; color:#c05621; }
+.tb-green  { background:#f0fff4; border:1px solid #9ae6b4; color:#276749; }
+
+/* HERO STATS */
+#hero { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:14px 20px; background:#fff; border-bottom:1px solid #e8edf5; flex-shrink:0; }
+.hero-box { background:#f7f9fd; border-radius:10px; padding:10px 14px; border:1px solid #e8edf5; }
+.hero-val { font-size:22px; font-weight:800; color:#1a1a2e; line-height:1.1; }
+.hero-lbl { font-size:10px; color:#718096; margin-top:2px; font-weight:600; text-transform:uppercase; letter-spacing:0.4px; }
+.hero-sub { font-size:10px; font-weight:600; margin-top:1px; }
+
+/* CONTENT AREA */
+#content { flex:1; overflow-y:auto; padding:20px; }
+.panel { display:none; }
+.panel.active { display:block; }
+
+/* SECTION CARDS */
+.card { background:#fff; border-radius:12px; padding:18px 20px; border:1px solid #e8edf5; margin-bottom:16px; }
+.card-hd { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#718096; margin-bottom:14px; display:flex; align-items:center; gap:6px; }
+.dot { width:6px; height:6px; border-radius:50%; display:inline-block; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+
+/* LESSON CARDS */
+.lesson-card { background:#fff; border-radius:12px; padding:18px 18px 16px; border:1px solid #e8edf5; border-top:4px solid #ccc; display:flex; flex-direction:column; gap:6px; transition:transform 0.15s, box-shadow 0.15s; }
+.lesson-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+.lesson-card.cloze     { border-top-color:#1e8b68; }
+.lesson-card.grammar   { border-top-color:#6b46c1; }
+.lesson-card.vocab     { border-top-color:#c05621; }
+.lesson-card.reading   { border-top-color:#2b6cb0; }
+.lesson-card.writing   { border-top-color:#b7791f; }
+.lesson-card.coming    { border-top-color:#ccc; opacity:0.6; }
+.lc-unit { font-size:9px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:#a0aec0; }
+.lc-title { font-size:13px; font-weight:700; color:#1a1a2e; line-height:1.3; }
+.lc-desc { font-size:11px; color:#718096; line-height:1.5; flex:1; }
+.lc-badges { display:flex; gap:5px; flex-wrap:wrap; align-items:center; margin-top:2px; }
+.badge { display:inline-block; font-size:10px; font-weight:600; padding:2px 8px; border-radius:12px; }
+.badge-new      { background:#e6fffa; color:#1e8b68; }
+.badge-done     { background:#f0fff4; color:#276749; }
+.badge-soon     { background:#f5f5f5; color:#999; }
+.badge-phase1   { background:#e6fffa; color:#1e8b68; }
+.badge-test-done { background:#f0fff4; color:#276749; }
+.badge-test-open { background:#fff8e1; color:#c05621; }
+.btn-open { display:inline-block; margin-top:6px; background:#1e8b68; color:white; text-decoration:none; font-size:11px; font-weight:700; padding:8px 16px; border-radius:8px; text-align:center; transition:background 0.15s; width:fit-content; }
+.btn-open:hover { background:#0d6e4f; }
+.btn-open.grammar { background:#6b46c1; }
+.btn-open.grammar:hover { background:#553c9a; }
+.btn-open.vocab { background:#c05621; }
+.btn-open.vocab:hover { background:#9c4221; }
+.btn-open.disabled { background:#e0e0e0; color:#aaa; cursor:default; pointer-events:none; }
+
+/* SEC DIVIDER */
+.sec-div { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#a0aec0; padding:12px 0 10px; border-top:1px solid #f0f4f8; margin-top:4px; }
+.sec-div:first-child { border-top:none; padding-top:0; }
+
+/* INSIGHT BOX */
+.insight { border-radius:10px; padding:11px 14px; }
+.insight.orange { background:#fff8e1; border:1px solid #fbd38d; }
+.insight.teal   { background:#e6fffa; border:1px solid #81e6d9; }
+.insight p { font-size:11px; color:#4a5568; line-height:1.6; }
+
+/* PROGRESS */
+.prog-block { margin-bottom:18px; }
+.prog-meta { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
+.prog-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#4a5568; }
+.prog-stat { font-size:13px; font-weight:700; color:#1a1a2e; }
+.prog-wrap { background:#edf2f7; border-radius:20px; height:12px; overflow:hidden; }
+.prog-fill { height:100%; border-radius:20px; transition:width 0.8s ease; }
+.bar-time  { background:linear-gradient(90deg,#1e8b68,#0d6e4f); }
+.bar-skill { background:linear-gradient(90deg,#ffd700,#f6993f); }
+.prog-label { font-size:10px; color:#718096; margin-top:5px; text-align:right; }
+
+/* TIMELINE */
+.tm { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #f0f4f8; font-size:12px; }
+.tm:last-child { border-bottom:none; }
+.tm span:last-child { color:#1e8b68; font-weight:700; }
+
+/* SKILL ROWS */
+.skill-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.skill-name { font-size:11px; color:#4a5568; width:104px; flex-shrink:0; }
+.skill-track { flex:1; height:6px; background:#edf2f7; border-radius:4px; overflow:hidden; }
+.skill-fill { height:100%; border-radius:4px; }
+.skill-pct { font-size:10px; font-weight:700; width:28px; text-align:right; }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-overlay">
+  <div class="pw-box">
+    <div style="font-size:2.2rem;margin-bottom:10px">&#128218;</div>
+    <h2>Prem's English Lessons</h2>
+    <p>Enter the password to continue</p>
+    <input class="pw-input" id="pw-input" type="password" placeholder="Password"
+           onkeydown="if(event.key==='Enter') checkPassword()">
+    <button class="pw-btn" onclick="checkPassword()">Unlock &#8594;</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
+
+<!-- APP SHELL -->
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <div class="sb-logo">&#128218;</div>
+    <button class="sb-btn active" onclick="showPanel('thisunit',this)" title="This Unit">
+      <span class="sb-icon">&#128214;</span>
+      <span class="sb-lbl">Now</span>
+    </button>
+    <button class="sb-btn" onclick="showPanel('completed',this)" title="Completed Lessons">
+      <span class="sb-icon">&#9989;</span>
+      <span class="sb-lbl">Done</span>
+    </button>
+    <button class="sb-btn" onclick="showPanel('progress',this)" title="Progress &amp; Goals">
+      <span class="sb-icon">&#128200;</span>
+      <span class="sb-lbl">Progress</span>
+    </button>
+    <div class="sb-divider"></div>
+    <button class="sb-btn" onclick="openDashboard()" title="Coach Dashboard">
+      <span class="sb-icon" style="font-size:15px">&#128202;</span>
+      <span class="sb-lbl">Board</span>
+    </button>
+    <div class="sb-spacer"></div>
+  </nav>
+
+  <!-- MAIN -->
+  <div id="main">
+
+    <!-- TOPBAR -->
+    <div id="topbar">
+      <div style="display:flex;align-items:baseline">
+        <span id="topbar-title">ISA English</span>
+        <span id="topbar-sub">&nbsp;&mdash;&nbsp;Grade 4 &nbsp;|&nbsp; ISA 2027 English Programme &nbsp;|&nbsp; Coach: Naomi</span>
+      </div>
+      <div class="topbar-right">
+        <span class="tb-badge tb-green" id="idx-topbar-unit-badge">Unit 1 &mdash; Lessons In Progress</span>
+        <span class="tb-badge tb-orange">&#8987; <span id="topbar-days">...</span> days to ISA 2027</span>
+      </div>
+    </div>
+
+    <!-- HERO STATS -->
+    <div id="hero">
+      <div class="hero-box">
+        <div class="hero-val" id="idx-hero-current-unit" style="color:#1e8b68">&mdash;</div>
+        <div class="hero-lbl">Current unit</div>
+        <div class="hero-sub" id="idx-hero-current-sub" style="color:#1e8b68">&mdash;</div>
+      </div>
+      <div class="hero-box">
+        <div class="hero-val" id="idx-hero-units-done">&mdash;</div>
+        <div class="hero-lbl">Units completed</div>
+        <div class="hero-sub" style="color:#a0aec0">Tests done</div>
+      </div>
+      <div class="hero-box">
+        <div class="hero-val" id="idx-hero-skill" style="color:#f6993f">72%</div>
+        <div class="hero-lbl">Skills achievement</div>
+        <div class="hero-sub" style="color:#f6993f">vs Top 5% target</div>
+      </div>
+      <div class="hero-box">
+        <div class="hero-val" id="weeks-left-hero">&mdash;</div>
+        <div class="hero-lbl">Weeks to ISA 2027</div>
+        <div class="hero-sub" style="color:#a0aec0" id="days-left-hero">calculating...</div>
+      </div>
+    </div>
+
+    <!-- CONTENT PANELS -->
+    <div id="content">
+
+      <!-- PANEL: THIS UNIT -->
+      <div class="panel active" id="panel-thisunit">
+        <div id="idx-unit-pattern" style="margin-bottom:12px"></div>
+        <div class="card" style="margin-top:0">
+          <div class="card-hd"><span class="dot" style="background:#1e8b68"></span>Unit 1 &mdash; Phase 1: Foundation Hardening &mdash; Lessons In Progress</div>
+          <div style="margin-bottom:10px;padding:8px 12px;background:#e6fffa;border:1px solid #81e6d9;border-radius:8px;font-size:11px;color:#1e8b68;font-weight:600">
+            &#127775; Phase 1 focus: Cloze Test · Grammar (Conditionals &amp; Complex Structures) · Vocabulary in Context — the three highest-priority gaps from ASMOPSS 2025
+          </div>
+          <div class="grid-3" style="margin-top:14px">
+
+            <!-- Lesson 1: Cloze Test Fundamentals -->
+            <div class="lesson-card cloze">
+              <div class="lc-unit" style="color:#1e8b68">Cloze Test &middot; Unit 1</div>
+              <div class="lc-title">Cloze Test Fundamentals</div>
+              <div class="lc-desc">What is a cloze test and why does it matter? Using context clues — before AND after the gap. Part-of-speech awareness: is the gap a noun, verb, adjective, or connector? Basic-level cloze patterns to fix the Q23 &#10007; error type.</div>
+              <div class="lc-badges">
+                <span class="badge badge-phase1">Phase 1 &#9888;</span>
+                <span class="badge badge-new">New</span>
+                <span class="badge" style="background:#fff5f5;color:#c53030">Priority 1</span>
+              </div>
+              <a class="btn-open" href="Cloze_Lesson_Fundamentals.html">&#9654; Open Lesson</a>
+            </div>
+
+            <!-- Lesson 2: Grammar -->
+            <div class="lesson-card grammar">
+              <div class="lc-unit" style="color:#6b46c1">Grammar &middot; Unit 1</div>
+              <div class="lc-title">Conditionals &amp; Complex Tenses</div>
+              <div class="lc-desc">Zero, first, and second conditionals. If I went&hellip; I would — recognising and completing the structure. Tense consistency within paragraphs. Clause embedding: joining ideas with who, which, that, when. Closes Q15 &#10007; and Q17 &#10007; error types.</div>
+              <div class="lc-badges">
+                <span class="badge badge-phase1">Phase 1</span>
+                <span class="badge badge-new">New</span>
+                <span class="badge" style="background:#fffaf0;color:#c05621">Priority 2</span>
+              </div>
+              <a class="btn-open grammar" href="Grammar_Lesson_Conditionals.html">&#9654; Open Lesson</a>
+            </div>
+
+            <!-- Lesson 3: Vocabulary in Context -->
+            <div class="lesson-card vocab">
+              <div class="lc-unit" style="color:#c05621">Vocabulary &middot; Unit 1</div>
+              <div class="lc-title">Vocabulary in Context</div>
+              <div class="lc-desc">Reading words in context, not in isolation. Connotation — positive vs neutral vs negative meanings. Word families: transform, transformation, transformative. Synonyms that are almost right vs exactly right. Closes Q8 &#10007; Intermediate and Q9 &#10007; Applied error types.</div>
+              <div class="lc-badges">
+                <span class="badge badge-phase1">Phase 1 &#9888;</span>
+                <span class="badge badge-new">New</span>
+                <span class="badge" style="background:#fff5f5;color:#c53030">Priority 1</span>
+              </div>
+              <a class="btn-open vocab" href="Vocab_Lesson_InContext.html">&#9654; Open Lesson</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: COMPLETED -->
+      <div class="panel" id="panel-completed">
+        <div class="card" style="text-align:center;padding:40px 20px">
+          <div style="font-size:2.5rem;margin-bottom:12px">&#128214;</div>
+          <div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:8px">No completed lessons yet</div>
+          <div style="font-size:12px;color:#718096;max-width:320px;margin:0 auto">Unit 1 lessons are in progress. Once the first unit test is done, completed lessons will appear here — grouped by topic and by unit.</div>
+          <div style="margin-top:20px;padding:12px 16px;background:#e6fffa;border:1px solid #81e6d9;border-radius:10px;display:inline-block">
+            <div style="font-size:11px;font-weight:700;color:#1e8b68">&#127775; Baseline set — ASMOPSS 2025</div>
+            <div style="font-size:11px;color:#4a5568;margin-top:2px">67/100 &middot; 90th pct nationally &middot; Rank 227/2,441</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: PROGRESS -->
+      <div class="panel" id="panel-progress">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-hd"><span class="dot" style="background:#f6993f"></span>Road to ISA 2027</div>
+            <div style="margin-bottom:14px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+                <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4a5568">&#127919; Skills achievement</span>
+                <span id="idx-road-pct" style="font-size:12px;font-weight:700;color:#1e8b68">72%</span>
+              </div>
+              <div style="background:#edf2f7;border-radius:8px;height:10px;overflow:hidden">
+                <div id="idx-road-bar" style="width:72%;height:100%;background:linear-gradient(90deg,#ffd700,#f6993f);border-radius:8px"></div>
+              </div>
+              <div id="idx-road-lbl" style="font-size:10px;color:#718096;margin-top:3px;text-align:right">vs Top 5% target &nbsp;&middot;&nbsp; 72% achieved</div>
+            </div>
+            <div style="margin-bottom:14px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+                <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4a5568">&#9202; Prep time elapsed</span>
+                <span style="font-size:12px;font-weight:700;color:#1e8b68" id="ov-time-pct">...%</span>
+              </div>
+              <div style="background:#edf2f7;border-radius:8px;height:10px;overflow:hidden">
+                <div style="height:100%;background:linear-gradient(90deg,#1e8b68,#0d6e4f);border-radius:8px" id="ov-time-bar"></div>
+              </div>
+              <div style="font-size:10px;color:#718096;margin-top:3px;text-align:right" id="ov-time-label">calculating...</div>
+            </div>
+            <div>
+              <div class="tm"><span>&#127942; ISA 2027 target</span><span>Top 5% Globally</span></div>
+              <div class="tm"><span>&#128218; Phase 1 ends</span><span>Aug 2026</span></div>
+              <div class="tm"><span>&#128218; Phase 2 ends</span><span>Nov 2026</span></div>
+              <div class="tm"><span>&#127919; Phase 3 — mock ISAs</span><span>Dec 2026 – Feb 2027</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-hd"><span class="dot" style="background:#ffd700"></span>Skills Achievement vs Top 5%</div>
+            <div class="prog-block">
+              <div class="prog-meta">
+                <span class="prog-title">&#127919; Overall achievement</span>
+                <span class="prog-stat" id="skill-stat">72%</span>
+              </div>
+              <div class="prog-wrap">
+                <div class="prog-fill bar-skill" id="skill-bar" style="width:72%"></div>
+              </div>
+              <p class="prog-label">Full radar on Dashboard &rarr;</p>
+            </div>
+            <div style="margin-top:14px">
+              <div id="idx-skill-heading" style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#718096;margin-bottom:10px">Skill Breakdown</div>
+              <div id="idx-skill-bars"></div>
+            </div>
+            <div id="idx-skill-summary" style="margin-top:12px;padding:9px 12px;background:#f7f9fd;border-radius:8px;border:1px solid #e8edf5;font-size:11px;color:#4a5568"></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<script src="prem_english_data.js"></script>
+<script>
+// PASSWORD GATE
+var PW_HASH = 324799088;
+function djb2(str) {
+  var h = 5381;
+  for (var i = 0; i < str.length; i++) {
+    h = (((h << 5) + h) + str.charCodeAt(i)) >>> 0;
+  }
+  return h;
+}
+if (sessionStorage.getItem('eng-unlocked') === 'yes') {
+  document.getElementById('pw-overlay').classList.add('hidden');
+} else {
+  document.getElementById('pw-input').focus();
+}
+function checkPassword() {
+  var entered = document.getElementById('pw-input').value;
+  if (djb2(entered) === PW_HASH) {
+    sessionStorage.setItem('eng-unlocked', 'yes');
+    document.getElementById('pw-overlay').classList.add('hidden');
+  } else {
+    document.getElementById('pw-error').textContent = 'Wrong password. Try again!';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+// SIDEBAR NAV
+var panelTitles = {
+  thisunit:  'ISA English',
+  completed: 'Completed Lessons',
+  progress:  'Progress & Goals'
+};
+function showPanel(name, btn) {
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.sb-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('panel-' + name).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('topbar-title').textContent = panelTitles[name] || name;
+}
+
+// OPEN DASHBOARD (hub token auth)
+function openDashboard() {
+  var url = 'Prems_English_Coach_Dashboard.html';
+  if (sessionStorage.getItem('eng-unlocked') === 'yes') {
+    url += '?hub=' + Date.now();
+  }
+  window.open(url, '_blank');
+}
+
+// LIVE COUNTDOWN
+(function() {
+  var start   = new Date('2026-05-23');
+  var isaDate = new Date('2027-02-26');
+  var now     = new Date();
+  var totalMs   = isaDate - start;
+  var elapsedMs = now - start;
+  var pct       = Math.min(100, Math.max(0, (elapsedMs / totalMs) * 100));
+  var msLeft    = isaDate - now;
+  var weeksLeft = Math.ceil(msLeft / (7 * 24 * 60 * 60 * 1000));
+  var daysLeft  = Math.ceil(msLeft / (24 * 60 * 60 * 1000));
+  document.getElementById('weeks-left-hero').textContent = weeksLeft;
+  document.getElementById('days-left-hero').textContent  = daysLeft + ' days remaining';
+  document.getElementById('topbar-days').textContent = daysLeft;
+  var ovBar = document.getElementById('ov-time-bar');
+  var ovPct = document.getElementById('ov-time-pct');
+  var ovLbl = document.getElementById('ov-time-label');
+  if (ovBar) ovBar.style.width = pct.toFixed(1) + '%';
+  if (ovPct) ovPct.textContent = pct.toFixed(0) + '%';
+  if (ovLbl) ovLbl.textContent = daysLeft + ' days left · ' + weeksLeft + ' weeks remaining';
+})();
+
+// ── Render from prem_english_data.js ─────────────────────────────────────
+PREM_ENGLISH.renderSkillBars('idx-skill-bars', false);
+PREM_ENGLISH.renderSkillSummary('idx-skill-summary');
+PREM_ENGLISH.renderAchievement('idx-road-pct', 'idx-road-bar', 'idx-road-lbl');
+PREM_ENGLISH.renderUnitBadge('idx-topbar-unit-badge');
+
+// ── Baseline pattern box (no delta yet) ───────────────────────────────────
+(function() {
+  var el = document.getElementById('idx-unit-pattern');
+  if (!el || !PREM_ENGLISH.lastUnit) return;
+  var u = PREM_ENGLISH.lastUnit;
+  el.innerHTML =
+    '<div class="card" style="border-left:4px solid #1e8b68;padding:12px 14px">' +
+    '<div class="card-hd" style="margin-bottom:6px">' +
+    '<span class="dot" style="background:#1e8b68"></span>' +
+    'Baseline &mdash; ASMOPSS 2025 &middot; ' + u.score + '/' + u.outOf + ' (' + u.pct + '%) &mdash; 90th pct &middot; Rank 227/2,441' +
+    '</div>' +
+    '<div class="insight orange" style="margin:0;font-size:12px;line-height:1.7">' + u.patternInsight + '</div>' +
+    '</div>';
+})();
+
+// Hero: current unit + units completed
+(function() {
+  var cu  = PREM_ENGLISH.currentUnit;
+  var elV = document.getElementById('idx-hero-current-unit');
+  var elS = document.getElementById('idx-hero-current-sub');
+  if (elV) elV.textContent = 'Unit ' + cu.n + ' ►';
+  if (elS) elS.textContent = cu.status;
+  var elD = document.getElementById('idx-hero-units-done');
+  if (elD) elD.textContent = PREM_ENGLISH.scores.filter(function(s){ return s.score !== null && s.score !== undefined; }).length;
+})();
+
+// Hero skill %
+var ihs = document.getElementById('idx-hero-skill');
+if (ihs) ihs.textContent = PREM_ENGLISH.achievement() + '%';
+// Achievement bar
+var ss = document.getElementById('skill-stat');
+var sb = document.getElementById('skill-bar');
+if (ss) ss.textContent = PREM_ENGLISH.achievement() + '%';
+if (sb) sb.style.width  = PREM_ENGLISH.achievement() + '%';
+// Skill heading — show baseline unit label
+var sh = document.getElementById('idx-skill-heading');
+if (sh) sh.textContent = 'Skill Breakdown (after ' + PREM_ENGLISH.lastUnit.label + ')';
+</script>
+</body>
+</html>

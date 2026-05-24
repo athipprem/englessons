@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditionals &amp; Complex Tenses — Unit 1</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #6b46c1; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #6b46c1; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.next { background: #6b46c1; }
+.nav-btn.next:hover { background: #553c9a; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+
+.rule-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.rule-box p { color: #322659; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+/* CONDITIONAL CARDS */
+.cond-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 14px 0; }
+.cond-card { border-radius: 10px; padding: 16px; border: 1px solid #e8edf5; }
+.cc0 { background: #f0fff4; border-top: 3px solid #276749; }
+.cc1 { background: #ebf4ff; border-top: 3px solid #2b6cb0; }
+.cc2 { background: #faf5ff; border-top: 3px solid #6b46c1; }
+.cond-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+.cc0 .cond-type { color: #276749; } .cc1 .cond-type { color: #2b6cb0; } .cc2 .cond-type { color: #6b46c1; }
+.cond-use { font-size: 12px; color: #718096; margin-bottom: 8px; font-style: italic; }
+.cond-formula { font-size: 11px; font-weight: 700; padding: 5px 8px; border-radius: 6px; margin-bottom: 8px; }
+.cc0 .cond-formula { background: rgba(39,103,73,0.1); color: #276749; }
+.cc1 .cond-formula { background: rgba(43,108,176,0.1); color: #2b6cb0; }
+.cc2 .cond-formula { background: rgba(107,70,193,0.1); color: #6b46c1; }
+.cond-ex { font-size: 13px; color: #2d3748; line-height: 1.6; }
+.cond-ex em { font-style: normal; font-weight: 700; }
+
+/* COMPARISON TABLE */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+.comp-table th { padding: 8px 12px; text-align: left; background: #f7f9fd; border-bottom: 2px solid #e8edf5; color: #718096; font-size: 11px; text-transform: uppercase; }
+.comp-table td { padding: 8px 12px; border-bottom: 1px solid #f0f4f8; vertical-align: top; }
+.comp-table tr:last-child td { border-bottom: none; }
+.hl { font-weight: 700; }
+.c0 { color: #276749; } .c1 { color: #2b6cb0; } .c2 { color: #6b46c1; }
+
+/* CLAUSE CARDS */
+.clause-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.clause-pill { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; margin-top: 3px; }
+.cp-who  { background: #ebf4ff; color: #2b6cb0; }
+.cp-which { background: #fff5e6; color: #c05621; }
+.cp-that  { background: #f0fff4; color: #276749; }
+.cp-when  { background: #faf5ff; color: #6b46c1; }
+.clause-ex { font-size: 13px; color: #4a5568; line-height: 1.7; }
+.clause-ex strong { color: #1a1a2e; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 12px; }
+.pq-options { display: flex; flex-direction: column; gap: 6px; }
+.pq-opt { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; font-size: 13px; color: #4a5568; transition: all 0.15s; }
+.pq-opt:hover { background: #f7f9fd; border-color: #6b46c1; }
+.pq-opt.selected { background: #faf5ff; border-color: #6b46c1; }
+.pq-opt.correct { background: #f0fff4; border-color: #276749; color: #276749; font-weight: 700; }
+.pq-opt.wrong { background: #fff5f5; border-color: #e53e3e; color: #e53e3e; }
+.opt-radio { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #cbd5e0; flex-shrink: 0; }
+.pq-feedback { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; display: none; }
+.pq-feedback.show { display: block; }
+.pfb-ok { background: #f0fff4; color: #276749; font-weight: 600; }
+.pfb-no { background: #fff5f5; color: #c53030; font-weight: 600; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; } .dd { background: #ebf4ff; color: #2b6cb0; } .da { background: #faf5ff; color: #6b46c1; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #6b46c1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #6b46c1; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Conditionals &amp; Complex Tenses</span>
+    <span class="lesson-badge">Unit 1 · Lesson 2</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn" href="Cloze_Lesson_Fundamentals.html">&#8592; Cloze</a>
+    <a class="nav-btn next" href="Vocab_Lesson_InContext.html">Next: Vocabulary &#8594;</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 1 · Phase 1: Foundation Hardening</div>
+    <h1>Conditionals &amp; Complex Tenses</h1>
+    <div class="subtitle">Master If-sentences — real, unreal, and always-true — plus embedding ideas with who, which, and when.</div>
+    <span class="gap-tag">&#9888; Grammar Gap — ASMOPSS: Q15 &#10007; Intermediate, Q17 &#10007; Applied</span>
+  </div>
+
+  <!-- SECTION 1: THREE CONDITIONALS -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128336; The Three Conditionals</h2>
+    <p>A <strong>conditional sentence</strong> talks about a condition and its result. It has two parts: the <em>if-clause</em> (the condition) and the <em>main clause</em> (the result).</p>
+    <p>There are three types, and each one is used for a different situation:</p>
+
+    <div class="cond-grid">
+      <div class="cond-card cc0">
+        <div class="cond-type">Zero Conditional</div>
+        <div class="cond-use">Facts — always true</div>
+        <div class="cond-formula">If + present simple, present simple</div>
+        <div class="cond-ex">If you <em>heat</em> ice, it <em>melts</em>.<br>If plants <em>don't get</em> water, they <em>die</em>.</div>
+      </div>
+      <div class="cond-card cc1">
+        <div class="cond-type">First Conditional</div>
+        <div class="cond-use">Real future — possible situation</div>
+        <div class="cond-formula">If + present simple, will + base verb</div>
+        <div class="cond-ex">If it <em>rains</em> tomorrow, we <em>will stay</em> inside.<br>If she <em>studies</em> hard, she <em>will pass</em>.</div>
+      </div>
+      <div class="cond-card cc2">
+        <div class="cond-type">Second Conditional</div>
+        <div class="cond-use">Unreal / imaginary — not likely now</div>
+        <div class="cond-formula">If + past simple, would + base verb</div>
+        <div class="cond-ex">If I <em>had</em> wings, I <em>would fly</em> to school.<br>If she <em>were</em> taller, she <em>would play</em> basketball.</div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">The Key Difference</div>
+      <p>Zero = always true (science, facts). First = possible future (realistic). Second = imaginary (not real now, uses past tense in the if-clause + would in the result).</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: FORMULA TABLE -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#128221; The Formulas Side by Side</h2>
+    <p>Learn to recognise which type you are looking at from the <strong>tense of the verbs</strong>.</p>
+
+    <table class="comp-table">
+      <tr>
+        <th>Type</th><th>If-clause verb</th><th>Main clause verb</th><th>Quick signal</th>
+      </tr>
+      <tr>
+        <td><span class="hl c0">Zero</span></td>
+        <td>present simple (<em>heats, rains, is</em>)</td>
+        <td>present simple (<em>melts, floods, are</em>)</td>
+        <td>General truth / science fact</td>
+      </tr>
+      <tr>
+        <td><span class="hl c1">First</span></td>
+        <td>present simple (<em>studies, leaves, wins</em>)</td>
+        <td><strong>will</strong> + base verb (<em>will pass, will miss, will win</em>)</td>
+        <td>Realistic future possibility</td>
+      </tr>
+      <tr>
+        <td><span class="hl c2">Second</span></td>
+        <td>past simple (<em>had, were, studied</em>)</td>
+        <td><strong>would</strong> + base verb (<em>would go, would be, would study</em>)</td>
+        <td>Imaginary / unlikely now</td>
+      </tr>
+    </table>
+
+    <div class="warn-box">
+      <div class="warn-label">Most Common Error</div>
+      <p>Writing "If I would have…" — this is wrong. The if-clause never takes <em>would</em>. <strong>If I had a car, I would drive to school.</strong> ✓ &nbsp;|&nbsp; <strong>If I would have a car, I would drive.</strong> ✗</p>
+    </div>
+
+    <h3>Watch out for "were" vs "was"</h3>
+    <p>In formal written English and in ISA, the second conditional uses <strong>were</strong> for all subjects (not just plural):</p>
+    <div style="background:#faf5ff;border-radius:8px;padding:12px 16px;font-size:13px;color:#4a5568;margin-top:8px">
+      ✓ <strong>If she <span style="color:#6b46c1">were</span> the captain, she would change the team.</strong><br>
+      ✗ If she <span style="color:#e53e3e">was</span> the captain, she would change the team. <em>(less formal — avoid in ISA writing)</em>
+    </div>
+  </div>
+
+  <!-- SECTION 3: TENSE CONSISTENCY -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#9201; Tense Consistency in Paragraphs</h2>
+    <p>When you write a paragraph, the <strong>tense must stay consistent</strong> unless you have a good reason to change it (e.g. switching from past events to a present reflection).</p>
+
+    <div class="warn-box">
+      <div class="warn-label">Tense Slip — Common in Writing</div>
+      <p>Starting in past tense and accidentally switching to present: "The boy ran to the park and <span style="color:#e53e3e">plays</span> with his friends." → should be "ran…and <span style="color:#276749">played</span>".</p>
+    </div>
+
+    <h3>The Two-Tense Paragraphs Test</h3>
+    <p>When editing your writing, underline every verb and check that they all belong to the same time zone:</p>
+    <div style="background:#f7f9fd;border:1px solid #e8edf5;border-radius:10px;padding:16px 18px;margin:12px 0;font-size:13px;line-height:1.9;color:#2d3748">
+      <span style="color:#276749;font-weight:700">Past paragraph (correct):</span> The explorers <span style="background:#c6f6d5;padding:1px 3px;border-radius:3px">arrived</span> at the cave. They <span style="background:#c6f6d5;padding:1px 3px;border-radius:3px">lit</span> their torches and <span style="background:#c6f6d5;padding:1px 3px;border-radius:3px">stepped</span> inside carefully. The air inside <span style="background:#c6f6d5;padding:1px 3px;border-radius:3px">was</span> cold and damp.<br><br>
+      <span style="color:#e53e3e;font-weight:700">Mixed tenses (incorrect):</span> The explorers <span style="background:#fed7d7;padding:1px 3px;border-radius:3px">arrived</span> at the cave. They <span style="background:#fed7d7;padding:1px 3px;border-radius:3px">light</span> their torches and <span style="background:#fed7d7;padding:1px 3px;border-radius:3px">step</span> inside. The air inside <span style="background:#fed7d7;padding:1px 3px;border-radius:3px">was</span> cold.
+    </div>
+  </div>
+
+  <!-- SECTION 4: CLAUSE EMBEDDING -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#128279; Clause Embedding — Joining Ideas with Who, Which, That, When</h2>
+    <p>An <strong>embedded clause</strong> adds extra information inside a sentence. It makes your writing more sophisticated and varied.</p>
+    <p>Instead of two short sentences: <em>"The scientist made a discovery. She had worked for ten years."</em><br>
+    Write one embedded sentence: <em>"The scientist, <strong>who had worked for ten years</strong>, made an important discovery."</em></p>
+
+    <h3>Which Word to Use?</h3>
+    <div style="margin-top:10px">
+      <div class="clause-row">
+        <span class="clause-pill cp-who">who</span>
+        <span class="clause-ex">Use for <strong>people</strong>. → "The teacher <strong>who</strong> helped me is very kind."</span>
+      </div>
+      <div class="clause-row">
+        <span class="clause-pill cp-which">which</span>
+        <span class="clause-ex">Use for <strong>things or animals</strong>. → "The book, <strong>which</strong> was very old, fell apart when I opened it."</span>
+      </div>
+      <div class="clause-row">
+        <span class="clause-pill cp-that">that</span>
+        <span class="clause-ex">Use for <strong>people or things</strong> in defining clauses. → "The car <strong>that</strong> she drives is red."</span>
+      </div>
+      <div class="clause-row">
+        <span class="clause-pill cp-when">when</span>
+        <span class="clause-ex">Use for <strong>time</strong>. → "I remember the day <strong>when</strong> we first arrived in the city."</span>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">Commas Rule</div>
+      <p>If the embedded clause is EXTRA information (you could remove it and the sentence still makes sense), use commas. If it's ESSENTIAL (defines exactly which one), no commas needed.<br>
+      Extra: "My sister, <em>who lives in London</em>, called me." (I only have one sister — the clause is extra info.)<br>
+      Essential: "The student <em>who studied hardest</em> won the prize." (No commas — it tells us exactly which student.)</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 · Practice</div>
+    <h2>&#127947; Your Turn</h2>
+    <div class="practice-intro">For each question, choose the correct answer. Think about the formula before selecting.</div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num"><span>Question 1 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">If you <strong>leave</strong> butter in the sun, it ___.</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q1','a','b')"><span class="opt-radio"></span> melted</div>
+        <div class="pq-opt" onclick="mcq('q1','b','b')"><span class="opt-radio"></span> melts</div>
+        <div class="pq-opt" onclick="mcq('q1','c','b')"><span class="opt-radio"></span> will melt</div>
+        <div class="pq-opt" onclick="mcq('q1','d','b')"><span class="opt-radio"></span> would melt</div>
+      </div>
+      <div class="pq-feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2">
+      <div class="pq-num"><span>Question 2 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">If she <strong>studies</strong> every day this week, she ___ the test on Friday.</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q2','a','a')"><span class="opt-radio"></span> will pass</div>
+        <div class="pq-opt" onclick="mcq('q2','b','a')"><span class="opt-radio"></span> passes</div>
+        <div class="pq-opt" onclick="mcq('q2','c','a')"><span class="opt-radio"></span> would pass</div>
+        <div class="pq-opt" onclick="mcq('q2','d','a')"><span class="opt-radio"></span> passed</div>
+      </div>
+      <div class="pq-feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3">
+      <div class="pq-num"><span>Question 3 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">If I ___ a famous explorer, I would sail around the world.</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q3','a','c')"><span class="opt-radio"></span> am</div>
+        <div class="pq-opt" onclick="mcq('q3','b','c')"><span class="opt-radio"></span> will be</div>
+        <div class="pq-opt" onclick="mcq('q3','c','c')"><span class="opt-radio"></span> were</div>
+        <div class="pq-opt" onclick="mcq('q3','d','c')"><span class="opt-radio"></span> would be</div>
+      </div>
+      <div class="pq-feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4">
+      <div class="pq-num"><span>Question 4 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">The ancient library, ___ contained thousands of handwritten books, burned down in the great fire of 1666.</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q4','a','b')"><span class="opt-radio"></span> who</div>
+        <div class="pq-opt" onclick="mcq('q4','b','b')"><span class="opt-radio"></span> which</div>
+        <div class="pq-opt" onclick="mcq('q4','c','b')"><span class="opt-radio"></span> that</div>
+        <div class="pq-opt" onclick="mcq('q4','d','b')"><span class="opt-radio"></span> when</div>
+      </div>
+      <div class="pq-feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5">
+      <div class="pq-num"><span>Question 5 <span class="diff-pill dd">Developing — Tense Consistency</span></span></div>
+      <div class="pq-text">Which sentence has correct tense consistency?</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q5','a','b')"><span class="opt-radio"></span> "The explorer found the cave and lights a torch."</div>
+        <div class="pq-opt" onclick="mcq('q5','b','b')"><span class="opt-radio"></span> "The explorer found the cave and lit a torch."</div>
+        <div class="pq-opt" onclick="mcq('q5','c','b')"><span class="opt-radio"></span> "The explorer finds the cave and lit a torch."</div>
+        <div class="pq-opt" onclick="mcq('q5','d','b')"><span class="opt-radio"></span> "The explorer found the cave and will light a torch."</div>
+      </div>
+      <div class="pq-feedback" id="q5-fb"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="pq" id="q6">
+      <div class="pq-num"><span>Question 6 <span class="diff-pill da">Advanced</span></span></div>
+      <div class="pq-text">If the government ___ more money on schools, students across the country would receive a better education.</div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q6','a','c')"><span class="opt-radio"></span> spends</div>
+        <div class="pq-opt" onclick="mcq('q6','b','c')"><span class="opt-radio"></span> will spend</div>
+        <div class="pq-opt" onclick="mcq('q6','c','c')"><span class="opt-radio"></span> spent</div>
+        <div class="pq-opt" onclick="mcq('q6','d','c')"><span class="opt-radio"></span> would spend</div>
+      </div>
+      <div class="pq-feedback" id="q6-fb"></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="pq" id="q7">
+      <div class="pq-num"><span>Question 7 <span class="diff-pill da">Advanced — Clause Embedding</span></span></div>
+      <div class="pq-text">Combine these two sentences using an embedded clause:<br><br>
+      <em>"The scientist won the Nobel Prize. She had spent thirty years researching climate change."</em></div>
+      <div class="pq-options">
+        <div class="pq-opt" onclick="mcq('q7','a','b')"><span class="opt-radio"></span> "The scientist won the Nobel Prize which she had spent thirty years researching climate change."</div>
+        <div class="pq-opt" onclick="mcq('q7','b','b')"><span class="opt-radio"></span> "The scientist, who had spent thirty years researching climate change, won the Nobel Prize."</div>
+        <div class="pq-opt" onclick="mcq('q7','c','b')"><span class="opt-radio"></span> "The scientist won the Nobel Prize, that she had spent thirty years researching climate change."</div>
+        <div class="pq-opt" onclick="mcq('q7','d','b')"><span class="opt-radio"></span> "The scientist won the Nobel Prize when she had spent thirty years researching climate change."</div>
+      </div>
+      <div class="pq-feedback" id="q7-fb"></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-tag">Lesson Summary</div>
+    <h2>&#127942; What to Remember</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>Zero Conditional</h4>
+        <ul>
+          <li>Facts — always true</li>
+          <li>If + present, present</li>
+          <li>"If ice melts, it becomes water."</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>First Conditional</h4>
+        <ul>
+          <li>Real future possibility</li>
+          <li>If + present, will + base</li>
+          <li>"If it rains, I will stay home."</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Second Conditional</h4>
+        <ul>
+          <li>Imaginary / not real now</li>
+          <li>If + past, would + base</li>
+          <li>Use "were" not "was" formally</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Clause Embedding</h4>
+        <ul>
+          <li>who → people</li>
+          <li>which → things (with commas if extra)</li>
+          <li>that → essential defining clauses</li>
+          <li>when → time references</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px">
+      <a href="Vocab_Lesson_InContext.html" style="flex:1;background:#6b46c1;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px">Next: Vocabulary in Context &#8594;</a>
+      <a href="Cloze_Lesson_Fundamentals.html" style="background:#f7f9fd;color:#4a5568;text-align:center;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px;border:1px solid #e8edf5">&#8592; Cloze Lesson</a>
+      <a href="index.html" style="background:#f7f9fd;color:#4a5568;text-align:center;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px;border:1px solid #e8edf5">Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var explanations = {
+  q1: { correct:'b', text:'Zero conditional — "If + present, present." It\'s a fact: butter always melts in the sun. "Melts" (present simple) is correct.' },
+  q2: { correct:'a', text:'First conditional — "If + present simple, will + base verb." She is actually studying → realistic future result → "will pass".' },
+  q3: { correct:'c', text:'Second conditional — imaginary situation (not actually an explorer). "If + past, would + base." Use "were" (not "was") for formal English.' },
+  q4: { correct:'b', text:'"Which" is used for things (the library). It is extra information (we only know of one library here), so commas are correct.' },
+  q5: { correct:'b', text:'"Found… and lit" — both past simple. Tense stays consistent throughout the sentence.' },
+  q6: { correct:'c', text:'Second conditional — "would receive" in the main clause signals that the if-clause needs past simple: "spent". Not "would spend" — never use would in the if-clause.' },
+  q7: { correct:'b', text:'"Who had spent thirty years…" — the embedded clause uses "who" (for a person) and is extra information (commas required). It is placed directly after the noun it describes.' }
+};
+function mcq(qid, chosen, correct) {
+  var q = document.getElementById(qid);
+  var opts = q.querySelectorAll('.pq-opt');
+  var letters = ['a','b','c','d'];
+  opts.forEach(function(o, i) {
+    o.onclick = null;
+    if (letters[i] === correct) o.classList.add('correct');
+    else if (letters[i] === chosen && chosen !== correct) o.classList.add('wrong');
+  });
+  var fb = document.getElementById(qid + '-fb');
+  var data = explanations[qid];
+  fb.textContent = (chosen === data.correct ? '✓ Correct! ' : '✗ Not quite. ') + data.text;
+  fb.className = 'pq-feedback show ' + (chosen === data.correct ? 'pfb-ok' : 'pfb-no');
+}
+</script>
+</body>
+</html>

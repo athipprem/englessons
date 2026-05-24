@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze Test Fundamentals — Unit 1</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+
+/* TOP NAV */
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.next { background: #1e8b68; }
+.nav-btn.next:hover { background: #0d6e4f; }
+
+/* LAYOUT */
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+/* LESSON HEADER */
+.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+/* SECTION CARDS */
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+/* RULE BOXES */
+.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
+
+/* WARN BOX */
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+/* EXAMPLE PASSAGE */
+.passage { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 18px 20px; margin: 14px 0; font-size: 14px; line-height: 1.9; color: #2d3748; }
+.blank { display: inline-block; min-width: 80px; border-bottom: 2px solid #1e8b68; text-align: center; font-weight: 700; color: #1e8b68; padding: 0 4px; margin: 0 2px; }
+.blank.unfilled { color: #a0aec0; font-weight: 400; }
+
+/* STEP LIST */
+.steps { counter-reset: step; list-style: none; margin: 10px 0; }
+.steps li { counter-increment: step; display: flex; gap: 12px; margin-bottom: 12px; }
+.steps li::before { content: counter(step); min-width: 26px; height: 26px; background: #1e8b68; color: white; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.steps li span { color: #4a5568; }
+.steps li strong { color: #1a1a2e; }
+
+/* PARTS-OF-SPEECH TABLE */
+.pos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+.pos-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 8px; padding: 12px; text-align: center; }
+.pos-card .pos-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+.pos-card .pos-q { font-size: 12px; color: #718096; margin-bottom: 6px; }
+.pos-card .pos-ex { font-size: 11px; color: #1e8b68; font-weight: 600; }
+.pc-noun { border-top: 3px solid #1565c0; } .pc-noun .pos-name { color: #1565c0; }
+.pc-verb { border-top: 3px solid #276749; } .pc-verb .pos-name { color: #276749; }
+.pc-adj  { border-top: 3px solid #c05621; } .pc-adj  .pos-name { color: #c05621; }
+.pc-conn { border-top: 3px solid #6b46c1; } .pc-conn .pos-name { color: #6b46c1; }
+
+/* WORKED EXAMPLE */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #e6fffa; color: #1e8b68; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #e6fffa; border-top: 1px solid #c6f6d5; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #1e8b68; }
+
+/* PRACTICE SECTION */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-input { display: flex; align-items: center; gap: 8px; }
+.pq-input label { font-size: 12px; color: #718096; font-weight: 600; }
+.pq-input input { border: 2px solid #e2e8f0; border-radius: 8px; padding: 6px 12px; font-size: 13px; width: 180px; outline: none; }
+.pq-input input:focus { border-color: #1e8b68; }
+.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #0d6e4f; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+/* SUMMARY */
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #1e8b68; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Cloze Test Fundamentals</span>
+    <span class="lesson-badge">Unit 1 · Lesson 1</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn" href="Grammar_Lesson_Conditionals.html">Next: Grammar &#8594;</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 1 · Phase 1: Foundation Hardening</div>
+    <h1>Cloze Test Fundamentals</h1>
+    <div class="subtitle">How to read a gap, identify what's missing, and fill it with confidence.</div>
+    <span class="gap-tag">&#9888; Priority 1 Gap — ASMOPSS baseline: 10/20 (50%)</span>
+  </div>
+
+  <!-- SECTION 1: WHAT IS A CLOZE TEST -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128214; What is a Cloze Test?</h2>
+    <p>A <strong>cloze test</strong> gives you a passage with words removed. Your job is to figure out the missing word using the meaning and grammar of the surrounding text.</p>
+    <p>Think of it like a puzzle: the words around the gap are your clues. You are not guessing — you are <strong>reasoning</strong>.</p>
+
+    <div class="rule-box">
+      <div class="rule-label">The Core Idea</div>
+      <p>Every gap has exactly one best answer. The passage tells you what it is — if you read carefully enough.</p>
+    </div>
+
+    <p>Cloze tests appear in ISA Reading and in competitions like ASMOPSS. They test whether you understand how language <em>flows</em> — not just individual words in isolation.</p>
+  </div>
+
+  <!-- SECTION 2: THE 4-STEP STRATEGY -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#128269; The 4-Step Strategy</h2>
+
+    <ol class="steps">
+      <li><span><strong>Read the whole passage first.</strong> Do not stop at the first gap. Get the overall meaning before trying to fill anything in.</span></li>
+      <li><span><strong>Identify the part of speech.</strong> Ask: is the missing word a noun, verb, adjective, adverb, or connector? The grammar of the sentence tells you.</span></li>
+      <li><span><strong>Use context BEFORE and AFTER the gap.</strong> The sentence before it and the sentence after it both give clues. Never only look at one side.</span></li>
+      <li><span><strong>Say the sentence aloud (in your head).</strong> Does it sound right? Does it make sense with the whole passage? If yes — that's your answer.</span></li>
+    </ol>
+
+    <div class="warn-box">
+      <div class="warn-label">Common Mistake</div>
+      <p>Reading only the words immediately next to the gap. The sentence after the gap often <em>explains</em> what the missing word should be. Always look both ways.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PARTS OF SPEECH -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#127381; Identify the Part of Speech First</h2>
+    <p>Before thinking about <em>which word</em> to use, decide <em>what type of word</em> is needed. This cuts your options down dramatically.</p>
+
+    <div class="pos-grid">
+      <div class="pos-card pc-noun">
+        <div class="pos-name">Noun</div>
+        <div class="pos-q">What is it? / Who is it?</div>
+        <div class="pos-ex">city, scientist, decision, discovery</div>
+      </div>
+      <div class="pos-card pc-verb">
+        <div class="pos-name">Verb</div>
+        <div class="pos-q">What does it do?</div>
+        <div class="pos-ex">runs, discovered, has been, created</div>
+      </div>
+      <div class="pos-card pc-adj">
+        <div class="pos-name">Adjective</div>
+        <div class="pos-q">What is it like?</div>
+        <div class="pos-ex">dark, ancient, careful, enormous</div>
+      </div>
+      <div class="pos-card pc-conn">
+        <div class="pos-name">Connector</div>
+        <div class="pos-q">How do the ideas link?</div>
+        <div class="pos-ex">however, although, because, therefore</div>
+      </div>
+    </div>
+
+    <h3>How to spot what's needed</h3>
+    <p>Look at the words <em>around</em> the gap:</p>
+    <ul style="list-style:none;margin-left:4px">
+      <li style="padding:4px 0;color:#4a5568">📌 <strong>The ___ was broken.</strong> → The word after "The" is a <span style="color:#1565c0;font-weight:700">noun</span> (The <em>bridge</em> was broken.)</li>
+      <li style="padding:4px 0;color:#4a5568">📌 <strong>She ___ her homework every night.</strong> → Subject + gap + object → <span style="color:#276749;font-weight:700">verb</span> (She <em>completes</em> her homework.)</li>
+      <li style="padding:4px 0;color:#4a5568">📌 <strong>The room was surprisingly ___.</strong> → After "was" and an adverb → <span style="color:#c05621;font-weight:700">adjective</span> (The room was surprisingly <em>quiet</em>.)</li>
+      <li style="padding:4px 0;color:#4a5568">📌 <strong>She studied hard; ___, she still failed.</strong> → Joins two contrasting ideas → <span style="color:#6b46c1;font-weight:700">connector</span> (<em>however</em>)</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4: CONNECTORS (KEY LIST) -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#128279; Connector Words — Know These Cold</h2>
+    <p>Connectors are the most common cloze gap type. The meaning of the gap depends entirely on the <strong>relationship between the two ideas</strong>.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:10px">
+      <tr style="background:#f7f9fd">
+        <th style="padding:8px 12px;text-align:left;border-bottom:2px solid #e8edf5;color:#718096;font-size:11px;text-transform:uppercase">Relationship</th>
+        <th style="padding:8px 12px;text-align:left;border-bottom:2px solid #e8edf5;color:#718096;font-size:11px;text-transform:uppercase">Connector Words</th>
+        <th style="padding:8px 12px;text-align:left;border-bottom:2px solid #e8edf5;color:#718096;font-size:11px;text-transform:uppercase">Example</th>
+      </tr>
+      <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;font-weight:600;color:#1a1a2e">Contrast / Surprise</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#6b46c1;font-weight:600">however, although, despite, yet, but</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#718096">He trained every day; <em>however</em>, he lost.</td></tr>
+      <tr style="background:#fafbfc"><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;font-weight:600;color:#1a1a2e">Cause / Result</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#c05621;font-weight:600">so, therefore, as a result, consequently</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#718096">It rained heavily, <em>so</em> the match was cancelled.</td></tr>
+      <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;font-weight:600;color:#1a1a2e">Addition</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#1565c0;font-weight:600">furthermore, in addition, also, moreover</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#718096">She speaks French; <em>moreover</em>, she speaks Thai.</td></tr>
+      <tr style="background:#fafbfc"><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;font-weight:600;color:#1a1a2e">Sequence / Time</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#276749;font-weight:600">first, then, next, finally, afterwards</td><td style="padding:7px 12px;border-bottom:1px solid #f0f4f8;color:#718096"><em>First</em>, mix the flour. <em>Then</em>, add the eggs.</td></tr>
+      <tr><td style="padding:7px 12px;font-weight:600;color:#1a1a2e">Example / Clarification</td><td style="padding:7px 12px;color:#b7791f;font-weight:600">for example, such as, in other words</td><td style="padding:7px 12px;color:#718096">She enjoys sports, <em>such as</em> swimming and cycling.</td></tr>
+    </table>
+
+    <div class="rule-box" style="margin-top:16px">
+      <div class="rule-label">The Contrast Trap</div>
+      <p>When two ideas in a passage are <em>opposite</em> in meaning, the gap is almost always a contrast connector. Look for clue words like "but", "still", "yet", "despite" — even if the gap is in a different part of the sentence.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 5</div>
+    <h2>&#9999;&#65039; Worked Examples</h2>
+    <p>Let's walk through the 4-step strategy together. Watch how each step narrows down the answer.</p>
+
+    <!-- Example 1 -->
+    <div class="worked">
+      <div class="worked-q">
+        <span style="color:#a0aec0;font-size:11px;font-weight:700;text-transform:uppercase">Example 1 · Foundational</span><br><br>
+        The weather was cold and rainy, <span class="blank">________</span> the children decided to stay inside and play board games.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Read the whole sentence. There are two ideas: <em>bad weather</em> and <em>staying inside</em>.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>The gap joins two clauses → it needs a <strong>connector</strong>.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>The weather is bad → staying inside is a <em>logical result</em> of bad weather. This is a cause-and-effect relationship.</span></div>
+        <div class="ws"><div class="ws-num">4</div><span>Cause/result connector needed → <strong>so</strong> fits perfectly.</span></div>
+      </div>
+      <div class="answer-reveal">&#10003; Answer: <strong>so</strong> &nbsp;(cause → result connector)</div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="worked">
+      <div class="worked-q">
+        <span style="color:#a0aec0;font-size:11px;font-weight:700;text-transform:uppercase">Example 2 · Developing</span><br><br>
+        The scientist worked for ten years on her research. Her greatest <span class="blank">________</span> came when she proved that the ancient ruins were over 3,000 years old. People around the world celebrated her work.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Read all three sentences. The passage is about a scientist who worked hard and achieved something great.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>"Her greatest ___" → after "greatest" we need a <strong>noun</strong> (Her greatest <em>something</em>).</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>Look after the gap: "came when she proved…" — this was a moment of finding something out. Look at "People celebrated her work" — this was a positive, significant event.</span></div>
+        <div class="ws"><div class="ws-num">4</div><span>A noun for a great positive finding in science → <strong>discovery</strong> fits perfectly.</span></div>
+      </div>
+      <div class="answer-reveal">&#10003; Answer: <strong>discovery</strong> &nbsp;(noun — greatest discovery)</div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="worked">
+      <div class="worked-q">
+        <span style="color:#a0aec0;font-size:11px;font-weight:700;text-transform:uppercase">Example 3 · Developing — The Contrast Pattern</span><br><br>
+        Maria had practised the piano every single day for six months. <span class="blank">________</span>, on the day of the concert, her hands were shaking and she forgot the opening notes.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><span>Two sentences: lots of practice → but then things went wrong at the concert.</span></div>
+        <div class="ws"><div class="ws-num">2</div><span>The gap is at the start of the second sentence → it needs a <strong>connector</strong>.</span></div>
+        <div class="ws"><div class="ws-num">3</div><span>You would expect practice to lead to a good performance. But the opposite happened. This is a <em>contrast/surprise</em> relationship.</span></div>
+        <div class="ws"><div class="ws-num">4</div><span>Contrast connector → <strong>However</strong> fits. (Note: capital H because it starts a sentence.)</span></div>
+      </div>
+      <div class="answer-reveal">&#10003; Answer: <strong>However</strong> &nbsp;(contrast connector — despite practice, something went wrong)</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 6 · Practice</div>
+    <h2>&#127947; Your Turn</h2>
+    <div class="practice-intro">Read each passage carefully. Use the 4-step strategy: read all, identify part of speech, use context before AND after, check it sounds right.</div>
+
+    <!-- P1 -->
+    <div class="pq">
+      <div class="pq-num"><span>Practice 1 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">Every morning, the baker arrived at his shop before sunrise. He <span style="border-bottom:2px solid #1e8b68;padding:0 12px;color:#a0aec0">________</span> the ovens and began preparing the dough for the day's bread.</div>
+      <div class="pq-input">
+        <label>Answer:</label>
+        <input type="text" id="p1" placeholder="Type your answer" autocomplete="off">
+        <button class="check-btn" onclick="check('p1','lit',['lit','heated','turned on','switched on','warmed','started'])">Check</button>
+      </div>
+      <div class="feedback" id="p1-fb"></div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pq">
+      <div class="pq-num"><span>Practice 2 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">The hikers had been walking for hours. They were exhausted and their legs were heavy. <span style="border-bottom:2px solid #1e8b68;padding:0 12px;color:#a0aec0">________</span>, when they finally reached the top of the mountain, all the tiredness seemed to disappear.</div>
+      <div class="pq-input">
+        <label>Answer:</label>
+        <input type="text" id="p2" placeholder="Type your answer" autocomplete="off">
+        <button class="check-btn" onclick="check('p2','However',['however','yet','but'])">Check</button>
+      </div>
+      <div class="feedback" id="p2-fb"></div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pq">
+      <div class="pq-num"><span>Practice 3 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">Dr Patel had dedicated her entire career to finding a cure for the rare disease. After years of failed experiments, she finally made a <span style="border-bottom:2px solid #1e8b68;padding:0 12px;color:#a0aec0">________</span> that would change the lives of thousands of patients worldwide.</div>
+      <div class="pq-input">
+        <label>Answer:</label>
+        <input type="text" id="p3" placeholder="Type your answer" autocomplete="off">
+        <button class="check-btn" onclick="check('p3','breakthrough',['breakthrough','discovery','breakthrough'])">Check</button>
+      </div>
+      <div class="feedback" id="p3-fb"></div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pq">
+      <div class="pq-num"><span>Practice 4 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">The ancient temple had stood in the middle of the jungle for over a thousand years. It was <span style="border-bottom:2px solid #1e8b68;padding:0 12px;color:#a0aec0">________</span> by thick vines and tall trees, which had slowly grown over its stone walls.</div>
+      <div class="pq-input">
+        <label>Answer:</label>
+        <input type="text" id="p4" placeholder="Type your answer" autocomplete="off">
+        <button class="check-btn" onclick="check('p4','surrounded',['surrounded','covered','hidden','enclosed'])">Check</button>
+      </div>
+      <div class="feedback" id="p4-fb"></div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pq">
+      <div class="pq-num"><span>Practice 5 <span class="diff-pill da">Advanced</span></span></div>
+      <div class="pq-text">The young violinist had performed at hundreds of concerts across the country. Her talent was <span style="border-bottom:2px solid #1e8b68;padding:0 12px;color:#a0aec0">________</span> — critics and audiences agreed that someone of her age had rarely played with such maturity and feeling.</div>
+      <div class="pq-input">
+        <label>Answer:</label>
+        <input type="text" id="p5" placeholder="Type your answer" autocomplete="off">
+        <button class="check-btn" onclick="check('p5','extraordinary',['extraordinary','exceptional','remarkable','outstanding','rare','undeniable'])">Check</button>
+      </div>
+      <div class="feedback" id="p5-fb"></div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: LESSON SUMMARY -->
+  <div class="section">
+    <div class="section-tag">Lesson Summary</div>
+    <h2>&#127942; What to Remember</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>&#128269; 4-Step Strategy</h4>
+        <ul>
+          <li>Read the whole passage first</li>
+          <li>Identify the part of speech</li>
+          <li>Use context before AND after the gap</li>
+          <li>Say it aloud — does it fit?</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>&#128279; Connector Patterns</h4>
+        <ul>
+          <li>Contrast → however, although, yet</li>
+          <li>Cause/Result → so, therefore</li>
+          <li>Addition → moreover, furthermore</li>
+          <li>Sequence → first, then, finally</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>&#9888; Watch Out For</h4>
+        <ul>
+          <li>Only reading one side of the gap</li>
+          <li>Choosing the first word that sounds OK</li>
+          <li>Ignoring the overall passage meaning</li>
+          <li>Missing the contrast/surprise signal</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>&#127919; ISA Relevance</h4>
+        <ul>
+          <li>Cloze appears in ISA Reading section</li>
+          <li>Tests language flow — not word lists</li>
+          <li>Basic-level gaps must be 100% reliable</li>
+          <li>Phase 1 goal: no Basic-level misses</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px">
+      <a href="Grammar_Lesson_Conditionals.html" style="flex:1;background:#1e8b68;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px">Next: Grammar — Conditionals &#8594;</a>
+      <a href="index.html" style="background:#f7f9fd;color:#4a5568;text-align:center;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px;border:1px solid #e8edf5">&#8592; Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var answers = {
+  p1: ['lit','heated','turned on','switched on','warmed','started','lit up'],
+  p2: ['however','yet','but','still'],
+  p3: ['breakthrough','discovery'],
+  p4: ['surrounded','covered','hidden','enclosed','engulfed'],
+  p5: ['extraordinary','exceptional','remarkable','outstanding','rare','undeniable','incredible','impressive']
+};
+function check(id, primary, list) {
+  var val = document.getElementById(id).value.trim().toLowerCase();
+  var fb = document.getElementById(id + '-fb');
+  var correct = answers[id] || list.map(function(x){ return x.toLowerCase(); });
+  if (correct.indexOf(val) >= 0) {
+    fb.textContent = '✓ Correct! ' + (id === 'p2' ? '"However" — contrast connector. You spotted that despite exhaustion, something positive happened.' : id === 'p3' ? '"Breakthrough" or "discovery" — noun after "a", positive scientific event confirmed by the sentence after.' : id === 'p4' ? '"Surrounded" / "covered" — passive verb, confirmed by "which had grown over its stone walls".' : id === 'p5' ? 'Excellent. The sentence after the gap ("critics and audiences agreed…") confirms this was a strongly positive quality.' : 'Well done!');
+    fb.className = 'feedback fb-correct';
+  } else if (val === '') {
+    fb.textContent = 'Type an answer first.';
+    fb.className = 'feedback';
+    fb.style.color = '#a0aec0';
+  } else {
+    var hints = { p1:'Think: what does a baker do to ovens first thing in the morning? It\'s a verb.', p2:'The two ideas are: lots of practice → things still went wrong. What connector shows surprise/contrast?', p3:'After "a" we need a noun. The sentence after says she changed lives. What did she make after years of failures?', p4:'What verb describes vines and trees taking over walls? Think: the temple was ___ by vines.', p5:'The sentence after says "rarely played with such maturity." What adjective means astonishingly impressive?' };
+    fb.textContent = '✗ Not quite. Hint: ' + (hints[id] || 'Read the sentence after the gap for a clue.');
+    fb.className = 'feedback fb-wrong';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && document.activeElement.tagName === 'INPUT') {
+    var id = document.activeElement.id;
+    var btn = document.activeElement.parentElement.querySelector('.check-btn');
+    if (btn) btn.click();
+  }
+});
+</script>
+</body>
+</html>
