@@ -100,6 +100,14 @@ a { color: #6b46c1; }
 .sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
 .sum-card ul li:last-child { border-bottom: none; }
 .sum-card ul li::before { content: "✓ "; color: #6b46c1; font-weight: 700; }
+
+/* HYBRID PROGRESS */
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #6b46c1; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.next-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; margin-left: 8px; }
+.next-btn:hover { background: #553c9a; }
 </style>
 </head>
 <body>
@@ -254,6 +262,11 @@ a { color: #6b46c1; }
     <h2>&#127919; Practice Questions</h2>
     <div class="practice-intro">For each question, identify whether it is Zero or First Conditional — or choose the correct word to complete the sentence. Look at the result clause first.</div>
 
+    <div class="progress-wrap">
+      <span class="progress-label" id="progress-text">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
     <!-- PQ1 -->
     <div class="pq" id="pq1">
       <div class="pq-num"><span>Question 1 · <span class="diff-pill df">Foundational</span></span></div>
@@ -269,7 +282,7 @@ a { color: #6b46c1; }
     </div>
 
     <!-- PQ2 -->
-    <div class="pq" id="pq2">
+    <div class="pq" id="pq2" style="display:none">
       <div class="pq-num"><span>Question 2 · <span class="diff-pill df">Foundational</span></span></div>
       <div class="pq-text">Fill in the blank — First Conditional: "If he __________ his homework, his teacher will be pleased." (finish)</div>
       <div class="pq-opts">
@@ -283,7 +296,7 @@ a { color: #6b46c1; }
     </div>
 
     <!-- PQ3 -->
-    <div class="pq" id="pq3">
+    <div class="pq" id="pq3" style="display:none">
       <div class="pq-num"><span>Question 3 · <span class="diff-pill dd">Developing</span></span></div>
       <div class="pq-text">Which sentence is a First Conditional?</div>
       <div class="pq-opts">
@@ -297,7 +310,7 @@ a { color: #6b46c1; }
     </div>
 
     <!-- PQ4 -->
-    <div class="pq" id="pq4">
+    <div class="pq" id="pq4" style="display:none">
       <div class="pq-num"><span>Question 4 · <span class="diff-pill dd">Developing</span></span></div>
       <div class="pq-text">Spot the error: "If you will press the button, the alarm rings."</div>
       <div class="pq-opts">
@@ -311,7 +324,7 @@ a { color: #6b46c1; }
     </div>
 
     <!-- PQ5 -->
-    <div class="pq" id="pq5">
+    <div class="pq" id="pq5" style="display:none">
       <div class="pq-num"><span>Question 5 · <span class="diff-pill da">Advanced</span></span></div>
       <div class="pq-text">"If the council __________ the new park, local residents will benefit for decades." — Which form of 'approve' is correct?</div>
       <div class="pq-opts">
@@ -326,7 +339,7 @@ a { color: #6b46c1; }
   </div>
 
   <!-- SUMMARY -->
-  <div class="section">
+  <div class="section" id="summary-section" style="display:none">
     <div class="section-tag">Summary</div>
     <h2>&#9989; What to Remember</h2>
     <div class="summary-grid">
@@ -358,29 +371,83 @@ a { color: #6b46c1; }
 </div>
 
 <script>
+var TOTAL_QS = 5;
+var currentQ = 1;
 var selected = {};
+var answered = {};
+
+function updateProgress() {
+  var txt = document.getElementById('progress-text');
+  var fill = document.getElementById('progress-fill');
+  if (txt) txt.textContent = 'Question ' + Math.min(currentQ, TOTAL_QS) + ' of ' + TOTAL_QS;
+  if (fill) fill.style.width = (((currentQ - 1) / TOTAL_QS) * 100) + '%';
+}
+
 function selectOpt(el, qid, val) {
+  if (answered[qid]) return;
   var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
-  opts.forEach(function(o) { o.classList.remove('selected'); });
+  opts.forEach(function(o) { o.classList.remove('selected', 'wrong'); });
   el.classList.add('selected');
   selected[qid] = val;
 }
+
 function checkOpt(qid, correct, explanation) {
+  if (answered[qid]) return;
   var fb = document.getElementById(qid + '-fb');
   var ans = selected[qid];
   if (!ans) { fb.innerHTML = '<span style="color:#718096">Please choose an answer first.</span>'; return; }
   var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
-  opts.forEach(function(o) {
-    var letter = o.textContent.trim().charAt(0);
-    if (letter === correct) o.classList.add('correct');
-    else if (letter === ans && ans !== correct) o.classList.add('wrong');
-  });
+  var qnum = parseInt(qid.replace('pq', ''));
+
   if (ans === correct) {
-    fb.innerHTML = '<span class="fb-correct">✓ Correct! ' + explanation + '</span>';
+    answered[qid] = true;
+    opts.forEach(function(o) {
+      var letter = o.textContent.trim().charAt(0);
+      if (letter === correct) o.classList.add('correct');
+      o.style.pointerEvents = 'none';
+    });
+    var btn = document.querySelector('#' + qid + ' .check-btn');
+    if (btn) btn.style.display = 'none';
+    var nextHtml = qnum < TOTAL_QS
+      ? ' <button class="next-btn" onclick="showNext(' + (qnum + 1) + ')">Next Question &#8594;</button>'
+      : ' <button class="next-btn" onclick="showSummary()">See Summary &#10003;</button>';
+    fb.innerHTML = '<span class="fb-correct">&#10003; Correct! ' + explanation + '</span>' + nextHtml;
   } else {
-    fb.innerHTML = '<span class="fb-wrong">✗ Not quite. Answer is ' + correct + '. ' + explanation + '</span>';
+    opts.forEach(function(o) {
+      var letter = o.textContent.trim().charAt(0);
+      if (letter === ans) o.classList.add('wrong');
+    });
+    fb.innerHTML = '<span class="fb-wrong">&#10007; Not quite — try again.</span>';
+    setTimeout(function() {
+      opts.forEach(function(o) { o.classList.remove('wrong', 'selected'); });
+      selected[qid] = null;
+    }, 900);
   }
 }
+
+function showNext(n) {
+  currentQ = n;
+  updateProgress();
+  var el = document.getElementById('pq' + n);
+  if (el) {
+    el.style.display = 'block';
+    setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
+  }
+}
+
+function showSummary() {
+  var el = document.getElementById('summary-section');
+  if (el) {
+    el.style.display = 'block';
+    setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+  }
+  var txt = document.getElementById('progress-text');
+  var fill = document.getElementById('progress-fill');
+  if (txt) txt.textContent = 'All 5 done \u2713';
+  if (fill) fill.style.width = '100%';
+}
+
+updateProgress();
 </script>
 </body>
 </html>
