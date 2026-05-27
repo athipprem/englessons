@@ -139,6 +139,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <h2>Prem's English Lessons</h2>
     <p>Enter the password to continue</p>
     <input class="pw-input" id="pw-input" type="password" placeholder="Password"
+           inputmode="numeric" pattern="[0-9]*"
            onkeydown="if(event.key==='Enter') checkPassword()">
     <button class="pw-btn" onclick="checkPassword()">Unlock &#8594;</button>
     <div class="pw-error" id="pw-error"></div>
@@ -168,7 +169,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <span class="sb-icon" style="font-size:15px">&#128202;</span>
       <span class="sb-lbl">Board</span>
     </button>
-    <button class="sb-btn" onclick="window.location.href='https://athipprem.github.io/mathlessons/'" title="Math Lessons">
+    <button class="sb-btn" onclick="window.location.href='https://athipprem.github.io/mathlessons/index.html?hub='+Date.now()" title="Math Lessons">
       <span class="sb-icon" style="font-size:15px;font-weight:700">M</span>
       <span class="sb-lbl">Math</span>
     </button>
@@ -375,7 +376,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <script src="prem_english_data.js"></script>
 <script>
 // PASSWORD GATE
-var PW_HASH = 324799088;
+var PW_HASH = 2088511772;
 function djb2(str) {
   var h = 5381;
   for (var i = 0; i < str.length; i++) {
@@ -383,7 +384,10 @@ function djb2(str) {
   }
   return h;
 }
-if (sessionStorage.getItem('eng-unlocked') === 'yes') {
+var hubToken = new URLSearchParams(window.location.search).get('hub');
+var tokenValid = hubToken && (Date.now() - parseInt(hubToken, 10)) < 15000;
+if (sessionStorage.getItem('eng-unlocked') === 'yes' || tokenValid) {
+  sessionStorage.setItem('eng-unlocked', 'yes');
   document.getElementById('pw-overlay').classList.add('hidden');
 } else {
   document.getElementById('pw-input').focus();
