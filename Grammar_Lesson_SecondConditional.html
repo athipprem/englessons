@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Conditional — Unit 3</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #6b46c1; }
+
+.topnav { background: #2d1a5e; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #6b46c1; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+.nav-btn.next { background: #6b46c1; }
+.nav-btn.next:hover { background: #553c9a; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.rule-box p { color: #44337a; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.tip-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* FORMULA BOX */
+.formula-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 14px 0; }
+.formula-part { background: #faf5ff; border: 2px solid #d6bcfa; border-radius: 8px; padding: 10px 16px; font-size: 13px; font-weight: 700; color: #44337a; text-align: center; }
+.formula-part .fp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #a0aec0; margin-bottom: 2px; }
+.formula-plus { font-size: 18px; font-weight: 700; color: #a0aec0; }
+.formula-part.highlight { background: #6b46c1; border-color: #6b46c1; color: white; }
+.formula-part.highlight .fp-label { color: rgba(255,255,255,0.7); }
+
+/* COMPARISON TABLE */
+.comp-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.comp-table th { padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; }
+.comp-table th:first-child { background: #1a1a2e; color: white; border-radius: 8px 0 0 0; }
+.comp-table th.th-first { background: #2b6cb0; color: white; }
+.comp-table th.th-second { background: #6b46c1; color: white; border-radius: 0 8px 0 0; }
+.comp-table td { padding: 10px 14px; border-bottom: 1px solid #f0f4f8; color: #4a5568; vertical-align: top; }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table td.td-first { background: #ebf4ff; }
+.comp-table td.td-second { background: #faf5ff; }
+
+/* WORKED */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #faf5ff; color: #6b46c1; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #faf5ff; border-top: 1px solid #d6bcfa; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #6b46c1; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #6b46c1; background: #faf5ff; }
+.pq-opt.selected { border-color: #6b46c1; background: #faf5ff; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #553c9a; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+/* HYBRID PROGRESS */
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #6b46c1; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.next-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; margin-left: 8px; }
+.next-btn:hover { background: #553c9a; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #6b46c1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #6b46c1; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Second Conditional</span>
+    <span class="lesson-badge">Unit 3 · Lesson 2</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Cloze_Lesson_ConnectorFunctions.html">&#8592; Cloze</a>
+    <a class="nav-btn next" href="Reading_Lesson_InferenceMainIdea.html">Next: Reading &#8594;</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 3 · Phase 1: Foundation Hardening</div>
+    <h1>Second Conditional</h1>
+    <div class="subtitle">Imagining situations that are not real — right now or in the future.</div>
+    <span class="gap-tag">&#128640; New Grammar — builds directly on Unit 2 Zero &amp; First Conditionals</span>
+  </div>
+
+  <!-- SECTION 1: WHAT IS SECOND CONDITIONAL -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128161; What Is the Second Conditional?</h2>
+    <p>You already know two conditionals. The <strong>Zero Conditional</strong> describes things that are always true. The <strong>First Conditional</strong> describes things that are real and possible in the future. The <strong>Second Conditional</strong> is different: it describes situations that are <strong>imaginary, unreal, or hypothetical</strong> — things that are not actually happening and probably won't happen.</p>
+
+    <div class="rule-box">
+      <div class="rule-label">The Key Idea</div>
+      <p>Second Conditional = "What if...?" It talks about an imaginary situation and its imaginary result. You are not describing reality — you are imagining a different one.</p>
+    </div>
+
+    <p>Examples of Second Conditional thinking:</p>
+    <p style="padding-left:16px;color:#2d3748;font-style:italic">"If I were taller, I would join the basketball team." <span style="font-style:normal;color:#718096">(I am NOT tall enough — this is imaginary)</span></p>
+    <p style="padding-left:16px;color:#2d3748;font-style:italic">"If she lived in Paris, she would visit the Eiffel Tower every week." <span style="font-style:normal;color:#718096">(She does NOT live in Paris — imaginary)</span></p>
+    <p style="padding-left:16px;color:#2d3748;font-style:italic">"If we had a bigger garden, we would grow vegetables." <span style="font-style:normal;color:#718096">(We do NOT have a bigger garden — imaginary)</span></p>
+  </div>
+
+  <!-- SECTION 2: THE FORMULA -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#9998; The Formula</h2>
+
+    <div class="formula-row">
+      <div class="formula-part highlight">
+        <div class="fp-label">If-clause</div>
+        If + past simple
+      </div>
+      <div class="formula-plus">,</div>
+      <div class="formula-part highlight">
+        <div class="fp-label">Result clause</div>
+        would + base verb
+      </div>
+    </div>
+
+    <p>The <strong>if-clause</strong> uses <strong>past simple</strong> — but it does NOT mean past time! It is a special use of the past form to signal "this is imaginary."</p>
+    <p>The <strong>result clause</strong> always uses <strong>would + base verb</strong>.</p>
+
+    <div class="warn-box">
+      <div class="warn-label">The Most Common Mistake</div>
+      <p>NEVER put "would" in the if-clause. "If I would live there..." is always wrong. The if-clause uses past simple only: "If I lived there..."</p>
+    </div>
+
+    <h3>The "were" rule — special case for "to be"</h3>
+    <p>When the verb in the if-clause is "to be," use <strong>were</strong> for all persons — not "was":</p>
+    <p style="padding-left:16px;color:#2d3748">✓ "If I <strong>were</strong> you, I would apologise." &nbsp;&nbsp; ✓ "If she <strong>were</strong> here, she would know what to do."</p>
+    <p style="padding-left:16px;color:#c53030">✗ "If I <em>was</em> you..." &nbsp;&nbsp; ✗ "If she <em>was</em> here..."  <span style="font-size:12px">(technically accepted in informal speech, but always use <em>were</em> in written English)</span></p>
+
+    <div class="tip-box">
+      <div class="tip-label">Quick Memory Rule</div>
+      <p>If-clause: past simple (NOT would). Result clause: would + base verb (NOT will). "If I <u>had</u> a million dollars, I <u>would travel</u> the world." → past simple in if-clause, would + travel in result.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: FIRST vs SECOND -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#8646; First Conditional vs Second Conditional</h2>
+    <p>This is the key distinction you need for the test. Both talk about future situations — but one is real and one is imaginary.</p>
+
+    <table class="comp-table">
+      <tr>
+        <th></th>
+        <th class="th-first">First Conditional</th>
+        <th class="th-second">Second Conditional</th>
+      </tr>
+      <tr>
+        <td><strong>Meaning</strong></td>
+        <td class="td-first">Real possibility — could actually happen</td>
+        <td class="td-second">Imaginary / unreal — not actually happening</td>
+      </tr>
+      <tr>
+        <td><strong>If-clause</strong></td>
+        <td class="td-first">If + present simple</td>
+        <td class="td-second">If + past simple</td>
+      </tr>
+      <tr>
+        <td><strong>Result clause</strong></td>
+        <td class="td-first">will + base verb</td>
+        <td class="td-second">would + base verb</td>
+      </tr>
+      <tr>
+        <td><strong>Example</strong></td>
+        <td class="td-first">"If it <strong>rains</strong>, I <strong>will stay</strong> inside." <br><span style="font-size:12px;color:#718096">(Rain is possible — real)</span></td>
+        <td class="td-second">"If it <strong>rained</strong> every day, I <strong>would move</strong> to Spain." <br><span style="font-size:12px;color:#718096">(Not actually raining every day — imaginary)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Clue words</strong></td>
+        <td class="td-first">tomorrow, soon, this week, next year</td>
+        <td class="td-second">I wish, imagine if, what if, if only</td>
+      </tr>
+    </table>
+
+    <div class="rule-box">
+      <div class="rule-label">The Quick Test</div>
+      <p>Ask: "Is the situation in the if-clause actually possible right now or in the future?" If YES → First Conditional. If NO (it's imaginary or unlikely) → Second Conditional.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#128221; Worked Examples</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 1 — First or Second?</div>
+        "If the team <u>wins</u> tomorrow, they <u>will enter</u> the national finals." vs "If the team <u>won</u> every match, they <u>would become</u> legends."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>First sentence:</strong> "wins" = present simple; "will enter" = will + base verb. Formula: First Conditional.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>Is it real? Yes — tomorrow's match is genuinely possible. ✓ First Conditional = real future possibility.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Second sentence:</strong> "won" = past simple; "would become" = would + base verb. Formula: Second Conditional.</div></div>
+        <div class="ws"><div class="ws-num">4</div><div>Is it real? No — winning every match is imaginary/hypothetical. ✓ Second Conditional = unreal situation.</div></div>
+      </div>
+      <div class="answer-reveal">✓ First: wins/will enter (real). Second: won/would become (imaginary).</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 2 — Fill in the Blank</div>
+        "If she _______ (be) the school principal, she would change the lunch menu."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div>The result clause uses "would change" → this is Second Conditional.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>Second Conditional if-clause needs past simple. Verb = "to be".</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>Special rule: for "to be" in Second Conditional, use "were" for all persons.</div></div>
+        <div class="ws"><div class="ws-num">4</div><div>Answer: "If she <strong>were</strong> the school principal..."</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: "were" — use "were" (not "was") for all persons with "to be" in Second Conditional.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 · Practice</div>
+    <h2>&#127919; Practice — Second Conditional</h2>
+
+    <div class="practice-intro">
+      &#9998; For each question, check the formula: if-clause = past simple (no would), result clause = would + base verb. Ask yourself: real or imaginary?
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="progress-text">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <!-- PQ1 -->
+    <div class="pq" id="pq1">
+      <div class="pq-num">
+        <span>Practice Question 1</span>
+        <span class="diff-pill df">Foundational</span>
+      </div>
+      <div class="pq-text">
+        Which sentence is a <strong>Second Conditional</strong>?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','A')">A. If you mix red and blue paint, you get purple.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','B')">B. If it snows tomorrow, we will cancel the match.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','C')">C. If I had a million dollars, I would travel the world.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','D')">D. If he had studied harder, he would have passed the exam.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq1','C','A is Zero Conditional (always true). B is First Conditional (will + base verb, real future). C is Second Conditional — "had" (past simple) in if-clause + "would travel" (would + base verb) in result clause. Imaginary: the speaker does not actually have a million dollars. D is Third Conditional (past perfect + would have + past participle) — about an imaginary past.')">Check</button>
+      <div class="feedback" id="pq1-fb"></div>
+    </div>
+
+    <!-- PQ2 -->
+    <div class="pq" id="pq2" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 2</span>
+        <span class="diff-pill df">Foundational</span>
+      </div>
+      <div class="pq-text">
+        Fill in the blank: "If she _____ more time each evening, she would finish the project before the deadline."
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','A')">A. has</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','B')">B. had</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','C')">C. will have</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','D')">D. would have</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq2','B','The result clause uses "would finish" → this is Second Conditional. The if-clause needs past simple. "Had" is the past simple of "have." A uses present simple (First Conditional structure). C uses "will have" — never put "will" in an if-clause. D uses "would have" — never put "would" in the if-clause either. Only B is correct.')">Check</button>
+      <div class="feedback" id="pq2-fb"></div>
+    </div>
+
+    <!-- PQ3 -->
+    <div class="pq" id="pq3" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 3</span>
+        <span class="diff-pill dd">Developing</span>
+      </div>
+      <div class="pq-text">
+        Spot the error: "If I <u>would live</u> near the sea, I would go swimming every single day."
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','A')">A. "would live" should be "lived"</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','B')">B. "would go" should be "will go"</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','C')">C. "every single day" should be "every week"</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','D')">D. There is no error.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq3','A','The error is in the if-clause. Second Conditional if-clause must use past simple — NEVER "would." "Would live" is wrong because "would" cannot appear in the if-clause. The correct form is "lived": "If I lived near the sea, I would go swimming every day." The result clause "would go" is correct (would + base verb).')">Check</button>
+      <div class="feedback" id="pq3-fb"></div>
+    </div>
+
+    <!-- PQ4 -->
+    <div class="pq" id="pq4" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 4</span>
+        <span class="diff-pill dd">Developing</span>
+      </div>
+      <div class="pq-text">
+        "If I _____ a bird, I would fly to the top of the tallest mountain."<br>
+        Which form is correct for the gap?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','A')">A. am</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','B')">B. will be</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','C')">C. would be</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','D')">D. were</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq4','D','The result clause uses "would fly" → Second Conditional. The verb in the if-clause is "to be." Special rule: for "to be" in Second Conditional, use "were" for ALL persons — not "am," not "was." So: "If I were a bird..." A (am) is present simple — wrong conditional type. B has "will" — never in if-clause. C has "would" — never in if-clause. D (were) is the correct Second Conditional form.')">Check</button>
+      <div class="feedback" id="pq4-fb"></div>
+    </div>
+
+    <!-- PQ5 -->
+    <div class="pq" id="pq5" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 5</span>
+        <span class="diff-pill da">Advanced</span>
+      </div>
+      <div class="pq-text">
+        Choose the pair that correctly completes the sentence:<br>
+        "If the company _____ a clearer marketing strategy, its sales _____ significantly."
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','A')">A. adopts / would rise</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','B')">B. adopted / would rise</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','C')">C. will adopt / would rise</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','D')">D. adopted / will rise</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq5','B','The sentence describes a hypothetical improvement — imaginary, not a real current plan. That signals Second Conditional. B gives: "adopted" (past simple in if-clause) + "would rise" (would + base verb in result clause). A mixes First Conditional if-clause (adopts = present simple) with Second Conditional result (would rise) — inconsistent. C puts "will" in the if-clause — never allowed. D puts "will rise" in the result clause — Second Conditional always uses "would," not "will."')">Check</button>
+      <div class="feedback" id="pq5-fb"></div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section" id="summary-section" style="display:none">
+    <div class="section-tag">Summary</div>
+    <h2>&#9989; Key Takeaways</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>The Formula</h4>
+        <ul>
+          <li>If + past simple, would + base verb</li>
+          <li>NEVER "would" in the if-clause</li>
+          <li>NEVER "will" in the if-clause</li>
+          <li>Use "were" (not "was") for all persons with "to be"</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>When to Use It</h4>
+        <ul>
+          <li>Imaginary situations not currently true</li>
+          <li>Unlikely or hypothetical futures</li>
+          <li>"What if...?" thinking</li>
+          <li>Clue: the if-clause describes something not real</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>First vs Second</h4>
+        <ul>
+          <li>First: real/possible → present simple + will</li>
+          <li>Second: imaginary/unreal → past simple + would</li>
+          <li>Test: "Could this actually happen?" Yes = First. No = Second.</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Common Errors</h4>
+        <ul>
+          <li>"If I would..." → always wrong</li>
+          <li>"If she was..." → use "were" in formal/written English</li>
+          <li>"If he adopted... he will rise" → must be "would rise"</li>
+          <li>Check both clauses before finalising</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var TOTAL_QS = 5;
+var currentQ = 1;
+var selected = {};
+var answered = {};
+
+function updateProgress() {
+  var txt = document.getElementById('progress-text');
+  var fill = document.getElementById('progress-fill');
+  if (txt) txt.textContent = 'Question ' + Math.min(currentQ, TOTAL_QS) + ' of ' + TOTAL_QS;
+  if (fill) fill.style.width = (((currentQ - 1) / TOTAL_QS) * 100) + '%';
+}
+
+function selectOpt(el, qid, val) {
+  if (answered[qid]) return;
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected', 'wrong'); });
+  el.classList.add('selected');
+  selected[qid] = val;
+}
+
+function checkOpt(qid, correct, explanation) {
+  if (answered[qid]) return;
+  var fb = document.getElementById(qid + '-fb');
+  var ans = selected[qid];
+  if (!ans) { fb.innerHTML = '<span style="color:#718096">Please choose an answer first.</span>'; return; }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  var qnum = parseInt(qid.replace('pq', ''));
+
+  if (ans === correct) {
+    answered[qid] = true;
+    opts.forEach(function(o) {
+      var letter = o.textContent.trim().charAt(0);
+      if (letter === correct) o.classList.add('correct');
+      o.style.pointerEvents = 'none';
+    });
+    var btn = document.querySelector('#' + qid + ' .check-btn');
+    if (btn) btn.style.display = 'none';
+    var nextHtml = qnum < TOTAL_QS
+      ? ' <button class="next-btn" onclick="showNext(' + (qnum + 1) + ')">Next Question &#8594;</button>'
+      : ' <button class="next-btn" onclick="showSummary()">See Summary &#10003;</button>';
+    fb.innerHTML = '<span class="fb-correct">&#10003; Correct! ' + explanation + '</span>' + nextHtml;
+  } else {
+    opts.forEach(function(o) {
+      var letter = o.textContent.trim().charAt(0);
+      if (letter === ans) o.classList.add('wrong');
+    });
+    fb.innerHTML = '<span class="fb-wrong">&#10007; Not quite — try again.</span>';
+    setTimeout(function() {
+      opts.forEach(function(o) { o.classList.remove('wrong', 'selected'); });
+      selected[qid] = null;
+    }, 900);
+  }
+}
+
+function showNext(n) {
+  currentQ = n;
+  updateProgress();
+  var el = document.getElementById('pq' + n);
+  if (el) {
+    el.style.display = 'block';
+    setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
+  }
+}
+
+function showSummary() {
+  var el = document.getElementById('summary-section');
+  if (el) {
+    el.style.display = 'block';
+    setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+  }
+  var txt = document.getElementById('progress-text');
+  var fill = document.getElementById('progress-fill');
+  if (txt) txt.textContent = 'All 5 done ✓';
+  if (fill) fill.style.width = '100%';
+}
+
+updateProgress();
+</script>
+</body>
+</html>

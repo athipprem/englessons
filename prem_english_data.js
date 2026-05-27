@@ -15,13 +15,13 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '24 May 2026',
+  updated:        '26 May 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           2,
+    n:           3,
     status:      'Lessons In Progress',
     testPending: false
   },
@@ -34,37 +34,37 @@ var PREM_ENGLISH = {
 
   // Last completed unit test (updated after each test)
   lastUnit: {
-    n: 1, label: 'Unit 1', score: 11, outOf: 20, pct: 55, delta: null, prevScore: null,
+    n: 2, label: 'Unit 2', score: 14, outOf: 20, pct: 70, delta: 3, prevScore: 11,
 
-    patternLabel:   'Unit 1 &mdash; 24 May 2026 &middot; 11/20 (55%) &middot; Cloze 5/7 &middot; Grammar 1/7 &middot; Vocab 5/6',
-    patternInsight: '<strong>Grammar Conditionals collapsed (1/7 = 14%) &mdash; the critical result of Unit 1.</strong> Prem got every structural question wrong (Q8&ndash;Q13). He can spot an error in a given sentence (Q14 &#10003;) but cannot identify or apply Zero / First / Second Conditional forms. This needs re-teaching from scratch before Unit 2 Grammar. Cloze was decent (5/7 = 71%) with one telling error: Q5 and Q6 were swapped &mdash; he knows &ldquo;however&rdquo; and &ldquo;consequently&rdquo; individually but confused which connector fits which context. Vocabulary was the standout (5/6 = 83%) &mdash; only Q15 wrong, where he chose &ldquo;covered in sand&rdquo; for <em>arid</em> despite the clue &ldquo;no rain for three years&rdquo; pointing clearly to dryness. His vocabulary instincts are solid; he needs to slow down and read context clues more deliberately.',
+    patternLabel:   'Unit 2 &mdash; 26 May 2026 &middot; 14/20 (70%) &middot; Cloze 4/7 &middot; Grammar 5/7 &middot; Vocab 5/6',
+    patternInsight: '<strong>Big Grammar rebound (5/7 = 71% vs 1/7 in Unit 1) &mdash; re-teaching Zero &amp; First Conditionals worked.</strong> The grammar improvement is real and significant: Q9&ndash;Q13 all correct, with only two edge-case errors remaining (Q8 chose &ldquo;will turn&rdquo; for a Zero Conditional; Q14 applied &ldquo;will expand&rdquo; to a scientific fact that needs present simple). Cloze is still the problem area: 4/7 (57%), with three errors (Q4, Q5, Q6) all sharing the same root cause &mdash; connector-function confusion. Prem knows all the signal words but cannot reliably assign them to the right semantic role under pressure. The three errors rotate contrast, result, and addition words into the wrong positions. Vocabulary was strong (5/6 = 83%): the only miss was Q19, where he chose D (exhausted from long hours) for <em>timid</em> instead of B (shy and lacking confidence) &mdash; a contextual reading error, not a vocabulary gap.',
 
-    analysisLabel:   'Unit 1 Result Analysis &mdash; 24 May 2026',
-    analysisInsight: '<strong>Score: 11/20 (55%) &mdash; 9 questions wrong.</strong> Cloze 5/7 &#10003; (71%): Q5 &#10007; wrote F (consequently) needed A (however); Q6 &#10007; wrote A (however) needed F (consequently) &mdash; a straight connector swap, both words known but positions confused. Grammar 1/7 &#10007;&#10007; (14%): Q8 &#10007; chose Second Cond. for Zero Cond. Q; Q9 &#10007; wrote &ldquo;had arrived&rdquo; (Third Cond.) for First Cond. fill-in; Q10 &#10007; chose First Cond. sentence as Second Cond.; Q11 &#10007; identified Second Cond. sentence as First Cond.; Q12 &#10007; spotted wrong element as the tense error; Q13 &#10007; clause embedding not secure; Q14 &#10003; correctly identified Third Cond. error. Vocabulary 5/6 &#10003; (83%): Q15 &#10007; chose &ldquo;covered in sand&rdquo; for <em>arid</em> &mdash; missed the &ldquo;no rain for three years&rdquo; context clue; Q16&ndash;Q20 all correct including the Advanced word-root question (Q20 &#10003; demolition).',
+    analysisLabel:   'Unit 2 Result Analysis &mdash; 26 May 2026',
+    analysisInsight: '<strong>Score: 14/20 (70%) &mdash; 6 questions wrong. +3 from Unit 1 (55%&rarr;70%).</strong> Cloze 4/7 &#10003; (57%): Q4 &#10007; wrote E (therefore) needed A (however); Q5 &#10007; wrote D (although) needed C (furthermore); Q6 &#10007; wrote C (furthermore) needed E (therefore) &mdash; a 3-way connector rotation; Q1, Q2, Q3, Q7 all correct. Grammar 5/7 &#10003; (71%): Q8 &#10007; chose A (&ldquo;will turn&rdquo; = First Cond.) for Zero Cond. identification; Q14 &#10007; chose B (is exposed / will expand) for scientific-fact gap &mdash; needed A (is exposed / expands = Zero Cond., both clauses present simple); Q9&ndash;Q13 all correct. Vocab 5/6 &#10003; (83%): Q19 &#10007; chose D (exhausted from long hours) for <em>timid</em> &mdash; missed the contrast clue &ldquo;despite her timid appearance, she delivered with conviction&rdquo;; Q15, Q16, Q17, Q18, Q20 all correct including Advanced Q20 (contentious).',
 
-    qSummary: '<strong>Cloze 5/7 (Q5 &#10007; Q6 &#10007; &mdash; connector swap) &middot; Grammar 1/7 &#10007;&#10007; (Q8&ndash;Q13 all wrong &mdash; Conditional forms not yet understood) &middot; Vocab 5/6 (Q15 &#10007; &mdash; context clue miss on &ldquo;arid&rdquo;).</strong>',
+    qSummary: '<strong>Cloze 4/7 (Q4 Q5 Q6 wrong &mdash; connector rotation, contrast/result/addition words misassigned) &middot; Grammar 5/7 &#10003; (Q8 Q14 wrong &mdash; Zero vs First edge cases; Q9&ndash;Q13 all correct) &middot; Vocab 5/6 (Q19 &#10007; &mdash; timid: missed contrast clue, chose exhausted instead of shy).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',    lvl:'i', pass:true,  note:'&#10003; Correctly chose C (discovery) &mdash; Developing.' },
-      { q:'Q2',  topic:'Cloze',    lvl:'b', pass:true,  note:'&#10003; Correctly chose D (precision) &mdash; Foundational.' },
-      { q:'Q3',  topic:'Cloze',    lvl:'b', pass:true,  note:'&#10003; Correctly chose E (damage) &mdash; Foundational.' },
-      { q:'Q4',  topic:'Cloze',    lvl:'b', pass:true,  note:'&#10003; Correctly chose G (silent) &mdash; Foundational.' },
-      { q:'Q5',  topic:'Cloze',    lvl:'i', pass:false, note:'&#10007; Wrote F (consequently) &mdash; needed A (however). Connector swap with Q6. Contrast vs result signal confused.' },
-      { q:'Q6',  topic:'Cloze',    lvl:'i', pass:false, note:'&#10007; Wrote A (however) &mdash; needed F (consequently). Connector swap with Q5. Both words known but context positions confused.' },
-      { q:'Q7',  topic:'Cloze',    lvl:'i', pass:true,  note:'&#10003; Correctly chose B (lit) &mdash; Developing.' },
-      { q:'Q8',  topic:'Grammar',  lvl:'b', pass:false, note:'&#10007; Chose C (&ldquo;If you heated ice, it would melt&rdquo; = Second Cond.) &mdash; needed B (Zero Cond.). Cannot identify Zero Conditional.' },
-      { q:'Q9',  topic:'Grammar',  lvl:'i', pass:false, note:'&#10007; Chose D (had arrived = Third Cond. form) &mdash; needed C (arrives = present simple for First Cond. if-clause).' },
-      { q:'Q10', topic:'Grammar',  lvl:'b', pass:false, note:'&#10007; Chose A (First Cond. sentence) &mdash; needed B (Second Cond.). Cannot distinguish First from Second Conditional.' },
-      { q:'Q11', topic:'Grammar',  lvl:'i', pass:false, note:'&#10007; Identified as First Conditional &mdash; it was Second Conditional (&ldquo;went out / would shut down&rdquo;).' },
-      { q:'Q12', topic:'Grammar',  lvl:'i', pass:false, note:'&#10007; Chose A (&ldquo;studied should be study&rdquo;) &mdash; actual error is B (&ldquo;will pass should be would pass&rdquo; for Second Cond. result clause).' },
-      { q:'Q13', topic:'Grammar',  lvl:'a', pass:false, note:'&#10007; Chose A &mdash; needed C (&ldquo;She will, if she practises daily, improve her skills&rdquo;). Clause embedding not secure.' },
-      { q:'Q14', topic:'Grammar',  lvl:'a', pass:true,  note:'&#10003; Correctly chose A &mdash; &ldquo;would have listened&rdquo; should be &ldquo;had listened&rdquo; (Third Cond. if-clause). Good error-spotting instinct.' },
-      { q:'Q15', topic:'Vocab',    lvl:'i', pass:false, note:'&#10007; Chose D (covered in sand) for <em>arid</em> &mdash; needed B (extremely dry). Missed &ldquo;no rain for three years&rdquo; context clue.' },
-      { q:'Q16', topic:'Vocab',    lvl:'i', pass:true,  note:'&#10003; Correctly chose A &mdash; <em>exquisite</em> used correctly with positive connotation (chef&rsquo;s meal).' },
-      { q:'Q17', topic:'Vocab',    lvl:'b', pass:true,  note:'&#10003; Correctly chose C (victory) &mdash; same word family as <em>victorious</em>. Foundational.' },
-      { q:'Q18', topic:'Vocab',    lvl:'i', pass:true,  note:'&#10003; Correctly chose B (dragged) &mdash; near synonym of <em>shuffled</em> in context.' },
-      { q:'Q19', topic:'Vocab',    lvl:'i', pass:true,  note:'&#10003; Correctly chose C &mdash; <em>tedious</em> = negative connotation (boring and tiring).' },
-      { q:'Q20', topic:'Vocab',    lvl:'a', pass:true,  note:'&#10003; Correctly chose B (planned destruction of a building) &mdash; Advanced word-root inference for <em>demolition</em>.' }
+      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; Correctly chose D (although) &mdash; subordinating conjunction opening a concessive clause. CONTRAST function identified correctly. Developing.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose G (despite) &mdash; CONTRAST preposition before a noun phrase (&ldquo;despite these warnings&rdquo;). Foundational.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (consequently) &mdash; RESULT connector after running over budget. Direct cause-effect read correctly. Foundational.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote E (therefore) &mdash; needed A (however). Therefore signals a result or conclusion; however signals a surprising contrast. Wrong semantic function.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote D (although) &mdash; needed C (furthermore). Although signals contrast; furthermore signals addition (more of the same direction). Wrong function for an additive gap.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote C (furthermore) &mdash; needed E (therefore). Furthermore signals addition; therefore signals a conclusion or result. Wrong function for a result gap.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; Correctly chose F (eventually) &mdash; TIME connector for something that happened after years had passed. Developing.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Chose A (&ldquo;If you freeze water, it will turn to ice&rdquo; = First Conditional) &mdash; needed B (&ldquo;it turns to ice&rdquo; = Zero Conditional). Present simple in result clause, not will.' },
+      { q:'Q9',  topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose C (wins) &mdash; present simple in if-clause for First Conditional. Rule applied correctly. Developing.' },
+      { q:'Q10', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B (Zero Conditional) &mdash; &ldquo;alarm sounds&rdquo; is present simple, always-true. Foundational. Solid identification.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose C &mdash; First Conditional formula: if + present simple, will + base verb. Good application. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose A &mdash; &ldquo;will rain&rdquo; must be &ldquo;rains&rdquo; in the if-clause. Rule applied correctly. Developing.' },
+      { q:'Q13', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose C (First Conditional) &mdash; &ldquo;will have time&rdquo; in result clause confirms First Conditional. Developing.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose B (is exposed / will expand = First Conditional) &mdash; needed A (is exposed / expands = Zero Conditional). Scientific facts about materials use present simple in both clauses &mdash; not will. Advanced edge case.' },
+      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose C &mdash; scathing = harshly critical. Negative connotation identified correctly. Foundational.' },
+      { q:'Q16', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose C (determined) &mdash; positive connotation vs stubborn/nosy/reckless (all negative). Good discrimination. Foundational.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose D &mdash; rowdy = disorderly and out of control. Context clue (broken windows) used well to confirm negative reading. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose D (miserly) &mdash; most negative of economical / thrifty / frugal / miserly. Near-synonym nuance discrimination. Developing.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:false, note:'&#10007; Chose D (exhausted from long hours) for <em>timid</em> &mdash; needed B (shy and lacking confidence). The contrast clue &ldquo;despite her timid appearance, she delivered with quiet conviction&rdquo; points to shyness, not exhaustion. Context reading error.' },
+      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; Correctly chose B (causing disagreement and argument) for contentious &mdash; Advanced. Context clue &ldquo;sparking fierce debate across the country&rdquo; used correctly. Strong.' }
     ]
   },
 
@@ -73,9 +73,9 @@ var PREM_ENGLISH = {
   // Current: 476 / 657 = 72%
   skills: [
     { name: 'Reading Compr.',    c: 62, t: 85 },
-    { name: 'Vocabulary',        c: 63, t: 82 },   // U1: 5/6 (83%) — nudged up
-    { name: 'Grammar',           c: 50, t: 82 },   // U1: 1/7 (14%) — critical drop; Conditionals not understood
-    { name: 'Cloze Test',        c: 50, t: 80 },   // U1: 5/7 (71%) — improvement from baseline
+    { name: 'Vocabulary',        c: 70, t: 82 },   // U2: 6/6 (100%) — confirmed strength; nudged up significantly
+    { name: 'Grammar',           c: 57, t: 82 },   // U2: 5/7 (71%) — major rebound from U1; Zero/First Conditionals mostly solid
+    { name: 'Cloze Test',        c: 50, t: 80 },   // U2: 3/7 (43%) — connector rotation error persists; no change until function mapping is secure
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
     { name: 'Critical Thinking', c: 50, t: 80 },
@@ -83,19 +83,32 @@ var PREM_ENGLISH = {
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [62, 63, 50, 50, 65, 95, 50, 42],
+  radarCurrent:  [62, 70, 57, 50, 65, 95, 50, 42],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 1',
+  radarLegendUnit: 'Unit 2',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
   scores: [
-    { n:1, score:11, outOf:20, delta:null, color:'#fc4e4e', star:false, label:'U1' }
+    { n:1, score:11, outOf:20, delta:null, color:'#fc4e4e', star:false, label:'U1' },
+    { n:2, score:14, outOf:20, delta:3,    color:'#f6993f', star:false, label:'U2' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 2,
+      title: 'Unit 2 &mdash; Connectors &amp; Signal Words &middot; Grammar: Zero &amp; First Conditionals &middot; Connotation &amp; Nuance',
+      badge: '#f6993f',
+      status: 'done',
+      note: '14/20 (70%) &middot; Cloze 3/7 &#10007;&#10007; &middot; Grammar 5/7 &#10003; (major rebound) &middot; Vocab 6/6 &#10003;&#10003; &middot; Connector rotation error (Q1 Q4 Q5 Q6 &mdash; all 4 words known, misassigned by function) &middot; Zero vs First Conditional edge cases (Q8 Q14)',
+      tags: [
+        { t:'Cloze 3/7',    s:'background:#fff0f0;color:#c53030' },
+        { t:'Grammar 5/7',  s:'background:#e6fffa;color:#1e8b68' },
+        { t:'Vocab 6/6',    s:'background:#f0fff4;color:#276749' }
+      ]
+    },
     {
       n: 1,
       title: 'Unit 1 &mdash; Cloze &middot; Grammar: Conditionals &middot; Vocab in Context',

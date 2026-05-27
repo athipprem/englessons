@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inference &amp; Main Idea — Unit 3</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #2b6cb0; }
+
+.topnav { background: #1a365d; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #2b6cb0; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #2b6cb0, #1a365d); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #ebf4ff; border: 1px solid #bee3f8; border-left: 4px solid #2b6cb0; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2b6cb0; margin-bottom: 4px; }
+.rule-box p { color: #1a365d; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.tip-box p { color: #44337a; margin: 0; font-size: 13px; }
+
+/* COMPARISON CARDS */
+.card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.type-card { border-radius: 10px; padding: 16px 18px; }
+.tc-literal { background: #f7f9fd; border: 2px solid #bee3f8; }
+.tc-infer { background: #faf5ff; border: 2px solid #d6bcfa; }
+.type-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.tc-literal h4 { color: #2b6cb0; }
+.tc-infer h4 { color: #6b46c1; }
+.type-card p { font-size: 13px; color: #4a5568; margin-bottom: 6px; }
+
+/* PASSAGE BOX */
+.passage-box { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 18px 22px; margin: 14px 0; font-size: 14px; line-height: 2; color: #2d3748; }
+.passage-box .passage-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #a0aec0; letter-spacing: 0.8px; margin-bottom: 8px; }
+
+/* STEP FLOW */
+.step-flow { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+.step { display: flex; gap: 14px; align-items: flex-start; }
+.step-num { min-width: 28px; height: 28px; background: #2b6cb0; color: white; border-radius: 50%; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step-body { font-size: 13px; color: #4a5568; }
+.step-body strong { color: #1a1a2e; }
+
+/* WORKED */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #ebf4ff; color: #2b6cb0; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #ebf4ff; border-top: 1px solid #bee3f8; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #2b6cb0; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #2b6cb0; background: #ebf4ff; }
+.pq-opt.selected { border-color: #2b6cb0; background: #ebf4ff; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #2b6cb0; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #1a365d; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+/* HYBRID PROGRESS */
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #2b6cb0; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.next-btn { background: #2b6cb0; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; margin-left: 8px; }
+.next-btn:hover { background: #1a365d; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #2b6cb0; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "✓ "; color: #2b6cb0; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Inference &amp; Main Idea</span>
+    <span class="lesson-badge">Unit 3 · Lesson 3</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Grammar_Lesson_SecondConditional.html">&#8592; Grammar</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 3 · Phase 1: Foundation Hardening</div>
+    <h1>Inference &amp; Main Idea</h1>
+    <div class="subtitle">Reading what the text <em>means</em>, not just what it <em>says</em>.</div>
+    <span class="gap-tag">&#128218; New Domain — Reading Comprehension &middot; High ISA Priority</span>
+  </div>
+
+  <!-- SECTION 1: LITERAL vs INFERENCE -->
+  <div class="section">
+    <div class="section-tag">Section 1</div>
+    <h2>&#128065; Literal Retrieval vs Inference: What's the Difference?</h2>
+    <p>There are two types of reading questions. It is important to know which type you are dealing with before you answer.</p>
+
+    <div class="card-row">
+      <div class="type-card tc-literal">
+        <h4>&#128209; Literal Retrieval</h4>
+        <p>The answer is directly written in the text. You just need to find it.</p>
+        <p><strong>Example question:</strong> "How long did the expedition last?"</p>
+        <p><strong>Where to find it:</strong> Look for the exact fact in the passage.</p>
+        <p style="font-style:italic;color:#718096">The text says: "The expedition lasted six weeks." → Answer: six weeks.</p>
+      </div>
+      <div class="type-card tc-infer">
+        <h4>&#128161; Inference</h4>
+        <p>The answer is NOT written directly. You use clues in the text to work it out.</p>
+        <p><strong>Example question:</strong> "How did the explorer feel about the journey?"</p>
+        <p><strong>Where to find it:</strong> Read the clues — actions, word choices, comparisons — and reason from them.</p>
+        <p style="font-style:italic;color:#718096">The text says she "smiled for the first time in months." → Infer: she felt relieved or happy.</p>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-label">The Most Common Mistake</div>
+      <p>On inference questions, students often pick an answer that is true in real life but not supported by the text. Every inference must be backed by something the passage actually says. If you can't point to a clue in the text, it's not a valid inference.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: HOW TO MAKE AN INFERENCE -->
+  <div class="section">
+    <div class="section-tag">Section 2</div>
+    <h2>&#128269; How to Make an Inference</h2>
+    <p>An inference is not guessing. It is a logical conclusion based on evidence in the text. Think of it like being a detective: the text gives you clues, and you figure out what they mean.</p>
+
+    <div class="step-flow">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body"><strong>Read the question carefully.</strong> Does it ask what the text says (literal) or what you can figure out from the text (inference)?</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body"><strong>Find the relevant part of the passage.</strong> Don't answer from memory — go back and re-read the section the question is about.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body"><strong>Look for clues.</strong> Word choices (positive/negative tone), actions the character takes, what they say or don't say, comparisons, and contrasts all carry meaning.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body"><strong>Reason from the clues.</strong> Ask: "Given what the text tells me, what is the most logical conclusion?" Eliminate answers that go further than the evidence supports.</div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">The Test for a Valid Inference</div>
+      <p>Can you point to specific words or sentences in the text that support your answer? If yes → valid inference. If not → you are adding information the text doesn't give you, which is an error.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MAIN IDEA -->
+  <div class="section">
+    <div class="section-tag">Section 3</div>
+    <h2>&#127919; Finding the Main Idea</h2>
+    <p>The <strong>main idea</strong> is the most important point the whole passage is making — not just one detail from one sentence.</p>
+
+    <h3>Main idea vs supporting detail</h3>
+    <p><strong>Supporting details</strong> are facts, examples, or evidence that back up the main idea. They are important — but they are not the main point on their own.</p>
+    <p>Think of it like a tree: the main idea is the trunk. The supporting details are the branches. Remove a branch and the tree still stands. Remove the trunk and everything falls.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">How to Find the Main Idea</div>
+      <p>Ask: "If I had to summarise this whole passage in one sentence, what would I say?" That sentence is the main idea. It should be broad enough to cover the whole passage — not so narrow that it only describes one part of it.</p>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Short Passage</div>
+        "The town of Millford had been struggling for years. Its main factory had closed in 2015, leaving hundreds without work. Schools were underfunded and young people were leaving for the city. Then, in 2022, a technology company chose Millford as the site for its new regional headquarters. Within two years, over a thousand new jobs had been created, the local school received a generous donation, and property prices had begun to rise again."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Read the whole passage.</strong> What is it mostly about? — A town that was struggling and then recovered.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Identify what the details support.</strong> Factory closure, young people leaving, school underfunded = evidence of struggle. New company, jobs, school donation, prices rising = evidence of recovery.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Write the main idea:</strong> "A struggling town was revived by the arrival of a new technology company." This covers the whole passage.</div></div>
+        <div class="ws"><div class="ws-num">4</div><div>A wrong answer: "The main factory closed in 2015." That's just one detail — too narrow to be the main idea.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Main idea: The arrival of a technology company transformed a town that had been in decline.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: AUTHOR'S PURPOSE -->
+  <div class="section">
+    <div class="section-tag">Section 4</div>
+    <h2>&#9997; Author's Purpose</h2>
+    <p>The <strong>author's purpose</strong> is the reason the writer created the text. There are four main purposes:</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0">
+      <div style="background:#f7f9fd;border:1px solid #e8edf5;border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:#2b6cb0;margin-bottom:4px">&#128218; INFORM</div>
+        <div style="font-size:12px;color:#4a5568">To give the reader facts, information, or knowledge. Clue: neutral tone, facts and figures, no strong opinion.</div>
+      </div>
+      <div style="background:#f7f9fd;border:1px solid #e8edf5;border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:#c05621;margin-bottom:4px">&#128483; PERSUADE</div>
+        <div style="font-size:12px;color:#4a5568">To convince the reader to believe or do something. Clue: strong language, one-sided argument, calls to action.</div>
+      </div>
+      <div style="background:#f7f9fd;border:1px solid #e8edf5;border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:#6b46c1;margin-bottom:4px">&#127774; ENTERTAIN</div>
+        <div style="font-size:12px;color:#4a5568">To engage or amuse the reader through a story, humour, or vivid description. Clue: narrative, characters, plot, creative language.</div>
+      </div>
+      <div style="background:#f7f9fd;border:1px solid #e8edf5;border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:#276749;margin-bottom:4px">&#127775; DESCRIBE</div>
+        <div style="font-size:12px;color:#4a5568">To paint a picture of a person, place, or event in detail. Clue: rich descriptive language, sensory details, imagery.</div>
+      </div>
+    </div>
+
+    <p>In reality, many passages mix purposes — but one purpose is usually dominant. For a purpose question, ask: <em>"What is the writer mainly trying to achieve with this text?"</em></p>
+  </div>
+
+  <!-- SECTION 5: PRACTICE PASSAGE -->
+  <div class="section">
+    <div class="section-tag">Section 5 · Practice</div>
+    <h2>&#127919; Practice — Read and Answer</h2>
+
+    <div class="practice-intro">
+      &#9998; Read the passage carefully, then answer all five questions. You can scroll back up to re-read the passage at any time.
+    </div>
+
+    <div class="passage-box">
+      <div class="passage-label">Passage — Read carefully before answering</div>
+      <p>Cecilia Payne was born in England in 1900. From an early age, she was fascinated by science, but at the time, most universities did not encourage women to study it seriously. Undeterred, she earned a scholarship to Cambridge University, where she studied physics and astronomy with extraordinary dedication.</p>
+      <p style="margin-top:10px">In 1925, she moved to Harvard University in the United States, where she completed research that would change our understanding of stars forever. She discovered that stars are made mostly of hydrogen and helium — a finding so unexpected that senior scientists at the time refused to believe it. One prominent astronomer even convinced her to downplay the discovery in her published paper.</p>
+      <p style="margin-top:10px">Years later, when further research confirmed her original conclusion, Cecilia Payne received the recognition she deserved. She became the first woman to be appointed a full professor at Harvard, and her early discovery remains one of the most important in the history of astronomy.</p>
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="progress-text">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <!-- PQ1 -->
+    <div class="pq" id="pq1">
+      <div class="pq-num">
+        <span>Practice Question 1 — Literal</span>
+        <span class="diff-pill df">Foundational</span>
+      </div>
+      <div class="pq-text">
+        What two elements did Cecilia Payne discover that stars are mostly made of?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','A')">A. Carbon and oxygen</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','B')">B. Hydrogen and helium</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','C')">C. Helium and nitrogen</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq1','D')">D. Iron and hydrogen</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq1','B','This is a literal question — the answer is written directly in the passage. "She discovered that stars are made mostly of hydrogen and helium." Find the exact words and you have it. No inference needed here.')">Check</button>
+      <div class="feedback" id="pq1-fb"></div>
+    </div>
+
+    <!-- PQ2 -->
+    <div class="pq" id="pq2" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 2 — Inference</span>
+        <span class="diff-pill dd">Developing</span>
+      </div>
+      <div class="pq-text">
+        Why did Payne downplay her discovery in the published paper?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','A')">A. She was not confident in her own research.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','B')">B. A senior scientist pressured her to do so.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','C')">C. She believed the discovery needed more evidence.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq2','D')">D. She wanted to give another scientist the credit.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq2','B','The passage says: "One prominent astronomer even convinced her to downplay the discovery in her published paper." The word "convinced" means he persuaded or pressured her — she did not decide independently. A is wrong (no evidence she lacked confidence). C is wrong (no mention of needing more evidence). D is wrong (no mention of giving credit away). The text points to B.')">Check</button>
+      <div class="feedback" id="pq2-fb"></div>
+    </div>
+
+    <!-- PQ3 -->
+    <div class="pq" id="pq3" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 3 — Main Idea</span>
+        <span class="diff-pill dd">Developing</span>
+      </div>
+      <div class="pq-text">
+        What is the main idea of this passage?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','A')">A. Stars are made of hydrogen and helium.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','B')">B. Cambridge University was the best place to study astronomy in 1900.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','C')">C. Cecilia Payne made a groundbreaking discovery that was initially rejected but later proven correct.</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq3','D')">D. Harvard University was the first to appoint a female professor.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq3','C','A is a supporting detail — it is one specific fact, not the main point. B is not stated in the passage at all. D is a supporting detail (mentioned at the end, not the main focus). C covers the whole passage: Payne made an important discovery → it was rejected → it was confirmed → she was recognised. That arc is what the entire passage is about.')">Check</button>
+      <div class="feedback" id="pq3-fb"></div>
+    </div>
+
+    <!-- PQ4 -->
+    <div class="pq" id="pq4" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 4 — Vocabulary Inference</span>
+        <span class="diff-pill dd">Developing</span>
+      </div>
+      <div class="pq-text">
+        The passage says Payne was "undeterred" by the obstacles she faced. What does "undeterred" most likely mean?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','A')">A. Confused about her career choices</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','B')">B. Supported by her family and teachers</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','C')">C. Discouraged from pursuing her goals</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq4','D')">D. Not stopped by the obstacles she faced</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq4','D','Read the context: "most universities did not encourage women to study science seriously. Undeterred, she earned a scholarship..." The obstacle was clear (no encouragement for women). But Payne went ahead and earned a scholarship anyway. "Undeterred" describes someone who keeps going despite obstacles — not stopped, not discouraged. D is correct. C is the opposite of the correct meaning.')">Check</button>
+      <div class="feedback" id="pq4-fb"></div>
+    </div>
+
+    <!-- PQ5 -->
+    <div class="pq" id="pq5" style="display:none">
+      <div class="pq-num">
+        <span>Practice Question 5 — Author's Purpose</span>
+        <span class="diff-pill da">Advanced</span>
+      </div>
+      <div class="pq-text">
+        What is the author's main purpose in writing this passage?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','A')">A. To explain in detail how stars are formed from gases</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','B')">B. To argue that Cambridge University treated women unfairly</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','C')">C. To honour a scientist whose important work was overlooked because of her gender</div>
+        <div class="pq-opt" onclick="selectOpt(this,'pq5','D')">D. To describe the technical process of making scientific discoveries</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('pq5','C','A is wrong — the passage barely mentions how stars form; it focuses on Payne as a person. B is wrong — the passage does not argue, it describes; and Cambridge is mentioned briefly, not as the main focus. D is wrong — there are no technical details about how discoveries are made. C captures the real purpose: the passage tells Payne\'s story, emphasising that her important work was initially dismissed but ultimately recognised — and the mention of her being a woman in a male-dominated field is a central context clue. The author is honouring her achievement.')">Check</button>
+      <div class="feedback" id="pq5-fb"></div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section" id="summary-section" style="display:none">
+    <div class="section-tag">Summary</div>
+    <h2>&#9989; Key Takeaways</h2>
+    <div class="summary-grid">
+      <div class="sum-card">
+        <h4>Literal vs Inference</h4>
+        <ul>
+          <li>Literal: answer is written in the text — just find it</li>
+          <li>Inference: answer must be worked out from clues</li>
+          <li>Every inference must be backed by text evidence</li>
+          <li>Never infer something the text doesn't support</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>How to Infer</h4>
+        <ul>
+          <li>Go back and re-read the relevant section</li>
+          <li>Look for clues: word choices, actions, contrasts</li>
+          <li>Ask: what is the most logical conclusion from the clues?</li>
+          <li>Eliminate answers that go beyond the evidence</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Main Idea</h4>
+        <ul>
+          <li>The most important point the whole passage makes</li>
+          <li>Broad enough to cover the whole text</li>
+          <li>Not just one detail or one sentence</li>
+          <li>Summarise the passage in one sentence → that's the main idea</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>Author's Purpose</h4>
+        <ul>
+          <li>Inform: facts, neutral tone</li>
+          <li>Persuade: strong language, one-sided argument</li>
+          <li>Entertain: story, characters, narrative</li>
+          <li>Describe: vivid detail, sensory language</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var TOTAL_QS = 5;
+var currentQ = 1;
+var selected = {};
+var answered = {};
+
+function updateProgress() {
+  var txt = document.getElementById('progress-text');
+  var fill = document.getElementById('progress-fill');
+  if (txt) txt.textContent = 'Question ' + Math.min(currentQ, TOTAL_QS) + ' of ' + TOTAL_QS;
+  if (fill) fill.style.width = (((currentQ - 1) / TOTAL_QS) * 100) + '%';
+}
+
+function selectOpt(el, qid, val) {
+  if (answered[qid]) return;
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected', 'wrong'); });
+  el.classList.add('selected');
+  selected[qid] = val;
+}
+
+function checkOpt(qid, correct, explanation) {
+  if (answered[qid]) return;
+  var fb = document.getElementById(qid + '-fb');
+  var ans = selected[qid];
+  if (!ans) { fb.innerHTML = '<span style="color:#718096">Please choose an answer first.</span>'; return; }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  var qnum = parseInt(qid.replace('pq', ''));
+
+  if (ans === correct) {
+    answered[qid] = true;
+    opts.forEach(function(o) {
+      var letter = o.textContent.trim().charAt(0);
+      if (letter === correct) o.classList.add('correct');
+      o.style.pointerEvents = 'none';
+    });
+    var btn = document.querySelector('#' + qid + ' .check-btn');
+    if (btn) btn.style.display = 'none';
+    var nextHtml = qnum < TOTAL_QS
+      ? ' <button class="next-btn" onclick="showNext(' + (qnum + 1) + ')">Next Question &#8594;</button>'
+      : ' <button class="next-btn" onclick="showSummary()">See Summary &#10003;</button>';
+    fb.innerHTML = '<span class="fb-correct">&#10003; Correct! ' + explanation + '</span>' + nextHtml;
+  } else {
+    opts.forEach(function(o) {
+      var letter = o.textContent.trim().charAt(0);
+      if (letter === ans) o.classList.add('wrong');
+    });
+    fb.innerHTML = '<span class="fb-wrong">&#10007; Not quite — try again.</span>';
+    setTimeout(function() {
+      opts.forEach(function(o) { o.classList.remove('wrong', 'selected'); });
+      selected[qid] = null;
+    }, 900);
+  }
+}
+
+function showNext(n) {
+  currentQ = n;
+  updateProgress();
+  var el = document.getElementById('pq' + n);
+  if (el) {
+    el.style.display = 'block';
+    setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
+  }
+}
+
+function showSummary() {
+  var el = document.getElementById('summary-section');
+  if (el) {
+    el.style.display = 'block';
+    setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+  }
+  var txt = document.getElementById('progress-text');
+  var fill = document.getElementById('progress-fill');
+  if (txt) txt.textContent = 'All 5 done ✓';
+  if (fill) fill.style.width = '100%';
+}
+
+updateProgress();
+</script>
+</body>
+</html>
