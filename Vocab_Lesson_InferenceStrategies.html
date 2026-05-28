@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Inference Strategies — Unit 4</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #2b6cb0; }
+
+.topnav { background: #1a365d; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #2b6cb0; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #2b6cb0, #1a365d); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #ebf4ff; border: 1px solid #90cdf4; border-left: 4px solid #2b6cb0; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2b6cb0; margin-bottom: 4px; }
+.rule-box p { color: #1a365d; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.tip-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* Strategy cards */
+.strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.strat-card { border-radius: 10px; padding: 16px 18px; border: 2px solid; }
+.strat-def     { background: #ebf4ff; border-color: #90cdf4; }
+.strat-example { background: #f0fff4; border-color: #9ae6b4; }
+.strat-contrast{ background: #fff5f5; border-color: #fed7d7; }
+.strat-general { background: #faf5ff; border-color: #d6bcfa; }
+.strat-card .strat-num { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+.strat-def .strat-num     { color: #2b6cb0; }
+.strat-example .strat-num { color: #276749; }
+.strat-contrast .strat-num{ color: #c53030; }
+.strat-general .strat-num { color: #6b46c1; }
+.strat-card h4 { font-size: 14px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
+.strat-card p  { font-size: 12px; color: #4a5568; margin: 0; }
+.strat-card .signal { font-size: 11px; font-weight: 700; margin-top: 8px; }
+.strat-def .signal     { color: #2b6cb0; }
+.strat-example .signal { color: #276749; }
+.strat-contrast .signal{ color: #c53030; }
+.strat-general .signal { color: #6b46c1; }
+
+/* Annotated sentence */
+.anno-sent { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin: 12px 0; font-size: 14px; color: #2d3748; line-height: 2; }
+.anno-sent .target-word { background: #1a365d; color: white; padding: 1px 8px; border-radius: 5px; font-weight: 700; }
+.anno-sent .clue-word { background: #fbd38d; color: #744210; padding: 1px 8px; border-radius: 5px; font-weight: 700; }
+.anno-note { font-size: 12px; color: #718096; margin-top: 6px; }
+
+/* Worked */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #ebf4ff; color: #2b6cb0; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #ebf4ff; border-top: 1px solid #90cdf4; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #2b6cb0; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #2b6cb0; background: #ebf4ff; }
+.pq-opt.selected { border-color: #2b6cb0; background: #ebf4ff; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #2b6cb0; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #1a4a8a; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #2b6cb0; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #2b6cb0; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #2b6cb0; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #2b6cb0, #1a365d); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+
+.four-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+.step-mini { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 12px 14px; text-align: center; }
+.step-mini .sm-num { width: 28px; height: 28px; background: #2b6cb0; color: white; border-radius: 50%; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
+.step-mini p { font-size: 11px; color: #4a5568; margin: 0; }
+.step-mini strong { font-size: 12px; color: #1a1a2e; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Vocabulary Inference Strategies</span>
+    <span class="lesson-badge">Unit 4 · Vocabulary</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Grammar_Lesson_ThirdMixedConditionals.html">&#8592; Prev</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 4 &nbsp;·&nbsp; Vocabulary</div>
+    <h1>Vocabulary Inference Strategies</h1>
+    <div class="subtitle">How to work out the meaning of a word you have never seen — using only the text around it.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Vocabulary in Context</span>
+  </div>
+
+  <!-- SECTION 1: WHY THIS MATTERS -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 4</div>
+    <h2>&#128161; Why You Need This Skill</h2>
+    <p>In every ISA reading test, there will be words you have not seen before. You cannot look them up — so you have to <strong>infer</strong> the meaning from the text. Inferring means making a smart guess that is supported by evidence from the passage.</p>
+
+    <div class="rule-box">
+      <div class="rule-label">The Core Principle</div>
+      <p>You do not need to know a word to understand what it means. The sentence around it almost always gives you enough information to work it out.</p>
+    </div>
+
+    <p>There are four strategies for finding that information. Each strategy looks at a different kind of clue in the text.</p>
+
+    <div class="four-steps">
+      <div class="step-mini">
+        <div class="sm-num">1</div>
+        <strong>Definition Clue</strong>
+        <p>The sentence defines the word directly</p>
+      </div>
+      <div class="step-mini">
+        <div class="sm-num">2</div>
+        <strong>Example Clue</strong>
+        <p>Examples given tell you the category</p>
+      </div>
+      <div class="step-mini">
+        <div class="sm-num">3</div>
+        <strong>Contrast Clue</strong>
+        <p>A contrast tells you the opposite</p>
+      </div>
+      <div class="step-mini">
+        <div class="sm-num">4</div>
+        <strong>General Sense</strong>
+        <p>The overall mood of the sentence gives a positive or negative direction</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: THE FOUR STRATEGIES -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 4</div>
+    <h2>&#128203; The Four Strategies in Detail</h2>
+
+    <div class="strategy-grid">
+      <div class="strat-card strat-def">
+        <div class="strat-num">Strategy 1</div>
+        <h4>Definition Clue</h4>
+        <p>The author explains the word in the same sentence or the next one. Look for: <em>is, means, refers to, that is, in other words, or dashes (—).</em></p>
+        <div class="signal">Signal words: &quot;is defined as&quot;, &quot;means&quot;, &quot;—&quot;, &quot;(i.e.&quot;</div>
+      </div>
+      <div class="strat-card strat-example">
+        <div class="strat-num">Strategy 2</div>
+        <h4>Example Clue</h4>
+        <p>The author gives examples of the word. If you know what the examples are, you can work out the larger category they belong to.</p>
+        <div class="signal">Signal words: &quot;such as&quot;, &quot;for example&quot;, &quot;including&quot;, &quot;like&quot;</div>
+      </div>
+      <div class="strat-card strat-contrast">
+        <div class="strat-num">Strategy 3</div>
+        <h4>Contrast Clue</h4>
+        <p>The sentence gives you the opposite meaning. If you know the opposite, you know what the word means — just flip it.</p>
+        <div class="signal">Signal words: &quot;but&quot;, &quot;however&quot;, &quot;although&quot;, &quot;unlike&quot;, &quot;despite&quot;, &quot;whereas&quot;</div>
+      </div>
+      <div class="strat-card strat-general">
+        <div class="strat-num">Strategy 4</div>
+        <h4>General Sense Clue</h4>
+        <p>No direct clue — but the whole sentence feels positive or negative. What meaning would fit without making the sentence strange?</p>
+        <div class="signal">Ask: does this make sense if positive? If negative? Then narrow down.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 4</div>
+    <h2>&#128221; Strategies in Action</h2>
+    <p>Watch how each strategy is applied. The target word is highlighted in dark. The clue is highlighted in amber.</p>
+
+    <h3>Strategy 1 — Definition Clue</h3>
+    <div class="anno-sent">
+      A <span class="target-word">naturalist</span> — <span class="clue-word">a scientist who studies living things in their natural habitats</span> — spent three years documenting the wildlife of the Amazon.
+    </div>
+    <div class="anno-note">&#128270; The dashes (—) signal a definition is coming. &quot;Naturalist&quot; = a scientist who studies living things in their natural habitats.</div>
+
+    <h3>Strategy 2 — Example Clue</h3>
+    <div class="anno-sent">
+      The museum displayed many <span class="target-word">artefacts</span>, <span class="clue-word">such as ancient pottery, carved stone tools, and bronze jewellery</span>.
+    </div>
+    <div class="anno-note">&#128270; &quot;Such as&quot; introduces examples. All examples are old objects made by humans. &quot;Artefacts&quot; = objects made by people in the past, often of historical importance.</div>
+
+    <h3>Strategy 3 — Contrast Clue</h3>
+    <div class="anno-sent">
+      <span class="clue-word">Despite her timid appearance</span>, the young scientist delivered her speech with <span class="target-word">quiet conviction</span>.
+    </div>
+    <div class="anno-note">&#128270; &quot;Despite&quot; signals a contrast. Her appearance was timid (shy, nervous-looking) — but she spoke with conviction. &quot;Conviction&quot; here = strong, confident belief. The contrast between shy appearance and confident speaking reveals the meaning.</div>
+
+    <div class="tip-box">
+      <div class="tip-label">This was a real ISA-style question</div>
+      <p>This is exactly what question Q19 from Unit 2 tested. The word &quot;timid&quot; had a contrast clue: &quot;despite her timid appearance, she delivered with conviction.&quot; &quot;Despite&quot; tells you timid = the OPPOSITE of conviction (confident). So timid = shy, not confident.</p>
+    </div>
+
+    <h3>Strategy 4 — General Sense</h3>
+    <div class="anno-sent">
+      The explorer was <span class="target-word">undeterred</span> by the harsh conditions — she continued climbing through three days of storms without turning back.
+    </div>
+    <div class="anno-note">&#128270; No direct definition or contrast clue. But the sentence tells you: harsh conditions → she continued anyway, did not stop. &quot;Undeterred&quot; = not stopped or discouraged by obstacles. The action tells you the meaning.</div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Full Worked Example — Step by Step</div>
+        The archaeologist was <strong>meticulous</strong> in her work: she spent six hours on a single square metre of soil, brushing away dirt grain by grain to ensure that nothing was missed.
+        <br><br>What does <strong>meticulous</strong> most likely mean?
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div>Is there a definition, example, or contrast clue? No direct definition. No &quot;such as&quot; or &quot;for example&quot;. No contrast word.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>So I use General Sense. What does the sentence tell me she DID? She spent six hours on ONE square metre. She brushed grain by grain. She wanted nothing missed.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>What kind of person does this? Someone who pays extremely close attention to detail. Someone who is very careful and thorough.</div></div>
+        <div class="ws"><div class="ws-num">4</div><div>So &quot;meticulous&quot; = extremely careful and thorough, paying close attention to every detail.</div></div>
+      </div>
+      <div class="answer-reveal">&#10003; Meticulous = extremely careful and thorough, missing no detail.</div>
+    </div>
+  </div>
+
+  <!-- PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Practice — Locked Sequential</div>
+    <h2>&#127919; Practice Questions</h2>
+
+    <div class="practice-intro">
+      For each question: find the target word → look for a clue (definition? example? contrast? general sense?) → use the clue to pick the best meaning. Read all four options before clicking.
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">
+        <span>Question 1 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        A <strong>philanthropist</strong> — a person who donates large amounts of money and time to help others — funded the construction of twelve new schools across the region.
+        <br><br>What does <strong>philanthropist</strong> most likely mean?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. A government official who creates laws</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. A wealthy builder who designs schools</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. A person who generously helps others with money and time</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. A teacher who specialises in charity work</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','C','Strategy 1 — Definition Clue. The dashes (—) signal a definition: &quot;a person who donates large amounts of money and time to help others.&quot; That is the answer stated directly. Option C matches this definition closely. Options A, B, and D all add details (laws, buildings, teaching) that are not in the definition.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">
+        <span>Question 2 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        The museum housed an extraordinary collection of <strong>relics</strong>, including ancient Roman coins, fragments of pottery from 3,000 years ago, and a Viking helmet discovered in Norway.
+        <br><br>What does <strong>relics</strong> most likely mean?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. Valuable modern artworks</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Historical objects that have survived from the past</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. Scientific instruments used in research</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Books and documents from ancient libraries</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','B','Strategy 2 — Example Clue. The word &quot;including&quot; introduces three examples: ancient coins, old pottery, and a Viking helmet. What do all three have in common? They are all real objects from the distant past. That gives you the category: &quot;relics&quot; = historical objects that survived from the past. Option A says modern — the opposite. Options C and D are specific types not supported by the examples.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">
+        <span>Question 3 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        Unlike his <strong>gregarious</strong> sister who always had a group of friends around her, Dmitri preferred to spend his evenings alone, reading quietly in his room.
+        <br><br>What does <strong>gregarious</strong> most likely mean?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Shy and preferring solitude</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. Hardworking and disciplined</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. Friendly and enjoying the company of others</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Intelligent and academic</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','C','Strategy 3 — Contrast Clue. The signal word is &quot;unlike&quot; — a contrast word. It contrasts the sister with Dmitri. Dmitri prefers to be alone and quiet. So the sister is the OPPOSITE: she always has friends around and is sociable. &quot;Gregarious&quot; = the opposite of preferring solitude = friendly and outgoing, enjoying the company of others. Option A describes Dmitri, not the sister.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">
+        <span>Question 4 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        The young athlete was <strong>resilient</strong>: after breaking her ankle in the first race, she spent six months in rehabilitation and returned to compete — and win — the following season.
+        <br><br>What does <strong>resilient</strong> most likely mean?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. Naturally talented and gifted from birth</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Able to recover from difficulty and keep going</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. Supported by an excellent coaching team</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Physically strong and rarely injured</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','B','Strategy 4 — General Sense. There is no definition, example clue, or contrast word. But read what happens: she was injured → she spent months in rehab → she came back and won. That sequence of actions (setback then recovery then success) describes someone who does not give up, who bounces back. &quot;Resilient&quot; = able to recover from difficulty and keep going. Option D says rarely injured — the opposite is true; she WAS injured.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">
+        <span>Question 5 <span class="diff-pill da">Advanced</span></span>
+      </div>
+      <div class="pq-text">
+        The council's decision was <strong>contentious</strong>: supporters argued it would bring economic growth, while opponents staged protests in the city centre, claiming it would destroy the local community.
+        <br><br>What does <strong>contentious</strong> most likely mean?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Popular and widely praised</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Causing strong disagreement and debate</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Secretive and known only to a few people</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. Expensive and requiring large amounts of funding</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','B','Strategy 4 — General Sense (with a contrast structure as supporting evidence). The sentence describes two OPPOSING groups: supporters (positive) vs opponents who protest (negative). The colon after &quot;contentious&quot; introduces the evidence for what it means. When a decision has both strong supporters AND strong opponents arguing about it, that is a decision that causes disagreement and debate. &quot;Contentious&quot; = causing strong disagreement. Option A says widely praised — but the opponents are protesting, so it is not widely praised.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Questions Complete!</h3>
+        <p>You now have four reliable strategies for any unfamiliar word in the ISA.</p>
+      </div>
+
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Strategy 1 — Definition Clue</h4>
+          <ul>
+            <li>Signals: dashes (—), &quot;means&quot;, &quot;is defined as&quot;</li>
+            <li>The sentence states the meaning directly</li>
+            <li>This is the easiest — just find the definition</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Strategy 2 — Example Clue</h4>
+          <ul>
+            <li>Signals: &quot;such as&quot;, &quot;including&quot;, &quot;for example&quot;</li>
+            <li>Identify what the examples have in common</li>
+            <li>That shared category is the word's meaning</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Strategy 3 — Contrast Clue</h4>
+          <ul>
+            <li>Signals: &quot;but&quot;, &quot;however&quot;, &quot;unlike&quot;, &quot;although&quot;, &quot;despite&quot;</li>
+            <li>Find what the contrast describes, then flip it</li>
+            <li>The target word = the opposite of the contrast</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Strategy 4 — General Sense</h4>
+          <ul>
+            <li>No direct clue in the sentence</li>
+            <li>Read the whole sentence — what is happening?</li>
+            <li>Does positive or negative meaning fit better?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+var currentQ = 1;
+var totalQ = 5;
+var selected = {};
+
+function selectOpt(qid, letter, el) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = letter;
+}
+
+function checkOpt(qid, correct, explanation) {
+  var choice = selected[qid];
+  var fb = document.getElementById(qid + '-fb');
+  if (!choice) {
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = 'Please select an answer first.';
+    return;
+  }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
+
+  if (choice === correct) {
+    document.getElementById(qid + correct).classList.add('correct');
+    fb.className = 'feedback fb-correct';
+    fb.innerHTML = '&#10003; Correct! ' + explanation;
+    setTimeout(function() { advanceQ(); }, 1200);
+  } else {
+    document.getElementById(qid + choice).classList.add('wrong');
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = '&#10007; Not quite — look for a clue in the sentence (definition, example, contrast, or general sense). Try again.';
+    opts.forEach(function(o) { o.style.pointerEvents = 'auto'; });
+    document.getElementById(qid + choice).style.pointerEvents = 'none';
+  }
+}
+
+function advanceQ() {
+  var nextN = currentQ + 1;
+  currentQ = nextN;
+  updateProgress();
+  if (nextN <= totalQ) {
+    var nextEl = document.getElementById('q' + nextN);
+    if (nextEl) {
+      nextEl.style.display = 'block';
+      setTimeout(function() { nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+  } else {
+    var summary = document.getElementById('summary-section');
+    if (summary) {
+      summary.style.display = 'block';
+      setTimeout(function() { summary.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+  }
+}
+
+function updateProgress() {
+  var done = currentQ - 1;
+  var label = document.getElementById('prog-label');
+  var fill  = document.getElementById('prog-fill');
+  if (done >= totalQ) {
+    if (label) label.textContent = 'All ' + totalQ + ' questions complete!';
+    if (fill)  fill.style.width  = '100%';
+  } else {
+    if (label) label.textContent = 'Question ' + currentQ + ' of ' + totalQ;
+    if (fill)  fill.style.width  = Math.round(done / totalQ * 100) + '%';
+  }
+}
+</script>
+
+</body>
+</html>

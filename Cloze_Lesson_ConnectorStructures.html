@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connector Structures — Unit 4</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.next { background: #1e8b68; }
+.nav-btn.next:hover { background: #0d6e4f; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.tip-box p { color: #44337a; margin: 0; font-size: 13px; }
+
+.big-concept { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+.concept-card { border-radius: 10px; padding: 16px 18px; }
+.concept-card.starter { background: #ebf4ff; border: 2px solid #90cdf4; }
+.concept-card.joiner  { background: #faf5ff; border: 2px solid #d6bcfa; }
+.concept-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 6px; }
+.concept-card.starter h4 { color: #1e40af; }
+.concept-card.joiner  h4 { color: #44337a; }
+.concept-card p { font-size: 12px; margin: 0; color: #4a5568; }
+.concept-card .words { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.concept-card .word-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 10px; }
+.starter .word-pill { background: #dbeafe; color: #1e40af; }
+.joiner  .word-pill { background: #ede9fe; color: #44337a; }
+
+/* The Period Test visual */
+.period-test { background: #1a1a2e; color: white; border-radius: 12px; padding: 20px 24px; margin: 14px 0; }
+.period-test h4 { font-size: 13px; font-weight: 800; color: #89F336; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+.pt-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+.pt-row:last-child { margin-bottom: 0; }
+.pt-sym { font-size: 22px; min-width: 32px; text-align: center; margin-top: 2px; }
+.pt-body { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+.pt-body strong { color: #89F336; }
+
+/* Structure visual */
+.struct-box { border-radius: 10px; padding: 14px 18px; margin: 8px 0; font-size: 13px; }
+.struct-starter { background: #ebf4ff; border: 1px solid #90cdf4; color: #1e40af; }
+.struct-joiner  { background: #faf5ff; border: 1px solid #d6bcfa; color: #44337a; }
+.struct-box .formula { font-family: monospace; font-size: 12px; background: rgba(0,0,0,0.07); padding: 4px 10px; border-radius: 6px; display: inline-block; margin: 6px 0; }
+.struct-box .example { font-style: italic; color: #4a5568; margin-top: 6px; font-size: 13px; }
+
+/* Worked examples */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #e6fffa; color: #1e8b68; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #e6fffa; border-top: 1px solid #c6f6d5; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #1e8b68; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #1e8b68; background: #e6fffa; }
+.pq-opt.selected { border-color: #1e8b68; background: #e6fffa; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #0d6e4f; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+/* HYBRID PROGRESS */
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #1e8b68; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.next-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; margin-left: 8px; }
+.next-btn:hover { background: #0d6e4f; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #1e8b68; font-weight: 700; }
+
+.complete-banner { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Connector Structures</span>
+    <span class="lesson-badge">Unit 4 · Cloze</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn next" href="Grammar_Lesson_ThirdMixedConditionals.html">Next Lesson &#8594;</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 4 &nbsp;·&nbsp; Cloze</div>
+    <h1>Connector Structures</h1>
+    <div class="subtitle">Why "however" and "although" are NOT interchangeable — even though both mean CONTRAST.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Cloze Test</span>
+  </div>
+
+  <!-- SECTION 1: THE BIG IDEA -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 4</div>
+    <h2>&#129300; The Problem</h2>
+    <p>You already know the four connector functions: <strong>CONTRAST, RESULT, ADDITION, and TIME</strong>. That knowledge is real. But there is a second layer that trips up many students — and it is the reason why choosing the wrong word in a cloze test can happen even when you know the function correctly.</p>
+
+    <div class="warn-box">
+      <div class="warn-label">The Hidden Trap</div>
+      <p><strong>However</strong> and <strong>although</strong> both signal CONTRAST — but they work in completely different sentence structures. If you put one where the other belongs, the sentence breaks.</p>
+    </div>
+
+    <p>This lesson teaches you the <strong>structural type</strong> of each connector: whether it starts a new sentence or joins two clauses inside one sentence. Once you know this, you have a reliable check that works on every cloze passage.</p>
+  </div>
+
+  <!-- SECTION 2: TWO TYPES -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 4</div>
+    <h2>&#128195; Two Types of Connectors</h2>
+
+    <div class="big-concept">
+      <div class="concept-card starter">
+        <h4>&#9679; Sentence-Starters</h4>
+        <p>These come <strong>after a full stop (.) or semicolon (;)</strong> and start a brand-new sentence. The two sentences can stand alone.</p>
+        <div class="words">
+          <span class="word-pill">However,</span>
+          <span class="word-pill">Therefore,</span>
+          <span class="word-pill">Furthermore,</span>
+          <span class="word-pill">Meanwhile,</span>
+          <span class="word-pill">Consequently,</span>
+          <span class="word-pill">Nevertheless,</span>
+        </div>
+      </div>
+      <div class="concept-card joiner">
+        <h4>&#9679; Clause-Joiners</h4>
+        <p>These sit <strong>inside one sentence</strong> and join two clauses together. The clause they introduce cannot stand alone as a sentence.</p>
+        <div class="words">
+          <span class="word-pill">although</span>
+          <span class="word-pill">because</span>
+          <span class="word-pill">while</span>
+          <span class="word-pill">whereas</span>
+          <span class="word-pill">since</span>
+          <span class="word-pill">even though</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">Key Difference</div>
+      <p>Sentence-starters need a capital letter and a comma after them. Clause-joiners are lowercase and work inside a single sentence that already has its main clause.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: THE PERIOD TEST + STRUCTURES -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 4</div>
+    <h2>&#128270; The Period Test — Your Secret Weapon</h2>
+
+    <p>Before you choose a connector in any cloze passage, ask yourself one question first:</p>
+
+    <div class="period-test">
+      <h4>&#9881; The Period Test</h4>
+      <div class="pt-row">
+        <div class="pt-sym">.</div>
+        <div class="pt-body">Is there a <strong>full stop or semicolon</strong> before the gap?<br>→ <strong>Sentence-Starter group:</strong> However / Therefore / Furthermore / Meanwhile / Consequently</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-sym">&#8594;</div>
+        <div class="pt-body">Is the gap <strong>inside one sentence</strong> with no full stop before it?<br>→ <strong>Clause-Joiner group:</strong> although / because / while / whereas / since</div>
+      </div>
+    </div>
+
+    <p>Once you know which group you need, then apply your function test (CONTRAST / RESULT / ADDITION / TIME) to pick the exact word.</p>
+
+    <h3>Sentence-Starter Structure</h3>
+    <div class="struct-box struct-starter">
+      <div class="formula">Sentence 1 full stop. Connector, + sentence 2.</div>
+      <div class="example">The experiment failed three times. <strong>However,</strong> the scientist did not give up.</div>
+      <div class="example">The team worked all night. <strong>Therefore,</strong> they finished on time.</div>
+      <div class="example">She scored full marks on the reading test. <strong>Furthermore,</strong> her writing improved.</div>
+    </div>
+
+    <h3>Clause-Joiner Structure</h3>
+    <div class="struct-box struct-joiner">
+      <div class="formula">Connector + clause 1, main clause.</div>
+      <div class="formula">Main clause + connector + clause 2.</div>
+      <div class="example"><strong>Although</strong> the experiment failed three times, the scientist did not give up.</div>
+      <div class="example">The team finished on time <strong>because</strong> they worked all night.</div>
+      <div class="example"><strong>While</strong> her reading was excellent, her writing still needed practice.</div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Quick Test</div>
+      <p>Try reading just the connector's clause on its own. <em>"Although the experiment failed three times."</em> — that cannot stand alone. It is a clause-joiner. <em>"However, the scientist did not give up."</em> — that stands alone perfectly. It is a sentence-starter.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 4 (Content)</div>
+    <h2>&#128221; Worked Examples — Two Steps</h2>
+    <p>Use the period test first, then the function test. Watch how both steps work together.</p>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 1</div>
+        The hikers were exhausted after climbing all day. ________, they decided to set up camp early.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div>There is a <strong>full stop</strong> before the gap → I need a <strong>sentence-starter</strong>. Clause-joiners (although, because, while) are eliminated immediately.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>What is the logic? The hikers were exhausted → they set up camp early. That is a <strong>RESULT</strong> (tired, so they stopped). I need a result sentence-starter.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>From the sentence-starter group: <strong>Therefore</strong> = RESULT. Therefore fits.</div></div>
+      </div>
+      <div class="answer-reveal">&#10003; Therefore, they decided to set up camp early.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 2</div>
+        ________ the storm was severe, no buildings were damaged.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div>The gap is <strong>at the start of the sentence</strong> with no full stop before it → I need a <strong>clause-joiner</strong>. Sentence-starters (However, Therefore) are eliminated.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>What is the logic? Severe storm — but no damage. That is a surprising <strong>CONTRAST</strong> (you would expect damage, but there was none).</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>From the clause-joiner group: <strong>Although</strong> = CONTRAST. Although fits perfectly.</div></div>
+      </div>
+      <div class="answer-reveal">&#10003; Although the storm was severe, no buildings were damaged.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 3 — Tricky</div>
+        Maya studied every night for three weeks. ________, she still found some questions difficult.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Full stop</strong> before the gap → <strong>sentence-starter</strong> required. Although is out.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>Logic: She studied a lot — but still found it difficult. Opposite of what you would expect → <strong>CONTRAST</strong>.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>From the sentence-starter group: <strong>However</strong> = CONTRAST. However fits.</div></div>
+      </div>
+      <div class="answer-reveal">&#10003; However, she still found some questions difficult.</div>
+    </div>
+  </div>
+
+  <!-- PRACTICE SECTION -->
+  <div class="section">
+    <div class="section-tag">Practice — Locked Sequential</div>
+    <h2>&#127919; Practice Questions</h2>
+
+    <div class="practice-intro">
+      Use both steps for every question: <strong>Step 1 — Period Test</strong> (is there a full stop before the gap?). <strong>Step 2 — Function Test</strong> (CONTRAST / RESULT / ADDITION?). Read all four options before clicking.
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">
+        <span>Question 1 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        The library closed at six o'clock. ________, the students had to continue working at home.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Although</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Because</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. Therefore,</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. While</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','C','Step 1: There is a full stop before the gap, so you need a sentence-starter. &quot;Although&quot;, &quot;Because&quot;, and &quot;While&quot; are all clause-joiners — they are out. Step 2: The library closed → students had to work at home. That is a RESULT. Therefore = RESULT sentence-starter. Answer: Therefore.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">
+        <span>Question 2 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        ________ the film had already started, we quietly took our seats at the back.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. However,</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Therefore,</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. Although</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Furthermore,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','C','Step 1: There is NO full stop before the gap — the gap is at the very start of the sentence. So you need a clause-joiner. &quot;However&quot;, &quot;Therefore&quot;, and &quot;Furthermore&quot; are sentence-starters — they are out. Step 2: The film had started, but they still sat down — that is a CONTRAST (they came late, yet they sat down anyway). Although = CONTRAST clause-joiner. Answer: Although.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">
+        <span>Question 3 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        The new phone model received excellent reviews. ________, sales in the first week broke all previous records.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Although</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. Furthermore,</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. Because</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Whereas</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','B','Step 1: There is a full stop before the gap, so you need a sentence-starter. &quot;Although&quot;, &quot;Because&quot;, and &quot;Whereas&quot; are clause-joiners — eliminate them. Step 2: Excellent reviews AND record-breaking sales — both positive facts going in the same direction. That is ADDITION (more good news on top). Furthermore = ADDITION sentence-starter. Answer: Furthermore.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">
+        <span>Question 4 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        The rescue team searched for eight hours ________ the fog made visibility almost impossible.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. however,</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. therefore,</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. even though</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. furthermore,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','C','Step 1: There is NO full stop before the gap — it sits in the middle of a sentence. So you need a clause-joiner. &quot;However&quot;, &quot;Therefore&quot;, and &quot;Furthermore&quot; are sentence-starters — eliminate them. Step 2: They searched for eight hours despite terrible fog — they continued anyway. That is a CONTRAST (you would expect them to stop, but they kept going). &quot;Even though&quot; = CONTRAST clause-joiner. Answer: even though.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">
+        <span>Question 5 <span class="diff-pill da">Advanced</span></span>
+      </div>
+      <div class="pq-text">
+        The old bridge had been declared unsafe. ________, local authorities announced that repairs would begin the following month.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. While</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Nevertheless,</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Since</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. Although</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','B','Step 1: There is a full stop before the gap, so you need a sentence-starter. &quot;While&quot;, &quot;Since&quot;, and &quot;Although&quot; are clause-joiners — eliminate them. Step 2: The bridge was unsafe — but repairs were announced (they responded to it). That is CONTRAST: you might expect them to demolish it or close it permanently, but instead they planned repairs. &quot;Nevertheless&quot; = CONTRAST sentence-starter (similar to &quot;However&quot;, used when something unexpected follows a difficult situation). Answer: Nevertheless.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Questions Complete!</h3>
+        <p>You have practised the two-step method. You are now ready for Unit 4.</p>
+      </div>
+
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Sentence-Starters</h4>
+          <ul>
+            <li>Come after a full stop (.) or semicolon (;)</li>
+            <li>Start a new, complete sentence</li>
+            <li>Always followed by a comma</li>
+            <li>However / Therefore / Furthermore / Meanwhile / Consequently / Nevertheless</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Clause-Joiners</h4>
+          <ul>
+            <li>Live inside one sentence — no full stop before them</li>
+            <li>The clause they introduce cannot stand alone</li>
+            <li>No comma needed directly after them (comma may come later)</li>
+            <li>although / because / while / whereas / since / even though</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sum-card" style="margin-top:12px">
+        <h4>The Two-Step Method</h4>
+        <ul>
+          <li>Step 1 — Period Test: full stop before gap? → sentence-starter. No full stop? → clause-joiner.</li>
+          <li>Step 2 — Function Test: CONTRAST / RESULT / ADDITION / TIME?</li>
+          <li>Pick the word that satisfies BOTH steps.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+var currentQ = 1;
+var totalQ = 5;
+var selected = {};
+
+function selectOpt(qid, letter, el) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) {
+    o.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  selected[qid] = letter;
+}
+
+function checkOpt(qid, correct, explanation) {
+  var choice = selected[qid];
+  var fb = document.getElementById(qid + '-fb');
+  if (!choice) {
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = 'Please select an answer first.';
+    return;
+  }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
+
+  if (choice === correct) {
+    document.getElementById(qid + choice).classList.add('correct');
+    fb.className = 'feedback fb-correct';
+    fb.innerHTML = '&#10003; Correct! ' + explanation;
+    opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
+    setTimeout(function() { advanceQ(qid); }, 1200);
+  } else {
+    document.getElementById(qid + choice).classList.add('wrong');
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = '✗ Not quite — look at the punctuation before the gap, then the logic. Try again.';
+    opts.forEach(function(o) { o.style.pointerEvents = 'auto'; });
+    document.getElementById(qid + choice).style.pointerEvents = 'none';
+  }
+}
+
+function advanceQ(currentId) {
+  var nextN = currentQ + 1;
+  currentQ = nextN;
+  updateProgress();
+  if (nextN <= totalQ) {
+    var nextEl = document.getElementById('q' + nextN);
+    if (nextEl) {
+      nextEl.style.display = 'block';
+      setTimeout(function() {
+        nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  } else {
+    var summary = document.getElementById('summary-section');
+    if (summary) {
+      summary.style.display = 'block';
+      setTimeout(function() {
+        summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+}
+
+function updateProgress() {
+  var done = currentQ - 1;
+  var label = document.getElementById('prog-label');
+  var fill  = document.getElementById('prog-fill');
+  if (done >= totalQ) {
+    if (label) label.textContent = 'All ' + totalQ + ' questions complete!';
+    if (fill)  fill.style.width  = '100%';
+  } else {
+    if (label) label.textContent = 'Question ' + currentQ + ' of ' + totalQ;
+    if (fill)  fill.style.width  = Math.round(done / totalQ * 100) + '%';
+  }
+}
+</script>
+
+</body>
+</html>

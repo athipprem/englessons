@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Third &amp; Mixed Conditionals — Unit 4</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #6b46c1; }
+
+.topnav { background: #2d2060; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #6b46c1; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+.nav-btn.next { background: #6b46c1; }
+.nav-btn.next:hover { background: #553c9a; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #6b46c1, #44337a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.rule-box p { color: #44337a; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.tip-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* COND REVIEW TABLE */
+.cond-review { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 12px; }
+.cond-review th { background: #2d2060; color: white; padding: 9px 12px; text-align: left; font-size: 11px; }
+.cond-review th:first-child { border-radius: 8px 0 0 0; }
+.cond-review th:last-child  { border-radius: 0 8px 0 0; }
+.cond-review td { padding: 9px 12px; border-bottom: 1px solid #f0f4f8; color: #4a5568; vertical-align: top; }
+.cond-review tr:last-child td { border-bottom: none; }
+.cond-review tr.third td { background: #faf5ff; }
+.cond-review tr.mixed td { background: #fff8e1; }
+.badge-cond { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px; }
+.bc0 { background: #e6fffa; color: #1e8b68; }
+.bc1 { background: #ebf4ff; color: #1e40af; }
+.bc2 { background: #f0fff4; color: #276749; }
+.bc3 { background: #faf5ff; color: #44337a; }
+.bcm { background: #fff8e1; color: #c05621; }
+
+/* Formula box */
+.formula-box { border-radius: 10px; padding: 16px 20px; margin: 12px 0; }
+.formula-box.third { background: #faf5ff; border: 2px solid #d6bcfa; }
+.formula-box.mixed { background: #fff8e1; border: 2px solid #fbd38d; }
+.formula-box h4 { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px; }
+.formula-box.third h4 { color: #6b46c1; }
+.formula-box.mixed  h4 { color: #c05621; }
+.formula-line { font-family: monospace; font-size: 13px; background: rgba(0,0,0,0.06); padding: 8px 14px; border-radius: 8px; margin-bottom: 8px; color: #1a1a2e; }
+.formula-line span { color: #6b46c1; font-weight: 700; }
+.formula-line span.mixed-clr { color: #c05621; }
+.formula-meaning { font-size: 12px; color: #718096; }
+
+/* Colour-coded sentence */
+.sentence-parts { margin: 12px 0; }
+.sp-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; font-size: 13px; }
+.sp-if   { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 6px; font-weight: 700; }
+.sp-result { background: #ede9fe; color: #44337a; padding: 4px 10px; border-radius: 6px; font-weight: 700; }
+.sp-sep  { color: #a0aec0; font-size: 18px; }
+
+/* Worked */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #faf5ff; color: #6b46c1; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #faf5ff; border-top: 1px solid #d6bcfa; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #6b46c1; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #6b46c1; background: #faf5ff; }
+.pq-opt.selected { border-color: #6b46c1; background: #faf5ff; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #553c9a; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #6b46c1; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #6b46c1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #6b46c1; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #6b46c1, #44337a); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Third &amp; Mixed Conditionals</span>
+    <span class="lesson-badge">Unit 4 · Grammar</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Cloze_Lesson_ConnectorStructures.html">&#8592; Prev</a>
+    <a class="nav-btn next" href="Vocab_Lesson_InferenceStrategies.html">Next Lesson &#8594;</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 4 &nbsp;·&nbsp; Grammar</div>
+    <h1>Third &amp; Mixed Conditionals</h1>
+    <div class="subtitle">Talking about things that did not happen in the past — and what that means for now.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Grammar</span>
+  </div>
+
+  <!-- SECTION 1: QUICK REVIEW -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 4 — Quick Review</div>
+    <h2>&#128218; The Conditional Family</h2>
+    <p>You already know three members of the conditional family. Here is the full picture, including the two new ones you will learn today.</p>
+
+    <table class="cond-review">
+      <tr>
+        <th>Type</th><th>If-clause</th><th>Result clause</th><th>Meaning</th>
+      </tr>
+      <tr>
+        <td><span class="badge-cond bc0">Zero</span></td>
+        <td>If + present simple</td>
+        <td>present simple</td>
+        <td>Always true (facts, laws of nature)</td>
+      </tr>
+      <tr>
+        <td><span class="badge-cond bc1">First</span></td>
+        <td>If + present simple</td>
+        <td>will + base verb</td>
+        <td>Possible future — might really happen</td>
+      </tr>
+      <tr>
+        <td><span class="badge-cond bc2">Second</span></td>
+        <td>If + past simple</td>
+        <td>would + base verb</td>
+        <td>Imaginary present — not real now</td>
+      </tr>
+      <tr class="third">
+        <td><span class="badge-cond bc3">Third &#9733;</span></td>
+        <td>If + had + past participle</td>
+        <td>would have + past participle</td>
+        <td>Imaginary past — did NOT happen</td>
+      </tr>
+      <tr class="mixed">
+        <td><span class="badge-cond bcm">Mixed &#9733;</span></td>
+        <td>If + had + past participle</td>
+        <td>would + base verb</td>
+        <td>Past condition → present result</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:10px">Today's focus is the two rows marked &#9733;. Both involve the past perfect <em>(had + past participle)</em> in the if-clause.</p>
+  </div>
+
+  <!-- SECTION 2: THIRD CONDITIONAL -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 4</div>
+    <h2>&#128203; The Third Conditional — Imagining a Different Past</h2>
+
+    <p>The Third Conditional is used when something <strong>did not happen</strong> in the past, and you are imagining what would have been different. Both the situation and the result belong to the past.</p>
+
+    <div class="formula-box third">
+      <h4>Third Conditional Formula</h4>
+      <div class="formula-line">If + [subject] + <span>had</span> + [past participle] , [subject] + <span>would have</span> + [past participle]</div>
+      <div class="formula-meaning">The if-clause describes something that did NOT happen. The result clause tells you what the consequence would have been.</div>
+    </div>
+
+    <div class="sentence-parts">
+      <div class="sp-row">
+        <span class="sp-if">If she had studied harder</span>
+        <span class="sp-sep">,</span>
+        <span class="sp-result">she would have passed the exam.</span>
+      </div>
+      <p style="font-size:12px;color:#718096;margin-top:2px">Reality: She did NOT study harder. She did NOT pass the exam. This sentence imagines the alternative past.</p>
+    </div>
+
+    <div class="sentence-parts">
+      <div class="sp-row">
+        <span class="sp-if">If they had left earlier</span>
+        <span class="sp-sep">,</span>
+        <span class="sp-result">they would have caught the train.</span>
+      </div>
+      <p style="font-size:12px;color:#718096;margin-top:2px">Reality: They did NOT leave earlier. They missed the train.</p>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">Key Clue</div>
+      <p>Both clauses are about the PAST. The if-clause = a past event that did NOT happen. The result clause = the past consequence that also did NOT happen.</p>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-label">Common Mistake</div>
+      <p>Do not mix tenses randomly. If the if-clause uses <em>had studied</em>, the result clause must use <em>would have passed</em> — NOT <em>would pass</em>. That &quot;would pass&quot; (without &quot;have&quot;) belongs to the Second Conditional.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MIXED CONDITIONAL -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 4</div>
+    <h2>&#128101; The Mixed Conditional — Past Cause, Present Effect</h2>
+
+    <p>Sometimes a past event changes your situation right now. The Mixed Conditional connects a <strong>past condition</strong> (something that did or did not happen) with a <strong>present result</strong> (how things are today).</p>
+
+    <div class="formula-box mixed">
+      <h4>Mixed Conditional Formula</h4>
+      <div class="formula-line">If + [subject] + <span class="mixed-clr">had</span> + [past participle] , [subject] + <span class="mixed-clr">would</span> + [base verb]</div>
+      <div class="formula-meaning">The if-clause is past (had + pp). The result clause is present (would + base verb — no &quot;have&quot;).</div>
+    </div>
+
+    <div class="sentence-parts">
+      <div class="sp-row">
+        <span class="sp-if">If he had taken the job offer,</span>
+        <span class="sp-result">he would be living in Paris now.</span>
+      </div>
+      <p style="font-size:12px;color:#718096;margin-top:2px">Reality: He did NOT take the job offer in the past → He is NOT living in Paris now. The past decision affects the current situation.</p>
+    </div>
+
+    <div class="sentence-parts">
+      <div class="sp-row">
+        <span class="sp-if">If they had built the road,</span>
+        <span class="sp-result">the village would be much easier to reach.</span>
+      </div>
+      <p style="font-size:12px;color:#718096;margin-top:2px">Reality: The road was NOT built → The village is still hard to reach today.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">How to Tell Third from Mixed</div>
+      <p>Ask: is the result in the <strong>past</strong> or the <strong>present</strong>? If the result is past → Third Conditional (<em>would have done</em>). If the result is present (happening now or still true) → Mixed Conditional (<em>would do / would be</em>).</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 4 (Content)</div>
+    <h2>&#128221; Worked Examples</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Identify the type and complete the sentence</div>
+        If the explorer ________ (not / lose) his map, he would have reached the summit.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div>The result clause says <em>&quot;would have reached&quot;</em> → past result. This is a <strong>Third Conditional</strong> (past-to-past).</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>Third Conditional if-clause = <em>had + past participle</em>. Negative: <em>had not lost</em>.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>Reality: He DID lose his map. He did NOT reach the summit.</div></div>
+      </div>
+      <div class="answer-reveal">&#10003; If the explorer <strong>had not lost</strong> his map, he would have reached the summit.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Third or Mixed?</div>
+        If she had practised every day, she ________ (be) a professional musician now.
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div>The key word is <strong>&quot;now&quot;</strong> — the result is happening <em>at the present moment</em>. That is a current state, not a past event.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>Past condition + <strong>present</strong> result = <strong>Mixed Conditional</strong>.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>Mixed result clause = <em>would + base verb</em>. She would be (not &quot;would have been&quot;).</div></div>
+      </div>
+      <div class="answer-reveal">&#10003; she <strong>would be</strong> a professional musician now.</div>
+    </div>
+  </div>
+
+  <!-- PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Practice — Locked Sequential</div>
+    <h2>&#127919; Practice Questions</h2>
+
+    <div class="practice-intro">
+      For each question, first decide: is the result <strong>past</strong> or <strong>present/current</strong>? That tells you whether it is Third or Mixed Conditional. Then apply the correct formula.
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">
+        <span>Question 1 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        If the team ________ (train) harder last season, they would have won the championship.
+        <br><small style="color:#a0aec0;font-size:11px">Which form correctly fills the blank?</small>
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. trained</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. had trained</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. have trained</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. would train</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','The result clause says &quot;would have won&quot; — a past result. This is a Third Conditional. The if-clause must use &quot;had + past participle&quot;. Train → past participle = trained. So: had trained. &quot;Trained&quot; alone is Second Conditional (imaginary present). &quot;Would train&quot; belongs in a result clause, not an if-clause.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">
+        <span>Question 2 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        If the scientists had discovered the cure earlier, thousands of people ________ (survive).
+        <br><small style="color:#a0aec0;font-size:11px">Which result clause is correct?</small>
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. would survive</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. will have survived</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. would have survived</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. had survived</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','C','The if-clause uses &quot;had discovered&quot; — past perfect. The context is about a past event (discovering a cure). Both the condition and result are in the past, so this is a Third Conditional. Third Conditional result = would have + past participle. &quot;Would survive&quot; is Mixed Conditional (present result). &quot;Will have survived&quot; is future perfect — wrong tense entirely. &quot;Had survived&quot; cannot be a result clause.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">
+        <span>Question 3 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        If her parents had moved to France when she was young, Amara ________ fluent in French today.
+        <br><small style="color:#a0aec0;font-size:11px">Which option correctly completes the sentence?</small>
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. would have been</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. would be</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. will be</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. had been</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','B','The key word is &quot;today&quot; — the result is happening right now (present). Past condition + present result = Mixed Conditional. Mixed Conditional result clause = would + base verb (no &quot;have&quot;). So: would be. &quot;Would have been&quot; is Third Conditional — that would mean she was fluent at some point in the past, not now. &quot;Will be&quot; is First Conditional (real future possibility).')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">
+        <span>Question 4 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        Which sentence is a correct Third Conditional?
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. If I had more time, I would visit you.</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. If he had arrived on time, the meeting would have started.</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. If she works hard, she will get a promotion.</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. If they had studied, they would pass now.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','B','Option B: &quot;had arrived&quot; (past perfect if-clause) + &quot;would have started&quot; (past perfect result) = Third Conditional. Both past. Correct. Option A: &quot;had more time&quot; (past simple) + &quot;would visit&quot; = Second Conditional (imaginary present). Option C: present simple + will = First Conditional. Option D: &quot;had studied&quot; + &quot;would pass now&quot; = Mixed Conditional (past condition, present result) — not Third.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">
+        <span>Question 5 <span class="diff-pill da">Advanced</span></span>
+      </div>
+      <div class="pq-text">
+        If the ancient city ________ (not / be destroyed) by the earthquake, it ________ (be) one of the most visited tourist sites in the world today.
+        <br><small style="color:#a0aec0;font-size:11px">Which pair correctly fills both blanks?</small>
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. had not been destroyed / would have been</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. was not destroyed / would be</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. had not been destroyed / would be</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. had not been destroyed / will be</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','C','This is a Mixed Conditional. The condition is past: the city was destroyed long ago (past event that did not happen in the imagined version). The result is present: it would be a tourist site &quot;today&quot; — right now. So: if-clause = had not been destroyed (past perfect negative passive). Result clause = would be (present result, no &quot;have&quot;). Option A uses &quot;would have been&quot; — that is Third Conditional (past result), but the sentence says &quot;today&quot; which is present. Option B uses simple past in the if-clause — wrong for conditionals of this type.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Questions Complete!</h3>
+        <p>You have mastered the Third and Mixed Conditionals. Well done.</p>
+      </div>
+
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Third Conditional</h4>
+          <ul>
+            <li>If + had + past participle</li>
+            <li>Result: would have + past participle</li>
+            <li>Both condition and result are PAST</li>
+            <li>Used when something did not happen</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Mixed Conditional</h4>
+          <ul>
+            <li>If + had + past participle</li>
+            <li>Result: would + base verb (NO &quot;have&quot;)</li>
+            <li>Past condition → PRESENT result</li>
+            <li>Key signal: &quot;now&quot;, &quot;today&quot;, &quot;still&quot;</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+var currentQ = 1;
+var totalQ = 5;
+var selected = {};
+
+function selectOpt(qid, letter, el) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = letter;
+}
+
+function checkOpt(qid, correct, explanation) {
+  var choice = selected[qid];
+  var fb = document.getElementById(qid + '-fb');
+  if (!choice) {
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = 'Please select an answer first.';
+    return;
+  }
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
+
+  if (choice === correct) {
+    document.getElementById(qid + correct).classList.add('correct');
+    fb.className = 'feedback fb-correct';
+    fb.innerHTML = '&#10003; Correct! ' + explanation;
+    setTimeout(function() { advanceQ(); }, 1200);
+  } else {
+    document.getElementById(qid + choice).classList.add('wrong');
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = '&#10007; Not quite — check whether the result is past or present. Try again.';
+    opts.forEach(function(o) { o.style.pointerEvents = 'auto'; });
+    document.getElementById(qid + choice).style.pointerEvents = 'none';
+  }
+}
+
+function advanceQ() {
+  var nextN = currentQ + 1;
+  currentQ = nextN;
+  updateProgress();
+  if (nextN <= totalQ) {
+    var nextEl = document.getElementById('q' + nextN);
+    if (nextEl) {
+      nextEl.style.display = 'block';
+      setTimeout(function() { nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+  } else {
+    var summary = document.getElementById('summary-section');
+    if (summary) {
+      summary.style.display = 'block';
+      setTimeout(function() { summary.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+  }
+}
+
+function updateProgress() {
+  var done = currentQ - 1;
+  var label = document.getElementById('prog-label');
+  var fill  = document.getElementById('prog-fill');
+  if (done >= totalQ) {
+    if (label) label.textContent = 'All ' + totalQ + ' questions complete!';
+    if (fill)  fill.style.width  = '100%';
+  } else {
+    if (label) label.textContent = 'Question ' + currentQ + ' of ' + totalQ;
+    if (fill)  fill.style.width  = Math.round(done / totalQ * 100) + '%';
+  }
+}
+</script>
+
+</body>
+</html>
