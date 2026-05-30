@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Addition vs Result Connectors — Unit 5</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.next { background: #1e8b68; }
+.nav-btn.next:hover { background: #0d6e4f; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.tip-box p { color: #44337a; margin: 0; font-size: 13px; }
+
+/* Two-family comparison */
+.family-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+.family-card { border-radius: 10px; padding: 18px 20px; }
+.family-add { background: #ebf4ff; border: 2px solid #90cdf4; }
+.family-res { background: #fef3c7; border: 2px solid #f6ad55; }
+.family-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.family-add h4 { color: #1e40af; }
+.family-res h4 { color: #92400e; }
+.family-card .fam-desc { font-size: 12px; color: #4a5568; margin-bottom: 10px; }
+.family-card .words { display: flex; flex-wrap: wrap; gap: 5px; }
+.word-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+.add-pill { background: #dbeafe; color: #1e40af; }
+.res-pill { background: #fef3c7; color: #92400e; }
+
+/* The Key Question visual */
+.key-q-box { background: #1a1a2e; color: white; border-radius: 12px; padding: 22px 26px; margin: 16px 0; }
+.key-q-box .kq-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 14px; }
+.kq-question { font-size: 15px; font-weight: 800; color: white; margin-bottom: 14px; line-height: 1.4; }
+.kq-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kq-path { border-radius: 8px; padding: 12px 14px; }
+.kq-yes { background: #fef3c7; }
+.kq-no  { background: #ebf4ff; }
+.kq-path .kq-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.kq-yes .kq-label { color: #92400e; }
+.kq-no  .kq-label { color: #1e40af; }
+.kq-path p { font-size: 13px; margin: 0; }
+.kq-yes p { color: #78350f; }
+.kq-no  p { color: #1e3a8a; }
+
+/* Sentence diagrams */
+.sent-diagram { border-radius: 10px; padding: 14px 18px; margin: 10px 0; font-size: 13px; border: 1px solid #e8edf5; }
+.sent-diagram .sd-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; }
+.sent-parts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; line-height: 1.6; }
+.sp-idea { background: #f0f4ff; border: 1px solid #c3d0f7; border-radius: 6px; padding: 3px 10px; color: #2d3748; }
+.sp-connector { background: #1e8b68; color: white; border-radius: 6px; padding: 3px 10px; font-weight: 700; }
+.sp-connector.res-c { background: #d97706; }
+.sp-connector.add-c { background: #2563eb; }
+.sp-arrow { color: #a0aec0; font-size: 16px; }
+.sp-tag { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin-left: 4px; }
+.sp-tag.res-tag { background: #fef3c7; color: #92400e; }
+.sp-tag.add-tag { background: #dbeafe; color: #1e40af; }
+
+/* Worked examples */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.worked-steps .ws-num { min-width: 20px; height: 20px; background: #e6fffa; color: #1e8b68; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #e6fffa; border-top: 1px solid #c6f6d5; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #1e8b68; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #1e8b68; background: #e6fffa; }
+.pq-opt.selected { border-color: #1e8b68; background: #e6fffa; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #0d6e4f; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+/* HYBRID PROGRESS */
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #1e8b68; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #1e8b68; font-weight: 700; }
+
+.complete-banner { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Addition vs Result Connectors</span>
+    <span class="lesson-badge">Unit 5 · Cloze</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn next" href="Grammar_Lesson_MixedConditionalPresentResult.html">Next Lesson &#8594;</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 5 &nbsp;·&nbsp; Cloze</div>
+    <h1>Addition vs Result Connectors</h1>
+    <div class="subtitle">Two families that look similar — but mean completely different things. Here is how to tell them apart every time.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Cloze Test</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#129300; The Confusion</h2>
+    <p>You already know the four connector functions: <strong>CONTRAST, RESULT, ADDITION, and TIME</strong>. In your last test, you scored well on CONTRAST and TIME — but you mixed up ADDITION and RESULT in several gaps.</p>
+    <p>Here is why this happens: ADDITION connectors and RESULT connectors often appear in the same position in a sentence (after a full stop), and they both sound like they are "adding something". The difference is <em>what kind of something</em>.</p>
+
+    <div class="warn-box">
+      <div class="warn-label">The Core Mistake</div>
+      <p><strong>Consequently</strong> (RESULT) and <strong>Furthermore</strong> (ADDITION) are NOT interchangeable. If you swap them, the sentence can become logically wrong — even if it looks fine at first glance.</p>
+    </div>
+
+    <p>This lesson gives you a <strong>one-question test</strong> that will tell you which family to use every single time.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#128195; Meet the Two Families</h2>
+
+    <div class="family-grid">
+      <div class="family-card family-add">
+        <h4>&#10133; The ADDITION Family</h4>
+        <div class="fam-desc">Use when the second sentence adds <strong>extra information</strong> — a new fact, feature, or detail. The second idea is not <em>caused by</em> the first. Both ideas are just true at the same time.</div>
+        <div class="words">
+          <span class="word-pill add-pill">furthermore,</span>
+          <span class="word-pill add-pill">moreover,</span>
+          <span class="word-pill add-pill">in addition,</span>
+          <span class="word-pill add-pill">additionally,</span>
+          <span class="word-pill add-pill">also,</span>
+        </div>
+      </div>
+      <div class="family-card family-res">
+        <h4>&#128165; The RESULT Family</h4>
+        <div class="fam-desc">Use when the second sentence is an <strong>outcome or effect</strong> of the first. The first idea <em>causes</em> the second idea. Without the first event, the second would not happen.</div>
+        <div class="words">
+          <span class="word-pill res-pill">consequently,</span>
+          <span class="word-pill res-pill">therefore,</span>
+          <span class="word-pill res-pill">as a result,</span>
+          <span class="word-pill res-pill">thus,</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Visual Trick</div>
+      <p>ADDITION = stacking bricks side by side (more and more facts). RESULT = a domino falling (first event <em>knocks over</em> the second event).</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#10067; The One Question You Must Ask</h2>
+    <p>When you see a gap between two sentences, ask yourself this single question:</p>
+
+    <div class="key-q-box">
+      <div class="kq-title">&#128273; The Key Question</div>
+      <div class="kq-question">"Is the second idea caused by the first idea — or would it be true anyway?"</div>
+      <div class="kq-paths">
+        <div class="kq-path kq-yes">
+          <div class="kq-label">YES — it is caused by the first</div>
+          <p>The first event <strong>produced</strong> the second event. → Use a <strong>RESULT</strong> connector: consequently / therefore / as a result</p>
+        </div>
+        <div class="kq-path kq-no">
+          <div class="kq-label">NO — it would be true anyway</div>
+          <p>The second sentence is just <strong>extra information</strong>. It is not caused by the first. → Use an <strong>ADDITION</strong> connector: furthermore / moreover / in addition</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Let us practise this question on two examples that look very similar:</p>
+
+    <div class="sent-diagram">
+      <div class="sd-label">Example A</div>
+      <p style="font-style:italic;color:#2d3748;margin-bottom:8px;">"The storm knocked out the power lines. <strong>______</strong>, the whole city lost electricity."</p>
+      <p style="font-size:13px;color:#4a5568;margin-bottom:6px;">Ask: Was the city losing electricity <em>caused by</em> the storm knocking out power lines? <strong>YES</strong> — that is exactly how it happened. → <strong>RESULT</strong> connector.</p>
+      <div class="answer-reveal" style="border-radius:6px;border:none;padding:6px 0 0;background:none;color:#1e8b68;">✓ Answer: <em>Consequently</em>, the whole city lost electricity.</div>
+    </div>
+
+    <div class="sent-diagram">
+      <div class="sd-label">Example B</div>
+      <p style="font-style:italic;color:#2d3748;margin-bottom:8px;">"The museum has an ancient Egyptian gallery. <strong>______</strong>, it features a collection of Roman coins."</p>
+      <p style="font-size:13px;color:#4a5568;margin-bottom:6px;">Ask: Was the Roman coin collection <em>caused by</em> the Egyptian gallery? <strong>NO</strong> — the museum just happens to have both. It is extra information. → <strong>ADDITION</strong> connector.</p>
+      <div class="answer-reveal" style="border-radius:6px;border:none;padding:6px 0 0;background:none;color:#1e8b68;">✓ Answer: <em>Furthermore</em>, it features a collection of Roman coins.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#128221; Worked Examples — Step by Step</h2>
+    <p>Here are three examples. Read each gap, ask the key question, and see how the answer follows logically.</p>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Worked Example 1 — clear RESULT</div>
+        "The scientist had been studying the volcano for months and noticed unusual activity. _______, the government ordered an evacuation of the surrounding villages."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Period test:</strong> There is a full stop before the gap. So I need a sentence-starter.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Key question:</strong> Did the government evacuate villages <em>because</em> the scientist noticed unusual activity? YES — the warning caused the evacuation.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>→ RESULT connector: <em>consequently / therefore / as a result</em></div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: <em>Consequently</em>, the government ordered an evacuation.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Worked Example 2 — clear ADDITION</div>
+        "The new community centre offers free swimming lessons every weekend. _______, it runs a popular after-school homework club for local children."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Period test:</strong> Full stop before the gap. Sentence-starter needed.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Key question:</strong> Is the homework club a <em>result</em> of the swimming lessons? NO — the centre just happens to offer both. They are separate programmes.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>→ ADDITION connector: <em>furthermore / moreover / in addition</em></div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: <em>Furthermore</em>, it runs a popular after-school homework club.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Worked Example 3 — the tricky one</div>
+        "The expedition team had trained rigorously for eight months. _______, their fitness levels were exceptional when they reached base camp."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Period test:</strong> Full stop before the gap. Sentence-starter needed.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Key question:</strong> Were their exceptional fitness levels <em>caused by</em> eight months of training? YES — the training <em>produced</em> their fitness. This is a direct cause-effect.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div>→ RESULT connector. (Note: it might <em>look</em> like ADDITION because both facts are positive. But ask the key question — the fitness is a direct outcome of the training.)</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: <em>Consequently</em>, their fitness levels were exceptional when they reached base camp.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+
+    <div class="practice-intro">
+      For each question: read both sentences, ask the Key Question, then choose the best connector. Complete Q1 before Q2 appears — and so on.
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">
+        <span>Question 1 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        The scientist had been researching the disease for three years. _______, she published a breakthrough paper that changed the way doctors treated it.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Furthermore,</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. However,</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. Moreover,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','Key question: Did she publish a breakthrough paper BECAUSE of three years of research? YES — the research produced the paper. That is a RESULT, not just extra information. Use a RESULT connector. Answer: Consequently.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">
+        <span>Question 2 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-text">
+        The new sports complex has an Olympic-sized swimming pool. _______, it contains six tennis courts and a fully equipped gymnasium.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. Therefore,</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. As a result,</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. Furthermore,</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Consequently,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','C','Key question: Are the tennis courts and gymnasium caused by the swimming pool? NO — the complex simply has all of these facilities. They are separate features. That is ADDITION. Use an ADDITION connector: Furthermore. Answer: Furthermore.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">
+        <span>Question 3 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        The old bridge had not been maintained for over twenty years. _______, engineers declared it structurally unsafe and closed it to traffic.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Moreover,</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. In addition,</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. As a result,</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Furthermore,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','C','Key question: Was the bridge declared unsafe BECAUSE it had not been maintained for twenty years? YES — the neglect directly caused the structural failure. That is a RESULT. Use a RESULT connector: As a result. Answer: As a result.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">
+        <span>Question 4 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-text">
+        The polar bear is a critically endangered species due to climate change. _______, its natural Arctic habitat is shrinking at an alarming rate each decade.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. Consequently,</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Therefore,</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. As a result,</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Moreover,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','D','Key question: Is the shrinking habitat CAUSED BY the bear being endangered? NO — both the bear being endangered and the habitat shrinking are separate effects of climate change. The second sentence adds another worrying fact, it is not a result of the first sentence. That is ADDITION. Use an ADDITION connector: Moreover. Answer: Moreover.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">
+        <span>Question 5 <span class="diff-pill da">Advanced</span></span>
+      </div>
+      <div class="pq-text">
+        The Antarctic research station relies on solar panels to generate electricity throughout the summer months. _______, it uses wind turbines to provide power during the long, dark winter when sunlight is unavailable.
+      </div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Consequently,</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Therefore,</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. In addition,</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. As a result,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','C','This is the tricky one. The wind turbines sound like they could be a result of the solar panels — but ask the key question carefully: Are the wind turbines CAUSED BY the solar panels? NO. The station uses wind turbines for a completely separate reason (winter darkness). The two power sources are independent. The second sentence is adding extra information about a different energy system. That is ADDITION. Answer: In addition.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Questions Complete!</h3>
+        <p>You can now tell ADDITION and RESULT apart using the Key Question. You are ready for Unit 5.</p>
+      </div>
+
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>ADDITION Family</h4>
+          <ul>
+            <li>Furthermore, / Moreover, / In addition, / Additionally,</li>
+            <li>The second idea is NOT caused by the first</li>
+            <li>Both facts are independently true</li>
+            <li>Think: stacking bricks side by side</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>RESULT Family</h4>
+          <ul>
+            <li>Consequently, / Therefore, / As a result, / Thus,</li>
+            <li>The second idea IS caused by the first</li>
+            <li>First event → produces → second event</li>
+            <li>Think: a domino falling and knocking the next one over</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sum-card" style="margin-top:12px">
+        <h4>The Key Question — memorise this</h4>
+        <ul>
+          <li>"Is the second idea caused by the first idea — or would it be true anyway?"</li>
+          <li>YES → RESULT connector (consequently / therefore / as a result)</li>
+          <li>NO → ADDITION connector (furthermore / moreover / in addition)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+var currentQ = 1;
+var totalQ = 5;
+var selected = {};
+
+function selectOpt(qid, letter, el) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = letter;
+}
+
+function checkOpt(qid, correct, explanation) {
+  var choice = selected[qid];
+  var fb = document.getElementById(qid + '-fb');
+  if (!choice) {
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = 'Please select an answer first.';
+    return;
+  }
+  if (choice === correct) {
+    document.getElementById(qid + choice).classList.add('correct');
+    fb.className = 'feedback fb-correct';
+    fb.textContent = '✓ Correct! ' + explanation;
+    currentQ++;
+    var fill = Math.round((currentQ - 1) / totalQ * 100);
+    document.getElementById('prog-fill').style.width = fill + '%';
+    if (currentQ <= totalQ) {
+      document.getElementById('prog-label').textContent = 'Question ' + currentQ + ' of ' + totalQ;
+      setTimeout(function() {
+        var next = document.getElementById('q' + currentQ);
+        if (next) {
+          next.style.display = 'block';
+          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 900);
+    } else {
+      document.getElementById('prog-fill').style.width = '100%';
+      document.getElementById('prog-label').textContent = 'All done!';
+      setTimeout(function() {
+        var s = document.getElementById('summary-section');
+        s.style.display = 'block';
+        s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 900);
+    }
+  } else {
+    document.getElementById(qid + choice).classList.add('wrong');
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = '✗ Not quite — think again. Ask the Key Question: is the second idea caused by the first, or is it just extra information?';
+    selected[qid] = null;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subtle Vocabulary Inference — Unit 5</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #2b6cb0; }
+
+.topnav { background: #1a365d; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #2b6cb0; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.lesson-header { background: linear-gradient(135deg, #2b6cb0, #1a4e8a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.rule-box { background: #ebf8ff; border: 1px solid #90cdf4; border-left: 4px solid #2b6cb0; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2b6cb0; margin-bottom: 4px; }
+.rule-box p { color: #1a365d; margin: 0; font-weight: 600; font-size: 13px; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+.tip-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.tip-box p { color: #44337a; margin: 0; font-size: 13px; }
+
+/* Strategy cards */
+.strat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.strat-card { border-radius: 10px; padding: 16px 18px; }
+.strat-tone { background: #fef3c7; border: 2px solid #f6ad55; }
+.strat-behav { background: #e6fffa; border: 2px solid #81e6d9; }
+.strat-degree { background: #faf5ff; border: 2px solid #d6bcfa; }
+.strat-elim { background: #ebf8ff; border: 2px solid #90cdf4; }
+.strat-card .sc-num { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.strat-tone .sc-num    { color: #92400e; }
+.strat-behav .sc-num   { color: #1e8b68; }
+.strat-degree .sc-num  { color: #6b46c1; }
+.strat-elim .sc-num    { color: #2b6cb0; }
+.strat-card h4 { font-size: 13px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
+.strat-card p { font-size: 12px; color: #4a5568; margin: 0; }
+.strat-card .example { font-style: italic; font-size: 12px; color: #718096; margin-top: 8px; background: rgba(0,0,0,0.04); padding: 6px 10px; border-radius: 6px; }
+
+/* Annotated passage */
+.passage-box { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 18px 22px; margin: 14px 0; font-size: 14px; color: #2d3748; line-height: 2; }
+.hl-tone   { background: #fef3c7; padding: 1px 3px; border-radius: 3px; font-weight: 600; }
+.hl-behav  { background: #e6fffa; padding: 1px 3px; border-radius: 3px; font-weight: 600; }
+.hl-degree { background: #faf5ff; padding: 1px 3px; border-radius: 3px; font-weight: 600; }
+.hl-word   { background: #2b6cb0; color: white; padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #4a5568; }
+.leg-dot { width: 12px; height: 12px; border-radius: 3px; }
+.ld-tone   { background: #fef3c7; border: 1px solid #f6ad55; }
+.ld-behav  { background: #e6fffa; border: 1px solid #81e6d9; }
+.ld-degree { background: #faf5ff; border: 1px solid #d6bcfa; }
+
+/* Worked examples */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.ws-num { min-width: 20px; height: 20px; background: #ebf8ff; color: #2b6cb0; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #ebf8ff; border-top: 1px solid #bee3f8; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #2b6cb0; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-passage { background: #f7f9fd; border-left: 3px solid #2b6cb0; border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; font-size: 13px; color: #2d3748; line-height: 1.8; }
+.pq-question { font-size: 14px; color: #2d3748; margin-bottom: 10px; font-weight: 600; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #2b6cb0; background: #ebf8ff; }
+.pq-opt.selected { border-color: #2b6cb0; background: #ebf8ff; font-weight: 600; }
+.pq-opt.correct  { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong    { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #2b6cb0; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.check-btn:hover { background: #2c5282; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #2b6cb0; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #2b6cb0; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #2b6cb0; font-weight: 700; }
+
+.complete-banner { background: linear-gradient(135deg, #2b6cb0, #1a4e8a); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Subtle Vocabulary Inference</span>
+    <span class="lesson-badge">Unit 5 · Vocabulary</span>
+  </div>
+  <div class="nav-btns">
+    <a class="nav-btn prev" href="Grammar_Lesson_MixedConditionalPresentResult.html">&#8592; Prev Lesson</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 5 &nbsp;·&nbsp; Vocabulary</div>
+    <h1>Subtle Vocabulary Inference</h1>
+    <div class="subtitle">When the passage doesn't give you a direct clue — three advanced strategies for working out a word's meaning from hidden signals.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Vocabulary</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#128218; Why Some Words Are Harder to Infer</h2>
+    <p>In Unit 4 you learned four strategies: <strong>Definition clue</strong> (a dash or "means"), <strong>Example clue</strong> (such as / including), <strong>Contrast clue</strong> (but / however / unlike), and <strong>General sense</strong> (what is happening in the story?).</p>
+    <p>Those four strategies work well when the passage is generous with information. But sometimes — especially in harder ISA passages — the writer gives you no definition, no example, and no contrast word. The clues are buried inside the passage itself.</p>
+
+    <div class="warn-box">
+      <div class="warn-label">The New Challenge</div>
+      <p>In difficult vocabulary questions, you will not see a dash (—), "means", "but", or any obvious signal. You have to read the surrounding text more carefully and use <strong>three hidden clue types</strong> to work out the meaning.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#127919; Three Advanced Inference Strategies</h2>
+
+    <div class="strat-grid">
+      <div class="strat-card strat-tone">
+        <div class="sc-num">Strategy 5</div>
+        <h4>&#127915; Tone / Mood Clue</h4>
+        <p>What is the overall <em>feeling</em> of the passage — positive, negative, or mixed? The target word must match that tone. If the passage is describing something terrible, words with positive meanings are probably wrong.</p>
+        <div class="example">"The flood <strong>[ravaged]</strong> the valley." → The tone is destructive and negative → ravaged = severely damaged. ✓</div>
+      </div>
+      <div class="strat-card strat-behav">
+        <div class="sc-num">Strategy 6</div>
+        <h4>&#128100; Behaviour / Action Clue</h4>
+        <p>What does the character <em>do</em>? The target word describes the character — so it must match their specific actions, not just general personality. Look at what they actually do in the text.</p>
+        <div class="example">"She checked every number three times before moving on." → She checks everything carefully → <strong>[meticulous]</strong> = very thorough and careful. ✓</div>
+      </div>
+      <div class="strat-card strat-degree">
+        <div class="sc-num">Strategy 7</div>
+        <h4>&#128200; Degree / Intensity Clue</h4>
+        <p>Sometimes two answer options mean roughly the same thing, but one is <em>stronger</em> than the other. Use the passage to judge the intensity — extreme language in the text signals a stronger word.</p>
+        <div class="example">"Despite three failed attempts, she continued without hesitation." → Three failures + no hesitation = very strong determination → <strong>[relentless]</strong> (not just "determined"). ✓</div>
+      </div>
+      <div class="strat-card strat-elim">
+        <div class="sc-num">Strategy 8</div>
+        <h4>&#128290; Logical Elimination</h4>
+        <p>When unsure, rule out options that <em>contradict</em> the text. If the passage says a character felt isolated, any answer option meaning "popular" or "sociable" can be eliminated immediately.</p>
+        <div class="example">"No one visited. Letters went unanswered." → NOT friendly or sociable → eliminate those options → <strong>[reclusive]</strong> = avoiding contact with others. ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#128270; Reading the Hidden Clues in a Passage</h2>
+    <p>Here is a short passage with three underlined words. The highlighted text around each word shows the type of clue being used.</p>
+
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot ld-tone"></div> Tone / Mood clue</div>
+      <div class="leg-item"><div class="leg-dot ld-behav"></div> Behaviour / Action clue</div>
+      <div class="leg-item"><div class="leg-dot ld-degree"></div> Degree / Intensity clue</div>
+    </div>
+
+    <div class="passage-box">
+      Professor Ayasha was known for her <span class="hl-word">scrupulous</span> approach to research. <span class="hl-behav">She never published a finding without running it through at least four rounds of checking, and she had once delayed a major paper by six months to verify a single statistic.</span> Her colleagues sometimes found her methods slow, but no error had ever appeared in her published work.<br><br>
+      The data she uncovered was deeply <span class="hl-word">unsettling</span>. <span class="hl-tone">It suggested that hundreds of patients had been given the wrong diagnosis for over a decade. The implications were enormous and disturbing.</span><br><br>
+      <span class="hl-degree">Despite working eighteen-hour days for three months, facing repeated setbacks, and receiving little institutional support</span>, Professor Ayasha remained <span class="hl-word">resolute</span> in her determination to make the findings public.
+    </div>
+
+    <div class="rule-box" style="margin-top:14px;">
+      <div class="rule-label">How to read the clues</div>
+      <p><strong>scrupulous</strong>: Behaviour clue — she runs four rounds of checking, delayed a paper six months over one statistic. Action = extreme care and thoroughness. → scrupulous = very careful and thorough.<br>
+      <strong>unsettling</strong>: Tone clue — the passage describes wrong diagnoses, enormous implications, disturbing. The mood is alarming and negative. → unsettling = causing worry or alarm.<br>
+      <strong>resolute</strong>: Degree/Intensity clue — eighteen-hour days for three months, repeated setbacks, little support — yet she continued. This is extreme persistence against extreme obstacles. → resolute = firmly determined, unwilling to give up.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#128221; Worked Example — Full Process</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Worked Example — using Behaviour Clue + Elimination</div>
+        <p style="margin-bottom:8px;">Read this extract. What does the underlined word most likely mean?</p>
+        <p style="font-style:italic;">"The general was <strong>[formidable]</strong>. His troops had never lost a battle under his command. Enemy commanders would withdraw rather than face him, and his very name was enough to discourage an attack."</p>
+        <p style="margin-top:8px;font-size:13px;color:#4a5568;">Options: A. Kind and popular &nbsp; B. Inspiring respect and fear &nbsp; C. Reckless and unpredictable &nbsp; D. Cautious and defensive</p>
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Behaviour clue:</strong> What does he DO? Never lost a battle. Enemies withdraw rather than face him. His name discourages attacks.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Tone check:</strong> The passage describes him as powerful and intimidating — enemies are afraid of him.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Elimination:</strong> A (kind/popular) — eliminated: the passage says nothing about kindness. C (reckless) — eliminated: winning every battle is not reckless. D (cautious/defensive) — eliminated: his name discourages attacks, he is not hiding.</div></div>
+        <div class="ws"><div class="ws-num">4</div><div>→ B (inspiring respect and fear) matches all clues: undefeated + feared by enemies.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: B. Inspiring respect and fear — formidable = something that causes admiration or fear because of impressive power or skill.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+
+    <div class="practice-intro">
+      Read each passage carefully. Look for tone, behaviour, and intensity clues. Use elimination to narrow down your answer. Complete Q1 before Q2 appears.
+    </div>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">
+        <span>Question 1 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-passage">
+        "Dr. Lin never took shortcuts in her laboratory. She labelled every sample twice, recorded every measurement to four decimal places, and kept a handwritten log of every experiment she had ever conducted — going back fifteen years."
+      </div>
+      <div class="pq-question">What does the word <strong>meticulous</strong> most likely mean in this context?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Careless and disorganised</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Extremely careful and thorough</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. Fast and efficient</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. Creative and original</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','Behaviour clue: labels every sample twice, records to four decimal places, keeps 15 years of logs. Every action shows extreme care and precision. Eliminate A (careless — the opposite). C (fast — she takes extra steps, not shortcuts). D (creative — nothing in the passage mentions creativity). Answer: B. Meticulous = extremely careful and thorough.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">
+        <span>Question 2 <span class="diff-pill df">Foundational</span></span>
+      </div>
+      <div class="pq-passage">
+        "The earthquake had left the old city in ruins. Buildings that had stood for centuries were reduced to rubble. The streets were unrecognisable, filled with dust and broken stone. Those who returned found nothing familiar — only the bare outlines of what had once been their home."
+      </div>
+      <div class="pq-question">What does the word <strong>devastated</strong> most likely mean in this context?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. Slightly damaged but largely intact</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Completely and severely destroyed</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. Quietly abandoned over many years</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Carefully preserved after the disaster</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','B','Tone clue: the entire passage is about total destruction — rubble, centuries-old buildings gone, streets unrecognisable, nothing familiar. The mood is one of total loss. Degree clue: &quot;nothing familiar — only bare outlines&quot; shows extreme, not mild, destruction. A and D contradict the tone. C says quietly abandoned — but the passage is about sudden violent destruction. Answer: B. Devastated = completely and severely destroyed.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">
+        <span>Question 3 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-passage">
+        "Commander Reyes had crossed the Arctic three times on foot. She had survived temperatures of minus forty degrees, navigated without GPS, and pulled injured team members through blizzards for days at a time. Even after a severe fall that fractured two ribs, she completed the journey."
+      </div>
+      <div class="pq-question">What does the word <strong>indomitable</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Easily discouraged by hardship</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. Skilled at planning and preparation</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. Too strong-willed to be defeated or stopped</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Cautious and unwilling to take risks</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','C','Behaviour clue: crossed the Arctic three times, survived extreme cold, navigated without GPS, carried injured team members, continued even with fractured ribs. Every single action shows she cannot be stopped. Degree clue: the passage piles up obstacle after obstacle — this is extreme endurance, not just skill or caution. A = the opposite. B = skill/planning — but the passage is about overcoming obstacles, not preparing for them. D = cautious — eliminated: crossing the Arctic without GPS is not cautious. Answer: C. Indomitable = too strong-willed to be defeated or stopped.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">
+        <span>Question 4 <span class="diff-pill dd">Developing</span></span>
+      </div>
+      <div class="pq-passage">
+        "Professor Amara's lectures were always packed. Students who had graduated years before still spoke of his teaching with admiration. He had a gift for turning complicated ideas into simple, vivid pictures that even a first-year student could understand immediately."
+      </div>
+      <div class="pq-question">What does the word <strong>eloquent</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. Difficult to understand and follow</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Clear, expressive, and easy to understand</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. Loud and entertaining but not informative</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Modest and reluctant to speak publicly</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','B','Behaviour clue: turns complicated ideas into simple vivid pictures, first-year students understand immediately. Tone clue: students admire him years later, lectures are packed — positive, communicative atmosphere. Eliminate A (difficult to understand — opposite). C (entertaining but not informative — the passage says students understand ideas, not just enjoy). D (reluctant to speak — he is clearly an enthusiastic, popular speaker). Answer: B. Eloquent = clear, expressive, and easy to understand.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">
+        <span>Question 5 <span class="diff-pill da">Advanced</span></span>
+      </div>
+      <div class="pq-passage">
+        "The proposal to build a new highway through the nature reserve was immediately <strong>[contentious]</strong>. Environmentalists argued that it would destroy irreplaceable habitats. Local businesses insisted it would bring essential economic growth. Government officials struggled to satisfy either side, and public meetings ended in heated argument more often than agreement."
+      </div>
+      <div class="pq-question">What does the word <strong>contentious</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Widely accepted without debate</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Causing strong disagreement and argument</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Complicated but eventually resolved</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. Simple and straightforward to decide</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','B','Behaviour clue: environmentalists argue, businesses insist, government struggles, public meetings end in heated argument. Every group is fighting, nobody agrees. Tone clue: the passage is one of ongoing conflict and disagreement. Degree clue: &quot;immediately contentious&quot; + &quot;heated argument more often than agreement&quot; = strong, persistent disagreement. A = widely accepted — opposite. C = eventually resolved — the passage says meetings end in argument, not resolution. D = straightforward — the opposite of what the passage describes. Answer: B. Contentious = causing strong disagreement and argument.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Questions Complete!</h3>
+        <p>You can now use hidden clues — tone, behaviour, and intensity — to infer vocabulary in hard passages. Ready for Unit 5!</p>
+      </div>
+
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Three New Strategies</h4>
+          <ul>
+            <li>Tone/Mood clue — does the passage feel positive, negative, or alarming?</li>
+            <li>Behaviour/Action clue — what does the character actually DO?</li>
+            <li>Degree/Intensity clue — how extreme is the language around the word?</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Logical Elimination</h4>
+          <ul>
+            <li>Cross out options that contradict the text</li>
+            <li>Cross out options that are too mild or too strong</li>
+            <li>The remaining option is your answer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sum-card" style="margin-top:12px">
+        <h4>The Full Inference Toolkit (Units 4 + 5)</h4>
+        <ul>
+          <li>Definition clue: dash (—) or "means" / "in other words" gives the meaning directly</li>
+          <li>Example clue: "such as" or "including" — identify what the examples have in common</li>
+          <li>Contrast clue: "but", "however", "unlike", "although" — the word means the opposite</li>
+          <li>General sense: what is happening in the sentence overall?</li>
+          <li>Tone/Mood: match the word to the feeling of the passage</li>
+          <li>Behaviour/Action: match the word to what the character does</li>
+          <li>Degree/Intensity: use the extremity of the language as a guide</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+var currentQ = 1;
+var totalQ = 5;
+var selected = {};
+
+function selectOpt(qid, letter, el) {
+  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
+  opts.forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selected[qid] = letter;
+}
+
+function checkOpt(qid, correct, explanation) {
+  var choice = selected[qid];
+  var fb = document.getElementById(qid + '-fb');
+  if (!choice) {
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = 'Please select an answer first.';
+    return;
+  }
+  if (choice === correct) {
+    document.getElementById(qid + choice).classList.add('correct');
+    fb.className = 'feedback fb-correct';
+    fb.textContent = '✓ Correct! ' + explanation;
+    currentQ++;
+    var fill = Math.round((currentQ - 1) / totalQ * 100);
+    document.getElementById('prog-fill').style.width = fill + '%';
+    if (currentQ <= totalQ) {
+      document.getElementById('prog-label').textContent = 'Question ' + currentQ + ' of ' + totalQ;
+      setTimeout(function() {
+        var next = document.getElementById('q' + currentQ);
+        if (next) {
+          next.style.display = 'block';
+          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 900);
+    } else {
+      document.getElementById('prog-fill').style.width = '100%';
+      document.getElementById('prog-label').textContent = 'All done!';
+      setTimeout(function() {
+        var s = document.getElementById('summary-section');
+        s.style.display = 'block';
+        s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 900);
+    }
+  } else {
+    document.getElementById(qid + choice).classList.add('wrong');
+    fb.className = 'feedback fb-wrong';
+    fb.textContent = '✗ Not quite — look at the behaviour clues and tone of the passage again. Which option matches what the passage shows?';
+    selected[qid] = null;
+  }
+}
+</script>
+</body>
+</html>

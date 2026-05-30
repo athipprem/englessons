@@ -15,13 +15,13 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '27 May 2026',
+  updated:        '30 May 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           4,
+    n:           5,
     status:      'Lessons In Progress',
     testPending: false
   },
@@ -34,37 +34,37 @@ var PREM_ENGLISH = {
 
   // Last completed unit test (updated after each test)
   lastUnit: {
-    n: 3, label: 'Unit 3', score: 13, outOf: 20, pct: 65, delta: -1, prevScore: 14,
+    n: 4, label: 'Unit 4', score: 14, outOf: 20, pct: 70, delta: 1, prevScore: 13,
 
-    patternLabel:   'Unit 3 &mdash; 27 May 2026 &middot; 13/20 (65%) &middot; Cloze 2/7 &middot; Grammar 6/7 &middot; Reading 5/6',
-    patternInsight: '<strong>Cloze collapsed to 2/7 (29%) &mdash; structural confusion between sentence-starters and clause-joiners is now the #1 priority.</strong> Three distinct failure modes: Q1 had the right function (CONTRAST) but chose the wrong structural type (&ldquo;however&rdquo; vs &ldquo;although&rdquo;); Q3, Q5, Q7 were wrong-function errors (ADDITION/CONTRAST/RESULT in the wrong slots); Q4 was a within-RESULT swap (consequently vs therefore). Grammar continued to improve strongly: 6/7 (86%), with one error on Q12 where a First/Second hybrid was chosen instead of clean Second Conditional. Reading debuted well at 5/6 (83%) &mdash; a strong first result. Q18 error shows vocabulary inference needs work (&ldquo;undeterred&rdquo; &mdash; failed to use context clues to identify not stopped by obstacles).',
+    patternLabel:   'Unit 4 &mdash; 30 May 2026 &middot; 14/20 (70%) &middot; Cloze 4/7 &middot; Grammar 4/7 &middot; Vocab 6/6 &#127775;',
+    patternInsight: '<strong>Vocabulary is now a genuine strength: 6/6 (100%) &mdash; the inference strategy framework has clicked.</strong> Cloze improved to 4/7 (57%) from 2/7 in Unit 3, but errors reveal a specific blind spot: ADDITION vs RESULT confusion. Q2 swapped RESULT for ADDITION (chose E=consequently for D=furthermore slot); Q5 used CONTRAST connector in a RESULT slot (chose G=whereas for E=consequently); Q7 fell into the distractor trap (chose H=therefore instead of G=whereas). Grammar dipped to 4/7 (57%) &mdash; errors are now clustered in Mixed Conditional nuance, not scattered. Q10 used &ldquo;will have&rdquo; instead of &ldquo;would have&rdquo; in a Mixed result clause; Q13 incorrectly identified A as the error instead of D (&ldquo;would had&rdquo;) &mdash; attention/scanning error; Q14 chose Third Conditional form (&ldquo;would have been&rdquo;) when &ldquo;today&rdquo; signalled Mixed (&ldquo;would be&rdquo;). Overall: &plus;1 mark, &plus;5% from Unit 3. Progress is steady.',
 
-    analysisLabel:   'Unit 3 Result Analysis &mdash; 27 May 2026',
-    analysisInsight: '<strong>Score: 13/20 (65%) &mdash; 7 questions wrong. &minus;1 from Unit 2 (70%&rarr;65%). Dip is Cloze-driven; Grammar and Reading are both solid.</strong> Cloze 2/7 (29%): Q1 &#10007; wrote A (however) needed D (although) &mdash; CONTRAST function correct, wrong structural type; Q3 &#10007; wrote G (in addition) needed A (however) &mdash; ADDITION placed in CONTRAST slot; Q4 &#10007; wrote E (consequently) needed B (therefore) &mdash; within-RESULT swap; Q5 &#10007; wrote D (although) needed E (consequently) &mdash; CONTRAST in RESULT slot; Q7 &#10007; wrote B (therefore) needed G (in addition) &mdash; RESULT in ADDITION slot. Q2 and Q6 correct. Grammar 6/7 (86%): Q12 &#10007; chose A (&ldquo;If the weather is nice, we would go&rdquo; = mixed hybrid) &mdash; needed B (&ldquo;If the weather were nice, we would go&rdquo; = clean Second Conditional). Q8&ndash;Q11, Q13&ndash;Q14 all correct. Reading 5/6 (83%): Q18 &#10007; chose C (willing to compromise) for &ldquo;undeterred&rdquo; &mdash; needed D (not stopped by obstacles). Failed to use general sense clue: she continued climbing despite the storm. Q15&ndash;Q17, Q19&ndash;Q20 all correct.',
+    analysisLabel:   'Unit 4 Result Analysis &mdash; 30 May 2026',
+    analysisInsight: '<strong>Score: 14/20 (70%) &mdash; 6 questions wrong. &plus;1 from Unit 3 (65%&rarr;70%).</strong> Cloze 4/7 (57%): Q2 &#10007; wrote E (consequently) &mdash; needed D (furthermore). RESULT placed in ADDITION slot. Q5 &#10007; wrote G (whereas) &mdash; needed E (consequently). CONTRAST in RESULT slot; also confused which words remain after using C and D. Q7 &#10007; wrote H (therefore) &mdash; needed G (whereas); H was the distractor &mdash; distractor trap. Q1 Q3 Q4 Q6 all correct. Grammar 4/7 (57%): Q10 &#10007; chose D (had survived / will have access) &mdash; needed B (had survived / would have access). Used &ldquo;will&rdquo; not &ldquo;would&rdquo; in Mixed result clause. Q13 &#10007; chose A as the error &mdash; needed D (&ldquo;would had studied&rdquo; is the error: &ldquo;would had&rdquo; is not valid). Stopped reading after A seemed plausible. Q14 &#10007; chose C (had not failed / would have been) &mdash; needed B (had not failed / would be). Mixed Conditional with &ldquo;today&rdquo; = present result needs &ldquo;would be&rdquo; not &ldquo;would have been&rdquo;. Q8 Q9 Q11 Q12 all correct. Vocab 6/6 (100%): perfect &mdash; all inference strategies applied correctly.',
 
-    qSummary: '<strong>Cloze 2/7 &#10007;&#10007; (Q1 Q3 Q4 Q5 Q7 wrong &mdash; structural type confusion + wrong-function errors) &middot; Grammar 6/7 &#10003; (Q12 wrong &mdash; First/Second hybrid; Q8&ndash;Q11 Q13&ndash;Q14 correct) &middot; Reading 5/6 &#10003; (Q18 wrong &mdash; &ldquo;undeterred&rdquo;: failed to use general sense inference).</strong>',
+    qSummary: '<strong>Cloze 4/7 &#10003; (Q2 Q5 Q7 wrong &mdash; ADDITION/RESULT function confusion + distractor trap) &middot; Grammar 4/7 &#10007; (Q10 Q13 Q14 wrong &mdash; Mixed Conditional present-result form + error-spotting miss) &middot; Vocab 6/6 &#127775; (perfect &mdash; all correct).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote A (however) &mdash; needed D (although). CONTRAST function identified correctly, but &ldquo;however&rdquo; is a sentence-starter and the gap required a clause-joiner. Core structural confusion.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose C (furthermore) &mdash; ADDITION sentence-starter after full stop. Function and structure both correct. Foundational.' },
-      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote G (in addition) &mdash; needed A (however). ADDITION placed in a CONTRAST slot. Function error: the sentence required CONTRAST, not ADDITION.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote E (consequently) &mdash; needed B (therefore). Both are RESULT sentence-starters, but the passage required the more direct result connector. Within-RESULT confusion.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote D (although) &mdash; needed E (consequently). CONTRAST placed in a RESULT slot. Function error: the passage required RESULT, not CONTRAST.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose F (meanwhile) &mdash; TIME connector. Straightforward time signal identified correctly. Foundational.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote B (therefore) &mdash; needed G (in addition). RESULT placed in an ADDITION slot. Function error: the passage required ADDITION, not RESULT.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; Second Conditional identification: if + past simple + would + base verb. Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; Second Conditional formula applied correctly. Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; Second Conditional with imaginary present scenario. Foundational.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose A &mdash; Second Conditional identification. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose A (&ldquo;If the weather is nice, we would go&rdquo; = First/Second hybrid) &mdash; needed B (&ldquo;If the weather were nice, we would go&rdquo; = clean Second Conditional). The if-clause needs past simple &ldquo;were&rdquo;, not present simple &ldquo;is&rdquo;.' },
-      { q:'Q13', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose D &mdash; Second Conditional formula: if + past simple, would + base verb. Developing.' },
-      { q:'Q14', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; Second Conditional identification. Foundational.' },
-      { q:'Q15', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; main idea identified correctly from the passage. Foundational.' },
-      { q:'Q16', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; direct inference from text. Foundational.' },
-      { q:'Q17', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; Correctly chose C &mdash; author&rsquo;s purpose identified correctly. Developing.' },
-      { q:'Q18', topic:'Reading', lvl:'i', pass:false, note:'&#10007; Chose C (willing to compromise) for &ldquo;undeterred&rdquo; &mdash; needed D (not stopped by obstacles). Failed to use general sense clue: she continued climbing through three days of storms = not stopped by difficulty.' },
-      { q:'Q19', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; Correctly chose C &mdash; inference from character actions. Developing.' },
-      { q:'Q20', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; Correctly chose C &mdash; evaluating the author&rsquo;s viewpoint. Strong Advanced result on debut. Advanced.' }
+      { q:'Q1',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose A (although) &mdash; CONTRAST clause-joiner. No full stop before the gap. Both function and structure correct. Foundational.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote E (consequently) &mdash; needed D (furthermore). Key question: is the data clearly showing results CAUSED BY the retreat? No &mdash; both are separate facts about glaciers. ADDITION slot, not RESULT. Core ADDITION vs RESULT confusion.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (however) &mdash; CONTRAST sentence-starter after full stop. Governments slow to respond despite clear evidence. Function correct. Foundational.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose C (because) &mdash; REASON clause-joiner. No full stop, explains why she could not force change. Foundational.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote G (whereas) &mdash; needed E (consequently). CONTRAST placed in a RESULT slot. Being invited to the UN is a direct result of her campaign growing. Key question: YES it is caused. RESULT connector needed.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose F (while) &mdash; TIME clause-joiner. Simultaneous action: project continued while results accumulated. No full stop. Foundational.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Wrote H (therefore) &mdash; needed G (whereas). H was the distractor word. Also wrong function: Arctic showing most dramatic changes vs other regions = CONTRAST (whereas), not RESULT. Distractor trap + function error.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B (had paid) &mdash; Third Conditional if-clause. If + had + pp. No present time signal &rarr; past result. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose C &mdash; Third Conditional identification. Past condition + past result. Foundational.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose D (had survived / will have access) &mdash; needed B (had survived / would have access). &ldquo;will&rdquo; is incorrect in a conditional result clause. Mixed Conditional uses &ldquo;would + base verb&rdquo;, not &ldquo;will&rdquo;. The gap required would have (= would + base verb &ldquo;have&rdquo; meaning possess).' },
+      { q:'Q11', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose B &mdash; Mixed Conditional identification. Past condition + present result with &ldquo;now&rdquo;. Foundational.' },
+      { q:'Q12', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose B (had not delayed / would have been) &mdash; Third Conditional. Past condition + past result (found in better health = past event). Developing.' },
+      { q:'Q13', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose A as the error &mdash; needed D. A is grammatically correct (would have lasted = Third Conditional). D says &ldquo;he would had studied&rdquo; &mdash; &ldquo;would had&rdquo; is not valid English; must be &ldquo;would have studied&rdquo;. Did not read all four options before selecting. Scanning/attention error.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose C (had not failed / would have been) &mdash; needed B (had not failed / would be). &ldquo;Today&rdquo; in the result clause signals present result &rarr; Mixed Conditional &rarr; would + base verb (would be). C uses &ldquo;would have been&rdquo; = Third Conditional (past result). The &ldquo;today&rdquo; signal was missed.' },
+      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose C (ravaged = severely damaged and destroyed). Tone clue: water turned grey, fish gone, lifeless. RESULT connector in passage confirms damage was destructive. Foundational.' },
+      { q:'Q16', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (teeming = overflowing with life). Contrast clue: &ldquo;once teeming&hellip; had turned grey and lifeless&rdquo; &mdash; the contrast tells us teeming means the opposite of lifeless. Foundational.' },
+      { q:'Q17', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (distraught = deeply upset). Definition clue: dash followed by &ldquo;shocked and deeply saddened&rdquo; gives the meaning directly. Foundational.' },
+      { q:'Q18', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (obscure = not famous or widely recognised). Contrast clue: &ldquo;he was not well known, and he never sought recognition&rdquo; &mdash; context makes meaning explicit. Foundational.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose C (arduous = difficult and requiring great effort). Behaviour clue: months of chemical testing, constant physical labour, repeated failed experiments. All signs of extreme difficulty. Developing.' },
+      { q:'Q20', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose C (tenacious = determined, refusing to give up). Behaviour clue: pressed forward through every setback with quiet determination. The action matches perfectly. Developing.' }
     ]
   },
 
@@ -72,10 +72,10 @@ var PREM_ENGLISH = {
   // achievement % = sum(c) / sum(t) × 100
   // Current: 476 / 657 = 72%
   skills: [
-    { name: 'Reading Compr.',    c: 65, t: 85 },   // U3: 5/6 (83%) on debut — solid start; nudged up
-    { name: 'Vocabulary',        c: 70, t: 82 },   // U2: 6/6 (100%) — not tested in U3; holding
-    { name: 'Grammar',           c: 60, t: 82 },   // U3: 6/7 (86%) — continued improvement; nudged up from 57
-    { name: 'Cloze Test',        c: 48, t: 80 },   // U3: 2/7 (29%) — structural confusion; nudged down from 50
+    { name: 'Reading Compr.',    c: 65, t: 85 },   // U4: not tested; holding
+    { name: 'Vocabulary',        c: 74, t: 82 },   // U4: 6/6 (100%) — perfect; nudged up from 70
+    { name: 'Grammar',           c: 58, t: 82 },   // U4: 4/7 (57%) — Mixed Conditional errors; nudged down from 60
+    { name: 'Cloze Test',        c: 52, t: 80 },   // U4: 4/7 (57%) — improving; nudged up from 48
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
     { name: 'Critical Thinking', c: 50, t: 80 },
@@ -83,21 +83,34 @@ var PREM_ENGLISH = {
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [65, 70, 60, 48, 65, 95, 50, 42],
+  radarCurrent:  [65, 74, 58, 52, 65, 95, 50, 42],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 3',
+  radarLegendUnit: 'Unit 4',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
   scores: [
     { n:1, score:11, outOf:20, delta:null, color:'#fc4e4e', star:false, label:'U1' },
     { n:2, score:14, outOf:20, delta:3,    color:'#f6993f', star:false, label:'U2' },
-    { n:3, score:13, outOf:20, delta:-1,   color:'#f6993f', star:false, label:'U3' }
+    { n:3, score:13, outOf:20, delta:-1,   color:'#f6993f', star:false, label:'U3' },
+    { n:4, score:14, outOf:20, delta:1,    color:'#f6993f', star:false, label:'U4' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 4,
+      title: 'Unit 4 &mdash; Connector Structures &middot; Grammar: Third &amp; Mixed Conditionals &middot; Vocabulary Inference',
+      badge: '#f6993f',
+      status: 'done',
+      note: '14/20 (70%) &middot; Cloze 4/7 &#10003; (Q2 Q5 Q7 wrong &mdash; ADDITION vs RESULT confusion + distractor trap) &middot; Grammar 4/7 &#10007; (Q10 Q13 Q14 wrong &mdash; Mixed Conditional present-result form) &middot; Vocab 6/6 &#127775; (perfect)',
+      tags: [
+        { t:'Cloze 4/7',    s:'background:#fff8e1;color:#744210' },
+        { t:'Grammar 4/7',  s:'background:#fff0f0;color:#c53030' },
+        { t:'Vocab 6/6',    s:'background:#f0fff4;color:#276749' }
+      ]
+    },
     {
       n: 3,
       title: 'Unit 3 &mdash; Connector Function Mapping &middot; Grammar: Second Conditional &middot; Reading: Inference &amp; Main Idea',
