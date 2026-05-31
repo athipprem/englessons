@@ -160,10 +160,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <span class="sb-icon">&#9989;</span>
       <span class="sb-lbl">Done</span>
     </button>
-    <button class="sb-btn" onclick="showPanel('progress',this)" title="Progress &amp; Goals">
-      <span class="sb-icon">&#128200;</span>
-      <span class="sb-lbl">Progress</span>
-    </button>
     <div class="sb-divider"></div>
     <button class="sb-btn" onclick="openDashboard()" title="Coach Dashboard">
       <span class="sb-icon" style="font-size:15px">&#128202;</span>
@@ -371,20 +367,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         </div>
 
       </div>
-
-      <!-- PANEL: PROGRESS -->
-      <div class="panel" id="panel-progress">
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-hd"><span class="dot" style="background:#f6993f"></span>Road to ISA 2027</div>
-            <div style="margin-bottom:14px">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-                <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4a5568">&#127919; Skills achievement</span>
-                <span id="idx-road-pct" style="font-size:12px;font-weight:700;color:#1e8b68">72%</span>
-              </div>
-              <div style="background:#edf2f7;border-radius:8px;height:10px;overflow:hidden">
-                <div id="idx-road-bar" style="width:72%;height:100%;background:linear-gradient(90deg,#ffd700,#f6993f);border-radius:8px"></div>
-              </div>
               <div id="idx-road-lbl" style="font-size:10px;color:#718096;margin-top:3px;text-align:right">vs Top 5% target &nbsp;&middot;&nbsp; 72% achieved</div>
             </div>
             <div style="margin-bottom:14px">
@@ -463,8 +445,7 @@ function checkPassword() {
 // SIDEBAR NAV
 var panelTitles = {
   thisunit:  'ISA English',
-  completed: 'Completed Lessons',
-  progress:  'Progress & Goals'
+  completed: 'Completed Lessons'
 };
 function showPanel(name, btn) {
   document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });

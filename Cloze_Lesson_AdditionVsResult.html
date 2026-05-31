@@ -19,7 +19,6 @@ a { color: #1e8b68; }
 .lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
 .nav-btns { display: flex; gap: 8px; }
 .nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
-.nav-btn:hover { background: rgba(255,255,255,0.25); }
 .nav-btn.next { background: #1e8b68; }
 .nav-btn.next:hover { background: #0d6e4f; }
 
@@ -46,62 +45,72 @@ a { color: #1e8b68; }
 .warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
 .warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
 
-.tip-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
-.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
-.tip-box p { color: #44337a; margin: 0; font-size: 13px; }
-
-/* Two-family comparison */
+/* Two families */
 .family-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
-.family-card { border-radius: 10px; padding: 18px 20px; }
+.family-card { border-radius: 12px; padding: 20px 22px; }
 .family-add { background: #ebf4ff; border: 2px solid #90cdf4; }
-.family-res { background: #fef3c7; border: 2px solid #f6ad55; }
+.family-res { background: #fff7e6; border: 2px solid #f6ad55; }
+.family-card .emoji { font-size: 28px; margin-bottom: 8px; display: block; }
 .family-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
 .family-add h4 { color: #1e40af; }
 .family-res h4 { color: #92400e; }
-.family-card .fam-desc { font-size: 12px; color: #4a5568; margin-bottom: 10px; }
+.family-card .fam-desc { font-size: 12px; color: #4a5568; margin-bottom: 12px; line-height: 1.5; }
 .family-card .words { display: flex; flex-wrap: wrap; gap: 5px; }
 .word-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
 .add-pill { background: #dbeafe; color: #1e40af; }
 .res-pill { background: #fef3c7; color: #92400e; }
 
-/* The Key Question visual */
-.key-q-box { background: #1a1a2e; color: white; border-radius: 12px; padding: 22px 26px; margin: 16px 0; }
-.key-q-box .kq-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 14px; }
-.kq-question { font-size: 15px; font-weight: 800; color: white; margin-bottom: 14px; line-height: 1.4; }
-.kq-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.kq-path { border-radius: 8px; padding: 12px 14px; }
-.kq-yes { background: #fef3c7; }
-.kq-no  { background: #ebf4ff; }
-.kq-path .kq-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-.kq-yes .kq-label { color: #92400e; }
-.kq-no  .kq-label { color: #1e40af; }
-.kq-path p { font-size: 13px; margin: 0; }
-.kq-yes p { color: #78350f; }
-.kq-no  p { color: #1e3a8a; }
+/* Color-coded sentence labels */
+.sent-pair { margin: 12px 0; }
+.sent-pair .sp-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; font-size: 13px; }
+.sp-tag { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 6px; white-space: nowrap; margin-top: 2px; flex-shrink: 0; }
+.sp-add { background: #dbeafe; color: #1e40af; }
+.sp-res { background: #fef3c7; color: #92400e; }
+.sp-sent { color: #2d3748; line-height: 1.5; }
+.sp-conn { font-weight: 700; padding: 1px 4px; border-radius: 4px; }
+.conn-add { background: #dbeafe; color: #1e40af; }
+.conn-res { background: #fef3c7; color: #92400e; }
 
-/* Sentence diagrams */
-.sent-diagram { border-radius: 10px; padding: 14px 18px; margin: 10px 0; font-size: 13px; border: 1px solid #e8edf5; }
-.sent-diagram .sd-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; }
-.sent-parts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; line-height: 1.6; }
-.sp-idea { background: #f0f4ff; border: 1px solid #c3d0f7; border-radius: 6px; padding: 3px 10px; color: #2d3748; }
-.sp-connector { background: #1e8b68; color: white; border-radius: 6px; padding: 3px 10px; font-weight: 700; }
-.sp-connector.res-c { background: #d97706; }
-.sp-connector.add-c { background: #2563eb; }
-.sp-arrow { color: #a0aec0; font-size: 16px; }
-.sp-tag { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin-left: 4px; }
-.sp-tag.res-tag { background: #fef3c7; color: #92400e; }
-.sp-tag.add-tag { background: #dbeafe; color: #1e40af; }
+/* Because Backwards test — the main visual */
+.bb-box { background: #1a1a2e; border-radius: 14px; padding: 22px 26px; margin: 16px 0; }
+.bb-box .bb-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 14px; }
+.bb-step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.bb-step:last-child { margin-bottom: 0; }
+.bb-num { width: 28px; height: 28px; background: #1e8b68; border-radius: 50%; color: white; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.bb-body { font-size: 13px; color: #e2e8f0; line-height: 1.6; }
+.bb-body strong { color: #89F336; }
+.bb-body em { color: #fcd34d; font-style: normal; }
+.bb-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.bb-path { border-radius: 8px; padding: 12px 14px; }
+.bb-yes { background: #fef3c7; }
+.bb-no  { background: #ebf4ff; }
+.bb-path .bb-pl { font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; }
+.bb-yes .bb-pl { color: #92400e; }
+.bb-no  .bb-pl  { color: #1e40af; }
+.bb-path p { font-size: 12px; margin: 0; }
+.bb-yes p { color: #78350f; }
+.bb-no  p  { color: #1e3a8a; }
+
+/* Try Both swap demo */
+.swap-box { border: 2px dashed #cbd5e0; border-radius: 10px; padding: 16px 20px; margin: 14px 0; background: #f7f9fd; }
+.swap-box .swap-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #718096; margin-bottom: 12px; }
+.swap-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; color: #2d3748; line-height: 1.6; }
+.swap-row:last-child { margin-bottom: 0; }
+.swap-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.swap-verdict { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin-left: 6px; }
+.sv-good { background: #e6fffa; color: #276749; }
+.sv-bad  { background: #fff5f5; color: #c53030; }
 
 /* Worked examples */
 .worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
 .worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
 .worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
 .worked-steps { padding: 14px 18px; }
-.worked-steps .ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
-.worked-steps .ws-num { min-width: 20px; height: 20px; background: #e6fffa; color: #1e8b68; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.ws-num { min-width: 20px; height: 20px; background: #e6fffa; color: #1e8b68; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
 .answer-reveal { background: #e6fffa; border-top: 1px solid #c6f6d5; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #1e8b68; }
 
-/* PRACTICE */
+/* Practice */
 .practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
 .pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
 .pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
@@ -122,7 +131,6 @@ a { color: #1e8b68; }
 .dd { background: #ebf4ff; color: #2b6cb0; }
 .da { background: #faf5ff; color: #6b46c1; }
 
-/* HYBRID PROGRESS */
 .progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
 .progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
 .progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
@@ -135,14 +143,12 @@ a { color: #1e8b68; }
 .sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
 .sum-card ul li:last-child { border-bottom: none; }
 .sum-card ul li::before { content: "• "; color: #1e8b68; font-weight: 700; }
-
 .complete-banner { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
 .complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
 .complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
 </style>
 </head>
 <body>
-
 <nav class="topnav">
   <div class="topnav-left">
     <a href="index.html">&#8592; Hub</a>
@@ -155,49 +161,48 @@ a { color: #1e8b68; }
 </nav>
 
 <div class="page">
-
   <div class="lesson-header">
     <div class="unit-tag">Unit 5 &nbsp;·&nbsp; Cloze</div>
     <h1>Addition vs Result Connectors</h1>
-    <div class="subtitle">Two families that look similar — but mean completely different things. Here is how to tell them apart every time.</div>
+    <div class="subtitle">Why do students mix these up — and one simple test that fixes the problem every time.</div>
     <span class="gap-tag">&#127919; ISA Priority — Cloze Test</span>
   </div>
 
   <!-- SECTION 1 -->
   <div class="section">
-    <div class="section-tag">Section 1 of 5</div>
-    <h2>&#129300; The Confusion</h2>
-    <p>You already know the four connector functions: <strong>CONTRAST, RESULT, ADDITION, and TIME</strong>. In your last test, you scored well on CONTRAST and TIME — but you mixed up ADDITION and RESULT in several gaps.</p>
-    <p>Here is why this happens: ADDITION connectors and RESULT connectors often appear in the same position in a sentence (after a full stop), and they both sound like they are "adding something". The difference is <em>what kind of something</em>.</p>
+    <div class="section-tag">Section 1 of 6</div>
+    <h2>&#129300; What Is the Confusion?</h2>
+    <p>You already know the connector families: CONTRAST, RESULT, ADDITION, TIME. But ADDITION and RESULT connectors keep tricking you — here is exactly why.</p>
+    <p>Both families come <strong>after a full stop</strong>. Both start a new sentence. They look almost the same in a passage. The only difference is the <em>relationship</em> between the two sentences.</p>
 
     <div class="warn-box">
-      <div class="warn-label">The Core Mistake</div>
-      <p><strong>Consequently</strong> (RESULT) and <strong>Furthermore</strong> (ADDITION) are NOT interchangeable. If you swap them, the sentence can become logically wrong — even if it looks fine at first glance.</p>
+      <div class="warn-label">The Exact Mistake</div>
+      <p>You know what "consequently" and "furthermore" mean individually — but under pressure you grab the wrong one because both feel like "adding something". This lesson gives you a test that makes the choice automatic.</p>
     </div>
-
-    <p>This lesson gives you a <strong>one-question test</strong> that will tell you which family to use every single time.</p>
   </div>
 
   <!-- SECTION 2 -->
   <div class="section">
-    <div class="section-tag">Section 2 of 5</div>
-    <h2>&#128195; Meet the Two Families</h2>
+    <div class="section-tag">Section 2 of 6</div>
+    <h2>&#128195; The Two Families</h2>
+    <p>Before the test, let's make the two families crystal clear. Read the descriptions and the example words — then we will build your testing method.</p>
 
     <div class="family-grid">
       <div class="family-card family-add">
-        <h4>&#10133; The ADDITION Family</h4>
-        <div class="fam-desc">Use when the second sentence adds <strong>extra information</strong> — a new fact, feature, or detail. The second idea is not <em>caused by</em> the first. Both ideas are just true at the same time.</div>
+        <span class="emoji">&#10133;</span>
+        <h4>ADDITION — Adding extra information</h4>
+        <div class="fam-desc">The second sentence is an <strong>extra fact</strong> about the same topic. You could imagine the writer saying "and also…" or "on top of that…". The second fact would be true even if the first sentence had never happened.</div>
         <div class="words">
           <span class="word-pill add-pill">furthermore,</span>
           <span class="word-pill add-pill">moreover,</span>
           <span class="word-pill add-pill">in addition,</span>
           <span class="word-pill add-pill">additionally,</span>
-          <span class="word-pill add-pill">also,</span>
         </div>
       </div>
       <div class="family-card family-res">
-        <h4>&#128165; The RESULT Family</h4>
-        <div class="fam-desc">Use when the second sentence is an <strong>outcome or effect</strong> of the first. The first idea <em>causes</em> the second idea. Without the first event, the second would not happen.</div>
+        <span class="emoji">&#128165;</span>
+        <h4>RESULT — Showing what happened because of it</h4>
+        <div class="fam-desc">The second sentence is the <strong>outcome</strong> of the first. Something in sentence 1 <em>caused</em> or <em>produced</em> sentence 2. If sentence 1 had not happened, sentence 2 would not have happened either.</div>
         <div class="words">
           <span class="word-pill res-pill">consequently,</span>
           <span class="word-pill res-pill">therefore,</span>
@@ -207,104 +212,139 @@ a { color: #1e8b68; }
       </div>
     </div>
 
-    <div class="tip-box">
-      <div class="tip-label">Visual Trick</div>
-      <p>ADDITION = stacking bricks side by side (more and more facts). RESULT = a domino falling (first event <em>knocks over</em> the second event).</p>
+    <p>Now look at what this feels like in real sentences. The connector is highlighted in colour:</p>
+
+    <div class="sent-pair">
+      <div class="sp-row">
+        <span class="sp-tag sp-res">RESULT</span>
+        <span class="sp-sent">The match was cancelled because of rain. <span class="sp-conn conn-res">Consequently,</span> the final score was never decided.</span>
+      </div>
+      <div class="sp-row">
+        <span class="sp-tag sp-add">ADDITION</span>
+        <span class="sp-sent">The match was cancelled because of rain. <span class="sp-conn conn-add">Furthermore,</span> the next three games were also at risk.</span>
+      </div>
     </div>
+    <p style="font-size:12px;color:#718096;margin-top:4px;">Same first sentence — different second sentences. One is a <em>result</em> of the rain. The other is just <em>extra information</em> about the rain's impact.</p>
   </div>
 
-  <!-- SECTION 3 -->
+  <!-- SECTION 3 — THE BECAUSE BACKWARDS TEST -->
   <div class="section">
-    <div class="section-tag">Section 3 of 5</div>
-    <h2>&#10067; The One Question You Must Ask</h2>
-    <p>When you see a gap between two sentences, ask yourself this single question:</p>
+    <div class="section-tag">Section 3 of 6</div>
+    <h2>&#128273; The "Because Backwards" Test</h2>
+    <p>Here is your new tool. It takes about three seconds, and it will not let you get confused.</p>
 
-    <div class="key-q-box">
-      <div class="kq-title">&#128273; The Key Question</div>
-      <div class="kq-question">"Is the second idea caused by the first idea — or would it be true anyway?"</div>
-      <div class="kq-paths">
-        <div class="kq-path kq-yes">
-          <div class="kq-label">YES — it is caused by the first</div>
-          <p>The first event <strong>produced</strong> the second event. → Use a <strong>RESULT</strong> connector: consequently / therefore / as a result</p>
+    <div class="bb-box">
+      <div class="bb-title">&#128273; The Because Backwards Test — 2 Steps</div>
+      <div class="bb-step">
+        <div class="bb-num">1</div>
+        <div class="bb-body">Read <strong>Sentence 2</strong> first. Then add the word <em>"because"</em>. Then read <strong>Sentence 1</strong>. Does it make sense?<br><br>
+        Template: <em>"[Sentence 2] because [Sentence 1]."</em></div>
+      </div>
+      <div class="bb-step">
+        <div class="bb-num">2</div>
+        <div class="bb-body">Check the result:</div>
+      </div>
+      <div class="bb-paths">
+        <div class="bb-path bb-yes">
+          <div class="bb-pl">&#10003; YES — it makes sense</div>
+          <p>Sentence 1 <strong>caused</strong> Sentence 2. There is a real cause-and-effect. → Use a <strong>RESULT</strong> connector: <em>consequently / therefore / as a result</em></p>
         </div>
-        <div class="kq-path kq-no">
-          <div class="kq-label">NO — it would be true anyway</div>
-          <p>The second sentence is just <strong>extra information</strong>. It is not caused by the first. → Use an <strong>ADDITION</strong> connector: furthermore / moreover / in addition</p>
+        <div class="bb-path bb-no">
+          <div class="bb-pl">&#10007; NO — it sounds weird</div>
+          <p>Sentence 2 is just <strong>extra information</strong>. It is not caused by Sentence 1. → Use an <strong>ADDITION</strong> connector: <em>furthermore / moreover / in addition</em></p>
         </div>
       </div>
     </div>
 
-    <p>Let us practise this question on two examples that look very similar:</p>
+    <p>Let us try it on the two examples from Section 2:</p>
 
-    <div class="sent-diagram">
-      <div class="sd-label">Example A</div>
-      <p style="font-style:italic;color:#2d3748;margin-bottom:8px;">"The storm knocked out the power lines. <strong>______</strong>, the whole city lost electricity."</p>
-      <p style="font-size:13px;color:#4a5568;margin-bottom:6px;">Ask: Was the city losing electricity <em>caused by</em> the storm knocking out power lines? <strong>YES</strong> — that is exactly how it happened. → <strong>RESULT</strong> connector.</p>
-      <div class="answer-reveal" style="border-radius:6px;border:none;padding:6px 0 0;background:none;color:#1e8b68;">✓ Answer: <em>Consequently</em>, the whole city lost electricity.</div>
+    <div class="swap-box">
+      <div class="swap-title">&#127381; Try the Test</div>
+      <div class="swap-row">
+        <span class="swap-icon">&#128165;</span>
+        <div><strong>Example 1:</strong> "The score was never decided <em>because</em> the match was cancelled." → Does that make sense? <span class="swap-verdict sv-good">YES ✓</span> → RESULT → use <strong>consequently</strong></div>
+      </div>
+      <div class="swap-row">
+        <span class="swap-icon">&#10133;</span>
+        <div><strong>Example 2:</strong> "The next three games were at risk <em>because</em> the match was cancelled." → Does that make sense? <span class="swap-verdict sv-bad">NOT REALLY ✗</span> — the rain caused the risk, not the cancellation itself. The second sentence is just extra information. → ADDITION → use <strong>furthermore</strong></div>
+      </div>
     </div>
 
-    <div class="sent-diagram">
-      <div class="sd-label">Example B</div>
-      <p style="font-style:italic;color:#2d3748;margin-bottom:8px;">"The museum has an ancient Egyptian gallery. <strong>______</strong>, it features a collection of Roman coins."</p>
-      <p style="font-size:13px;color:#4a5568;margin-bottom:6px;">Ask: Was the Roman coin collection <em>caused by</em> the Egyptian gallery? <strong>NO</strong> — the museum just happens to have both. It is extra information. → <strong>ADDITION</strong> connector.</p>
-      <div class="answer-reveal" style="border-radius:6px;border:none;padding:6px 0 0;background:none;color:#1e8b68;">✓ Answer: <em>Furthermore</em>, it features a collection of Roman coins.</div>
-    </div>
-  </div>
-
-  <!-- SECTION 4 -->
-  <div class="section">
-    <div class="section-tag">Section 4 of 5</div>
-    <h2>&#128221; Worked Examples — Step by Step</h2>
-    <p>Here are three examples. Read each gap, ask the key question, and see how the answer follows logically.</p>
-
-    <div class="worked">
-      <div class="worked-q">
-        <div class="worked-label">Worked Example 1 — clear RESULT</div>
-        "The scientist had been studying the volcano for months and noticed unusual activity. _______, the government ordered an evacuation of the surrounding villages."
-      </div>
-      <div class="worked-steps">
-        <div class="ws"><div class="ws-num">1</div><div><strong>Period test:</strong> There is a full stop before the gap. So I need a sentence-starter.</div></div>
-        <div class="ws"><div class="ws-num">2</div><div><strong>Key question:</strong> Did the government evacuate villages <em>because</em> the scientist noticed unusual activity? YES — the warning caused the evacuation.</div></div>
-        <div class="ws"><div class="ws-num">3</div><div>→ RESULT connector: <em>consequently / therefore / as a result</em></div></div>
-      </div>
-      <div class="answer-reveal">✓ Answer: <em>Consequently</em>, the government ordered an evacuation.</div>
-    </div>
-
-    <div class="worked">
-      <div class="worked-q">
-        <div class="worked-label">Worked Example 2 — clear ADDITION</div>
-        "The new community centre offers free swimming lessons every weekend. _______, it runs a popular after-school homework club for local children."
-      </div>
-      <div class="worked-steps">
-        <div class="ws"><div class="ws-num">1</div><div><strong>Period test:</strong> Full stop before the gap. Sentence-starter needed.</div></div>
-        <div class="ws"><div class="ws-num">2</div><div><strong>Key question:</strong> Is the homework club a <em>result</em> of the swimming lessons? NO — the centre just happens to offer both. They are separate programmes.</div></div>
-        <div class="ws"><div class="ws-num">3</div><div>→ ADDITION connector: <em>furthermore / moreover / in addition</em></div></div>
-      </div>
-      <div class="answer-reveal">✓ Answer: <em>Furthermore</em>, it runs a popular after-school homework club.</div>
-    </div>
-
-    <div class="worked">
-      <div class="worked-q">
-        <div class="worked-label">Worked Example 3 — the tricky one</div>
-        "The expedition team had trained rigorously for eight months. _______, their fitness levels were exceptional when they reached base camp."
-      </div>
-      <div class="worked-steps">
-        <div class="ws"><div class="ws-num">1</div><div><strong>Period test:</strong> Full stop before the gap. Sentence-starter needed.</div></div>
-        <div class="ws"><div class="ws-num">2</div><div><strong>Key question:</strong> Were their exceptional fitness levels <em>caused by</em> eight months of training? YES — the training <em>produced</em> their fitness. This is a direct cause-effect.</div></div>
-        <div class="ws"><div class="ws-num">3</div><div>→ RESULT connector. (Note: it might <em>look</em> like ADDITION because both facts are positive. But ask the key question — the fitness is a direct outcome of the training.)</div></div>
-      </div>
-      <div class="answer-reveal">✓ Answer: <em>Consequently</em>, their fitness levels were exceptional when they reached base camp.</div>
+    <div class="rule-box">
+      <div class="rule-label">&#128161; The Quick Memory Tip</div>
+      <p>If "because" connects the two sentences cleanly → <strong>RESULT</strong>. If "because" sounds forced or weird → <strong>ADDITION</strong>.</p>
     </div>
   </div>
 
-  <!-- SECTION 5 — PRACTICE -->
+  <!-- SECTION 4 — TRY BOTH METHOD -->
   <div class="section">
-    <div class="section-tag">Section 5 of 5 — Practice</div>
-    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="section-tag">Section 4 of 6</div>
+    <h2>&#128260; Backup: The "Try Both" Method</h2>
+    <p>If you are still unsure after the Because Backwards test, try this as a double-check. Drop <strong>both</strong> "consequently" and "furthermore" into the gap and read each version out loud in your head.</p>
 
-    <div class="practice-intro">
-      For each question: read both sentences, ask the Key Question, then choose the best connector. Complete Q1 before Q2 appears — and so on.
+    <div class="swap-box">
+      <div class="swap-title">&#128260; Try Both in the Gap</div>
+      <p style="font-size:13px;color:#4a5568;margin-bottom:12px;">Sentence: <em>"It had been raining for a week. _______, the river burst its banks."</em></p>
+      <div class="swap-row">
+        <span class="swap-icon">&#128165;</span>
+        <div>"It had been raining for a week. <strong>Consequently,</strong> the river burst its banks." → The river burst because of the rain. <span class="swap-verdict sv-good">Makes sense ✓</span></div>
+      </div>
+      <div class="swap-row">
+        <span class="swap-icon">&#10133;</span>
+        <div>"It had been raining for a week. <strong>Furthermore,</strong> the river burst its banks." → Wait — "furthermore" means "and also as a separate fact". But the river bursting is not a separate fact, it is what <em>happened because of</em> the rain. <span class="swap-verdict sv-bad">Sounds wrong ✗</span></div>
+      </div>
     </div>
+
+    <p>When one version sounds like cause-and-effect and the other sounds like a random extra fact, the answer is clear.</p>
+  </div>
+
+  <!-- SECTION 5 — WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 6</div>
+    <h2>&#128221; Worked Examples — Applying Both Tests</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 1 — Straightforward RESULT</div>
+        "Leo forgot to charge his phone before the trip. _______, it died halfway through the journey."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Because Backwards:</strong> "It died halfway through the journey <em>because</em> Leo forgot to charge it." → Does that make sense? <strong>YES</strong> — that is exactly why it died.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>→ RESULT connector.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: <em>Consequently,</em> it died halfway through the journey.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 2 — Straightforward ADDITION</div>
+        "The new sports centre has a heated swimming pool. _______, it includes a professional climbing wall."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Because Backwards:</strong> "It includes a climbing wall <em>because</em> it has a swimming pool." → Does that make sense? <strong>NO</strong> — the climbing wall is not caused by the swimming pool. Both are just features the centre has.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>→ ADDITION connector.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: <em>Furthermore,</em> it includes a professional climbing wall.</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 3 — The Tricky One (looks like ADDITION but is RESULT)</div>
+        "The team had trained for six months every day. _______, their fitness was exceptional when the tournament began."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Because Backwards:</strong> "Their fitness was exceptional <em>because</em> they had trained every day for six months." → Does that make sense? <strong>YES</strong> — training caused the fitness.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div>This feels like ADDITION because both sentences are positive. But the test tells the truth — it is RESULT. Always trust the Because Backwards test, not your gut feeling.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: <em>Consequently,</em> their fitness was exceptional when the tournament began.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 6 of 6 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn — Use the Tests</h2>
+    <div class="practice-intro">For each question, run the Because Backwards test first. If still unsure, try both words. Complete Q1 before Q2 appears.</div>
 
     <div class="progress-wrap">
       <span class="progress-label" id="prog-label">Question 1 of 5</span>
@@ -313,184 +353,139 @@ a { color: #1e8b68; }
 
     <!-- Q1 -->
     <div class="pq" id="q1">
-      <div class="pq-num">
-        <span>Question 1 <span class="diff-pill df">Foundational</span></span>
-      </div>
-      <div class="pq-text">
-        The scientist had been researching the disease for three years. _______, she published a breakthrough paper that changed the way doctors treated it.
-      </div>
+      <div class="pq-num"><span>Question 1 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">Mia spilled an entire cup of juice on her laptop keyboard. _______, the laptop stopped working completely.</div>
       <div class="pq-opts">
         <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Furthermore,</div>
         <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Consequently,</div>
         <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. However,</div>
         <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. Moreover,</div>
       </div>
-      <button class="check-btn" onclick="checkOpt('q1','B','Key question: Did she publish a breakthrough paper BECAUSE of three years of research? YES — the research produced the paper. That is a RESULT, not just extra information. Use a RESULT connector. Answer: Consequently.')">Check</button>
+      <button class="check-btn" onclick="checkOpt('q1','B','Because Backwards: &quot;The laptop stopped working BECAUSE Mia spilled juice on it.&quot; → YES, that makes complete sense. Liquid caused the damage. → RESULT connector. Answer: Consequently.')">Check</button>
       <div class="feedback" id="q1-fb"></div>
     </div>
 
     <!-- Q2 -->
     <div class="pq" id="q2" style="display:none">
-      <div class="pq-num">
-        <span>Question 2 <span class="diff-pill df">Foundational</span></span>
-      </div>
-      <div class="pq-text">
-        The new sports complex has an Olympic-sized swimming pool. _______, it contains six tennis courts and a fully equipped gymnasium.
-      </div>
+      <div class="pq-num"><span>Question 2 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">The school canteen serves hot meals every day. _______, it has a salad bar that students can use for free.</div>
       <div class="pq-opts">
         <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. Therefore,</div>
-        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. As a result,</div>
-        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. Furthermore,</div>
-        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Consequently,</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. In addition,</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. As a result,</div>
       </div>
-      <button class="check-btn" onclick="checkOpt('q2','C','Key question: Are the tennis courts and gymnasium caused by the swimming pool? NO — the complex simply has all of these facilities. They are separate features. That is ADDITION. Use an ADDITION connector: Furthermore. Answer: Furthermore.')">Check</button>
+      <button class="check-btn" onclick="checkOpt('q2','C','Because Backwards: &quot;It has a salad bar BECAUSE it serves hot meals.&quot; → NO — the salad bar is not caused by the hot meals. Both are just separate features the canteen has. → ADDITION connector. Answer: In addition.')">Check</button>
       <div class="feedback" id="q2-fb"></div>
     </div>
 
     <!-- Q3 -->
     <div class="pq" id="q3" style="display:none">
-      <div class="pq-num">
-        <span>Question 3 <span class="diff-pill dd">Developing</span></span>
-      </div>
-      <div class="pq-text">
-        The old bridge had not been maintained for over twenty years. _______, engineers declared it structurally unsafe and closed it to traffic.
-      </div>
+      <div class="pq-num"><span>Question 3 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">The old wooden bridge had not been repaired for over thirty years. _______, engineers declared it too dangerous for vehicles to cross.</div>
       <div class="pq-opts">
         <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Moreover,</div>
         <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. In addition,</div>
-        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. As a result,</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. Therefore,</div>
         <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Furthermore,</div>
       </div>
-      <button class="check-btn" onclick="checkOpt('q3','C','Key question: Was the bridge declared unsafe BECAUSE it had not been maintained for twenty years? YES — the neglect directly caused the structural failure. That is a RESULT. Use a RESULT connector: As a result. Answer: As a result.')">Check</button>
+      <button class="check-btn" onclick="checkOpt('q3','C','Because Backwards: &quot;Engineers declared it dangerous BECAUSE it had not been repaired for thirty years.&quot; → YES — thirty years without repair directly caused the danger. → RESULT connector. Answer: Therefore.')">Check</button>
       <div class="feedback" id="q3-fb"></div>
     </div>
 
     <!-- Q4 -->
     <div class="pq" id="q4" style="display:none">
-      <div class="pq-num">
-        <span>Question 4 <span class="diff-pill dd">Developing</span></span>
-      </div>
-      <div class="pq-text">
-        The polar bear is a critically endangered species due to climate change. _______, its natural Arctic habitat is shrinking at an alarming rate each decade.
-      </div>
+      <div class="pq-num"><span>Question 4 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">Snow leopards are critically endangered due to habitat loss. _______, their natural prey is becoming increasingly difficult to find.</div>
       <div class="pq-opts">
         <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. Consequently,</div>
-        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Therefore,</div>
-        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. As a result,</div>
-        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Moreover,</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Moreover,</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. Therefore,</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. As a result,</div>
       </div>
-      <button class="check-btn" onclick="checkOpt('q4','D','Key question: Is the shrinking habitat CAUSED BY the bear being endangered? NO — both the bear being endangered and the habitat shrinking are separate effects of climate change. The second sentence adds another worrying fact, it is not a result of the first sentence. That is ADDITION. Use an ADDITION connector: Moreover. Answer: Moreover.')">Check</button>
+      <button class="check-btn" onclick="checkOpt('q4','B','Because Backwards: &quot;Prey is becoming difficult to find BECAUSE snow leopards are endangered.&quot; → NO — the prey shortage is not caused by the leopards being endangered. Both are separate consequences of habitat loss. The second sentence adds another problem, it is not produced by the first sentence. → ADDITION. Answer: Moreover. (This is the tricky one — both sentences describe problems, but neither one causes the other.)')">Check</button>
       <div class="feedback" id="q4-fb"></div>
     </div>
 
     <!-- Q5 -->
     <div class="pq" id="q5" style="display:none">
-      <div class="pq-num">
-        <span>Question 5 <span class="diff-pill da">Advanced</span></span>
-      </div>
-      <div class="pq-text">
-        The Antarctic research station relies on solar panels to generate electricity throughout the summer months. _______, it uses wind turbines to provide power during the long, dark winter when sunlight is unavailable.
-      </div>
+      <div class="pq-num"><span>Question 5 <span class="diff-pill da">Advanced</span></span></div>
+      <div class="pq-text">The research station in Antarctica is powered by solar panels during the summer months. _______, it relies on wind turbines to generate electricity during the dark winter season.</div>
       <div class="pq-opts">
         <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Consequently,</div>
         <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Therefore,</div>
-        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. In addition,</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Furthermore,</div>
         <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. As a result,</div>
       </div>
-      <button class="check-btn" onclick="checkOpt('q5','C','This is the tricky one. The wind turbines sound like they could be a result of the solar panels — but ask the key question carefully: Are the wind turbines CAUSED BY the solar panels? NO. The station uses wind turbines for a completely separate reason (winter darkness). The two power sources are independent. The second sentence is adding extra information about a different energy system. That is ADDITION. Answer: In addition.')">Check</button>
+      <button class="check-btn" onclick="checkOpt('q5','C','Because Backwards: &quot;It uses wind turbines BECAUSE it is powered by solar panels.&quot; → NO — the wind turbines are for a completely separate reason (winter darkness), not because of the solar panels. The station just happens to have both energy systems. This is extra information. → ADDITION. Answer: Furthermore. Watch out — this one feels like it could be RESULT, but the Because Backwards test reveals the truth.')">Check</button>
       <div class="feedback" id="q5-fb"></div>
     </div>
 
     <div id="summary-section" style="display:none">
       <div class="complete-banner">
-        <h3>&#127881; All 5 Questions Complete!</h3>
-        <p>You can now tell ADDITION and RESULT apart using the Key Question. You are ready for Unit 5.</p>
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>You have the Because Backwards test. Use it on every cloze gap.</p>
       </div>
-
       <div class="summary-grid" style="margin-top:16px">
         <div class="sum-card">
-          <h4>ADDITION Family</h4>
+          <h4>ADDITION</h4>
           <ul>
-            <li>Furthermore, / Moreover, / In addition, / Additionally,</li>
-            <li>The second idea is NOT caused by the first</li>
-            <li>Both facts are independently true</li>
-            <li>Think: stacking bricks side by side</li>
+            <li>furthermore, / moreover, / in addition, / additionally,</li>
+            <li>Because Backwards test → sounds weird/forced</li>
+            <li>Second sentence is just extra information</li>
           </ul>
         </div>
         <div class="sum-card">
-          <h4>RESULT Family</h4>
+          <h4>RESULT</h4>
           <ul>
-            <li>Consequently, / Therefore, / As a result, / Thus,</li>
-            <li>The second idea IS caused by the first</li>
-            <li>First event → produces → second event</li>
-            <li>Think: a domino falling and knocking the next one over</li>
+            <li>consequently, / therefore, / as a result, / thus,</li>
+            <li>Because Backwards test → makes clear sense</li>
+            <li>Second sentence is caused by the first</li>
           </ul>
         </div>
       </div>
-
       <div class="sum-card" style="margin-top:12px">
-        <h4>The Key Question — memorise this</h4>
+        <h4>The Because Backwards Test — say it once more</h4>
         <ul>
-          <li>"Is the second idea caused by the first idea — or would it be true anyway?"</li>
-          <li>YES → RESULT connector (consequently / therefore / as a result)</li>
-          <li>NO → ADDITION connector (furthermore / moreover / in addition)</li>
+          <li>Read: "[Sentence 2] because [Sentence 1]."</li>
+          <li>If it makes clear sense → RESULT (consequently / therefore)</li>
+          <li>If it sounds forced or weird → ADDITION (furthermore / moreover)</li>
+          <li>If still unsure: try both words in the gap and read each one aloud in your head</li>
         </ul>
       </div>
     </div>
-
   </div>
-
 </div>
 
 <script>
-var currentQ = 1;
-var totalQ = 5;
-var selected = {};
-
+var currentQ = 1, totalQ = 5, selected = {};
 function selectOpt(qid, letter, el) {
-  var opts = document.querySelectorAll('#' + qid + ' .pq-opt');
-  opts.forEach(function(o) { o.classList.remove('selected'); });
+  document.querySelectorAll('#' + qid + ' .pq-opt').forEach(function(o){ o.classList.remove('selected'); });
   el.classList.add('selected');
   selected[qid] = letter;
 }
-
 function checkOpt(qid, correct, explanation) {
   var choice = selected[qid];
   var fb = document.getElementById(qid + '-fb');
-  if (!choice) {
-    fb.className = 'feedback fb-wrong';
-    fb.textContent = 'Please select an answer first.';
-    return;
-  }
+  if (!choice) { fb.className = 'feedback fb-wrong'; fb.textContent = 'Please select an answer first.'; return; }
   if (choice === correct) {
     document.getElementById(qid + choice).classList.add('correct');
     fb.className = 'feedback fb-correct';
     fb.textContent = '✓ Correct! ' + explanation;
     currentQ++;
-    var fill = Math.round((currentQ - 1) / totalQ * 100);
-    document.getElementById('prog-fill').style.width = fill + '%';
+    document.getElementById('prog-fill').style.width = Math.round((currentQ-1)/totalQ*100) + '%';
     if (currentQ <= totalQ) {
       document.getElementById('prog-label').textContent = 'Question ' + currentQ + ' of ' + totalQ;
-      setTimeout(function() {
-        var next = document.getElementById('q' + currentQ);
-        if (next) {
-          next.style.display = 'block';
-          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 900);
+      setTimeout(function(){ var n = document.getElementById('q'+currentQ); if(n){ n.style.display='block'; n.scrollIntoView({behavior:'smooth',block:'start'}); }}, 900);
     } else {
       document.getElementById('prog-fill').style.width = '100%';
       document.getElementById('prog-label').textContent = 'All done!';
-      setTimeout(function() {
-        var s = document.getElementById('summary-section');
-        s.style.display = 'block';
-        s.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 900);
+      setTimeout(function(){ var s=document.getElementById('summary-section'); s.style.display='block'; s.scrollIntoView({behavior:'smooth',block:'start'}); }, 900);
     }
   } else {
     document.getElementById(qid + choice).classList.add('wrong');
     fb.className = 'feedback fb-wrong';
-    fb.textContent = '✗ Not quite — think again. Ask the Key Question: is the second idea caused by the first, or is it just extra information?';
+    fb.textContent = '✗ Try again — run the Because Backwards test: read "[Sentence 2] because [Sentence 1]." Does it make sense?';
     selected[qid] = null;
   }
 }
