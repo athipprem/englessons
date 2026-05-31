@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Near-Synonym Precision — Unit 6</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+.topnav { background: #1a365d; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #2b6cb0; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.lesson-header { background: linear-gradient(135deg, #2b6cb0, #1a4e8a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+.rule-box { background: #ebf8ff; border: 1px solid #90cdf4; border-left: 4px solid #2b6cb0; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2b6cb0; margin-bottom: 4px; }
+.rule-box p { color: #1a365d; margin: 0; font-weight: 600; font-size: 13px; }
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+/* TRAP VISUAL */
+.trap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.trap-card { border-radius: 10px; padding: 16px 18px; }
+.trap-wrong { background: #fff5f5; border: 2px solid #fc8181; }
+.trap-right { background: #f0fff4; border: 2px solid #68d391; }
+.trap-card .tc-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.trap-wrong .tc-label { color: #c53030; }
+.trap-right .tc-label { color: #276749; }
+.trap-card p { font-size: 13px; color: #2d3748; margin: 0; }
+
+/* Degree scale */
+.degree-scale { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 20px; margin: 14px 0; }
+.ds-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; margin-bottom: 10px; }
+.ds-bar { display: flex; align-items: center; gap: 0; margin-bottom: 8px; }
+.ds-seg { flex: 1; padding: 8px 10px; text-align: center; font-size: 12px; font-weight: 600; }
+.ds-seg:first-child { border-radius: 8px 0 0 8px; }
+.ds-seg:last-child  { border-radius: 0 8px 8px 0; }
+.ds-light  { background: #dbeafe; color: #1e40af; }
+.ds-mid    { background: #2b6cb0; color: white; }
+.ds-strong { background: #1a365d; color: white; }
+.ds-label { font-size: 11px; color: #718096; text-align: center; margin-top: 4px; }
+
+/* Opposite trap */
+.opposite-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; margin: 14px 0; }
+.opp-card { border-radius: 10px; padding: 14px 16px; }
+.opp-a { background: #ebf8ff; border: 2px solid #90cdf4; }
+.opp-b { background: #fff5f5; border: 2px solid #fc8181; }
+.opp-card .oc-word { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.opp-a .oc-word { color: #1a365d; }
+.opp-b .oc-word { color: #c53030; }
+.opp-card p { font-size: 12px; color: #4a5568; margin: 0; }
+.opp-vs { font-size: 18px; font-weight: 800; color: #718096; text-align: center; }
+
+/* Worked example */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.pq-passage { background: #f7f9fd; border-left: 3px solid #2b6cb0; border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; font-size: 13px; color: #2d3748; line-height: 1.8; }
+.worked-steps { padding: 14px 18px; }
+.ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.ws-num { min-width: 20px; height: 20px; background: #ebf8ff; color: #2b6cb0; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #ebf8ff; border-top: 1px solid #bee3f8; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #2b6cb0; }
+
+/* Practice */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #2b6cb0; background: #ebf8ff; }
+.pq-opt.selected { border-color: #2b6cb0; background: #ebf8ff; font-weight: 600; }
+.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #2b6cb0; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #2b6cb0; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #2b6cb0; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #2b6cb0; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #2b6cb0, #1a4e8a); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Near-Synonym Precision</span>
+    <span class="lesson-badge">Unit 6 · Vocabulary</span>
+  </div>
+  <a class="nav-btn" href="Grammar_Lesson_ConditionalFlowchart.html">&#8592; Prev Lesson</a>
+</nav>
+<div class="page">
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 6 &nbsp;·&nbsp; Vocabulary</div>
+    <h1>Near-Synonym Precision</h1>
+    <div class="subtitle">When two options both seem right — how to find the one that exactly matches the passage clue.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Vocabulary</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#129300; The New Challenge</h2>
+    <p>You have already mastered the four inference strategies — definition clue, example clue, contrast clue, and general sense. You got 5/6 on the last vocabulary test. That is strong.</p>
+    <p>The one error you made — choosing A (careful and diplomatic) for the word "candid" when the correct answer was B (frank and direct) — shows the new challenge you are facing. The passage said: <em>"she always said exactly what she thought, without hesitation or sugar-coating."</em> That is a near-perfect description of "frank and direct". But "careful and diplomatic" also sounds like a positive quality — and that is the trap.</p>
+    <div class="warn-box">
+      <div class="warn-label">The Near-Synonym Trap</div>
+      <p>A near-synonym is a word that means something <em>similar</em> but not the same. In harder vocabulary questions, two of the four options will often sound plausible. One of them exactly matches the passage clue. The other sounds nice but does not. Your job is to find the one that matches the clue, not the one that sounds best.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — THE EXACT MATCH RULE -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#128270; The Exact Match Rule</h2>
+    <p>Here is the rule that eliminates the near-synonym trap every time:</p>
+
+    <div class="rule-box">
+      <div class="rule-label">&#128270; The Exact Match Rule</div>
+      <p>Do not ask: "Which option sounds like a good description of this word?" Ask instead: "Which option matches the <em>specific clue</em> the passage gives me?" The passage gives you exact evidence. Find it. Match it precisely.</p>
+    </div>
+
+    <p>Here is an example of the trap in action:</p>
+    <div class="trap-grid">
+      <div class="trap-card trap-wrong">
+        <div class="tc-label">&#10007; Wrong Approach</div>
+        <p>Passage: "She always said exactly what she thought, without hesitation or sugar-coating."<br><br>Student thinks: "Candid sounds like being confident and positive in communication… so I will choose: <em>careful and diplomatic</em>."</p>
+      </div>
+      <div class="trap-card trap-right">
+        <div class="tc-label">&#10003; Exact Match Approach</div>
+        <p>Passage: "She always said exactly what she thought, without hesitation or sugar-coating."<br><br>Student asks: "Which option exactly matches 'says exactly what she thinks, no hesitation, no softening'?" → <em>frank and direct</em>. ✓</p>
+      </div>
+    </div>
+
+    <p>"Careful and diplomatic" sounds like a positive quality — but diplomatic actually means <em>careful not to offend</em>, which is the <strong>opposite</strong> of saying exactly what you think without sugar-coating. The passage clue eliminates it precisely.</p>
+  </div>
+
+  <!-- SECTION 3 — THREE NEAR-SYNONYM TRAPS -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#9888;&#65039; Three Types of Near-Synonym Trap</h2>
+
+    <h3>&#128200; Trap 1 — Degree Traps (similar meaning, different strength)</h3>
+    <p>Two words mean the same thing, but one is much stronger. The passage clue tells you which strength is needed.</p>
+    <div class="degree-scale">
+      <div class="ds-title">Example: words meaning "persistent"</div>
+      <div class="ds-bar">
+        <div class="ds-seg ds-light">determined</div>
+        <div class="ds-seg ds-mid">persistent</div>
+        <div class="ds-seg ds-strong">relentless</div>
+      </div>
+      <div class="ds-label">&#8592; gentler &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stronger &#8594;</div>
+    </div>
+    <p style="font-size:13px;color:#4a5568;">If the passage says "she continued despite three major setbacks, two injuries, and a complete loss of funding" — the extreme language signals the <strong>strongest</strong> word. If it says "she stayed focused and kept going" — that signals something more moderate like "determined".</p>
+
+    <h3 style="margin-top:18px;">&#128260; Trap 2 — Direction Traps (words that seem similar but mean opposite things)</h3>
+    <div class="opposite-grid">
+      <div class="opp-card opp-a">
+        <div class="oc-word">candid</div>
+        <p>Says exactly what you think. Does not soften or hide opinions.</p>
+      </div>
+      <div class="opp-vs">&#8596;</div>
+      <div class="opp-card opp-b">
+        <div class="oc-word">diplomatic</div>
+        <p>Careful not to offend. Chooses words thoughtfully to avoid conflict.</p>
+      </div>
+    </div>
+    <p style="font-size:13px;color:#4a5568;">Both sound like positive communication skills — but they point in opposite directions. The passage clue tells you which one fits.</p>
+
+    <h3 style="margin-top:18px;">&#128100; Trap 3 — Specificity Traps (one option is too general)</h3>
+    <p>Two options both roughly fit but one is far too broad. "Talented" could describe anyone with any skill. "Adept at reading her audience" is much more specific. The passage clue gives you a specific behaviour — match it precisely, not broadly.</p>
+  </div>
+
+  <!-- SECTION 4 — WORKED EXAMPLE -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#128221; Worked Example — Using Exact Match</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Worked Example — Near-Synonym Trap</div>
+      </div>
+      <div class="pq-passage" style="margin:14px 18px 0;">"The young chef was (1)[<strong>methodical</strong>] in his approach — he measured every ingredient to the nearest gram, followed each step in the same order every time, and never skipped a stage no matter how much time pressure he was under."</div>
+      <div class="worked-steps">
+        <p style="font-size:13px;color:#4a5568;margin-bottom:10px;">Options: A. Creative and experimental &nbsp; B. Working in an orderly, step-by-step way &nbsp; C. Very hardworking and dedicated &nbsp; D. Precise and unwilling to make mistakes</p>
+        <div class="ws"><div class="ws-num">1</div><div><strong>Find the specific clue:</strong> "followed each step in the same order every time, never skipped a stage" → this is about <em>order and sequence</em>, not just accuracy or hard work.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Test each option:</strong> A = creative/experimental — opposite of following the same order. C = hardworking and dedicated — too general, says nothing about sequence. D = precise and unwilling to make mistakes — sounds right but "precise" is about accuracy, not about following a specific order of steps.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Exact match:</strong> B = "working in an orderly, step-by-step way" — this matches "followed each step in the same order every time" exactly. ✓</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: B. D is the near-synonym trap — "precise" sounds right, but the clue is about ORDER and SEQUENCE, not accuracy. Always match the specific clue, not the general feel.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="practice-intro">Read the passage carefully. Find the specific clue. Then ask: which option exactly matches that clue — not just sounds similar? Complete Q1 before Q2 appears.</div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num"><span>Question 1 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-passage">"Leo was an <strong>[amiable]</strong> teammate — he always remembered his teammates' birthdays, helped carry equipment without being asked, and never complained even when things went wrong."</div>
+      <div class="pq-text">What does the word <strong>amiable</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Shy and reserved</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Friendly and easy to get along with</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. Hard-working and dependable</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. Calm and patient under pressure</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','Specific clue: remembered birthdays, helped carry equipment, never complained. Every behaviour is about being warm and pleasant to others. That is friendly and easy to get along with. C (hard-working/dependable) is a near-synonym trap — he does do things, but the clue is about his warmth to people, not his work ethic. D (calm under pressure) is too specific — the passage does not describe a pressure situation. Answer: B. Amiable = friendly and easy to get along with.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num"><span>Question 2 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-passage">"The lunch she had packed for the hike was <strong>[meagre]</strong>: one small sandwich, four crackers, and a bottle of water. By midday, she was already hungry."</div>
+      <div class="pq-text">What does the word <strong>meagre</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. Healthy and well-balanced</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Very small and not enough</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. Unusual and unexpected</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Simple but satisfying</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','B','Specific clue: &quot;one small sandwich, four crackers&quot; = a very small amount. Result: &quot;by midday she was already hungry&quot; = it was not enough. Both clues together point to &quot;very small and not enough&quot;. D (simple but satisfying) is the trap — &quot;simple&quot; partly fits but &quot;satisfying&quot; contradicts the fact that she was hungry by midday. Always match the full clue. Answer: B. Meagre = very small and not enough.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num"><span>Question 3 <span class="diff-pill dd">Developing — Near-synonym trap</span></span></div>
+      <div class="pq-passage">"The audience was <strong>[sceptical]</strong> when the young inventor first took the stage. They folded their arms, whispered to each other, and several people checked their phones. Nobody expected a twelve-year-old to have a serious idea worth listening to."</div>
+      <div class="pq-text">What does the word <strong>sceptical</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Curious and interested</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. Doubtful and not easily convinced</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. Bored and completely uninterested</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Surprised and impressed</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','B','Specific clue: &quot;folded arms, whispered, checked phones, nobody expected a serious idea.&quot; All of these show a lack of belief and quiet dismissal. A (curious and interested) is the near-synonym trap — they were watching, which looks like interest, but the clue says nobody expected anything good. That is doubt, not curiosity. C (bored) is too extreme — they were still watching and reacting. B matches exactly. Answer: B. Sceptical = doubtful and not easily convinced.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num"><span>Question 4 <span class="diff-pill dd">Developing — Degree trap</span></span></div>
+      <div class="pq-passage">"Despite the injury to his ankle, despite running out of water two hours in, and despite losing the map, Marcus remained <strong>[resolute]</strong>. He did not stop. He did not sit down. He completed every metre of the race."</div>
+      <div class="pq-text">What does the word <strong>resolute</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. Slightly determined and generally positive</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Hopeful that things would improve</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. Firmly determined and refusing to give up no matter what</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Too tired to stop but continuing anyway</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','C','Degree clue: three separate major obstacles listed — injury, no water, no map. Despite ALL of them, he did not stop, not even for a moment. This is extreme determination, not mild. A (slightly determined) fails the degree test — &quot;slightly&quot; does not match three major obstacles. D (too tired to stop) contradicts the idea of active determination. C exactly matches the degree of determination shown. Answer: C. Resolute = firmly determined and refusing to give up.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num"><span>Question 5 <span class="diff-pill da">Advanced — Direction trap</span></span></div>
+      <div class="pq-passage">"The new manager's approach to feedback was <strong>[blunt]</strong>. She did not soften her comments with compliments first. She did not say &quot;that was good, but perhaps consider…&quot; She told each team member directly what was wrong and what needed to change."</div>
+      <div class="pq-text">What does the word <strong>blunt</strong> most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Thoughtful and carefully worded</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Direct and not softened to avoid offence</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Honest but kind and encouraging</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. Strict and demanding high standards</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','B','Specific clue: &quot;did not soften with compliments&quot;, &quot;did not say that was good, but…&quot;, &quot;told them directly what was wrong.&quot; All three clues show directness without softening. A (thoughtful and carefully worded) is the Direction Trap — it sounds like a positive communication style, but the passage explicitly says she did NOT carefully choose softer words. C (honest but kind) contradicts the passage — she was NOT kind in delivery. D (strict/demanding) is too general. B matches exactly: direct, not softened. Answer: B. Blunt = direct and not softened to avoid offence.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>You can now identify and defeat the near-synonym trap. Match the clue, not the feeling.</p>
+      </div>
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Three Types of Trap</h4>
+          <ul>
+            <li>Degree trap — both words similar, but one is stronger. Match the degree of language in the passage.</li>
+            <li>Direction trap — words sound similar but mean opposites (candid vs diplomatic).</li>
+            <li>Specificity trap — one option too general. Match the specific behaviour, not the broad feel.</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>The Exact Match Rule</h4>
+          <ul>
+            <li>Find the specific clue in the passage — a behaviour, an action, a result</li>
+            <li>Ask: which option matches THIS clue exactly?</li>
+            <li>Do NOT ask: which option sounds like a good word?</li>
+            <li>When two options both seem right — go back to the clue and be more precise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var currentQ=1,totalQ=5,selected={};
+function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
+function checkOpt(qid,correct,explanation){
+  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
+  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
+  if(choice===correct){
+    document.getElementById(qid+choice).classList.add('correct');
+    fb.className='feedback fb-correct';fb.textContent='✓ Correct! '+explanation;
+    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
+    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
+    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
+  }else{
+    document.getElementById(qid+choice).classList.add('wrong');
+    fb.className='feedback fb-wrong';fb.textContent='✗ Try again — go back to the specific clue in the passage. Which option exactly matches what the passage describes?';
+    selected[qid]=null;
+  }
+}
+</script>
+</body>
+</html>

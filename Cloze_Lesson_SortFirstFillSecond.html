@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sort First, Fill Second — Unit 6</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn.next { background: #1e8b68; }
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
+
+/* THE TWO BINS visual */
+.bins-wrap { background: #1a1a2e; border-radius: 14px; padding: 24px 26px; margin: 16px 0; }
+.bins-wrap .bw-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 16px; }
+.bins-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.bin { border-radius: 10px; padding: 16px 18px; }
+.bin-start { background: #1e3a6e; border: 2px solid #3b82f6; }
+.bin-join  { background: #44337a; border: 2px solid #9f7aea; }
+.bin .bin-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.bin-start .bin-label { color: #93c5fd; }
+.bin-join  .bin-label { color: #c4b5fd; }
+.bin .bin-rule { font-size: 12px; color: #d1d5db; margin-bottom: 10px; line-height: 1.5; }
+.bin .words { display: flex; flex-wrap: wrap; gap: 5px; }
+.word-tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 8px; }
+.wt-start { background: #1e40af; color: #bfdbfe; }
+.wt-join  { background: #6d28d9; color: #ddd6fe; }
+.bins-rule { margin-top: 14px; background: rgba(137,243,54,0.1); border: 1px solid rgba(137,243,54,0.3); border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #d1fae5; }
+
+/* THE PROCESS visual */
+.process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0; }
+.proc-step { border-radius: 10px; overflow: hidden; }
+.proc-step .ps-head { padding: 10px 14px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+.ps-0 .ps-head { background: #1a1a2e; color: #89F336; }
+.ps-1 .ps-head { background: #1e3a6e; color: #93c5fd; }
+.ps-2 .ps-head { background: #44337a; color: #c4b5fd; }
+.proc-step .ps-body { padding: 12px 14px; font-size: 12px; line-height: 1.6; }
+.ps-0 .ps-body { background: #f8fffe; color: #1a3d32; }
+.ps-1 .ps-body { background: #eff6ff; color: #1e3a8a; }
+.ps-2 .ps-body { background: #faf5ff; color: #44337a; }
+
+/* DISTRACTOR box */
+.distractor-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px; padding: 18px 22px; margin: 14px 0; }
+.distractor-box .dt-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #92400e; margin-bottom: 10px; }
+.dt-steps { display: flex; flex-direction: column; gap: 8px; }
+.dt-step { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: #78350f; }
+.dt-num { width: 22px; height: 22px; background: #f59e0b; border-radius: 50%; color: white; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+/* Worked example */
+.worked-pass { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 20px; margin: 14px 0; font-size: 14px; color: #2d3748; line-height: 2; }
+.gap-token { display: inline-block; background: #1e8b68; color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; margin: 0 2px; }
+.gap-ans { display: inline-block; background: #e6fffa; color: #1e8b68; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; margin: 0 2px; border: 1px solid #1e8b68; }
+
+.worked-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 14px 0; }
+.worked-table th { background: #1a1a2e; color: white; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.worked-table td { padding: 8px 12px; border-bottom: 1px solid #e8edf5; color: #2d3748; }
+.worked-table tr:nth-child(even) td { background: #f7f9fd; }
+.tag-start { display: inline-block; background: #dbeafe; color: #1e40af; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+.tag-join  { display: inline-block; background: #ede9fe; color: #5b21b6; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+.tag-add  { background: #dcfce7; color: #166534; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; display: inline-block; }
+.tag-res  { background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; display: inline-block; }
+.tag-con  { background: #fee2e2; color: #991b1b; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; display: inline-block; }
+.tag-tim  { background: #e0e7ff; color: #3730a3; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; display: inline-block; }
+
+/* Practice */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #1e8b68; background: #e6fffa; }
+.pq-opt.selected { border-color: #1e8b68; background: #e6fffa; font-weight: 600; }
+.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #1e8b68; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #1e8b68; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Sort First, Fill Second</span>
+    <span class="lesson-badge">Unit 6 · Cloze</span>
+  </div>
+  <a class="nav-btn next" href="Grammar_Lesson_ConditionalFlowchart.html">Next Lesson &#8594;</a>
+</nav>
+<div class="page">
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 6 &nbsp;·&nbsp; Cloze</div>
+    <h1>Sort First, Fill Second</h1>
+    <div class="subtitle">The reason the same mistake keeps happening — and one step that stops it before it starts.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Cloze Test</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 6</div>
+    <h2>&#129300; Why the Same Error Keeps Coming Back</h2>
+    <p>You have learned the connector families. You have learned the Because Backwards test. You know the difference between ADDITION and RESULT. But the same mistake still appears in tests — choosing <strong>however</strong> when you need <strong>although</strong>, or picking <strong>although</strong> when you need <strong>furthermore</strong>.</p>
+    <p>Here is exactly why this keeps happening: <strong>you are looking at the gap and choosing a word at the same time.</strong> That is one step too many to do at once. You are trying to think about the full stop, the function, and the word all together — and under pressure, one of them gets skipped.</p>
+    <div class="warn-box">
+      <div class="warn-label">The Root Cause</div>
+      <p>When you look at the word bank and pick a word in one go, you are making three decisions simultaneously: structural type, function, and word choice. That is too much. This lesson splits it into two separate jobs done at two separate times.</p>
+    </div>
+    <p>The fix is simple: <strong>do not touch the passage until you have sorted the word bank first.</strong></p>
+  </div>
+
+  <!-- SECTION 2 — THE TWO BINS -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 6</div>
+    <h2>&#128220; Step 0 — Sort the Word Bank Into Two Bins</h2>
+    <p>Before you read the passage, before you look at any gap — sort every word in the word bank into one of two groups. This takes about 30 seconds and it makes everything else automatic.</p>
+
+    <div class="bins-wrap">
+      <div class="bw-title">&#128220; The Two Bins — Sort Before You Start</div>
+      <div class="bins-grid">
+        <div class="bin bin-start">
+          <div class="bin-label">&#9679; Bin 1 — Sentence-Starters</div>
+          <div class="bin-rule">Come <strong>after a full stop (.)</strong> and begin a brand new sentence. Always followed by a comma. The two sentences they connect can stand alone.</div>
+          <div class="words">
+            <span class="word-tag wt-start">However,</span>
+            <span class="word-tag wt-start">Furthermore,</span>
+            <span class="word-tag wt-start">Consequently,</span>
+            <span class="word-tag wt-start">Moreover,</span>
+            <span class="word-tag wt-start">Therefore,</span>
+            <span class="word-tag wt-start">Nevertheless,</span>
+            <span class="word-tag wt-start">Meanwhile,</span>
+            <span class="word-tag wt-start">In addition,</span>
+            <span class="word-tag wt-start">As a result,</span>
+          </div>
+        </div>
+        <div class="bin bin-join">
+          <div class="bin-label">&#9679; Bin 2 — Clause-Joiners</div>
+          <div class="bin-rule">Live <strong>inside a sentence — no full stop before them</strong>. The part of the sentence they introduce cannot stand alone. Usually no comma directly after them.</div>
+          <div class="words">
+            <span class="word-tag wt-join">although</span>
+            <span class="word-tag wt-join">because</span>
+            <span class="word-tag wt-join">while</span>
+            <span class="word-tag wt-join">whereas</span>
+            <span class="word-tag wt-join">since</span>
+            <span class="word-tag wt-join">even though</span>
+            <span class="word-tag wt-join">unless</span>
+          </div>
+        </div>
+      </div>
+      <div class="bins-rule">&#128161; Once you know which bin each word belongs to, the Period Test at each gap becomes a one-second job: full stop? → grab from Bin 1. No full stop? → grab from Bin 2. You have already done the hard thinking.</div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">&#128161; Quick Memory Test</div>
+      <p>Sentence-starters are always <strong>capitalised</strong> in the word bank and <strong>followed by a comma</strong> (e.g. <em>However,</em>). Clause-joiners are <strong>lower case</strong> and have <strong>no comma</strong> after them (e.g. <em>although</em>). One look at the capitalisation tells you the bin.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — FULL PROCESS -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 6</div>
+    <h2>&#128196; The Complete 3-Step Process</h2>
+    <p>Here is the full method. Step 0 is new — it comes before everything else and it is the most important step.</p>
+
+    <div class="process-steps">
+      <div class="proc-step ps-0">
+        <div class="ps-head">&#128220; Step 0 — Sort</div>
+        <div class="ps-body"><strong>Before reading the passage</strong>, sort all word bank words into Bin 1 (sentence-starters) and Bin 2 (clause-joiners). Write S or J next to each word if that helps.</div>
+      </div>
+      <div class="proc-step ps-1">
+        <div class="ps-head">&#128270; Step 1 — Period Test</div>
+        <div class="ps-body">At each gap: is there a <strong>full stop before it</strong>? YES → grab from Bin 1 (sentence-starters). NO → grab from Bin 2 (clause-joiners).</div>
+      </div>
+      <div class="proc-step ps-2">
+        <div class="ps-head">&#128165; Step 2 — Function Test</div>
+        <div class="ps-body">From the correct bin, which word fits? CONTRAST / RESULT / ADDITION / TIME? Use the <strong>Because Backwards test</strong> to decide between ADDITION and RESULT.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — DISTRACTOR -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 6</div>
+    <h2>&#9986;&#65039; The Distractor Rule — Cross It Off</h2>
+    <p>Every cloze word bank has one word that is NOT needed. It is called the distractor. The distractor is always a real connector word — it is just not used in this particular passage.</p>
+    <p>Here is how the distractor catches students: when two words from the same function family are in the bank (for example, both <em>therefore</em> and <em>as a result</em> are RESULT connectors), students sometimes grab the wrong one. One is the answer. The other is the distractor.</p>
+
+    <div class="distractor-box">
+      <div class="dt-title">&#9986;&#65039; The Cross-Off Rule — Do This Every Time</div>
+      <div class="dt-steps">
+        <div class="dt-step"><div class="dt-num">1</div><div>As you choose each letter, <strong>cross it off the word bank</strong> (or circle it, or tick it — whatever you prefer). Mark it as used.</div></div>
+        <div class="dt-step"><div class="dt-num">2</div><div>When you have filled all 7 gaps, <strong>one letter will have no cross</strong>. That is the distractor.</div></div>
+        <div class="dt-step"><div class="dt-num">3</div><div>If you used the same letter twice — <strong>stop</strong>. Go back. You made an error somewhere. The distractor rule means every letter is used at most once.</div></div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">The Distractor Is Never a Trick</div>
+      <p>The unused word is always a valid connector — it just does not fit any gap in this passage. If you have crossed off all letters correctly and one remains, that is the right answer. Do not second-guess it.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — WORKED EXAMPLE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 6</div>
+    <h2>&#128221; Full Worked Example — Sort, Then Fill</h2>
+    <p>Word bank: &nbsp;<strong>A.</strong> furthermore &nbsp;<strong>B.</strong> however &nbsp;<strong>C.</strong> consequently &nbsp;<strong>D.</strong> although &nbsp;<strong>E.</strong> while &nbsp;<strong>F.</strong> therefore &nbsp;(distractor)</p>
+    <p style="font-size:12px;color:#718096;margin-bottom:12px;">Step 0 first — sort the bank before reading anything.</p>
+
+    <table class="worked-table">
+      <tr><th>Letter</th><th>Word</th><th>Bin</th><th>Function</th></tr>
+      <tr><td>A</td><td>furthermore,</td><td><span class="tag-start">Sentence-Starter</span></td><td><span class="tag-add">ADDITION</span></td></tr>
+      <tr><td>B</td><td>however,</td><td><span class="tag-start">Sentence-Starter</span></td><td><span class="tag-con">CONTRAST</span></td></tr>
+      <tr><td>C</td><td>consequently,</td><td><span class="tag-start">Sentence-Starter</span></td><td><span class="tag-res">RESULT</span></td></tr>
+      <tr><td>D</td><td>although</td><td><span class="tag-join">Clause-Joiner</span></td><td><span class="tag-con">CONTRAST</span></td></tr>
+      <tr><td>E</td><td>while</td><td><span class="tag-join">Clause-Joiner</span></td><td><span class="tag-tim">TIME</span></td></tr>
+      <tr><td>F</td><td>therefore,</td><td><span class="tag-start">Sentence-Starter</span></td><td><span class="tag-res">RESULT</span></td></tr>
+    </table>
+
+    <p>Notice: A and F are both RESULT sentence-starters. Only one will be used. The other is the distractor. That is the trap to watch for.</p>
+
+    <p><strong>Now fill the passage:</strong></p>
+    <div class="worked-pass">
+      Jake loved playing football, <span class="gap-ans">D — although</span> he had never played in an organised match before. He missed the first three training sessions. <span class="gap-ans">C — Consequently,</span> the coach almost dropped him from the squad. Jake trained twice as hard to make up for it. <span class="gap-ans">A — Furthermore,</span> he stayed an extra hour every Saturday to practise his shooting. <span class="gap-ans">E — while</span> the rest of the team warmed up, Jake was already on the pitch. He improved faster than anyone expected. <span class="gap-ans">B — However,</span> the final match was against the strongest team in the league.
+    </div>
+
+    <p style="font-size:12px;color:#718096;">The distractor was <strong>F (therefore)</strong> — it was not needed because C (consequently) already filled the RESULT slot. Cross-off check: A✓ B✓ C✓ D✓ E✓ F✗ — F is unused = distractor ✓</p>
+  </div>
+
+  <!-- SECTION 6 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 6 of 6 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="practice-intro">For each question: Step 1 — check for a full stop before the gap. Step 2 — identify the function. Then choose. Complete Q1 before Q2 appears.</div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num"><span>Question 1 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">The new shopping centre is enormous. _______, it has over two hundred shops, twelve restaurants, and an indoor ice rink.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Although</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Furthermore,</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. Consequently,</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. while</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','Step 1 — Period Test: there IS a full stop before the gap. → Sentence-starter needed. That eliminates A (although) and D (while) — both clause-joiners. Step 2 — Function: the second sentence adds more facts about the shopping centre. There is no cause-effect — the restaurants and ice rink are not caused by the centre being enormous. → ADDITION. Answer: Furthermore.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num"><span>Question 2 <span class="diff-pill df">Foundational</span></span></div>
+      <div class="pq-text">Sam studied for six hours every evening _______ his sister watched television in the next room.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. However,</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. while</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Furthermore,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','C','Step 1 — Period Test: NO full stop before the gap — it sits inside the sentence. → Clause-joiner needed. A, B, and D are all sentence-starters — eliminate all three immediately. Only C (while) is a clause-joiner. Step 2 — Function: Sam studied at the same time as his sister watched TV. → TIME / simultaneous action. Answer: while.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num"><span>Question 3 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">The hiking trail had been closed for safety reasons for over a year. _______, very few tourists had visited the area during that time.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. although</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. Moreover,</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. whereas</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','B','Step 1 — Full stop before the gap. → Sentence-starter. Eliminate A (although) and D (whereas) — both clause-joiners. Step 2 — Function: Because Backwards test: &quot;Very few tourists visited BECAUSE the trail was closed.&quot; YES — the closure caused the drop in visitors. → RESULT. C (Moreover) is ADDITION, not RESULT. Answer: Consequently.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num"><span>Question 4 <span class="diff-pill dd">Developing</span></span></div>
+      <div class="pq-text">The stadium was sold out for the championship _______ tickets had gone on sale six months earlier.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. However,</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Moreover,</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. because</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Furthermore,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','C','Step 1 — NO full stop before the gap. → Clause-joiner. A, B, and D are all sentence-starters — eliminate immediately. Only C (because) is a clause-joiner. Step 2 — Function: why was the stadium sold out? BECAUSE tickets had gone on sale six months earlier (long advance sale = high demand = sellout). → REASON / RESULT clause-joiner. Answer: because.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num"><span>Question 5 <span class="diff-pill da">Advanced</span></span></div>
+      <div class="pq-text">The school canteen introduced a new menu this term. _______, it reduced the price of hot meals for all students. _______, the queues at lunchtime have been twice as long as usual.<br><small style="color:#718096;font-size:11px;">(Two gaps — choose the correct connectors for each in order.)</small></div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Furthermore, / Consequently,</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. Consequently, / Moreover,</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Furthermore, / Although</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. Moreover, / Consequently,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','A','Gap 1: full stop before gap → sentence-starter. Because Backwards: &quot;It reduced prices BECAUSE it introduced a new menu.&quot; NO — the price reduction is a separate action, not a result of the new menu. → ADDITION. Gap 2: full stop before gap → sentence-starter. Because Backwards: &quot;Queues are twice as long BECAUSE the menu changed and prices dropped.&quot; YES — popular new menu and lower prices caused longer queues. → RESULT. So: ADDITION then RESULT = Furthermore + Consequently. Answer: A.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>You now have a three-step process. Use it every time — Sort first, then fill.</p>
+      </div>
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Step 0 — Sort the Bank</h4>
+          <ul>
+            <li>Capitalised + comma after = Sentence-Starter (Bin 1)</li>
+            <li>Lower case + no comma = Clause-Joiner (Bin 2)</li>
+            <li>Do this BEFORE reading any gap</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Steps 1 &amp; 2 — At Each Gap</h4>
+          <ul>
+            <li>Full stop before gap → grab from Bin 1</li>
+            <li>No full stop → grab from Bin 2</li>
+            <li>Then: ADDITION / RESULT / CONTRAST / TIME?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sum-card" style="margin-top:12px">
+        <h4>Distractor Cross-Off Rule</h4>
+        <ul>
+          <li>Cross off each letter as you use it</li>
+          <li>The one letter with no cross = the distractor</li>
+          <li>If you used any letter twice — go back, you made an error</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var currentQ=1,totalQ=5,selected={};
+function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
+function checkOpt(qid,correct,explanation){
+  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
+  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
+  if(choice===correct){
+    document.getElementById(qid+choice).classList.add('correct');
+    fb.className='feedback fb-correct';fb.textContent='✓ Correct! '+explanation;
+    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
+    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
+    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
+  }else{
+    document.getElementById(qid+choice).classList.add('wrong');
+    fb.className='feedback fb-wrong';fb.textContent='✗ Try again — Step 1 first: is there a full stop before the gap? That tells you the bin.';
+    selected[qid]=null;
+  }
+}
+</script>
+</body>
+</html>

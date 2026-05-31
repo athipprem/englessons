@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditional Flowchart — Unit 6</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+.topnav { background: #2d1b69; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #6b46c1; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn.next { background: #6b46c1; }
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.lesson-header { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+.rule-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.rule-box p { color: #44337a; margin: 0; font-weight: 600; font-size: 13px; }
+.tip-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.tip-box .tip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.tip-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* All-4 Conditionals recap table */
+.cond-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.cond-table th { background: #1a1a2e; color: white; padding: 9px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.cond-table td { padding: 9px 12px; border-bottom: 1px solid #e8edf5; }
+.cond-table .ct-name { font-weight: 700; }
+.r-first  td { background: #eff6ff; }
+.r-second td { background: #f5f3ff; }
+.r-third  td { background: #fff7ed; }
+.r-mixed  td { background: #f0fdf4; }
+.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; }
+.b-first  { background: #dbeafe; color: #1e40af; }
+.b-second { background: #ede9fe; color: #5b21b6; }
+.b-third  { background: #fed7aa; color: #92400e; }
+.b-mixed  { background: #bbf7d0; color: #14532d; }
+
+/* THE FLOWCHART */
+.flowchart { background: #1a1a2e; border-radius: 14px; padding: 26px 28px; margin: 16px 0; }
+.fc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 20px; }
+.fc-start { background: #374151; border-radius: 10px; padding: 12px 16px; text-align: center; font-size: 14px; font-weight: 700; color: white; margin-bottom: 16px; }
+.fc-question { background: #1e3a6e; border: 2px solid #3b82f6; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; }
+.fc-question .fq-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #93c5fd; margin-bottom: 6px; }
+.fc-question .fq-text { font-size: 14px; font-weight: 700; color: white; }
+.fc-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.fc-path { border-radius: 10px; padding: 14px 16px; }
+.fp-a { background: #44337a; border: 2px solid #9f7aea; }
+.fp-b { background: #1e3a6e; border: 2px solid #3b82f6; }
+.fc-path .fp-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.fp-a .fp-label { color: #c4b5fd; }
+.fp-b .fp-label { color: #93c5fd; }
+.fc-path p { font-size: 12px; color: #d1d5db; margin: 0; line-height: 1.5; }
+.fc-sub-q { background: #374151; border: 2px dashed #6b7280; border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; }
+.fc-sub-q .fq-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9ca3af; margin-bottom: 4px; }
+.fc-sub-q .fq-text { font-size: 13px; font-weight: 700; color: white; }
+.fc-results { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fc-result { border-radius: 8px; padding: 12px 14px; }
+.fr-mixed  { background: #14532d; border: 2px solid #86efac; }
+.fr-third  { background: #78350f; border: 2px solid #fcd34d; }
+.fc-result .fr-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.fr-mixed .fr-label  { color: #86efac; }
+.fr-third .fr-label  { color: #fcd34d; }
+.fc-result p { font-size: 12px; color: #d1fae5; margin: 0; line-height: 1.5; }
+.fr-third p { color: #fef3c7; }
+.fc-result code { background: rgba(255,255,255,0.15); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 12px; display: block; margin-top: 6px; }
+.fc-second-result { background: #1e3a6e; border-radius: 8px; padding: 12px 14px; }
+.fc-second-result .fr-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #93c5fd; margin-bottom: 4px; }
+.fc-second-result p { font-size: 12px; color: #bfdbfe; margin: 0; }
+.fc-second-result code { background: rgba(255,255,255,0.15); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 12px; display: block; margin-top: 6px; }
+
+/* WILL IS BANNED box */
+.will-box { background: linear-gradient(135deg, #dc2626, #991b1b); border-radius: 14px; padding: 20px 24px; margin: 16px 0; }
+.will-box .wb-title { font-size: 13px; font-weight: 800; color: white; margin-bottom: 10px; letter-spacing: 0.5px; }
+.will-row { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; font-size: 13px; }
+.will-row:last-child { margin-bottom: 0; }
+.will-wrong { background: rgba(255,255,255,0.15); border-radius: 6px; padding: 4px 10px; color: #fca5a5; text-decoration: line-through; font-weight: 600; }
+.will-right { background: rgba(255,255,255,0.15); border-radius: 6px; padding: 4px 10px; color: #86efac; font-weight: 700; }
+.will-arrow { color: #fcd34d; font-size: 16px; }
+
+/* Worked examples */
+.worked { border: 1px solid #e8edf5; border-radius: 10px; margin: 14px 0; overflow: hidden; }
+.worked-q { background: #f7f9fd; padding: 14px 18px; font-size: 14px; color: #2d3748; border-bottom: 1px solid #e8edf5; }
+.worked-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 4px; }
+.worked-steps { padding: 14px 18px; }
+.ws { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #4a5568; }
+.ws-num { min-width: 20px; height: 20px; background: #faf5ff; color: #6b46c1; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.answer-reveal { background: #faf5ff; border-top: 1px solid #e9d8fd; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #6b46c1; }
+
+/* Practice */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #6b46c1; background: #faf5ff; }
+.pq-opt.selected { border-color: #6b46c1; background: #faf5ff; font-weight: 600; }
+.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #6b46c1; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #6b46c1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #6b46c1; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Conditional Flowchart</span>
+    <span class="lesson-badge">Unit 6 · Grammar</span>
+  </div>
+  <div style="display:flex;gap:8px">
+    <a class="nav-btn" href="Cloze_Lesson_SortFirstFillSecond.html">&#8592; Prev</a>
+    <a class="nav-btn next" href="Vocab_Lesson_NearSynonymPrecision.html">Next &#8594;</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 6 &nbsp;·&nbsp; Grammar</div>
+    <h1>Conditional Flowchart</h1>
+    <div class="subtitle">Two questions. Asked in order. They tell you exactly which conditional type you are looking at — and exactly what to write.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Grammar</span>
+  </div>
+
+  <!-- SECTION 1 — RECAP TABLE -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#128196; Quick Recap — All Four Conditional Types</h2>
+    <p>You have learned all four conditional types across Units 1–5. Here they are in one table. The key column is <strong>If-Clause Form</strong> — that is the first thing you identify every time.</p>
+    <table class="cond-table">
+      <tr><th>Type</th><th>If-Clause Form</th><th>Result Clause Form</th><th>When to use it</th></tr>
+      <tr class="r-first"><td class="ct-name"><span class="badge b-first">First</span></td><td>If + <strong>present simple</strong><br><small>If it rains…</small></td><td>will + base verb<br><small>…it will flood.</small></td><td>Real future possibility</td></tr>
+      <tr class="r-second"><td class="ct-name"><span class="badge b-second">Second</span></td><td>If + <strong>past simple</strong><br><small>If I were taller…</small></td><td>would + base verb<br><small>…I would play basketball.</small></td><td>Imaginary present</td></tr>
+      <tr class="r-third"><td class="ct-name"><span class="badge b-third">Third</span></td><td>If + <strong>past perfect</strong><br><small>If she had studied…</small></td><td>would have + past participle<br><small>…she would have passed.</small></td><td>Imaginary past → past result</td></tr>
+      <tr class="r-mixed"><td class="ct-name"><span class="badge b-mixed">Mixed</span></td><td>If + <strong>past perfect</strong><br><small>If she had studied…</small></td><td>would + base verb<br><small>…she would be a doctor now.</small></td><td>Imaginary past → present result</td></tr>
+    </table>
+    <p>Notice: Third and Mixed have the <strong>same if-clause form</strong>. The only thing that separates them is the result clause — and a time signal word.</p>
+  </div>
+
+  <!-- SECTION 2 — FLOWCHART -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#128197; The Decision Flowchart — Two Questions, In Order</h2>
+    <p>Whenever you see a conditional sentence — whether you are filling in a gap, identifying the type, or spotting an error — always ask these two questions in this order.</p>
+
+    <div class="flowchart">
+      <div class="fc-title">&#128197; The Conditional Decision Flowchart</div>
+      <div class="fc-start">Start here: look at the IF-CLAUSE first</div>
+
+      <div class="fc-question">
+        <div class="fq-label">&#10067; Question 1</div>
+        <div class="fq-text">What form is the if-clause verb?</div>
+      </div>
+      <div class="fc-paths">
+        <div class="fc-path fp-a">
+          <div class="fp-label">&#9679; Simple Past (was, didn't, worked)</div>
+          <p>If + simple past verb<br><em>"If I were…" / "If she had…"</em> (NOT had + done — just one verb)</p>
+        </div>
+        <div class="fc-path fp-b">
+          <div class="fp-label">&#9679; Past Perfect (had + past participle)</div>
+          <p>If + had + past participle<br><em>"If she had studied…" / "If it had not rained…"</em></p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div class="fc-second-result">
+            <div class="fr-label">&#128204; SECOND CONDITIONAL</div>
+            <p>Simple past if-clause → imaginary present. Result = would + base verb</p>
+            <code>"If I were taller, I would play basketball."</code>
+          </div>
+        </div>
+        <div>
+          <div class="fc-sub-q">
+            <div class="fq-label">&#10067; Question 2 — only for Past Perfect if-clauses</div>
+            <div class="fq-text">Does the result clause have a present time signal?<br><small style="font-weight:400;color:#9ca3af;">Look for: now / today / still / currently</small></div>
+          </div>
+          <div class="fc-results">
+            <div class="fc-result fr-mixed">
+              <div class="fr-label">YES → MIXED</div>
+              <p>Past perfect if-clause + present time signal → present result</p>
+              <code>would + base verb</code>
+            </div>
+            <div class="fc-result fr-third">
+              <div class="fr-label">NO → THIRD</div>
+              <p>Past perfect if-clause + no time signal → past result</p>
+              <code>would have + past participle</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">&#128161; Why If-Clause First?</div>
+      <p>The if-clause tells you which group you are in (Second OR Third/Mixed). Only after that do you look at the result. If you look at the result first, you can confuse yourself. Always: if-clause → then result.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — WILL IS BANNED -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#128683; The "Will Is Banned" Rule</h2>
+    <p>There is one more simple rule that eliminates wrong answer choices in seconds.</p>
+
+    <div class="will-box">
+      <div class="wb-title">&#128683; In Second, Third, and Mixed Conditionals — "will" NEVER appears in the result clause</div>
+      <div class="will-row">
+        <span class="will-wrong">would will have gone</span>
+        <span class="will-arrow">→</span>
+        <span>This is never correct in Second, Third, or Mixed</span>
+      </div>
+      <div class="will-row">
+        <span class="will-wrong">will have been</span>
+        <span class="will-arrow">→</span>
+        <span class="will-right">would have been</span>
+        <span style="color:#d1d5db;font-size:12px;">Replace "will" with "would"</span>
+      </div>
+      <div class="will-row">
+        <span class="will-wrong">will be</span>
+        <span class="will-arrow">→</span>
+        <span class="will-right">would be</span>
+        <span style="color:#d1d5db;font-size:12px;">In conditional result clauses, only "would"</span>
+      </div>
+    </div>
+
+    <p>When you see a multiple-choice conditional question, scan the result clause of each option first. Any option with <strong>"will"</strong> in the result clause of a Second, Third, or Mixed conditional can be crossed out immediately.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">The Only Exception</div>
+      <p>"Will" is correct in First Conditional results: "If it rains, we <strong>will</strong> cancel the match." First Conditional = real future possibility. Only in Second, Third, and Mixed does "would" replace "will".</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#128221; Worked Examples — Flowchart in Action</h2>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 1 — What type is this?</div>
+        "If the museum had kept the original paintings, visitors _______ them on display today."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>If-clause:</strong> "had kept" → had + past participle → Past Perfect → Third or Mixed group.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Time signal in result?</strong> "today" → YES → MIXED CONDITIONAL.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Result form:</strong> Mixed → would + base verb. Base verb = "see". → "would still see"</div></div>
+      </div>
+      <div class="answer-reveal">✓ Answer: "…visitors <strong>would still see</strong> them on display today."</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 2 — Spot the error</div>
+        Which is wrong?&nbsp; A: "If she had taken the offer, she would be living in Singapore now."&nbsp; B: "If she had taken the offer, she will be living in Singapore now."
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Both if-clauses:</strong> "had taken" → Past Perfect → Third or Mixed group.</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>Time signal:</strong> "now" → Mixed → result = would + base verb.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Sentence A:</strong> "would be living" ✓ — correct Mixed result.<br><strong>Sentence B:</strong> "will be living" ✗ — "will" is banned in Mixed/Third result clauses.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Sentence B is wrong. Replace "will" with "would" → "she would be living in Singapore now."</div>
+    </div>
+
+    <div class="worked">
+      <div class="worked-q">
+        <div class="worked-label">Example 3 — If-clause type error</div>
+        "If the dam <strong>was not</strong> built in time, the valley <strong>would have flooded</strong>."
+        Is the if-clause correct for a Third Conditional?
+      </div>
+      <div class="worked-steps">
+        <div class="ws"><div class="ws-num">1</div><div><strong>Result clause:</strong> "would have flooded" → Third Conditional result (no time signal, past result).</div></div>
+        <div class="ws"><div class="ws-num">2</div><div><strong>If-clause check:</strong> Third Conditional needs Past Perfect (had + past participle). "Was not" is simple past → Second Conditional if-clause. Wrong group for a Third Conditional result.</div></div>
+        <div class="ws"><div class="ws-num">3</div><div><strong>Correction:</strong> Replace "was not" with "had not been" → Past Perfect → matches the Third Conditional result.</div></div>
+      </div>
+      <div class="answer-reveal">✓ Corrected: "If the dam <strong>had not been</strong> built in time, the valley would have flooded." — if-clause must be Past Perfect for Third/Mixed Conditional.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="practice-intro">Use the flowchart every time: (1) identify the if-clause type, (2) check the result for time signals. Q4 and Q5 are error-spotting — read ALL options before choosing.</div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num"><span>Question 1 <span class="diff-pill df">Foundational — Second Conditional</span></span></div>
+      <div class="pq-text">If Lena _______ more carefully at the map, she _______ lost in the city.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. looked / would not be</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. had looked / would not have been</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. looked / would not have been</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. had looked / would not be</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','No time signal in the result (&quot;lost in the city&quot; is a past event). Flowchart: if-clause — which group? This is an imaginary past with a past result → Third Conditional. Third if-clause = Past Perfect → &quot;had looked&quot;. Third result = would have + past participle → &quot;would not have been&quot;. Answer: B.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num"><span>Question 2 <span class="diff-pill df">Foundational — Identify the Type</span></span></div>
+      <div class="pq-text">Which sentence is a correct Mixed Conditional?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. If the engineers had tested it, they would have caught the fault.</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. If he were more organised, he would never miss a deadline.</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. If the school had invested in computers earlier, students would still be using them today.</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. If she studies tonight, she will pass tomorrow.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','C','Flowchart each option. A: had tested (Past Perfect) + would have caught (no signal) = Third ✗. B: were (simple past) = Second Conditional ✗. D: studies (present simple) = First ✗. C: had invested (Past Perfect) + would still be using (TODAY signal) = Mixed ✓. Answer: C.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num"><span>Question 3 <span class="diff-pill dd">Developing — Fill In</span></span></div>
+      <div class="pq-text">If the local football club _______ forty years ago, the town _______ without a professional team today.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. had not formed / would be</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. had not formed / would have been</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. did not form / would be</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. had not formed / will be</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','A','Time signal: &quot;today&quot; → Mixed Conditional. If-clause: imaginary past event → Past Perfect → had not formed. Will Is Banned rule → eliminate D immediately. Result: Mixed → would + base verb → would be. B uses &quot;would have been&quot; = Third (past result) — wrong because &quot;today&quot; is present. C uses simple past if-clause = Second Conditional — wrong. Answer: A.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 — ERROR SPOTTING -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num"><span>Question 4 <span class="diff-pill dd">Developing — Error Spotting</span></span></div>
+      <div class="pq-text">Which sentence contains a grammatical error? Read ALL four options carefully.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. If the tunnel had been completed, commuters would be saving an hour every day now.</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. If she had listened to the warning, she would not have made such a costly mistake.</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. If the explorers had packed enough food, they will not have struggled on the final day.</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. If the project had launched on time, the company would be the market leader today.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','C','Will Is Banned rule — scan every result clause for &quot;will&quot;. C says &quot;they will not have struggled&quot; — &quot;will&quot; in a Third/Mixed result is always wrong. The if-clause (had packed) is Past Perfect → Third or Mixed group. No time signal in result → Third Conditional → result must be &quot;would not have struggled&quot;. A, B, and D are all correct. Answer: C.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 — ERROR SPOTTING ADVANCED -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num"><span>Question 5 <span class="diff-pill da">Advanced — Error Spotting</span></span></div>
+      <div class="pq-text">Which sentence contains a grammatical error? The error may be in the if-clause, not just the result.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. If the bridge was not repaired in time, it would have collapsed last winter.</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. If the satellite had not malfunctioned, scientists would still be collecting data today.</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. If the team had trained more seriously, they would have won the championship.</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. If he had not forgotten his passport, he would be on holiday in Spain right now.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','A','B, C, and D all have correct Past Perfect if-clauses (had not malfunctioned / had trained / had not forgotten). A says &quot;was not repaired&quot; — simple past if-clause. But the result is &quot;would have collapsed&quot; = Third Conditional result. Third Conditional requires a Past Perfect if-clause (had not been repaired), not a simple past one. The if-clause form is wrong. Corrected: &quot;If the bridge HAD NOT BEEN repaired in time, it would have collapsed last winter.&quot; Answer: A.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>The flowchart, the Will Is Banned rule, and if-clause-first are now your tools. Ready for Unit 6!</p>
+      </div>
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>The Flowchart — 2 Questions</h4>
+          <ul>
+            <li>Q1: What is the if-clause form? Simple past → Second. Past perfect → go to Q2.</li>
+            <li>Q2: Present time signal (now/today/still)? YES → Mixed. NO → Third.</li>
+            <li>Always do if-clause FIRST, then result.</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Two Extra Rules</h4>
+          <ul>
+            <li>&quot;Will Is Banned&quot; — in Second/Third/Mixed, result clause uses &quot;would&quot;, never &quot;will&quot;</li>
+            <li>If-clause error — Third/Mixed needs Past Perfect (had + past participle), not simple past</li>
+            <li>Error-spotting: always read ALL four options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var currentQ=1,totalQ=5,selected={};
+function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
+function checkOpt(qid,correct,explanation){
+  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
+  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
+  if(choice===correct){
+    document.getElementById(qid+choice).classList.add('correct');
+    fb.className='feedback fb-correct';fb.textContent='✓ Correct! '+explanation;
+    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
+    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
+    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
+  }else{
+    document.getElementById(qid+choice).classList.add('wrong');
+    fb.className='feedback fb-wrong';fb.textContent='✗ Try again — use the flowchart: check the if-clause form first, then look for time signals in the result.';
+    selected[qid]=null;
+  }
+}
+</script>
+</body>
+</html>
