@@ -367,46 +367,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         </div>
 
       </div>
-              <div id="idx-road-lbl" style="font-size:10px;color:#718096;margin-top:3px;text-align:right">vs Top 5% target &nbsp;&middot;&nbsp; 72% achieved</div>
-            </div>
-            <div style="margin-bottom:14px">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-                <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4a5568">&#9202; Prep time elapsed</span>
-                <span style="font-size:12px;font-weight:700;color:#1e8b68" id="ov-time-pct">...%</span>
-              </div>
-              <div style="background:#edf2f7;border-radius:8px;height:10px;overflow:hidden">
-                <div style="height:100%;background:linear-gradient(90deg,#1e8b68,#0d6e4f);border-radius:8px" id="ov-time-bar"></div>
-              </div>
-              <div style="font-size:10px;color:#718096;margin-top:3px;text-align:right" id="ov-time-label">calculating...</div>
-            </div>
-            <div>
-              <div class="tm"><span>&#127942; ISA 2027 target</span><span>Top 5% Globally</span></div>
-              <div class="tm"><span>&#128218; Phase 1 ends</span><span>Aug 2026</span></div>
-              <div class="tm"><span>&#128218; Phase 2 ends</span><span>Nov 2026</span></div>
-              <div class="tm"><span>&#127919; Phase 3 — mock ISAs</span><span>Dec 2026 – Feb 2027</span></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-hd"><span class="dot" style="background:#ffd700"></span>Skills Achievement vs Top 5%</div>
-            <div class="prog-block">
-              <div class="prog-meta">
-                <span class="prog-title">&#127919; Overall achievement</span>
-                <span class="prog-stat" id="skill-stat">72%</span>
-              </div>
-              <div class="prog-wrap">
-                <div class="prog-fill bar-skill" id="skill-bar" style="width:72%"></div>
-              </div>
-              <p class="prog-label">Full radar on Dashboard &rarr;</p>
-            </div>
-            <div style="margin-top:14px">
-              <div id="idx-skill-heading" style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#718096;margin-bottom:10px">Skill Breakdown</div>
-              <div id="idx-skill-bars"></div>
-            </div>
-            <div id="idx-skill-summary" style="margin-top:12px;padding:9px 12px;background:#f7f9fd;border-radius:8px;border:1px solid #e8edf5;font-size:11px;color:#4a5568"></div>
-          </div>
-        </div>
-      </div>
-
     </div><!-- /content -->
   </div><!-- /main -->
 </div><!-- /app -->
@@ -478,18 +438,9 @@ function openDashboard() {
   document.getElementById('weeks-left-hero').textContent = weeksLeft;
   document.getElementById('days-left-hero').textContent  = daysLeft + ' days remaining';
   document.getElementById('topbar-days').textContent = daysLeft;
-  var ovBar = document.getElementById('ov-time-bar');
-  var ovPct = document.getElementById('ov-time-pct');
-  var ovLbl = document.getElementById('ov-time-label');
-  if (ovBar) ovBar.style.width = pct.toFixed(1) + '%';
-  if (ovPct) ovPct.textContent = pct.toFixed(0) + '%';
-  if (ovLbl) ovLbl.textContent = daysLeft + ' days left · ' + weeksLeft + ' weeks remaining';
 })();
 
 // ── Render from prem_english_data.js ─────────────────────────────────────
-PREM_ENGLISH.renderSkillBars('idx-skill-bars', false);
-PREM_ENGLISH.renderSkillSummary('idx-skill-summary');
-PREM_ENGLISH.renderAchievement('idx-road-pct', 'idx-road-bar', 'idx-road-lbl');
 PREM_ENGLISH.renderUnitBadge('idx-topbar-unit-badge');
 
 // ── Last unit pattern insight box ─────────────────────────────────────────
@@ -527,14 +478,6 @@ PREM_ENGLISH.renderUnitBadge('idx-topbar-unit-badge');
 // Hero skill %
 var ihs = document.getElementById('idx-hero-skill');
 if (ihs) ihs.textContent = PREM_ENGLISH.achievement() + '%';
-// Achievement bar
-var ss = document.getElementById('skill-stat');
-var sb = document.getElementById('skill-bar');
-if (ss) ss.textContent = PREM_ENGLISH.achievement() + '%';
-if (sb) sb.style.width  = PREM_ENGLISH.achievement() + '%';
-// Skill heading — show baseline unit label
-var sh = document.getElementById('idx-skill-heading');
-if (sh) sh.textContent = 'Skill Breakdown (after ' + PREM_ENGLISH.lastUnit.label + ')';
 </script>
 </body>
 </html>
