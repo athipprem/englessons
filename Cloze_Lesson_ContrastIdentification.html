@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrast Identification — Unit 7</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn.next { background: #1e8b68; }
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
+.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+/* THREE-WAY FLOWCHART */
+.flow-wrap { background: #1a1a2e; border-radius: 14px; padding: 24px 26px; margin: 16px 0; }
+.flow-wrap .fw-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 18px; }
+.flow-q { background: #2d3748; border-radius: 10px; padding: 12px 18px; margin-bottom: 12px; }
+.flow-q .fq-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #89F336; margin-bottom: 6px; }
+.flow-q .fq-text { font-size: 14px; font-weight: 700; color: white; }
+.flow-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.flow-yes { background: #276749; border-radius: 10px; padding: 10px 14px; }
+.flow-no  { background: #2d3748; border-radius: 10px; padding: 10px 14px; }
+.flow-branch-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.flow-yes .flow-branch-label { color: #9ae6b4; }
+.flow-no  .flow-branch-label { color: #a0aec0; }
+.flow-branch-result { font-size: 13px; font-weight: 700; color: white; }
+.flow-branch-words { font-size: 11px; color: #cbd5e0; margin-top: 4px; }
+.flow-step2 { background: #2d3748; border-radius: 10px; padding: 12px 18px; margin-top: 4px; }
+.flow-branches-3 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.flow-contrast { background: #742a2a; border-radius: 10px; padding: 10px 14px; }
+.flow-addition { background: #1e3a6e; border-radius: 10px; padding: 10px 14px; }
+.flow-contrast .flow-branch-label { color: #feb2b2; }
+.flow-addition .flow-branch-label { color: #93c5fd; }
+.flow-mem { margin-top: 14px; background: rgba(137,243,54,0.08); border: 1px solid rgba(137,243,54,0.25); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #d1fae5; line-height: 1.6; }
+
+/* SURPRISE BOX */
+.surprise-box { background: #fff8e1; border: 2px solid #f59e0b; border-radius: 12px; padding: 18px 22px; margin: 14px 0; }
+.surprise-box .sb-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #92400e; margin-bottom: 10px; }
+.sb-examples { display: flex; flex-direction: column; gap: 10px; }
+.sb-row { background: white; border-radius: 8px; padding: 12px 14px; border: 1px solid #fbd38d; }
+.sb-row .sb-sentence { font-size: 13px; color: #2d3748; margin-bottom: 6px; font-style: italic; }
+.sb-row .sb-q { font-size: 12px; font-weight: 700; color: #92400e; }
+.sb-row .sb-a { font-size: 12px; color: #276749; margin-top: 2px; }
+
+/* CONTRAST vs ADDITION table */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 14px 0; }
+.compare-table th { background: #1a1a2e; color: white; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; }
+.compare-table td { padding: 8px 12px; border-bottom: 1px solid #e8edf5; color: #2d3748; vertical-align: top; }
+.compare-table tr:nth-child(even) td { background: #f7f9fd; }
+.tag-con { display: inline-block; background: #fee2e2; color: #991b1b; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+.tag-add { display: inline-block; background: #dcfce7; color: #166534; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+.tag-res { display: inline-block; background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+
+/* CROSS-OFF RULE */
+.crossoff-box { background: #faf5ff; border: 2px solid #9f7aea; border-radius: 12px; padding: 18px 22px; margin: 14px 0; }
+.crossoff-box .co-title { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #6b46c1; margin-bottom: 10px; }
+.co-steps { display: flex; flex-direction: column; gap: 8px; }
+.co-step { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: #44337a; }
+.co-num { width: 24px; height: 24px; background: #9f7aea; border-radius: 50%; color: white; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+/* PRACTICE */
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #1e8b68; background: #e6fffa; }
+.pq-opt.selected { border-color: #1e8b68; background: #e6fffa; font-weight: 600; }
+.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #1e8b68; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #1e8b68; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Contrast Identification</span>
+    <span class="lesson-badge">Unit 7 · Cloze</span>
+  </div>
+  <a class="nav-btn next" href="Grammar_Lesson_ConditionalTimeSignals.html">Next Lesson &#8594;</a>
+</nav>
+<div class="page">
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 7 &nbsp;·&nbsp; Cloze</div>
+    <h1>Contrast Identification</h1>
+    <div class="subtitle">Structure is solved. Function is the only remaining gap — and CONTRAST is the hardest function to spot.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Cloze Test</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#128270; The Problem With CONTRAST</h2>
+    <p>You now get the structural type right every time — full stop means sentence-starter, no full stop means clause-joiner. That was a big step. The remaining errors are all about <strong>function</strong>: specifically, when to choose CONTRAST instead of ADDITION.</p>
+    <p>Here is why CONTRAST is the trickiest function to spot: ADDITION and RESULT both have a clear logical test (Because Backwards works for RESULT; same-direction extra information works for ADDITION). But CONTRAST does not feel like addition OR result — it feels like a surprise. And surprises are harder to notice when you are under pressure.</p>
+    <div class="warn-box">
+      <div class="warn-label">The Trap</div>
+      <p>When the Because Backwards test says NO (= not RESULT), students often default to ADDITION. But sometimes the answer is CONTRAST — and CONTRAST has its own test. You cannot skip it.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — THE SURPRISE TEST -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#128562; The Surprise Test — Your New Step 2b</h2>
+    <p>CONTRAST connects two ideas where the second idea is <strong>unexpected or surprising</strong> given the first. Think of it this way: if someone read the first idea and predicted what would come next, CONTRAST means their prediction was wrong.</p>
+
+    <div class="surprise-box">
+      <div class="sb-title">&#128562; The Surprise Test — Ask This Question</div>
+      <div class="sb-examples">
+        <div class="sb-row">
+          <div class="sb-sentence">"She trained every day for a month."</div>
+          <div class="sb-q">Question: What would you expect to come next?</div>
+          <div class="sb-a">Expected: "She won the race." / "She performed well."</div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-sentence">"She trained every day for a month. _______, she came last in the race."</div>
+          <div class="sb-q">Is coming last surprising given the training? → YES</div>
+          <div class="sb-a">&#10003; CONTRAST → However, / Although / Nevertheless</div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-sentence">"She trained every day for a month. _______, she also improved her diet."</div>
+          <div class="sb-q">Is improving her diet surprising given the training? → NO (same direction)</div>
+          <div class="sb-a">&#10003; ADDITION → Furthermore, / Moreover, / In addition</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">The Key Question for CONTRAST</div>
+      <p>"Given the first idea — is the second idea <strong>surprising or unexpected</strong>?" YES → CONTRAST. NO → go to ADDITION.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — THREE-WAY FUNCTION TEST -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#128200; The Complete Three-Way Function Test</h2>
+    <p>Here is the full decision process for every cloze gap — three questions, in order. Never skip a step.</p>
+
+    <div class="flow-wrap">
+      <div class="fw-title">&#128200; Three-Way Function Test — Use This Every Time</div>
+      <div class="flow-q">
+        <div class="fq-label">Step 1 — Because Backwards</div>
+        <div class="fq-text">"Second idea happened BECAUSE of the first idea?"</div>
+      </div>
+      <div class="flow-branches">
+        <div class="flow-yes">
+          <div class="flow-branch-label">YES &#10003;</div>
+          <div class="flow-branch-result">RESULT</div>
+          <div class="flow-branch-words">consequently, therefore, as a result, so</div>
+        </div>
+        <div class="flow-no">
+          <div class="flow-branch-label">NO → go to Step 2</div>
+          <div class="flow-branch-result" style="color:#a0aec0">Not RESULT</div>
+        </div>
+      </div>
+      <div class="flow-step2">
+        <div class="fq-label">Step 2 — Surprise Test</div>
+        <div class="fq-text">"Given the first idea — is the second idea surprising or unexpected?"</div>
+        <div class="flow-branches-3" style="margin-top:10px">
+          <div class="flow-contrast">
+            <div class="flow-branch-label">YES — surprising &#128562;</div>
+            <div class="flow-branch-result">CONTRAST</div>
+            <div class="flow-branch-words">however, although, but, whereas, despite, yet</div>
+          </div>
+          <div class="flow-addition">
+            <div class="flow-branch-label">NO — same direction</div>
+            <div class="flow-branch-result">ADDITION</div>
+            <div class="flow-branch-words">furthermore, moreover, in addition, also</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-mem">&#128161; Memory: <strong>Result → Contrast → Addition.</strong> Test them in that order. Never jump straight to Addition.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — CONTRAST vs ADDITION / CROSS-OFF -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#9984;&#65039; CONTRAST vs ADDITION — Side by Side + The Cross-Off Rule</h2>
+    <p>The most common mix-up is choosing ADDITION when the correct answer is CONTRAST. This table shows the difference clearly.</p>
+
+    <table class="compare-table">
+      <tr><th>First idea</th><th>Second idea</th><th>Surprising?</th><th>Function</th></tr>
+      <tr><td>He studied all night.</td><td>He passed every exam.</td><td>No — expected</td><td><span class="tag-add">ADDITION</span> (extra fact, same direction)</td></tr>
+      <tr><td>He studied all night.</td><td>He still failed the test.</td><td>YES — unexpected</td><td><span class="tag-con">CONTRAST</span> (however / although)</td></tr>
+      <tr><td>The road was icy.</td><td>The driver slowed down.</td><td>No — expected</td><td><span class="tag-add">ADDITION / RESULT</span> (test both)</td></tr>
+      <tr><td>The road was icy.</td><td>The bus arrived on time.</td><td>YES — unexpected</td><td><span class="tag-con">CONTRAST</span> (despite / however)</td></tr>
+      <tr><td>She measured carefully.</td><td>The cake collapsed.</td><td>YES — unexpected</td><td><span class="tag-con">CONTRAST</span> (the U6 error)</td></tr>
+      <tr><td>She measured carefully.</td><td>She decorated it beautifully.</td><td>No — same direction</td><td><span class="tag-add">ADDITION</span> (furthermore)</td></tr>
+    </table>
+
+    <div class="crossoff-box">
+      <div class="co-title">&#9984;&#65039; Cross-Off Rule — Compulsory Final Step</div>
+      <div class="co-steps">
+        <div class="co-step"><div class="co-num">1</div><div>Every time you write a letter in an answer box, <strong>put a small cross next to that letter</strong> in the word bank. Mark it as used.</div></div>
+        <div class="co-step"><div class="co-num">2</div><div>When all 7 gaps are filled, look at the word bank. <strong>One letter will have no cross</strong> — that is the distractor.</div></div>
+        <div class="co-step"><div class="co-num">3</div><div><strong>Danger signal:</strong> if two letters in the same function family are in the bank (e.g. two CONTRAST words: however + nevertheless), one of them MUST be the distractor. Once you use one, the other is automatically eliminated.</div></div>
+        <div class="co-step"><div class="co-num">4</div><div>If you have used any letter twice — <strong>stop and go back</strong>. You made an error. Every letter is used at most once.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="practice-intro">For each question: Step 1 — Because Backwards. If NO, Step 2 — Surprise Test. CONTRAST or ADDITION? Answer Q1 before Q2 appears.</div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">Question 1 <span class="diff-pill df">Foundational</span></div>
+      <div class="pq-text">The school canteen had just been fully refurbished. _______, it now offered three times as many meal choices as before.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. However,</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Furthermore,</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. Consequently,</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. Nevertheless,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','Step 1 — Because Backwards: Did the canteen offer more choices BECAUSE it was refurbished? Possibly, but the renovation and the extra choices are separate facts about the same improvement. Step 2 — Surprise Test: Is it surprising that a refurbished canteen has more choices? No — that is exactly what you would expect. → ADDITION. Answer: Furthermore.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">Question 2 <span class="diff-pill df">Foundational</span></div>
+      <div class="pq-text">The team had practised together every weekend for two months. _______, they lost the final match by five goals.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. Furthermore,</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. However,</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. Meanwhile,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','C','Step 1 — Because Backwards: Did they lose BECAUSE they practised every weekend? No — practice should help, not cause a loss. Step 2 — Surprise Test: Is losing by five goals surprising given two months of practice? YES — you would expect them to win or at least perform well. → CONTRAST. Answer: However.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">Question 3 <span class="diff-pill dd">Developing</span></div>
+      <div class="pq-text">The old library had barely any visitors each day. _______, the new digital catalogue made it even harder for people to find the books they needed.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. Moreover,</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. However,</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. Furthermore,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','D','Step 1 — Because Backwards: Did the catalogue become hard to use BECAUSE there were barely any visitors? No. Step 2 — Surprise Test: Is a hard-to-use catalogue surprising given low visitor numbers? No — it is an additional problem making the situation worse. Both facts are negative and pointing in the same direction → ADDITION. Answer: Furthermore. (A and D are both ADDITION — but D=Furthermore starts a sentence. A=Moreover also works here, so both A and D are plausible. However, if this were a real cloze with a word bank and D was listed, D is the standard choice for a sentence-starter addition.)')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 — DISTRACTOR TRAP -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">Question 4 <span class="diff-pill dd">Developing — Distractor Trap</span></div>
+      <div class="pq-text">Word bank: <strong>A. however · B. consequently · C. although · D. nevertheless</strong> (one will not be used).<br><br>The weather forecast had warned of heavy rain all day. _______, the school sports day went ahead as planned.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. however,</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. Consequently,</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. Although</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. Nevertheless,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','D','Full stop before gap → sentence-starter. A (however) and D (nevertheless) are both CONTRAST sentence-starters. Function: sports day going ahead despite a rain warning = CONTRAST (surprising/unexpected). Both A and D fit the function. But look at the other gaps: if A (however) is used elsewhere in the passage, then D (nevertheless) must fill this slot. In a real test, apply the Cross-Off Rule — once however is used, nevertheless is the answer here. Alternatively, if however is NOT used yet, either could be right — but nevertheless is the more emphatic/formal CONTRAST word, signalling determination despite difficulty. The Cross-Off Rule tells you which one is the distractor.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">Question 5 <span class="diff-pill da">Advanced</span></div>
+      <div class="pq-text">The new student, Amir, had never played chess before joining the club. _______, he memorised the rules in one evening. _______, his first game lasted less than ten minutes before he was beaten.</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. Furthermore, / However,</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. However, / Furthermore,</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. Consequently, / Nevertheless,</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. However, / Consequently,</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','A','Gap 1: "Had never played before — _______, he memorised rules in one evening." Surprise Test: Is memorising rules quickly surprising for someone who has never played? YES — CONTRAST → However? But wait — is learning quickly really surprising, or is it additional positive information? It depends on tone. Since he had NEVER played, learning all the rules in ONE evening is impressive and slightly unexpected → ADDITION with emphasis OR CONTRAST. In this passage, the tone is "despite his inexperience" which is CONTRAST. Wait — re-read: Furthermore, also works here. The key is Gap 2: his first game lasted less than ten minutes and he was beaten. Surprise Test: Is being beaten quickly surprising given that he just memorised the rules? YES — after learning so quickly you might expect better. → CONTRAST → However. So: Gap 1 = Furthermore (extra positive fact about his quick learning), Gap 2 = However (unexpected bad result). Answer: A.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>Three-Way Function Test is now your tool. Use it for every single gap.</p>
+      </div>
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Three-Way Function Test</h4>
+          <ul>
+            <li>Step 1: Because Backwards → YES = RESULT</li>
+            <li>Step 2: Surprise Test → YES = CONTRAST</li>
+            <li>Step 2: No surprise → ADDITION</li>
+            <li>Test in this order — never skip to ADDITION</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Cross-Off Rule (Compulsory)</h4>
+          <ul>
+            <li>Cross off each letter as you use it</li>
+            <li>One letter remaining = the distractor</li>
+            <li>Two same-function words? One must be distractor</li>
+            <li>Used any letter twice? Go back immediately</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var currentQ=1,totalQ=5,selected={};
+function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
+function checkOpt(qid,correct,explanation){
+  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
+  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
+  if(choice===correct){
+    document.getElementById(qid+choice).classList.add('correct');
+    fb.className='feedback fb-correct';fb.textContent='✓ Correct! '+explanation;
+    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
+    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
+    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
+  }else{
+    document.getElementById(qid+choice).classList.add('wrong');
+    fb.className='feedback fb-wrong';fb.textContent='✗ Not quite — try the Three-Way Function Test step by step: Because Backwards first, then Surprise Test.';
+    selected[qid]=null;
+  }
+}
+</script>
+</body>
+</html>

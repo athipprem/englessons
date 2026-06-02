@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditional Time Signals — Unit 7</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #1e8b68; }
+.topnav { background: #2d1b69; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #6b46c1; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn.next { background: #6b46c1; }
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.lesson-header { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+.rule-box { background: #faf5ff; border: 1px solid #d6bcfa; border-left: 4px solid #6b46c1; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #6b46c1; margin-bottom: 4px; }
+.rule-box p { color: #44337a; margin: 0; font-weight: 600; font-size: 13px; }
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+
+/* HAD TEST VISUAL */
+.had-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.had-card { border-radius: 10px; overflow: hidden; }
+.had-card .hc-head { padding: 10px 16px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+.had-pp .hc-head { background: #553c9a; color: #e9d8fd; }
+.had-sp .hc-head { background: #1e3a6e; color: #bfdbfe; }
+.had-card .hc-body { padding: 14px 16px; }
+.had-pp .hc-body { background: #faf5ff; }
+.had-sp .hc-body { background: #eff6ff; }
+.hc-example { font-size: 14px; color: #2d3748; margin-bottom: 8px; line-height: 1.6; }
+.hc-example strong { color: #553c9a; }
+.hc-example .sp-word { color: #1e3a8a; }
+.hc-rule { font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 6px; }
+.had-pp .hc-rule { background: #e9d8fd; color: #44337a; }
+.had-sp .hc-rule { background: #dbeafe; color: #1e3a8a; }
+.hc-test { font-size: 12px; color: #718096; margin-top: 8px; }
+
+/* TIME SIGNAL VISUAL */
+.signal-wrap { background: #1a1a2e; border-radius: 14px; padding: 24px 26px; margin: 16px 0; }
+.signal-wrap .sw-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 14px; }
+.signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.signal-box { border-radius: 10px; padding: 14px 16px; }
+.sig-mixed { background: #553c9a; border: 2px solid #9f7aea; }
+.sig-third { background: #1e3a6e; border: 2px solid #3b82f6; }
+.signal-box .sb-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.sig-mixed .sb-label { color: #e9d8fd; }
+.sig-third .sb-label { color: #bfdbfe; }
+.signal-box .sb-words { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.stag-m { background: #6b46c1; color: #e9d8fd; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+.stag-t { background: #1e40af; color: #bfdbfe; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+.signal-box .sb-result { font-size: 12px; font-weight: 700; color: white; }
+.signal-box .sb-form { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 3px; }
+.sig-example { margin-top: 12px; background: rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #cbd5e0; line-height: 1.6; }
+.sig-highlight { color: #89F336; font-weight: 700; }
+
+/* FLOWCHART */
+.flow-wrap { background: #1a1a2e; border-radius: 14px; padding: 24px 26px; margin: 16px 0; }
+.flow-wrap .fw-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 18px; }
+.flow-step { background: #2d3748; border-radius: 10px; padding: 12px 18px; margin-bottom: 10px; }
+.flow-step .fs-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #89F336; margin-bottom: 5px; }
+.flow-step .fs-q { font-size: 13px; font-weight: 700; color: white; }
+.flow-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+.fb-yes { background: #276749; border-radius: 8px; padding: 8px 12px; }
+.fb-no  { background: #2d3748; border-radius: 8px; padding: 8px 12px; border: 1px solid #4a5568; }
+.fb-label { font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 3px; }
+.fb-yes .fb-label { color: #9ae6b4; }
+.fb-no  .fb-label { color: #a0aec0; }
+.fb-result { font-size: 12px; font-weight: 700; color: white; }
+
+/* PRACTICE */
+.practice-intro { background: #faf5ff; border: 1px solid #d6bcfa; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #44337a; font-weight: 600; }
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; }
+.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #6b46c1; background: #faf5ff; }
+.pq-opt.selected { border-color: #6b46c1; background: #faf5ff; font-weight: 600; }
+.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #6b46c1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #6b46c1; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #6b46c1; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #6b46c1; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #6b46c1, #553c9a); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Conditional Time Signals</span>
+    <span class="lesson-badge">Unit 7 · Grammar</span>
+  </div>
+  <a class="nav-btn next" href="Vocab_Lesson_InnerStateWords.html">Next Lesson &#8594;</a>
+</nav>
+<div class="page">
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 7 &nbsp;·&nbsp; Grammar</div>
+    <h1>Conditional Time Signals &amp; the "had" Test</h1>
+    <div class="subtitle">Two targeted fixes: spot the time signal to choose the right result form, and tell the difference between two uses of "had" in if-clauses.</div>
+    <span class="gap-tag">&#127919; ISA Priority — Grammar</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#128336; Fix 1 — The Time Signal Rule</h2>
+    <p>The flowchart from Unit 6 is working well. One remaining gap: when a sentence has a present time signal (now, today, still, currently), the result clause must use <strong>Mixed Conditional form</strong>, not Third. The time signal word is the clue — it tells you whether the consequence is happening right now or happened in the past.</p>
+
+    <div class="signal-wrap">
+      <div class="sw-title">&#128336; Spot the Time Signal — Then Choose the Result Form</div>
+      <div class="signal-grid">
+        <div class="signal-box sig-mixed">
+          <div class="sb-label">&#9679; Present Time Signal → Mixed</div>
+          <div class="sb-words">
+            <span class="stag-m">now</span><span class="stag-m">today</span><span class="stag-m">still</span><span class="stag-m">currently</span><span class="stag-m">at the moment</span><span class="stag-m">this year</span>
+          </div>
+          <div class="sb-result">Result form: would + base verb</div>
+          <div class="sb-form">e.g. would be, would still work, would not live</div>
+          <div class="sig-example">If he had trained harder, he <span class="sig-highlight">would still be</span> playing professionally <span class="sig-highlight">now</span>.</div>
+        </div>
+        <div class="signal-box sig-third">
+          <div class="sb-label">&#9679; No Time Signal → Third</div>
+          <div class="sb-words">
+            <span class="stag-t">no "now"</span><span class="stag-t">no "today"</span><span class="stag-t">no "still"</span><span class="stag-t">past event</span>
+          </div>
+          <div class="sb-result">Result form: would have + past participle</div>
+          <div class="sb-form">e.g. would have won, would not have been</div>
+          <div class="sig-example">If she had left earlier, she <span class="sig-highlight">would have caught</span> the train.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-label">&#128161; One-Step Check</div>
+      <p>Before choosing the result form, find the time signal word. <strong>Circle it first.</strong> If it points to the present (now / today / still) → Mixed → would + base verb. If there is no present signal → Third → would have + past participle.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — HAD TEST -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#128270; Fix 2 — The "had" Test</h2>
+    <p>In Unit 6, you were unsure about Q8: "If Thomas had more time, he would learn to play the guitar." Both B and C contained the word "had" — but they were completely different conditional types. Here is how to tell them apart every time.</p>
+    <p>The word "had" has two different jobs in English. Look at what comes <em>directly after</em> "had" to know which one it is:</p>
+
+    <div class="had-grid">
+      <div class="had-card had-pp">
+        <div class="hc-head">&#9679; had + past participle verb → Past Perfect</div>
+        <div class="hc-body">
+          <div class="hc-example">If she <strong>had practised</strong> more… <br><small>(practised = past participle of "practise")</small></div>
+          <div class="hc-example">If they <strong>had finished</strong> on time… <br><small>(finished = past participle of "finish")</small></div>
+          <div class="hc-rule">Past perfect if-clause → Third or Mixed Conditional</div>
+          <div class="hc-test">Quick test: can you say "She has practised" or "They have finished"? YES → past participle → past perfect.</div>
+        </div>
+      </div>
+      <div class="had-card had-sp">
+        <div class="hc-head">&#9679; had + noun / adjective → Simple Past of "have"</div>
+        <div class="hc-body">
+          <div class="hc-example">If he <span class="sp-word">had more time</span>… <br><small>("more time" is a noun phrase, not a verb)</small></div>
+          <div class="hc-example">If the car <span class="sp-word">had enough fuel</span>… <br><small>("enough fuel" is a noun phrase, not a verb)</small></div>
+          <div class="hc-rule">Simple past if-clause → Second Conditional</div>
+          <div class="hc-test">Quick test: can you say "He has more time" makes sense as present tense? YES → "had" is simple past of "have" → Second Conditional.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-label">The Test in One Question</div>
+      <p>Look at the word directly after "had". Is it a <strong>past participle verb</strong> (something you can do — practised, finished, studied, gone)? YES → past perfect → Third or Mixed. Is it a <strong>noun or adjective</strong> (more time, enough money, a bigger house)? YES → simple past of "have" → Second Conditional.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — COMBINED FLOWCHART -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#128200; Both Rules Together</h2>
+    <p>Here is how the two new rules fit into the full conditional decision process:</p>
+
+    <div class="flow-wrap">
+      <div class="fw-title">&#128200; Full Decision Flow — Including Both New Rules</div>
+      <div class="flow-step">
+        <div class="fs-label">Step 1 — "had" test</div>
+        <div class="fs-q">Is the word after "had" a past participle verb (something you can do)?</div>
+        <div class="flow-branches">
+          <div class="fb-no">
+            <div class="fb-label">NO — noun or adjective</div>
+            <div class="fb-result">→ Simple past = Second Conditional (would + base verb)</div>
+          </div>
+          <div class="fb-yes">
+            <div class="fb-label">YES — past participle</div>
+            <div class="fb-result">→ Past perfect → go to Step 2</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-label">Step 2 — Time Signal test</div>
+        <div class="fs-q">Does the sentence contain a present time signal? (now / today / still / currently)</div>
+        <div class="flow-branches">
+          <div class="fb-yes">
+            <div class="fb-label">YES — present signal found</div>
+            <div class="fb-result">→ Mixed Conditional: result = would + base verb</div>
+          </div>
+          <div class="fb-no">
+            <div class="fb-label">NO — no present signal</div>
+            <div class="fb-result">→ Third Conditional: result = would have + past participle</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-step" style="background:#2d1b69">
+        <div class="fs-label" style="color:#f59e0b">BANNED RULE</div>
+        <div class="fs-q">"will" NEVER appears in any conditional result clause — in any type. If you see it as an option, cross it out immediately.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — WORKED EXAMPLES -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#128221; Worked Examples — Apply Both Rules</h2>
+    <p>Let us apply the two-step process to real sentences before you practise:</p>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <tr style="background:#1a1a2e;color:white"><th style="padding:8px 12px;text-align:left">Sentence</th><th style="padding:8px 12px;text-align:left">"had" test</th><th style="padding:8px 12px;text-align:left">Time signal</th><th style="padding:8px 12px;text-align:left">Type</th></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">If Sam <strong>had not missed</strong> the flight…</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">"missed" = past participle ✓ → past perfect</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">No present signal</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5;font-weight:600;color:#1e40af">Third → would have + pp</td></tr>
+      <tr style="background:#f7f9fd"><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">If she <strong>had not missed</strong> the flight, she <strong>would be</strong> in Paris <strong>today</strong>.</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">"missed" = past participle ✓ → past perfect</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">"today" ✓ present signal</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5;font-weight:600;color:#553c9a">Mixed → would + base ✓</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">If the city <strong>had better transport</strong>…</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">"better" = adjective, NOT a past participle → simple past of "have"</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5">—</td><td style="padding:8px 12px;border-bottom:1px solid #e8edf5;font-weight:600;color:#276749">Second → would + base</td></tr>
+      <tr style="background:#f7f9fd"><td style="padding:8px 12px">If the team <strong>had more experience</strong>…</td><td style="padding:8px 12px">"more" is not a past participle → simple past of "have"</td><td style="padding:8px 12px">—</td><td style="padding:8px 12px;font-weight:600;color:#276749">Second → would + base</td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="practice-intro">For each question: Step 1 — look at what comes after "had". Step 2 — check for a present time signal. Then answer. Complete Q1 before Q2 appears.</div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">Question 1 <span class="diff-pill df">Foundational — "had" Test</span></div>
+      <div class="pq-text">"If the athletes had a longer training season, they __________________ their personal bests more often." What type of conditional is this?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. Third Conditional</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. Mixed Conditional</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. Second Conditional</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. First Conditional</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','C','Had test: "a longer training season" — is "longer" a past participle verb? No — it is an adjective. So "had" = simple past of "have" → Second Conditional. The result would be "would break" (would + base verb). Second Conditional describes an imaginary present/future situation.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">Question 2 <span class="diff-pill df">Foundational — Time Signal</span></div>
+      <div class="pq-text">Choose the correct result clause: "If the old bridge had not been demolished ten years ago, the city __________________ a faster route across the river __________________ ."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. would have had / (no time signal)</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. would still have / today</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. will still have / now</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. would have / yesterday</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','B','Had test: "had not been demolished" — "demolished" is a past participle ✓ → past perfect → Third or Mixed. Time signal: "today" in option B = present signal → Mixed → result = would + base verb. "Would still have today" ✓. A uses "would have had" (Third = past result) with no time signal — grammatically correct as Third, but the question asks for the version that includes a present time signal. C uses "will" — banned. D uses "yesterday" — past signal, so that would be Third, but "would have" needs the full "would have had.")">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">Question 3 <span class="diff-pill dd">Developing — Both Tests</span></div>
+      <div class="pq-text">Which sentence is a Mixed Conditional?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. If the explorers had enough supplies, they would continue the expedition.</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. If the city had not lost the contract, it would have built a new stadium.</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. If the factory had not closed last year, hundreds of families would still have jobs today.</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. If she had studied engineering, she would have become a bridge designer.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','C','C: "had not closed" — "closed" is a past participle ✓ → past perfect → Third or Mixed. Time signal: "still" and "today" → present → Mixed → result = "would still have" (would + base) ✓. A: "had enough supplies" — "enough" is not a past participle → simple past of "have" → Second Conditional. B: "had not lost" → past perfect, but "would have built" = past result, no present signal → Third. D: "had studied" → past perfect, "would have become" = past result → Third.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">Question 4 <span class="diff-pill dd">Developing — Error Spotting</span></div>
+      <div class="pq-text">One sentence has a grammar error. Which one?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. If the town had a better harbour, more fishing boats would dock there.</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. If the engineer had not spotted the fault, the entire system would have failed.</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. If the charity had received more funding, it would still be running its programmes today.</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. If the scientist had more accurate data, she would have published her results last year.</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','D','D has an error: "had more accurate data" — "more accurate" is an adjective → simple past of "have" → Second Conditional if-clause. But "would have published last year" is a Third Conditional result (would have + past participle + past time "last year"). Second if-clause + Third result = mismatch. The fix: either "If she had had more accurate data, she would have published…" (Third) OR "If she had more accurate data, she would publish her results." (Second). A = Second Conditional ✓. B = Third Conditional ✓. C = Mixed Conditional ✓ ("today" signal, would still be running).')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">Question 5 <span class="diff-pill da">Advanced — Both Gaps</span></div>
+      <div class="pq-text">Choose the option that correctly completes both gaps: "If the rainforest __________________ at such a rapid rate over the past century, thousands of species __________________ still alive today."</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. had not been destroyed / would have been</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. was not destroyed / would still be</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. had not been destroyed / would still be</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. had not been destroyed / will still be</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','C','If-clause: "had not been destroyed" — "destroyed" is a past participle ✓ → past perfect → Third or Mixed. Time signal: "still alive today" → present signal → Mixed → result = would + base verb → "would still be" ✓. A uses "would have been" = Third (past result), but "today" demands Mixed. B uses "was not destroyed" = simple past = Second Conditional if-clause, but the "past century" framing requires past perfect (it already happened). D uses "will" — banned in conditional results.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>Two precision tools added. Both are now part of your conditional flowchart.</p>
+      </div>
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>The "had" Test</h4>
+          <ul>
+            <li>Word after "had" = past participle verb → past perfect → Third/Mixed</li>
+            <li>Word after "had" = noun or adjective → simple past of "have" → Second</li>
+            <li>Quick check: "She has [word]" — does it make sense as present perfect? YES → past participle</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>Time Signal Rule</h4>
+          <ul>
+            <li>now / today / still / currently → present signal → Mixed</li>
+            <li>Mixed result: would + base verb</li>
+            <li>No present signal → Third → would have + past participle</li>
+            <li>"will" is always wrong in conditional results</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var currentQ=1,totalQ=5,selected={};
+function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
+function checkOpt(qid,correct,explanation){
+  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
+  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
+  if(choice===correct){
+    document.getElementById(qid+choice).classList.add('correct');
+    fb.className='feedback fb-correct';fb.textContent='✓ Correct! '+explanation;
+    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
+    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
+    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
+  }else{
+    document.getElementById(qid+choice).classList.add('wrong');
+    fb.className='feedback fb-wrong';fb.textContent='✗ Not quite — apply the two-step check: "had" test first, then time signal test.';
+    selected[qid]=null;
+  }
+}
+</script>
+</body>
+</html>

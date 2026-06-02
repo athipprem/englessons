@@ -15,13 +15,13 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '31 May 2026',
+  updated:        '2 Jun 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           6,
+    n:           7,
     status:      'Lessons In Progress',
     testPending: false
   },
@@ -34,12 +34,12 @@ var PREM_ENGLISH = {
 
   // Last completed unit test (updated after each test)
   lastUnit: {
-    n: 5, label: 'Unit 5', score: 12, outOf: 20, pct: 60, delta: -2, prevScore: 14,
+    n: 6, label: 'Unit 6', score: 15, outOf: 20, pct: 75, delta: 3, prevScore: 12,
 
-    patternLabel:   'Unit 5 &mdash; 3 Jun 2026 &middot; 12/20 (60%) &middot; Cloze 3/7 &middot; Grammar 4/7 &middot; Vocab 5/6',
+    patternLabel:   'Unit 6 &mdash; 2 Jun 2026 &middot; 15/20 (75%) &middot; Cloze 5/7 &middot; Grammar 6/7 &middot; Vocab 4/6',
     patternInsight: '<strong>Score dipped to 12/20 (60%) &mdash; second-lowest result, down 2 marks from Unit 4.</strong> Cloze regressed from 4/7 to 3/7: the structural type confusion (sentence-starter vs clause-joiner) appeared for the third unit running in Q1 &mdash; chose B (however, sentence-starter) for a clause-joiner slot. Q3 had both wrong function and wrong type. Q6 shows the Because Backwards test IS starting to work (correctly identified RESULT function) but picked the distractor H instead of E &mdash; two RESULT words in the bank, grabbed the wrong one. Q7 placed a RESULT connector in a CONTRAST slot. Grammar held at 4/7: Q10 repeated the &ldquo;will have&rdquo; error from Unit 4; Q11 cannot yet identify Mixed Conditional by sight (fill-in works, recognition does not); Q12 used simple past if-clause with a Mixed result &mdash; new if-clause mismatch error type. Vocab dropped one mark (6&rarr;5): Q17 chose &ldquo;careful and diplomatic&rdquo; for &ldquo;candid&rdquo; &mdash; selected by positive-sounding instinct rather than matching the exact passage clue.',
 
-    analysisLabel:   'Unit 5 Result Analysis &mdash; 3 Jun 2026',
+    analysisLabel:   'Unit 6 Result Analysis &mdash; 2 Jun 2026',
     analysisInsight: '<strong>Score: 12/20 (60%) &mdash; 8 questions wrong. &minus;2 from Unit 4 (70%&rarr;60%).</strong> Cloze 3/7 (43%): Q1 &#10007; chose B (however) &mdash; needed F (although). CONTRAST function correct, structural type wrong: however is a sentence-starter, although is a clause-joiner &mdash; same error as Unit 3 Q1. Q3 &#10007; chose F (although) &mdash; needed A (furthermore). Wrong function (CONTRAST for ADDITION) AND wrong structural type (clause-joiner for sentence-starter). Q6 &#10007; chose H (as a result) &mdash; needed E (therefore). Both are RESULT sentence-starters: distractor grab. Q7 &#10007; chose E (therefore = RESULT) &mdash; needed B (however = CONTRAST). Function error. Grammar 4/7 (57%): Q10 &#10007; chose D (had not demolished / will have) &mdash; needed B (would have). &ldquo;will&rdquo; banned in conditional result. Q11 &#10007; chose A (Third Conditional sentence) &mdash; question asked to identify Mixed; cannot yet discriminate Mixed by sight. Q12 &#10007; chose C (was not / would be) &mdash; needed A (had not been / would be). If-clause mismatch: simple past &ldquo;was not&rdquo; paired with Mixed result &ldquo;would be&rdquo;; needs past perfect &ldquo;had not been&rdquo;. Vocab 5/6 (83%): Q17 &#10007; chose A (careful and diplomatic) &mdash; needed B (frank and direct). Passage said &ldquo;always said exactly what she thought, without hesitation or sugar-coating&rdquo; &mdash; a near-definition of candid. Chose by positive connotation instead of exact clue.',
 
     qSummary: '<strong>Cloze 3/7 &#10007; (Q1 Q3 Q6 Q7 wrong &mdash; structural type confusion + distractor trap + function error) &middot; Grammar 4/7 &#10007; (Q10 Q11 Q12 wrong &mdash; will/would, Mixed identification, if-clause mismatch) &middot; Vocab 5/6 (Q17 wrong &mdash; precision vs instinct).</strong>',
@@ -70,12 +70,12 @@ var PREM_ENGLISH = {
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // Current: 470 / 657 = 72%
+  // Current: 478 / 657 = 73%
   skills: [
-    { name: 'Reading Compr.',    c: 65, t: 85 },   // U5: not tested; holding
-    { name: 'Vocabulary',        c: 72, t: 82 },   // U5: 5/6 (83%) — one slip; nudged down from 74
-    { name: 'Grammar',           c: 58, t: 82 },   // U5: 4/7 (57%) — same as U4; holding
-    { name: 'Cloze Test',        c: 48, t: 80 },   // U5: 3/7 (43%) — regression; nudged down from 52
+    { name: 'Reading Compr.',    c: 65, t: 85 },   // U6: not tested; holding
+    { name: 'Vocabulary',        c: 70, t: 82 },   // U6: 4/6 (67%) — two inner-state errors; nudged down from 72
+    { name: 'Grammar',           c: 64, t: 82 },   // U6: 6/7 (86%) — big improvement; nudged up from 58
+    { name: 'Cloze Test',        c: 52, t: 80 },   // U6: 5/7 (71%) — structural type resolved; nudged up from 48
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
     { name: 'Critical Thinking', c: 50, t: 80 },
@@ -83,10 +83,10 @@ var PREM_ENGLISH = {
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [65, 72, 58, 48, 65, 95, 50, 42],
+  radarCurrent:  [65, 70, 64, 52, 65, 95, 50, 42],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 5',
+  radarLegendUnit: 'Unit 6',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -95,7 +95,8 @@ var PREM_ENGLISH = {
     { n:2, score:14, outOf:20, delta:3,    color:'#f6993f', star:false, label:'U2' },
     { n:3, score:13, outOf:20, delta:-1,   color:'#f6993f', star:false, label:'U3' },
     { n:4, score:14, outOf:20, delta:1,    color:'#f6993f', star:false, label:'U4' },
-    { n:5, score:12, outOf:20, delta:-2,   color:'#fc4e4e', star:false, label:'U5' }
+    { n:5, score:12, outOf:20, delta:-2,   color:'#fc4e4e', star:false, label:'U5' },
+    { n:6, score:15, outOf:20, delta:3,    color:'#89F336', star:true,  label:'U6' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
