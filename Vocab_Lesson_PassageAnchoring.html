@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passage Anchoring — Unit 8</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
+a { color: #c05621; }
+.topnav { background: #6b2a00; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.topnav-left { display: flex; align-items: center; gap: 14px; }
+.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
+.topnav a:hover { color: white; }
+.lesson-title { font-size: 14px; font-weight: 700; color: white; }
+.lesson-badge { background: #c05621; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+.nav-btn.prev { background: rgba(255,255,255,0.15); }
+.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+.lesson-header { background: linear-gradient(135deg, #c05621, #9c4221); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
+.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
+.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
+.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
+.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
+.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.section p { color: #4a5568; margin-bottom: 10px; }
+.section p:last-child { margin-bottom: 0; }
+.rule-box { background: #fff8e1; border: 1px solid #fbd38d; border-left: 4px solid #c05621; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c05621; margin-bottom: 4px; }
+.rule-box p { color: #744210; margin: 0; font-weight: 600; font-size: 13px; }
+.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
+.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
+.green-box { background: #f0fff4; border: 1px solid #9ae6b4; border-left: 4px solid #276749; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.green-box .gl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #276749; margin-bottom: 4px; }
+.green-box p { color: #1a3d32; margin: 0; font-size: 13px; }
+
+/* ANCHOR METHOD VISUAL */
+.anchor-steps { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+.anchor-step { display: flex; gap: 14px; align-items: flex-start; background: #f7f9fd; border-radius: 10px; padding: 14px 16px; border: 1px solid #e8edf5; }
+.as-num { width: 32px; height: 32px; background: #c05621; border-radius: 50%; color: white; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.as-body .as-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.as-body .as-desc { font-size: 12px; color: #4a5568; }
+
+/* CLUE TYPES */
+.clue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+.clue-card { border-radius: 10px; padding: 14px 16px; }
+.clue-card.neardef  { background: #e6fffa; border: 1px solid #81e6d9; }
+.clue-card.bodylan  { background: #faf5ff; border: 1px solid #d6bcfa; }
+.clue-card.contrast { background: #fff8e1; border: 1px solid #fbd38d; }
+.clue-card.degree   { background: #ebf4ff; border: 1px solid #90cdf4; }
+.clue-card .cc-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.clue-card.neardef  .cc-label { color: #1e8b68; }
+.clue-card.bodylan  .cc-label { color: #6b46c1; }
+.clue-card.contrast .cc-label { color: #c05621; }
+.clue-card.degree   .cc-label { color: #2b6cb0; }
+.clue-card .cc-desc { font-size: 12px; color: #2d3748; margin-bottom: 8px; }
+.clue-card .cc-ex { font-size: 11px; color: #718096; font-style: italic; }
+
+/* WORKED EXAMPLE */
+.worked-ex { background: #1a1a2e; border-radius: 14px; padding: 22px 26px; margin: 14px 0; }
+.we-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 16px; }
+.we-passage { background: #2d3748; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-size: 13px; color: #e2e8f0; line-height: 1.8; }
+.we-word { background: #c05621; color: white; padding: 0 5px; border-radius: 4px; font-weight: 700; }
+.we-steps { display: flex; flex-direction: column; gap: 8px; }
+.we-step { background: #2d3748; border-radius: 8px; padding: 10px 14px; }
+.we-step-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #89F336; margin-bottom: 4px; }
+.we-step-text { font-size: 12px; color: #e2e8f0; }
+.we-anchor { background: rgba(137,243,54,0.1); border: 1px solid rgba(137,243,54,0.3); border-radius: 8px; padding: 10px 14px; margin-top: 8px; }
+.we-anchor-text { font-size: 12px; color: #d1fae5; }
+
+/* STATE VS QUALITY TABLE */
+.sqt { width: 100%; border-collapse: collapse; font-size: 12px; margin: 14px 0; }
+.sqt th { background: #6b2a00; color: white; padding: 8px 12px; text-align: left; font-size: 11px; }
+.sqt td { padding: 8px 12px; border-bottom: 1px solid #e8edf5; vertical-align: top; }
+.sqt tr:nth-child(even) td { background: #f7f9fd; }
+.tag-state { display: inline-block; background: #fff8e1; color: #92400e; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+.tag-qual  { display: inline-block; background: #ebf4ff; color: #2b6cb0; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+.tag-act   { display: inline-block; background: #f0fff4; color: #276749; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+
+/* PRACTICE */
+.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; }
+.pq-passage { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
+.pq-passage .target { text-decoration: underline; font-weight: 700; }
+.pq-question { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.pq-opt { background: #fff8e1; border: 2px solid #fbd38d; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
+.pq-opt:hover { border-color: #c05621; background: #fff0dc; }
+.pq-opt.selected { border-color: #c05621; background: #fff0dc; font-weight: 600; }
+.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
+.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
+.check-btn { background: #c05621; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
+.fb-correct { color: #276749; }
+.fb-wrong { color: #c53030; }
+.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.df { background: #f0fff4; color: #276749; }
+.dd { background: #ebf4ff; color: #2b6cb0; }
+.da { background: #faf5ff; color: #6b46c1; }
+.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
+.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: #c05621; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
+.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
+.sum-card h4 { font-size: 12px; font-weight: 700; color: #c05621; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+.sum-card ul { list-style: none; }
+.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
+.sum-card ul li:last-child { border-bottom: none; }
+.sum-card ul li::before { content: "• "; color: #c05621; font-weight: 700; }
+.complete-banner { background: linear-gradient(135deg, #c05621, #9c4221); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
+.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="index.html">&#8592; Hub</a>
+    <span class="lesson-title">Passage Anchoring</span>
+    <span class="lesson-badge">Unit 8 · Vocabulary</span>
+  </div>
+  <a class="nav-btn prev" href="Grammar_Lesson_ConditionalConsolidation.html">&#8592; Prev Lesson</a>
+</nav>
+<div class="page">
+  <div class="lesson-header">
+    <div class="unit-tag">Unit 8 &nbsp;·&nbsp; Vocabulary</div>
+    <h1>Passage Anchoring</h1>
+    <div class="subtitle">The answer is always in the passage. Find the exact clue, quote it to yourself, then match it to the option. Never guess from the general feeling of the text.</div>
+    <span class="gap-tag">&#9875; Quote and Match — Every Time</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-tag">Section 1 of 5</div>
+    <h2>&#128270; Why Guessing Goes Wrong</h2>
+    <p>Vocabulary inference questions look like meaning questions but they are actually <strong>clue-finding questions</strong>. The answer is never just what the word means in general — it is what the passage specifically tells you about the character or situation at that moment.</p>
+    <p>In Unit 7, Q16 had a near-definition in the passage: <em>"not frightened exactly, but stripped of all thought. He could not even remember how his presentation began."</em> The correct answer (D) echoed this almost word-for-word: "stripped of thought, unable to react normally." Prem chose C (surprised and unprepared) — a guess from context rather than a specific clue found in the text.</p>
+    <div class="warn-box">
+      <div class="warn-label">The Guessing Trap</div>
+      <p>When you read the passage and choose an answer based on the general feeling of the situation, you are guessing. The trap options are designed to match the general situation. Only the correct answer matches the specific clue in the text.</p>
+    </div>
+    <div class="rule-box">
+      <div class="rule-label">The Core Principle</div>
+      <p>Every correct answer for a vocabulary question can be justified by quoting specific words from the passage. If you cannot find a quote that directly supports your choice, you have not found the anchor yet.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — THE QUOTE AND MATCH METHOD -->
+  <div class="section">
+    <div class="section-tag">Section 2 of 5</div>
+    <h2>&#9875; The Quote and Match Method — 3 Steps</h2>
+    <p>Use this method for every vocabulary question. Do not skip any step.</p>
+
+    <div class="anchor-steps">
+      <div class="anchor-step">
+        <div class="as-num">1</div>
+        <div class="as-body">
+          <div class="as-title">Find the target word in the passage</div>
+          <div class="as-desc">Go back to the exact line where the underlined word appears. Read the full sentence — not just the word itself — and the sentence before and after it.</div>
+        </div>
+      </div>
+      <div class="anchor-step">
+        <div class="as-num">2</div>
+        <div class="as-body">
+          <div class="as-title">Find and quote the specific clue</div>
+          <div class="as-desc">Look for: a near-definition (the passage restates the word in simpler language), body language or behaviour clues, a direct statement of how the character feels, or a contrast clue (the passage tells you what the character is NOT). Quote it to yourself: "The clue is __________."</div>
+        </div>
+      </div>
+      <div class="anchor-step">
+        <div class="as-num">3</div>
+        <div class="as-body">
+          <div class="as-title">Match the clue to the option — not to the situation</div>
+          <div class="as-desc">Read each option and ask: "Does this option match my quoted clue?" The correct option reflects the specific clue, not just the general situation. Eliminate options that describe the situation but contradict the clue.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — CLUE TYPES -->
+  <div class="section">
+    <div class="section-tag">Section 3 of 5</div>
+    <h2>&#128161; Four Types of Passage Clues</h2>
+    <p>Every vocabulary question has at least one of these clue types. Learn to spot each one:</p>
+
+    <div class="clue-grid">
+      <div class="clue-card neardef">
+        <div class="cc-label">&#128218; Near-Definition</div>
+        <div class="cc-desc">The passage restates the target word in simpler words, often right next to it or in the next clause.</div>
+        <div class="cc-ex">Example: "numb — not frightened, but stripped of all thought." The passage defines numb for you.</div>
+      </div>
+      <div class="clue-card bodylan">
+        <div class="cc-label">&#129504; Body Language / Behaviour Clue</div>
+        <div class="cc-desc">The character's physical actions, expressions, or movements tell you their inner state.</div>
+        <div class="cc-ex">Example: "pacing, checking watch every few seconds, unable to sit still" = restless/anxious inner state.</div>
+      </div>
+      <div class="clue-card contrast">
+        <div class="cc-label">&#10067; Contrast Clue</div>
+        <div class="cc-desc">The passage tells you what the character is NOT, which helps eliminate wrong options.</div>
+        <div class="cc-ex">Example: "not frightened exactly" — eliminates frightened as a synonym; points to something quieter.</div>
+      </div>
+      <div class="clue-card degree">
+        <div class="cc-label">&#127777;&#65039; Degree / Intensity Clue</div>
+        <div class="cc-desc">How extreme or strong is the language? Extreme language points to stronger emotion words.</div>
+        <div class="cc-ex">Example: "could not even remember how her presentation began" = total mental blankness, not just surprise.</div>
+      </div>
+    </div>
+
+    <div class="worked-ex">
+      <div class="we-title">&#127775; Worked Example — Quote and Match in Action</div>
+      <div class="we-passage">Kai felt immediately <span class="we-word">[numb]</span> — not frightened exactly, but stripped of all thought. He could not even remember how his presentation began.</div>
+      <div class="we-steps">
+        <div class="we-step">
+          <div class="we-step-label">Step 1 — Find the word</div>
+          <div class="we-step-text">Target word: numb. Found on line 3. Read the full sentence and surrounding context.</div>
+        </div>
+        <div class="we-step">
+          <div class="we-step-label">Step 2 — Quote the clue</div>
+          <div class="we-step-text">Near-definition clue: "stripped of all thought. He could not even remember how his presentation began." — This is a near-definition of numb.</div>
+        </div>
+        <div class="we-step">
+          <div class="we-step-label">Step 3 — Match to options</div>
+          <div class="we-step-text">A. calm and still — no; the passage shows loss of thought, not calm. B. frightened and confused — no; the passage says "not frightened exactly." C. surprised and unprepared — no; there is no mention of surprise. D. stripped of thought, unable to react normally — YES, this echoes the passage almost word-for-word.</div>
+        </div>
+      </div>
+      <div class="we-anchor">
+        <div class="we-anchor-text">&#9875; Anchor: "stripped of all thought / could not even remember" → matches D exactly. Answer: D.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — STATE vs QUALITY vs ACTION -->
+  <div class="section">
+    <div class="section-tag">Section 4 of 5</div>
+    <h2>&#129504; Inner State vs Quality vs Action — The Ongoing Trap</h2>
+    <p>The near-synonym trap for vocabulary words often comes in three forms. Knowing which type the target word is tells you which options to eliminate immediately.</p>
+
+    <table class="sqt">
+      <tr><th>Type</th><th>What it describes</th><th>Examples</th><th>Clue to look for</th></tr>
+      <tr>
+        <td><span class="tag-state">Inner State</span></td>
+        <td>How the character feels right now — their emotional experience</td>
+        <td>numb, apprehensive, pensive, composed, dazed, warmth</td>
+        <td>Body language, facial expression, direct statement of feeling</td>
+      </tr>
+      <tr>
+        <td><span class="tag-qual">Quality / Trait</span></td>
+        <td>A characteristic or ability the person has (more permanent)</td>
+        <td>focused, determined, capable, skilled, methodical</td>
+        <td>What the person is like in general, not how they feel in this moment</td>
+      </tr>
+      <tr>
+        <td><span class="tag-act">Action / Behaviour</span></td>
+        <td>What the character does — their observable actions</td>
+        <td>prepared (what they did), practised, worked hard</td>
+        <td>What the person does — their behaviour described in the passage</td>
+      </tr>
+    </table>
+
+    <div class="rule-box">
+      <div class="rule-label">Elimination Shortcut</div>
+      <p>If the target word is an inner state word, immediately eliminate any option that describes an action or a quality. The correct option must name a feeling or emotional experience — not what the person does or what kind of person they are.</p>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-label">The Most Common Error Pattern</div>
+      <p>Choosing the option that describes what the character DID (their preparation, their action) instead of how they FELT (their inner state) in that moment. For example, choosing "confident and well-prepared" for apprehensive — that describes the preparation (action), not the feeling of nervousness that the word actually names.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PRACTICE -->
+  <div class="section">
+    <div class="section-tag">Section 5 of 5 — Practice</div>
+    <h2>&#9997;&#65039; Your Turn</h2>
+    <div class="practice-intro">For each question: find the target word, quote the specific clue from the passage, then match. Do not choose an option until you have found your anchor quote.</div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">Question 1 of 5</span>
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pq" id="q1">
+      <div class="pq-num">Question 1 <span class="diff-pill df">Foundational — Near-Definition</span></div>
+      <div class="pq-passage">The waiting room was completely silent. Daniel sat in the corner, his shoulders tight and his jaw set — utterly <span class="target">[motionless]</span>. He had not moved for twenty minutes. Even his eyes seemed fixed on a single point on the floor.</div>
+      <div class="pq-question">What does "motionless" (line 2) most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. deeply concentrating</div>
+        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. completely still, not moving at all</div>
+        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. calm and relaxed</div>
+        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. frozen with fear</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q1','B','Quote and Match. Anchor clue: had not moved for twenty minutes / even his eyes seemed fixed on a single point. This is near-definition — the passage describes exactly what motionless means: not moving at all. B matches perfectly. A (concentrating) is not supported — no mention of concentration. C (calm and relaxed) is contradicted by shoulders tight and jaw set — those are tension clues, not relaxation. D (frozen with fear) adds fear — the passage does not mention fear. The clue confirms: completely still, not moving at all.')">Check</button>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pq" id="q2" style="display:none">
+      <div class="pq-num">Question 2 <span class="diff-pill df">Foundational — Body Language Clue</span></div>
+      <div class="pq-passage">When the coach called Rosa's name for the team announcement, she stood up so fast that her chair scraped loudly across the floor. Her eyes were wide, her mouth open. She looked <span class="target">[incredulous]</span> — as if she genuinely could not believe what she had just heard.</div>
+      <div class="pq-question">What does "incredulous" (line 3) most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. extremely excited and happy</div>
+        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. unable to believe what she heard</div>
+        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. grateful and honoured</div>
+        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. confused and uncertain</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q2','B','Quote and Match. Near-definition clue: as if she genuinely could not believe what she had just heard — this is an almost word-for-word definition of incredulous. Body language clues (eyes wide, mouth open) also confirm disbelief — these are the physical signs of not being able to believe something. B (unable to believe what she heard) matches the anchor exactly. A (excited and happy) is a trap — she stood up fast but that alone does not confirm happiness; the clue points to disbelief. C (grateful) has no passage support. D (confused) is close but disbelief is more specific than confusion.')">Check</button>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pq" id="q3" style="display:none">
+      <div class="pq-num">Question 3 <span class="diff-pill dd">Developing — State vs Action Trap</span></div>
+      <div class="pq-passage">Ben had been preparing for the science fair for three months. He had read every book in the library on the topic and rehearsed his presentation forty times. As he set up his display board, he looked quietly <span class="target">[assured]</span>: no fidgeting, no checking his notes, no glancing at the other competitors. He just worked steadily, as though he already knew it would go well.</div>
+      <div class="pq-question">What does "assured" (line 3) most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. well prepared and hardworking</div>
+        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. calm and confident in himself</div>
+        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. focused and determined</div>
+        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. nervous but hiding it</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q3','B','Quote and Match. Assured is an inner state word — how he feels, not what he did. Body language clue: no fidgeting, no checking notes, no glancing at competitors — all signs of inner calm. Near-definition: as though he already knew it would go well — this is inner confidence. B (calm and confident in himself) matches both clues. A (well prepared and hardworking) describes his ACTIONS before the event — it matches the preparation in paragraph one, not the feeling described by assured. This is the state vs action trap. C (focused and determined) describes qualities, not an inner feeling of calm confidence. D is eliminated by no fidgeting — nervousness is contradicted by the clues.')">Check</button>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pq" id="q4" style="display:none">
+      <div class="pq-num">Question 4 <span class="diff-pill dd">Developing — Contrast Clue</span></div>
+      <div class="pq-passage">The headteacher walked into the assembly with the same pace and posture as always. Nothing had changed about the way she moved. But the students who knew her well could tell immediately — there was something <span class="target">[subdued]</span> about her today. Her voice was quieter than usual. She did not make eye contact. She spoke clearly but without the warmth she normally brought to every room she entered.</div>
+      <div class="pq-question">What does "subdued" (line 3) most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. tired and unwell</div>
+        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. quieter and less energetic than usual</div>
+        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. serious and focused</div>
+        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. sad and visibly upset</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q4','B','Quote and Match. Contrast clue: without the warmth she normally brought to every room she entered — the passage compares her current state to her normal energetic warmth. The contrast reveals that she is less than her usual self today. Body language clues: quieter than usual, did not make eye contact. B (quieter and less energetic than usual) matches both clues directly — subdued means quieter and less vibrant than normal. A (tired and unwell) is not supported — no mention of illness or fatigue. C (serious and focused) misses the lower energy and loss of warmth. D (sad and visibly upset) is too strong — the passage shows restraint, not visible sadness.')">Check</button>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pq" id="q5" style="display:none">
+      <div class="pq-num">Question 5 <span class="diff-pill da">Advanced — Multiple Clues + Near-Synonym Trap</span></div>
+      <div class="pq-passage">By the final round of the competition, Zara had been standing for four hours. Her legs ached. Her mind was slow. Yet her answers kept coming, each one deliberate and <span class="target">[meticulous]</span> — she checked every number twice, re-read every question before committing, and never rushed even when the clock was ticking. Not one detail was missed.</div>
+      <div class="pq-question">What does "meticulous" (line 3) most likely mean?</div>
+      <div class="pq-opts">
+        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. careful and paying great attention to every detail</div>
+        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. slow and cautious</div>
+        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. clever and methodical</div>
+        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. focused and determined</div>
+      </div>
+      <button class="check-btn" onclick="checkOpt('q5','A','Quote and Match. Multiple clues: checked every number twice / re-read every question before committing / never rushed / not one detail was missed. This is a behaviour description that defines meticulous — extreme care and attention to detail. A (careful and paying great attention to every detail) matches all four clues. B (slow and cautious) is a near-synonym trap — she is careful, but meticulous is about detail, not speed. Her answers kept coming suggests she was not slow. C (clever and methodical) describes her mind, but meticulous is specifically about attention to detail, not intelligence. D (focused and determined) is too general — the passage specifies the manner of her work, not just her attitude.')">Check</button>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="summary-section" style="display:none">
+      <div class="complete-banner">
+        <h3>&#127881; All 5 Complete!</h3>
+        <p>Quote and Match is now your standard method. Find the anchor before you choose.</p>
+      </div>
+      <div class="summary-grid" style="margin-top:16px">
+        <div class="sum-card">
+          <h4>Quote and Match — 3 Steps</h4>
+          <ul>
+            <li>Step 1: Find the word in the passage — read full sentence + surrounding</li>
+            <li>Step 2: Quote the specific clue (near-def / body language / contrast)</li>
+            <li>Step 3: Match the clue to the option — not the general situation</li>
+            <li>If you cannot quote a clue, you have not found the anchor yet</li>
+          </ul>
+        </div>
+        <div class="sum-card">
+          <h4>State vs Action vs Quality</h4>
+          <ul>
+            <li>Inner state = how the character feels right now</li>
+            <li>Quality = a trait or characteristic (more permanent)</li>
+            <li>Action = what the character does or did</li>
+            <li>State words need feeling clues — not action or preparation clues</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var currentQ=1,totalQ=5,selected={};
+function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
+function checkOpt(qid,correct,explanation){
+  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
+  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
+  if(choice===correct){
+    document.getElementById(qid+choice).classList.add('correct');
+    fb.className='feedback fb-correct';fb.textContent='Correct! '+explanation;
+    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
+    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
+    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
+  }else{
+    document.getElementById(qid+choice).classList.add('wrong');
+    fb.className='feedback fb-wrong';fb.textContent='Not quite. Go back to the passage. Find the specific clue and quote it to yourself before choosing again.';
+    selected[qid]=null;
+  }
+}
+</script>
+</body>
+</html>

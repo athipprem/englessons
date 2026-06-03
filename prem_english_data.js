@@ -15,13 +15,13 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '2 Jun 2026',
+  updated:        '3 Jun 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           7,
+    n:           8,
     status:      'Lessons In Progress',
     testPending: false
   },
@@ -34,37 +34,37 @@ var PREM_ENGLISH = {
 
   // Last completed unit test (updated after each test)
   lastUnit: {
-    n: 6, label: 'Unit 6', score: 15, outOf: 20, pct: 75, delta: 3, prevScore: 12,
+    n: 7, label: 'Unit 7', score: 11, outOf: 20, pct: 55, delta: -4, prevScore: 15,
 
-    patternLabel:   'Unit 6 &mdash; 2 Jun 2026 &middot; 15/20 (75%) &middot; Cloze 5/7 &middot; Grammar 6/7 &middot; Vocab 4/6',
-    patternInsight: '<strong>New high score: 15/20 (75%) &mdash; +3 from Unit 5, biggest single-unit gain since U1&rarr;U2.</strong> Cloze: the structural type confusion (sentence-starter vs clause-joiner) that persisted through Units 3, 4, and 5 is completely resolved. Sort First lesson worked. Remaining errors are purely function: Q2 chose distractor G (therefore = RESULT) when D (furthermore = ADDITION) was needed; Q3 chose ADDITION when the relationship was CONTRAST. Grammar: major improvement to 6/7. All three U5 fixes confirmed (will/would, Mixed identification, if-clause mismatch all correct). Q8 correct but note written on paper (guessed). Q13 chose Third result when &ldquo;now&rdquo; signalled Mixed. Vocab 4/6: Q16 matched preparation (action) not feeling for &ldquo;apprehensive&rdquo;; Q20 chose &ldquo;polite and formal&rdquo; for &ldquo;genuine&rdquo; &mdash; near-synonym trap (polite can be hollow, genuine means real and sincere).',
+    patternLabel:   'Unit 7 &mdash; 3 Jun 2026 &middot; 11/20 (55%) &middot; Cloze 5/7 &middot; Grammar 3/7 &middot; Vocab 3/6',
+    patternInsight: '<strong>Score: 11/20 (55%) &mdash; &minus;4 from Unit 6. Ties Unit 1 for lowest score.</strong> Grammar collapsed from 6/7 to 3/7 &mdash; four errors including a regression of the Will Ban (Q11 wrote &ldquo;will still have&rdquo;; Q13 chose D with &ldquo;will still be&rdquo;). Cloze stable at 5/7: distractor correctly avoided; structural type clean throughout; Q1 and Q4 swapped RESULT/CONTRAST at clause-joiner level. Vocab 3/6: Q16 missed near-definition of &ldquo;numb&rdquo; in passage; Q18 chose quality not state for &ldquo;composed&rdquo;; Q20 matched achievement emotion not reflective state for &ldquo;pensive&rdquo;. Coaching approach updated: new consolidation-first structure from Unit 8.',
 
-    analysisLabel:   'Unit 6 Result Analysis &mdash; 2 Jun 2026',
-    analysisInsight: '<strong>Score: 15/20 (75%) &mdash; new high. &plus;3 from Unit 5 (60%&rarr;75%).</strong> Cloze 5/7 (71%): Q2 &#10007; chose G (therefore = distractor) &mdash; needed D (furthermore = ADDITION). Both G and C are RESULT sentence-starters; C used in Q4, so G was the unused distractor. Cross-off rule not applied. Q3 &#10007; chose D (furthermore = ADDITION) &mdash; needed A (however = CONTRAST). Period test correct ✓ (both sentence-starters). Surprise Test not applied: collapse unexpected despite careful measuring = CONTRAST. Q1 Q4 Q5 Q6 Q7 all correct. Grammar 6/7 (86%): Q8 correct but written note on paper: guessed between B and C. Q13 &#10007; chose A (would have affected = Third) &mdash; needed C (would still be affecting = Mixed). Time signal &ldquo;now&rdquo; in sentence = present result. Vocab 4/6 (67%): Q16 &#10007; chose A (confident and well-prepared) for &ldquo;apprehensive&rdquo; &mdash; matched action not inner feeling. Q20 &#10007; chose A (polite and formal) for &ldquo;genuine&rdquo; &mdash; near-synonym trap: polite can be hollow performance; genuine means real and sincere. Q15 Q17 Q18 Q19 all correct.',
+    analysisLabel:   'Unit 7 Result Analysis &mdash; 3 Jun 2026',
+    analysisInsight: '<strong>Score: 11/20 (55%) &mdash; &minus;4 from Unit 6 high of 15.</strong> Cloze 5/7 (71%): Q1 &#10007; chose G (because = RESULT) needed A (although = CONTRAST clause-joiner). Q4 &#10007; chose B (although = CONTRAST) needed G (because = RESULT clause-joiner). Mirror-image swap of RESULT/CONTRAST at clause-joiner level. Distractor D (nevertheless) correctly avoided ✓. Grammar 3/7 (43%): Q8 &#10007; classified Second as Third (had + adjective unresolved). Q11 &#10007; wrote &ldquo;will still have&rdquo; &mdash; Will Ban regressed. Q12 &#10007; chose C (correct Third) &mdash; missed D (Second if + Third result mismatch). Q13 &#10007; chose D (will still be) &mdash; Will Ban failed again. Q9 Q10 Q14 correct. Vocab 3/6 (50%): Q16 &#10007; chose C (surprised) for &ldquo;numb&rdquo; &mdash; near-definition in passage not found. Q18 &#10007; chose A (focused) for &ldquo;composed&rdquo; &mdash; quality not state. Q20 &#10007; chose C (proud) for &ldquo;pensive&rdquo; &mdash; matched achievement emotion not reflective state clue.',
 
-    qSummary: '<strong>Cloze 5/7 &#10003; (Q2 Q3 wrong &mdash; distractor trap + CONTRAST for ADDITION) &middot; Grammar 6/7 &#10003; (Q13 wrong &mdash; Third vs Mixed time signal; Q8 correct but guessed) &middot; Vocab 4/6 &#10007; (Q16 Q20 wrong &mdash; inner-state word + near-synonym trap).</strong>',
+    qSummary: '<strong>Cloze 5/7 (Q1 Q4 wrong &mdash; RESULT/CONTRAST swap at clause-joiner level) &middot; Grammar 3/7 &#10007; (Q8 Q11 Q12 Q13 wrong &mdash; Will Ban regressed + had-test + mismatch) &middot; Vocab 3/6 &#10007; (Q16 Q18 Q20 wrong &mdash; missed near-def + state vs quality + situation emotion).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (although) &mdash; CONTRAST clause-joiner. No full stop before gap. Structural type and function both correct. Foundational.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Chose G (therefore = distractor) &mdash; needed D (furthermore = ADDITION). G and C are both RESULT sentence-starters; C used in Q4 so G was the unused distractor. Cross-off rule not applied. Developing.' },
-      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Chose D (furthermore = ADDITION) &mdash; needed A (however = CONTRAST). Period test correct ✓ (both sentence-starters). Surprise Test not applied: cake collapsing despite careful measuring = unexpected = CONTRAST, not same-direction ADDITION. Developing.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose C (consequently) &mdash; RESULT sentence-starter. Full stop before gap. Because Backwards: YES. Foundational.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose F (meanwhile) &mdash; TIME sentence-starter. Full stop before gap. Simultaneous parallel action. Foundational.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; Correctly chose E (because) &mdash; REASON clause-joiner. No full stop before gap. Developing.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; Correctly chose H (while) &mdash; TIME clause-joiner. No full stop before gap. Simultaneous action inside one sentence. Developing.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose C (Second Conditional) &mdash; but note written on paper: guessed between B and C. B had &ldquo;had practised&rdquo; (past perfect = Third); C had &ldquo;had more time&rdquo; (had + noun = simple past = Second). Got it right but distinction not yet automatic. Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose D &mdash; identified &ldquo;will have been selected&rdquo; as the error (&ldquo;will&rdquo; banned in conditional results). Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose C (Mixed) &mdash; &ldquo;had not found&rdquo; (past perfect) + &ldquo;would not be standing today&rdquo; (present time signal). Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose C (Rosa/Spain sentence) &mdash; Mixed Conditional identified by &ldquo;today&rdquo; signal. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose D &mdash; simple past if-clause + Third result = mismatch. Error-spotting now secure. Developing.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose A (would have affected = Third result) &mdash; needed C (would still be affecting = Mixed). If-clause correct ✓. Time signal &ldquo;now&rdquo; in sentence = present result required. Missed the signal. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Correctly chose D (Priya/translator) &mdash; &ldquo;would not be working today&rdquo; = Mixed Conditional with present time signal. Advanced.' },
-      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (bustling = noisy and full of activity). Context clues in passage matched. Foundational.' },
-      { q:'Q16', topic:'Vocab',   lvl:'b', pass:false, note:'&#10007; Chose A (confident and well-prepared) &mdash; needed B (nervous and worried). &ldquo;Apprehensive&rdquo; = inner emotional state not preparation quality. Matched the ACTION (practised hard) not the FEELING (nervous about the contest). Foundational.' },
-      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose C (precision = careful accuracy and exactness). Near-definition clue in passage: &ldquo;measuring to the exact gram, slicing in perfectly even cuts.&rdquo; Developing.' },
-      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose B (renowned = well known and respected). Did not fall for D (skilled). &ldquo;Renowned in the local neighbourhood&rdquo; = known to others. Developing.' },
-      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose B (calm and confident). Body language clue: &ldquo;gave a small nod&rdquo; = quiet, settled gesture. Direct statement: &ldquo;felt assured that he had done his best work&rdquo; = inner certainty. Developing.' },
-      { q:'Q20', topic:'Vocab',   lvl:'a', pass:false, note:'&#10007; Chose A (polite and formal) &mdash; needed C (real and sincere). Near-synonym trap: &ldquo;genuine&rdquo; means the warmth was real and came from the heart. Polite can be performed or automatic; genuine specifically means it is not. Context: Nico had just lost, making the sincere warmth meaningful. Advanced.' }
+      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Chose G (because = RESULT clause-joiner) &mdash; needed A (although = CONTRAST clause-joiner). No full stop = clause-joiner ✓. Because Backwards: NO. Surprise Test: YES (still nervous despite 2 weeks rehearsal) = CONTRAST. although ✓. Developing.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose F (furthermore = ADDITION sentence-starter). Full stop before gap ✓. Because Backwards: NO. Surprise Test: NO. ADDITION ✓. Foundational.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; Correctly chose A (however = CONTRAST sentence-starter). Full stop before gap ✓. Surprise Test: YES (shoelace while in second place = unexpected). Developing.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'b', pass:false, note:'&#10007; Chose B (although = CONTRAST clause-joiner) &mdash; needed G (because = RESULT clause-joiner). No full stop = clause-joiner ✓. Because Backwards: she fell back BECAUSE she lost momentum = YES = RESULT. because ✓. Foundational.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; Correctly chose C (consequently = RESULT sentence-starter). Full stop ✓. Because Backwards: YES (sprinted = crossed in third). Developing.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose E (while = TIME clause-joiner). No full stop ✓. Simultaneous: crowd cheered at same time as team-mates ran. Foundational.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; Correctly chose H (meanwhile = TIME sentence-starter). Full stop ✓. Simultaneous parallel action on other side of field. Foundational.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Chose C (Third Conditional) &mdash; needed B (Second Conditional). Had Test: &ldquo;had a larger community hall&rdquo; &mdash; larger = adjective = simple past of have = Second. &ldquo;Had + adjective&rdquo; unresolved. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly chose C &mdash; identified &ldquo;they will have completed&rdquo; as the error (will banned). Foundational.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Correctly chose B &mdash; &ldquo;had not reported&rdquo; (past participle ✓) = past perfect = Third/Mixed. Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose C (&ldquo;will still have / now&rdquo;) &mdash; needed B (&ldquo;would still have / today&rdquo;). Will Ban regressed: wrote &ldquo;will&rdquo; in Mixed result. Will is always banned in Second/Third/Mixed. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose C (correctly formed Third) &mdash; needed D. D: &ldquo;had more creative control&rdquo; (adjective = Second if) + &ldquo;would have produced&rdquo; (Third result) = MISMATCH. Could not spot the Second + Third mismatch in error-spotting format. Developing.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose D (&ldquo;had not been cleared / will still be / today&rdquo;) &mdash; needed A (Mixed ✓). D uses &ldquo;will still be&rdquo; &mdash; will is banned. And B uses simple past if-clause = mismatch. Prem noted BOTH=3??. Will Ban failed again under pressure. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Correctly chose B &mdash; &ldquo;those symphonies would exist today&rdquo; = Mixed (past perfect if + would + base + today). Advanced.' },
+      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; Correctly chose B (uncertain and hesitant) for &ldquo;tentative&rdquo;. Did not fall for A (confident/prepared = action trap) or C (nervous/frightened = too strong). Foundational.' },
+      { q:'Q16', topic:'Vocab',   lvl:'b', pass:false, note:'&#10007; Chose C (surprised and unprepared) for &ldquo;numb&rdquo; &mdash; needed D (stripped of thought, unable to react normally). Passage contained near-definition: &ldquo;not frightened, stripped of all thought&rdquo;. Did not scan back to find it. Foundational.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose C (gentle feeling of connection or comfort) for &ldquo;warmth&rdquo;. Body language clue: judge leaned forward with clear interest = passage anchor found. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'i', pass:false, note:'&#10007; Chose A (focused and determined) for &ldquo;composed&rdquo; &mdash; needed B (calm and in control). A describes a quality/attitude; composed is an inner state. Body language clue: hands stopped shaking, breathing steadied = calm state. State vs quality trap. Developing.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; Correctly chose C (confused and unable to react) for &ldquo;dazed&rdquo;. Passage clue: &ldquo;as if the news had not yet reached the part of his brain that could react&rdquo; = near-definition found. Developing.' },
+      { q:'Q20', topic:'Vocab',   lvl:'a', pass:false, note:'&#10007; Chose C (proud and satisfied) for &ldquo;pensive&rdquo; &mdash; needed B (quiet and reflective, deep in thought). Matched the achievement emotion (winning) rather than the specific body language clue: sitting quietly, staring at ground, thinking. Situation emotion vs passage clue trap. Advanced.' }
     ]
   },
 
@@ -72,10 +72,10 @@ var PREM_ENGLISH = {
   // achievement % = sum(c) / sum(t) × 100
   // Current: 478 / 657 = 73%
   skills: [
-    { name: 'Reading Compr.',    c: 65, t: 85 },   // U6: not tested; holding
-    { name: 'Vocabulary',        c: 70, t: 82 },   // U6: 4/6 (67%) — two inner-state errors; nudged down from 72
-    { name: 'Grammar',           c: 64, t: 82 },   // U6: 6/7 (86%) — big improvement; nudged up from 58
-    { name: 'Cloze Test',        c: 52, t: 80 },   // U6: 5/7 (71%) — structural type resolved; nudged up from 48
+    { name: 'Reading Compr.',    c: 65, t: 85 },   // U7: not tested; holding
+    { name: 'Vocabulary',        c: 68, t: 82 },   // U7: 3/6 (50%) — near-def miss + state/quality errors; nudged down from 70
+    { name: 'Grammar',           c: 54, t: 82 },   // U7: 3/7 (43%) — Will Ban regressed + mismatch unresolved; down from 64
+    { name: 'Cloze Test',        c: 53, t: 80 },   // U7: 5/7 (71%) — clause-joiner function swap; holding at 53
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
     { name: 'Critical Thinking', c: 50, t: 80 },
@@ -83,10 +83,10 @@ var PREM_ENGLISH = {
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [65, 70, 64, 52, 65, 95, 50, 42],
+  radarCurrent:  [65, 68, 54, 53, 65, 95, 50, 42],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 6',
+  radarLegendUnit: 'Unit 7',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -96,11 +96,24 @@ var PREM_ENGLISH = {
     { n:3, score:13, outOf:20, delta:-1,   color:'#f6993f', star:false, label:'U3' },
     { n:4, score:14, outOf:20, delta:1,    color:'#f6993f', star:false, label:'U4' },
     { n:5, score:12, outOf:20, delta:-2,   color:'#fc4e4e', star:false, label:'U5' },
-    { n:6, score:15, outOf:20, delta:3,    color:'#89F336', star:true,  label:'U6' }
+    { n:6, score:15, outOf:20, delta:3,    color:'#89F336', star:true,  label:'U6' },
+    { n:7, score:11, outOf:20, delta:-4,   color:'#fc4e4e', star:false, label:'U7' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 7,
+      title: 'Unit 7 &mdash; Contrast Identification (Cloze) &middot; Grammar: Conditional Time Signals &amp; the &ldquo;had&rdquo; Test &middot; Vocabulary: Inner-State Words',
+      badge: '#fc4e4e',
+      status: 'done',
+      note: '11/20 (55%) &mdash; ties U1 for lowest score &middot; Cloze 5/7 (Q1 Q4 wrong &mdash; RESULT/CONTRAST swap at clause-joiner level) &middot; Grammar 3/7 &#10007; (Q8 Q11 Q12 Q13 wrong &mdash; Will Ban regressed; &ldquo;had+adj&rdquo; unresolved; mismatch unspotted) &middot; Vocab 3/6 &#10007; (Q16 Q18 Q20 wrong &mdash; near-def missed; state vs quality; situation emotion)',
+      tags: [
+        { t:'Cloze 5/7',    s:'background:#fff8e1;color:#744210' },
+        { t:'Grammar 3/7',  s:'background:#fff0f0;color:#c53030' },
+        { t:'Vocab 3/6',    s:'background:#fff0f0;color:#c53030' }
+      ]
+    },
     {
       n: 6,
       title: 'Unit 6 &mdash; Sort First Fill Second (Cloze) &middot; Grammar: Conditional Flowchart &amp; Error Spotting &middot; Vocabulary: Near-Synonym Precision',
