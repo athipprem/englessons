@@ -284,30 +284,178 @@ PREM_ENGLISH.renderAchievement = function(pctId, barId, labelId) {
   var l = document.getElementById(labelId); if (l) l.textContent = 'vs Top 5% target · ' + pct + '% achieved';
 };
 
-// ── Render: score bar chart ───────────────────────────────────────────
+// ── Render: score line chart (SVG) ───────────────────────────────────
 PREM_ENGLISH.renderScoreChart = function(containerId) {
-  var el = document.getElementById(containerId);
-  if (!el) return;
-  if (!this.scores || this.scores.length === 0) {
-    el.innerHTML = '<div style="text-align:center;color:#a0aec0;font-size:11px;padding:20px 0">No unit tests yet &mdash; Unit 1 in progress</div>';
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var scores = this.scores;
+  if (!scores || scores.length === 0) {
+    container.innerHTML = '<div style="text-align:center;color:#a0aec0;font-size:11px;padding:20px 0">No unit tests yet &mdash; Unit 1 in progress</div>';
     return;
   }
-  var outOf = this.outOf;
-  var html = '';
-  this.scores.forEach(function(s) {
-    var effectiveOutOf = s.outOf || outOf;
-    var h  = Math.round(s.score / effectiveOutOf * 100);
-    var dl = s.delta === null ? '' :
-             (s.delta > 0 ? '+' + s.delta + '&#11014;' : '&minus;' + Math.abs(s.delta) + '&#11015;');
-    var dlColor = s.delta === null ? '' : (s.delta > 0 ? 'color:#43e97b' : 'color:#f6993f');
-    html += '<div class="bc-unit">';
-    html += '<div class="bc-bar-wrap"><div class="bc-bar" style="height:' + h + '%;background:' + s.color + '"></div></div>';
-    html += '<div class="bc-score">' + s.score + (s.star ? '&#127775;' : '') + '</div>';
-    if (dl) html += '<div class="bc-delta" style="' + dlColor + '">' + dl + '</div>';
-    html += '<div class="bc-lbl">' + (s.label || ('U' + s.n)) + '</div>';
-    html += '</div>';
+  var logMap = {};
+  (this.unitLog || []).forEach(function(u) { logMap[u.n] = u; });
+  var outOf = this.outOf || 20;
+  var ns = 'http://www.w3.org/2000/svg';
+  var W = 540, H = 224;
+  var PL = 44, PR = 82, PT = 18, PB = 56;
+  var pw = W - PL - PR, ph = H - PT - PB;
+  var x0 = PL, y0 = PT, x1 = PL + pw, y1 = PT + ph;
+  var yMin = 40, yMax = 100;
+  function pctY(pct) { return y0 + ph * (yMax - pct) / (yMax - yMin); }
+  function ptX(i, tot) { return tot <= 1 ? x0 + pw / 2 : x0 + (i / (tot - 1)) * pw; }
+  function dotCol(pct) {
+    if (pct >= 75) return '#1e8b68';
+    if (pct >= 65) return '#667eea';
+    if (pct >= 55) return '#f6993f';
+    return '#fc4e4e';
+  }
+  function mk(tag, attrs) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) { if (attrs.hasOwnProperty(k)) e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+  function tx(content, attrs) {
+    var e = document.createElementNS(ns, 'text');
+    for (var k in attrs) { if (attrs.hasOwnProperty(k)) e.setAttribute(k, attrs[k]); }
+    e.textContent = content;
+    return e;
+  }
+  var svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  svg.setAttribute('width', '100%');
+  svg.style.cssText = 'display:block;overflow:visible';
+  // Y-axis grid
+  [40, 50, 60, 70, 80, 90, 100].forEach(function(pct) {
+    var y = pctY(pct);
+    svg.appendChild(mk('line', { x1: x0, y1: y, x2: x1, y2: y, stroke: '#e8edf5', 'stroke-width': '1' }));
+    svg.appendChild(tx(pct + '%', { x: x0 - 6, y: y + 3.5, 'text-anchor': 'end', 'font-size': '9', fill: '#a0aec0' }));
   });
-  el.innerHTML = html;
+  // Reference lines
+  var r87y = pctY(87), r93y = pctY(93);
+  svg.appendChild(mk('line', { x1: x0, y1: r87y, x2: x1, y2: r87y, stroke: '#f6993f', 'stroke-width': '1.5', 'stroke-dasharray': '6,4' }));
+  svg.appendChild(tx('87% mastery', { x: x1 + 5, y: r87y + 3.5, 'font-size': '8.5', fill: '#f6993f', 'font-weight': '700' }));
+  svg.appendChild(mk('line', { x1: x0, y1: r93y, x2: x1, y2: r93y, stroke: '#1e8b68', 'stroke-width': '1.5', 'stroke-dasharray': '6,4' }));
+  svg.appendChild(tx('93% target', { x: x1 + 5, y: r93y + 3.5, 'font-size': '8.5', fill: '#1e8b68', 'font-weight': '700' }));
+  // Data points
+  var n = scores.length;
+  var pts = scores.map(function(s, i) {
+    var oof = s.outOf || outOf;
+    var pct = s.score / oof * 100;
+    return { x: ptX(i, n), y: pctY(pct), pct: pct, s: s, oof: oof };
+  });
+  // Rolling 3-unit average
+  var rollAvg = pts.map(function(p, i) {
+    var sl = pts.slice(Math.max(0, i - 2), i + 1);
+    return sl.reduce(function(a, q) { return a + q.pct; }, 0) / sl.length;
+  });
+  if (n >= 2) {
+    var btop = rollAvg.map(function(a, i) { return { x: pts[i].x, y: pctY(Math.min(yMax, a + 4)) }; });
+    var bbot = rollAvg.map(function(a, i) { return { x: pts[i].x, y: pctY(Math.max(yMin, a - 4)) }; });
+    var bPts = btop.map(function(p) { return p.x + ',' + p.y; })
+                   .concat(bbot.slice().reverse().map(function(p) { return p.x + ',' + p.y; })).join(' ');
+    svg.appendChild(mk('polygon', { points: bPts, fill: 'rgba(159,122,234,0.1)', stroke: 'none' }));
+    var avgD = rollAvg.map(function(a, i) { return (i === 0 ? 'M' : 'L') + pts[i].x + ',' + pctY(a); }).join('');
+    svg.appendChild(mk('path', { d: avgD, fill: 'none', stroke: '#9f7aea', 'stroke-width': '1.5', 'stroke-dasharray': '6,4' }));
+    var lineD = pts.map(function(p, i) { return (i === 0 ? 'M' : 'L') + p.x + ',' + p.y; }).join('');
+    svg.appendChild(mk('path', { d: lineD, fill: 'none', stroke: '#cbd5e0', 'stroke-width': '2' }));
+  }
+  // Tooltip
+  var tip = document.createElement('div');
+  tip.style.cssText = 'position:absolute;background:#1a1a2e;color:#fff;border-radius:8px;padding:8px 12px;font-size:11px;line-height:1.7;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.3);max-width:230px;white-space:normal';
+  container.style.position = 'relative';
+  // Markers
+  pts.forEach(function(p, i) {
+    var s = p.s;
+    var isMilestone = !!s.milestone;
+    var isPerfect = s.score === p.oof;
+    var col = dotCol(p.pct);
+    if (isPerfect) {
+      svg.appendChild(mk('circle', { cx: p.x, cy: p.y, r: '9', fill: '#ffd700', stroke: '#b7791f', 'stroke-width': '1.5' }));
+      svg.appendChild(tx('★', { x: p.x, y: p.y + 4.5, 'text-anchor': 'middle', 'font-size': '11', fill: '#744210' }));
+    } else if (isMilestone) {
+      var d = 8;
+      svg.appendChild(mk('polygon', {
+        points: [p.x+','+(p.y-d),(p.x+d)+','+p.y,p.x+','+(p.y+d),(p.x-d)+','+p.y].join(' '),
+        fill: '#9f7aea', stroke: '#6b46c1', 'stroke-width': '1.5'
+      }));
+      svg.appendChild(tx('M', { x: p.x, y: p.y + 3.5, 'text-anchor': 'middle', 'font-size': '8', fill: 'white', 'font-weight': '700' }));
+    } else {
+      svg.appendChild(mk('circle', { cx: p.x, cy: p.y, r: '8', fill: col, stroke: 'white', 'stroke-width': '2' }));
+      svg.appendChild(tx(String(s.score), { x: p.x, y: p.y + 3.5, 'text-anchor': 'middle', 'font-size': '9', fill: 'white', 'font-weight': '700' }));
+    }
+    var hit = mk('circle', { cx: p.x, cy: p.y, r: '14', fill: 'transparent', cursor: 'pointer' });
+    svg.appendChild(hit);
+    var logEntry = logMap[s.n];
+    var titleRaw = logEntry ? logEntry.title : '';
+    var topicsPart = titleRaw.replace(/&mdash;/g, '-').replace(/&middot;/g, '·')
+                             .replace(/&amp;/g, '&').replace(/&ldquo;/g, '"').replace(/&rdquo;/g, '"')
+                             .replace(/<[^>]*>/g, '');
+    var dIdx = topicsPart.indexOf(' - ');
+    var topics = dIdx > -1 ? topicsPart.substring(dIdx + 3) : topicsPart;
+    if (topics.length > 65) topics = topics.substring(0, 62) + '...';
+    var delta = s.delta;
+    var dStr  = (delta === null || delta === undefined) ? '' : (delta >= 0 ? ' (+' + delta + ' ↑)' : ' (' + delta + ' ↓)');
+    var dCol  = (delta === null || delta === undefined) ? '' : (delta >= 0 ? 'color:#43e97b' : 'color:#f6993f');
+    var tipHtml = '<strong style="font-size:12px;color:#89F336">' + (s.label || ('U' + s.n)) + '</strong><br>' +
+      '<span style="color:#e2e8f0">' + s.score + '/' + p.oof + '   ' + Math.round(p.pct) + '%' +
+      (dStr ? '<span style="' + dCol + '">' + dStr + '</span>' : '') + '</span>';
+    if (topics) tipHtml += '<br><span style="color:#a0aec0;font-size:10px">' + topics + '</span>';
+    (function(hx, hy, html) {
+      hit.addEventListener('mouseenter', function() {
+        tip.innerHTML = html;
+        var cR = container.getBoundingClientRect();
+        var sR = svg.getBoundingClientRect();
+        var sx = sR.width / W, sy = sR.height / H;
+        var px = (hx * sx) + (sR.left - cR.left);
+        var py = (hy * sy) + (sR.top  - cR.top);
+        var tipW = 220;
+        tip.style.left = Math.max(0, Math.min(px - tipW / 2, cR.width - tipW - 4)) + 'px';
+        tip.style.top  = Math.max(0, py - 80) + 'px';
+        tip.style.opacity = '1';
+      });
+      hit.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
+    })(p.x, p.y, tipHtml);
+  });
+  // X-axis labels
+  pts.forEach(function(p) {
+    svg.appendChild(tx(p.s.label || ('U' + p.s.n), {
+      x: p.x, y: y1 + 14, 'text-anchor': 'middle', 'font-size': '9.5', fill: '#4a5568', 'font-weight': '600'
+    }));
+    svg.appendChild(tx(Math.round(p.pct) + '%', {
+      x: p.x, y: y1 + 26, 'text-anchor': 'middle', 'font-size': '8.5', fill: '#a0aec0'
+    }));
+  });
+  // Legend
+  var legY = H - 10;
+  var legItems = [
+    { type: 'circle',  col: '#667eea', label: 'Unit test' },
+    { type: 'diamond', col: '#9f7aea', label: 'Milestone' },
+    { type: 'star',    col: '#ffd700', label: 'Perfect' },
+    { type: 'dash',    col: '#9f7aea', label: '3-unit avg' },
+    { type: 'dash',    col: '#f6993f', label: '87% mastery' },
+    { type: 'dash',    col: '#1e8b68', label: '93% target' }
+  ];
+  var lx = x0;
+  legItems.forEach(function(item) {
+    if (item.type === 'circle') {
+      svg.appendChild(mk('circle', { cx: lx+5, cy: legY, r: '4', fill: item.col, stroke: 'white', 'stroke-width': '1' }));
+    } else if (item.type === 'diamond') {
+      var d = 4;
+      svg.appendChild(mk('polygon', { points:[(lx+5)+','+(legY-d),(lx+9)+','+legY,(lx+5)+','+(legY+d),(lx+1)+','+legY].join(' '), fill: item.col }));
+    } else if (item.type === 'star') {
+      svg.appendChild(mk('circle', { cx: lx+5, cy: legY, r: '4', fill: item.col }));
+      svg.appendChild(tx('★', { x: lx+5, y: legY+2.5, 'text-anchor': 'middle', 'font-size': '6', fill: '#744210' }));
+    } else {
+      svg.appendChild(mk('line', { x1: lx+1, y1: legY, x2: lx+11, y2: legY, stroke: item.col, 'stroke-width': '1.5', 'stroke-dasharray': '4,3' }));
+    }
+    svg.appendChild(tx(item.label, { x: lx+14, y: legY+3.5, 'font-size': '8.5', fill: '#718096' }));
+    lx += item.label.length * 5.2 + 20;
+  });
+  container.innerHTML = '';
+  container.style.position = 'relative';
+  container.appendChild(svg);
+  container.appendChild(tip);
 };
 
 // ── Render: session log ───────────────────────────────────────────────
@@ -406,7 +554,7 @@ PREM_ENGLISH.renderQBreakdown = function(containerId) {
   var lvlClass = { b:'lb', i:'li', a:'la' };
   var lvlText  = { b:'Basic', i:'Interm.', a:'Applied' };
   var html = '';
-  html += '<div class="card-hd"><span class="dot" style="background:#f6993f"></span>' + (u.label || ('Unit ' + u.n)) + ' &mdash; Question Breakdown (' + u.score + '/' + u.outOf + ' &middot; ' + u.pct + '%)</div>';
+  html += '<div class="card-hd"><span class="dot" style="background:#f6993f"></span>' + (u.label || ('Unit ' + u.n)) + ' — Question Breakdown (' + u.score + '/' + u.outOf + ' · ' + u.pct + '%)</div>';
   if (u.qSummary) {
     html += '<div style="background:#fff8e1;border:1px solid #fbd38d;border-radius:8px;padding:9px 12px;margin-bottom:12px;font-size:11px;color:#744210">' + u.qSummary + '</div>';
   }
