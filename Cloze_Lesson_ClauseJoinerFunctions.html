@@ -3,400 +3,362 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clause-Joiner Functions — Unit 8</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Cloze — Function Identification — Unit 8 Lesson 1</title>
 <style>
-:root { color-scheme: light; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.7; }
-a { color: #1e8b68; }
-.topnav { background: #0d3d20; color: white; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-.topnav-left { display: flex; align-items: center; gap: 14px; }
-.topnav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; }
-.topnav a:hover { color: white; }
-.lesson-title { font-size: 14px; font-weight: 700; color: white; }
-.lesson-badge { background: #1e8b68; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
-.nav-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
-.nav-btn.next { background: #1e8b68; }
-.page { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
-.lesson-header { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
-.lesson-header .unit-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 6px; }
-.lesson-header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
-.lesson-header .subtitle { font-size: 14px; opacity: 0.9; }
-.lesson-header .gap-tag { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-top: 10px; }
-.section { background: white; border-radius: 12px; border: 1px solid #e8edf5; padding: 24px 28px; margin-bottom: 20px; }
-.section-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 8px; }
-.section h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
-.section p { color: #4a5568; margin-bottom: 10px; }
-.section p:last-child { margin-bottom: 0; }
-.rule-box { background: #e6fffa; border: 1px solid #81e6d9; border-left: 4px solid #1e8b68; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
-.rule-box .rule-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #1e8b68; margin-bottom: 4px; }
-.rule-box p { color: #1a3d32; margin: 0; font-weight: 600; font-size: 13px; }
-.warn-box { background: #fff5f5; border: 1px solid #fed7d7; border-left: 4px solid #e53e3e; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
-.warn-box .warn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #c53030; margin-bottom: 4px; }
-.warn-box p { color: #742a2a; margin: 0; font-size: 13px; }
-.flow-wrap { background: #1a1a2e; border-radius: 14px; padding: 24px 26px; margin: 16px 0; }
-.flow-wrap .fw-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #89F336; margin-bottom: 18px; }
-.flow-q { background: #2d3748; border-radius: 10px; padding: 12px 18px; margin-bottom: 12px; }
-.flow-q .fq-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #89F336; margin-bottom: 6px; }
-.flow-q .fq-text { font-size: 14px; font-weight: 700; color: white; }
-.flow-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-.flow-yes { background: #276749; border-radius: 10px; padding: 10px 14px; }
-.flow-no  { background: #2d3748; border-radius: 10px; padding: 10px 14px; }
-.flow-branch-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-.flow-yes .flow-branch-label { color: #9ae6b4; }
-.flow-no  .flow-branch-label { color: #a0aec0; }
-.flow-branch-result { font-size: 13px; font-weight: 700; color: white; }
-.flow-branch-words { font-size: 11px; color: #cbd5e0; margin-top: 4px; }
-.flow-step2 { background: #2d3748; border-radius: 10px; padding: 12px 18px; margin-top: 4px; }
-.flow-branches-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
-.flow-result  { background: #744210; border-radius: 10px; padding: 10px 14px; }
-.flow-contrast{ background: #742a2a; border-radius: 10px; padding: 10px 14px; }
-.flow-time    { background: #1e3a6e; border-radius: 10px; padding: 10px 14px; }
-.flow-result .flow-branch-label  { color: #fbd38d; }
-.flow-contrast .flow-branch-label{ color: #feb2b2; }
-.flow-time .flow-branch-label    { color: #93c5fd; }
-.flow-mem { margin-top: 14px; background: rgba(137,243,54,0.08); border: 1px solid rgba(137,243,54,0.25); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #d1fae5; line-height: 1.6; }
-.word-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 14px 0; }
-.word-card { border-radius: 10px; padding: 14px 16px; }
-.word-card.result   { background: #fef3c7; border: 1px solid #fcd34d; }
-.word-card.contrast { background: #fee2e2; border: 1px solid #fca5a5; }
-.word-card.time     { background: #dbeafe; border: 1px solid #93c5fd; }
-.word-card .wc-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
-.word-card.result   .wc-label { color: #92400e; }
-.word-card.contrast .wc-label { color: #991b1b; }
-.word-card.time     .wc-label { color: #1e40af; }
-.word-card .wc-words { font-size: 12px; line-height: 1.7; color: #1a1a2e; }
-.word-card .wc-test  { font-size: 11px; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.08); color: #4a5568; font-style: italic; }
-.trap-box { background: #fff8e1; border: 2px solid #f59e0b; border-radius: 12px; padding: 18px 22px; margin: 14px 0; }
-.trap-box .tb-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #92400e; margin-bottom: 12px; }
-.trap-examples { display: flex; flex-direction: column; gap: 10px; }
-.trap-row { background: white; border-radius: 8px; padding: 12px 14px; border: 1px solid #fbd38d; }
-.trap-row .tr-sent { font-size: 13px; color: #2d3748; margin-bottom: 6px; font-style: italic; }
-.trap-row .tr-test { font-size: 12px; font-weight: 700; color: #92400e; }
-.trap-row .tr-ans  { font-size: 12px; color: #276749; margin-top: 2px; }
-.compare-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 14px 0; }
-.compare-table th { background: #1a1a2e; color: white; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; }
-.compare-table td { padding: 8px 12px; border-bottom: 1px solid #e8edf5; color: #2d3748; vertical-align: top; }
-.compare-table tr:nth-child(even) td { background: #f7f9fd; }
-.tag-res { display: inline-block; background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
-.tag-con { display: inline-block; background: #fee2e2; color: #991b1b; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
-.tag-tim { display: inline-block; background: #dbeafe; color: #1e40af; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
-.pq { background: white; border: 1px solid #e8edf5; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
-.pq-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 6px; }
-.pq-text { font-size: 14px; color: #2d3748; line-height: 1.8; margin-bottom: 10px; }
-.pq-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
-.pq-opt { background: #f7f9fd; border: 2px solid #e8edf5; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #2d3748; cursor: pointer; transition: all 0.15s; }
-.pq-opt:hover { border-color: #1e8b68; background: #e6fffa; }
-.pq-opt.selected { border-color: #1e8b68; background: #e6fffa; font-weight: 600; }
-.pq-opt.correct { border-color: #276749; background: #f0fff4; color: #276749; font-weight: 700; }
-.pq-opt.wrong { border-color: #c53030; background: #fff5f5; color: #c53030; }
-.check-btn { background: #1e8b68; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
-.feedback { font-size: 12px; font-weight: 700; margin-top: 8px; min-height: 18px; }
-.fb-correct { color: #276749; }
-.fb-wrong { color: #c53030; }
-.diff-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
-.df { background: #f0fff4; color: #276749; }
-.dd { background: #ebf4ff; color: #2b6cb0; }
-.da { background: #faf5ff; color: #6b46c1; }
-.progress-wrap { background: #f0f2f8; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
-.progress-label { font-size: 11px; font-weight: 700; color: #718096; white-space: nowrap; }
-.progress-track { flex: 1; background: #e8edf5; border-radius: 6px; height: 8px; overflow: hidden; }
-.progress-fill { height: 100%; background: #1e8b68; border-radius: 6px; transition: width 0.4s ease; width: 0%; }
-.practice-intro { background: #fff8e1; border: 1px solid #fbd38d; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #744210; font-weight: 600; }
-.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
-.sum-card { background: #f7f9fd; border: 1px solid #e8edf5; border-radius: 10px; padding: 14px 16px; }
-.sum-card h4 { font-size: 12px; font-weight: 700; color: #1e8b68; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
-.sum-card ul { list-style: none; }
-.sum-card ul li { font-size: 12px; color: #4a5568; padding: 3px 0; border-bottom: 1px solid #f0f4f8; }
-.sum-card ul li:last-child { border-bottom: none; }
-.sum-card ul li::before { content: "• "; color: #1e8b68; font-weight: 700; }
-.complete-banner { background: linear-gradient(135deg, #1e8b68, #0d6e4f); color: white; border-radius: 10px; padding: 16px 20px; text-align: center; margin-top: 14px; }
-.complete-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-.complete-banner p { font-size: 13px; opacity: 0.9; margin: 0; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1a3a6b;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.topnav .nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(26,58,107,0.09);margin-bottom:18px}
+h2{color:#1a3a6b;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.fr{color:#C84B00;font-weight:700}
+.fc{color:#6A1B9A;font-weight:700}
+.ft{color:#1B5E20;font-weight:700}
+.fa{color:#1565C0;font-weight:700}
+.rule-box{background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.err-box{background:#FFEBEE;border:2px solid #EF9A9A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.err-title{font-weight:700;color:#B71C1C;margin-bottom:8px;font-size:14px}
+.step-card{border-left:4px solid #1a3a6b;background:#EDF2F7;padding:14px 16px;border-radius:0 10px 10px 0;margin:10px 0}
+.step-num{font-size:11px;font-weight:700;color:#2c5282;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.step-body{font-size:14px;color:#1a1a2e;line-height:1.7}
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#EDF2F7;color:#1a3a6b;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.5px;border-bottom:2px solid #BEE3F8}
+.stbl td{padding:8px 10px;border-bottom:1px solid #EBF4FF;vertical-align:top;line-height:1.5}
+.stbl tr:last-child td{border-bottom:none;background:#EBF4FF;font-weight:700}
+.stbl .act{font-size:12px;color:#2B6CB0;font-style:italic}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+@media(max-width:520px){.two-col{grid-template-columns:1fr}}
+.fn-card{border-radius:10px;padding:14px;border-top:4px solid #ccc}
+.fn-card.res{background:#FFF3E0;border-color:#C84B00}
+.fn-card.con{background:#F3E5F5;border-color:#6A1B9A}
+.fn-card.tim{background:#E8F5E9;border-color:#1B5E20}
+.fn-card.add{background:#E3F2FD;border-color:#1565C0}
+.fn-title{font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:8px;letter-spacing:.5px}
+.pq{background:#fff;border:2px solid #BEE3F8;border-radius:10px;padding:16px;margin:12px 0}
+.pq-text{font-size:15px;margin-bottom:6px;color:#1a1a2e;line-height:1.6}
+.pq-ctx{font-size:12px;color:#4A5568;font-style:italic;margin-bottom:10px}
+.pq-input{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pq-input select{border:2px solid #4A90D9;border-radius:8px;padding:8px 10px;font-size:14px;outline:none;background:#fff}
+.pq-btn{background:#1a3a6b;color:#fff;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600}
+.pq-btn:hover{background:#2c5282}
+.pq-feedback{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:500;display:none;line-height:1.6}
+.pq-feedback.correct{background:#E8F5E9;color:#1B5E20;display:block}
+.pq-feedback.wrong{background:#FFEBEE;color:#B71C1C;display:block}
+.wu-q{background:#fff;border:2px solid #BEE3F8;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#2c5282;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #BEE3F8;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5;transition:background .15s}
+.wu-btn:hover:not([disabled]){background:#BEE3F8}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.dec-box{background:#E8F5E9;border:2px solid #43A047;border-radius:12px;padding:16px;margin-top:14px}
+.dec-title{font-weight:700;color:#1B5E20;font-size:14px;margin-bottom:12px}
+.dec-row{display:grid;grid-template-columns:185px 1fr;gap:10px;align-items:start;padding:8px 0;border-bottom:1px solid #C8E6C9;font-size:13px;line-height:1.6}
+.dec-row:last-child{border-bottom:none;padding-bottom:0}
+.dec-q{background:#C8E6C9;border-radius:6px;padding:6px 10px;font-weight:700;color:#1B5E20;font-size:12px}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
 </style>
 </head>
 <body>
 <nav class="topnav">
-  <div class="topnav-left">
-    <a href="index.html">&#8592; Hub</a>
-    <span class="lesson-title">Clause-Joiner Functions</span>
-    <span class="lesson-badge">Unit 8 · Cloze</span>
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Function Identification</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 8 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
   </div>
-  <a class="nav-btn next" href="Grammar_Lesson_ConditionalConsolidation.html">Next Lesson &#8594;</a>
 </nav>
-<div class="page">
-  <div class="lesson-header">
-    <div class="unit-tag">Unit 8 &nbsp;·&nbsp; Cloze</div>
-    <h1>Clause-Joiner Functions</h1>
-    <div class="subtitle">You know what sentence-starters do. Now master the same three functions inside a single sentence: RESULT vs CONTRAST vs TIME at the clause-joiner level.</div>
-    <span class="gap-tag">&#127919; ISA Priority — Cloze Test</span>
-  </div>
 
-  <!-- SECTION 1 -->
-  <div class="section">
-    <div class="section-tag">Section 1 of 5</div>
-    <h2>&#128270; What Is a Clause-Joiner?</h2>
-    <p>A clause-joiner connects two parts of the same sentence. There is <strong>no full stop</strong> before the gap — the sentence continues.</p>
-    <p>You already know sentence-starters: words like <em>However, Furthermore, Consequently</em> — they come after a full stop and start a new sentence. Clause-joiners do the same job but inside one sentence, joining two clauses together.</p>
+<!-- S0: Before We Start -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <h2>Before We Start — Your Unit 8 Cloze Errors 🔍</h2>
+    <p>Two gaps from your last test where you lost marks. Work through them before we learn anything new.</p>
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-Up 1 — Unit 8 Q5</div>
+      <p style="font-size:14px;margin-bottom:4px">Gap: <em>"He steadied himself and grinned at the crowd. (1)___, the audience burst into loud applause."</em></p>
+      <p style="font-size:13px;color:#B71C1C;margin-bottom:0">You wrote: <strong>F — meanwhile</strong>. What function does this gap actually need?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — RESULT: the applause happened because of the grin</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — TIME: grinning and applauding happened at the same time</button>
+        <button class="wu-btn" onclick="doWu(1,'C')">C — CONTRAST: the applause was unexpected given the grin</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-Up 2 — Unit 8 Q3</div>
+      <p style="font-size:14px;margin-bottom:4px">Gap: <em>"The teacher finally signalled that the show was ready to start. (2)___, three acts had already withdrawn due to nerves."</em></p>
+      <p style="font-size:13px;color:#B71C1C;margin-bottom:0">You wrote: <strong>B — consequently</strong>. What function does this gap actually need?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — RESULT: acts withdrew because the teacher signalled</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — TIME: both things happened at the same moment</button>
+        <button class="wu-btn" onclick="doWu(2,'C')">C — ADDITION: the withdrawal is extra information about the situation</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Why guessing fails 🚫</h2>
+    <p>Your cloze errors are not a vocabulary problem — you know these words. The problem is identifying <strong>which function a gap needs</strong>, then choosing the matching word.</p>
+    <div class="err-box">
+      <div class="err-title">❌ Without a method — Unit 8 Q5:</div>
+      <p style="font-size:14px;line-height:1.8;margin:0">"He grinned at the crowd. (1)___, the audience burst into loud applause."<br>
+      You think: <em>"meanwhile sounds right here..."</em> → <strong style="color:#B71C1C">Wrong. −1 mark.</strong><br><br>
+      With the 3-step test: "Did the audience applaud BECAUSE he grinned?" → YES → RESULT → <strong style="color:#1B5E20">consequently. Correct. +1 mark.</strong></p>
+    </div>
     <div class="rule-box">
-      <div class="rule-label">The Period Test — Still First</div>
-      <p>Full stop before the gap? → <strong>Sentence-starter</strong> (However, Furthermore, Consequently...).<br>No full stop? → <strong>Clause-joiner</strong> (although, because, while, even though...).</p>
-    </div>
-    <p>In Unit 7, errors Q1 and Q4 were both clause-joiner slots. The structural type was correct — no full stop identified correctly — but the <strong>function</strong> was swapped between RESULT and CONTRAST. That is exactly what this lesson fixes.</p>
-  </div>
-
-  <!-- SECTION 2 — THE THREE CLAUSE-JOINER FAMILIES -->
-  <div class="section">
-    <div class="section-tag">Section 2 of 5</div>
-    <h2>&#128218; The Three Clause-Joiner Families</h2>
-    <p>Clause-joiners belong to the same three function families as sentence-starters. Here are the words you need to know for ISA:</p>
-
-    <div class="word-grid">
-      <div class="word-card result">
-        <div class="wc-label">&#127919; RESULT clause-joiners</div>
-        <div class="wc-words"><strong>because</strong>, since, so (that), as</div>
-        <div class="wc-test">Test: "B happened BECAUSE OF A?" → YES</div>
-      </div>
-      <div class="word-card contrast">
-        <div class="wc-label">&#10067; CONTRAST clause-joiners</div>
-        <div class="wc-words"><strong>although</strong>, <strong>even though</strong>, though, while (concessive), whereas, despite</div>
-        <div class="wc-test">Test: "Is B surprising given A?" → YES</div>
-      </div>
-      <div class="word-card time">
-        <div class="wc-label">&#128336; TIME clause-joiners</div>
-        <div class="wc-words"><strong>while</strong> (simultaneous), when, as, before, after, until</div>
-        <div class="wc-test">Test: "Are A and B happening at the same time?" → YES</div>
-      </div>
-    </div>
-
-    <div class="rule-box">
-      <div class="rule-label">Same Tests, New Setting</div>
-      <p>Because Backwards → YES = RESULT. Surprise Test → YES = CONTRAST. Simultaneous → YES = TIME (while/when). These tests work identically whether the gap is a sentence-starter or a clause-joiner.</p>
-    </div>
-  </div>
-
-  <!-- SECTION 3 — RESULT VS CONTRAST DEEP DIVE -->
-  <div class="section">
-    <div class="section-tag">Section 3 of 5</div>
-    <h2>&#9878; RESULT vs CONTRAST — Side by Side</h2>
-    <p>The most common swap error is choosing RESULT when the correct answer is CONTRAST, or vice versa. This table shows the difference with examples:</p>
-
-    <table class="compare-table">
-      <tr><th>Sentence</th><th>Because Backwards</th><th>Surprise Test</th><th>Function</th></tr>
-      <tr><td>"Mia had practised all week, <u>because</u> she felt ready."</td><td>YES — she felt ready because she practised</td><td>—</td><td><span class="tag-res">RESULT</span> — because ✓</td></tr>
-      <tr><td>"Mia had practised all week, <u>although</u> she still felt nervous."</td><td>NO — nerves not caused by practising</td><td>YES — still nervous is surprising</td><td><span class="tag-con">CONTRAST</span> — although ✓</td></tr>
-      <tr><td>"Leo missed the bus, <u>because</u> he was late to school."</td><td>YES — late because he missed the bus</td><td>—</td><td><span class="tag-res">RESULT</span> — because ✓</td></tr>
-      <tr><td>"Leo missed the bus, <u>even though</u> he had left home early."</td><td>NO — missing bus not caused by leaving early</td><td>YES — missing bus is surprising given early start</td><td><span class="tag-con">CONTRAST</span> — even though ✓</td></tr>
-      <tr><td>"She fell back to fourth place <u>because</u> she lost momentum."</td><td>YES — she fell back because she lost momentum</td><td>—</td><td><span class="tag-res">RESULT</span> — because ✓ (Unit 7 Q4)</td></tr>
-      <tr><td>"She had trained all week, <u>although</u> she had never run the final leg before."</td><td>NO — never running the leg not caused by training</td><td>YES — surprising despite the training</td><td><span class="tag-con">CONTRAST</span> — although ✓ (Unit 7 Q1)</td></tr>
-    </table>
-
-    <div class="warn-box">
-      <div class="warn-label">The Unit 7 Error — Q1 and Q4</div>
-      <p>In Unit 7, Q1 needed CONTRAST (although) but got RESULT (because). Q4 needed RESULT (because) but got CONTRAST (although). The functions were swapped. Because Backwards applied to each gap would have caught both errors immediately.</p>
-    </div>
-  </div>
-
-  <!-- SECTION 4 — THE "WHILE" TRAP -->
-  <div class="section">
-    <div class="section-tag">Section 4 of 5</div>
-    <h2>&#9888;&#65039; The "While" Dual-Meaning Trap</h2>
-    <p>The word <strong>while</strong> is unique — it can be either a TIME clause-joiner or a CONTRAST clause-joiner depending on the sentence. This is a common ISA trap.</p>
-
-    <div class="trap-box">
-      <div class="tb-title">&#9888;&#65039; "While" — Two Completely Different Meanings</div>
-      <div class="trap-examples">
-        <div class="trap-row">
-          <div class="tr-sent">"She was cooking <strong>while</strong> the rain fell outside."</div>
-          <div class="tr-test">Are both things happening at the same time? YES → TIME while</div>
-          <div class="tr-ans">&#10003; while = at the same time as (TIME)</div>
-        </div>
-        <div class="trap-row">
-          <div class="tr-sent">"<strong>While</strong> she loved the city, she always missed the countryside."</div>
-          <div class="tr-test">Are both things happening at the same time? NO — these are contrasting feelings. Surprise Test: YES → CONTRAST while</div>
-          <div class="tr-ans">&#10003; while = although / in contrast (CONTRAST)</div>
-        </div>
-        <div class="trap-row">
-          <div class="tr-sent">"He watched the match <strong>while</strong> eating his lunch."</div>
-          <div class="tr-test">Simultaneous? YES → TIME while</div>
-          <div class="tr-ans">&#10003; while = at the same time (TIME)</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="rule-box">
-      <div class="rule-label">How to Decide Which "While"</div>
-      <p>First ask: "Are both things happening at the same time?" If YES → TIME. If NO → try Surprise Test. If the second part is surprising or contrasting with the first → CONTRAST while.</p>
-    </div>
-
-    <div class="flow-wrap">
-      <div class="fw-title">&#128200; Full Clause-Joiner Decision Flow</div>
-      <div class="flow-q">
-        <div class="fq-label">Step 1 — Because Backwards</div>
-        <div class="fq-text">"Second clause happened BECAUSE of the first clause?"</div>
-      </div>
-      <div class="flow-branches">
-        <div class="flow-yes">
-          <div class="flow-branch-label">YES &#10003;</div>
-          <div class="flow-branch-result">RESULT</div>
-          <div class="flow-branch-words">because, since, so, as</div>
-        </div>
-        <div class="flow-no">
-          <div class="flow-branch-label">NO → Step 2</div>
-          <div class="flow-branch-result" style="color:#a0aec0">Not RESULT</div>
-        </div>
-      </div>
-      <div class="flow-step2">
-        <div class="fq-label">Step 2 — Simultaneous Test</div>
-        <div class="fq-text">"Are both things happening at the same time?"</div>
-        <div class="flow-branches-3">
-          <div class="flow-time">
-            <div class="flow-branch-label">YES &#10003;</div>
-            <div class="flow-branch-result">TIME</div>
-            <div class="flow-branch-words">while, when, as, before, after</div>
-          </div>
-          <div class="flow-contrast">
-            <div class="flow-branch-label">NO → Surprise Test</div>
-            <div class="flow-branch-result">CONTRAST</div>
-            <div class="flow-branch-words">although, even though, while (concessive)</div>
-          </div>
-          <div class="flow-result" style="background:#1e3a6e">
-            <div class="flow-branch-label" style="color:#93c5fd">NO surprise either</div>
-            <div class="flow-branch-result">Recheck</div>
-            <div class="flow-branch-words">Re-read the sentence carefully</div>
-          </div>
-        </div>
-      </div>
-      <div class="flow-mem">&#128161; Clause-joiner order: <strong>RESULT → TIME → CONTRAST.</strong> Test Because Backwards first. If NO, test Simultaneous. If NO, test Surprise.</div>
-    </div>
-  </div>
-
-  <!-- SECTION 5 — PRACTICE -->
-  <div class="section">
-    <div class="section-tag">Section 5 of 5 — Practice</div>
-    <h2>&#9997;&#65039; Your Turn</h2>
-    <div class="practice-intro">For each sentence: identify the gap as a clause-joiner (no full stop before it). Then apply Because Backwards → Simultaneous → Surprise Test in order.</div>
-    <div class="progress-wrap">
-      <span class="progress-label" id="prog-label">Question 1 of 5</span>
-      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
-    </div>
-
-    <!-- Q1 -->
-    <div class="pq" id="q1">
-      <div class="pq-num">Question 1 <span class="diff-pill df">Foundational</span></div>
-      <div class="pq-text">Mia had been practising her speech for three days, (1)_____ she felt completely ready for the school debate.</div>
-      <div class="pq-opts">
-        <div class="pq-opt" id="q1A" onclick="selectOpt('q1','A',this)">A. although</div>
-        <div class="pq-opt" id="q1B" onclick="selectOpt('q1','B',this)">B. because</div>
-        <div class="pq-opt" id="q1C" onclick="selectOpt('q1','C',this)">C. even though</div>
-        <div class="pq-opt" id="q1D" onclick="selectOpt('q1','D',this)">D. while</div>
-      </div>
-      <button class="check-btn" onclick="checkOpt('q1','B','Because Backwards: Did she feel ready BECAUSE she practised for three days? YES — practising is the reason for feeling ready. → RESULT. Answer: because. (although and even though would make CONTRAST — but feeling ready after lots of practice is not surprising, it is expected.)')">Check</button>
-      <div class="feedback" id="q1-fb"></div>
-    </div>
-
-    <!-- Q2 -->
-    <div class="pq" id="q2" style="display:none">
-      <div class="pq-num">Question 2 <span class="diff-pill df">Foundational</span></div>
-      <div class="pq-text">The new student had read the instructions twice, (2)_____ he still built the model in the wrong order.</div>
-      <div class="pq-opts">
-        <div class="pq-opt" id="q2A" onclick="selectOpt('q2','A',this)">A. because</div>
-        <div class="pq-opt" id="q2B" onclick="selectOpt('q2','B',this)">B. while</div>
-        <div class="pq-opt" id="q2C" onclick="selectOpt('q2','C',this)">C. even though</div>
-        <div class="pq-opt" id="q2D" onclick="selectOpt('q2','D',this)">D. since</div>
-      </div>
-      <button class="check-btn" onclick="checkOpt('q2','C','Because Backwards: Did he build it wrong BECAUSE he read the instructions twice? NO — reading helps, not causes mistakes. Simultaneous Test: Is building the model at the same time as reading? NO. Surprise Test: Is building it wrong surprising given he read the instructions twice? YES — you would expect him to get it right. → CONTRAST. Answer: even though.')">Check</button>
-      <div class="feedback" id="q2-fb"></div>
-    </div>
-
-    <!-- Q3 -->
-    <div class="pq" id="q3" style="display:none">
-      <div class="pq-num">Question 3 <span class="diff-pill df">Foundational — TIME</span></div>
-      <div class="pq-text">The referee blew the final whistle (3)_____ the goalkeeper was still diving for the ball.</div>
-      <div class="pq-opts">
-        <div class="pq-opt" id="q3A" onclick="selectOpt('q3','A',this)">A. because</div>
-        <div class="pq-opt" id="q3B" onclick="selectOpt('q3','B',this)">B. although</div>
-        <div class="pq-opt" id="q3C" onclick="selectOpt('q3','C',this)">C. while</div>
-        <div class="pq-opt" id="q3D" onclick="selectOpt('q3','D',this)">D. even though</div>
-      </div>
-      <button class="check-btn" onclick="checkOpt('q3','C','Because Backwards: Did the referee blow the whistle BECAUSE the goalkeeper was diving? NO. Simultaneous Test: Did the whistle and the dive happen at the same time? YES — the whistle blew at the exact moment the keeper was mid-dive. → TIME. Answer: while (TIME = at the same time as).')">Check</button>
-      <div class="feedback" id="q3-fb"></div>
-    </div>
-
-    <!-- Q4 -->
-    <div class="pq" id="q4" style="display:none">
-      <div class="pq-num">Question 4 <span class="diff-pill dd">Developing — Dual Meaning Trap</span></div>
-      <div class="pq-text">The noise from the crowd grew louder (4)_____ the players lined up for the penalty shootout.</div>
-      <div class="pq-opts">
-        <div class="pq-opt" id="q4A" onclick="selectOpt('q4','A',this)">A. although</div>
-        <div class="pq-opt" id="q4B" onclick="selectOpt('q4','B',this)">B. because</div>
-        <div class="pq-opt" id="q4C" onclick="selectOpt('q4','C',this)">C. even though</div>
-        <div class="pq-opt" id="q4D" onclick="selectOpt('q4','D',this)">D. while (= at the same time)</div>
-      </div>
-      <button class="check-btn" onclick="checkOpt('q4','D','Because Backwards: Did the crowd grow louder BECAUSE the players lined up? Possibly — excitement causes noise. But the sentence describes two things happening at the same moment. Simultaneous Test: Did the crowd noise and the players lining up happen at the same time? YES — both were happening simultaneously. → TIME while. Answer: while (at the same time as).')">Check</button>
-      <div class="feedback" id="q4-fb"></div>
-    </div>
-
-    <!-- Q5 -->
-    <div class="pq" id="q5" style="display:none">
-      <div class="pq-num">Question 5 <span class="diff-pill da">Advanced</span></div>
-      <div class="pq-text">The chef placed the dish on the counter carefully (5)_____ he had accidentally added too much salt during cooking.</div>
-      <div class="pq-opts">
-        <div class="pq-opt" id="q5A" onclick="selectOpt('q5','A',this)">A. although</div>
-        <div class="pq-opt" id="q5B" onclick="selectOpt('q5','B',this)">B. because</div>
-        <div class="pq-opt" id="q5C" onclick="selectOpt('q5','C',this)">C. while</div>
-        <div class="pq-opt" id="q5D" onclick="selectOpt('q5','D',this)">D. even though</div>
-      </div>
-      <button class="check-btn" onclick="checkOpt('q5','D','Because Backwards: Did he place it carefully BECAUSE he added too much salt? Not exactly — being careful was his response to the error, but the sentence structure puts the salt error as a contrasting background. Simultaneous Test: Are the careful placing and the salt error simultaneous? No — the salt was added earlier. Surprise Test: Is placing carefully surprising given a salt error? YES — you might expect him to throw it out or panic, not carefully carry on. → CONTRAST. Answer: even though. (although also works here — both although and even though are CONTRAST clause-joiners.)')">Check</button>
-      <div class="feedback" id="q5-fb"></div>
-    </div>
-
-    <div id="summary-section" style="display:none">
-      <div class="complete-banner">
-        <h3>&#127881; All 5 Complete!</h3>
-        <p>Clause-joiner functions mastered. Apply the same three tests inside every sentence.</p>
-      </div>
-      <div class="summary-grid" style="margin-top:16px">
-        <div class="sum-card">
-          <h4>Clause-Joiner Decision Order</h4>
-          <ul>
-            <li>Step 1: Because Backwards → YES = RESULT (because)</li>
-            <li>Step 2: Simultaneous? YES = TIME (while, when)</li>
-            <li>Step 3: Surprising? YES = CONTRAST (although, even though)</li>
-            <li>Always test in this order — never skip</li>
-          </ul>
-        </div>
-        <div class="sum-card">
-          <h4>The "While" Dual-Meaning Alert</h4>
-          <ul>
-            <li>While = TIME when both happen at the same moment</li>
-            <li>While = CONTRAST when it means although/in contrast</li>
-            <li>Ask: simultaneous? If NO → try contrast meaning</li>
-            <li>This is a common ISA trap — always check both</li>
-          </ul>
-        </div>
-      </div>
+      <div class="rule-big">Never pick a word that "sounds right."<br>Identify the function first. Then choose the word.</div>
     </div>
   </div>
 </div>
+
+<!-- S1: The 4 Function Families -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The 4 Function Families 🎨</h2>
+    <p>Every cloze gap belongs to exactly one function family. Spot the family first — then choose the correct word from that family.</p>
+    <div class="two-col">
+      <div class="fn-card res">
+        <div class="fn-title" style="color:#C84B00">🟠 RESULT</div>
+        <div style="font-size:14px;line-height:1.7">The second idea <strong>happens because of</strong> the first.<br><span class="fr">because · consequently · therefore</span><br><br><em>"She trained hard. <span class="fr">Consequently</span>, she qualified."</em></div>
+      </div>
+      <div class="fn-card con">
+        <div class="fn-title" style="color:#6A1B9A">🟣 CONTRAST</div>
+        <div style="font-size:14px;line-height:1.7">The second idea is <strong>surprising or opposite</strong> to the first.<br><span class="fc">although · however · even though</span><br><br><em>"She trained hard, <span class="fc">although</span> she didn't qualify."</em></div>
+      </div>
+      <div class="fn-card tim">
+        <div class="fn-title" style="color:#1B5E20">🟢 TIME</div>
+        <div style="font-size:14px;line-height:1.7">Two things happening <strong>at the same time</strong>, often in different locations.<br><span class="ft">while · meanwhile · as</span><br><br><em>"She raced <span class="ft">while</span> the crowd cheered."</em></div>
+      </div>
+      <div class="fn-card add">
+        <div class="fn-title" style="color:#1565C0">🔵 ADDITION</div>
+        <div style="font-size:14px;line-height:1.7">Extra information — not caused by the first idea, not surprising.<br><span class="fa">furthermore · moreover</span><br><br><em>"She qualified. <span class="fa">Furthermore</span>, she broke the record."</em></div>
+      </div>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">⚠ Check the structure before anything else</div>
+      <strong>Full stop before the gap?</strong> → Sentence-starter → use: <span class="fr">consequently</span> · <span class="fc">however</span> · <span class="ft">meanwhile</span> · <span class="fa">furthermore</span><br>
+      <strong>Comma before the gap?</strong> → Clause-joiner → use: <span class="fr">because</span> · <span class="fc">although / even though</span> · <span class="ft">while</span>
+    </div>
+  </div>
+</div>
+
+<!-- S2: The 3-Step Test + Worked Examples -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>The 3-Step Function Test 🧪</h2>
+    <p>Run these tests <strong>in order</strong>. Stop at the first YES.</p>
+    <div class="step-card">
+      <div class="step-num">Step 1 — Because Backwards</div>
+      <div class="step-body">Say the second clause BECAUSE the first clause. Does it make true cause-and-effect sense?<br><strong>YES → <span class="fr">RESULT</span></strong> (because / consequently)</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 2 — Simultaneous Test</div>
+      <div class="step-body">Are both ideas happening at exactly the same time, possibly in different places?<br><strong>YES → <span class="ft">TIME</span></strong> (while / meanwhile)</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 3 — Surprise Test</div>
+      <div class="step-body">Is the second idea unexpected or opposite to the first?<br><strong>YES → <span class="fc">CONTRAST</span></strong> (although / however)<br>All three NO? → <strong><span class="fa">ADDITION</span></strong> (furthermore)</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Worked Examples 📖</h2>
+    <p><strong>Example 1 — Comma before gap (clause-joiner):</strong></p>
+    <p style="font-size:13px;color:#4A5568;margin-bottom:4px"><em>"The café had just been renovated, (1)___ it was still impossible to find a free seat."</em></p>
+    <table class="stbl">
+      <tr><th>Check</th><th>Question asked</th><th>Answer</th></tr>
+      <tr><td>Structure</td><td>Comma before gap?</td><td class="act">YES — clause-joiner slot</td></tr>
+      <tr><td>Step 1</td><td>"Finding a seat is hard BECAUSE the café was renovated?" — true cause?</td><td class="act">NO — renovation doesn't cause a seating shortage</td></tr>
+      <tr><td>Step 2</td><td>Renovating and being full — happening at the same time?</td><td class="act">NO — different events</td></tr>
+      <tr><td>Step 3</td><td>Surprising it's still crowded after renovation?</td><td class="act">YES → <span class="fc">CONTRAST</span></td></tr>
+      <tr><td>Answer</td><td colspan="2">✅ <span class="fc">although</span> it was still impossible to find a free seat</td></tr>
+    </table>
+    <p><strong>Example 2 — Full stop before gap (sentence-starter):</strong></p>
+    <p style="font-size:13px;color:#4A5568;margin-bottom:4px"><em>"The storm knocked out power across the district. (2)___, the match was called off."</em></p>
+    <table class="stbl">
+      <tr><th>Check</th><th>Question asked</th><th>Answer</th></tr>
+      <tr><td>Structure</td><td>Full stop before gap?</td><td class="act">YES — sentence-starter slot</td></tr>
+      <tr><td>Step 1</td><td>"The match was called off BECAUSE the storm knocked out power?" — true cause?</td><td class="act">YES → <span class="fr">RESULT</span></td></tr>
+      <tr><td>Answer</td><td colspan="2">✅ <span class="fr">Consequently</span>, the match was called off</td></tr>
+    </table>
+    <p><strong>Example 3 — Full stop before gap (ADDITION):</strong></p>
+    <p style="font-size:13px;color:#4A5568;margin-bottom:4px"><em>"The festival offered live music and street food stalls. (3)___, local artists had set up exhibition stands along the main path."</em></p>
+    <table class="stbl">
+      <tr><th>Check</th><th>Question asked</th><th>Answer</th></tr>
+      <tr><td>Structure</td><td>Full stop before gap?</td><td class="act">YES — sentence-starter slot</td></tr>
+      <tr><td>Step 1</td><td>"Artists set up stands BECAUSE of the music and food?" — true cause?</td><td class="act">NO</td></tr>
+      <tr><td>Step 2</td><td>Both happening at the same time in different spots?</td><td class="act">Possible, but the sentence is adding to a list — not describing a parallel scene</td></tr>
+      <tr><td>Step 3</td><td>Surprising there are art stands too?</td><td class="act">NO — just more things on offer</td></tr>
+      <tr><td>Answer</td><td colspan="2">✅ <span class="fa">Furthermore</span>, local artists had set up exhibition stands</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- S3: Practice -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Your Turn 💪</h2>
+    <div class="warn-box">
+      <div class="warn-title">✏ Write before you select — every single time:</div>
+      1. Full stop or comma before the gap? (Sentence-starter or clause-joiner)<br>
+      2. Run: Because Backwards → Simultaneous → Surprise → (or Addition)<br>
+      3. Write the function name on paper. Then select.<br>
+      <strong>Selecting without writing the function = guessing. The method only sticks when you write it.</strong>
+    </div>
+    <div class="pq">
+      <div class="pq-text"><strong>Q1.</strong> "The climbing team had trained for eighteen months, (1)___ the altitude on summit day proved far more demanding than any of their practice sessions."</div>
+      <div class="pq-ctx">Comma before gap → clause-joiner slot</div>
+      <div class="pq-input">
+        <select id="p1s"><option value="">— choose —</option><option value="A">A — although (CONTRAST)</option><option value="B">B — because (RESULT)</option><option value="C">C — while (TIME)</option><option value="D">D — furthermore (ADDITION)</option></select>
+        <button class="pq-btn" onclick="chk('p1','A')">Check</button>
+      </div>
+      <div class="pq-feedback" id="p1fb"></div>
+    </div>
+    <div class="pq">
+      <div class="pq-text"><strong>Q2.</strong> "Heavy rain had been falling for three days without stopping. (2)___, the river burst its banks and flooded the lower streets of the town."</div>
+      <div class="pq-ctx">Full stop before gap → sentence-starter slot</div>
+      <div class="pq-input">
+        <select id="p2s"><option value="">— choose —</option><option value="A">A — however (CONTRAST)</option><option value="B">B — consequently (RESULT)</option><option value="C">C — meanwhile (TIME)</option><option value="D">D — furthermore (ADDITION)</option></select>
+        <button class="pq-btn" onclick="chk('p2','B')">Check</button>
+      </div>
+      <div class="pq-feedback" id="p2fb"></div>
+    </div>
+    <div class="pq">
+      <div class="pq-text"><strong>Q3.</strong> "The film director reviewed the final cut in the editing suite, (3)___ the composer recorded the last musical tracks in the studio next door."</div>
+      <div class="pq-ctx">Comma before gap → clause-joiner slot</div>
+      <div class="pq-input">
+        <select id="p3s"><option value="">— choose —</option><option value="A">A — although (CONTRAST)</option><option value="B">B — because (RESULT)</option><option value="C">C — while (TIME)</option><option value="D">D — furthermore (ADDITION)</option></select>
+        <button class="pq-btn" onclick="chk('p3','C')">Check</button>
+      </div>
+      <div class="pq-feedback" id="p3fb"></div>
+    </div>
+    <div class="pq">
+      <div class="pq-text"><strong>Q4.</strong> "The new community centre offered swimming, basketball, and indoor climbing. (4)___, it ran free coaching sessions for school students every Saturday morning."</div>
+      <div class="pq-ctx">Full stop before gap → sentence-starter slot</div>
+      <div class="pq-input">
+        <select id="p4s"><option value="">— choose —</option><option value="A">A — meanwhile (TIME)</option><option value="B">B — however (CONTRAST)</option><option value="C">C — consequently (RESULT)</option><option value="D">D — furthermore (ADDITION)</option></select>
+        <button class="pq-btn" onclick="chk('p4','D')">Check</button>
+      </div>
+      <div class="pq-feedback" id="p4fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Summary + Decision Guide -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Lesson 1 Complete ✅</h2>
+    <table class="stbl">
+      <tr><th>Function</th><th>Test that returns YES</th><th>Sentence-starter · Clause-joiner</th></tr>
+      <tr><td><span class="fr">RESULT</span></td><td>Because Backwards → YES</td><td><span class="fr">consequently / therefore · because</span></td></tr>
+      <tr><td><span class="ft">TIME</span></td><td>Simultaneous → YES</td><td><span class="ft">meanwhile · while / as</span></td></tr>
+      <tr><td><span class="fc">CONTRAST</span></td><td>Surprise Test → YES</td><td><span class="fc">however · although / even though</span></td></tr>
+      <tr><td><span class="fa">ADDITION</span></td><td>All three return NO</td><td><span class="fa">furthermore / moreover · —</span></td></tr>
+    </table>
+    <div class="dec-box">
+      <div class="dec-title">✅ Decision Guide — stop at the first YES</div>
+      <div class="dec-row"><div class="dec-q">Full stop before gap?</div><div>YES → sentence-starter (consequently · however · meanwhile · furthermore)<br>NO → clause-joiner (because · although · while)</div></div>
+      <div class="dec-row"><div class="dec-q">Because Backwards works?</div><div>YES → <span class="fr">RESULT</span> → because (clause-joiner) or consequently (sentence-starter)</div></div>
+      <div class="dec-row"><div class="dec-q">Both things same time?</div><div>YES → <span class="ft">TIME</span> → while (clause-joiner) or meanwhile (sentence-starter)</div></div>
+      <div class="dec-row"><div class="dec-q">Second idea surprising?</div><div>YES → <span class="fc">CONTRAST</span> → although (clause-joiner) or however (sentence-starter)</div></div>
+      <div class="dec-row"><div class="dec-q">All three NO?</div><div>→ <span class="fa">ADDITION</span> → furthermore (sentence-starter only)</div></div>
+    </div>
+    <div class="warn-box" style="margin-top:14px">
+      <div class="warn-title">🔑 Cross-Off Rule — always last</div>
+      After placing each word, cross it off the word bank. One word always remains — that is the distractor.
+    </div>
+    <div class="lesson-nav">
+      <a href="index.html" class="btn-hub">← Hub</a>
+      <a href="Grammar_Lesson_ConditionalConsolidation.html" class="btn-lesson">Next: Grammar →</a>
+    </div>
+  </div>
+</div>
+
 <script>
-var currentQ=1,totalQ=5,selected={};
-function selectOpt(qid,letter,el){document.querySelectorAll('#'+qid+' .pq-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');selected[qid]=letter;}
-function checkOpt(qid,correct,explanation){
-  var choice=selected[qid],fb=document.getElementById(qid+'-fb');
-  if(!choice){fb.className='feedback fb-wrong';fb.textContent='Please select an answer first.';return;}
-  if(choice===correct){
-    document.getElementById(qid+choice).classList.add('correct');
-    fb.className='feedback fb-correct';fb.textContent='Correct! '+explanation;
-    currentQ++;document.getElementById('prog-fill').style.width=Math.round((currentQ-1)/totalQ*100)+'%';
-    if(currentQ<=totalQ){document.getElementById('prog-label').textContent='Question '+currentQ+' of '+totalQ;setTimeout(function(){var n=document.getElementById('q'+currentQ);if(n){n.style.display='block';n.scrollIntoView({behavior:'smooth',block:'start'});}},900);}
-    else{document.getElementById('prog-fill').style.width='100%';document.getElementById('prog-label').textContent='All done!';setTimeout(function(){var s=document.getElementById('summary-section');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'start'});},900);}
-  }else{
-    document.getElementById(qid+choice).classList.add('wrong');
-    fb.className='feedback fb-wrong';fb.textContent='Not quite. Apply the three steps in order: Because Backwards first, then Simultaneous, then Surprise Test.';
-    selected[qid]=null;
+var cur=0,total=5;
+function goScreen(d){
+  document.getElementById('s'+cur).classList.remove('active');
+  cur=Math.max(0,Math.min(total-1,cur+d));
+  document.getElementById('s'+cur).classList.add('active');
+  document.getElementById('prevBtn').disabled=(cur===0);
+  document.getElementById('nextBtn').disabled=(cur===total-1);
+  window.scrollTo(0,0);
+}
+var wuAns={1:'A',2:'C'};
+var wuMsg={
+  1:{
+    A:'Correct! "The audience applauded BECAUSE he grinned" → YES — clear cause and effect → RESULT. The right word is consequently, not meanwhile. Meanwhile signals two things happening simultaneously — but the applause was caused by the grin, not happening at the same time.',
+    B:'Not TIME. TIME means two things are happening simultaneously. The applause came as a result of the grin — it followed from it. Run Because Backwards: "Audience applauded BECAUSE he grinned" → YES → RESULT → consequently.',
+    C:'Not CONTRAST. CONTRAST means the second idea is surprising or opposite. An audience applauding after someone grins at them is not surprising — it is the expected, caused result. → RESULT → consequently.'
+  },
+  2:{
+    A:'Not RESULT. Three acts did not withdraw because the teacher signalled. The withdrawal had already happened before the signal — there is no causal link here. Because Backwards: "Three acts withdrew BECAUSE the teacher signalled" → NO.',
+    B:'Not TIME. TIME means both events are happening simultaneously. But "had already withdrawn" tells us the withdrawal had already happened — it is not simultaneous with the signal.',
+    C:'Correct! Because Backwards → NO. Simultaneous → NO. Surprising → not especially. The second sentence simply adds extra information about what had already happened. → ADDITION → furthermore.'
   }
+};
+function doWu(n,choice){
+  var btns=document.querySelectorAll('#wq'+n+' .wu-btn');
+  btns.forEach(function(b){b.disabled=true;});
+  var idx={A:0,B:1,C:2}[choice];
+  btns[idx].classList.add(choice===wuAns[n]?'ok':'no');
+  if(choice!==wuAns[n]) btns[{A:0,B:1,C:2}[wuAns[n]]].classList.add('ok');
+  var fb=document.getElementById('wf'+n);
+  fb.className='wu-fb '+(choice===wuAns[n]?'show-ok':'show-no');
+  fb.textContent=(choice===wuAns[n]?'✓ ':'✗ ')+wuMsg[n][choice];
+}
+var pqAns={p1:'A',p2:'B',p3:'C',p4:'D'};
+var pqMsg={
+  p1:{
+    A:'✓ Correct! Because Backwards: "The altitude was demanding BECAUSE they trained 18 months" → NO — training doesn\'t cause altitude to be hard. Surprise Test: Surprising the altitude was still brutal despite 18 months of training? → YES → CONTRAST → although.',
+    B:'✗ RESULT (because): "Altitude was demanding BECAUSE they trained?" → NO — training doesn\'t cause the altitude difficulty. Try the Surprise Test: surprising it was still hard after all that training? YES → CONTRAST → although.',
+    C:'✗ TIME (while): Training and struggling with altitude happening simultaneously? No — training happened before summit day. → Surprise Test → CONTRAST → although.',
+    D:'✗ ADDITION (furthermore): This is not neutral extra information — it is unexpected given the training. Furthermore is also a sentence-starter only and cannot be used after a comma. → CONTRAST → although.'
+  },
+  p2:{
+    A:'✗ CONTRAST (however): Surprising the river flooded after 3 days of heavy rain? No — it is the direct, expected result. → RESULT → consequently.',
+    B:'✓ Correct! Because Backwards: "The river flooded BECAUSE heavy rain fell for three days" → YES — direct cause and effect → RESULT → consequently.',
+    C:'✗ TIME (meanwhile): Are the rain and the flooding happening simultaneously in different places? No — the flooding is caused by the rain, not parallel to it. → RESULT → consequently.',
+    D:'✗ ADDITION (furthermore): This is not neutral extra information — the flood is a direct consequence of the rain. → RESULT → consequently.'
+  },
+  p3:{
+    A:'✗ CONTRAST (although): Surprising the composer recorded tracks while the director reviewed the film? No — they are working in parallel, as expected. → TIME → while.',
+    B:'✗ RESULT (because): "Composer recorded BECAUSE director reviewed?" → NO causal link. Two people working at the same time in adjacent rooms. → TIME → while.',
+    C:'✓ Correct! Simultaneous Test: Director reviewing film AND composer recording tracks — happening at the same time in adjacent locations? → YES → TIME → while.',
+    D:'✗ ADDITION (furthermore): Furthermore is a sentence-starter — it cannot follow a comma. Also, the relationship here is simultaneous time, not addition. → TIME → while.'
+  },
+  p4:{
+    A:'✗ TIME (meanwhile): Meanwhile signals two things happening at the same time in different locations. The coaching sessions are not a parallel scene — they are just another thing the centre offers. → ADDITION → furthermore.',
+    B:'✗ CONTRAST (however): Surprising the centre offers coaching? No — it is just one more item in the list of what it provides. → ADDITION → furthermore.',
+    C:'✗ RESULT (consequently): Did the coaching sessions happen because of the swimming and climbing? No causal link. → ADDITION → furthermore.',
+    D:'✓ Correct! Because Backwards → NO. Simultaneous → NO. Surprising → NO. The second sentence simply adds one more thing the centre offers — no cause, no contrast, no parallel scene. → ADDITION → furthermore.'
+  }
+};
+function chk(id,ans){
+  var sel=document.getElementById(id+'s');
+  var fb=document.getElementById(id+'fb');
+  if(!sel.value){fb.className='pq-feedback wrong';fb.style.display='block';fb.textContent='Select an answer first.';return;}
+  fb.className='pq-feedback '+(sel.value===ans?'correct':'wrong');
+  fb.textContent=pqMsg[id][sel.value];
 }
 </script>
 </body>
