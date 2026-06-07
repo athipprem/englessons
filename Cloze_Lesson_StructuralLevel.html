@@ -430,7 +430,6 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
 
     <div class="pq" id="pq1">
       <div class="pq-text">The market closed early that week. <span class="pq-gap">(1)___</span>, the family had to drive to the next town for supplies.</div>
-      <div class="pq-step">Step 1: full stop before? → sentence-starter only. Step 2: "the family had to drive BECAUSE the market closed" → yes → RESULT</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(1,'A')">A — although</button>
         <button class="pq-btn" onclick="doPQ(1,'B')">B — consequently</button>
@@ -440,9 +439,8 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf1"></div>
     </div>
 
-    <div class="pq" id="pq2">
+    <div class="pq" id="pq2" style="display:none">
       <div class="pq-text">The children played in the garden <span class="pq-gap">(2)___</span> their parents prepared the meal inside.</div>
-      <div class="pq-step">Step 1: comma before, mid-sentence → clause-joiner only. Step 2: both things happening at the same time → TIME</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(2,'A')">A — meanwhile</button>
         <button class="pq-btn" onclick="doPQ(2,'B')">B — however</button>
@@ -452,9 +450,8 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf2"></div>
     </div>
 
-    <div class="pq" id="pq3">
+    <div class="pq" id="pq3" style="display:none">
       <div class="pq-text">She had scored three goals in the final match. <span class="pq-gap">(3)___</span>, she had barely touched the ball in the first half.</div>
-      <div class="pq-step">Step 1: full stop → sentence-starter. Step 2: scoring three goals despite barely touching the ball → surprising → CONTRAST</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(3,'A')">A — furthermore</button>
         <button class="pq-btn" onclick="doPQ(3,'B')">B — however</button>
@@ -464,9 +461,8 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf3"></div>
     </div>
 
-    <div class="pq" id="pq4">
+    <div class="pq" id="pq4" style="display:none">
       <div class="pq-text">The concert began at seven, <span class="pq-gap">(4)___</span> the headlining band had not yet arrived backstage.</div>
-      <div class="pq-step">Step 0: eliminate "despite" — it cannot introduce a full clause alone. Step 1: comma → clause-joiner. Step 2: concert started despite band being absent → surprising → CONTRAST</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(4,'A')">A — despite</button>
         <button class="pq-btn" onclick="doPQ(4,'B')">B — although</button>
@@ -652,21 +648,25 @@ function doPQ(n, choice) {
   var pq = document.getElementById('pq' + n);
   var btns = pq.querySelectorAll('.pq-btn');
   var opts = ['A','B','C','D'];
-  btns.forEach(function(b) { b.disabled = true; });
   if (choice === pqAns[n]) {
     fb.className = 'pq-fb ok';
     fb.innerHTML = pqFb[n][choice];
     btns[opts.indexOf(choice)].className = 'pq-btn ok';
+    btns.forEach(function(b) { b.disabled = true; });
+    unlockPQ(n + 1);
   } else {
     fb.className = 'pq-fb no';
     fb.innerHTML = pqFb[n]['_'];
     btns[opts.indexOf(choice)].className = 'pq-btn no';
-    // Show correct after wrong
-    setTimeout(function() {
-      var cIdx = opts.indexOf(pqAns[n]);
-      btns[cIdx].className = 'pq-btn ok';
-    }, 800);
+    btns[opts.indexOf(choice)].disabled = true;
   }
+}
+
+function unlockPQ(n) {
+  var next = document.getElementById('pq' + n);
+  if (!next) return;
+  next.style.display = 'block';
+  setTimeout(function() { next.scrollIntoView({behavior:'smooth', block:'start'}); }, 150);
 }
 </script>
 </body>

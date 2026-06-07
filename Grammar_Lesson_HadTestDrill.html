@@ -493,7 +493,6 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
     <div class="pq" id="pq1">
       <div class="pq-label">Practice 1 — Had Test: which is Third Conditional?</div>
       <div class="pq-text">Which sentence is a Third Conditional?</div>
-      <div class="pq-sub">Had Test: find "had + ___" in each if-clause. Past participle → Third. Noun/adjective → Second.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(1,'A')">A. If the artist had a larger studio, she would create much bigger sculptures.</button>
         <button class="pq-btn" onclick="doPQ(1,'B')">B. If the team had scored in extra time, they would have won the championship.</button>
@@ -503,10 +502,9 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf1"></div>
     </div>
 
-    <div class="pq" id="pq2">
+    <div class="pq" id="pq2" style="display:none">
       <div class="pq-label">Practice 2 — Will Ban: spot the error</div>
       <div class="pq-text">Which sentence has a grammar error?</div>
-      <div class="pq-sub">Check every result clause for "will". "Will" in a Second, Third, or Mixed result clause = always an error.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(2,'A')">A. If the road had been repaired last year, commuters would save time every day now.</button>
         <button class="pq-btn" onclick="doPQ(2,'B')">B. If the library had opened earlier, more students would have used it that morning.</button>
@@ -516,10 +514,9 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf2"></div>
     </div>
 
-    <div class="pq" id="pq3">
+    <div class="pq" id="pq3" style="display:none">
       <div class="pq-label">Practice 3 — Mixed: "now" signal</div>
       <div class="pq-text">Choose the correct word for the gap.<br><em>"If the forest had not been cleared for housing, the river _______ flooding the lower fields now."</em></div>
-      <div class="pq-sub">Had Test: "had been cleared" = past perfect → Third or Mixed. Check the time signal: "now" = present result → Mixed → "would + base verb".</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(3,'A')">A. would have stopped</button>
         <button class="pq-btn" onclick="doPQ(3,'B')">B. would stop</button>
@@ -529,10 +526,9 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf3"></div>
     </div>
 
-    <div class="pq" id="pq4">
+    <div class="pq" id="pq4" style="display:none">
       <div class="pq-label">Practice 4 — Mismatch Check</div>
       <div class="pq-text">Which sentence has a grammar error?</div>
-      <div class="pq-sub">Had Test first — identify each if-clause type. Then check the result clause matches.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(4,'A')">A. If the coach had spotted the issue earlier, the player would have recovered fully.</button>
         <button class="pq-btn" onclick="doPQ(4,'B')">B. If the gallery had more wall space, it would display local artists' work.</button>
@@ -573,15 +569,15 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px">
         <div class="tree-branch-node second" style="max-width:none">
           <strong>SECOND</strong><br>
-          <span style="font-size:12px">had + noun/adj<br>→ would + base</span>
+          <span style="font-size:12px">had + noun or adjective<br>→ would + base verb</span>
         </div>
         <div class="tree-branch-node third" style="max-width:none">
           <strong>THIRD</strong><br>
-          <span style="font-size:12px">had + past part.<br>→ would have + past part.</span>
+          <span style="font-size:12px">had + past participle<br>→ would have + past participle</span>
         </div>
         <div class="tree-branch-node mixed" style="max-width:none">
           <strong>MIXED</strong><br>
-          <span style="font-size:12px">had + past part.<br>→ would + base + today/now/still</span>
+          <span style="font-size:12px">had + past participle<br>→ would + base verb + today/now/still</span>
         </div>
       </div>
     </div>
@@ -743,19 +739,25 @@ function doPQ(n, choice) {
   var pq = document.getElementById('pq' + n);
   var btns = pq.querySelectorAll('.pq-btn');
   var opts = ['A','B','C','D'];
-  btns.forEach(function(b) { b.disabled = true; });
   if (choice === pqAns[n]) {
     fb.className = 'pq-fb ok';
     fb.innerHTML = pqFb[n][choice];
     btns[opts.indexOf(choice)].className = 'pq-btn ok';
+    btns.forEach(function(b) { b.disabled = true; });
+    unlockPQ(n + 1);
   } else {
     fb.className = 'pq-fb no';
     fb.innerHTML = pqFb[n]['_'];
     btns[opts.indexOf(choice)].className = 'pq-btn no';
-    setTimeout(function() {
-      btns[opts.indexOf(pqAns[n])].className = 'pq-btn ok';
-    }, 800);
+    btns[opts.indexOf(choice)].disabled = true;
   }
+}
+
+function unlockPQ(n) {
+  var next = document.getElementById('pq' + n);
+  if (!next) return;
+  next.style.display = 'block';
+  setTimeout(function() { next.scrollIntoView({behavior:'smooth', block:'start'}); }, 150);
 }
 
 function showProdHint() {

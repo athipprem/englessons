@@ -272,7 +272,6 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
         The old lighthouse keeper rarely visited the town below. He preferred to watch the sea alone, counting the waves as they rolled in. He had not hosted a visitor in over three years. His neighbours described his way of living as <strong>solitary</strong>.
       </div>
       <div class="pq-question">The word "solitary" means most nearly —</div>
-      <div class="pq-sub">Step 1: Find "solitary". Step 2: Quote the clue — look in the sentence before. Step 3: Match each option to the clue.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(1,'A')">A. peaceful and quiet</button>
         <button class="pq-btn" onclick="doPQ(1,'B')">B. done or lived alone, without others</button>
@@ -282,13 +281,12 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf1"></div>
     </div>
 
-    <div class="pq" id="pq2">
+    <div class="pq" id="pq2" style="display:none">
       <div class="pq-label">Practice 2 <span class="diff-badge diff-adv">Advanced</span></div>
       <div class="pq-passage">
         The market stall was covered in goods: stacked jars, hanging cloth, and rows of spices in open bags. Nothing was labelled. The prices changed from buyer to buyer. The owner seemed to enjoy the sense of confusion it created. For tourists, the whole experience felt <strong>chaotic</strong>.
       </div>
       <div class="pq-question">The word "chaotic" means most nearly —</div>
-      <div class="pq-sub">Quote the clue carefully — there are two or three clues across the passage. Match them together, then test each option.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(2,'A')">A. busy and exciting</button>
         <button class="pq-btn" onclick="doPQ(2,'B')">B. colourful and visually interesting</button>
@@ -298,13 +296,12 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf2"></div>
     </div>
 
-    <div class="pq" id="pq3">
+    <div class="pq" id="pq3" style="display:none">
       <div class="pq-label">Practice 3 <span class="diff-badge diff-adv">Advanced</span></div>
       <div class="pq-passage">
         Lena prepared every small detail before the debate: her notes were colour-coded, her arguments were rehearsed, and her examples were checked three times. When the other students spoke, she listened without interrupting, writing down their key points. Her teacher said her preparation was <strong>methodical</strong>.
       </div>
       <div class="pq-question">The word "methodical" means most nearly —</div>
-      <div class="pq-sub">Distractor warning: one wrong option fits the topic of "studying" but is not in the clue.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(3,'A')">A. done in a careful, step-by-step order</button>
         <button class="pq-btn" onclick="doPQ(3,'B')">B. very intelligent and quick to learn</button>
@@ -314,13 +311,12 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="pq-fb" id="pf3"></div>
     </div>
 
-    <div class="pq" id="pq4">
+    <div class="pq" id="pq4" style="display:none">
       <div class="pq-label">Practice 4 <span class="diff-badge diff-adv">Advanced</span></div>
       <div class="pq-passage">
         The audience had expected a short update about the school's new schedule. Instead, the principal spoke for forty minutes, covering topics that nobody in the room had heard of before. Parents exchanged confused glances. The students sat perfectly still, unsure of what was happening. Their expressions were <strong>bewildered</strong>.
       </div>
       <div class="pq-question">The word "bewildered" means most nearly —</div>
-      <div class="pq-sub">Two clue locations — check the sentence with the word AND the sentence before it.</div>
       <div class="pq-opts">
         <button class="pq-btn" onclick="doPQ(4,'A')">A. bored and unhappy</button>
         <button class="pq-btn" onclick="doPQ(4,'B')">B. completely confused and unsure what is happening</button>
@@ -443,19 +439,25 @@ function doPQ(n, choice) {
   var pq = document.getElementById('pq' + n);
   var btns = pq.querySelectorAll('.pq-btn');
   var opts = ['A','B','C','D'];
-  btns.forEach(function(b){ b.disabled = true; });
   if (choice === pqAns[n]) {
     fb.className = 'pq-fb ok';
     fb.innerHTML = pqFb[n][choice];
     btns[opts.indexOf(choice)].className = 'pq-btn ok';
+    btns.forEach(function(b){ b.disabled = true; });
+    unlockPQ(n + 1);
   } else {
     fb.className = 'pq-fb no';
     fb.innerHTML = pqFb[n]['_'];
     btns[opts.indexOf(choice)].className = 'pq-btn no';
-    setTimeout(function(){
-      btns[opts.indexOf(pqAns[n])].className = 'pq-btn ok';
-    }, 800);
+    btns[opts.indexOf(choice)].disabled = true;
   }
+}
+
+function unlockPQ(n) {
+  var next = document.getElementById('pq' + n);
+  if (!next) return;
+  next.style.display = 'block';
+  setTimeout(function() { next.scrollIntoView({behavior:'smooth', block:'start'}); }, 150);
 }
 
 function showProdHint() {
