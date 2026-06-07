@@ -75,6 +75,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
 .lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
 .btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
 .btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+/* Bottom page nav */
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BEE3F8;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1a3a6b,#2c5282);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;letter-spacing:.3px}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
 </style>
 </head>
 <body>
@@ -128,6 +133,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
     <div class="rule-box">
       <div class="rule-big">Never pick a word that "sounds right."<br>Identify the function first. Then choose the word.</div>
     </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -158,6 +168,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="warn-title">⚠ Check the structure before anything else</div>
       <strong>Full stop before the gap?</strong> → Sentence-starter → use: <span class="fr">consequently</span> · <span class="fc">however</span> · <span class="ft">meanwhile</span> · <span class="fa">furthermore</span><br>
       <strong>Comma before the gap?</strong> → Clause-joiner → use: <span class="fr">because</span> · <span class="fc">although / even though</span> · <span class="ft">while</span>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
     </div>
   </div>
 </div>
@@ -210,6 +225,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <tr><td>Step 3</td><td>Surprising there are art stands too?</td><td class="act">NO — just more things on offer</td></tr>
       <tr><td>Answer</td><td colspan="2">✅ <span class="fa">Furthermore</span>, local artists had set up exhibition stands</td></tr>
     </table>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -260,6 +280,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       </div>
       <div class="pq-feedback" id="p4fb"></div>
     </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -287,6 +312,8 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       After placing each word, cross it off the word bank. One word always remains — that is the distractor.
     </div>
     <div class="lesson-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+
       <a href="index.html" class="btn-hub">← Hub</a>
       <a href="Grammar_Lesson_ConditionalConsolidation.html" class="btn-lesson">Next: Grammar →</a>
     </div>

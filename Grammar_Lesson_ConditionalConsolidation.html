@@ -100,6 +100,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
 .lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
 .btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
 .btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+/* Bottom page nav */
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BEE3F8;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1a3a6b,#2c5282);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;letter-spacing:.3px}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
 </style>
 </head>
 <body>
@@ -148,6 +153,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <div class="rule-big">The Had Test: ask one question — "Is the word after 'had' a past participle verb?"</div>
       <div class="rule-sub">YES (had won, had been, had started) → past perfect → Third or Mixed Conditional<br>NO (had a room, had more time, had better equipment) → simple past of "have" → Second Conditional</div>
     </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -175,6 +185,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
     <h2>Rapid-Fire Had Test Drill ⚡</h2>
     <p>Click <strong>2nd</strong> or <strong>3rd/Mix</strong> for each if-clause. Do this without pausing — the goal is to make the check automatic.</p>
     <div class="drill-grid" id="drillGrid"></div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -220,6 +235,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
     <div class="ok-box">
       <div class="ok-title">✅ Mixed Conditional formula:</div>
       <p style="font-size:14px;margin:0;line-height:1.8">If + <span class="sm">had + past participle</span> [past event], … <span class="sm">would + base verb</span> + now/today/still [present result]</p>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
     </div>
   </div>
 </div>
@@ -278,6 +298,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       </div>
       <div class="pq-feedback" id="pq4fb"></div>
     </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -303,6 +328,8 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       Second, Third, and Mixed must be stable before anything else is added.
     </div>
     <div class="lesson-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+
       <a href="Cloze_Lesson_ClauseJoinerFunctions.html" class="btn-hub">← Prev: Cloze</a>
       <a href="Vocab_Lesson_PassageAnchoring.html" class="btn-lesson">Next: Vocab →</a>
     </div>

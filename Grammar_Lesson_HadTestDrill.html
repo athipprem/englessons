@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Had Test Drill — Unit 9 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1a3a6b;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.topnav .nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(26,58,107,0.09);margin-bottom:18px}
+h2{color:#1a3a6b;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.err-box{background:#FFEBEE;border:2px solid #EF9A9A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.err-title{font-weight:700;color:#B71C1C;margin-bottom:8px;font-size:14px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+/* Decision tree */
+.tree-wrap{background:#F7FAFF;border:2px solid #BEE3F8;border-radius:14px;padding:20px;margin:14px 0}
+.tree-title{font-size:12px;font-weight:700;color:#1565C0;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;text-align:center}
+.tree-node{border-radius:10px;padding:12px 16px;text-align:center;font-size:14px;font-weight:700;margin:0 auto;max-width:420px;line-height:1.5;color:#fff}
+.tree-node.start{background:#2c5282}
+.tree-node.test{background:#0D47A1}
+.tree-node.ban{background:#B71C1C}
+.tree-node.ok{background:#1B5E20}
+.tree-node.mixed{background:#6A1B9A}
+.tree-node.second{background:#C84B00}
+.tree-node.third{background:#1565C0}
+.tree-arrow{text-align:center;color:#4A5568;font-size:20px;margin:4px 0;line-height:1}
+.tree-branch{display:flex;gap:16px;margin:0;justify-content:center;align-items:flex-start}
+.tree-branch-node{border-radius:8px;padding:10px 12px;font-size:13px;text-align:center;flex:1;max-width:200px;line-height:1.5}
+.tree-branch-node.pp{background:#FFEBEE;border:2px solid #B71C1C;color:#B71C1C;font-weight:700}
+.tree-branch-node.noun{background:#E8F5E9;border:2px solid #1B5E20;color:#1B5E20;font-weight:700}
+.tree-branch-node.third{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;font-weight:700}
+.tree-branch-node.second{background:#FFF3E0;border:2px solid #C84B00;color:#C84B00;font-weight:700}
+.tree-branch-node.mixed{background:#F3E5F5;border:2px solid #6A1B9A;color:#6A1B9A;font-weight:700}
+/* Warm-up */
+.wu-q{background:#fff;border:2px solid #BEE3F8;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#2c5282;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #BEE3F8;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5;transition:background .15s}
+.wu-btn:hover:not([disabled]){background:#BEE3F8}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+/* Had Test rapid drill */
+.had-item{background:#fff;border:2px solid #BEE3F8;border-radius:10px;padding:12px 16px;margin:8px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.had-num{font-size:12px;font-weight:700;color:#2c5282;min-width:22px}
+.had-sent{font-size:14px;flex:1;line-height:1.6;min-width:200px}
+.had-word{font-weight:700;color:#1565C0}
+.had-btns{display:flex;gap:8px;margin-top:4px;width:100%}
+.btn-2nd{background:#FFF3E0;border:2px solid #C84B00;color:#C84B00;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.btn-3rd{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.btn-2nd:hover:not([disabled]),.btn-3rd:hover:not([disabled]){opacity:.8}
+.btn-2nd:disabled,.btn-3rd:disabled{opacity:.4;cursor:default}
+.had-fb{font-size:13px;font-weight:600;padding:6px 10px;border-radius:6px;display:none;width:100%;margin-top:4px}
+.had-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.had-fb.wrong{background:#FFEBEE;color:#B71C1C;display:block}
+.had-score{background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.had-score.show{display:block}
+/* Practice */
+.pq{background:#fff;border:2px solid #BEE3F8;border-radius:10px;padding:16px;margin:12px 0}
+.pq-label{font-size:11px;font-weight:700;color:#2c5282;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.pq-text{font-size:15px;margin-bottom:4px;color:#1a1a2e;line-height:1.6}
+.pq-sub{font-size:12px;color:#4A5568;font-style:italic;margin-bottom:10px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.pq-btn{background:#EDF2F7;border:2px solid #BEE3F8;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq-btn:hover:not([disabled]){background:#BEE3F8}
+.pq-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+/* Summary table */
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#EDF2F7;color:#1a3a6b;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.5px;border-bottom:2px solid #BEE3F8}
+.stbl td{padding:8px 10px;border-bottom:1px solid #EBF4FF;vertical-align:top;line-height:1.5}
+.stbl tr:last-child td{border-bottom:none}
+/* Production task */
+.prod-box{background:#F3E5F5;border:2px solid #9B59B6;border-radius:10px;padding:16px;margin:14px 0}
+.prod-title{font-weight:700;color:#6A1B9A;margin-bottom:10px;font-size:14px}
+.prod-input{width:100%;border:2px solid #CE93D8;border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;resize:vertical;min-height:60px;margin-top:4px}
+.prod-input:focus{outline:none;border-color:#9B59B6}
+.prod-btn{background:#6A1B9A;color:#fff;border:none;padding:9px 20px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;margin-top:8px}
+.prod-btn:hover{background:#7B1FA2}
+.prod-hint{background:#fff;border:1px solid #CE93D8;border-radius:8px;padding:10px 12px;font-size:13px;color:#4A235A;margin-top:8px;display:none;line-height:1.6}
+/* Nav */
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev-lesson{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BEE3F8;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1a3a6b,#2c5282);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;letter-spacing:.3px}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Had Test Drill</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 9 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0: Before We Start -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <h2>Before We Start — Your Unit 8 Grammar Errors 🔍</h2>
+    <p>Three grammar questions you got wrong in Unit 8. Understand exactly what went wrong before we drill.</p>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Error Review 1 — Unit 8, Q11</div>
+      <p style="font-size:14px;margin-bottom:4px">Question: <em>"Which sentence contains a mismatch error?"</em></p>
+      <p style="font-size:14px;margin-bottom:4px">The correct answer was D: <em>"If the company had a <strong>larger budget</strong>, it would have expanded into three new markets."</em></p>
+      <p style="font-size:13px;color:#B71C1C;margin-bottom:8px">You chose B (a correctly formed Second Conditional). Why is sentence D an error?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — "had a larger budget" uses past perfect → Third if-clause + "would have" result = Third → both match</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — "had a larger budget" = had + noun → Second if-clause, but "would have expanded" = Third result → mismatch</button>
+        <button class="wu-btn" onclick="doWu(1,'C')">C — "would have expanded" should be "will have expanded" → Will Ban error</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Error Review 2 — Unit 8, Q12</div>
+      <p style="font-size:14px;margin-bottom:4px">Gap: <em>"If the report had been published sooner, the public <span style="color:#1565C0">___</span> better informed today."</em></p>
+      <p style="font-size:13px;color:#B71C1C;margin-bottom:8px">You chose A — <strong>would have been</strong>. What does the word "today" tell you?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — Nothing special — it is just part of the sentence</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — "Today" signals that the result is in the present → Mixed Conditional → "would be"</button>
+        <button class="wu-btn" onclick="doWu(2,'C')">C — "Today" confirms this is a Third Conditional about a past result</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Error Review 3 — Will Ban Check</div>
+      <p style="font-size:14px;margin-bottom:4px">Which result clause contains a serious grammar error?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — "… the team would have won the championship."</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — "… the project will have been completed on time."</button>
+        <button class="wu-btn" onclick="doWu(3,'C')">C — "… the audience would still feel the impact today."</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Why these three errors all come from the same place</h2>
+    <div class="err-box">
+      <div class="err-title">❌ The pattern across all three:</div>
+      <p style="font-size:14px;line-height:1.7;margin:0">Q11 — <strong>Had Test not applied</strong>: "had a larger budget" = had + noun = Second, not Third. You chose a correct sentence instead of the mismatch.<br><br>
+      Q12 — <strong>Time signal missed</strong>: "today" = present result = Mixed. "Would have been" places the result in the past → Third, which ignores "today".<br><br>
+      Will Ban — <strong>"will" in a result clause = always wrong</strong> for Second, Third, and Mixed conditionals.</p>
+    </div>
+    <div class="rule-box">
+      <div class="rule-big">Had Test → Will Ban → Mismatch Check<br>In that order, every grammar question.</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: The Grammar Decision Tree -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The Grammar Decision Tree 🌳</h2>
+    <p>This is the complete flowchart for identifying and checking conditional sentences. Follow it from top to bottom every time.</p>
+
+    <div class="tree-wrap">
+      <div class="tree-title">GRAMMAR DECISION TREE — Conditional Sentences</div>
+
+      <!-- Start -->
+      <div class="tree-node start">IF-CLAUSE IN FRONT OF YOU</div>
+      <div class="tree-arrow">↓</div>
+
+      <!-- Had Test -->
+      <div class="tree-node test">
+        STEP 1 — Had Test<br>
+        <span style="font-size:12px;font-weight:400">What comes immediately after "had"?</span>
+      </div>
+      <div class="tree-branch" style="margin:6px 0">
+        <div class="tree-col">
+          <div style="font-size:12px;color:#B71C1C;font-weight:700;text-align:center">PAST PARTICIPLE ↓<br>(won, been, noticed, struck…)</div>
+          <div class="tree-branch-node pp" style="margin-top:4px">Past perfect → Third or Mixed if-clause</div>
+        </div>
+        <div class="tree-col">
+          <div style="font-size:12px;color:#1B5E20;font-weight:700;text-align:center">NOUN or ADJECTIVE ↓<br>(a pool, more time, better…)</div>
+          <div class="tree-branch-node noun" style="margin-top:4px">Simple past of "have" → Second Conditional if-clause ✅</div>
+        </div>
+      </div>
+      <div class="tree-arrow">↓ (for past participle path)</div>
+
+      <!-- Will Ban -->
+      <div class="tree-node ban">
+        STEP 2 — Will Ban<br>
+        <span style="font-size:12px;font-weight:400">Does the result clause contain "will"?</span>
+      </div>
+      <div class="tree-branch" style="margin:6px 0">
+        <div class="tree-col">
+          <div style="font-size:12px;color:#B71C1C;font-weight:700;text-align:center">YES ↓</div>
+          <div class="tree-branch-node pp" style="margin-top:4px">❌ ERROR — "will" never appears in Second, Third, or Mixed result clauses. Always "would".</div>
+        </div>
+        <div class="tree-col">
+          <div style="font-size:12px;color:#1B5E20;font-weight:700;text-align:center">NO → continue ↓</div>
+          <div class="tree-branch-node noun" style="margin-top:4px">✅ Will Ban passed. Move to Step 3.</div>
+        </div>
+      </div>
+      <div class="tree-arrow">↓</div>
+
+      <!-- Time signal -->
+      <div class="tree-node test">
+        STEP 3 — Time Signal Check<br>
+        <span style="font-size:12px;font-weight:400">Does the result clause include "today", "now", or "still"?</span>
+      </div>
+      <div class="tree-branch" style="margin:6px 0">
+        <div class="tree-col">
+          <div style="font-size:12px;color:#6A1B9A;font-weight:700;text-align:center">YES ↓</div>
+          <div class="tree-branch-node mixed" style="margin-top:4px"><strong>Mixed Conditional</strong><br>Past perfect if-clause + "would + base verb" result</div>
+        </div>
+        <div class="tree-col">
+          <div style="font-size:12px;color:#1565C0;font-weight:700;text-align:center">NO ↓</div>
+          <div class="tree-branch-node third" style="margin-top:4px"><strong>Third Conditional</strong><br>Past perfect if-clause + "would have + past participle" result</div>
+        </div>
+      </div>
+      <div class="tree-arrow">↓</div>
+
+      <!-- Mismatch Check -->
+      <div class="tree-node ok">
+        STEP 4 — Mismatch Check<br>
+        <span style="font-size:12px;font-weight:400">Do the if-clause and result clause belong to the same conditional type?</span>
+      </div>
+      <div class="tree-branch" style="margin:6px 0">
+        <div class="tree-col">
+          <div style="font-size:12px;color:#B71C1C;font-weight:700;text-align:center">NO (e.g. Second if + Third result) ↓</div>
+          <div class="tree-branch-node pp" style="margin-top:4px">❌ MISMATCH ERROR — both clauses must match.</div>
+        </div>
+        <div class="tree-col">
+          <div style="font-size:12px;color:#1B5E20;font-weight:700;text-align:center">YES ↓</div>
+          <div class="tree-branch-node noun" style="margin-top:4px">✅ Sentence is correctly formed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">⚠ The Had Test — the single most important rule</div>
+      Look at the word immediately after "had" in the if-clause:<br><br>
+      <strong>"had won"</strong> → "won" is a past participle → past perfect → Third or Mixed<br>
+      <strong>"had a bigger room"</strong> → "a bigger room" is a noun phrase → simple past of "have" → Second<br>
+      <strong>"had better equipment"</strong> → "better" is an adjective → simple past of "have" → Second
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>The Mismatch table — what matches and what does not</h2>
+    <table class="stbl">
+      <tr><th>If-clause</th><th>Result clause</th><th>Conditional type</th><th>Verdict</th></tr>
+      <tr><td>Past perfect (had + past participle)</td><td>"would have + past participle"</td><td>Third</td><td style="color:#1B5E20;font-weight:700">✅ Match</td></tr>
+      <tr><td>Past perfect + "today/now/still" in result</td><td>"would + base verb"</td><td>Mixed</td><td style="color:#1B5E20;font-weight:700">✅ Match</td></tr>
+      <tr><td>Simple past (had + noun/adjective)</td><td>"would + base verb"</td><td>Second</td><td style="color:#1B5E20;font-weight:700">✅ Match</td></tr>
+      <tr><td>Simple past (had + noun/adjective)</td><td>"would have + past participle"</td><td>—</td><td style="color:#B71C1C;font-weight:700">❌ Mismatch</td></tr>
+      <tr><td>Anything</td><td>Contains "will"</td><td>—</td><td style="color:#B71C1C;font-weight:700">❌ Will Ban</td></tr>
+    </table>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Had Test Rapid Drill -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Had Test Rapid Drill — 15 Items ⚡</h2>
+    <p>Each item shows an if-clause only. Look at what comes after "had" — is it a <strong>past participle verb</strong> or a <strong>noun/adjective</strong>? Write <strong>2nd</strong> (Second Conditional) or <strong>3rd/Mixed</strong> — no options, no hints. This is a reflex drill.</p>
+    <p style="font-size:13px;color:#4A5568">Past participle examples: won, been, arrived, noticed, struck, checked. Noun/adjective examples: a pool, more time, better equipment, a larger budget.</p>
+
+    <div id="had1" class="had-item">
+      <span class="had-num">1.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the team <span class="had-word">had won</span> the final…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(1,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(1,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf1"></div>
+      </div>
+    </div>
+
+    <div id="had2" class="had-item">
+      <span class="had-num">2.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the school <span class="had-word">had a heated pool</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(2,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(2,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf2"></div>
+      </div>
+    </div>
+
+    <div id="had3" class="had-item">
+      <span class="had-num">3.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the rescue team <span class="had-word">had arrived</span> sooner…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(3,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(3,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf3"></div>
+      </div>
+    </div>
+
+    <div id="had4" class="had-item">
+      <span class="had-num">4.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the chef <span class="had-word">had better equipment</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(4,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(4,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf4"></div>
+      </div>
+    </div>
+
+    <div id="had5" class="had-item">
+      <span class="had-num">5.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the student <span class="had-word">had more revision time</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(5,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(5,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf5"></div>
+      </div>
+    </div>
+
+    <div id="had6" class="had-item">
+      <span class="had-num">6.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the doctor <span class="had-word">had noticed</span> the early signs…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(6,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(6,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf6"></div>
+      </div>
+    </div>
+
+    <div id="had7" class="had-item">
+      <span class="had-num">7.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the city <span class="had-word">had a better transport network</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(7,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(7,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf7"></div>
+      </div>
+    </div>
+
+    <div id="had8" class="had-item">
+      <span class="had-num">8.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the storm <span class="had-word">had struck</span> further south…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(8,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(8,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf8"></div>
+      </div>
+    </div>
+
+    <div id="had9" class="had-item">
+      <span class="had-num">9.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the factory <span class="had-word">had a larger workforce</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(9,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(9,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf9"></div>
+      </div>
+    </div>
+
+    <div id="had10" class="had-item">
+      <span class="had-num">10.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the pilot <span class="had-word">had followed</span> the safety checklist…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(10,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(10,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf10"></div>
+      </div>
+    </div>
+
+    <div id="had11" class="had-item">
+      <span class="had-num">11.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the weather <span class="had-word">had been</span> clearer that morning…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(11,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(11,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf11"></div>
+      </div>
+    </div>
+
+    <div id="had12" class="had-item">
+      <span class="had-num">12.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the team <span class="had-word">had trained</span> more consistently…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(12,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(12,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf12"></div>
+      </div>
+    </div>
+
+    <div id="had13" class="had-item">
+      <span class="had-num">13.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the museum <span class="had-word">had more reading spaces</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(13,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(13,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf13"></div>
+      </div>
+    </div>
+
+    <div id="had14" class="had-item">
+      <span class="had-num">14.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the author <span class="had-word">had published</span> sooner…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(14,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(14,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf14"></div>
+      </div>
+    </div>
+
+    <div id="had15" class="had-item">
+      <span class="had-num">15.</span>
+      <div style="flex:1">
+        <div class="had-sent">If the village <span class="had-word">had a better road</span>…</div>
+        <div class="had-btns">
+          <button class="btn-2nd" onclick="doHad(15,'2')">2nd Conditional</button>
+          <button class="btn-3rd" onclick="doHad(15,'3')">3rd / Mixed</button>
+        </div>
+        <div class="had-fb" id="hf15"></div>
+      </div>
+    </div>
+
+    <div class="had-score" id="hadScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Practice -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Practice — Full Decision Tree 🎯</h2>
+    <p>Use the complete decision tree: Had Test → Will Ban → Time Signal → Mismatch Check. Think through all four steps before choosing.</p>
+
+    <div class="pq" id="pq1">
+      <div class="pq-label">Practice 1 — Had Test: which is Third Conditional?</div>
+      <div class="pq-text">Which sentence is a Third Conditional?</div>
+      <div class="pq-sub">Had Test: find "had + ___" in each if-clause. Past participle → Third. Noun/adjective → Second.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(1,'A')">A. If the artist had a larger studio, she would create much bigger sculptures.</button>
+        <button class="pq-btn" onclick="doPQ(1,'B')">B. If the team had scored in extra time, they would have won the championship.</button>
+        <button class="pq-btn" onclick="doPQ(1,'C')">C. If the town had a better bus service, fewer people would drive to work.</button>
+        <button class="pq-btn" onclick="doPQ(1,'D')">D. If the family had a bigger car, they would take longer road trips.</button>
+      </div>
+      <div class="pq-fb" id="pf1"></div>
+    </div>
+
+    <div class="pq" id="pq2">
+      <div class="pq-label">Practice 2 — Will Ban: spot the error</div>
+      <div class="pq-text">Which sentence has a grammar error?</div>
+      <div class="pq-sub">Check every result clause for "will". "Will" in a Second, Third, or Mixed result clause = always an error.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(2,'A')">A. If the road had been repaired last year, commuters would save time every day now.</button>
+        <button class="pq-btn" onclick="doPQ(2,'B')">B. If the library had opened earlier, more students would have used it that morning.</button>
+        <button class="pq-btn" onclick="doPQ(2,'C')">C. If the engineer had inspected the pipe, the leak would have been caught in time.</button>
+        <button class="pq-btn" onclick="doPQ(2,'D')">D. If the project had been planned more carefully, the team will have finished on schedule.</button>
+      </div>
+      <div class="pq-fb" id="pf2"></div>
+    </div>
+
+    <div class="pq" id="pq3">
+      <div class="pq-label">Practice 3 — Mixed: "now" signal</div>
+      <div class="pq-text">Choose the correct word for the gap.<br><em>"If the forest had not been cleared for housing, the river _______ flooding the lower fields now."</em></div>
+      <div class="pq-sub">Had Test: "had been cleared" = past perfect → Third or Mixed. Check the time signal: "now" = present result → Mixed → "would + base verb".</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(3,'A')">A. would have stopped</button>
+        <button class="pq-btn" onclick="doPQ(3,'B')">B. would stop</button>
+        <button class="pq-btn" onclick="doPQ(3,'C')">C. will stop</button>
+        <button class="pq-btn" onclick="doPQ(3,'D')">D. had stopped</button>
+      </div>
+      <div class="pq-fb" id="pf3"></div>
+    </div>
+
+    <div class="pq" id="pq4">
+      <div class="pq-label">Practice 4 — Mismatch Check</div>
+      <div class="pq-text">Which sentence has a grammar error?</div>
+      <div class="pq-sub">Had Test first — identify each if-clause type. Then check the result clause matches.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(4,'A')">A. If the coach had spotted the issue earlier, the player would have recovered fully.</button>
+        <button class="pq-btn" onclick="doPQ(4,'B')">B. If the gallery had more wall space, it would display local artists' work.</button>
+        <button class="pq-btn" onclick="doPQ(4,'C')">C. If the scientist had published the research, the medical community would have responded quickly.</button>
+        <button class="pq-btn" onclick="doPQ(4,'D')">D. If the museum had fewer opening hours, visitors would have planned their trips differently.</button>
+      </div>
+      <div class="pq-fb" id="pf4"></div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Summary + Production -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Summary — What to Remember 📋</h2>
+
+    <div class="rule-box">
+      <div class="rule-big">Had Test → Will Ban → Time Signal → Mismatch<br>Four steps. Every grammar question. Every time.</div>
+    </div>
+
+    <table class="stbl">
+      <tr><th>Step</th><th>What to check</th><th>What it tells you</th></tr>
+      <tr><td><strong>Had Test</strong></td><td>Word after "had" = past participle?</td><td>YES → Third/Mixed. NO (noun/adjective) → Second.</td></tr>
+      <tr><td><strong>Will Ban</strong></td><td>Result clause contains "will"?</td><td>YES → ERROR. Always use "would".</td></tr>
+      <tr><td><strong>Time Signal</strong></td><td>"today" / "now" / "still" in result clause?</td><td>YES → Mixed ("would + base verb"). NO → Third ("would have + past participle").</td></tr>
+      <tr><td><strong>Mismatch</strong></td><td>Do if-clause type and result clause type match?</td><td>NO → ERROR (e.g. Second if + Third result).</td></tr>
+    </table>
+
+    <!-- Compact tree repeat -->
+    <div class="tree-wrap" style="margin-top:16px">
+      <div class="tree-title">QUICK REFERENCE — Grammar Decision Tree</div>
+      <div class="tree-node start" style="font-size:13px">IF-CLAUSE → Had Test → Will Ban → Time Signal? → Mismatch Check</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px">
+        <div class="tree-branch-node second" style="max-width:none">
+          <strong>SECOND</strong><br>
+          <span style="font-size:12px">had + noun/adj<br>→ would + base</span>
+        </div>
+        <div class="tree-branch-node third" style="max-width:none">
+          <strong>THIRD</strong><br>
+          <span style="font-size:12px">had + past part.<br>→ would have + past part.</span>
+        </div>
+        <div class="tree-branch-node mixed" style="max-width:none">
+          <strong>MIXED</strong><br>
+          <span style="font-size:12px">had + past part.<br>→ would + base + today/now/still</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Production task -->
+    <div class="prod-box">
+      <div class="prod-title">✍ Production Task — Write Your Own Sentence</div>
+      <p style="font-size:14px;line-height:1.7;margin-bottom:10px">Write one Third Conditional sentence using any topic you like. Make sure the if-clause uses past perfect and the result clause uses "would have + past participle". Check all four steps before you finish.</p>
+      <textarea class="prod-input" id="prodInput" placeholder='Example: "If the team had practised longer, they would have won the championship."'></textarea>
+      <button class="prod-btn" onclick="showProdHint()">Check my answer ✓</button>
+      <div class="prod-hint" id="prodHint">
+        ✅ Good work! Now check your sentence:<br><br>
+        1. If-clause: starts with "If" + past perfect (had + past participle) ✓?<br>
+        2. Result clause: uses "would have + past participle" ✓?<br>
+        3. No "will" anywhere in the result clause ✓?<br>
+        4. Both clauses are Third Conditional ✓?<br><br>
+        If all four pass — your sentence is correct.
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="Cloze_Lesson_StructuralLevel.html" class="btn-prev-lesson">← Cloze Lesson</a>
+      <a href="Vocab_Lesson_HarderAnchoring.html" class="btn-lesson">Vocab Lesson →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var cur = 0;
+var screens = ['s0','s1','s2','s3','s4'];
+function goScreen(d) {
+  var next = cur + d;
+  if (next < 0 || next >= screens.length) return;
+  document.getElementById(screens[cur]).classList.remove('active');
+  cur = next;
+  document.getElementById(screens[cur]).classList.add('active');
+  document.getElementById('prevBtn').disabled = (cur === 0);
+  document.getElementById('nextBtn').disabled = (cur === screens.length - 1);
+  window.scrollTo(0, 0);
+}
+
+// Warm-up
+var wuAns = {1:'B', 2:'B', 3:'B'};
+var wuFb = {
+  1: {
+    B: '✅ Correct! "Had a larger budget" = had + noun phrase ("a larger budget") → simple past of "have" → Second Conditional if-clause. But "would have expanded" = Third result clause. Second if + Third result = mismatch. D is the error.',
+    _: '❌ Apply the Had Test to sentence D: "had a larger budget" — what follows "had"? "A larger budget" is a noun phrase, not a past participle. So it is simple past of "have" → Second if-clause. Then "would have expanded" = Third result. Second + Third = mismatch → D is the error sentence.'
+  },
+  2: {
+    B: '✅ Correct! "Today" = present-time signal. The result is happening now, not in the past. That means Mixed Conditional → "would be" (present result, not "would have been" which is past).',
+    _: '❌ The word "today" is the key. It signals that the result is in the present, right now. "Would have been" places the result in the past — that ignores "today". The correct answer is Mixed Conditional → "would be".'
+  },
+  3: {
+    B: '✅ Correct! Sentence B contains "will have been completed" — "will" in a conditional result clause is always wrong. The correct form would be "would have been completed". This is a Will Ban violation.',
+    _: '❌ Check each result clause for the word "will". Sentence B: "the project will have been completed" — "will" appears in the result clause. "Will" in a Second, Third, or Mixed result clause is always an error. Should be "would have been completed".'
+  }
+};
+function doWu(n, choice) {
+  var fb = document.getElementById('wf' + n);
+  var btns = document.getElementById('wq' + n).querySelectorAll('.wu-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  if (choice === wuAns[n]) {
+    fb.className = 'wu-fb show-ok';
+    fb.innerHTML = wuFb[n][choice];
+    btns[['A','B','C'].indexOf(choice)].className = 'wu-btn ok';
+  } else {
+    fb.className = 'wu-fb show-no';
+    fb.innerHTML = wuFb[n]['_'];
+    btns[['A','B','C'].indexOf(choice)].className = 'wu-btn no';
+  }
+}
+
+// Had Test drill
+// Answers: 1=3,2=2,3=3,4=2,5=2,6=3,7=2,8=3,9=2,10=3,11=3,12=3,13=2,14=3,15=2
+var hadAns = {1:'3',2:'2',3:'3',4:'2',5:'2',6:'3',7:'2',8:'3',9:'2',10:'3',11:'3',12:'3',13:'2',14:'3',15:'2'};
+var hadOk = {
+  1: '✅ 3rd/Mixed — "won" is a past participle (win→won). Past perfect → Third or Mixed.',
+  2: '✅ 2nd — "a heated pool" is a noun phrase. Had + noun = simple past of "have" → Second Conditional.',
+  3: '✅ 3rd/Mixed — "arrived" is a past participle (arrive→arrived). Past perfect → Third or Mixed.',
+  4: '✅ 2nd — "better equipment" is an adjective + noun. Had + adjective = simple past of "have" → Second.',
+  5: '✅ 2nd — "more revision time" is a noun phrase. Had + noun = simple past of "have" → Second.',
+  6: '✅ 3rd/Mixed — "noticed" is a past participle (notice→noticed). Past perfect → Third or Mixed.',
+  7: '✅ 2nd — "a better transport network" is a noun phrase. Had + noun = simple past of "have" → Second.',
+  8: '✅ 3rd/Mixed — "struck" is a past participle (strike→struck). Past perfect → Third or Mixed.',
+  9: '✅ 2nd — "a larger workforce" is a noun phrase. Had + noun = simple past of "have" → Second.',
+  10: '✅ 3rd/Mixed — "followed" is a past participle (follow→followed). Past perfect → Third or Mixed.',
+  11: '✅ 3rd/Mixed — "been" is a past participle (be→been). Past perfect → Third or Mixed.',
+  12: '✅ 3rd/Mixed — "trained" is a past participle (train→trained). Past perfect → Third or Mixed.',
+  13: '✅ 2nd — "more reading spaces" is a noun phrase. Had + noun = simple past of "have" → Second.',
+  14: '✅ 3rd/Mixed — "published" is a past participle (publish→published). Past perfect → Third or Mixed.',
+  15: '✅ 2nd — "a better road" is a noun phrase. Had + noun = simple past of "have" → Second.'
+};
+var hadWrong = {
+  1: '❌ "Won" is a past participle — past perfect → Third or Mixed, not Second.',
+  2: '❌ "A heated pool" is a noun phrase, not a past participle → simple past of "have" → Second, not Third/Mixed.',
+  3: '❌ "Arrived" is a past participle → past perfect → Third or Mixed, not Second.',
+  4: '❌ "Better equipment" is adjective + noun → simple past of "have" → Second, not Third/Mixed.',
+  5: '❌ "More revision time" is a noun phrase → simple past of "have" → Second, not Third/Mixed.',
+  6: '❌ "Noticed" is a past participle → past perfect → Third or Mixed, not Second.',
+  7: '❌ "A better transport network" is a noun phrase → simple past of "have" → Second, not Third/Mixed.',
+  8: '❌ "Struck" is a past participle (strike→struck) → past perfect → Third or Mixed, not Second.',
+  9: '❌ "A larger workforce" is a noun phrase → simple past of "have" → Second, not Third/Mixed.',
+  10: '❌ "Followed" is a past participle → past perfect → Third or Mixed, not Second.',
+  11: '❌ "Been" is a past participle (be→been) → past perfect → Third or Mixed, not Second.',
+  12: '❌ "Trained" is a past participle → past perfect → Third or Mixed, not Second.',
+  13: '❌ "More reading spaces" is a noun phrase → simple past of "have" → Second, not Third/Mixed.',
+  14: '❌ "Published" is a past participle → past perfect → Third or Mixed, not Second.',
+  15: '❌ "A better road" is a noun phrase → simple past of "have" → Second, not Third/Mixed.'
+};
+var hadDone = {};
+var hadCorrect = 0;
+function doHad(n, ans) {
+  if (hadDone[n]) return;
+  hadDone[n] = true;
+  var item = document.getElementById('had' + n);
+  var fb = document.getElementById('hf' + n);
+  var btns = item.querySelectorAll('button');
+  btns.forEach(function(b) { b.disabled = true; });
+  if (ans === hadAns[n]) {
+    fb.className = 'had-fb ok';
+    fb.textContent = hadOk[n];
+    hadCorrect++;
+  } else {
+    fb.className = 'had-fb wrong';
+    fb.textContent = hadWrong[n];
+  }
+  if (Object.keys(hadDone).length === 15) {
+    var sc = document.getElementById('hadScore');
+    sc.className = 'had-score show';
+    sc.innerHTML = '<strong style="font-size:1.1rem">Drill complete: ' + hadCorrect + '/15</strong><br><span style="font-size:14px">' +
+      (hadCorrect >= 14 ? '🎉 Excellent — Had Test is becoming a reflex!' :
+       hadCorrect >= 11 ? '✅ Good — review any mistakes carefully.' :
+       '⚠️ Review the decision tree and try again — the reflex needs more practice.') + '</span>';
+  }
+}
+
+// Practice questions
+var pqAns = {1:'B', 2:'D', 3:'B', 4:'D'};
+var pqFb = {
+  1: {
+    B: '✅ Correct! "Had scored" = had + scored (past participle) → past perfect → Third Conditional if-clause. "Would have won" = Third result. Both Third → correct Third Conditional. A, C, D all have "had + noun/adjective" → Second.',
+    _: '❌ Had Test: which option has "had + past participle"? A: had a larger studio (noun) → Second. B: had scored (past participle) → Third ✓. C: had a better bus service (noun) → Second. D: had a bigger car (noun) → Second. Only B is Third.'
+  },
+  2: {
+    D: '✅ Correct! Sentence D: "the team will have finished on schedule" — "will" in a conditional result clause = Will Ban error. Should be "would have finished".',
+    _: '❌ Scan every result clause for "will". A: "would save" ✓. B: "would have used" ✓. C: "would have been caught" ✓. D: "will have finished" ← "will" is here. Will Ban violation → D is the error.'
+  },
+  3: {
+    B: '✅ Correct! "Had been cleared" = past perfect → Third or Mixed. Time signal: "now" → present result → Mixed Conditional → "would stop" (base verb). "Would have stopped" would be Third (past result, ignoring "now").',
+    _: '❌ Had Test: "had been cleared" = past perfect → Third or Mixed. Time signal check: "now" → the result is in the present → Mixed → "would + base verb" → "would stop". "Would have stopped" is Third (past result) and ignores "now". "Will" = Will Ban error.'
+  },
+  4: {
+    D: '✅ Correct! Sentence D — Had Test: "had fewer opening hours" = had + adjective ("fewer") → simple past of "have" → Second if-clause. But "would have planned" = Third result clause. Second if + Third result = mismatch error.',
+    _: '❌ Had Test each if-clause: A: "had spotted" (past participle) → Third. B: "had more wall space" (noun) → Second. C: "had published" (past participle) → Third. D: "had fewer opening hours" — "fewer" is an adjective → Second if-clause. But "would have planned" = Third result → Second + Third = mismatch. D is the error.'
+  }
+};
+function doPQ(n, choice) {
+  var fb = document.getElementById('pf' + n);
+  var pq = document.getElementById('pq' + n);
+  var btns = pq.querySelectorAll('.pq-btn');
+  var opts = ['A','B','C','D'];
+  btns.forEach(function(b) { b.disabled = true; });
+  if (choice === pqAns[n]) {
+    fb.className = 'pq-fb ok';
+    fb.innerHTML = pqFb[n][choice];
+    btns[opts.indexOf(choice)].className = 'pq-btn ok';
+  } else {
+    fb.className = 'pq-fb no';
+    fb.innerHTML = pqFb[n]['_'];
+    btns[opts.indexOf(choice)].className = 'pq-btn no';
+    setTimeout(function() {
+      btns[opts.indexOf(pqAns[n])].className = 'pq-btn ok';
+    }, 800);
+  }
+}
+
+function showProdHint() {
+  var input = document.getElementById('prodInput').value.trim();
+  var hint = document.getElementById('prodHint');
+  if (input.length < 10) {
+    hint.style.display = 'block';
+    hint.innerHTML = '⚠️ Please write your sentence first, then click Check.';
+    return;
+  }
+  hint.style.display = 'block';
+  hint.innerHTML = '✅ Well done for writing your sentence! Now check it:<br><br>' +
+    '1. If-clause: starts with "If" + past perfect (had + past participle) ✓?<br>' +
+    '2. Result clause: uses "would have + past participle" ✓?<br>' +
+    '3. No "will" anywhere in the result clause ✓?<br>' +
+    '4. Both clauses are Third Conditional ✓?<br><br>' +
+    'If all four pass — your sentence is correctly formed.';
+}
+</script>
+</body>
+</html>

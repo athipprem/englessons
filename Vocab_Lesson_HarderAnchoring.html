@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary — Harder Anchoring — Unit 9 Lesson 3</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#7B4F00;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.topnav .nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(123,79,0,0.09);margin-bottom:18px}
+h2{color:#7B4F00;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#7B4F00,#A0650A);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.err-box{background:#FFEBEE;border:2px solid #EF9A9A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.err-title{font-weight:700;color:#B71C1C;margin-bottom:8px;font-size:14px}
+/* Warm-up */
+.wu-q{background:#fff;border:2px solid #F6D399;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#7B4F00;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#FFF8E1;border:2px solid #F6D399;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5;transition:background .15s}
+.wu-btn:hover:not([disabled]){background:#FFE082}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+/* Method checklist */
+.method-box{background:#FFF3E0;border:2px solid #FFB74D;border-radius:12px;padding:20px;margin:14px 0}
+.method-title{font-size:12px;font-weight:700;color:#7B4F00;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.method-step{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #FFE0B2}
+.method-step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.step-num{background:#7B4F00;color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;margin-top:2px}
+.step-body{flex:1}
+.step-head{font-size:15px;font-weight:700;color:#7B4F00;margin-bottom:4px}
+.step-detail{font-size:13px;color:#4A5568;line-height:1.6}
+/* Worked examples */
+.passage-box{background:#F7FAFF;border:2px solid #BEE3F8;border-radius:10px;padding:16px;margin:12px 0}
+.passage-label{font-size:11px;font-weight:700;color:#2c5282;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.passage-text{font-size:14px;line-height:1.9;color:#1a1a2e}
+.target-word{font-weight:700;text-decoration:underline;text-decoration-style:dotted;color:#7B4F00}
+.clue-highlight{background:#FFF9C4;padding:1px 3px;border-radius:3px}
+.worked-step{background:#fff;border:1px solid #FFE0B2;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:13px;line-height:1.7}
+.worked-step strong{color:#7B4F00}
+.step-label{font-size:10px;font-weight:700;background:#7B4F00;color:#fff;padding:2px 7px;border-radius:10px;margin-right:8px;letter-spacing:.5px}
+/* Practice */
+.pq{background:#fff;border:2px solid #F6D399;border-radius:10px;padding:16px;margin:12px 0}
+.pq-label{font-size:11px;font-weight:700;color:#7B4F00;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.pq-passage{background:#F7FAFF;border:1px solid #BEE3F8;border-radius:8px;padding:12px;font-size:14px;line-height:1.9;margin-bottom:10px;color:#1a1a2e}
+.pq-question{font-size:15px;margin-bottom:4px;line-height:1.6}
+.pq-sub{font-size:12px;color:#4A5568;font-style:italic;margin-bottom:10px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.pq-btn{background:#FFF8E1;border:2px solid #F6D399;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq-btn:hover:not([disabled]){background:#FFE082}
+.pq-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.7}
+.pq-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+/* Difficulty badge */
+.diff-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.diff-dev{background:#E3F2FD;color:#1565C0}
+.diff-adv{background:#F3E5F5;color:#6A1B9A}
+/* Summary table */
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#FFF3E0;color:#7B4F00;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.5px;border-bottom:2px solid #FFE0B2}
+.stbl td{padding:8px 10px;border-bottom:1px solid #FFF3E0;vertical-align:top;line-height:1.5}
+.stbl tr:last-child td{border-bottom:none}
+/* Production task */
+.prod-box{background:#FFF3E0;border:2px solid #FFB74D;border-radius:10px;padding:16px;margin:14px 0}
+.prod-title{font-weight:700;color:#7B4F00;margin-bottom:10px;font-size:14px}
+.prod-input{width:100%;border:2px solid #FFB74D;border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;resize:vertical;min-height:60px;margin-top:4px}
+.prod-input:focus{outline:none;border-color:#7B4F00}
+.prod-btn{background:#7B4F00;color:#fff;border:none;padding:9px 20px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;margin-top:8px}
+.prod-btn:hover{background:#A0650A}
+.prod-hint{background:#fff;border:1px solid #FFB74D;border-radius:8px;padding:10px 12px;font-size:13px;color:#5D4037;margin-top:8px;display:none;line-height:1.6}
+/* Nav */
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#7B4F00,#A0650A);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev-lesson{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #FFE0B2;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#7B4F00,#A0650A);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;letter-spacing:.3px}
+.bottom-nav-btn:hover:not([disabled]){opacity:.88}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Vocabulary — Harder Anchoring</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 9 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0: Before We Start -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <h2>Before We Start — You Scored 6/6 on Vocabulary 🎯</h2>
+    <p>In Unit 8, all six vocabulary questions were correct. That is perfect. But there is a problem: the clues in Unit 8 were placed right next to the target word. ISA tests hide clues further away — one or two sentences before the word, and the wrong options are designed to confuse. This lesson teaches you how to handle that.</p>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Quick Check 1 — Easy vs Hard</div>
+      <p style="font-size:14px;margin-bottom:8px">Read the two sentences below. Which one has the clue hidden further from the target word?</p>
+      <p style="font-size:13px;color:#4A5568;font-style:italic;margin-bottom:10px">Sentence A: "The room was spotless — every surface gleamed. Her tidiness was <strong>meticulous</strong>."<br>Sentence B: "The room smelled of paint. The window was open. Her work was <strong>meticulous</strong>, precise, and thorough."</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — Sentence A, because "gleamed" is near "meticulous"</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — Sentence B, because "paint" and "window" give general context but the actual clue ("precise, thorough") is in the same sentence as the word</button>
+        <button class="wu-btn" onclick="doWu(1,'C')">C — Both sentences hide the clue equally far away</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Quick Check 2 — Spotting a Distractor</div>
+      <p style="font-size:14px;margin-bottom:8px">Read this sentence: <em>"The athlete trained through every injury, setback, and loss. Her <strong>resilience</strong> was what coaches noticed most."</em></p>
+      <p style="font-size:14px;margin-bottom:10px">Which option is the distractor — the one that sounds connected to the topic but is not supported by the clue?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — strength: the passage mentions injuries, which suggests physical strength</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — ability to recover and keep going: supported by "through every injury, setback, and loss"</button>
+        <button class="wu-btn" onclick="doWu(2,'C')">C — determination to win: supported by the word "athlete" and "coaches"</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What changes in this lesson</h2>
+    <div class="warn-box">
+      <div class="warn-title">⚠ Two new challenges from Unit 9 onwards:</div>
+      <strong>1. Clues are further away</strong> — the clue might be in the sentence before the target word, or even two sentences before. You cannot just read the phrase around the word. You must read back.<br><br>
+      <strong>2. Distractors are smarter</strong> — one wrong option will feel connected to the topic ("athlete" → "strength") but it is not actually stated in the passage. Only the clue counts. Your feeling about the topic does not count.
+    </div>
+    <div class="rule-box">
+      <div class="rule-big">The Quote and Match method still works.<br>It just requires you to look further back in the passage.</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: Quote and Match Method -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The Quote and Match Method — 3 Steps 🔍</h2>
+    <p>This is the complete method for every vocabulary question in every ISA passage. Follow all three steps every time.</p>
+
+    <div class="method-box">
+      <div class="method-title">QUOTE AND MATCH — 3 Steps</div>
+
+      <div class="method-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-head">Find the target word in the passage</div>
+          <div class="step-detail">Circle or underline it. Do not guess its meaning from the options yet — that pulls you toward traps. Find the word first, then look at what surrounds it.</div>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-head">Quote the clue — in that sentence AND the sentence before</div>
+          <div class="step-detail">The clue is always somewhere nearby. Read the sentence with the target word. If that is not enough, read the sentence before it. When you find words that explain what the target word means, quote them exactly in your head: <em>"The clue says '___'"</em>. Never quote your own idea — only what is in the text.</div>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-head">Match the clue to each option — test them one by one</div>
+          <div class="step-detail">Go through A, B, C, D. For each one, ask: <em>"Is this what the clue actually said?"</em> — not "does this feel right for this topic?" One option will match your quoted clue exactly. The others will either contradict it or simply not be mentioned in the passage at all.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">⚠ The distractor trap — always check this</div>
+      The hardest wrong option is one that fits the general topic but is not said in the passage. For example: a passage about a marathon runner using the word "endurance" — option A might be "speed" (fits athletes, but not stated) and option B might be "ability to last a long time" (what the passage actually says). Your clue quote rules out A immediately: the passage never mentioned speed.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Where to look for the clue</h2>
+    <table class="stbl">
+      <tr><th>Clue location</th><th>How to find it</th><th>Example</th></tr>
+      <tr><td>Same sentence</td><td>Read normally — clue is in the same phrase</td><td>"The room was <strong>immaculate</strong> — not a speck of dust anywhere."</td></tr>
+      <tr><td>Sentence before</td><td>Read the sentence before the target word</td><td>"She had scrubbed every surface for hours. Her work was <strong>immaculate</strong>."</td></tr>
+      <tr><td>Two sentences before</td><td>Read back two sentences if needed</td><td>"The event was a disaster. Nothing went according to plan. Looking back, the decisions seemed <strong>rash</strong>."</td></tr>
+    </table>
+    <p style="font-size:13px;color:#4A5568;margin-top:8px">At ISA level, the clue is almost always within two sentences of the target word. If you cannot find it, read the sentence before again. Do not guess.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Worked Examples -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Worked Examples — Harder Clues 💡</h2>
+    <p>Watch how the 3-step method works when the clue is not right next to the word.</p>
+
+    <div class="wu-q" style="border-color:#F6D399">
+      <div class="wu-label">Worked Example 1 — Clue one sentence before</div>
+      <div class="passage-box">
+        <div class="passage-label">Mini Passage</div>
+        <div class="passage-text">Maya had barely spoken since the announcement. She sat in the corner of the room, arms folded, staring at the wall. Her mood was <span class="target-word">sullen</span> for the rest of the afternoon.</div>
+      </div>
+      <p style="font-size:14px;margin-bottom:8px">Question: <em>The word "sullen" means most nearly —</em></p>
+      <p style="font-size:13px;margin-bottom:8px"><strong>Step 1 — Find the word:</strong> "sullen" is in the last sentence.</p>
+      <div class="worked-step">
+        <span class="step-label">STEP 2</span><strong>Quote the clue.</strong> "sullen" is not explained in its own sentence. Read the sentence before: <span class="clue-highlight">"She sat in the corner of the room, arms folded, staring at the wall."</span> And the sentence before that: <span class="clue-highlight">"Maya had barely spoken since the announcement."</span> Two clues: barely spoken + arms folded, staring at wall. Together they describe someone who is withdrawn and in a bad mood.
+      </div>
+      <div class="worked-step">
+        <span class="step-label">STEP 3</span><strong>Match.</strong> A: cheerful (opposite — ruled out). B: quiet and bad-tempered (matches "barely spoken" + folded arms). C: tired (not mentioned — passage says mood, not energy). D: nervous (possible topic-feel, but passage says no words or signs of nerves). <strong>Answer: B</strong>
+      </div>
+    </div>
+
+    <div class="wu-q" style="border-color:#F6D399;margin-top:16px">
+      <div class="wu-label">Worked Example 2 — Distractor check</div>
+      <div class="passage-box">
+        <div class="passage-label">Mini Passage</div>
+        <div class="passage-text">The explorer had crossed three mountain ranges in six days without stopping to rest. She had run out of food on the fourth day. Despite this, she pressed on, never once turning back. Her friends called her <span class="target-word">intrepid</span>.</div>
+      </div>
+      <p style="font-size:14px;margin-bottom:8px">Question: <em>The word "intrepid" means most nearly —</em></p>
+      <div class="worked-step">
+        <span class="step-label">STEP 2</span><strong>Quote the clue.</strong> The sentence with "intrepid" says her friends called her this, but does not explain it. Read the sentences before: <span class="clue-highlight">"pressed on, never once turning back"</span> and <span class="clue-highlight">"ran out of food…despite this, she pressed on."</span> Clue = kept going despite danger and hardship.
+      </div>
+      <div class="worked-step">
+        <span class="step-label">STEP 3</span><strong>Match + distractor check.</strong> A: physically very strong (topic-feel distractor — "three mountain ranges" suggests strength, but the passage says she kept going, not that she was physically powerful). B: fearless and willing to face difficulty (matches "pressed on, never turning back" despite danger). C: intelligent (not mentioned anywhere). D: experienced at climbing (topic-feel distractor — the passage mentions mountains but never says she was experienced). <strong>Answer: B</strong><br><br><strong>Key lesson:</strong> A and D both feel connected to "mountain explorer" but neither is in the clue. Your quote ("pressed on, never turning back") points to B only.
+      </div>
+    </div>
+  </div>
+  <div class="card" style="background:#fff">
+    <div class="bottom-nav" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Practice -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Practice — Harder Passages 🎯</h2>
+    <p>Apply the 3-step method. For each passage: find the word, quote the clue, match one by one. The distractors are designed to feel right — use your quote, not your feeling.</p>
+
+    <div class="pq" id="pq1">
+      <div class="pq-label">Practice 1 <span class="diff-badge diff-dev">Developing</span></div>
+      <div class="pq-passage">
+        The old lighthouse keeper rarely visited the town below. He preferred to watch the sea alone, counting the waves as they rolled in. He had not hosted a visitor in over three years. His neighbours described his way of living as <strong>solitary</strong>.
+      </div>
+      <div class="pq-question">The word "solitary" means most nearly —</div>
+      <div class="pq-sub">Step 1: Find "solitary". Step 2: Quote the clue — look in the sentence before. Step 3: Match each option to the clue.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(1,'A')">A. peaceful and quiet</button>
+        <button class="pq-btn" onclick="doPQ(1,'B')">B. done or lived alone, without others</button>
+        <button class="pq-btn" onclick="doPQ(1,'C')">C. old-fashioned and out of date</button>
+        <button class="pq-btn" onclick="doPQ(1,'D')">D. dedicated to a single task</button>
+      </div>
+      <div class="pq-fb" id="pf1"></div>
+    </div>
+
+    <div class="pq" id="pq2">
+      <div class="pq-label">Practice 2 <span class="diff-badge diff-adv">Advanced</span></div>
+      <div class="pq-passage">
+        The market stall was covered in goods: stacked jars, hanging cloth, and rows of spices in open bags. Nothing was labelled. The prices changed from buyer to buyer. The owner seemed to enjoy the sense of confusion it created. For tourists, the whole experience felt <strong>chaotic</strong>.
+      </div>
+      <div class="pq-question">The word "chaotic" means most nearly —</div>
+      <div class="pq-sub">Quote the clue carefully — there are two or three clues across the passage. Match them together, then test each option.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(2,'A')">A. busy and exciting</button>
+        <button class="pq-btn" onclick="doPQ(2,'B')">B. colourful and visually interesting</button>
+        <button class="pq-btn" onclick="doPQ(2,'C')">C. completely disorganised and impossible to follow</button>
+        <button class="pq-btn" onclick="doPQ(2,'D')">D. loud and full of people</button>
+      </div>
+      <div class="pq-fb" id="pf2"></div>
+    </div>
+
+    <div class="pq" id="pq3">
+      <div class="pq-label">Practice 3 <span class="diff-badge diff-adv">Advanced</span></div>
+      <div class="pq-passage">
+        Lena prepared every small detail before the debate: her notes were colour-coded, her arguments were rehearsed, and her examples were checked three times. When the other students spoke, she listened without interrupting, writing down their key points. Her teacher said her preparation was <strong>methodical</strong>.
+      </div>
+      <div class="pq-question">The word "methodical" means most nearly —</div>
+      <div class="pq-sub">Distractor warning: one wrong option fits the topic of "studying" but is not in the clue.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(3,'A')">A. done in a careful, step-by-step order</button>
+        <button class="pq-btn" onclick="doPQ(3,'B')">B. very intelligent and quick to learn</button>
+        <button class="pq-btn" onclick="doPQ(3,'C')">C. strict and demanding</button>
+        <button class="pq-btn" onclick="doPQ(3,'D')">D. hard-working and determined</button>
+      </div>
+      <div class="pq-fb" id="pf3"></div>
+    </div>
+
+    <div class="pq" id="pq4">
+      <div class="pq-label">Practice 4 <span class="diff-badge diff-adv">Advanced</span></div>
+      <div class="pq-passage">
+        The audience had expected a short update about the school's new schedule. Instead, the principal spoke for forty minutes, covering topics that nobody in the room had heard of before. Parents exchanged confused glances. The students sat perfectly still, unsure of what was happening. Their expressions were <strong>bewildered</strong>.
+      </div>
+      <div class="pq-question">The word "bewildered" means most nearly —</div>
+      <div class="pq-sub">Two clue locations — check the sentence with the word AND the sentence before it.</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ(4,'A')">A. bored and unhappy</button>
+        <button class="pq-btn" onclick="doPQ(4,'B')">B. completely confused and unsure what is happening</button>
+        <button class="pq-btn" onclick="doPQ(4,'C')">C. surprised but pleased</button>
+        <button class="pq-btn" onclick="doPQ(4,'D')">D. angry at being kept waiting</button>
+      </div>
+      <div class="pq-fb" id="pf4"></div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Summary + Production -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Summary — What to Remember 📋</h2>
+
+    <div class="rule-box">
+      <div class="rule-big">Step 1: Find the word<br>Step 2: Quote the clue (sentence before if needed)<br>Step 3: Match each option to the clue — not your feeling</div>
+    </div>
+
+    <table class="stbl">
+      <tr><th>The method</th><th>Why it matters at ISA level</th></tr>
+      <tr><td><strong>Step 2 — look back one sentence</strong></td><td>ISA clues are not always in the same sentence as the word. If the same sentence does not help, the sentence before almost always does.</td></tr>
+      <tr><td><strong>Step 3 — test every option</strong></td><td>Do not stop at the first option that feels right. Test all four. The distractor is designed to feel right. Your quoted clue will rule it out.</td></tr>
+      <tr><td><strong>Distractor rule</strong></td><td>If an option connects to the topic but is not in the clue, eliminate it. Topic-feel does not count. Only the clue counts.</td></tr>
+    </table>
+
+    <div class="warn-box" style="margin-top:14px">
+      <div class="warn-title">⚠ The one mistake that costs the most marks:</div>
+      Choosing an option because it "sounds like" what the passage is about, without quoting a specific clue to support it. Your quote is your evidence. No quote = no answer.
+    </div>
+
+    <!-- Production task -->
+    <div class="prod-box">
+      <div class="prod-title">✍ Production Task — Quote and Match on Your Own</div>
+      <p style="font-size:14px;line-height:1.7;margin-bottom:10px">Read this sentence: <em>"The musician had not eaten, had barely slept, and had skipped every practice session for a week. His playing had become <strong>erratic</strong>."</em><br><br>In the box below, write the clue you would quote for "erratic" and the meaning you would choose.</p>
+      <textarea class="prod-input" id="prodInput" placeholder='Example: My clue is "___". This means "erratic" most likely means ___.'></textarea>
+      <button class="prod-btn" onclick="showProdHint()">Check my thinking ✓</button>
+      <div class="prod-hint" id="prodHint">
+        ✅ Well done for trying! Here is the model answer:<br><br>
+        <strong>Clue to quote:</strong> <em>"had not eaten, had barely slept, and had skipped every practice session"</em> — these are all signs of something going wrong and becoming unreliable.<br><br>
+        <strong>Meaning of "erratic":</strong> unpredictable or unreliable — happening in an irregular, disorganised way. Not following a steady pattern.<br><br>
+        <strong>Distractor check:</strong> "bad" (too vague — not supported by a specific clue). "Quiet" (not mentioned). "Slow" (not mentioned). Only "unpredictable / irregular" matches what the clues say.
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="Grammar_Lesson_HadTestDrill.html" class="btn-prev-lesson">← Grammar Lesson</a>
+      <a href="index.html" class="btn-hub">Back to Hub →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var cur = 0;
+var screens = ['s0','s1','s2','s3','s4'];
+function goScreen(d) {
+  var next = cur + d;
+  if (next < 0 || next >= screens.length) return;
+  document.getElementById(screens[cur]).classList.remove('active');
+  cur = next;
+  document.getElementById(screens[cur]).classList.add('active');
+  document.getElementById('prevBtn').disabled = (cur === 0);
+  document.getElementById('nextBtn').disabled = (cur === screens.length - 1);
+  window.scrollTo(0, 0);
+}
+
+// Warm-up
+var wuAns = {1:'B', 2:'A'};
+var wuFb = {
+  1: {
+    B: '✅ You spotted it! In Sentence B, the word "paint" and "window" are general scene-setting — they do not explain "meticulous". The actual clue "precise and thorough" is in the same sentence as the word. In Sentence A, the clue "gleamed" is one sentence before. So Sentence A actually has the clue further from the word, not Sentence B. But the key point is: always read the sentence before the target word in case the clue is there.',
+    A: '✅ Good thinking — Sentence A does place the clue one sentence before "meticulous". In Unit 9, we practise finding clues that are not right next to the target word. The further the clue, the more carefully you need to read back.',
+    _: '❌ Look again. In both sentences, there is a clue somewhere near "meticulous". The challenge is spotting how far back you need to read. In Sentence A, the clue "gleamed" is in the sentence before the word. In Sentence B, the clue is in the same sentence ("precise, thorough"). From Unit 9 onwards, you need to read back one or two sentences if the same sentence does not give enough.'
+  },
+  2: {
+    A: '✅ Correct! "Strength" fits the topic (athlete, injury) but the passage never says she was physically strong — it says she trained "through every injury, setback, and loss" and "kept going". That describes resilience, not strength. A is the distractor: it sounds right for the topic but is not in the clue.',
+    _: '❌ Look at option A again. "Strength" sounds connected to athletes and injuries, but where does the passage say she was strong? It says she trained through setbacks and never stopped. That is about recovery and persistence, not physical strength. A is the topic-feel distractor — it fits the theme but is not said in the clue.'
+  }
+};
+function doWu(n, choice) {
+  var fb = document.getElementById('wf' + n);
+  var btns = document.getElementById('wq' + n).querySelectorAll('.wu-btn');
+  btns.forEach(function(b){ b.disabled = true; });
+  var cls = (choice === wuAns[n]) ? 'wu-fb show-ok' : 'wu-fb show-no';
+  fb.className = cls;
+  var key = wuFb[n][choice] || wuFb[n]['_'];
+  fb.innerHTML = key;
+  var optIdx = ['A','B','C'].indexOf(choice);
+  btns[optIdx].className = (choice === wuAns[n]) ? 'wu-btn ok' : 'wu-btn no';
+}
+
+// Practice
+var pqAns = {1:'B', 2:'C', 3:'A', 4:'B'};
+var pqFb = {
+  1: {
+    B: '✅ Correct! Step 2 — clue quote: <em>"He preferred to watch the sea alone"</em> and <em>"had not hosted a visitor in over three years."</em> Both clues say he was without others. Step 3 — "done or lived alone, without others" matches exactly. A ("peaceful and quiet") could fit the mood but the passage focuses on being alone, not quiet. D ("dedicated to a single task") is not stated anywhere.',
+    _: '❌ Step 2 — quote the clue. The sentence before "solitary": <em>"He had not hosted a visitor in over three years."</em> And before that: <em>"He preferred to watch the sea alone."</em> Both clues say the same thing: alone, without others. Now match. Which option matches "alone, without others"? Not A (quiet ≠ alone), not C (old-fashioned? not mentioned), not D (single task? not mentioned). Only B matches the quoted clue.'
+  },
+  2: {
+    C: '✅ Correct! The clues: <em>"Nothing was labelled. The prices changed from buyer to buyer. The owner seemed to enjoy the sense of confusion it created."</em> Three clues all pointing to disorder and confusion — no system, no rules, no consistency. "Completely disorganised and impossible to follow" matches all three clues. A ("busy and exciting") is a topic-feel distractor — markets feel busy, but the passage says confusion, not excitement. D ("loud and full of people") is not stated.',
+    _: '❌ Quote the clues across the passage: "Nothing was labelled" (no system), "prices changed from buyer to buyer" (no rules), "enjoy the sense of confusion" (deliberate disorder). Together, these describe something completely disorganised. Now test each option: A — "exciting"? Not in any clue. B — "colourful"? Not in any clue. D — "loud"? Not in any clue. Only C matches all three clues about disorder and confusion.'
+  },
+  3: {
+    A: '✅ Correct! Step 2 — clue quote: <em>"colour-coded notes, rehearsed arguments, examples checked three times"</em> — every action is planned, ordered, and repeated carefully. That is step-by-step order. Step 3 — B ("intelligent") is the distractor: debates involve thinking, but the clue says nothing about intelligence. D ("hard-working and determined") is also topic-feel — she is clearly working hard, but the clue specifically describes a careful, ordered process.',
+    _: '❌ Step 2 — quote the clue: <em>"notes were colour-coded, arguments rehearsed, examples checked three times."</em> What do all three have in common? Each was planned, prepared, and done in a careful, ordered way. Step 3 — match: B = intelligent? Not in clue. C = strict? No one is being strict. D = hard-working? She is working hard, but the clue describes a specific style (ordered, step-by-step), not just effort. Only A matches "careful, step-by-step order".'
+  },
+  4: {
+    B: '✅ Correct! Step 2 — clue quote: <em>"unsure of what was happening"</em> (in the same sentence as "bewildered") and <em>"parents exchanged confused glances"</em> (sentence before). Two clues, both pointing to confusion and not knowing what is going on. B matches exactly. A ("bored and unhappy") — the passage says still and confused, not unhappy about waiting. D ("angry") — no anger is mentioned anywhere.',
+    _: '❌ Step 2 — two clue locations. Same sentence: <em>"unsure of what was happening."</em> Sentence before: <em>"Parents exchanged confused glances."</em> Both clues say confusion — not knowing what is happening. Step 3 — A: bored and unhappy? Not in either clue. C: surprised but pleased? The clues say confusion, not pleasure. D: angry? The passage says still and confused, not angry. Only B matches both quoted clues.'
+  }
+};
+function doPQ(n, choice) {
+  var fb = document.getElementById('pf' + n);
+  var pq = document.getElementById('pq' + n);
+  var btns = pq.querySelectorAll('.pq-btn');
+  var opts = ['A','B','C','D'];
+  btns.forEach(function(b){ b.disabled = true; });
+  if (choice === pqAns[n]) {
+    fb.className = 'pq-fb ok';
+    fb.innerHTML = pqFb[n][choice];
+    btns[opts.indexOf(choice)].className = 'pq-btn ok';
+  } else {
+    fb.className = 'pq-fb no';
+    fb.innerHTML = pqFb[n]['_'];
+    btns[opts.indexOf(choice)].className = 'pq-btn no';
+    setTimeout(function(){
+      btns[opts.indexOf(pqAns[n])].className = 'pq-btn ok';
+    }, 800);
+  }
+}
+
+function showProdHint() {
+  var input = document.getElementById('prodInput').value.trim();
+  var hint = document.getElementById('prodHint');
+  if (input.length < 10) {
+    hint.style.display = 'block';
+    hint.innerHTML = '⚠️ Write your quote and meaning first, then click Check.';
+    return;
+  }
+  hint.style.display = 'block';
+}
+</script>
+</body>
+</html>

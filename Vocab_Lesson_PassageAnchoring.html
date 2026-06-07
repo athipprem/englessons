@@ -93,6 +93,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
 .lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
 .btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
 .btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+/* Bottom page nav */
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BEE3F8;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1a3a6b,#2c5282);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;letter-spacing:.3px}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
 </style>
 </head>
 <body>
@@ -145,6 +150,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
     <div class="rule-box">
       <div class="rule-big">Never match by situation or mood.<br>Find the exact clue. Quote it. Then test each option word against it.</div>
     </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -170,6 +180,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       If the target word names a <strong>feeling or state</strong>, eliminate any option that describes an action or quality instead.<br>
       <em>State = what the character feels inside. Quality = a skill or characteristic. Action = something they do.</em><br>
       Clue: "his hands moving expressively" → animated = lively and expressive (state/manner) ✓ — NOT "enthusiastic and loud" (loud has no passage support)
+    </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
     </div>
   </div>
 </div>
@@ -208,6 +223,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <tr><td>Step 3</td><td>Test each option against the quote word by word.</td><td class="act">A. "calm and still" — "calm" contradicts "stripped of all thought". ✗<br>B. "frightened and confused" — passage says "not frightened exactly". ✗<br>C. "surprised and unprepared" — no mention of surprise. ✗<br>D. "stripped of thought, unable to react normally" — exact match to quote. ✓</td></tr>
       <tr><td>Answer</td><td colspan="2">✅ D — stripped of thought, unable to react normally</td></tr>
     </table>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -279,6 +299,11 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       <p style="font-size:14px;margin-bottom:8px">Choose any ONE word from Q1–Q4 above (radiant, meticulous, authority, or depleted). Write one sentence that uses the word correctly and clearly shows its meaning. Your sentence should make it obvious what the word means — just as a good passage clue does.</p>
       <textarea class="prod-input" placeholder="Write your sentence here..."></textarea>
     </div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
   </div>
 </div>
 
@@ -306,6 +331,8 @@ p{font-size:15px;line-height:1.7;margin-bottom:12px}
       Do not choose until you have written the clue. The answer is always in the passage — not in your impression of the character.
     </div>
     <div class="lesson-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+
       <a href="Grammar_Lesson_ConditionalConsolidation.html" class="btn-hub">← Prev: Grammar</a>
       <a href="index.html" class="btn-lesson">Back to Hub →</a>
     </div>
