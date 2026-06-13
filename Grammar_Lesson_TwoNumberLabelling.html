@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — The Two-Number Habit — Unit 11 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4a2a7a;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,42,122,0.10);margin-bottom:18px}
+h2{color:#4a2a7a;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.win-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;margin:14px 0}
+.win-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.wu-q{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#6b46c1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #E1D5F5;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5;transition:background .15s}
+.wu-btn:hover:not([disabled]){background:#E1D5F5}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.cc-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.cc-table th{background:#EDE7F6;color:#4a2a7a;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #B39DDB}
+.cc-table td{padding:8px 10px;border-bottom:1px solid #EDE7F6;vertical-align:top;line-height:1.5}
+.cc-match{color:#1B5E20;font-weight:700}
+.cc-mismatch{color:#B71C1C;font-weight:700}
+.pq{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:16px;margin:12px 0}
+.pq-text{font-size:15px;margin-bottom:6px;color:#1a1a2e;line-height:1.7}
+.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.pq-btn{background:#EDF2F7;border:2px solid #E1D5F5;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq-btn:hover:not([disabled]){background:#E1D5F5}
+.pq-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#EDF2F7;color:#4a2a7a;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.5px;border-bottom:2px solid #E1D5F5}
+.stbl td{padding:8px 10px;border-bottom:1px solid #F3EEFB;vertical-align:top;line-height:1.5}
+.stbl tr:last-child td{border-bottom:none}
+.tag2{display:inline-block;background:#E3F2FD;color:#1565C0;border-radius:6px;padding:1px 8px;font-weight:700;font-size:13px}
+.tag3{display:inline-block;background:#F3E5F5;color:#6A1B9A;border-radius:6px;padding:1px 8px;font-weight:700;font-size:13px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1D5F5;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4a2a7a,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;letter-spacing:.3px}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#6b46c1,#7e57c2)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — The Two-Number Habit</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 11 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="win-box">
+      <div class="win-title">🎉 Phase 1 is done — and you smashed the reading section</div>
+      <p style="margin:0;font-size:14px;line-height:1.8;color:#E8F5E9">Milestone 1: <strong>20/28</strong>. Your reading was a perfect 6/6, your vocabulary 5/6, and the old cloze monster is beaten. One job is left over — the same one from Unit 10. This lesson turns it into a habit your hand does without thinking.</p>
+    </div>
+    <h2>Before We Start — warm up the reflexes 🔥</h2>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — Had Test</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"If the harbour had a longer pier, more boats would moor overnight."</em> — Second or Third?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — Second Conditional</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — Third Conditional</button>
+        <button class="wu-btn" onclick="doWu(1,'C')">C — Mixed Conditional</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — Will Ban</div>
+      <p style="font-size:14px;margin-bottom:8px">Find the error: <em>"If the lights had been switched off, the bill will have been much smaller."</em></p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — "had been switched off" should be "were switched off"</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — "will have been" should be "would have been"</button>
+        <button class="wu-btn" onclick="doWu(2,'C')">C — there is no error</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — Time Signal</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"If the railway had not closed in 1965, this town ___ a busy station today."</em></p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — would have had</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — would still have</button>
+        <button class="wu-btn" onclick="doWu(3,'C')">C — will still have</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+
+    <div class="wu-q" id="wq4">
+      <div class="wu-label">Warm-up 4 — the one that got away (Milestone 1, Q10)</div>
+      <p style="font-size:14px;margin-bottom:4px">You were asked to find the sentence with an error. You chose:</p>
+      <p style="font-size:14px;margin-bottom:8px"><em>"If the museum had a larger hall, it would host bigger exhibitions."</em></p>
+      <p style="font-size:13px;color:#B71C1C;margin-bottom:8px">But this sentence is CORRECT. Why?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(4,'A')">A — "had a larger hall" is past perfect, so it matches "would host"</button>
+        <button class="wu-btn" onclick="doWu(4,'B')">B — had + noun = a Second if-clause, and "would host" = a Second result — the two halves match</button>
+        <button class="wu-btn" onclick="doWu(4,'C')">C — it really is an error and the answer key was wrong</button>
+      </div>
+      <div class="wu-fb" id="wf4"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What Milestone Q10 and Q14 teach us</h2>
+    <p>Both times, you saw <em>"had + a noun"</em> and your alarm bell rang — <strong>"suspicious!"</strong> — so you marked it as the error. But "had + a noun" is never wrong on its own. It just means the if-clause is a <strong>Second</strong>. Whether the sentence is right depends on the <strong>other half</strong>.</p>
+    <div class="rule-box">
+      <div class="rule-big">One half is never the error.<br>The error lives in the MATCH between the two halves.</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The Two-Number Habit ✏️</h2>
+    <p>Here is the whole trick. Before you choose an answer, write a tiny number above <strong>each half</strong> of every sentence. Two numbers. Every time. No exceptions.</p>
+    <table class="cc-table">
+      <tr><th>What you see</th><th>Write</th><th>Why</th></tr>
+      <tr><td>had + a <strong>noun / adjective</strong> (a bigger gym, more space, taller trees)</td><td><span class="tag2">2</span></td><td>simple past of "have" → Second if-clause</td></tr>
+      <tr><td>had + a <strong>past participle verb</strong> (had been fixed, had left, had arrived)</td><td><span class="tag3">3</span></td><td>past perfect → Third if-clause</td></tr>
+      <tr><td><strong>would + base verb</strong> (would host, would visit, would dock)</td><td><span class="tag2">2</span></td><td>Second result</td></tr>
+      <tr><td><strong>would have + verb</strong> (would have hosted, would have stayed)</td><td><span class="tag3">3</span></td><td>Third result</td></tr>
+    </table>
+    <div class="ok-box">
+      <div class="ok-title">Then read your two numbers like a traffic light</div>
+      <p style="font-size:14px;line-height:1.9;margin:0">
+      <span class="tag2">2</span> | <span class="tag2">2</span> → green. Match. Correct sentence — move on.<br>
+      <span class="tag3">3</span> | <span class="tag3">3</span> → green. Match. Correct sentence — move on.<br>
+      <span class="tag2">2</span> | <span class="tag3">3</span> → <span class="cc-mismatch">red. MISMATCH. This is the error.</span></p>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">The trap that catches you</div>
+      A sentence with "had + a noun" looks odd, but if its result is <em>would + base verb</em>, the numbers read <span class="tag2">2</span>|<span class="tag2">2</span> — a perfectly correct Second Conditional. Don't blame it. Find the one whose numbers <strong>disagree</strong>.
+    </div>
+    <div class="ok-box">
+      <div class="ok-title">Worked example</div>
+      <p style="font-size:14px;line-height:1.9;margin:0">
+      <em>"If the orchard had taller trees, the birds would have nested higher."</em><br>
+      Half 1: "had taller trees" → had + noun → <span class="tag2">2</span><br>
+      Half 2: "would have nested" → would have + verb → <span class="tag3">3</span><br>
+      Read it: <span class="tag2">2</span> | <span class="tag3">3</span> → <strong>MISMATCH.</strong> Found it — and no correct sentence got the blame.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Two numbers, then decide 🔢</h2>
+    <p>For each sentence, label both halves in your head, then choose what the two numbers say. Take your time on the first few, then speed up.</p>
+
+    <div class="pq" id="cc1"><div class="pq-text">1. <em>"If the café had a sunnier terrace, more customers would linger after lunch."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(1,'A')">2 | 2 — match ✓</button><button class="pq-btn" onclick="doCC(1,'B')">3 | 3 — match ✓</button><button class="pq-btn" onclick="doCC(1,'C')">2 | 3 — MISMATCH ✗</button></div><div class="pq-fb" id="ccf1"></div></div>
+
+    <div class="pq" id="cc2"><div class="pq-text">2. <em>"If the rope had been checked, the climbers would have noticed the fray."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(2,'A')">2 | 2 — match ✓</button><button class="pq-btn" onclick="doCC(2,'B')">3 | 3 — match ✓</button><button class="pq-btn" onclick="doCC(2,'C')">3 | 2 — MISMATCH ✗</button></div><div class="pq-fb" id="ccf2"></div></div>
+
+    <div class="pq" id="cc3"><div class="pq-text">3. <em>"If the orchard had taller trees, the birds would have nested higher."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(3,'A')">2 | 2 — match ✓</button><button class="pq-btn" onclick="doCC(3,'B')">2 | 3 — MISMATCH ✗</button><button class="pq-btn" onclick="doCC(3,'C')">3 | 3 — match ✓</button></div><div class="pq-fb" id="ccf3"></div></div>
+
+    <div class="pq" id="cc4"><div class="pq-text">4. <em>"If the runner had paced herself, she would have finished the marathon."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(4,'A')">2 | 3 — MISMATCH ✗</button><button class="pq-btn" onclick="doCC(4,'B')">3 | 3 — match ✓</button><button class="pq-btn" onclick="doCC(4,'C')">2 | 2 — match ✓</button></div><div class="pq-fb" id="ccf4"></div></div>
+
+    <div class="pq" id="cc5"><div class="pq-text">5. <em>"If the hall had brighter lighting, the play would look more dramatic."</em> <span style="color:#B71C1C">(careful — "had + noun" alarm bell!)</span></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(5,'A')">2 | 2 — match ✓ — correct sentence, not an error</button><button class="pq-btn" onclick="doCC(5,'B')">2 | 3 — MISMATCH ✗</button><button class="pq-btn" onclick="doCC(5,'C')">3 | 2 — MISMATCH ✗</button></div><div class="pq-fb" id="ccf5"></div></div>
+
+    <div class="pq" id="cc6"><div class="pq-text">6. <em>"If the dam had been inspected, the cracks would have been spotted."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(6,'A')">3 | 3 — match ✓</button><button class="pq-btn" onclick="doCC(6,'B')">2 | 2 — match ✓</button><button class="pq-btn" onclick="doCC(6,'C')">2 | 3 — MISMATCH ✗</button></div><div class="pq-fb" id="ccf6"></div></div>
+
+    <div class="pq" id="cc7"><div class="pq-text">7. <em>"If the team had a taller centre, they would have dominated the rebounds."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(7,'A')">2 | 2 — match ✓</button><button class="pq-btn" onclick="doCC(7,'B')">2 | 3 — MISMATCH ✗</button><button class="pq-btn" onclick="doCC(7,'C')">3 | 3 — match ✓</button></div><div class="pq-fb" id="ccf7"></div></div>
+
+    <div class="pq" id="cc8"><div class="pq-text">8. <em>"If the bakery had cheaper flour, it would lower its prices."</em></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doCC(8,'A')">3 | 3 — match ✓</button><button class="pq-btn" onclick="doCC(8,'B')">2 | 2 — match ✓</button><button class="pq-btn" onclick="doCC(8,'C')">2 | 3 — MISMATCH ✗</button></div><div class="pq-fb" id="ccf8"></div></div>
+
+    <div class="drill-score" id="ccScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — Test format 🎯</h2>
+    <p>Four sentences; find the one with the error — or, in the last two, the one that is correct. Label both halves of EVERY option first, even the suspicious ones.</p>
+
+    <div class="pq" id="es1"><div class="pq-text"><strong>Set 1.</strong> Which sentence contains a grammar error?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doES(1,'A')">A. If the zoo had a larger enclosure, the tigers would roam more freely.</button>
+        <button class="pq-btn" onclick="doES(1,'B')">B. If the ship had been repaired, it would have sailed on schedule.</button>
+        <button class="pq-btn" onclick="doES(1,'C')">C. If the field had better drainage, the match would have gone ahead.</button>
+        <button class="pq-btn" onclick="doES(1,'D')">D. If the letter had been posted, it would have arrived by Monday.</button>
+      </div><div class="pq-fb" id="esf1"></div></div>
+
+    <div class="pq" id="es2" style="display:none"><div class="pq-text"><strong>Set 2.</strong> Which sentence contains a grammar error?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doES(2,'A')">A. If the gallery had wider doorways, larger sculptures would fit inside.</button>
+        <button class="pq-btn" onclick="doES(2,'B')">B. If the kettle had been descaled, the water would have boiled faster.</button>
+        <button class="pq-btn" onclick="doES(2,'C')">C. If the choir had more sopranos, the carol would have sounded fuller.</button>
+        <button class="pq-btn" onclick="doES(2,'D')">D. If the path had been salted, the postman would have walked safely.</button>
+      </div><div class="pq-fb" id="esf2"></div></div>
+
+    <div class="pq" id="es3" style="display:none"><div class="pq-text"><strong>Set 3.</strong> Which sentence is grammatically CORRECT?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doES(3,'A')">A. If the stadium had a roof, the final would have finished on time.</button>
+        <button class="pq-btn" onclick="doES(3,'B')">B. If the farm had been irrigated, the crops will survive the drought.</button>
+        <button class="pq-btn" onclick="doES(3,'C')">C. If the school had a science lab, the pupils would run more experiments.</button>
+        <button class="pq-btn" onclick="doES(3,'D')">D. If the band had rehearsed, they would performed without mistakes.</button>
+      </div><div class="pq-fb" id="esf3"></div></div>
+
+    <div class="pq" id="es4" style="display:none"><div class="pq-text"><strong>Set 4 — Mixed in play.</strong> "If the canal had not been filled in, narrowboats ___ along it today." Which option is correct?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doES(4,'A')">A. had not been filled in / will still travel</button>
+        <button class="pq-btn" onclick="doES(4,'B')">B. had not been filled in / would still travel</button>
+        <button class="pq-btn" onclick="doES(4,'C')">C. had not been filled in / would have still travelled</button>
+        <button class="pq-btn" onclick="doES(4,'D')">D. was not filled in / would still travel</button>
+      </div><div class="pq-fb" id="esf4"></div></div>
+  </div>
+
+  <div class="card" id="summaryCard" style="display:none">
+    <h2>Your one habit for the test 📋</h2>
+    <table class="stbl">
+      <tr><th>Step</th><th>The move</th></tr>
+      <tr><td><strong>1. Label half one</strong></td><td>had + noun/adjective = <span class="tag2">2</span>. had + past participle = <span class="tag3">3</span>.</td></tr>
+      <tr><td><strong>2. Label half two</strong></td><td>would + verb = <span class="tag2">2</span>. would have + verb = <span class="tag3">3</span>. (and "will" = always the error)</td></tr>
+      <tr><td><strong>3. Read the pair</strong></td><td>Same numbers = correct. Different numbers = the error.</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">Suspicious is not the same as wrong.<br>Write two numbers, then decide.</div></div>
+    <div class="lesson-nav">
+      <a class="btn-lesson" href="index.html">← Hub</a>
+      <a class="btn-lesson" href="Cloze_Lesson_LevelSplit.html">Next: Cloze — Same Word, Two Levels →</a>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+    <button class="bottom-nav-btn" disabled>Next →</button>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuAns={1:'A',2:'B',3:'B',4:'B'};
+var wuFb={
+ 1:{A:'✅ "a longer pier" is a noun phrase, not a past participle → simple past of "have" → Second.',_:'❌ Run the Had Test: is "a longer pier" a past participle verb? No — it is a noun → simple past of "have" → Second Conditional.'},
+ 2:{B:'✅ "will" is banned in a conditional result → "would have been". Everything else is fine.',_:'❌ Scan the result clause: "will have been". "Will" in a conditional result is always the error → "would have been".'},
+ 3:{B:'✅ "had not closed" = past perfect, but "today" drags the result into the present → Mixed → would still have.',_:'❌ Spot the time word "today": the result is imagined NOW → Mixed → would still have. ("will" is always banned too.)'},
+ 4:{B:'✅ Exactly. had + noun ("a larger hall") → Second if-clause. "Would host" → Second result. 2 | 2 = match = a correct sentence. The real error sat in a different option — one with a 2 if-clause but a 3 result.',_:'❌ "Had a larger hall" is had + noun → Second if-clause (not past perfect). "Would host" is a Second result. 2 | 2 = match → correct. The real error was a 2 | 3 mismatch elsewhere.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B','C'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B','C'].indexOf(c)].className='wu-btn no';}}
+
+var ccAns={1:'A',2:'B',3:'B',4:'B',5:'A',6:'A',7:'B',8:'B'};
+var ccWhy={
+ 1:'"had a sunnier terrace" = had + noun → 2. "would linger" = would + verb → 2. 2 | 2 ✓ match.',
+ 2:'"had been checked" = past participle → 3. "would have noticed" → 3. 3 | 3 ✓ match.',
+ 3:'"had taller trees" = had + noun → 2. "would have nested" → 3. 2 | 3 ✗ MISMATCH.',
+ 4:'"had paced" = past participle → 3. "would have finished" → 3. 3 | 3 ✓ match.',
+ 5:'"had brighter lighting" = had + noun → 2. "would look" = would + verb → 2. 2 | 2 ✓ — the alarm bell was a false alarm. Correct sentence.',
+ 6:'"had been inspected" = past participle → 3. "would have been spotted" → 3. 3 | 3 ✓ match.',
+ 7:'"had a taller centre" = had + noun → 2. "would have dominated" → 3. 2 | 3 ✗ MISMATCH.',
+ 8:'"had cheaper flour" = had + noun → 2. "would lower" = would + verb → 2. 2 | 2 ✓ match.'
+};
+var ccDone={};var ccCorrect=0;
+function doCC(n,c){if(ccDone[n])return;ccDone[n]=true;var pq=document.getElementById('cc'+n);var fb=document.getElementById('ccf'+n);var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});var o=['A','B','C'];if(c===ccAns[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+ccWhy[n];b[o.indexOf(c)].className='pq-btn ok';ccCorrect++;}else{fb.className='pq-fb no';fb.innerHTML='❌ '+ccWhy[n];b[o.indexOf(c)].className='pq-btn no';}if(Object.keys(ccDone).length===8){var s=document.getElementById('ccScore');s.className='drill-score show';s.innerHTML='<strong style="font-size:1.1rem">Two-number labelling: '+ccCorrect+'/8</strong><br><span style="font-size:14px">'+(ccCorrect>=7?'🎉 You are labelling both halves. That is the whole skill.':'⚠️ Re-check each miss by writing two numbers — one per half — before you choose.')+'</span>';}}
+
+var esAns={1:'C',2:'C',3:'C',4:'B'};
+var esFb={
+ 1:{ok:'✅ C: "had better drainage" (2) + "would have gone ahead" (3) = 2 | 3 MISMATCH. A = 2|2 ✓, B = 3|3 ✓, D = 3|3 ✓.',no:'❌ Label every option. A = 2|2 ✓. B = 3|3 ✓. C = "had better drainage" (2) + "would have gone ahead" (3) = 2 | 3 ✗. D = 3|3 ✓.'},
+ 2:{ok:'✅ C: "had more sopranos" (2) + "would have sounded" (3) = 2 | 3 MISMATCH. Note A also has "had + noun" — but its result is "would fit" (2), so 2|2 ✓ correct. That is the trap, beaten.',no:'❌ A looks suspicious (had + noun) but its result matches: 2|2 ✓. B = 3|3 ✓. D = 3|3 ✓. C = "had more sopranos" (2) + "would have sounded" (3) = 2 | 3 ✗.'},
+ 3:{ok:'✅ C: "had a science lab" (2) + "would run" (2) = 2 | 2 ✓ correct. A = 2|3 mismatch. B = "will survive" breaks the Will Ban. D = "would performed" is a broken result verb.',no:'❌ Check each: A = 2|3 mismatch. B = Will Ban ("will survive"). D = "would performed" (broken verb). C = "had a science lab" (2) + "would run" (2) = 2 | 2 ✓ — the correct one.'},
+ 4:{ok:'✅ B: "had not been filled in" = 3 if-clause, and "today" pulls the result to the present → Mixed → "would still travel" (would + base verb). A breaks the Will Ban. C uses "would have travelled" (a past result) and ignores "today". D has no real if-clause ("was not filled in").',no:'❌ Time word "today" → present result → Mixed → would + base verb = "would still travel". A = Will Ban. C = past result, ignores "today". D = broken if-clause. Answer is B.'}
+};
+var esDone={};
+function doES(n,c){var pq=document.getElementById('es'+n);var fb=document.getElementById('esf'+n);var b=pq.querySelectorAll('.pq-btn');var o=['A','B','C','D'];if(c===esAns[n]){esDone[n]=true;fb.className='pq-fb ok';fb.innerHTML=esFb[n].ok;b[o.indexOf(c)].className='pq-btn ok';b.forEach(function(x){x.disabled=true;});var nx=document.getElementById('es'+(n+1));if(nx){nx.style.display='block';setTimeout(function(){nx.scrollIntoView({behavior:'smooth',block:'start'});},150);}if(n===4)document.getElementById('summaryCard').style.display='block';}else{fb.className='pq-fb no';fb.innerHTML=esFb[n].no;b[o.indexOf(c)].className='pq-btn no';b[o.indexOf(c)].disabled=true;}}
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary — Beating the Story-Feel Trap — Unit 11 Lesson 4</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#E65100;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.18);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.30)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.20);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.18);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.30)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(230,81,0,0.10);margin-bottom:18px}
+h2{color:#E65100;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#E65100,#F57C00);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.ok-box{background:#FFF3E0;border:2px solid #FFB74D;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#E65100;margin-bottom:8px;font-size:14px}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.quote{background:#FFF8E1;border-left:4px solid #FB8C00;padding:8px 12px;margin:8px 0;font-style:italic;font-size:14px;border-radius:0 8px 8px 0}
+.wu-q{background:#fff;border:2px solid #FFCC80;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#F57C00;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #FFCC80;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.wu-btn:hover:not([disabled]){background:#FFE0B2}
+.wu-btn.ok{background:#FFF3E0;border-color:#FB8C00;color:#E65100;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#FFF3E0;color:#E65100;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.pq{background:#fff;border:2px solid #FFCC80;border-radius:10px;padding:16px;margin:12px 0}
+.pq-text{font-size:15px;margin-bottom:6px;line-height:1.7}
+.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.pq-btn{background:#EDF2F7;border:2px solid #FFCC80;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq-btn:hover:not([disabled]){background:#FFE0B2}
+.pq-btn.ok{background:#FFF3E0;border-color:#FB8C00;color:#E65100;font-weight:700}
+.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#FFF3E0;color:#E65100;display:block}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#E65100,#F57C00);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#FFF3E0;color:#E65100;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #FFB74D}
+.stbl td{padding:8px 10px;border-bottom:1px solid #FFF3E6;vertical-align:top;line-height:1.5}
+.prod textarea{width:100%;border:2px solid #FFCC80;border-radius:8px;padding:10px;font-family:inherit;font-size:14px;min-height:64px;resize:vertical}
+.prod-btn{margin-top:10px;background:linear-gradient(135deg,#E65100,#F57C00);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer}
+.model{display:none;margin-top:10px;background:#FFF3E0;border:2px solid #FFB74D;border-radius:8px;padding:10px 14px;font-size:13px;line-height:1.6}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #FFCC80;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#E65100,#F57C00);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#F57C00,#FB8C00)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#E65100,#F57C00);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.tagWF{background:#E1BEE7;color:#6A1B9A;border-radius:6px;padding:1px 7px;font-weight:700;font-size:12px}
+.tagSF{background:#B3E5FC;color:#01579B;border-radius:6px;padding:1px 7px;font-weight:700;font-size:12px}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Vocabulary — Beating the Story-Feel Trap</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 11 · Lesson 4</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="rule-box">
+      <div class="rule-big">Vocabulary is now a strength 💪</div>
+      <p style="margin:0;font-size:14px;color:#FFF3E0">5/6 at Milestone 1 — your best ever at hard level. You even beat the "sounds-like" trap (gruelling ≠ gruesome). Only one slipped: "elated," where the <strong>story</strong> pulled you away from the <strong>quote</strong>. Let's close that gap.</p>
+    </div>
+    <h2>Before We Start — read the clue, not the vibe 🔍</h2>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — the colon clue</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The cellar was dank: cold, damp, and smelling of wet stone."</em> — "dank" most likely means:</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — bright and airy</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — cold and damp</button>
+        <button class="wu-btn" onclick="doWu(1,'C')">C — dark in colour</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — the explaining clue</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The hikers were weary, stopping every few minutes to rest their aching legs."</em> — "weary" most likely means:</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — very tired</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — careful and watchful</button>
+        <button class="wu-btn" onclick="doWu(2,'C')">C — cheerful</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — the one that got away (Milestone 1, "elated")</div>
+      <p style="font-size:14px;margin-bottom:6px"><em>"When the judges announced second place, she was elated, leaping so high that her badge flew off."</em></p>
+      <p style="font-size:13px;color:#B71C1C;margin-bottom:8px">You chose "surprised that her brother had been wrong." The answer was "extremely happy." Why?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — the quote ("leaping so high her badge flew off") proves joy, not surprise</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — the brother appeared earlier, so "surprised" must be right</button>
+        <button class="wu-btn" onclick="doWu(3,'C')">C — both answers are equally good</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Two traps, one fix</h2>
+    <table class="stbl">
+      <tr><th>Trap</th><th>What it does</th></tr>
+      <tr><td><span class="tagWF">Word-feel</span></td><td>The word <em>sounds like</em> another word. (gruelling → "gruesome", dank → "dark")</td></tr>
+      <tr><td><span class="tagSF">Story-feel</span></td><td>An option <em>fits the story</em> — but the quote next to the word doesn't prove it. (the brother was wrong earlier, so "surprised" feels right)</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">The fix for both:<br>underline the quote, then tick your answer against it.</div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The Prove-It move ✅</h2>
+    <p>The right answer is always sitting in the words right next to the target — the <strong>quote</strong>. Your chosen meaning must be something the quote actually <em>shows</em>. If you can't point to it, it's a trap.</p>
+    <div class="ok-box">
+      <div class="ok-title">Worked example — "elated"</div>
+      <div class="quote">"…she was elated, leaping so high that her badge flew off."</div>
+      <p style="font-size:14px;line-height:1.9;margin:0">
+      Underline the quote: <strong>leaping so high her badge flew off</strong>.<br>
+      Tick each option against it:<br>
+      • "extremely happy" → leaping for joy ✅ the quote shows this<br>
+      • "surprised her brother was wrong" → the quote says nothing about her brother ❌ <span class="tagSF">story-feel</span><br>
+      • "relieved the day was over" → nothing about relief in the quote ❌ <span class="tagSF">story-feel</span></p>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">The one rule</div>
+      Your quote must <strong>contain the meaning</strong>. "It happened earlier in the story" is not proof. "It sounds like another word" is not proof. Only the quote counts.
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill — Prove it 🎯</h2>
+    <p>For each word, find the meaning the <strong>quote</strong> shows. Watch for the sounds-like and fits-the-story traps.</p>
+
+    <div class="pq" id="p1"><div class="pq-text">1. <div class="quote">"Maps spread everywhere, the new pupil stood bewildered, unable to tell which corridor led where."</div> "bewildered" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(1,'A')">A — confused and unsure</button><button class="pq-btn" onclick="doP(1,'B')">B — extremely wild and excited</button><button class="pq-btn" onclick="doP(1,'C')">C — proud and confident</button></div><div class="pq-fb" id="p1f"></div></div>
+
+    <div class="pq" id="p2"><div class="pq-text">2. <div class="quote">"The cat stayed wary of the visitor, keeping to the far side of the room and watching his every move."</div> "wary" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(2,'A')">A — very tired</button><button class="pq-btn" onclick="doP(2,'B')">B — cautious and watchful</button><button class="pq-btn" onclick="doP(2,'C')">C — friendly and playful</button></div><div class="pq-fb" id="p2f"></div></div>
+
+    <div class="pq" id="p3"><div class="pq-text">3. <div class="quote">"After a long day on the hills, Dad sank into his chair, content, asking for nothing more."</div> "content" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(3,'A')">A — exhausted and aching</button><button class="pq-btn" onclick="doP(3,'B')">B — calm and satisfied</button><button class="pq-btn" onclick="doP(3,'C')">C — bored and restless</button></div><div class="pq-fb" id="p3f"></div></div>
+
+    <div class="pq" id="p4"><div class="pq-text">4. <div class="quote">"Asked to sing first, Sam shuffled forward reluctantly, eyes on the floor, wishing someone else would go."</div> "reluctantly" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(4,'A')">A — eagerly and proudly</button><button class="pq-btn" onclick="doP(4,'B')">B — unwillingly and hesitantly</button><button class="pq-btn" onclick="doP(4,'C')">C — angrily</button></div><div class="pq-fb" id="p4f"></div></div>
+
+    <div class="pq" id="p5"><div class="pq-text">5. <div class="quote">"As the rollercoaster plunged, Ana screamed, exhilarated, begging to ride it again."</div> "exhilarated" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(5,'A')">A — thrilled and full of excitement</button><button class="pq-btn" onclick="doP(5,'B')">B — terrified and desperate to get off</button><button class="pq-btn" onclick="doP(5,'C')">C — calm and sleepy</button></div><div class="pq-fb" id="p5f"></div></div>
+
+    <div class="pq" id="p6"><div class="pq-text">6. <div class="quote">"Nothing grew on the bleak hillside: grey rock, cold wind, and not a single tree for miles."</div> "bleak" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(6,'A')">A — black in colour</button><button class="pq-btn" onclick="doP(6,'B')">B — green and full of life</button><button class="pq-btn" onclick="doP(6,'C')">C — bare, cold and gloomy</button></div><div class="pq-fb" id="p6f"></div></div>
+
+    <div class="drill-score" id="pScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Name the trap 🕵️</h2>
+    <p>For each tempting-but-wrong option, is it a <span class="tagWF">word-feel</span> trap (sounds like another word) or a <span class="tagSF">story-feel</span> trap (fits the plot, but the quote doesn't prove it)?</p>
+
+    <div class="pq" id="t1"><div class="pq-text">1. Word: "gruelling" (a long, tiring race). Wrong option chosen: "gruesome and horrible." This is a:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doT(1,'WF')">Word-feel trap</button><button class="pq-btn" onclick="doT(1,'SF')">Story-feel trap</button></div><div class="pq-fb" id="t1f"></div></div>
+
+    <div class="pq" id="t2"><div class="pq-text">2. Word: "elated" (leaping for joy after winning). Wrong option: "surprised her brother was wrong." This is a:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doT(2,'WF')">Word-feel trap</button><button class="pq-btn" onclick="doT(2,'SF')">Story-feel trap</button></div><div class="pq-fb" id="t2f"></div></div>
+
+    <div class="pq" id="t3"><div class="pq-text">3. Word: "dank" (a cold, damp cellar). Wrong option: "dark in colour." This is a:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doT(3,'WF')">Word-feel trap</button><button class="pq-btn" onclick="doT(3,'SF')">Story-feel trap</button></div><div class="pq-fb" id="t3f"></div></div>
+
+    <div class="drill-score" id="tScore"></div>
+
+    <h2 style="margin-top:24px">Make it your own ✍️</h2>
+    <p>Write <strong>one</strong> sentence using the word <strong>"wary"</strong> so that the sentence itself shows what it means (give a clue, like the passages do). Then check your idea against a model.</p>
+    <div class="prod">
+      <textarea id="prodBox" placeholder="e.g. The deer was wary, freezing at every sound and..."></textarea>
+      <button class="prod-btn" onclick="showModel()">Show a model answer</button>
+      <div class="model" id="modelBox"><strong>Model:</strong> "The deer stayed wary at the edge of the field, lifting its head at every snap of a twig and ready to bolt." — the clue ("lifting its head at every snap… ready to bolt") proves "wary" = cautious and watchful. Did your sentence give a clue like that?</div>
+    </div>
+  </div>
+
+  <div class="card" id="summaryCard" style="display:none">
+    <h2>Your vocabulary move 📋</h2>
+    <table class="stbl">
+      <tr><th>Step</th><th>The move</th></tr>
+      <tr><td><strong>1. Underline the quote</strong></td><td>The words right beside the target word.</td></tr>
+      <tr><td><strong>2. Tick each option</strong></td><td>Can you point to the meaning <em>in the quote</em>? If not, cross it out.</td></tr>
+      <tr><td><strong>3. Reject the traps</strong></td><td>"Sounds like" ≠ proof. "Happened in the story" ≠ proof. Only the quote counts.</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">If the quote doesn't prove it,<br>it isn't the answer.</div></div>
+    <div class="lesson-nav">
+      <a class="btn-lesson" href="Reading_Lesson_FigurativeLanguage.html">← Reading — Figures of Speech</a>
+      <a class="btn-lesson" href="index.html">Finish → Back to Hub</a>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+    <button class="bottom-nav-btn" disabled>Done ✓</button>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuAns={1:'B',2:'A',3:'A'};
+var wuFb={
+ 1:{B:'✅ The colon spells it out: "cold, damp, and smelling of wet stone." dank = cold and damp. "dark in colour" is the sounds-like trap.',_:'❌ The colon gives the meaning directly: "cold, damp…" → dank = cold and damp. "dark" just sounds similar.'},
+ 2:{A:'✅ "stopping every few minutes to rest their aching legs" proves they were very tired. (Don\'t mix "weary" up with "wary".)',_:'❌ The clue is "resting their aching legs" → very tired. "weary" = tired; "wary" = cautious — different words.'},
+ 3:{A:'✅ Right. The quote beside the word shows joy (leaping). The brother appears elsewhere — that is a story-feel trap, not proof.',_:'❌ Look only at the quote beside "elated": leaping so high her badge flew off = joy. The brother is elsewhere in the story — that is the trap.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B','C'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B','C'].indexOf(c)].className='wu-btn no';}}
+
+var pKey={1:'A',2:'B',3:'B',4:'B',5:'A',6:'C'};
+var pWhy={
+ 1:'"unable to tell which corridor led where" = confused. B is the sounds-like trap ("bewildered" ≠ "wild").',
+ 2:'"keeping to the far side… watching his every move" = cautious and watchful. A confuses "wary" with "weary" (tired).',
+ 3:'"sank into his chair… asking for nothing more" = calm and satisfied. A (exhausted) is the story-feel trap — the long day is nearby, but the quote shows satisfaction, not tiredness.',
+ 4:'"eyes on the floor, wishing someone else would go" = unwilling and hesitant.',
+ 5:'"begging to ride it again" = thrilled and excited. B (terrified) fits a rollercoaster (story-feel) but the quote shows she loved it.',
+ 6:'"grey rock, cold wind, not a single tree" = bare, cold and gloomy. A ("black in colour") is the sounds-like trap.'
+};
+var pDone={};var pC=0;
+function doP(n,c){if(pDone[n])return;pDone[n]=true;var pq=document.getElementById('p'+n);var fb=document.getElementById('p'+n+'f');var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});var o=['A','B','C'];if(c===pKey[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+pWhy[n];b[o.indexOf(c)].className='pq-btn ok';pC++;}else{fb.className='pq-fb no';fb.innerHTML='❌ '+pWhy[n];b[o.indexOf(c)].className='pq-btn no';}if(Object.keys(pDone).length===6){var s=document.getElementById('pScore');s.className='drill-score show';s.innerHTML='<strong>Prove it: '+pC+'/6</strong><br><span style="font-size:14px">'+(pC>=5?'🎉 You are ticking the quote every time.':'⚠️ For each miss, underline the quote and point to the meaning inside it.')+'</span>';}}
+
+var tKey={1:'WF',2:'SF',3:'WF'};
+var tWhy={1:'"gruelling" sounds like "gruesome" → word-feel.',2:'The brother fits the story but the quote shows joy → story-feel.',3:'"dank" sounds like "dark" → word-feel.'};
+var tDone={};var tC=0;
+function doT(n,c){if(tDone[n])return;tDone[n]=true;var pq=document.getElementById('t'+n);var fb=document.getElementById('t'+n+'f');var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});if(c===tKey[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+tWhy[n];}else{fb.className='pq-fb no';fb.innerHTML='❌ '+tWhy[n];}if(Object.keys(tDone).length===3){var s=document.getElementById('tScore');s.className='drill-score show';s.innerHTML='<strong>Name the trap: '+tC+'/3</strong>';s.querySelector('strong').textContent='Name the trap: '+tC+'/3';}if(c===tKey[n])tC++;}
+
+function showModel(){document.getElementById('modelBox').style.display='block';document.getElementById('summaryCard').style.display='block';}
+</script>
+</body>
+</html>

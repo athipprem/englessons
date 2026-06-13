@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Same Word, Two Levels — Unit 11 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.wu-q{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#2E7D32;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #C8E6C9;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.wu-btn:hover:not([disabled]){background:#C8E6C9}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.cc-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.cc-table th{background:#E8F5E9;color:#1B5E20;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #A5D6A7}
+.cc-table td{padding:8px 10px;border-bottom:1px solid #E8F5E9;vertical-align:top;line-height:1.5}
+.cc-table td.lvl{font-weight:700;color:#1565C0}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-s{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-j{background:#FFF3E0;border:2px solid #E65100;color:#E65100;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-w{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-s:disabled,.di-j:disabled,.di-w:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#E8F5E9;color:#1B5E20;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #A5D6A7}
+.stbl td{padding:8px 10px;border-bottom:1px solid #EFF7EF;vertical-align:top;line-height:1.5}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2E7D32,#43A047)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;text-decoration:none;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:700}
+.pillS{background:#E3F2FD;color:#1565C0;border-radius:6px;padding:1px 7px;font-weight:700}
+.pillJ{background:#FFF3E0;color:#E65100;border-radius:6px;padding:1px 7px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Same Word, Two Levels</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 11 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="rule-box">
+      <div class="rule-big">You beat the cloze monster. 🏆</div>
+      <p style="margin:0;font-size:14px;color:#E8F5E9">"Although" at a comma, the "despite" trap, the cause-and-effect words — all correct at Milestone 1. Only one corner is left: telling apart two words that mean the <strong>same thing</strong> but live at <strong>different levels</strong>.</p>
+    </div>
+    <h2>Before We Start — the two-step check 🔍</h2>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — Level (Step 1)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The bus was late. ____, we still arrived on time."</em> — Is the gap a sentence-starter or a clause-joiner?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — sentence-starter (there is a full stop just before it)</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — clause-joiner (it joins two halves of one sentence)</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — Function (Step 2)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The rain finally stopped, ____ the match could begin."</em> — Which job does the gap do?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — RESULT (the first idea causes the second)</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — TIME (the two ideas happen together)</button>
+        <button class="wu-btn" onclick="doWu(2,'C')">C — ADDITION (the second idea is extra)</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — the one that got away (Milestone 1)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"Mia finished her test early. ____, the others were still writing."</em> — meanwhile or while?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — meanwhile</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — while</button>
+        <button class="wu-btn" onclick="doWu(3,'C')">C — both work equally well</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What happened at the Milestone</h2>
+    <p>Three marks slipped on the same idea: <strong>meanwhile / while</strong> and <strong>furthermore</strong> got shuffled between gaps. You knew the words — you just hadn't read the <strong>punctuation</strong> to decide which level each gap needed. That is exactly what this lesson fixes.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Same job, two levels 🪜</h2>
+    <p>Some jobs have <strong>two</strong> words — one for the start of a new sentence, one for the middle of a sentence. They mean the same thing. The <strong>punctuation just before the gap</strong> tells you which one to use.</p>
+    <table class="cc-table">
+      <tr><th>Job (meaning)</th><th>After a full stop<br><span class="pillS">sentence-starter</span></th><th>After a comma / mid-sentence<br><span class="pillJ">clause-joiner</span></th></tr>
+      <tr><td class="lvl">TIME (same time)</td><td>meanwhile</td><td>while</td></tr>
+      <tr><td class="lvl">RESULT (cause → effect)</td><td>as a result</td><td>so</td></tr>
+      <tr><td class="lvl">CONTRAST (surprise / but)</td><td>however</td><td>although</td></tr>
+      <tr><td class="lvl">ADDITION (extra idea)</td><td>furthermore / moreover</td><td>(and)</td></tr>
+    </table>
+    <div class="warn-box">
+      <div class="warn-title">The one move</div>
+      Look at the mark just before the gap. <strong>Full stop → take the left column.</strong> <strong>Comma or mid-sentence → take the right column.</strong> Decide the meaning first, then let the punctuation pick the level.
+    </div>
+    <div class="ok-box">
+      <div class="ok-title">Two gaps, same meaning, different word</div>
+      <p style="font-size:14px;line-height:1.9;margin:0">
+      <em>"Sam read his book. <strong>Meanwhile</strong>, Ana built a tower."</em> → full stop → <span class="pillS">starter</span> → meanwhile.<br>
+      <em>"Sam read his book <strong>while</strong> Ana built a tower."</em> → no full stop → <span class="pillJ">joiner</span> → while.<br>
+      Same meaning (at the same time). The full stop is the only thing that changed.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Starter or Joiner? ⚡</h2>
+    <p>Only look at the punctuation just before the gap. Full stop = <span class="pillS">Starter</span>. Comma or mid-sentence = <span class="pillJ">Joiner</span>.</p>
+    <div class="di" id="d1"><div class="di-sent">1. "…the storm passed. ____, the festival reopened."</div><div class="di-btns"><button class="di-s" onclick="doSJ(1,'S')">Starter</button><button class="di-j" onclick="doSJ(1,'J')">Joiner</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. "…she trained hard, ____ she still felt nervous."</div><div class="di-btns"><button class="di-s" onclick="doSJ(2,'S')">Starter</button><button class="di-j" onclick="doSJ(2,'J')">Joiner</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "…the shop closed early ____ the staff were unwell."</div><div class="di-btns"><button class="di-s" onclick="doSJ(3,'S')">Starter</button><button class="di-j" onclick="doSJ(3,'J')">Joiner</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. "…we missed the last bus. ____, we walked home."</div><div class="di-btns"><button class="di-s" onclick="doSJ(4,'S')">Starter</button><button class="di-j" onclick="doSJ(4,'J')">Joiner</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="di" id="d5"><div class="di-sent">5. "…he packed extra snacks, ____ the journey was long."</div><div class="di-btns"><button class="di-s" onclick="doSJ(5,'S')">Starter</button><button class="di-j" onclick="doSJ(5,'J')">Joiner</button></div><div class="di-fb" id="d5f"></div></div>
+    <div class="di" id="d6"><div class="di-sent">6. "…the lights went out. ____, the show carried on."</div><div class="di-btns"><button class="di-s" onclick="doSJ(6,'S')">Starter</button><button class="di-j" onclick="doSJ(6,'J')">Joiner</button></div><div class="di-fb" id="d6f"></div></div>
+    <div class="di" id="d7"><div class="di-sent">7. "…the dog began to bark ____ the postman walked up the path."</div><div class="di-btns"><button class="di-s" onclick="doSJ(7,'S')">Starter</button><button class="di-j" onclick="doSJ(7,'J')">Joiner</button></div><div class="di-fb" id="d7f"></div></div>
+    <div class="di" id="d8"><div class="di-sent">8. "…it rained all afternoon. ____, the picnic was cancelled."</div><div class="di-btns"><button class="di-s" onclick="doSJ(8,'S')">Starter</button><button class="di-j" onclick="doSJ(8,'J')">Joiner</button></div><div class="di-fb" id="d8f"></div></div>
+    <div class="drill-score" id="sjScore"></div>
+
+    <h2 style="margin-top:24px">Drill 2 — Pick the level-twin 👯</h2>
+    <p>Same meaning, two words. The punctuation decides. Choose the right one.</p>
+    <div class="di" id="w1"><div class="di-sent">1. "Sam read quietly. ____, Ana built a tower." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(1,'meanwhile')">meanwhile</button><button class="di-w" onclick="doW(1,'while')">while</button></div><div class="di-fb" id="w1f"></div></div>
+    <div class="di" id="w2"><div class="di-sent">2. "Sam read quietly ____ Ana built a tower." <span class="pillJ">no full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(2,'meanwhile')">meanwhile</button><button class="di-w" onclick="doW(2,'while')">while</button></div><div class="di-fb" id="w2f"></div></div>
+    <div class="di" id="w3"><div class="di-sent">3. "The bridge was shut, ____ traffic crawled for miles." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-w" onclick="doW(3,'as a result')">as a result</button><button class="di-w" onclick="doW(3,'so')">so</button></div><div class="di-fb" id="w3f"></div></div>
+    <div class="di" id="w4"><div class="di-sent">4. "The bridge was shut. ____, traffic crawled for miles." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(4,'as a result')">as a result</button><button class="di-w" onclick="doW(4,'so')">so</button></div><div class="di-fb" id="w4f"></div></div>
+    <div class="di" id="w5"><div class="di-sent">5. "The film was long, ____ nobody left early." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-w" onclick="doW(5,'however')">however</button><button class="di-w" onclick="doW(5,'although')">although</button></div><div class="di-fb" id="w5f"></div></div>
+    <div class="di" id="w6"><div class="di-sent">6. "The film was long. ____, nobody left early." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(6,'however')">however</button><button class="di-w" onclick="doW(6,'although')">although</button></div><div class="di-fb" id="w6f"></div></div>
+    <div class="drill-score" id="wScore"></div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 3 — Park Clean-Up cloze 🌳</h2>
+    <p>Five gaps. For each one, read the punctuation, decide the meaning, then pick the word at the right level. Each gap pits the right word against its level-twin.</p>
+    <div class="ok-box" style="background:#F1F8E9;border-color:#AED581">
+      <p style="font-size:14px;line-height:2;margin:0">
+      The whole street turned out for the park clean-up. Mr Patel raked the leaves <strong>(1)____</strong> his daughter filled the bins. The slide had been covered in thick mud. <strong>(2)____</strong>, a team scrubbed it until it shone. By lunchtime the playground looked brand new. <strong>(3)____</strong>, the flower beds were still a tangle of weeds. The midday sun grew hot, <strong>(4)____</strong> everyone took a break in the shade. They worked on without a single complaint. <strong>(5)____</strong>, across town another group was clearing the riverbank.</p>
+    </div>
+
+    <div class="di" id="g1"><div class="di-sent"><strong>Gap 1</strong> — "raked the leaves ____ his daughter filled the bins"</div><div class="di-btns"><button class="di-w" onclick="doG(1,'while')">while</button><button class="di-w" onclick="doG(1,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(1,'so')">so</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent"><strong>Gap 2</strong> — "covered in thick mud. ____, a team scrubbed it"</div><div class="di-btns"><button class="di-w" onclick="doG(2,'as a result')">as a result</button><button class="di-w" onclick="doG(2,'so')">so</button><button class="di-w" onclick="doG(2,'however')">however</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="di" id="g3"><div class="di-sent"><strong>Gap 3</strong> — "looked brand new. ____, the flower beds were still weeds"</div><div class="di-btns"><button class="di-w" onclick="doG(3,'however')">however</button><button class="di-w" onclick="doG(3,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(3,'as a result')">as a result</button></div><div class="di-fb" id="g3f"></div></div>
+    <div class="di" id="g4"><div class="di-sent"><strong>Gap 4</strong> — "the sun grew hot, ____ everyone took a break"</div><div class="di-btns"><button class="di-w" onclick="doG(4,'so')">so</button><button class="di-w" onclick="doG(4,'as a result')">as a result</button><button class="di-w" onclick="doG(4,'while')">while</button></div><div class="di-fb" id="g4f"></div></div>
+    <div class="di" id="g5"><div class="di-sent"><strong>Gap 5</strong> — "without a single complaint. ____, across town another group…"</div><div class="di-btns"><button class="di-w" onclick="doG(5,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(5,'while')">while</button><button class="di-w" onclick="doG(5,'however')">however</button></div><div class="di-fb" id="g5f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+  </div>
+
+  <div class="card" id="summaryCard" style="display:none">
+    <h2>Your cloze move for level-twins 📋</h2>
+    <table class="stbl">
+      <tr><th>Step</th><th>The move</th></tr>
+      <tr><td><strong>1. Meaning</strong></td><td>What is the link — TIME, RESULT, CONTRAST, ADDITION?</td></tr>
+      <tr><td><strong>2. Punctuation</strong></td><td>Full stop before the gap → <span class="pillS">Starter</span> word. Comma / mid-sentence → <span class="pillJ">Joiner</span> word.</td></tr>
+      <tr><td><strong>3. Pick the twin</strong></td><td>meanwhile/while · as a result/so · however/although — let the mark choose.</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">Meaning picks the family.<br>Punctuation picks the level.</div></div>
+    <div class="lesson-nav">
+      <a class="btn-lesson" href="Grammar_Lesson_TwoNumberLabelling.html">← Grammar — Two-Number Habit</a>
+      <a class="btn-lesson" href="Reading_Lesson_FigurativeLanguage.html">Next: Reading — Figures of Speech →</a>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+    <button class="bottom-nav-btn" disabled>Next →</button>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuAns={1:'A',2:'A',3:'A'};
+var wuFb={
+ 1:{A:'✅ There is a full stop before the gap, so it begins a new sentence → sentence-starter. You need a left-column word (e.g. however / as a result / meanwhile).',_:'❌ Look at the mark just before the gap: a full stop. That means a new sentence begins → sentence-starter.'},
+ 2:{A:'✅ The rain stopping CAUSES the match to begin → RESULT. (And the comma means it is a clause-joiner → "so".)',_:'❌ Does the first idea cause the second? The rain stopping lets the match begin → RESULT.'},
+ 3:{A:'✅ Full stop before the gap → sentence-starter → meanwhile. "while" is the mid-sentence twin and would need no full stop.',_:'❌ Full stop before the gap → sentence-starter. The TIME starter is "meanwhile". "while" only fits inside a sentence.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B','C'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B','C'].indexOf(c)].className='wu-btn no';}}
+
+var sjAns={1:'S',2:'J',3:'J',4:'S',5:'J',6:'S',7:'J',8:'S'};
+var sjDone={};var sjC=0;
+function doSJ(n,c){if(sjDone[n])return;sjDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===sjAns[n]){fb.className='di-fb ok';fb.textContent='✅ '+(c==='S'?'Full stop before the gap → Starter.':'Comma / mid-sentence → Joiner.');sjC++;}else{fb.className='di-fb no';fb.textContent='❌ '+(sjAns[n]==='S'?'There is a full stop just before the gap → Starter.':'No full stop — it joins one sentence → Joiner.');}if(Object.keys(sjDone).length===8){var s=document.getElementById('sjScore');s.className='drill-score show';s.innerHTML='<strong>Starter or Joiner: '+sjC+'/8</strong><br><span style="font-size:14px">'+(sjC>=7?'🎉 The punctuation cue is automatic now.':'⚠️ Re-check: full stop = Starter, comma/mid = Joiner.')+'</span>';}}
+
+var wKey={1:'meanwhile',2:'while',3:'so',4:'as a result',5:'although',6:'however'};
+var wWhy={1:'Full stop → Starter → meanwhile.',2:'No full stop → Joiner → while.',3:'Comma → Joiner → so.',4:'Full stop → Starter → as a result.',5:'Comma → Joiner → although.',6:'Full stop → Starter → however.'};
+var wDone={};var wC=0;
+function doW(n,c){if(wDone[n])return;wDone[n]=true;var it=document.getElementById('w'+n);var fb=document.getElementById('w'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===wKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wWhy[n];wC++;}else{fb.className='di-fb no';fb.textContent='❌ '+wWhy[n];}if(Object.keys(wDone).length===6){var s=document.getElementById('wScore');s.className='drill-score show';s.innerHTML='<strong>Level-twins: '+wC+'/6</strong><br><span style="font-size:14px">'+(wC>=5?'🎉 You are letting the punctuation pick the twin.':'⚠️ Decide the meaning, then let the mark choose the level.')+'</span>';}}
+
+var gKey={1:'while',2:'as a result',3:'however',4:'so',5:'meanwhile'};
+var gWhy={1:'No full stop → Joiner; same-time TIME → while.',2:'Full stop → Starter; mud CAUSED the scrubbing → RESULT → as a result.',3:'Full stop → Starter; new BUT weeds → CONTRAST → however.',4:'Comma → Joiner; heat CAUSED the break → RESULT → so.',5:'Full stop → Starter; at the same time elsewhere → TIME → meanwhile.'};
+var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ '+gWhy[n];}if(Object.keys(gDone).length===5){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>Park Clean-Up cloze: '+gC+'/5</strong><br><span style="font-size:14px">'+(gC>=4?'🎉 Meaning + punctuation, every gap. Ready for the test.':'⚠️ For each miss, name the meaning, then read the mark.')+'</span>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
