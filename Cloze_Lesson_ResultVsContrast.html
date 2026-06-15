@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Caused or Surprise? — Unit 12 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.wu-q{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#2E7D32;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #C8E6C9;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.wu-btn:hover:not([disabled]){background:#C8E6C9}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.cc-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.cc-table th{background:#E8F5E9;color:#1B5E20;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #A5D6A7}
+.cc-table td{padding:8px 10px;border-bottom:1px solid #E8F5E9;vertical-align:top;line-height:1.5}
+.cc-table td.k{font-weight:700}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-r{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-c{background:#FCE4EC;border:2px solid #C2185B;color:#C2185B;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-w{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-r:disabled,.di-c:disabled,.di-w:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#E8F5E9;color:#1B5E20;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #A5D6A7}
+.stbl td{padding:8px 10px;border-bottom:1px solid #EFF7EF;vertical-align:top;line-height:1.5}
+.pillR{background:#E3F2FD;color:#1565C0;border-radius:6px;padding:1px 7px;font-weight:700}
+.pillC{background:#FCE4EC;color:#C2185B;border-radius:6px;padding:1px 7px;font-weight:700}
+.pillS{background:#E8F5E9;color:#1B5E20;border-radius:6px;padding:1px 7px;font-weight:700}
+.pillJ{background:#FFF3E0;color:#E65100;border-radius:6px;padding:1px 7px;font-weight:700}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2E7D32,#43A047)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-hub:hover{background:#5a6478}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson:hover{background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Caused or Surprise?</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 12 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="rule-box">
+      <div class="rule-big">Cloze 5/7 last time — and the level-split is fixed! 🎉</div>
+      <p style="margin:0;font-size:14px;color:#E8F5E9">"meanwhile" and "while" were both right in Unit 11. The only two you missed were a <strong>so / however</strong> mix-up. This lesson makes that one easy.</p>
+    </div>
+    <h2>Before We Start — your two checks 🔍</h2>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — Level (Step 1)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The path was muddy. ____, we wore our boots."</em> — sentence-starter or clause-joiner?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — sentence-starter (full stop just before it)</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — clause-joiner</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — Caused or Surprise? (Step 2)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The path was muddy, ____ we wore our boots."</em> — does the first idea CAUSE the second, or is the second a SURPRISE?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — Caused it → RESULT (so / as a result)</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — Surprise → CONTRAST (however / although)</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — the one that got away (Unit 11)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The smell of brownies drifted out, ____ a long queue formed."</em> — so or however?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — so (the smell CAUSED the queue)</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — however (a surprise)</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>What happened in Unit 11</h2>
+    <p>Two gaps swapped: you put <strong>however</strong> where <strong>so</strong> belonged, and <strong>so</strong> where <strong>however</strong> belonged. Both words were spelled and placed fine — the mix-up was the <em>meaning</em>: <strong>caused</strong> vs <strong>surprise</strong>. One quick question fixes it for good.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The "Because / But" question 🤔</h2>
+    <p>When two ideas meet at a gap, ask one thing: <strong>can I join them with "because", or with "but"?</strong></p>
+    <table class="cc-table">
+      <tr><th>If you can say…</th><th>It is…</th><th>Words</th></tr>
+      <tr><td class="k" style="color:#1565C0">"…<u>so</u>…" / the 1st <u>causes</u> the 2nd</td><td><span class="pillR">RESULT</span></td><td>so · as a result · therefore</td></tr>
+      <tr><td class="k" style="color:#C2185B">"…<u>but</u>…" / the 2nd is a <u>surprise</u></td><td><span class="pillC">CONTRAST</span></td><td>however · although</td></tr>
+    </table>
+    <div class="ok-box">
+      <div class="ok-title">Try it on the Unit 11 gap</div>
+      <p style="font-size:14px;line-height:1.9;margin:0">
+      <em>"The smell of brownies drifted out, ___ a long queue formed."</em><br>
+      Does the smell <strong>cause</strong> the queue? <strong>Yes</strong> — people queued <em>because</em> of the smell → <span class="pillR">RESULT</span> → <strong>so</strong> (it's a comma, so the joiner word).<br>
+      It is NOT a surprise, so "however" is wrong here.</p>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">Then add the level (you already nailed this)</div>
+      Full stop before the gap → <span class="pillS">starter</span> (as a result / however). Comma or mid-sentence → <span class="pillJ">joiner</span> (so / although).
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Caused or Surprise? ⚡</h2>
+    <p>Don't pick a word yet — just decide the <strong>link</strong>: RESULT (caused) or CONTRAST (surprise)?</p>
+    <div class="di" id="d1"><div class="di-sent">1. "The road was icy, ____ the drivers slowed right down."</div><div class="di-btns"><button class="di-r" onclick="doRC(1,'R')">RESULT</button><button class="di-c" onclick="doRC(1,'C')">CONTRAST</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. "She practised for hours, ____ she still forgot her lines."</div><div class="di-btns"><button class="di-r" onclick="doRC(2,'R')">RESULT</button><button class="di-c" onclick="doRC(2,'C')">CONTRAST</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "The power went out. ____, the whole street fell dark."</div><div class="di-btns"><button class="di-r" onclick="doRC(3,'R')">RESULT</button><button class="di-c" onclick="doRC(3,'C')">CONTRAST</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. "It rained all morning. ____, the match went ahead as planned."</div><div class="di-btns"><button class="di-r" onclick="doRC(4,'R')">RESULT</button><button class="di-c" onclick="doRC(4,'C')">CONTRAST</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="di" id="d5"><div class="di-sent">5. "The bridge was closed, ____ traffic was diverted for miles."</div><div class="di-btns"><button class="di-r" onclick="doRC(5,'R')">RESULT</button><button class="di-c" onclick="doRC(5,'C')">CONTRAST</button></div><div class="di-fb" id="d5f"></div></div>
+    <div class="di" id="d6"><div class="di-sent">6. "Ben is the smallest in his class, ____ he jumps the highest."</div><div class="di-btns"><button class="di-r" onclick="doRC(6,'R')">RESULT</button><button class="di-c" onclick="doRC(6,'C')">CONTRAST</button></div><div class="di-fb" id="d6f"></div></div>
+    <div class="di" id="d7"><div class="di-sent">7. "The oven was far too hot. ____, the biscuits burned at the edges."</div><div class="di-btns"><button class="di-r" onclick="doRC(7,'R')">RESULT</button><button class="di-c" onclick="doRC(7,'C')">CONTRAST</button></div><div class="di-fb" id="d7f"></div></div>
+    <div class="di" id="d8"><div class="di-sent">8. "The film got terrible reviews. ____, the cinema was packed."</div><div class="di-btns"><button class="di-r" onclick="doRC(8,'R')">RESULT</button><button class="di-c" onclick="doRC(8,'C')">CONTRAST</button></div><div class="di-fb" id="d8f"></div></div>
+    <div class="drill-score" id="rcScore"></div>
+
+    <h2 style="margin-top:24px">Drill 2 — Now pick the word 👉</h2>
+    <p>Decide caused-or-surprise, then let the punctuation choose the level.</p>
+    <div class="di" id="w1"><div class="di-sent">1. "The alarm rang. ____, everyone left the building." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(1,'as a result')">as a result</button><button class="di-w" onclick="doW(1,'however')">however</button></div><div class="di-fb" id="w1f"></div></div>
+    <div class="di" id="w2"><div class="di-sent">2. "The cake looked plain. ____, it tasted wonderful." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(2,'as a result')">as a result</button><button class="di-w" onclick="doW(2,'however')">however</button></div><div class="di-fb" id="w2f"></div></div>
+    <div class="di" id="w3"><div class="di-sent">3. "The tap was left running, ____ the sink overflowed." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-w" onclick="doW(3,'so')">so</button><button class="di-w" onclick="doW(3,'although')">although</button></div><div class="di-fb" id="w3f"></div></div>
+    <div class="di" id="w4"><div class="di-sent">4. "The puppy was tiny, ____ its bark was enormous." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-w" onclick="doW(4,'so')">so</button><button class="di-w" onclick="doW(4,'although')">although</button></div><div class="di-fb" id="w4f"></div></div>
+    <div class="di" id="w5"><div class="di-sent">5. "The team trained hard. ____, they won the cup." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(5,'as a result')">as a result</button><button class="di-w" onclick="doW(5,'however')">however</button></div><div class="di-fb" id="w5f"></div></div>
+    <div class="di" id="w6"><div class="di-sent">6. "The path was steep. ____, nobody complained." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(6,'as a result')">as a result</button><button class="di-w" onclick="doW(6,'however')">however</button></div><div class="di-fb" id="w6f"></div></div>
+    <div class="drill-score" id="wScore"></div>
+
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 3 — Snow Day cloze ❄️</h2>
+    <p>Five gaps. For each: caused or surprise (or time)? Then the punctuation picks the level.</p>
+    <div class="ok-box" style="background:#F1F8E9;border-color:#AED581">
+      <p style="font-size:14px;line-height:2;margin:0">
+      Snow fell heavily all night. <strong>(1)____</strong>, the school bus could not reach the village. Most pupils were disappointed, <strong>(2)____</strong> a few cheered at the thought of a day off. Mr Ito opened the gates <strong>(3)____</strong> the caretaker cleared the path. Everyone expected lessons to be cancelled. <strong>(4)____</strong>, the teachers carried on as normal. The sun came out at noon, <strong>(5)____</strong> the snow quickly began to melt.</p>
+    </div>
+    <div class="di" id="g1"><div class="di-sent"><strong>Gap 1</strong> — "Snow fell all night. ____, the bus could not reach the village."</div><div class="di-btns"><button class="di-w" onclick="doG(1,'as a result')">as a result</button><button class="di-w" onclick="doG(1,'however')">however</button><button class="di-w" onclick="doG(1,'while')">while</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent"><strong>Gap 2</strong> — "pupils were disappointed, ____ a few cheered"</div><div class="di-btns"><button class="di-w" onclick="doG(2,'although')">although</button><button class="di-w" onclick="doG(2,'so')">so</button><button class="di-w" onclick="doG(2,'meanwhile')">meanwhile</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="di" id="g3"><div class="di-sent"><strong>Gap 3</strong> — "Mr Ito opened the gates ____ the caretaker cleared the path"</div><div class="di-btns"><button class="di-w" onclick="doG(3,'while')">while</button><button class="di-w" onclick="doG(3,'so')">so</button><button class="di-w" onclick="doG(3,'however')">however</button></div><div class="di-fb" id="g3f"></div></div>
+    <div class="di" id="g4"><div class="di-sent"><strong>Gap 4</strong> — "Everyone expected lessons cancelled. ____, the teachers carried on"</div><div class="di-btns"><button class="di-w" onclick="doG(4,'however')">however</button><button class="di-w" onclick="doG(4,'as a result')">as a result</button><button class="di-w" onclick="doG(4,'so')">so</button></div><div class="di-fb" id="g4f"></div></div>
+    <div class="di" id="g5"><div class="di-sent"><strong>Gap 5</strong> — "The sun came out at noon, ____ the snow began to melt"</div><div class="di-btns"><button class="di-w" onclick="doG(5,'so')">so</button><button class="di-w" onclick="doG(5,'although')">although</button><button class="di-w" onclick="doG(5,'as a result')">as a result</button></div><div class="di-fb" id="g5f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+  </div>
+
+  <div class="card" id="summaryCard" style="display:none">
+    <h2>Your cloze move 📋</h2>
+    <table class="stbl">
+      <tr><th>Step</th><th>The move</th></tr>
+      <tr><td><strong>1. Link</strong></td><td>Caused → <span class="pillR">RESULT</span>. Surprise → <span class="pillC">CONTRAST</span>. (Same time → TIME. Extra idea → ADDITION.)</td></tr>
+      <tr><td><strong>2. Level</strong></td><td>Full stop → <span class="pillS">starter</span>. Comma / mid → <span class="pillJ">joiner</span>.</td></tr>
+      <tr><td><strong>3. Pick</strong></td><td>so/as a result (caused) · however/although (surprise).</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">Because = caused = so.<br>But = surprise = however.</div></div>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_MaybeTooLateWorlds.html" class="btn-lesson">Grammar Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuAns={1:'A',2:'A',3:'A'};
+var wuFb={
+ 1:{A:'✅ Full stop before the gap → a new sentence begins → sentence-starter (e.g. as a result / however).',_:'❌ There is a full stop just before the gap → sentence-starter.'},
+ 2:{A:'✅ Muddy path CAUSES the boots → RESULT (and the comma makes it the joiner "so").',_:'❌ Did the first idea cause the second? Muddy → boots, yes → RESULT.'},
+ 3:{A:'✅ The smell CAUSED the queue (people queued because of it) → so. It is not a surprise.',_:'❌ Ask: did the smell cause the queue? Yes → RESULT → so. "however" would mean a surprise, which it is not.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B','C'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B','C'].indexOf(c)].className='wu-btn no';}}
+
+var rcAns={1:'R',2:'C',3:'R',4:'C',5:'R',6:'C',7:'R',8:'C'};
+var rcWhy={1:'icy road CAUSED the slowing → RESULT.',2:'practised BUT forgot = a surprise → CONTRAST.',3:'power out CAUSED the dark → RESULT.',4:'rained BUT match went ahead = a surprise → CONTRAST.',5:'closed bridge CAUSED the diversion → RESULT.',6:'smallest BUT jumps highest = a surprise → CONTRAST.',7:'too hot CAUSED the burning → RESULT.',8:'terrible reviews BUT packed = a surprise → CONTRAST.'};
+var rcDone={};var rcC=0;
+function doRC(n,c){if(rcDone[n])return;rcDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===rcAns[n]){fb.className='di-fb ok';fb.textContent='✅ '+rcWhy[n];rcC++;}else{fb.className='di-fb no';fb.textContent='❌ '+rcWhy[n];}if(Object.keys(rcDone).length===8){var s=document.getElementById('rcScore');s.className='drill-score show';s.innerHTML='<strong>Caused or Surprise: '+rcC+'/8</strong><br><span style="font-size:14px">'+(rcC>=7?'🎉 You can feel the difference now.':'⚠️ For each miss, try joining the two ideas with "because" (RESULT) or "but" (CONTRAST).')+'</span>';}}
+
+var wKey={1:'as a result',2:'however',3:'so',4:'although',5:'as a result',6:'however'};
+var wWhy={1:'Caused + full stop → as a result.',2:'Surprise + full stop → however.',3:'Caused + comma → so.',4:'Surprise + comma → although.',5:'Caused + full stop → as a result.',6:'Surprise + full stop → however.'};
+var wDone={};var wC=0;
+function doW(n,c){if(wDone[n])return;wDone[n]=true;var it=document.getElementById('w'+n);var fb=document.getElementById('w'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===wKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wWhy[n];wC++;}else{fb.className='di-fb no';fb.textContent='❌ '+wWhy[n];}if(Object.keys(wDone).length===6){var s=document.getElementById('wScore');s.className='drill-score show';s.innerHTML='<strong>Pick the word: '+wC+'/6</strong>';}}
+
+var gKey={1:'as a result',2:'although',3:'while',4:'however',5:'so'};
+var gWhy={1:'Snow CAUSED the bus problem; full stop → as a result.',2:'disappointed BUT a few cheered = surprise; comma → although.',3:'Both happening at once = TIME; mid-sentence → while.',4:'expected cancelled BUT carried on = surprise; full stop → however.',5:'Sun CAUSED the melting; comma → so.'};
+var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ '+gWhy[n];}if(Object.keys(gDone).length===5){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>Snow Day cloze: '+gC+'/5</strong><br><span style="font-size:14px">'+(gC>=4?'🎉 Caused-or-surprise, then the level. Ready for the test.':'⚠️ For each miss: can you join the ideas with "because" or "but"?')+'</span>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>

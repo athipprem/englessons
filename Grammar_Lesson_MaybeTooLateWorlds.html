@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Two Worlds — Unit 12 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4a2a7a;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,42,122,0.10);margin-bottom:18px}
+h2{color:#4a2a7a;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.win-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;margin:14px 0}
+.win-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.worlds{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.world{flex:1;min-width:240px;border-radius:12px;padding:16px;border:3px solid}
+.world.maybe{background:#E3F2FD;border-color:#1565C0}
+.world.toolate{background:#FFEBEE;border-color:#E53935}
+.world h3{font-size:1rem;margin-bottom:8px}
+.world.maybe h3{color:#0D47A1}
+.world.toolate h3{color:#B71C1C}
+.world p{font-size:13.5px;line-height:1.7;margin-bottom:6px}
+.sock{font-size:1.4rem}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.wu-q{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#6b46c1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #E1D5F5;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.wu-btn:hover:not([disabled]){background:#E1D5F5}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.di{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-maybe{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-toolate{background:#FFEBEE;border:2px solid #E53935;color:#B71C1C;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-maybe:disabled,.di-toolate:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.pq{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:16px;margin:12px 0}
+.pq-text{font-size:15px;margin-bottom:6px;line-height:1.7}
+.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.pq-btn{background:#EDF2F7;border:2px solid #E1D5F5;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq-btn:hover:not([disabled]){background:#E1D5F5}
+.pq-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.stbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.stbl th{background:#EDF2F7;color:#4a2a7a;padding:8px 10px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid #E1D5F5}
+.stbl td{padding:8px 10px;border-bottom:1px solid #F3EEFB;vertical-align:top;line-height:1.5}
+.tagB{background:#E3F2FD;color:#0D47A1;border-radius:6px;padding:1px 8px;font-weight:700}
+.tagR{background:#FFEBEE;color:#B71C1C;border-radius:6px;padding:1px 8px;font-weight:700}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1D5F5;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4a2a7a,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#6b46c1,#7e57c2)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1D5F5;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-hub:hover{background:#5a6478}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson:hover{background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Two Worlds</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 12 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="win-box">
+      <div class="win-title">🙌 You're getting this — last time was hard, this time is easier</div>
+      <p style="margin:0;font-size:14px;line-height:1.8;color:#E8F5E9">In Unit 11 you cracked 2 of the tricky "find-the-error" questions — and even crossed out a wrong answer and fixed it yourself. Brilliant. The numbers 2 and 3 were a lot to hold in your head, so this time we'll use a <strong>picture</strong> instead.</p>
+    </div>
+    <h2>Before We Start — quick warm-ups 🔥</h2>
+
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1</div>
+      <p style="font-size:14px;margin-bottom:8px">In <em>"If the park <strong>had a duck pond</strong>…"</em>, the word after "had" is <strong>"a duck pond"</strong> — is that a <em>thing</em>, or a <em>done-word</em> (a verb like fixed, left, broken)?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — a thing (a noun)</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — a done-word (a verb)</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — the "will" rule</div>
+      <p style="font-size:14px;margin-bottom:8px">Find the slip: <em>"If the shed had been locked, nobody <strong>will have</strong> taken the tools."</em></p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — "will have" should be "would have" (no "will" in the result)</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — there is no slip</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — the ones that got away (Unit 11)</div>
+      <p style="font-size:14px;margin-bottom:8px">You were asked to find the error and picked a sentence that was actually fine. The real error mixed <em>"had + a thing"</em> with <em>"would <strong>have</strong> + verb"</em>. Why is that a mistake?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — the two halves are talking about different times</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — "had + a thing" is never allowed</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+  <div class="card">
+    <p style="margin:0">That "different times" idea is the whole secret. Let's turn it into two easy pictures. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Two worlds 🌍</h2>
+    <p>Every "if" sentence lives in one of two worlds. Picture them:</p>
+    <div class="worlds">
+      <div class="world maybe">
+        <h3>🟦 Maybe World</h3>
+        <p>Could <em>still</em> happen — like a daydream about now.</p>
+        <p><strong>If-half:</strong> had + <u>a thing</u> ("had a bigger garden")</p>
+        <p><strong>Result-half:</strong> would + verb ("would grow")</p>
+      </div>
+      <div class="world toolate">
+        <h3>🟥 Too-Late World</h3>
+        <p>Already <em>over</em> — can't change it now.</p>
+        <p><strong>If-half:</strong> had + <u>a done-word</u> ("had been fixed", "had left")</p>
+        <p><strong>Result-half:</strong> would <u>have</u> + verb ("would have grown")</p>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-big"><span class="sock">🧦🧦</span> Both halves must be from the SAME world.<br>One of each is the mistake — like one short sock and one long sock.</div>
+    </div>
+    <div class="ok-box">
+      <div class="ok-title">See the slip</div>
+      <p style="font-size:14px;line-height:1.9;margin:0">
+      <em>"If the orchard had taller trees, the birds would <strong>have</strong> nested higher."</em><br>
+      "had taller trees" = a thing → <span class="tagB">🟦 Maybe</span><br>
+      "would <strong>have</strong> nested" → <span class="tagR">🟥 Too-Late</span><br>
+      🟦 + 🟥 = odd socks → <strong>this is the error.</strong> (To fix it: "would nest" keeps both in Maybe World.)</p>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">The trap to remember</div>
+      "had + a thing" looks unusual, but it is <strong>not</strong> wrong by itself — it's just the Maybe World. Only blame a sentence when the two worlds <em>clash</em>.
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Which world? (one half at a time) 🌍</h2>
+    <p>Just one little piece each time. <span class="tagB">🟦 Maybe</span> = a thing, or "would + verb". <span class="tagR">🟥 Too-Late</span> = a done-word, or "would <u>have</u>".</p>
+    <div class="di" id="m1"><div class="di-sent">1. "…had a sunnier garden…"</div><div class="di-btns"><button class="di-maybe" onclick="doM(1,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(1,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m1f"></div></div>
+    <div class="di" id="m2"><div class="di-sent">2. "…had been repaired…"</div><div class="di-btns"><button class="di-maybe" onclick="doM(2,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(2,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m2f"></div></div>
+    <div class="di" id="m3"><div class="di-sent">3. "…would win more often."</div><div class="di-btns"><button class="di-maybe" onclick="doM(3,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(3,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m3f"></div></div>
+    <div class="di" id="m4"><div class="di-sent">4. "…would have melted."</div><div class="di-btns"><button class="di-maybe" onclick="doM(4,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(4,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m4f"></div></div>
+    <div class="di" id="m5"><div class="di-sent">5. "…had a louder voice…"</div><div class="di-btns"><button class="di-maybe" onclick="doM(5,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(5,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m5f"></div></div>
+    <div class="di" id="m6"><div class="di-sent">6. "…had left at dawn…"</div><div class="di-btns"><button class="di-maybe" onclick="doM(6,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(6,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m6f"></div></div>
+    <div class="di" id="m7"><div class="di-sent">7. "…would feel proud."</div><div class="di-btns"><button class="di-maybe" onclick="doM(7,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(7,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m7f"></div></div>
+    <div class="di" id="m8"><div class="di-sent">8. "…would have noticed."</div><div class="di-btns"><button class="di-maybe" onclick="doM(8,'M')">🟦 Maybe</button><button class="di-toolate" onclick="doM(8,'T')">🟥 Too-Late</button></div><div class="di-fb" id="m8f"></div></div>
+    <div class="drill-score" id="mScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — Do the two worlds match? 🧦</h2>
+    <p>Check both halves. Same world = fine. Odd socks = the error.</p>
+    <div class="pq" id="c1"><div class="pq-text">1. "If the diner had a sunnier window, more people would stop to look."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doC(1,'A')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(1,'B')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(1,'C')">🟦🟥 odd socks ✗</button></div><div class="pq-fb" id="c1f"></div></div>
+    <div class="pq" id="c2"><div class="pq-text">2. "If the gate had been oiled, it would have opened quietly."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doC(2,'A')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(2,'B')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(2,'C')">🟥🟦 odd socks ✗</button></div><div class="pq-fb" id="c2f"></div></div>
+    <div class="pq" id="c3"><div class="pq-text">3. "If the dog had a longer lead, it would have reached the gate."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doC(3,'A')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(3,'B')">🟦🟥 odd socks ✗</button><button class="pq-btn" onclick="doC(3,'C')">🟥🟥 same world ✓</button></div><div class="pq-fb" id="c3f"></div></div>
+    <div class="pq" id="c4"><div class="pq-text">4. "If the cyclist had set off earlier, she would have finished before the rain."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doC(4,'A')">🟦🟥 odd socks ✗</button><button class="pq-btn" onclick="doC(4,'B')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(4,'C')">🟦🟦 same world ✓</button></div><div class="pq-fb" id="c4f"></div></div>
+    <div class="pq" id="c5"><div class="pq-text">5. "If the lounge had cosier chairs, the guests would stay chatting longer." <span style="color:#B71C1C">(careful — "had + a thing" alarm!)</span></div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doC(5,'A')">🟦🟦 same world ✓ — correct sentence</button><button class="pq-btn" onclick="doC(5,'B')">🟦🟥 odd socks ✗</button><button class="pq-btn" onclick="doC(5,'C')">🟥🟦 odd socks ✗</button></div><div class="pq-fb" id="c5f"></div></div>
+    <div class="pq" id="c6"><div class="pq-text">6. "If the orchestra had a bigger brass section, they would have filled the hall."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doC(6,'A')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(6,'B')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(6,'C')">🟦🟥 odd socks ✗</button></div><div class="pq-fb" id="c6f"></div></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Drill 3 — Test format 🎯</h2>
+    <p>Find the odd-socks sentence (or, in the last set, the correct one). Check both halves of every option.</p>
+    <div class="pq" id="e1"><div class="pq-text"><strong>Set 1.</strong> Which sentence contains a grammar error?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doE(1,'A')">A. If the school had a bigger field, the pupils would play more sports.</button>
+        <button class="pq-btn" onclick="doE(1,'B')">B. If the coach had been on time, the team would have caught the ferry.</button>
+        <button class="pq-btn" onclick="doE(1,'C')">C. If the barn had a wider door, the tractor would have fitted through.</button>
+        <button class="pq-btn" onclick="doE(1,'D')">D. If the snow had been cleared, the postman would have delivered the parcels.</button>
+      </div><div class="pq-fb" id="e1f"></div></div>
+    <div class="pq" id="e2" style="display:none"><div class="pq-text"><strong>Set 2.</strong> Which sentence contains a grammar error?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doE(2,'A')">A. If the office had more windows, the staff would feel brighter.</button>
+        <button class="pq-btn" onclick="doE(2,'B')">B. If the lock had been mended, the shed would have stayed secure.</button>
+        <button class="pq-btn" onclick="doE(2,'C')">C. If the meadow had richer soil, the wildflowers would have spread further.</button>
+        <button class="pq-btn" onclick="doE(2,'D')">D. If the towpath had been lit, the joggers would have run after dark.</button>
+      </div><div class="pq-fb" id="e2f"></div></div>
+    <div class="pq" id="e3" style="display:none"><div class="pq-text"><strong>Set 3.</strong> Which sentence is grammatically CORRECT?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doE(3,'A')">A. If the museum had free entry, it would have attracted more families.</button>
+        <button class="pq-btn" onclick="doE(3,'B')">B. If the farmer had planted earlier, the crops will grow taller.</button>
+        <button class="pq-btn" onclick="doE(3,'C')">C. If the studio had better lighting, the photos would look sharper.</button>
+        <button class="pq-btn" onclick="doE(3,'D')">D. If the drummer had counted in, the song would started together.</button>
+      </div><div class="pq-fb" id="e3f"></div></div>
+  </div>
+
+  <div class="card" id="summaryCard" style="display:none">
+    <h2>Your one move 📋</h2>
+    <table class="stbl">
+      <tr><th>Step</th><th>What to do</th></tr>
+      <tr><td><strong>1.</strong></td><td>Look at the if-half. A thing → <span class="tagB">🟦 Maybe</span>. A done-word → <span class="tagR">🟥 Too-Late</span>.</td></tr>
+      <tr><td><strong>2.</strong></td><td>Look at the result. "would + verb" → 🟦. "would <u>have</u> + verb" → 🟥. ("will" = always wrong.)</td></tr>
+      <tr><td><strong>3.</strong></td><td>Same world = fine. Odd socks = the error.</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">"had + a thing" is not wrong on its own.<br>Only odd socks are.</div></div>
+    <div style="background:#EDE7F6;border-radius:10px;padding:12px 14px;font-size:13px;color:#4a2a7a;line-height:1.7">
+      <strong>Grown-up shortcut (only if you want it):</strong> teachers call 🟦 Maybe World "the Second Conditional (2)" and 🟥 Too-Late World "the Third Conditional (3)". You can jot a tiny 2 or 3 above each half — but the two pictures do exactly the same job.
+    </div>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="ReadingVocab_Lesson_CluesAndFigures.html" class="btn-lesson">Reading &amp; Vocab Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuAns={1:'A',2:'A',3:'A'};
+var wuFb={
+ 1:{A:'✅ "a duck pond" is a thing (a noun). had + a thing → 🟦 Maybe World.',_:'❌ "a duck pond" is a thing (a noun), not a done-word like "fixed". had + a thing → 🟦 Maybe World.'},
+ 2:{A:'✅ "will" is never allowed in the result of these sentences → "would have taken".',_:'❌ Look at the result: "will have taken". "will" is always the slip here → "would have taken".'},
+ 3:{A:'✅ Exactly — "had + a thing" is 🟦 Maybe (a daydream about now), but "would have" is 🟥 Too-Late (already over). Two different times = odd socks = the error.',_:'❌ "had + a thing" is fine on its own (🟦 Maybe). The error is that "would have" is 🟥 Too-Late — two different times clash.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B'].indexOf(c)].className='wu-btn no';}}
+
+var mKey={1:'M',2:'T',3:'M',4:'T',5:'M',6:'T',7:'M',8:'T'};
+var mWhy={1:'"a sunnier garden" = a thing → 🟦 Maybe.',2:'"been repaired" = a done-word → 🟥 Too-Late.',3:'"would win" = would + verb → 🟦 Maybe.',4:'"would have melted" = would have → 🟥 Too-Late.',5:'"a louder voice" = a thing → 🟦 Maybe.',6:'"left" = a done-word → 🟥 Too-Late.',7:'"would feel" = would + verb → 🟦 Maybe.',8:'"would have noticed" = would have → 🟥 Too-Late.'};
+var mDone={};var mC=0;
+function doM(n,c){if(mDone[n])return;mDone[n]=true;var it=document.getElementById('m'+n);var fb=document.getElementById('m'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===mKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+mWhy[n];mC++;}else{fb.className='di-fb no';fb.textContent='❌ '+mWhy[n];}if(Object.keys(mDone).length===8){var s=document.getElementById('mScore');s.className='drill-score show';s.innerHTML='<strong>Which world: '+mC+'/8</strong><br><span style="font-size:14px">'+(mC>=7?'🎉 You can sort the worlds quickly now.':'⚠️ a thing or "would + verb" = 🟦; a done-word or "would have" = 🟥.')+'</span>';}}
+
+var cKey={1:'A',2:'B',3:'B',4:'B',5:'A',6:'C'};
+var cWhy={1:'"a sunnier window" 🟦 + "would stop" 🟦 = same world ✓.',2:'"been oiled" 🟥 + "would have opened" 🟥 = same world ✓.',3:'"a longer lead" 🟦 + "would have reached" 🟥 = odd socks ✗.',4:'"set off" 🟥 + "would have finished" 🟥 = same world ✓.',5:'"cosier chairs" 🟦 + "would stay" 🟦 = same world ✓ — the alarm was a false alarm.',6:'"a bigger brass section" 🟦 + "would have filled" 🟥 = odd socks ✗.'};
+var cDone={};var cC=0;
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var pq=document.getElementById('c'+n);var fb=document.getElementById('c'+n+'f');var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});var o=['A','B','C'];if(c===cKey[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+cWhy[n];b[o.indexOf(c)].className='pq-btn ok';cC++;}else{fb.className='pq-fb no';fb.innerHTML='❌ '+cWhy[n];b[o.indexOf(c)].className='pq-btn no';}if(Object.keys(cDone).length===6){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Do they match: '+cC+'/6</strong><br><span style="font-size:14px">'+(cC>=5?'🎉 You are checking both halves — that is the whole skill.':'⚠️ Name each half\'s world, then see if they match.')+'</span>';}}
+
+var eAns={1:'C',2:'C',3:'C'};
+var eFb={
+ 1:{ok:'✅ C: "a wider door" 🟦 + "would have fitted" 🟥 = odd socks. A = 🟦🟦 ✓, B = 🟥🟥 ✓, D = 🟥🟥 ✓.',no:'❌ Check each: A = 🟦🟦 ✓. B = 🟥🟥 ✓. C = "a wider door" 🟦 + "would have fitted" 🟥 = odd socks ✗. D = 🟥🟥 ✓.'},
+ 2:{ok:'✅ C: "richer soil" 🟦 + "would have spread" 🟥 = odd socks. Note A also has "had + a thing", but its result is "would feel" 🟦 — same world, so A is fine.',no:'❌ A looks suspicious ("more windows") but "would feel" is 🟦 too → 🟦🟦 ✓. B = 🟥🟥 ✓. D = 🟥🟥 ✓. C = "richer soil" 🟦 + "would have spread" 🟥 = odd socks ✗.'},
+ 3:{ok:'✅ C: "better lighting" 🟦 + "would look" 🟦 = same world ✓ — correct. A = odd socks; B = "will grow" breaks the will rule; D = "would started" is a broken verb.',no:'❌ Check each: A = 🟦🟥 odd socks. B = "will grow" (will rule). D = "would started" (broken verb). C = "better lighting" 🟦 + "would look" 🟦 = same world ✓ — the correct one.'}
+};
+var eDone={};
+function doE(n,c){var pq=document.getElementById('e'+n);var fb=document.getElementById('e'+n+'f');var b=pq.querySelectorAll('.pq-btn');var o=['A','B','C','D'];if(c===eAns[n]){eDone[n]=true;fb.className='pq-fb ok';fb.innerHTML=eFb[n].ok;b[o.indexOf(c)].className='pq-btn ok';b.forEach(function(x){x.disabled=true;});var nx=document.getElementById('e'+(n+1));if(nx){nx.style.display='block';setTimeout(function(){nx.scrollIntoView({behavior:'smooth',block:'start'});},150);}if(n===3)document.getElementById('summaryCard').style.display='block';}else{fb.className='pq-fb no';fb.innerHTML=eFb[n].no;b[o.indexOf(c)].className='pq-btn no';b[o.indexOf(c)].disabled=true;}}
+</script>
+</body>
+</html>

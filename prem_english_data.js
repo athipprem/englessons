@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '13 Jun 2026',
+  updated:        '15 Jun 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           11,
-    status:      'Phase 2 · U11 Lessons Ready · Test Pending',
+    n:           12,
+    status:      'Phase 2 · U12 Lessons Ready · Test Pending',
     testPending: true
   },
 
@@ -32,47 +32,39 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Milestone 1 — updated after each test)
+  // Last completed assessment (Unit 11 — updated after each test)
   lastUnit: {
-    n: 'M1', label: 'Milestone 1', score: 20, outOf: 28, pct: 71, delta: null, prevScore: 16,
+    n: 11, label: 'Unit 11', score: 16, outOf: 20, pct: 80, delta: 0, prevScore: 16,
 
-    patternLabel:   'Milestone 1 &mdash; 13 Jun 2026 &middot; 20/28 (71%) &middot; Reading 6/6 &#9733; &middot; Vocab 5/6 &middot; Cloze 5/8 &middot; Grammar 4/8',
-    patternInsight: '<strong>Score: 20/28 (71%) on the hardest paper yet &mdash; Phase 1 complete and Phase 2 GREENLIT.</strong> The result sorts into one sentence: the skills with a proven motor routine (cloze core, vocab Quote-and-Match) held under pressure, the one skill still missing its routine (grammar mismatch cross-check) was the only real loss, and the untaught skill (reading) came in perfect. <strong>Reading 6/6 &#9733;</strong> &mdash; scored cold to baseline Phase 2, including a simile read (the &ldquo;family grave&rdquo; comparison), author&rsquo;s purpose, and a balanced critical evaluation; the two &ldquo;largest gaps&rdquo; (Figurative Language, Critical Thinking) are materially smaller than the radar feared. <strong>Vocab 5/6</strong> &mdash; best at difficulty ever; beat BOTH historic trap types (word-feel &ldquo;gruelling&rdquo;, topic-feel &ldquo;subdued&rdquo;), only the &ldquo;elated&rdquo; topic-feel slip remains. <strong>Cloze 5/8</strong> &mdash; the old blocker is genuinely resolved (although at a comma, despite distractor, so/as-a-result split all held); the 3 misses were a single tight cluster: the Advanced meanwhile/while + furthermore level-split. <strong>Grammar 4/8</strong> &mdash; Had Test and Will Ban both RESOLVED and retired, but the mismatch cross-check went 0/2 again (Q10, Q14, same wrong pattern: the correct 2|2 sentence flagged as the error). Next: UNIT 11 &mdash; Phase 2 begins; the cross-check becomes a written 2-number motor routine.',
+    patternLabel:   'Unit 11 &mdash; 15 Jun 2026 &middot; 16/20 (80%) &middot; Vocab 6/6 &#9733; &middot; Cloze 5/7 &middot; Grammar 5/7',
+    patternInsight: '<strong>Score: 16/20 (80%) &mdash; a strong Phase 2 opener, level with the programme high.</strong> Two of the three lessons landed visibly on the paper. <strong>Vocabulary 6/6 &#9733;</strong> &mdash; first perfect vocab since U8 revamped; the &ldquo;elated&rdquo; topic-feel slip from the Milestone was the whole target of the U11 vocab lesson, and its twin &ldquo;jubilant&rdquo; came back correct, with &ldquo;unfazed&rdquo; beating the &ldquo;badly shaken&rdquo; story-feel trap. <strong>Cloze 5/7</strong> &mdash; the meanwhile/while level-split that cost 3 marks at the Milestone is FIXED (Q3 while, Q4 meanwhile both correct); the 2 misses are a NEW so&harr;however swap (Q5/Q6), a RESULT-vs-CONTRAST function misread, not a level error. <strong>Grammar 5/7</strong> &mdash; the mismatch cross-check is MOVING: 2 of 4 (Q13 reverse ✓, Q14 self-corrected D&rarr;C ✓), up from 0/2 at the Milestone; he wrote &ldquo;WILL IS BANNED!&rdquo; on the paper. Q10, Q12 (plain find-the-error) still missed &mdash; he applies the routine when he slows down, not on every item, which matches his feedback that the grammar lesson was too tough. Next: UNIT 12 &mdash; gentler grammar lesson (Maybe/Too-Late worlds) + a RESULT-vs-CONTRAST cloze check.',
 
-    analysisLabel:   'Milestone 1 Result Analysis &mdash; 13 Jun 2026',
-    analysisInsight: '<strong>Score: 20/28 (71%) &mdash; Phase 1 review, calibrated above unit difficulty, plus a new Reading section.</strong> Section A Cloze 5/8: Q1 &#10003; although (CONTRAST clause-joiner &mdash; the U9/U10 nemesis, taken again clean), despite distractor correctly unused, Q5 &#10003; so (Advanced RESULT level-split); the 3 misses (Q4, Q7, Q8) are the same three words shuffled across three slots &mdash; the TIME/ADDITION Advanced level-split (meanwhile = full stop, while = mid-clause). Section B Grammar 4/8: Q9 &#10003; (Second ID) and Q13 &#10003; (Third ID) confirm the Had Test; Q12 &#10003; spotted the Will Ban violation (the U7 regression is closed); Q15 &#10003; Mixed with &ldquo;still&rdquo;. But Q10 &#10007; and Q14 &#10007; are the same trap and same wrong answer &mdash; he flagged the correct 2|2 sentence as the error and missed the real 2|3 mismatch; Q11 &#10007; defaulted to pure Third and ignored the present &ldquo;now&rdquo;; Q16 &#10007; reverse cross-check, &ldquo;(or D) IDK&rdquo;. No pencil labels in the grammar section. Section C Vocab 5/6: Q17&ndash;Q21 &#10003; (incl. beating the gruelling word-feel and subdued topic-feel traps); only Q22 &#10007; elated &mdash; a topic-feel pull to &ldquo;surprised her brother was wrong.&rdquo; Section D Reading 6/6 &#9733;: every item, including the three Advanced ones &mdash; Q25 figurative simile, Q27 author&rsquo;s purpose, Q28 critical evaluation. The Phase 2 frontier is stronger than projected.',
+    analysisLabel:   'Unit 11 Result Analysis &mdash; 15 Jun 2026',
+    analysisInsight: '<strong>Score: 16/20 (80%) &mdash; Phase 2, unit 1.</strong> Section A Cloze 5/7: Q1 &#10003; although, Q2 &#10003; as a result, Q3 &#10003; while + Q4 &#10003; meanwhile (the Milestone level-split, FIXED), Q7 &#10003; moreover. The 2 misses are a clean swap &mdash; Q5 (needs &ldquo;so&rdquo;, RESULT) he put &ldquo;however&rdquo;; Q6 (needs &ldquo;however&rdquo;, CONTRAST) he put &ldquo;so&rdquo;. A RESULT-vs-CONTRAST function misread. Section B Grammar 5/7: Q8 &#10003; Had Test, Q9 &#10003; Will Ban (wrote &ldquo;WILL IS BANNED!&rdquo;), Q11 &#10003; Mixed, Q13 &#10003; reverse cross-check, Q14 &#10003; self-corrected D&rarr;C on a mismatch. Misses: Q10 and Q12 &mdash; the plain &ldquo;find the error&rdquo; mismatch items; he did not land the 2|3. Cross-check now 2/4 (up from 0/2 at M1) &mdash; improving but not automatic on every item. Section C Vocab 6/6 &#9733;: Q15&ndash;Q18 clean; Q19 unfazed (rejected the &ldquo;badly shaken&rdquo; story-feel trap); Q20 jubilant (rejected all three story-feel distractors &mdash; the &ldquo;elated&rdquo; lesson worked). Vocabulary moves from watch to confirmed strength.',
 
-    qSummary: '<strong>Reading 6/6 &#9733; (perfect, cold &mdash; simile + author&rsquo;s purpose + critical evaluation all correct) &middot; Vocab 5/6 (best at difficulty; both trap types beaten) &middot; Cloze 5/8 (core resolved; the 3 misses all the Advanced meanwhile/while level-split) &middot; Grammar 4/8 (Had Test + Will Ban retired; mismatch cross-check 0/2 &mdash; the #1 U11 focus).</strong>',
+    qSummary: '<strong>Vocab 6/6 &#9733; (perfect &mdash; story-feel trap beaten) &middot; Cloze 5/7 (meanwhile/while level-split FIXED; 2 misses = a so/however function swap) &middot; Grammar 5/7 (mismatch cross-check 2/4, up from 0/2 at M1, incl. a self-correction; Q10/Q12 still missed).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; A (although = CONTRAST clause-joiner) &mdash; the U9/U10 nemesis, taken cleanly at a comma slot with &ldquo;however&rdquo; as bait. Developing.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Full stop before the gap; cause &rarr; effect. Foundational.' },
-      { q:'Q3',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; H (while = TIME clause-joiner). Mid-sentence J slot identified. Foundational.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Chose E (furthermore) &mdash; needed G (meanwhile = TIME sentence-starter). Level-split miss: read the meaning but not the full-stop cue. Developing.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; H (so = RESULT clause-joiner) &mdash; the Advanced level-split vs &ldquo;as a result&rdquo; held. Advanced.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; F (however = CONTRAST sentence-starter). Full stop + contrast. Developing.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'a', pass:false, note:'&#10007; Chose G (meanwhile) &mdash; needed I (while = TIME clause-joiner). Mid-clause slot; the meanwhile/while level-split again. Advanced.' },
-      { q:'Q8',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Chose I (while) &mdash; needed E (furthermore = ADDITION sentence-starter). Part of the same 3-word displacement across Q4/Q7/Q8. Developing.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Had Test (Second ID): &ldquo;had waterproof maps&rdquo; = had + noun → Second; would be = Second result. 2|2 &#10003;. Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose A (correct 2|2) &mdash; needed C (2|3 mismatch). Flagged the suspicious-but-correct &ldquo;had + noun&rdquo; sentence as the error. The primary blocker. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose B (&ldquo;would not have nested&rdquo;, pure Third) &mdash; needed C (Mixed: present &ldquo;now&rdquo; → &ldquo;would not nest&rdquo;). Ignored the present-time signal. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Will Ban (maintenance): spotted &ldquo;will improve&rdquo; in a result clause. The U7 regression is closed. Developing.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Had Test (Third ID): &ldquo;had been tuned&rdquo; = past participle → Third; would have sounded = Third. 3|3 &#10003;. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose A (the suspicious-but-correct 2|2 trap) &mdash; needed D (2|3 mismatch). Same wrong pattern as Q10; no half-labels on paper. Advanced.' },
-      { q:'Q15', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Mixed with &ldquo;still&rdquo;: Third if + would + base verb. When the time signal is clear he handles Mixed. Advanced.' },
-      { q:'Q16', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Reverse cross-check (find the CORRECT one): chose A, wrote &ldquo;(or D) IDK&rdquo; &mdash; needed C (the 2|2). The cross-check is effortful, not automatic. Advanced.' },
-      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; intricate = &ldquo;made of many small, carefully connected parts&rdquo;. Gears/wires-in-layers clue matched. Developing.' },
-      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; dubious = &ldquo;doubtful that it would work&rdquo;. Raised eyebrow + asked twice. Developing.' },
-      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; gruelling = &ldquo;extremely tiring and demanding&rdquo; &mdash; beat the word-feel trap (&ldquo;gruesome&rdquo;). Developing.' },
-      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; undaunted = &ldquo;not discouraged by the setback&rdquo;. Clipped on the spare, reset, carried on. Advanced.' },
-      { q:'Q21', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; subdued = &ldquo;quiet and low-spirited&rdquo; &mdash; beat the topic-feel trap (the 600&nbsp;km journey). Advanced.' },
-      { q:'Q22', topic:'Vocab',   lvl:'a', pass:false, note:'&#10007; elated: chose C &ldquo;surprised her brother had been wrong&rdquo; (topic-feel trap) &mdash; needed A &ldquo;extremely happy and excited&rdquo;. Quote (&ldquo;leaping so high her badge flew off&rdquo;) proves joy. Advanced.' },
-      { q:'Q23', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; Main idea: how and why an old lighthouse was moved away from the sea. Developing.' },
-      { q:'Q24', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Retrieval: the sea had crept dangerously close. Foundational.' },
-      { q:'Q25', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; Figurative inference: &ldquo;like moving a family grave&rdquo; = deep emotional attachment to the place, not literal graves. Advanced.' },
-      { q:'Q26', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; Vocabulary-in-context: &ldquo;creeping&rdquo; = slow, gradual, almost unnoticed movement. Developing.' },
-      { q:'Q27', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; Author&rsquo;s purpose: the engineers&rsquo; question frames moving as the only way to save the lighthouse. Advanced.' },
-      { q:'Q28', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; Critical evaluation: a sensible solution, even though the sea may threaten again &mdash; rejected the two over-strong distractors. Advanced.' }
+      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; A (although = CONTRAST clause-joiner) &mdash; settled correctly after crossing out a first try. Developing.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Foundational.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; H (while = TIME clause-joiner) &mdash; the level-split that failed at the Milestone, now correct. Advanced.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; E (meanwhile = TIME sentence-starter) &mdash; the level-split partner, also correct. Lesson transferred. Advanced.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'a', pass:false, note:'&#10007; Chose D (however) &mdash; needed G (so = RESULT clause-joiner). Read a caused link (smell &rarr; queue) as a surprise. Advanced.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Chose G (so) &mdash; needed D (however = CONTRAST sentence-starter). The other half of the so/however swap. Developing.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; F (moreover = ADDITION sentence-starter). Developing.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Had Test (Second ID): had + noun → Second, would + verb → Second. 2|2 &#10003;. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Will Ban: spotted &ldquo;will sound&rdquo; in a result clause &mdash; wrote &ldquo;WILL IS BANNED!&rdquo; on the paper. Foundational.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (2|3 mismatch, answer C) &mdash; did not land the mismatch; flagged a correct sentence. The cross-check is not yet running on every item. Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed: present-time signal &rarr; would + base verb. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (2|3 mismatch, answer A) &mdash; missed again. Same pattern as Q10. Developing.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Reverse cross-check (find the CORRECT one): eliminated the Will-Ban option and chose the 2|2. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Find-the-error (2|3 mismatch): initially wrote D, crossed it out and self-corrected to C &mdash; exactly the &ldquo;check both halves&rdquo; move. Advanced.' },
+      { q:'Q15', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; determined = &ldquo;firmly set on doing it&rdquo;. Signed up at once, circled the date. Developing.' },
+      { q:'Q16', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; meticulous = &ldquo;extremely careful and exact&rdquo;. Sanded each wheel, measured three times. Developing.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; tedious = &ldquo;dull and boring&rdquo;. Sister wandered off yawning. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; smug = &ldquo;too pleased with themselves&rdquo;. The older boys&rsquo; over-confidence. Developing.' },
+      { q:'Q19', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; unfazed = &ldquo;not worried by the problem&rdquo; &mdash; rejected the &ldquo;badly shaken&rdquo; story-feel trap. Advanced.' },
+      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; jubilant = &ldquo;extremely happy and celebrating&rdquo; &mdash; rejected all three story-feel distractors. The &ldquo;elated&rdquo; lesson paid off. Advanced.' }
     ]
   },
 
@@ -80,21 +72,21 @@ var PREM_ENGLISH = {
   // achievement % = sum(c) / sum(t) × 100
   // Current: 523 / 657 = 80%
   skills: [
-    { name: 'Reading Compr.',    c: 75, t: 85 },   // M1: Reading 6/6 cold — jumps 65→75
-    { name: 'Vocabulary',        c: 75, t: 82 },   // M1: 5/6, best at difficulty; both trap types beaten
-    { name: 'Grammar',           c: 68, t: 82 },   // M1: 4/8 — Had Test + Will Ban resolved; mismatch cross-check still 0/2
-    { name: 'Cloze Test',        c: 62, t: 80 },   // M1: 5/8 — core resolved; Advanced level-split (meanwhile/while) reopened
+    { name: 'Reading Compr.',    c: 75, t: 85 },   // U11: not in unit test; unchanged from M1
+    { name: 'Vocabulary',        c: 78, t: 82 },   // U11: 6/6 ★ — story-feel trap beaten; confirmed strength
+    { name: 'Grammar',           c: 70, t: 82 },   // U11: 5/7 — cross-check 2/4 (up from 0/2); Will Ban/Had/Mixed solid
+    { name: 'Cloze Test',        c: 66, t: 80 },   // U11: 5/7 — level-split fixed; new so/however function slip
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
-    { name: 'Critical Thinking', c: 62, t: 80 },   // M1: critical-evaluation reading item correct — 50→62
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // M1: simile/author's-purpose items correct — 42→55
+    { name: 'Critical Thinking', c: 62, t: 80 },   // U11: not in unit test; unchanged from M1
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U11: not in unit test; unchanged from M1
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [75, 75, 68, 62, 65, 95, 62, 55],
+  radarCurrent:  [75, 78, 70, 66, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Milestone 1',
+  radarLegendUnit: 'Unit 11',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -109,11 +101,24 @@ var PREM_ENGLISH = {
     { n:8, score:12, outOf:20, delta:1,    color:'#f6993f', star:false, label:'U8' },
     { n:9, score:13, outOf:20, delta:1,    color:'#667eea', star:false, label:'U9' },
     { n:10, score:16, outOf:20, delta:3,   color:'#89F336', star:false, label:'U10' },
-    { n:'M1', score:20, outOf:28, delta:null, color:'#9f7aea', star:false, label:'M1', milestone:true }
+    { n:'M1', score:20, outOf:28, delta:null, color:'#9f7aea', star:false, label:'M1', milestone:true },
+    { n:11, score:16, outOf:20, delta:0, color:'#89F336', star:false, label:'U11' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 11,
+      title: 'Unit 11 &mdash; Cloze: Same Word, Two Levels &middot; Grammar: The Two-Number Habit &middot; Reading &amp; Vocabulary',
+      badge: '#89F336',
+      status: 'done',
+      note: '16/20 (80%) &mdash; strong Phase 2 opener, level with the programme high &middot; <strong>Vocab 6/6 &#9733;</strong> (first perfect since U8r &mdash; story-feel trap beaten: jubilant, unfazed) &middot; Cloze 5/7 (meanwhile/while level-split FIXED &mdash; Q3, Q4; 2 misses = a so&harr;however function swap at Q5/Q6) &middot; Grammar 5/7 (mismatch cross-check 2/4, up from 0/2 at M1, incl. a self-correction; Will Ban/Had/Mixed solid; Q10, Q12 still missed) &middot; Prem found the grammar lesson too tough &rarr; U12 goes gentler &middot; Next: UNIT 12',
+      tags: [
+        { t:'Vocab 6/6 &#9733;', s:'background:#f0fff4;color:#276749' },
+        { t:'Cloze 5/7',   s:'background:#fff8e1;color:#744210' },
+        { t:'Grammar 5/7', s:'background:#fff8e1;color:#744210' }
+      ]
+    },
     {
       n: 'M1',
       title: 'Milestone 1 &mdash; Phase 1 Review (28 marks): Cloze &middot; Grammar &middot; Vocabulary &middot; Reading',
