@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing &amp; Vocabulary — Unit 13 Lesson 3</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#B7791F;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.18);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.20);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.18);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(183,121,31,0.10);margin-bottom:18px}
+h2{color:#B7791F;font-size:1.22rem;margin-bottom:14px}
+h2.v{color:#E65100}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#B7791F,#D69E2E);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-box.v{background:linear-gradient(135deg,#E65100,#F57C00)}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.ba{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.ba .box{flex:1;min-width:230px;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.6}
+.ba .before{background:#F1F1F4;border:2px solid #CBD5E0;color:#4A5568}
+.ba .after{background:#FFF8E1;border:2px solid #ECC94B;color:#7a5b00}
+.ba .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;display:block}
+.cc-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+.cc-table th{background:#FEF5E7;color:#B7791F;padding:8px 10px;text-align:left;font-size:12px;border-bottom:2px solid #ECC94B}
+.cc-table td{padding:8px 10px;border-bottom:1px solid #FAF0DC;line-height:1.5}
+.cc-table td.k{font-weight:700;color:#B7791F}
+.wu-q,.pq{background:#fff;border:2px solid #F0D9A8;border-radius:10px;padding:16px;margin:12px 0}
+.pq.v{border-color:#FFCC80}
+.wu-label{font-size:11px;font-weight:700;color:#B7791F;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts,.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.wu-btn,.pq-btn{background:#EDF2F7;border:2px solid #F0D9A8;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq.v .pq-btn{border-color:#FFCC80}
+.wu-btn:hover:not([disabled]),.pq-btn:hover:not([disabled]){background:#FEF5E7}
+.wu-btn.ok,.pq-btn.ok{background:#FFF8E1;border-color:#D69E2E;color:#7a5b00;font-weight:700}
+.pq.v .pq-btn.ok{background:#FFF3E0;border-color:#FB8C00;color:#E65100}
+.wu-btn.no,.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb,.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok,.pq-fb.ok{background:#FFF8E1;color:#7a5b00;display:block}
+.pq.v .pq-fb.ok{background:#FFF3E0;color:#E65100}
+.wu-fb.show-no,.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.quote{background:#FFF8E1;border-left:4px solid #FB8C00;padding:8px 12px;margin:8px 0;font-style:italic;font-size:14px;border-radius:0 8px 8px 0}
+.drill-score{background:linear-gradient(135deg,#B7791F,#D69E2E);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.v{background:linear-gradient(135deg,#E65100,#F57C00)}
+.drill-score.show{display:block}
+.prod textarea{width:100%;border:2px solid #F0D9A8;border-radius:8px;padding:10px;font-family:inherit;font-size:14px;min-height:60px;resize:vertical}
+.prod-btn{margin-top:10px;background:linear-gradient(135deg,#B7791F,#D69E2E);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer}
+.model{display:none;margin-top:10px;background:#FFF8E1;border:2px solid #ECC94B;border-radius:8px;padding:10px 14px;font-size:13px;line-height:1.6;color:#7a5b00}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #F0D9A8;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#B7791F,#D69E2E);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #F0D9A8;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Writing &amp; Vocabulary</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 13 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="rule-box">
+      <div class="rule-big">New skill: making your writing sparkle ✨</div>
+      <p style="margin:0;font-size:14px;color:#FFF8E1">Your vocabulary is brilliant (6/6 twice!). Now let's use those strong words to lift dull sentences into vivid ones — the skill that wins top marks in writing.</p>
+    </div>
+    <h2>Before We Start 🔍</h2>
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — the clue (Vocabulary)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The trophy was gleaming, catching the light on every shelf."</em> — "gleaming" means:</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — shining brightly</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — dusty and dull</button>
+        <button class="wu-btn" onclick="doWu(1,'C')">C — very heavy</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — which paints a clearer picture?</div>
+      <p style="font-size:14px;margin-bottom:8px">Which sentence shows more, instead of just telling?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — "It was a windy day."</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — "The wind snatched hats and rattled every window."</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Three ways to lift a sentence ⬆️</h2>
+    <table class="cc-table">
+      <tr><th>Move</th><th>Swap…</th><th>…for</th></tr>
+      <tr><td class="k">1. Strong verb</td><td>walked, said, looked</td><td>marched, whispered, glared</td></tr>
+      <tr><td class="k">2. Precise word</td><td>nice, big, sad</td><td>delightful, enormous, heartbroken</td></tr>
+      <tr><td class="k">3. Add a comparison</td><td>"ran fast"</td><td>"ran <em>like a startled deer</em>"</td></tr>
+    </table>
+    <div class="ba">
+      <div class="box before"><span class="lbl">Before (dull)</span>The dog ran across the garden. It was happy.</div>
+      <div class="box after"><span class="lbl">After (vivid)</span>The dog <strong>bounded</strong> across the garden <strong>like a furry rocket</strong>, its tail <strong>whirling</strong> with joy.</div>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">Show, don't just tell</div>
+      Instead of <em>telling</em> us "she was scared," <em>show</em> it: "she froze, her heart hammering." Pick one or two upgrades per sentence — you don't need all three at once.
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill — Pick the most vivid version 🎨</h2>
+    <p>Which one paints the clearest picture?</p>
+    <div class="pq" id="p1"><div class="pq-text">1. The boring sentence: "The boy was hungry."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(1,'A')">A — The boy was very hungry.</button><button class="pq-btn" onclick="doP(1,'B')">B — The boy's stomach growled as he stared at the empty fridge.</button><button class="pq-btn" onclick="doP(1,'C')">C — The boy was a bit hungry, I think.</button></div><div class="pq-fb" id="p1f"></div></div>
+    <div class="pq" id="p2"><div class="pq-text">2. "The old house was scary."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(2,'A')">A — The old house creaked and groaned, its dark windows like watching eyes.</button><button class="pq-btn" onclick="doP(2,'B')">B — The old house was really scary.</button><button class="pq-btn" onclick="doP(2,'C')">C — The old house was big and scary.</button></div><div class="pq-fb" id="p2f"></div></div>
+    <div class="pq" id="p3"><div class="pq-text">3. "She walked into the room."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(3,'A')">A — She walked into the room slowly.</button><button class="pq-btn" onclick="doP(3,'B')">B — She walked into the big room.</button><button class="pq-btn" onclick="doP(3,'C')">C — She crept into the room, holding her breath.</button></div><div class="pq-fb" id="p3f"></div></div>
+    <div class="pq" id="p4"><div class="pq-text">4. "It rained a lot."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(4,'A')">A — Rain hammered the roof and turned the lane into a river.</button><button class="pq-btn" onclick="doP(4,'B')">B — It rained a lot all day.</button><button class="pq-btn" onclick="doP(4,'C')">C — There was a lot of rain.</button></div><div class="pq-fb" id="p4f"></div></div>
+    <div class="pq" id="p5"><div class="pq-text">5. "The cake tasted good."</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doP(5,'A')">A — The cake tasted nice and good.</button><button class="pq-btn" onclick="doP(5,'B')">B — The warm cake melted on my tongue, sweet and buttery.</button><button class="pq-btn" onclick="doP(5,'C')">C — The cake was good to eat.</button></div><div class="pq-fb" id="p5f"></div></div>
+    <div class="drill-score" id="pScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2 class="v">Quick vocabulary check ✅</h2>
+    <p>Keep the Prove-It habit sharp — the meaning must be in the quote.</p>
+    <div class="pq v" id="v1"><div class="pq-text">1. <div class="quote">"By the long car journey's end the toddler was drowsy, her eyelids drooping."</div> "drowsy" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doV(1,'A')">A — wide awake</button><button class="pq-btn" onclick="doV(1,'B')">B — sleepy</button><button class="pq-btn" onclick="doV(1,'C')">C — upset</button></div><div class="pq-fb" id="v1f"></div></div>
+    <div class="pq v" id="v2"><div class="pq-text">2. <div class="quote">"The coach gave a stern look and reminded them, in a hard voice, that rules were rules."</div> "stern" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doV(2,'A')">A — gentle and soft</button><button class="pq-btn" onclick="doV(2,'B')">B — strict and serious</button><button class="pq-btn" onclick="doV(2,'C')">C — funny</button></div><div class="pq-fb" id="v2f"></div></div>
+    <div class="pq v" id="v3"><div class="pq-text">3. <div class="quote">"The hall fell silent, then erupted — a wall of cheering that shook the windows."</div> "erupted" means:</div>
+      <div class="pq-opts"><button class="pq-btn" onclick="doV(3,'A')">A — burst out suddenly and loudly</button><button class="pq-btn" onclick="doV(3,'B')">B — went quiet</button><button class="pq-btn" onclick="doV(3,'C')">C — slowly emptied</button></div><div class="pq-fb" id="v3f"></div></div>
+    <div class="drill-score v" id="vScore"></div>
+
+    <h2 style="margin-top:22px">Your turn — lift this sentence ✍️</h2>
+    <p>Rewrite this dull sentence so it paints a picture (try a strong verb + one detail or a comparison):</p>
+    <p style="font-style:italic;color:#4A5568">"The man walked into the room."</p>
+    <div class="prod">
+      <textarea id="prodBox" placeholder="The old man..."></textarea>
+      <button class="prod-btn" onclick="showModel()">Show a model answer</button>
+      <div class="model" id="modelBox"><strong>Model:</strong> "The old man shuffled into the dim room, his cane tapping on the bare floorboards." — strong verb (<em>shuffled</em>), a precise detail (<em>dim, bare floorboards</em>), and a sound. Did yours swap "walked" for a stronger verb and add a detail?</div>
+    </div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Strong verb · precise word · a comparison.<br>Show, don't just tell.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Grammar_Lesson_FindTheError.html" class="btn-hub">← Grammar Lesson</a>
+    <a href="index.html" class="btn-lesson">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+var wuAns={1:'A',2:'B'};
+var wuFb={
+ 1:{A:'✅ "catching the light on every shelf" = shining brightly.',_:'❌ The clue "catching the light" → shining brightly.'},
+ 2:{B:'✅ B shows the wind doing things (snatching, rattling) — that paints a picture. A just tells.',_:'❌ B shows the wind in action; A only tells us it was windy.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B','C'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B','C'].indexOf(c)].className='wu-btn no';}}
+
+var pKey={1:'B',2:'A',3:'C',4:'A',5:'B'};
+var pWhy={1:'B shows the hunger (growling stomach, empty fridge). A and C just tell.',2:'A shows the house with strong verbs and a comparison. B and C only tell.',3:'C uses a strong verb (crept) and shows tension. A and B just add a flat word.',4:'A shows the rain in action (hammered, turned the lane to a river).',5:'B shows the taste with vivid words; A and C just tell.'};
+var pDone={};var pC=0;
+function doP(n,c){if(pDone[n])return;pDone[n]=true;var pq=document.getElementById('p'+n);var fb=document.getElementById('p'+n+'f');var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});var o=['A','B','C'];if(c===pKey[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+pWhy[n];b[o.indexOf(c)].className='pq-btn ok';pC++;}else{fb.className='pq-fb no';fb.innerHTML='❌ '+pWhy[n];b[o.indexOf(c)].className='pq-btn no';}if(Object.keys(pDone).length===5){var s=document.getElementById('pScore');s.className='drill-score show';s.innerHTML='<strong>Most vivid: '+pC+'/5</strong><br><span style="font-size:14px">'+(pC>=4?'🎉 You can spot writing that shows, not just tells.':'⚠️ Look for the version with a strong verb or a picture, not just an extra word.')+'</span>';}}
+
+var vKey={1:'B',2:'B',3:'A'};
+var vWhy={1:'"eyelids drooping" = sleepy.',2:'"hard voice, rules were rules" = strict and serious.',3:'"a wall of cheering that shook the windows" = burst out suddenly and loudly.'};
+var vDone={};var vC=0;
+function doV(n,c){if(vDone[n])return;vDone[n]=true;var pq=document.getElementById('v'+n);var fb=document.getElementById('v'+n+'f');var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});var o=['A','B','C'];if(c===vKey[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+vWhy[n];b[o.indexOf(c)].className='pq-btn ok';vC++;}else{fb.className='pq-fb no';fb.innerHTML='❌ '+vWhy[n];b[o.indexOf(c)].className='pq-btn no';}if(Object.keys(vDone).length===3){var s=document.getElementById('vScore');s.className='drill-score v show';s.innerHTML='<strong>Vocabulary check: '+vC+'/3</strong>';}}
+
+function showModel(){document.getElementById('modelBox').style.display='block';document.getElementById('summaryCard').style.display='block';}
+</script>
+</body>
+</html>

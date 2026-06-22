@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — The Decision Tree — Unit 13 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover{background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.wu-q{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#2E7D32;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #C8E6C9;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.wu-btn:hover:not([disabled]){background:#C8E6C9}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+/* decision tree */
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;text-align:center;max-width:520px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#FFF3E0;border:2px solid #F9A825;color:#8a5a00}
+.node.s{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.j{background:#FFF3E0;border:2px solid #E65100;color:#9a3b00}
+.node.commit{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff}
+.arrow{font-size:20px;color:#7CB342;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#558B2F}
+.ltable{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+.ltable th{background:#E8F5E9;color:#1B5E20;padding:7px 9px;text-align:left;font-size:12px;border-bottom:2px solid #A5D6A7}
+.ltable td{padding:7px 9px;border-bottom:1px solid #EFF7EF;line-height:1.5}
+.ltable td.fn{font-weight:700}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-s{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-j{background:#FFF3E0;border:2px solid #E65100;color:#E65100;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-w{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-s:disabled,.di-j:disabled,.di-w:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.pillS{background:#E3F2FD;color:#1565C0;border-radius:6px;padding:1px 7px;font-weight:700}
+.pillJ{background:#FFF3E0;color:#E65100;border-radius:6px;padding:1px 7px;font-weight:700}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:hover:not([disabled]){background:linear-gradient(135deg,#2E7D32,#43A047)}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-hub:hover{background:#5a6478}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson:hover{background:linear-gradient(135deg,#2c5282,#3a6ea8)}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — The Decision Tree</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 13 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="rule-box">
+      <div class="rule-big">Let's make cloze calm again 🌳</div>
+      <p style="margin:0;font-size:14px;color:#E8F5E9">Last time you knew the words but second-guessed and rubbed out your answers. This lesson gives you one clear map to follow — so you decide once and move on.</p>
+    </div>
+    <h2>Before We Start 🔍</h2>
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — Step 1 (Level)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The bell rang. ____, the class lined up."</em> — sentence-starter or clause-joiner?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — sentence-starter (full stop before the gap)</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — clause-joiner</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — Step 2 (Link)</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"The field was frozen, ____ the game was called off."</em> — caused or surprise?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — caused it → RESULT (so)</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — surprise → CONTRAST (however)</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — the habit that fixes last time</div>
+      <p style="font-size:14px;margin-bottom:8px">In cloze, when you have written your answer and it follows the map, you should:</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — box it and move on, trusting your first map-answer</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — rub it out and try a few other letters to be safe</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+  <div class="card">
+    <p style="margin:0">Here's the secret to staying calm: <strong>follow the same map every time.</strong> Let's look at it. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: DECISION TREE -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The Cloze Decision Tree 🌳</h2>
+    <p>For <strong>every</strong> gap, walk down this map once. Two questions, then commit.</p>
+    <div class="tree">
+      <div class="node start">START at the gap</div>
+      <div class="arrow">↓</div>
+      <div class="node q">STEP 1 — Is there a full stop just before the gap?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES ↓</span><div class="node s">Sentence-starter</div></div>
+        <div class="leg"><span class="lbl">NO ↓</span><div class="node j">Clause-joiner</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="node q">STEP 2 — What is the link between the two ideas?</div>
+    </div>
+    <table class="ltable">
+      <tr><th>Ask…</th><th>Link</th><th>Sentence-starter</th><th>Clause-joiner</th></tr>
+      <tr><td class="fn">Did the 1st cause the 2nd?</td><td class="fn">RESULT</td><td>as a result</td><td>so</td></tr>
+      <tr><td class="fn">Is the 2nd a surprise?</td><td class="fn">CONTRAST</td><td>however</td><td>although</td></tr>
+      <tr><td class="fn">Same time?</td><td class="fn">TIME</td><td>meanwhile</td><td>while</td></tr>
+      <tr><td class="fn">Extra idea?</td><td class="fn">ADDITION</td><td>moreover / furthermore</td><td>(and)</td></tr>
+    </table>
+    <div class="tree">
+      <div class="arrow">↓</div>
+      <div class="node commit">STEP 3 — Write your answer, draw a box around it, MOVE ON. Do not rub out.</div>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">Why the box matters</div>
+      Your first map-answer is almost always right. Boxing it tells your brain "decided" — so you stop second-guessing and you don't run out of time. One walk down the tree per gap. That's it.
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Walk Step 1 (Level) ⚡</h2>
+    <p>Full stop before the gap = <span class="pillS">Starter</span>. Comma or mid-sentence = <span class="pillJ">Joiner</span>.</p>
+    <div class="di" id="d1"><div class="di-sent">1. "…the whistle blew. ____, the runners set off."</div><div class="di-btns"><button class="di-s" onclick="doSJ(1,'S')">Starter</button><button class="di-j" onclick="doSJ(1,'J')">Joiner</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. "…the rope was frayed, ____ the climbers turned back."</div><div class="di-btns"><button class="di-s" onclick="doSJ(2,'S')">Starter</button><button class="di-j" onclick="doSJ(2,'J')">Joiner</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "…she packed the tent ____ her brother rolled the mats."</div><div class="di-btns"><button class="di-s" onclick="doSJ(3,'S')">Starter</button><button class="di-j" onclick="doSJ(3,'J')">Joiner</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. "…the lift was broken. ____, we took the stairs."</div><div class="di-btns"><button class="di-s" onclick="doSJ(4,'S')">Starter</button><button class="di-j" onclick="doSJ(4,'J')">Joiner</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="drill-score" id="sjScore"></div>
+
+    <h2 style="margin-top:24px">Drill 2 — Walk the whole tree 🌳</h2>
+    <p>Step 1 (level) → Step 2 (link) → pick the word.</p>
+    <div class="di" id="w1"><div class="di-sent">1. "The sun blazed all afternoon. ____, the team handed out water." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(1,'as a result')">as a result</button><button class="di-w" onclick="doW(1,'however')">however</button><button class="di-w" onclick="doW(1,'while')">while</button></div><div class="di-fb" id="w1f"></div></div>
+    <div class="di" id="w2"><div class="di-sent">2. "The cake looked burnt, ____ it tasted delicious." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-w" onclick="doW(2,'so')">so</button><button class="di-w" onclick="doW(2,'although')">although</button><button class="di-w" onclick="doW(2,'meanwhile')">meanwhile</button></div><div class="di-fb" id="w2f"></div></div>
+    <div class="di" id="w3"><div class="di-sent">3. "Dad cooked breakfast ____ the children fed the rabbits." <span class="pillJ">mid-sentence</span></div><div class="di-btns"><button class="di-w" onclick="doW(3,'while')">while</button><button class="di-w" onclick="doW(3,'so')">so</button><button class="di-w" onclick="doW(3,'however')">however</button></div><div class="di-fb" id="w3f"></div></div>
+    <div class="di" id="w4"><div class="di-sent">4. "The path was blocked, ____ we found another way round." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-w" onclick="doW(4,'so')">so</button><button class="di-w" onclick="doW(4,'although')">although</button><button class="di-w" onclick="doW(4,'meanwhile')">meanwhile</button></div><div class="di-fb" id="w4f"></div></div>
+    <div class="di" id="w5"><div class="di-sent">5. "Everyone finished the race. ____, they were given medals." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-w" onclick="doW(5,'moreover')">moreover</button><button class="di-w" onclick="doW(5,'however')">however</button><button class="di-w" onclick="doW(5,'while')">while</button></div><div class="di-fb" id="w5f"></div></div>
+    <div class="drill-score" id="wScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 3 — Treasure Hunt cloze 🗺️</h2>
+    <p>Walk the tree for each gap. Decide once, box it, move on.</p>
+    <div class="ok-box" style="background:#F1F8E9;border-color:#AED581">
+      <p style="font-size:14px;line-height:2;margin:0">
+      The map was old and torn. <strong>(1)____</strong>, the children could still make out the path to the cove. They set off early <strong>(2)____</strong> the tide was still low. The first clue was hidden under a flat rock. <strong>(3)____</strong>, the second was tied to a branch high in a pine. Reaching it was hard, <strong>(4)____</strong> Mia climbed up without a moment's hesitation. The last clue led them to a small wooden chest. <strong>(5)____</strong>, the chest held nothing but a note: "The real treasure was the morning itself."</p>
+    </div>
+    <div class="di" id="g1"><div class="di-sent"><strong>Gap 1</strong> — "old and torn. ____, the children could still make out the path"</div><div class="di-btns"><button class="di-w" onclick="doG(1,'however')">however</button><button class="di-w" onclick="doG(1,'as a result')">as a result</button><button class="di-w" onclick="doG(1,'while')">while</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent"><strong>Gap 2</strong> — "set off early ____ the tide was still low"</div><div class="di-btns"><button class="di-w" onclick="doG(2,'while')">while</button><button class="di-w" onclick="doG(2,'so')">so</button><button class="di-w" onclick="doG(2,'however')">however</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="di" id="g3"><div class="di-sent"><strong>Gap 3</strong> — "hidden under a flat rock. ____, the second was tied to a branch"</div><div class="di-btns"><button class="di-w" onclick="doG(3,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(3,'so')">so</button><button class="di-w" onclick="doG(3,'although')">although</button></div><div class="di-fb" id="g3f"></div></div>
+    <div class="di" id="g4"><div class="di-sent"><strong>Gap 4</strong> — "Reaching it was hard, ____ Mia climbed up without hesitation"</div><div class="di-btns"><button class="di-w" onclick="doG(4,'although')">although</button><button class="di-w" onclick="doG(4,'so')">so</button><button class="di-w" onclick="doG(4,'meanwhile')">meanwhile</button></div><div class="di-fb" id="g4f"></div></div>
+    <div class="di" id="g5"><div class="di-sent"><strong>Gap 5</strong> — "led them to a small chest. ____, the chest held nothing but a note"</div><div class="di-btns"><button class="di-w" onclick="doG(5,'however')">however</button><button class="di-w" onclick="doG(5,'as a result')">as a result</button><button class="di-w" onclick="doG(5,'while')">while</button></div><div class="di-fb" id="g5f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Two questions, one map.<br>Decide once. Box it. Move on.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_FindTheError.html" class="btn-lesson">Grammar Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuAns={1:'A',2:'A',3:'A'};
+var wuFb={
+ 1:{A:'✅ Full stop before the gap → a new sentence begins → sentence-starter.',_:'❌ There is a full stop just before the gap → sentence-starter.'},
+ 2:{A:'✅ The frozen field CAUSED the game being called off → RESULT.',_:'❌ Did the first cause the second? Frozen field → game off, yes → RESULT.'},
+ 3:{A:'✅ Trust the map. Box it and move on — that is exactly what was missing last time.',_:'❌ Rubbing out and re-trying is what caused the mix-up last time. If it follows the map, box it and move on.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B'].indexOf(c)].className='wu-btn no';}}
+
+var sjAns={1:'S',2:'J',3:'J',4:'S'};var sjDone={};var sjC=0;
+function doSJ(n,c){if(sjDone[n])return;sjDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===sjAns[n]){fb.className='di-fb ok';fb.textContent='✅ '+(c==='S'?'Full stop → Starter.':'Comma / mid-sentence → Joiner.');sjC++;}else{fb.className='di-fb no';fb.textContent='❌ '+(sjAns[n]==='S'?'Full stop just before → Starter.':'No full stop → Joiner.');}if(Object.keys(sjDone).length===4){var s=document.getElementById('sjScore');s.className='drill-score show';s.innerHTML='<strong>Step 1: '+sjC+'/4</strong>';}}
+
+var wKey={1:'as a result',2:'although',3:'while',4:'so',5:'moreover'};
+var wWhy={1:'Caused + full stop → as a result.',2:'Surprise (burnt BUT delicious) + comma → although.',3:'Same time + mid-sentence → while.',4:'Caused (blocked → found another way) + comma → so.',5:'Extra good news + full stop → moreover.'};
+var wDone={};var wC=0;
+function doW(n,c){if(wDone[n])return;wDone[n]=true;var it=document.getElementById('w'+n);var fb=document.getElementById('w'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===wKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wWhy[n];wC++;}else{fb.className='di-fb no';fb.textContent='❌ '+wWhy[n];}if(Object.keys(wDone).length===5){var s=document.getElementById('wScore');s.className='drill-score show';s.innerHTML='<strong>Whole tree: '+wC+'/5</strong>';}}
+
+var gKey={1:'however',2:'while',3:'meanwhile',4:'although',5:'however'};
+var gWhy={1:'Torn map BUT could still read it = surprise; full stop → however.',2:'Set off early at the same time as low tide = TIME; mid → while.',3:'First clue here, second clue there, at the same time = TIME; full stop → meanwhile.',4:'Hard BUT climbed without hesitation = surprise; comma → although.',5:'Led to a chest BUT it held only a note = surprise; full stop → however.'};
+var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ '+gWhy[n];}if(Object.keys(gDone).length===5){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>Treasure Hunt cloze: '+gC+'/5</strong><br><span style="font-size:14px">'+(gC>=4?'🎉 You walked the tree and committed. That is the whole skill.':'⚠️ For each gap: Step 1 level, Step 2 link, then box it.')+'</span>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>

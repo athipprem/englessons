@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Find the Odd Socks — Unit 13 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4a2a7a;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,42,122,0.10);margin-bottom:18px}
+h2{color:#4a2a7a;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.win-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;margin:14px 0}
+.win-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.ok-title{font-weight:700;color:#1B5E20;margin-bottom:8px;font-size:14px}
+.worlds{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.world{flex:1;min-width:230px;border-radius:12px;padding:14px;border:3px solid}
+.world.maybe{background:#E3F2FD;border-color:#1565C0}
+.world.toolate{background:#FFEBEE;border-color:#E53935}
+.world h3{font-size:.98rem;margin-bottom:6px}
+.world.maybe h3{color:#0D47A1}.world.toolate h3{color:#B71C1C}
+.world p{font-size:13px;line-height:1.6;margin-bottom:4px}
+.wu-q{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:16px;margin:12px 0}
+.wu-label{font-size:11px;font-weight:700;color:#6b46c1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.wu-opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.wu-btn{background:#EDF2F7;border:2px solid #E1D5F5;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.wu-btn:hover:not([disabled]){background:#E1D5F5}
+.wu-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.wu-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.wu-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.wu-fb.show-ok{background:#E8F5E9;color:#1B5E20;display:block}
+.wu-fb.show-no{background:#FFEBEE;color:#B71C1C;display:block}
+.pq{background:#fff;border:2px solid #E1D5F5;border-radius:10px;padding:16px;margin:12px 0}
+.pq-text{font-size:15px;margin-bottom:6px;line-height:1.7}
+.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.pq-btn{background:#EDF2F7;border:2px solid #E1D5F5;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq-btn:hover:not([disabled]){background:#E1D5F5}
+.pq-btn.ok{background:#E8F5E9;border-color:#43A047;color:#1B5E20;font-weight:700}
+.pq-btn.no{background:#FFEBEE;border-color:#EF9A9A;color:#B71C1C}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4a2a7a,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.tagB{background:#E3F2FD;color:#0D47A1;border-radius:6px;padding:1px 8px;font-weight:700}
+.tagR{background:#FFEBEE;color:#B71C1C;border-radius:6px;padding:1px 8px;font-weight:700}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1D5F5;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4a2a7a,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1D5F5;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Find the Odd Socks</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 13 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="win-box">
+      <div class="win-title">👏 You understand the worlds — now we train the hunt</div>
+      <p style="margin:0;font-size:14px;line-height:1.8;color:#E8F5E9">Last time you proved you GET it: when asked "which sentence is correct?" you found it and even fixed your own answer. The only thing left is the hunt — when a question says "which one has the ERROR?", you need to check all four, not stop at the first odd-looking one.</p>
+    </div>
+    <h2>Before We Start 🔥</h2>
+    <div class="wu-q" id="wq1">
+      <div class="wu-label">Warm-up 1 — which world?</div>
+      <p style="font-size:14px;margin-bottom:8px"><em>"…had a longer runway…"</em> — Maybe World or Too-Late World?</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(1,'A')">A — 🟦 Maybe (had + a thing)</button>
+        <button class="wu-btn" onclick="doWu(1,'B')">B — 🟥 Too-Late (had + a done-word)</button>
+      </div>
+      <div class="wu-fb" id="wf1"></div>
+    </div>
+    <div class="wu-q" id="wq2">
+      <div class="wu-label">Warm-up 2 — the "will" rule</div>
+      <p style="font-size:14px;margin-bottom:8px">Spot the slip: <em>"If the road had been salted, the cars will have stopped safely."</em></p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(2,'A')">A — "will have" should be "would have"</button>
+        <button class="wu-btn" onclick="doWu(2,'B')">B — no slip</button>
+      </div>
+      <div class="wu-fb" id="wf2"></div>
+    </div>
+    <div class="wu-q" id="wq3">
+      <div class="wu-label">Warm-up 3 — the hunt habit</div>
+      <p style="font-size:14px;margin-bottom:8px">When a question asks "which sentence has the error?", the safest first move is to:</p>
+      <div class="wu-opts">
+        <button class="wu-btn" onclick="doWu(3,'A')">A — label the world of BOTH halves of ALL FOUR sentences, then find the odd pair</button>
+        <button class="wu-btn" onclick="doWu(3,'B')">B — pick the first sentence that looks a bit strange</button>
+      </div>
+      <div class="wu-fb" id="wf3"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The hunt: label ALL four 🧦🧦🧦🧦</h2>
+    <div class="worlds">
+      <div class="world maybe"><h3>🟦 Maybe World</h3><p>had + a <strong>thing</strong> → would + verb</p><p>"had a bigger net" → "would catch"</p></div>
+      <div class="world toolate"><h3>🟥 Too-Late World</h3><p>had + a <strong>done-word</strong> → would <u>have</u> + verb</p><p>"had been mended" → "would have held"</p></div>
+    </div>
+    <p>You already know this. The error question is only hard because there are <strong>four</strong> sentences and the odd-socks one hides among them. The fix is a habit:</p>
+    <div class="rule-box"><div class="rule-big">Label both halves of EVERY option first.<br>Then the one with two different worlds is the error.</div></div>
+    <div class="warn-box">
+      <div class="warn-title">Don't stop early</div>
+      A "had + a thing" sentence looks odd but is usually fine (🟦🟦). If you grab the first odd-looking one you'll pick a correct sentence by mistake. Label all four, <em>then</em> decide.
+    </div>
+    <div class="ok-box">
+      <div class="ok-title">Worked example — all four labelled</div>
+      <p style="font-size:13.5px;line-height:1.9;margin:0">
+      A. "had a wider gate" 🟦 + "would open" 🟦 = 🟦🟦 ✓<br>
+      B. "had been locked" 🟥 + "would have stayed shut" 🟥 = 🟥🟥 ✓<br>
+      C. "had a taller fence" 🟦 + "would <u>have</u> kept the deer out" 🟥 = <strong>🟦🟥 odd socks → the error</strong><br>
+      D. "had been painted" 🟥 + "would have lasted" 🟥 = 🟥🟥 ✓</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Pair check (warm the hunt) 🧦</h2>
+    <p>For each sentence, what do the two worlds make?</p>
+    <div class="pq" id="c1"><div class="pq-text">1. "If the shop had a side door, deliveries would arrive more quietly."</div><div class="pq-opts"><button class="pq-btn" onclick="doC(1,'A')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(1,'B')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(1,'C')">🟦🟥 odd socks ✗</button></div><div class="pq-fb" id="c1f"></div></div>
+    <div class="pq" id="c2"><div class="pq-text">2. "If the boat had been bailed out, it would have stayed afloat."</div><div class="pq-opts"><button class="pq-btn" onclick="doC(2,'A')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(2,'B')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(2,'C')">🟥🟦 odd socks ✗</button></div><div class="pq-fb" id="c2f"></div></div>
+    <div class="pq" id="c3"><div class="pq-text">3. "If the orchard had taller fences, the deer would have stayed out last year."</div><div class="pq-opts"><button class="pq-btn" onclick="doC(3,'A')">🟦🟦 same world ✓</button><button class="pq-btn" onclick="doC(3,'B')">🟦🟥 odd socks ✗</button><button class="pq-btn" onclick="doC(3,'C')">🟥🟥 same world ✓</button></div><div class="pq-fb" id="c3f"></div></div>
+    <div class="pq" id="c4"><div class="pq-text">4. "If the choir had warmed up, the first song would have sounded clearer." </div><div class="pq-opts"><button class="pq-btn" onclick="doC(4,'A')">🟦🟥 odd socks ✗</button><button class="pq-btn" onclick="doC(4,'B')">🟥🟥 same world ✓</button><button class="pq-btn" onclick="doC(4,'C')">🟦🟦 same world ✓</button></div><div class="pq-fb" id="c4f"></div></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — The hunt (test format) 🎯</h2>
+    <p>Find the odd-socks sentence (or, last set, the correct one). Label all four before you choose.</p>
+    <div class="pq" id="e1"><div class="pq-text"><strong>Set 1.</strong> Which sentence contains a grammar error?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doE(1,'A')">A. If the gym had a softer floor, the gymnasts would train for longer.</button>
+        <button class="pq-btn" onclick="doE(1,'B')">B. If the post had been collected, the parcels would have arrived sooner.</button>
+        <button class="pq-btn" onclick="doE(1,'C')">C. If the harbour had a longer wall, the boats would have stayed calm in the storm.</button>
+        <button class="pq-btn" onclick="doE(1,'D')">D. If the alarm had been fixed, the shop would have been protected.</button>
+      </div><div class="pq-fb" id="e1f"></div></div>
+    <div class="pq" id="e2" style="display:none"><div class="pq-text"><strong>Set 2.</strong> Which sentence contains a grammar error?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doE(2,'A')">A. If the cabin had a wood stove, the hikers would feel warmer at night.</button>
+        <button class="pq-btn" onclick="doE(2,'B')">B. If the goalkeeper had a stronger kick, the ball would have reached the halfway line.</button>
+        <button class="pq-btn" onclick="doE(2,'C')">C. If the bridge had been widened, the lorries would have crossed safely.</button>
+        <button class="pq-btn" onclick="doE(2,'D')">D. If the seeds had been watered, the shoots would have appeared by now.</button>
+      </div><div class="pq-fb" id="e2f"></div></div>
+    <div class="pq" id="e3" style="display:none"><div class="pq-text"><strong>Set 3.</strong> Which sentence is grammatically CORRECT?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doE(3,'A')">A. If the theatre had a bigger stage, the dancers would have performed more freely.</button>
+        <button class="pq-btn" onclick="doE(3,'B')">B. If the river had been dredged, the barges will pass through next month.</button>
+        <button class="pq-btn" onclick="doE(3,'C')">C. If the school had a kiln, the pupils would make pottery every term.</button>
+        <button class="pq-btn" onclick="doE(3,'D')">D. If the choir had rehearsed, they would sang at the fair.</button>
+      </div><div class="pq-fb" id="e3f"></div></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Label all four. The odd socks are the error.</div></div>
+    <div style="background:#EDE7F6;border-radius:10px;padding:12px 14px;font-size:13px;color:#4a2a7a;line-height:1.7"><strong>Shortcut (optional):</strong> 🟦 Maybe = "2" (Second), 🟥 Too-Late = "3" (Third). Jot a tiny 2 or 3 above each half if it helps.</div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="WritingVocab_Lesson_LiftAndProve.html" class="btn-lesson">Writing &amp; Vocab Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+var wuAns={1:'A',2:'A',3:'A'};
+var wuFb={
+ 1:{A:'✅ "a longer runway" is a thing → 🟦 Maybe World.',_:'❌ "a longer runway" is a thing (a noun), not a done-word → 🟦 Maybe World.'},
+ 2:{A:'✅ "will" is banned in the result → "would have stopped".',_:'❌ The result says "will have" — always the slip → "would have stopped".'},
+ 3:{A:'✅ Yes — label all four first. The odd-socks pair is the error; don\'t grab the first strange-looking one.',_:'❌ Grabbing the first odd-looking one is the trap. Label both halves of all four, then find the odd pair.'}
+};
+function doWu(n,c){var q=document.getElementById('wq'+n);var fb=document.getElementById('wf'+n);var b=q.querySelectorAll('.wu-btn');b.forEach(function(x){x.disabled=true;});if(c===wuAns[n]){fb.className='wu-fb show-ok';fb.innerHTML=wuFb[n][c];b[['A','B'].indexOf(c)].className='wu-btn ok';}else{fb.className='wu-fb show-no';fb.innerHTML=wuFb[n]['_'];b[['A','B'].indexOf(c)].className='wu-btn no';}}
+
+var cKey={1:'A',2:'B',3:'B',4:'B'};
+var cWhy={1:'"a side door" 🟦 + "would arrive" 🟦 = 🟦🟦 ✓.',2:'"been bailed out" 🟥 + "would have stayed" 🟥 = 🟥🟥 ✓.',3:'"taller fences" 🟦 + "would have stayed" 🟥 = odd socks ✗.',4:'"warmed up" 🟥 + "would have sounded" 🟥 = 🟥🟥 ✓.'};
+var cDone={};var cC=0;
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var pq=document.getElementById('c'+n);var fb=document.getElementById('c'+n+'f');var b=pq.querySelectorAll('.pq-btn');b.forEach(function(x){x.disabled=true;});var o=['A','B','C'];if(c===cKey[n]){fb.className='pq-fb ok';fb.innerHTML='✅ '+cWhy[n];b[o.indexOf(c)].className='pq-btn ok';cC++;}else{fb.className='pq-fb no';fb.innerHTML='❌ '+cWhy[n];b[o.indexOf(c)].className='pq-btn no';}if(Object.keys(cDone).length===4){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Pair check: '+cC+'/4</strong>';}}
+
+var eAns={1:'C',2:'B',3:'C'};
+var eFb={
+ 1:{ok:'✅ C: "a longer wall" 🟦 + "would have stayed" 🟥 = odd socks. A 🟦🟦 ✓, B 🟥🟥 ✓, D 🟥🟥 ✓.',no:'❌ Label all four: A 🟦🟦 ✓, B 🟥🟥 ✓, C "a longer wall" 🟦 + "would have stayed" 🟥 = odd socks ✗, D 🟥🟥 ✓.'},
+ 2:{ok:'✅ B: "a stronger kick" 🟦 + "would have reached" 🟥 = odd socks. A 🟦🟦 ✓ (don\'t be fooled by "had a wood stove"), C 🟥🟥 ✓, D 🟥🟥 ✓.',no:'❌ A looks odd ("a wood stove") but its result is "would feel" 🟦 → 🟦🟦 ✓. B "a stronger kick" 🟦 + "would have reached" 🟥 = odd socks ✗. C, D 🟥🟥 ✓.'},
+ 3:{ok:'✅ C: "a kiln" 🟦 + "would make" 🟦 = 🟦🟦 ✓ correct. A = odd socks; B = "will pass" breaks the will rule; D = "would sang" is a broken verb.',no:'❌ Check each: A 🟦🟥 odd socks; B "will pass" (will rule); D "would sang" (broken verb); C "a kiln" 🟦 + "would make" 🟦 = 🟦🟦 ✓ — the correct one.'}
+};
+var eDone={};
+function doE(n,c){var pq=document.getElementById('e'+n);var fb=document.getElementById('e'+n+'f');var b=pq.querySelectorAll('.pq-btn');var o=['A','B','C','D'];if(c===eAns[n]){eDone[n]=true;fb.className='pq-fb ok';fb.innerHTML=eFb[n].ok;b[o.indexOf(c)].className='pq-btn ok';b.forEach(function(x){x.disabled=true;});var nx=document.getElementById('e'+(n+1));if(nx){nx.style.display='block';setTimeout(function(){nx.scrollIntoView({behavior:'smooth',block:'start'});},150);}if(n===3)document.getElementById('summaryCard').style.display='block';}else{fb.className='pq-fb no';fb.innerHTML=eFb[n].no;b[o.indexOf(c)].className='pq-btn no';b[o.indexOf(c)].disabled=true;}}
+</script>
+</body>
+</html>
