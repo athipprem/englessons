@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Two Worlds (If Sentences) — Unit 14 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.08rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.worlds{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.world{flex:1;min-width:240px;border-radius:12px;padding:16px}
+.world.maybe{background:#E3F2FD;border:2px solid #1565C0}
+.world.late{background:#FCE4EC;border:2px solid #C2185B}
+.world h3{font-size:15px;margin-bottom:8px}
+.world.maybe h3{color:#0D47A1}.world.late h3{color:#AD1457}
+.world p{font-size:13px;line-height:1.6;margin-bottom:6px}
+.chip{display:inline-block;border-radius:6px;padding:2px 8px;font-weight:700;font-size:13px}
+.chip.b{background:#BBDEFB;color:#0D47A1}.chip.p{background:#F8BBD0;color:#AD1457}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:13.5px;font-weight:700;text-align:center;max-width:560px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.mb{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.lt{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.node.commit{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff}
+.arrow{font-size:20px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-mb{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-lt{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-ok{background:#E8F5E9;border:2px solid #43A047;color:#1B5E20;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-no{background:#FFEBEE;border:2px solid #E53935;color:#B71C1C;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-v{background:#FFF8E1;border:2px solid #F9A825;color:#8a5a00;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Two Worlds</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 14 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="rule-box">
+      <div class="rule-big">Brand new topic — we start from zero 🧩</div>
+      <p style="margin:0;font-size:14px;color:#F3E5F5">No need to know anything yet. We'll build it one small step at a time.</p>
+    </div>
+    <h2>What is an "if" sentence?</h2>
+    <p>An <strong>"if" sentence</strong> imagines something that is not actually happening, and says what would follow. It has two halves:</p>
+    <div class="warn-box" style="background:#F3E5F5;border-color:#8E24AA">
+      <strong>If the dog had wings,</strong> &nbsp;|&nbsp; <strong>it would fly over the fence.</strong><br>
+      <span style="color:#6A1B9A">↑ the "if" half (the imagined idea)</span> &nbsp;·&nbsp; <span style="color:#6A1B9A">↑ the result half (what would follow)</span>
+    </div>
+    <p>Here's the one thing that matters: both halves must belong to the <strong>same "world"</strong>. There are only two worlds. Let's meet them. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: TWO WORLDS + TREE -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The two worlds 🌍🌗</h2>
+    <div class="worlds">
+      <div class="world maybe">
+        <h3>🌍 Maybe World</h3>
+        <p>About <strong>now / always</strong> — it could still happen. Imagining a different "now".</p>
+        <p>If half: <span class="chip b">had + a thing</span> → "had a pool", "had wings"</p>
+        <p>Result: <span class="chip b">would + verb</span> → "would swim", "would fly"</p>
+      </div>
+      <div class="world late">
+        <h3>🌗 Too-Late World</h3>
+        <p>About the <strong>past</strong> — it's finished, too late to change.</p>
+        <p>If half: <span class="chip p">had + a done-word</span> → "had been locked", "had fixed"</p>
+        <p>Result: <span class="chip p">would have + verb</span> → "would have stayed"</p>
+      </div>
+    </div>
+    <p style="font-size:13.5px"><strong>"A thing" vs "a done-word":</strong> a <em>thing</em> is a noun (a pool, wings, a sign). A <em>done-word</em> is a past action (been locked, fixed, left). That one difference tells you the world.</p>
+    <h2 style="margin-top:18px">The Decision Tree 🌳</h2>
+    <div class="tree">
+      <div class="node start">START — look at the if half</div>
+      <div class="arrow">↓</div>
+      <div class="node q">"had a ___" + would + verb?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES ↓</span><div class="node mb">🌍 Maybe World</div></div>
+        <div class="leg"><span class="lbl">NO — "had + done-word" + would have? ↓</span><div class="node lt">🌗 Too-Late World</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="node commit">Both halves SAME world? ✓ correct &nbsp;|&nbsp; Different worlds? ✗ that's the error</div>
+    </div>
+    <div class="warn-box">
+      <div class="warn-title">One golden rule: the "Will Ban"</div>
+      The result half NEVER uses <strong>"will"</strong>. If you see "will" after the comma, it's wrong — every time.
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: WHICH WORLD -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — Which world is this half? 🔎</h2>
+    <p>Read each half. <span class="chip b">had + thing</span> or <span class="chip b">would + verb</span> = Maybe. <span class="chip p">had + done-word</span> or <span class="chip p">would have</span> = Too-Late.</p>
+    <div class="di" id="m1"><div class="di-sent">1. "the school had a swimming pool"</div><div class="di-btns"><button class="di-mb" onclick="doM(1,'mb')">Maybe 🌍</button><button class="di-lt" onclick="doM(1,'lt')">Too-Late 🌗</button></div><div class="di-fb" id="m1f"></div></div>
+    <div class="di" id="m2"><div class="di-sent">2. "the team would have won the match"</div><div class="di-btns"><button class="di-mb" onclick="doM(2,'mb')">Maybe 🌍</button><button class="di-lt" onclick="doM(2,'lt')">Too-Late 🌗</button></div><div class="di-fb" id="m2f"></div></div>
+    <div class="di" id="m3"><div class="di-sent">3. "we would travel more often"</div><div class="di-btns"><button class="di-mb" onclick="doM(3,'mb')">Maybe 🌍</button><button class="di-lt" onclick="doM(3,'lt')">Too-Late 🌗</button></div><div class="di-fb" id="m3f"></div></div>
+    <div class="di" id="m4"><div class="di-sent">4. "the door had been locked"</div><div class="di-btns"><button class="di-mb" onclick="doM(4,'mb')">Maybe 🌍</button><button class="di-lt" onclick="doM(4,'lt')">Too-Late 🌗</button></div><div class="di-fb" id="m4f"></div></div>
+    <div class="di" id="m5"><div class="di-sent">5. "the garden had a little pond"</div><div class="di-btns"><button class="di-mb" onclick="doM(5,'mb')">Maybe 🌍</button><button class="di-lt" onclick="doM(5,'lt')">Too-Late 🌗</button></div><div class="di-fb" id="m5f"></div></div>
+    <div class="di" id="m6"><div class="di-sent">6. "they would have arrived on time"</div><div class="di-btns"><button class="di-mb" onclick="doM(6,'mb')">Maybe 🌍</button><button class="di-lt" onclick="doM(6,'lt')">Too-Late 🌗</button></div><div class="di-fb" id="m6f"></div></div>
+    <div class="drill-score" id="mScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: MATCH OR ERROR + VOCAB + SUMMARY -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — Do the two halves match? 🧦</h2>
+    <p>Label each half, then decide: <strong>same world = correct ✓</strong>, <strong>different worlds = error ✗</strong> (the odd socks).</p>
+    <div class="di" id="x1"><div class="di-sent">1. "If the park had a fountain, children would play there all day."</div><div class="di-btns"><button class="di-ok" onclick="doX(1,'ok')">Same ✓</button><button class="di-no" onclick="doX(1,'no')">Error ✗</button></div><div class="di-fb" id="x1f"></div></div>
+    <div class="di" id="x2"><div class="di-sent">2. "If the bus had left earlier, we would have caught the train."</div><div class="di-btns"><button class="di-ok" onclick="doX(2,'ok')">Same ✓</button><button class="di-no" onclick="doX(2,'no')">Error ✗</button></div><div class="di-fb" id="x2f"></div></div>
+    <div class="di" id="x3"><div class="di-sent">3. "If the shop had a sign, more people would have noticed it."</div><div class="di-btns"><button class="di-ok" onclick="doX(3,'ok')">Same ✓</button><button class="di-no" onclick="doX(3,'no')">Error ✗</button></div><div class="di-fb" id="x3f"></div></div>
+    <div class="di" id="x4"><div class="di-sent">4. "If the roof had been fixed, the books would have stayed dry."</div><div class="di-btns"><button class="di-ok" onclick="doX(4,'ok')">Same ✓</button><button class="di-no" onclick="doX(4,'no')">Error ✗</button></div><div class="di-fb" id="x4f"></div></div>
+    <div class="di" id="x5"><div class="di-sent">5. "If the town had a pool, everyone would have swum every summer."</div><div class="di-btns"><button class="di-ok" onclick="doX(5,'ok')">Same ✓</button><button class="di-no" onclick="doX(5,'no')">Error ✗</button></div><div class="di-fb" id="x5f"></div></div>
+    <div class="drill-score" id="xScore"></div>
+
+    <h2 style="margin-top:24px">Keep-sharp — quick vocab ✨</h2>
+    <p>You're great at vocab — just keeping it warm. Pick the meaning that the clue <em>proves</em>.</p>
+    <div class="di" id="v1" style="border-color:#F9A825"><div class="di-sent">1. "After the long hike, Ben was <strong>exhausted</strong> and could barely lift his feet."</div><div class="di-btns"><button class="di-v" onclick="doV(1,'a')">very tired</button><button class="di-v" onclick="doV(1,'b')">excited</button><button class="di-v" onclick="doV(1,'c')">hungry</button></div><div class="di-fb" id="v1f"></div></div>
+    <div class="di" id="v2" style="border-color:#F9A825"><div class="di-sent">2. "Mia was <strong>delighted</strong> when she opened the present and squealed with joy."</div><div class="di-btns"><button class="di-v" onclick="doV(2,'a')">confused</button><button class="di-v" onclick="doV(2,'b')">very pleased</button><button class="di-v" onclick="doV(2,'c')">annoyed</button></div><div class="di-fb" id="v2f"></div></div>
+    <div class="di" id="v3" style="border-color:#F9A825"><div class="di-sent">3. "The mule was <strong>stubborn</strong> and refused to move no matter how hard they pulled."</div><div class="di-btns"><button class="di-v" onclick="doV(3,'a')">friendly</button><button class="di-v" onclick="doV(3,'b')">speedy</button><button class="di-v" onclick="doV(3,'c')">refusing to budge</button></div><div class="di-fb" id="v3f"></div></div>
+    <div class="drill-score" id="vScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Label both halves → same world = correct, different = error.<br>And "will" after the comma is always wrong.</div></div>
+    <p style="text-align:center;margin:0">That's both lessons done for Unit 14. Take your time on the test — Step 1 first on cloze, label both halves on grammar. You've got this. 💪</p>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_DecisionTreeStart.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var mKey={1:'mb',2:'lt',3:'mb',4:'lt',5:'mb',6:'lt'};
+var mWhy={1:'"had a pool" = had + a thing → Maybe 🌍.',2:'"would have won" → Too-Late 🌗.',3:'"would travel" = would + verb → Maybe 🌍.',4:'"had been locked" = had + a done-word → Too-Late 🌗.',5:'"had a pond" = had + a thing → Maybe 🌍.',6:'"would have arrived" → Too-Late 🌗.'};
+var mDone={};var mC=0;
+function doM(n,c){if(mDone[n])return;mDone[n]=true;var it=document.getElementById('m'+n);var fb=document.getElementById('m'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===mKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+mWhy[n];mC++;}else{fb.className='di-fb no';fb.textContent='❌ '+mWhy[n];}if(Object.keys(mDone).length===6){var s=document.getElementById('mScore');s.className='drill-score show';s.innerHTML='<strong>Which world: '+mC+'/6</strong>';}}
+
+var xKey={1:'ok',2:'ok',3:'no',4:'ok',5:'no'};
+var xWhy={1:'"had a fountain" (Maybe) + "would play" (Maybe) → same world ✓.',2:'"had left" (Too-Late) + "would have caught" (Too-Late) → same world ✓.',3:'"had a sign" (Maybe) + "would have noticed" (Too-Late) → different = ERROR ✗.',4:'"had been fixed" (Too-Late) + "would have stayed" (Too-Late) → same world ✓.',5:'"had a pool" (Maybe) + "would have swum" (Too-Late) → different = ERROR ✗.'};
+var xDone={};var xC=0;
+function doX(n,c){if(xDone[n])return;xDone[n]=true;var it=document.getElementById('x'+n);var fb=document.getElementById('x'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===xKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+xWhy[n];xC++;}else{fb.className='di-fb no';fb.textContent='❌ '+xWhy[n];}if(Object.keys(xDone).length===5){var s=document.getElementById('xScore');s.className='drill-score show';s.innerHTML='<strong>Match or error: '+xC+'/5</strong>';}}
+
+var vKey={1:'a',2:'b',3:'c'};
+var vWhy={1:'"could barely lift his feet" → very tired.',2:'"squealed with joy" → very pleased.',3:'"refused to move no matter what" → refusing to budge.'};
+var vDone={};var vC=0;
+function doV(n,c){if(vDone[n])return;vDone[n]=true;var it=document.getElementById('v'+n);var fb=document.getElementById('v'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===vKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+vWhy[n];vC++;}else{fb.className='di-fb no';fb.textContent='❌ '+vWhy[n];}if(Object.keys(vDone).length===3){var s=document.getElementById('vScore');s.className='drill-score show';s.innerHTML='<strong>Vocab keep-sharp: '+vC+'/3</strong>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
