@@ -21,8 +21,8 @@ var PREM_ENGLISH = {
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           14,
-    status:      'Phase 2 · U14 Lessons Ready · Test Pending (CONSOLIDATION)',
+    n:           15,
+    status:      'Phase 2 · U15 Lessons Ready · Test Pending (grammar rebuild)',
     testPending: true
   },
 
@@ -32,61 +32,61 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 13 — updated after each test)
+  // Last completed assessment (Unit 14 — updated after each test)
   lastUnit: {
-    n: 13, label: 'Unit 13', score: 8, outOf: 20, pct: 40, delta: -4, prevScore: 12,
+    n: 14, label: 'Unit 14', score: 14, outOf: 20, pct: 70, delta: 6, prevScore: 8,
 
-    patternLabel:   'Unit 13 &mdash; 24 Jun 2026 &middot; 8/20 (40%) &middot; ALL sections down &middot; Cloze 2/7 &middot; Grammar 2/7 &middot; Vocab 4/6',
-    patternInsight: '<strong>Score: 8/20 (40%) &mdash; a sharp, all-section dip. Read this honestly: it is almost certainly NOT lost skill &mdash; it is overload and confidence.</strong> Three weeks ago this same boy scored 80% with a perfect vocab section; skills don&rsquo;t evaporate in three weeks. The trend is the story: <strong>U11 80% &rarr; U12 60% &rarr; U13 40%</strong>, and at U13 even <strong>Vocabulary &mdash; his anchor &mdash; fell</strong> on two <strong>anti-clue</strong> errors he would never normally make (Q15 &ldquo;ravenous&rdquo; &rarr; chose &ldquo;extremely tired&rdquo; though the clue says he hadn&rsquo;t eaten and ate three slices; Q18 &ldquo;dazzling&rdquo; &rarr; chose &ldquo;dark and dull&rdquo;, the exact opposite of &ldquo;glowing gold&rdquo;). Those are the errors of a child who is rushing or discouraged, not method gaps. <strong>Most likely cause points back at the coaching, not at Prem:</strong> a new framework almost every unit (2-number labels &rarr; Maybe/Too-Late worlds &rarr; &ldquo;label all four&rdquo; + cloze decision tree + a new Writing strand) while the ASMOPSS clock started ticking &mdash; too many competing methods in a 10-year-old&rsquo;s head. <strong>This is a wellbeing flag too.</strong> DECISION: STOP adding. <strong>U14 = CONSOLIDATION/confidence unit</strong> &mdash; 2 lessons only (Cloze + Grammar), each taught from scratch with a decision tree, one locked method per skill; gentle, lots of wins; ease ASMOPSS pressure; check in with Prem.',
+    patternLabel:   'Unit 14 &mdash; 25 Jun 2026 &middot; 14/20 (70%) &middot; REBOUND +6 &middot; Cloze 5/7 &middot; Vocab 6/6 &#9733; &middot; Grammar 3/7',
+    patternInsight: '<strong>Score: 14/20 (70%) &mdash; a strong rebound (+30 points off the U13 crash). The consolidation reset worked.</strong> Two of three sections are healthy again: <strong>Cloze recovered to 5/7</strong> (teaching the routine from scratch + drilling Step 1 to automaticity was exactly right; the two misses were a single <em>level</em> swap on the contrast pair &mdash; he got the function right but mixed up <em>although</em>/<em>however</em>), and <strong>Vocabulary snapped back to a clean 6/6 &#9733;</strong>, confirming U13 was rushing, not lost skill. Confidence is restored. <strong>The one skill still stuck is Grammar (3/7).</strong> He can name a conditional (Q8) and catch a loud &ldquo;will&rdquo; (Q9), but every find-the-error item collapsed (Q10, Q12, Q13, Q14) with the tell-tale default-to-&ldquo;A&rdquo;. Crucially, <strong>Prem told us he doesn&rsquo;t understand &ldquo;Maybe/Too-Late World&rdquo;</strong> &mdash; the invented metaphor added an abstraction he can&rsquo;t use under pressure. <strong>DECISION (Lui): drop it. From U15, grammar is the STANDARD 4 conditionals (Zero/First/Second/Third) tied to tenses, taught with the global-standard chart + simple coaching aids &mdash; no invented systems.</strong>',
 
-    analysisLabel:   'Unit 13 Result Analysis &mdash; 24 Jun 2026',
-    analysisInsight: '<strong>Score: 8/20 (40%) &mdash; lowest since U8 original; the same overload cascade as U12, now spread across all three sections.</strong> Section A Cloze 2/7: he engaged the new decision tree (wrote &ldquo;S&rdquo; labels) but <strong>mislabelled the level</strong> on the mid-sentence gaps (wrote &ldquo;S&rdquo; on clause-joiner gaps 3 &amp; 4) and then cascaded &mdash; heavy crossings-out; kept only Q2 (although) and Q6 (meanwhile). Section B Grammar 2/7: Q8 (Second-ID) and Q9 (Will Ban) correct, then the find-the-error scan <strong>did not fire</strong> &mdash; he defaulted to guessing on Q10&ndash;Q14. Section C Vocab 4/6: Q16, Q17, Q19, Q20 correct; <strong>Q15 and Q18 are anti-clue misreads</strong> (chose the opposite of the clue) &mdash; the signature of rushing/disengagement, not a vocab gap. The fix is not more teaching; it is consolidation, easier wins, and a confidence reset.',
+    analysisLabel:   'Unit 14 Result Analysis &mdash; 25 Jun 2026',
+    analysisInsight: '<strong>Score: 14/20 (70%) &mdash; the rebound we hoped for, and a clear pointer to the next job.</strong> Section A Cloze 5/7: more than doubled from 2/7. The from-scratch decision tree + &ldquo;master Step 1 first&rdquo; worked; the only two misses (Q1, Q4) were a single level slip &mdash; he chose the right CONTRAST function both times but swapped <em>although</em> (clause-joiner) and <em>however</em> (sentence-starter). U15 cloze drills exactly that pair. Section C Vocab 6/6 &#9733;: anchor fully restored. Section B Grammar 3/7: barely moved from 2/7. Correct on the &ldquo;name/identify&rdquo; items (Q8 Second-ID, Q9 Will-Ban, Q11 Mixed) but <strong>every find-the-error / which-is-correct item failed (Q10, Q12, Q13, Q14), three of them default-guessed &ldquo;A&rdquo;.</strong> The Maybe/Too-Late framework is the problem (Prem said so); U15 re-teaches conditionals the standard way (tense recipes), with the find-the-error check made mechanical: read the result half first (&ldquo;would&rdquo; = Second, &ldquo;would have&rdquo; = Third) and make the halves match.',
 
-    qSummary: '<strong>An overload / confidence dip, NOT lost skill (he was 80% three weeks ago). Cloze 2/7 (mislabelled level + cascade) &middot; Grammar 2/7 (scan didn&rsquo;t fire, defaulted to guessing) &middot; Vocab 4/6 (two anti-clue misreads &mdash; his anchor slipped). U14 = consolidate, one locked method per skill, rebuild confidence.</strong>',
+    qSummary: '<strong>A strong rebound (40%&rarr;70%). Cloze 5/7 (recovered; one level-swap on although/however) &middot; Vocab 6/6 &#9733; (anchor restored) &middot; Grammar 3/7 (the lone stuck skill &mdash; find-the-error still collapses; Maybe/Too-Late dropped, standard 4 conditionals from U15).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed B (as a result). Cascade &mdash; several crossed-out attempts. Developing.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; A (although = CONTRAST clause-joiner) &mdash; written once, left alone. Developing.' },
-      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed G (while = TIME clause-joiner); mislabelled the gap &ldquo;S&rdquo; (it is mid-sentence). Developing.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed F (so = RESULT clause-joiner); again mislabelled &ldquo;S&rdquo; on a clause-joiner. Developing.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'a', pass:false, note:'&#10007; Needed D (however = CONTRAST sentence-starter). Cascade. Advanced.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; E (meanwhile = TIME sentence-starter) &mdash; the second clean-head answer. Advanced.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed H (moreover). Cascade. Developing.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Second-Conditional ID (Had Test). Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Will Ban: spotted the &ldquo;will&rdquo; in the result clause. Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (answer C). Scan didn&rsquo;t fire &mdash; no labelling, looks like a guess. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Mixed (answer B) &mdash; missed under pressure; he had this at U12. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (answer A) &mdash; missed; guessing, not method. Developing.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Reverse cross-check (answer C) &mdash; missed; the verify skill he showed at U12 didn&rsquo;t hold here. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Find-the-error (answer B) &mdash; missed. 0/5 across Q10&ndash;Q14: the scan collapsed. Advanced.' },
-      { q:'Q15', topic:'Vocab',   lvl:'i', pass:false, note:'&#10007; ANTI-CLUE: ravenous = &ldquo;very hungry&rdquo;; chose &ldquo;extremely tired&rdquo; despite &ldquo;hadn&rsquo;t eaten, ate three slices in a minute&rdquo;. Rushing, not a gap. Developing.' },
-      { q:'Q16', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; vigilant = &ldquo;watchful and alert&rdquo;. Developing.' },
-      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; abrupt = &ldquo;sudden and sharp&rdquo;. Developing.' },
-      { q:'Q18', topic:'Vocab',   lvl:'a', pass:false, note:'&#10007; ANTI-CLUE: dazzling = &ldquo;extremely bright&rdquo;; chose &ldquo;dark and dull&rdquo; &mdash; the exact opposite of &ldquo;glowing gold in the new light&rdquo;. Advanced.' },
-      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; feeble = &ldquo;weak and faint&rdquo;. Developing.' },
-      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; hesitant = &ldquo;unsure and holding back&rdquo;. Advanced.' }
+      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Put D (however); needed A (although). Right function (contrast), wrong level &mdash; this gap is a clause-joiner. Developing.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Foundational.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; H (while = TIME clause-joiner). Developing.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Put A (although); needed D (however). The mirror of Q1 &mdash; contrast right, level swapped (this one is a sentence-starter). Developing.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; G (so = RESULT clause-joiner). Developing.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; E (meanwhile = TIME sentence-starter). Advanced.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; F (moreover = ADDITION sentence-starter). Developing.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Identified the Second Conditional (B). Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Will Ban: spotted &ldquo;will&rdquo; in the result (C). Foundational.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (answer D); put A. The scan didn&rsquo;t fire &mdash; default-to-A. Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed (B) &mdash; the present-time signal handled correctly. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (answer A); put C. Missed the 2nd-if / 3rd-result mismatch. Developing.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Which-is-correct (answer C); default-guessed A. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Find-the-error (answer B); default-guessed A. 1/5 across the find/verify items &mdash; the isolated blocker. Advanced.' },
+      { q:'Q15', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; keen = &ldquo;very enthusiastic and eager&rdquo;. Developing.' },
+      { q:'Q16', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; drenched = &ldquo;completely soaked&rdquo;. Developing.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; sturdy = &ldquo;strong and solidly built&rdquo;. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; peculiar = &ldquo;strange and unusual&rdquo;. Advanced.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; dismal = &ldquo;dark and dreary&rdquo;. Developing.' },
+      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; nimble = &ldquo;quick and agile&rdquo;. Anchor restored &mdash; clean 6/6. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U13: values softened (transient overload dip, not skill loss — expected to rebound at U14)
+  // After U14: the U13 dip rebounded as predicted — Vocab & Cloze recovered; Grammar is the lone stuck skill
   skills: [
-    { name: 'Reading Compr.',    c: 75, t: 85 },   // U13: not in unit test; unchanged
-    { name: 'Vocabulary',        c: 77, t: 82 },   // U13: 4/6 — two anti-clue misreads (rushing), not a gap; SOFT dip
-    { name: 'Grammar',           c: 64, t: 82 },   // U13: 2/7 — find-the-error scan didn't fire under pressure; SOFT dip
-    { name: 'Cloze Test',        c: 56, t: 80 },   // U13: 2/7 — mislabelled level + cascade (overload); SOFT dip
+    { name: 'Reading Compr.',    c: 75, t: 85 },   // U14: not in unit test; unchanged
+    { name: 'Vocabulary',        c: 80, t: 82 },   // U14: 6/6 ★ — anchor restored; ~at target
+    { name: 'Grammar',           c: 65, t: 82 },   // U14: 3/7 — find-the-error still collapses; THE focus (standard 4 conditionals from U15)
+    { name: 'Cloze Test',        c: 68, t: 80 },   // U14: 5/7 — recovered; one although/however level swap left
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
-    { name: 'Critical Thinking', c: 62, t: 80 },   // U13: not in unit test; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U13: not in unit test; unchanged
+    { name: 'Critical Thinking', c: 62, t: 80 },   // U14: not in unit test; unchanged
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U14: not in unit test; unchanged
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [75, 77, 64, 56, 65, 95, 62, 55],
+  radarCurrent:  [75, 80, 65, 68, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 13',
+  radarLegendUnit: 'Unit 14',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -104,11 +104,24 @@ var PREM_ENGLISH = {
     { n:'M1', score:20, outOf:28, delta:null, color:'#9f7aea', star:false, label:'M1', milestone:true },
     { n:11, score:16, outOf:20, delta:0, color:'#89F336', star:false, label:'U11' },
     { n:12, score:12, outOf:20, delta:-4, color:'#fc4e4e', star:false, label:'U12' },
-    { n:13, score:8, outOf:20, delta:-4, color:'#fc4e4e', star:false, label:'U13' }
+    { n:13, score:8, outOf:20, delta:-4, color:'#fc4e4e', star:false, label:'U13' },
+    { n:14, score:14, outOf:20, delta:6, color:'#667eea', star:false, label:'U14' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 14,
+      title: 'Unit 14 &mdash; CONSOLIDATION &middot; Cloze: Decision Tree (from scratch) &middot; Grammar: Two Worlds (from scratch)',
+      badge: '#667eea',
+      status: 'done',
+      note: '14/20 (70%) &mdash; <strong>a strong rebound (+30 pts off the U13 crash); the consolidation reset worked</strong> &middot; <strong>Cloze 5/7</strong> (more than doubled &mdash; from-scratch decision tree + &ldquo;master Step 1 first&rdquo;; the 2 misses were one although/however LEVEL swap, function right both times) &middot; <strong>Vocab 6/6 &#9733;</strong> (anchor restored &mdash; confirms U13 was rushing, not lost skill) &middot; <strong>Grammar 3/7</strong> (still the lone stuck skill: names a conditional + catches &ldquo;will&rdquo;, but every find-the-error item collapsed, default-guessing &ldquo;A&rdquo;). <strong>Prem said he doesn&rsquo;t get &ldquo;Maybe/Too-Late World&rdquo; &rarr; DROPPED.</strong> &middot; Next: <strong>UNIT 15</strong> &mdash; grammar rebuilt as the STANDARD 4 conditionals (Zero/First/Second/Third) tied to tenses; cloze keeps its tree + an although/however drill',
+      tags: [
+        { t:'Cloze 5/7', s:'background:#fff8e1;color:#744210' },
+        { t:'Vocab 6/6 &#9733;', s:'background:#f0fff4;color:#276749' },
+        { t:'Grammar 3/7 &#9888;', s:'background:#fff0f0;color:#c53030' }
+      ]
+    },
     {
       n: 13,
       title: 'Unit 13 &mdash; Cloze: Pencil &amp; Commit (decision tree) &middot; Grammar: Find the Error &middot; Writing &amp; Vocabulary',

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — The 4 Conditionals — Unit 15 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #8E24AA;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#6A1B9A;margin-bottom:6px}
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.ctable th{background:#4A235A;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.ctable td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.ctable tr.zero td{background:#FFF3E0}
+.ctable tr.first td{background:#E8F5E9}
+.ctable tr.second td{background:#E3F2FD}
+.ctable tr.third td{background:#FCE4EC}
+.ctype{font-weight:700}
+.recipe{font-family:'Courier New',monospace;font-size:12px;background:rgba(255,255,255,0.7);padding:2px 5px;border-radius:4px;display:inline-block}
+.vb{color:#1565C0;font-weight:700}
+.vb3{color:#C2185B;font-weight:700}
+.twocol{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.tc{flex:1;min-width:250px;border-radius:12px;padding:16px}
+.tc.second{background:#E3F2FD;border:2px solid #1565C0}
+.tc.third{background:#FCE4EC;border:2px solid #C2185B}
+.tc h3{font-size:15px;margin-bottom:8px}
+.tc.second h3{color:#0D47A1}.tc.third h3{color:#AD1457}
+.tc p{font-size:13px;line-height:1.6;margin-bottom:6px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:13.5px;font-weight:700;text-align:center;max-width:580px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.s2{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.s3{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.arrow{font-size:20px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-t{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-ok{background:#E8F5E9;border:2px solid #43A047;color:#1B5E20;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-no{background:#FFEBEE;border:2px solid #E53935;color:#B71C1C;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — The 4 Conditionals</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 15 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">"If" sentences let you talk about things that <em>aren't</em> happening — possibilities, dreams, and "what could have been". "If it rains, we'll stay in." "If I had a dog, I'd walk it." "If I had studied, I would have passed." These are everywhere — in stories, in exams, in everyday talk. There are exactly <strong>four</strong> kinds, and they're called by the same names all over the world. We'll learn the real names — no made-up labels this time.</p>
+    </div>
+    <h2>Fresh start, real names ✅</h2>
+    <p>We're going to use the standard names every teacher and textbook uses: <strong>Zero, First, Second, Third</strong>. Each one is just a little <strong>recipe</strong> of verb tenses. Learn the recipes, and the tricky exam questions become easy. Lots of examples coming up. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: the 4 recipes -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The four recipes 📋</h2>
+    <p>Each conditional = an <strong>if-half</strong> + a <strong>result-half</strong>, each with a set tense. Read the examples aloud.</p>
+    <table class="ctable">
+      <tr><th>Type</th><th>Recipe</th><th>Example</th><th>When you use it</th></tr>
+      <tr class="zero"><td class="ctype">Zero</td><td><span class="recipe">If + present, … present</span></td><td>If you <span class="vb">heat</span> ice, it <span class="vb">melts</span>.</td><td>Facts always true</td></tr>
+      <tr class="first"><td class="ctype">First</td><td><span class="recipe">If + present, … will + verb</span></td><td>If it <span class="vb">rains</span>, we <span class="vb">will stay</span> in.</td><td>A real future maybe</td></tr>
+      <tr class="second"><td class="ctype">Second</td><td><span class="recipe">If + past simple, … would + verb</span></td><td>If I <span class="vb">had</span> a dog, I <span class="vb">would walk</span> it.</td><td>A dream about <strong>now</strong> (not real)</td></tr>
+      <tr class="third"><td class="ctype">Third</td><td><span class="recipe">If + had + past participle, … would have + verb</span></td><td>If I <span class="vb3">had studied</span>, I <span class="vb3">would have passed</span>.</td><td>Looking back at the <strong>past</strong></td></tr>
+    </table>
+    <div class="warn-box"><div class="warn-title">Exam tip — where the marks are</div>Zero and First are easy; you already say them every day. <strong>Almost every tricky exam question is about Second vs Third.</strong> So next we zoom right in on those two.</div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Second vs Third + identify drill -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Second vs Third — the big one ⚖️</h2>
+    <div class="twocol">
+      <div class="tc second">
+        <h3>Second = dream about NOW</h3>
+        <p>Imagining a different right-now. It isn't true, but you picture it.</p>
+        <p><span class="recipe">If + past simple … would + verb</span></p>
+        <p>"If I <span class="vb">had</span> a robot, it <span class="vb">would tidy</span> my room."</p>
+      </div>
+      <div class="tc third">
+        <h3>Third = look back at the PAST</h3>
+        <p>Imagining the past going differently. Too late to change now.</p>
+        <p><span class="recipe">If + had + past participle … would have + verb</span></p>
+        <p>"If I <span class="vb3">had set</span> an alarm, I <span class="vb3">would have woken</span> up."</p>
+      </div>
+    </div>
+    <div class="rule-box"><div class="rule-big">Quickest tell — look at the RESULT half:<br>plain "<span style="color:#90CAF9">would …</span>" = Second &nbsp;|&nbsp; "<span style="color:#F48FB1">would have …</span>" = Third</div></div>
+    <div class="tree">
+      <div class="node start">Look at the RESULT half</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Does it say "would have …" or just "would …"?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">"would …" ↓</span><div class="node s2">SECOND → if-half should be past simple ("had a …")</div></div>
+        <div class="leg"><span class="lbl">"would have …" ↓</span><div class="node s3">THIRD → if-half should be "had + past participle"</div></div>
+      </div>
+    </div>
+    <h2 style="margin-top:18px">Drill 1 — name the type 🏷️</h2>
+    <p>Read each sentence and pick the conditional.</p>
+    <div class="di" id="m1"><div class="di-sent">1. "If you mix red and blue, you get purple."</div><div class="di-btns"><button class="di-t" onclick="doM(1,'Zero')">Zero</button><button class="di-t" onclick="doM(1,'First')">First</button><button class="di-t" onclick="doM(1,'Second')">Second</button><button class="di-t" onclick="doM(1,'Third')">Third</button></div><div class="di-fb" id="m1f"></div></div>
+    <div class="di" id="m2"><div class="di-sent">2. "If it snows tomorrow, we will build a snowman."</div><div class="di-btns"><button class="di-t" onclick="doM(2,'Zero')">Zero</button><button class="di-t" onclick="doM(2,'First')">First</button><button class="di-t" onclick="doM(2,'Second')">Second</button><button class="di-t" onclick="doM(2,'Third')">Third</button></div><div class="di-fb" id="m2f"></div></div>
+    <div class="di" id="m3"><div class="di-sent">3. "If I had wings, I would fly to school."</div><div class="di-btns"><button class="di-t" onclick="doM(3,'Zero')">Zero</button><button class="di-t" onclick="doM(3,'First')">First</button><button class="di-t" onclick="doM(3,'Second')">Second</button><button class="di-t" onclick="doM(3,'Third')">Third</button></div><div class="di-fb" id="m3f"></div></div>
+    <div class="di" id="m4"><div class="di-sent">4. "If she had left earlier, she would have caught the bus."</div><div class="di-btns"><button class="di-t" onclick="doM(4,'Zero')">Zero</button><button class="di-t" onclick="doM(4,'First')">First</button><button class="di-t" onclick="doM(4,'Second')">Second</button><button class="di-t" onclick="doM(4,'Third')">Third</button></div><div class="di-fb" id="m4f"></div></div>
+    <div class="di" id="m5"><div class="di-sent">5. "If a plant gets enough sunlight, it grows."</div><div class="di-btns"><button class="di-t" onclick="doM(5,'Zero')">Zero</button><button class="di-t" onclick="doM(5,'First')">First</button><button class="di-t" onclick="doM(5,'Second')">Second</button><button class="di-t" onclick="doM(5,'Third')">Third</button></div><div class="di-fb" id="m5f"></div></div>
+    <div class="drill-score" id="mScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: error check + drill + summary -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Spot the error 🔎 — two simple checks</h2>
+    <div class="warn-box" style="background:#F3E5F5;border-color:#8E24AA">
+      <strong>Check 1 — same type.</strong> Both halves must be the SAME conditional. Look at the result first: "would have" needs "had + past participle" in the if-half; plain "would" needs the past simple. <strong>Mixed up = the error.</strong><br><br>
+      <strong>Check 2 — the "will" rule.</strong> The result of a Second or Third <strong>never</strong> uses "will". See "will" after the comma → wrong.
+    </div>
+    <h2>Drill 2 — correct or error? 🧦</h2>
+    <p>Use the two checks. Is each sentence correct, or is there an error?</p>
+    <div class="di" id="x1"><div class="di-sent">1. "If I had a bike, I would ride to the park."</div><div class="di-btns"><button class="di-ok" onclick="doX(1,'ok')">Correct ✓</button><button class="di-no" onclick="doX(1,'no')">Error ✗</button></div><div class="di-fb" id="x1f"></div></div>
+    <div class="di" id="x2"><div class="di-sent">2. "If they had trained harder, they would have won the cup."</div><div class="di-btns"><button class="di-ok" onclick="doX(2,'ok')">Correct ✓</button><button class="di-no" onclick="doX(2,'no')">Error ✗</button></div><div class="di-fb" id="x2f"></div></div>
+    <div class="di" id="x3"><div class="di-sent">3. "If the room had a window, it would have felt brighter."</div><div class="di-btns"><button class="di-ok" onclick="doX(3,'ok')">Correct ✓</button><button class="di-no" onclick="doX(3,'no')">Error ✗</button></div><div class="di-fb" id="x3f"></div></div>
+    <div class="di" id="x4"><div class="di-sent">4. "If we had left on time, we would catch the train."</div><div class="di-btns"><button class="di-ok" onclick="doX(4,'ok')">Correct ✓</button><button class="di-no" onclick="doX(4,'no')">Error ✗</button></div><div class="di-fb" id="x4f"></div></div>
+    <div class="di" id="x5"><div class="di-sent">5. "If the cake had more sugar, it would taste sweeter."</div><div class="di-btns"><button class="di-ok" onclick="doX(5,'ok')">Correct ✓</button><button class="di-no" onclick="doX(5,'no')">Error ✗</button></div><div class="di-fb" id="x5f"></div></div>
+    <div class="di" id="x6"><div class="di-sent">6. "If the door had been locked, the cat will stay inside."</div><div class="di-btns"><button class="di-ok" onclick="doX(6,'ok')">Correct ✓</button><button class="di-no" onclick="doX(6,'no')">Error ✗</button></div><div class="di-fb" id="x6f"></div></div>
+    <div class="drill-score" id="xScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Name it by the recipe. To check an "if" sentence: look at the result half — "would" = Second, "would have" = Third — and make the if-half match. And "will" is never in the result.</div></div>
+    <p style="text-align:center;margin:0">That's both Unit 15 lessons done. On the test: Step 1 first on cloze; on grammar, read the result half first and make both halves match. You've got this. 💪</p>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_RoutineAndContrast.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var mKey={1:'Zero',2:'First',3:'Second',4:'Third',5:'Zero'};
+var mWhy={1:'present + present, always true → Zero.',2:'present + "will build" → First (real future).',3:'"had wings" (past simple) + "would fly" → Second (dream about now).',4:'"had left" (had + past participle) + "would have caught" → Third (looking back).',5:'present + present, always true → Zero.'};
+var mDone={};var mC=0;
+function doM(n,c){if(mDone[n])return;mDone[n]=true;var it=document.getElementById('m'+n);var fb=document.getElementById('m'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===mKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+mWhy[n];mC++;}else{fb.className='di-fb no';fb.textContent='❌ '+mWhy[n];}if(Object.keys(mDone).length===5){var s=document.getElementById('mScore');s.className='drill-score show';s.innerHTML='<strong>Name the type: '+mC+'/5</strong>';}}
+
+var xKey={1:'ok',2:'ok',3:'no',4:'no',5:'ok',6:'no'};
+var xWhy={1:'"had a bike" (past simple) + "would ride" → both Second ✓.',2:'"had trained" + "would have won" → both Third ✓.',3:'"had a window" (Second) + "would have felt" (Third) → mixed types = ERROR ✗.',4:'"had left" (Third) + "would catch" (Second) → mixed types = ERROR ✗.',5:'"had more sugar" (past simple) + "would taste" → both Second ✓.',6:'Result uses "will stay" → breaks the "will" rule = ERROR ✗ (should be "would stay").'};
+var xDone={};var xC=0;
+function doX(n,c){if(xDone[n])return;xDone[n]=true;var it=document.getElementById('x'+n);var fb=document.getElementById('x'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===xKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+xWhy[n];xC++;}else{fb.className='di-fb no';fb.textContent='❌ '+xWhy[n];}if(Object.keys(xDone).length===6){var s=document.getElementById('xScore');s.className='drill-score show';s.innerHTML='<strong>Spot the error: '+xC+'/6</strong><br><span style="font-size:14px">'+(xC>=5?'🎉 You read the result half first and matched the halves — that is the whole skill.':'⚠️ Result half first: "would" = Second, "would have" = Third, and both halves must match.')+'</span>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
