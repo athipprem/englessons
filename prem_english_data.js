@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '25 Jun 2026',
+  updated:        '26 Jun 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           15,
-    status:      'Phase 2 · U15 Lessons Ready · Test Pending (grammar rebuild)',
+    n:           16,
+    status:      'Phase 2 · U16 Lessons Ready · Test Pending',
     testPending: true
   },
 
@@ -32,61 +32,61 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 14 — updated after each test)
+  // Last completed assessment (Unit 15 — updated after each test)
   lastUnit: {
-    n: 14, label: 'Unit 14', score: 14, outOf: 20, pct: 70, delta: 6, prevScore: 8,
+    n: 15, label: 'Unit 15', score: 16, outOf: 20, pct: 80, delta: 2, prevScore: 14,
 
-    patternLabel:   'Unit 14 &mdash; 25 Jun 2026 &middot; 14/20 (70%) &middot; REBOUND +6 &middot; Cloze 5/7 &middot; Vocab 6/6 &#9733; &middot; Grammar 3/7',
-    patternInsight: '<strong>Score: 14/20 (70%) &mdash; a strong rebound (+30 points off the U13 crash). The consolidation reset worked.</strong> Two of three sections are healthy again: <strong>Cloze recovered to 5/7</strong> (teaching the routine from scratch + drilling Step 1 to automaticity was exactly right; the two misses were a single <em>level</em> swap on the contrast pair &mdash; he got the function right but mixed up <em>although</em>/<em>however</em>), and <strong>Vocabulary snapped back to a clean 6/6 &#9733;</strong>, confirming U13 was rushing, not lost skill. Confidence is restored. <strong>The one skill still stuck is Grammar (3/7).</strong> He can name a conditional (Q8) and catch a loud &ldquo;will&rdquo; (Q9), but every find-the-error item collapsed (Q10, Q12, Q13, Q14) with the tell-tale default-to-&ldquo;A&rdquo;. Crucially, <strong>Prem told us he doesn&rsquo;t understand &ldquo;Maybe/Too-Late World&rdquo;</strong> &mdash; the invented metaphor added an abstraction he can&rsquo;t use under pressure. <strong>DECISION (Lui): drop it. From U15, grammar is the STANDARD 4 conditionals (Zero/First/Second/Third) tied to tenses, taught with the global-standard chart + simple coaching aids &mdash; no invented systems.</strong>',
+    patternLabel:   'Unit 15 &mdash; 26 Jun 2026 &middot; 16/20 (80%) &middot; GRAMMAR BREAKTHROUGH &middot; Grammar 6/7 &#127881; &middot; Vocab 6/6 &#9733; &middot; Cloze 4/7',
+    patternInsight: '<strong>Score: 16/20 (80%) &mdash; a second straight rise (40 &rarr; 70 &rarr; 80), and the most important result in weeks.</strong> &#127881; <strong>THE BREAKTHROUGH: Grammar jumped 3/7 &rarr; 6/7.</strong> Grammar had been stuck since U10, with the <em>find-the-error</em> format failing every time (he&rsquo;d default-guess &ldquo;A&rdquo;). This unit we dropped the invented &ldquo;Maybe/Too-Late World&rdquo; (which Prem said he didn&rsquo;t understand) and taught the <strong>standard 4 conditionals tied to tenses</strong>, with one mechanical aid: <em>read the result half first &mdash; &ldquo;would&rdquo; = Second, &ldquo;would have&rdquo; = Third &mdash; then make the halves match.</em> The effect was instant: <strong>he got all three find-the-error items right (Q10, Q12, Q14)</strong>, the exact type he&rsquo;d never solved. Lui&rsquo;s call was right. Vocab 6/6 &#9733; (rock solid). <strong>Cloze dipped to 4/7</strong> &mdash; but the <em>although/however</em> twins we drilled were both correct; the misses were the end-cluster (Q5&ndash;Q7: so/meanwhile/moreover) = rushing the finish, not a concept gap. <strong>U16: hold the grammar gain (add a &ldquo;which is correct?&rdquo; drill for the one miss); cloze = finish-strong.</strong>',
 
-    analysisLabel:   'Unit 14 Result Analysis &mdash; 25 Jun 2026',
-    analysisInsight: '<strong>Score: 14/20 (70%) &mdash; the rebound we hoped for, and a clear pointer to the next job.</strong> Section A Cloze 5/7: more than doubled from 2/7. The from-scratch decision tree + &ldquo;master Step 1 first&rdquo; worked; the only two misses (Q1, Q4) were a single level slip &mdash; he chose the right CONTRAST function both times but swapped <em>although</em> (clause-joiner) and <em>however</em> (sentence-starter). U15 cloze drills exactly that pair. Section C Vocab 6/6 &#9733;: anchor fully restored. Section B Grammar 3/7: barely moved from 2/7. Correct on the &ldquo;name/identify&rdquo; items (Q8 Second-ID, Q9 Will-Ban, Q11 Mixed) but <strong>every find-the-error / which-is-correct item failed (Q10, Q12, Q13, Q14), three of them default-guessed &ldquo;A&rdquo;.</strong> The Maybe/Too-Late framework is the problem (Prem said so); U15 re-teaches conditionals the standard way (tense recipes), with the find-the-error check made mechanical: read the result half first (&ldquo;would&rdquo; = Second, &ldquo;would have&rdquo; = Third) and make the halves match.',
+    analysisLabel:   'Unit 15 Result Analysis &mdash; 26 Jun 2026',
+    analysisInsight: '<strong>Score: 16/20 (80%). The standard-grammar approach worked immediately.</strong> Section B Grammar 6/7: up from 3/7. He kept the identify items (Q8 Third-ID, Q9 Will-Ban, Q11 Mixed) AND solved all three find-the-error mismatches (Q10, Q12, Q14) &mdash; the format that had blocked him since U10. The only miss was Q13, the reverse &ldquo;which one is CORRECT?&rdquo; (he picked A, a mismatch, instead of C) &mdash; a much narrower, advanced gap. Section A Cloze 4/7: the drilled <em>although/however</em> twins (Q1, Q2) were both right (that fix held); the three misses were Q5&ndash;Q7, the run at the very end of the passage (so / meanwhile / moreover). First four right, last three wrong = end-of-section rushing, not lost skill. Section C Vocab 6/6 &#9733;: solved, maintenance only. U16 holds grammar (drill the &ldquo;which is correct?&rdquo; format) and adds a finish-strong cloze habit.',
 
-    qSummary: '<strong>A strong rebound (40%&rarr;70%). Cloze 5/7 (recovered; one level-swap on although/however) &middot; Vocab 6/6 &#9733; (anchor restored) &middot; Grammar 3/7 (the lone stuck skill &mdash; find-the-error still collapses; Maybe/Too-Late dropped, standard 4 conditionals from U15).</strong>',
+    qSummary: '<strong>Second straight rise (70&rarr;80). &#127881; Grammar 6/7 (BREAKTHROUGH &mdash; standard conditionals cracked the find-the-error format; only the reverse &ldquo;which is correct?&rdquo; Q13 slipped) &middot; Vocab 6/6 &#9733; &middot; Cloze 4/7 (although/however held; the end-cluster so/meanwhile/moreover slipped &mdash; finishing habit).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Put D (however); needed A (although). Right function (contrast), wrong level &mdash; this gap is a clause-joiner. Developing.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Foundational.' },
+      { q:'Q1',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; A (although = CONTRAST clause-joiner) &mdash; the drilled twin, correct. Developing.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; D (however = CONTRAST sentence-starter) &mdash; the twin fix held. Developing.' },
       { q:'Q3',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; H (while = TIME clause-joiner). Developing.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Put A (although); needed D (however). The mirror of Q1 &mdash; contrast right, level swapped (this one is a sentence-starter). Developing.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; G (so = RESULT clause-joiner). Developing.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; E (meanwhile = TIME sentence-starter). Advanced.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; F (moreover = ADDITION sentence-starter). Developing.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Identified the Second Conditional (B). Foundational.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Foundational.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed G (so = RESULT clause-joiner); put F. End-of-passage slip. Developing.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'a', pass:false, note:'&#10007; Needed E (meanwhile = TIME sentence-starter). Part of the Q5&ndash;Q7 end-cluster that slipped. Advanced.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed F (moreover = ADDITION sentence-starter); put G. The finish-strong gap. Developing.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Identified the Third Conditional (B). Foundational.' },
       { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Will Ban: spotted &ldquo;will&rdquo; in the result (C). Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (answer D); put A. The scan didn&rsquo;t fire &mdash; default-to-A. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed (B) &mdash; the present-time signal handled correctly. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Find-the-error (answer A); put C. Missed the 2nd-if / 3rd-result mismatch. Developing.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Which-is-correct (answer C); default-guessed A. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Find-the-error (answer B); default-guessed A. 1/5 across the find/verify items &mdash; the isolated blocker. Advanced.' },
-      { q:'Q15', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; keen = &ldquo;very enthusiastic and eager&rdquo;. Developing.' },
-      { q:'Q16', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; drenched = &ldquo;completely soaked&rdquo;. Developing.' },
-      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; sturdy = &ldquo;strong and solidly built&rdquo;. Developing.' },
-      { q:'Q18', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; peculiar = &ldquo;strange and unusual&rdquo;. Advanced.' },
-      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; dismal = &ldquo;dark and dreary&rdquo;. Developing.' },
-      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; nimble = &ldquo;quick and agile&rdquo;. Anchor restored &mdash; clean 6/6. Advanced.' }
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; &#127881; Find-the-error (D) &mdash; SOLVED the mismatch format he always missed. Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed (B) &mdash; present-time signal handled. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; &#127881; Find-the-error (A) &mdash; second mismatch solved. Developing.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Which-is-correct (answer C); put A (a mismatch sentence). The only grammar miss &mdash; U16 drills this reverse format. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; &#127881; Find-the-error (B) &mdash; third mismatch solved. 3/3 on the find-the-error format (was 0/3 for months). Advanced.' },
+      { q:'Q15', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; baffled = &ldquo;completely confused&rdquo;. Developing.' },
+      { q:'Q16', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; courteous = &ldquo;polite and well-mannered&rdquo;. Advanced.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; fragile = &ldquo;easily broken or damaged&rdquo;. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; frantic = &ldquo;wild and panicked&rdquo;. Advanced.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; swift = &ldquo;fast and quick&rdquo;. Developing.' },
+      { q:'Q20', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; jolly = &ldquo;cheerful and happy&rdquo;. Clean 6/6. Developing.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U14: the U13 dip rebounded as predicted — Vocab & Cloze recovered; Grammar is the lone stuck skill
+  // After U15: GRAMMAR BREAKTHROUGH (3/7→6/7 with standard conditionals); cloze eased on an end-cluster slip
   skills: [
-    { name: 'Reading Compr.',    c: 75, t: 85 },   // U14: not in unit test; unchanged
-    { name: 'Vocabulary',        c: 80, t: 82 },   // U14: 6/6 ★ — anchor restored; ~at target
-    { name: 'Grammar',           c: 65, t: 82 },   // U14: 3/7 — find-the-error still collapses; THE focus (standard 4 conditionals from U15)
-    { name: 'Cloze Test',        c: 68, t: 80 },   // U14: 5/7 — recovered; one although/however level swap left
+    { name: 'Reading Compr.',    c: 75, t: 85 },   // U15: not in unit test; unchanged
+    { name: 'Vocabulary',        c: 80, t: 82 },   // U15: 6/6 ★ — solved; ~at target
+    { name: 'Grammar',           c: 73, t: 82 },   // U15: 6/7 🎉 — standard 4 conditionals cracked the find-the-error format
+    { name: 'Cloze Test',        c: 64, t: 80 },   // U15: 4/7 — although/however held; end-cluster so/meanwhile/moreover slipped (finishing)
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
-    { name: 'Critical Thinking', c: 62, t: 80 },   // U14: not in unit test; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U14: not in unit test; unchanged
+    { name: 'Critical Thinking', c: 62, t: 80 },   // U15: not in unit test; unchanged
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U15: not in unit test; unchanged
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [75, 80, 65, 68, 65, 95, 62, 55],
+  radarCurrent:  [75, 80, 73, 64, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 14',
+  radarLegendUnit: 'Unit 15',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -105,11 +105,24 @@ var PREM_ENGLISH = {
     { n:11, score:16, outOf:20, delta:0, color:'#89F336', star:false, label:'U11' },
     { n:12, score:12, outOf:20, delta:-4, color:'#fc4e4e', star:false, label:'U12' },
     { n:13, score:8, outOf:20, delta:-4, color:'#fc4e4e', star:false, label:'U13' },
-    { n:14, score:14, outOf:20, delta:6, color:'#667eea', star:false, label:'U14' }
+    { n:14, score:14, outOf:20, delta:6, color:'#667eea', star:false, label:'U14' },
+    { n:15, score:16, outOf:20, delta:2, color:'#89F336', star:false, label:'U15' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 15,
+      title: 'Unit 15 &mdash; Cloze: Routine &amp; the Contrast Pair &middot; Grammar: The 4 Conditionals (standard)',
+      badge: '#89F336',
+      status: 'done',
+      note: '16/20 (80%) &mdash; <strong>second straight rise (40&rarr;70&rarr;80) and the grammar breakthrough.</strong> &#127881; <strong>Grammar 6/7</strong> (up from 3/7): switching to the STANDARD 4 conditionals (tied to tenses) + &ldquo;read the result half first&rdquo; cracked the find-the-error format &mdash; he solved ALL THREE mismatch items (Q10/Q12/Q14) he&rsquo;d missed for months; only Q13 (reverse &ldquo;which is correct?&rdquo;) slipped. <strong>Vocab 6/6 &#9733;</strong> (solved). <strong>Cloze 4/7</strong> &mdash; the drilled although/however twins held (Q1,Q2 ✓), but the end-cluster Q5&ndash;Q7 (so/meanwhile/moreover) slipped = rushing the finish. Lui&rsquo;s call (standard grammar + decision trees) fully vindicated. &middot; Next: <strong>UNIT 16</strong> &mdash; hold grammar (add a &ldquo;which is correct?&rdquo; drill); cloze finish-strong on the end-cluster',
+      tags: [
+        { t:'Grammar 6/7 &#127881;', s:'background:#f0fff4;color:#276749' },
+        { t:'Vocab 6/6 &#9733;', s:'background:#f0fff4;color:#276749' },
+        { t:'Cloze 4/7', s:'background:#fff8e1;color:#744210' }
+      ]
+    },
     {
       n: 14,
       title: 'Unit 14 &mdash; CONSOLIDATION &middot; Cloze: Decision Tree (from scratch) &middot; Grammar: Two Worlds (from scratch)',

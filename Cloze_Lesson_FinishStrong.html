@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Finish Strong (so / meanwhile / moreover) — Unit 16 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:790px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.06rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #66BB6A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:13.5px;font-weight:700;text-align:center;max-width:560px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#FFF3E0;border:2px solid #F9A825;color:#8a5a00}
+.node.r{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.t{background:#E0F2F1;border:2px solid #00897B;color:#00695C}
+.node.ad{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.arrow{font-size:20px;color:#7CB342;line-height:1}
+.branch{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#558B2F}
+.three{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.tcell{flex:1;min-width:200px;border-radius:10px;padding:14px}
+.tcell.r{background:#E3F2FD;border:2px solid #1565C0}
+.tcell.t{background:#E0F2F1;border:2px solid #00897B}
+.tcell.ad{background:#F3E5F5;border:2px solid #8E24AA}
+.tcell h3{font-size:14px;margin-bottom:6px}
+.tcell.r h3{color:#0D47A1}.tcell.t h3{color:#00695C}.tcell.ad h3{color:#6A1B9A}
+.tcell p{font-size:13px;line-height:1.5;margin:0}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-w{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.last{box-shadow:0 0 0 3px #F9A825}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Finish Strong</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 16 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">In a cloze passage, every gap is worth the same mark — so the <strong>last</strong> gap counts exactly as much as the first. The easiest marks to lose are the ones at the end, when you're tired or rushing to finish. Slowing down for the final gaps is one of the simplest ways to score higher.</p>
+    </div>
+    <h2>What happened last time 🔎</h2>
+    <p>Your <em>although</em> vs <em>however</em> was spot on — that twin pair is fixed. The three you missed were all at the <strong>very end</strong> of the passage: <strong>so</strong>, <strong>meanwhile</strong>, <strong>moreover</strong>. The first four were right, the last three slipped — that's a finishing habit, not a knowledge problem. Today we sharpen those three sentence-starters and build a "finish strong" habit. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Your tree — then the three sentence-starters 🌳</h2>
+    <div class="tree">
+      <div class="node start">START at the gap</div>
+      <div class="arrow">↓</div>
+      <div class="node q">STEP 1 — full stop before the gap? (these three all need YES = sentence-starter)</div>
+      <div class="arrow">↓</div>
+      <div class="node q">STEP 2 — what's the link?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">caused it ↓</span><div class="node r">RESULT<br>as a result</div></div>
+        <div class="leg"><span class="lbl">same time ↓</span><div class="node t">TIME<br>meanwhile</div></div>
+        <div class="leg"><span class="lbl">an extra idea ↓</span><div class="node ad">ADDITION<br>moreover</div></div>
+      </div>
+    </div>
+    <p>All three come after a full stop. The only question is the <strong>job</strong>. Here's how to tell them apart:</p>
+    <div class="three">
+      <div class="tcell r"><h3>as a result 🎯</h3><p>The first sentence <strong>caused</strong> the second.<br>"It poured with rain. <strong>As a result</strong>, the game stopped."</p></div>
+      <div class="tcell t"><h3>meanwhile ⏱️</h3><p>Two things at the <strong>same time</strong> (often in two places).<br>"The boys cooked. <strong>Meanwhile</strong>, the girls set the table."</p></div>
+      <div class="tcell ad"><h3>moreover ➕</h3><p>An <strong>extra</strong> point added on top.<br>"She won the race. <strong>Moreover</strong>, she broke the record."</p></div>
+    </div>
+    <div class="warn-box"><div class="warn-title">Quick test</div>Ask: did the first thing <em>make</em> the second happen? → <span style="color:#1565C0;font-weight:700">as a result</span>. Are they happening <em>together</em>? → <span style="color:#00695C;font-weight:700">meanwhile</span>. Is it just <em>one more</em> point? → <span style="color:#6A1B9A;font-weight:700">moreover</span>.</div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — as a result / meanwhile / moreover ⚡</h2>
+    <p>All sentence-starters. Pick the job: caused → as a result, same time → meanwhile, extra → moreover.</p>
+    <div class="di" id="d1"><div class="di-sent">1. "A tree had fallen across the trail. ____, the hikers had to turn back."</div><div class="di-btns"><button class="di-w" onclick="doD(1,'as a result')">as a result</button><button class="di-w" onclick="doD(1,'meanwhile')">meanwhile</button><button class="di-w" onclick="doD(1,'moreover')">moreover</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. "Her cake won first prize. ____, it sold out within minutes."</div><div class="di-btns"><button class="di-w" onclick="doD(2,'as a result')">as a result</button><button class="di-w" onclick="doD(2,'meanwhile')">meanwhile</button><button class="di-w" onclick="doD(2,'moreover')">moreover</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "The runners stretched on the track. ____, the coaches set up the hurdles."</div><div class="di-btns"><button class="di-w" onclick="doD(3,'as a result')">as a result</button><button class="di-w" onclick="doD(3,'meanwhile')">meanwhile</button><button class="di-w" onclick="doD(3,'moreover')">moreover</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. "The power suddenly cut out. ____, the whole hall went dark."</div><div class="di-btns"><button class="di-w" onclick="doD(4,'as a result')">as a result</button><button class="di-w" onclick="doD(4,'meanwhile')">meanwhile</button><button class="di-w" onclick="doD(4,'moreover')">moreover</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="di" id="d5"><div class="di-sent">5. "He came top in maths. ____, he was chosen as class captain."</div><div class="di-btns"><button class="di-w" onclick="doD(5,'as a result')">as a result</button><button class="di-w" onclick="doD(5,'meanwhile')">meanwhile</button><button class="di-w" onclick="doD(5,'moreover')">moreover</button></div><div class="di-fb" id="d5f"></div></div>
+    <div class="di" id="d6"><div class="di-sent">6. "The band tuned their instruments. ____, the crowd found their seats."</div><div class="di-btns"><button class="di-w" onclick="doD(6,'as a result')">as a result</button><button class="di-w" onclick="doD(6,'meanwhile')">meanwhile</button><button class="di-w" onclick="doD(6,'moreover')">moreover</button></div><div class="di-fb" id="d6f"></div></div>
+    <div class="drill-score" id="dScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — the bake-sale cloze 🧁</h2>
+    <p>Walk the tree for each gap. The last two gaps are ringed in gold — <strong>give them the same care as the first.</strong></p>
+    <div class="ok-box" style="background:#F1F8E9;border-color:#AED581"><p style="font-size:14px;line-height:2;margin:0">Our class held a bake sale, <strong>(1)____</strong> we could raise money for the trip. Parents baked all morning <strong>(2)____</strong> the children made the price labels. The cupcakes sold out fast. <strong>(3)____</strong>, the brownies were left untouched at first. We lowered the price. <strong>(4)____</strong>, the brownies vanished too. <strong>(5)____</strong>, we raised more money than any class before us.</p></div>
+    <div class="di" id="g1"><div class="di-sent"><strong>Gap 1</strong> — "held a bake sale, ____ we could raise money"</div><div class="di-btns"><button class="di-w" onclick="doG(1,'so')">so</button><button class="di-w" onclick="doG(1,'however')">however</button><button class="di-w" onclick="doG(1,'meanwhile')">meanwhile</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent"><strong>Gap 2</strong> — "baked all morning ____ the children made the labels"</div><div class="di-btns"><button class="di-w" onclick="doG(2,'while')">while</button><button class="di-w" onclick="doG(2,'so')">so</button><button class="di-w" onclick="doG(2,'moreover')">moreover</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="di" id="g3"><div class="di-sent"><strong>Gap 3</strong> — "cupcakes sold out fast. ____, the brownies were left untouched"</div><div class="di-btns"><button class="di-w" onclick="doG(3,'however')">however</button><button class="di-w" onclick="doG(3,'as a result')">as a result</button><button class="di-w" onclick="doG(3,'while')">while</button></div><div class="di-fb" id="g3f"></div></div>
+    <div class="di last" id="g4"><div class="di-sent">⭐ <strong>Gap 4</strong> — "We lowered the price. ____, the brownies vanished too"</div><div class="di-btns"><button class="di-w" onclick="doG(4,'as a result')">as a result</button><button class="di-w" onclick="doG(4,'moreover')">moreover</button><button class="di-w" onclick="doG(4,'meanwhile')">meanwhile</button></div><div class="di-fb" id="g4f"></div></div>
+    <div class="di last" id="g5"><div class="di-sent">⭐ <strong>Gap 5</strong> — "____, we raised more money than any class before us"</div><div class="di-btns"><button class="di-w" onclick="doG(5,'moreover')">moreover</button><button class="di-w" onclick="doG(5,'so')">so</button><button class="di-w" onclick="doG(5,'as a result')">as a result</button></div><div class="di-fb" id="g5f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">caused → as a result · same time → meanwhile · extra → moreover.<br>Same care on the LAST gap as the first. Box it, move on.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_WhichIsCorrect.html" class="btn-lesson">Grammar Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var dKey={1:'as a result',2:'moreover',3:'meanwhile',4:'as a result',5:'moreover',6:'meanwhile'};
+var dWhy={1:'The fallen tree CAUSED turning back → as a result.',2:'Winning AND selling out — an extra point → moreover.',3:'Stretching and setting up hurdles at the same time → meanwhile.',4:'The power cut CAUSED the dark → as a result.',5:'Top in maths AND made captain — extra → moreover.',6:'Tuning and finding seats at the same time → meanwhile.'};
+var dDone={};var dC=0;
+function doD(n,c){if(dDone[n])return;dDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===dKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+dWhy[n];dC++;}else{fb.className='di-fb no';fb.textContent='❌ '+dWhy[n];}if(Object.keys(dDone).length===6){var s=document.getElementById('dScore');s.className='drill-score show';s.innerHTML='<strong>Starters: '+dC+'/6</strong>';}}
+
+var gKey={1:'so',2:'while',3:'however',4:'as a result',5:'moreover'};
+var gWhy={1:'Comma + caused (sale → raise money) → so.',2:'Middle + same time → while.',3:'Full stop + surprise (sold fast BUT brownies left) → however.',4:'Full stop + caused (lower price → vanished) → as a result.',5:'Full stop + extra (and raised the most ever) → moreover.'};
+var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ '+gWhy[n];}if(Object.keys(gDone).length===5){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>Bake-sale cloze: '+gC+'/5</strong><br><span style="font-size:14px">'+(gC>=4?'🎉 Strong finish — you gave the last gaps full care.':'⚠️ Slow down on the last gaps: same tree, same care.')+'</span>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
