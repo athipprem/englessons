@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Twin Words & the Level — Unit 17 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:790px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #66BB6A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:13.5px;font-weight:700;text-align:center;max-width:560px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#FFF3E0;border:2px solid #F9A825;color:#8a5a00}
+.node.s{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.j{background:#FFF3E0;border:2px solid #E65100;color:#9a3b00}
+.arrow{font-size:20px;color:#7CB342;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#558B2F}
+.twins{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+.twins th{background:#1B5E20;color:#fff;padding:8px;font-size:12px}
+.twins td{padding:9px 10px;border-bottom:1px solid #eee;text-align:center;line-height:1.4}
+.twins .fn{font-weight:700;text-align:left;background:#F1F8E9}
+.pillS{background:#E3F2FD;color:#1565C0;border-radius:6px;padding:2px 8px;font-weight:700}
+.pillJ{background:#FFF3E0;color:#E65100;border-radius:6px;padding:2px 8px;font-weight:700}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-s{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-j{background:#FFF3E0;border:2px solid #E65100;color:#E65100;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-w{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Twin Words</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 17 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Some joining words are <strong>twins</strong> — they mean the same thing but go in different places. "<em>so</em>" and "<em>as a result</em>" both show a result; "<em>although</em>" and "<em>however</em>" both show a surprise. Choosing the right twin makes your writing flow correctly — and it's the one cloze thing that keeps tripping you. Once you know the trick, these become free marks.</p>
+    </div>
+    <h2>The one thing to fix 🎯</h2>
+    <p>Last time you got the <strong>job</strong> right every time (you knew it was a RESULT) — but you sometimes put the wrong <strong>twin</strong> in the gap (<em>so</em> where <em>as a result</em> belonged). Good news: the punctuation tells you which twin, every single time. Let's lock it. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Step 1 decides the twin 🌳</h2>
+    <div class="tree">
+      <div class="node start">Look just before the gap</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Full stop (.) there?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES ↓</span><div class="node s">sentence-starter twin<br>(as a result · however · meanwhile)</div></div>
+        <div class="leg"><span class="lbl">NO (comma / mid) ↓</span><div class="node j">clause-joiner twin<br>(so · although · while)</div></div>
+      </div>
+    </div>
+    <h2 style="margin-top:14px">The three twin pairs 👯</h2>
+    <table class="twins">
+      <tr><th>Job</th><th><span class="pillS">starter</span> (after a full stop)</th><th><span class="pillJ">joiner</span> (after a comma)</th></tr>
+      <tr><td class="fn">RESULT (caused)</td><td>as a result</td><td>so</td></tr>
+      <tr><td class="fn">CONTRAST (surprise)</td><td>however</td><td>although</td></tr>
+      <tr><td class="fn">TIME (same time)</td><td>meanwhile</td><td>while</td></tr>
+    </table>
+    <div class="warn-box"><div class="warn-title">The whole trick</div>First decide the <strong>job</strong> (which row). Then let the <strong>punctuation</strong> pick the column: full stop → the starter twin, comma → the joiner twin. Same meaning, the mark before the gap chooses the word.</div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — pick the right twin ⚡</h2>
+    <p>Same job both times — just choose the twin that fits the punctuation.</p>
+    <div class="di" id="d1"><div class="di-sent">1. "The rain poured down. ____, the picnic was cancelled." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-s" onclick="doD(1,'as a result')">as a result</button><button class="di-j" onclick="doD(1,'so')">so</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. "The rain poured down, ____ the picnic was cancelled." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-s" onclick="doD(2,'as a result')">as a result</button><button class="di-j" onclick="doD(2,'so')">so</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "He studied hard, ____ he still felt unsure." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-j" onclick="doD(3,'although')">although</button><button class="di-s" onclick="doD(3,'however')">however</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. "He studied hard. ____, he still felt unsure." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-j" onclick="doD(4,'although')">although</button><button class="di-s" onclick="doD(4,'however')">however</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="di" id="d5"><div class="di-sent">5. "Dad washed the car ____ Mum mowed the lawn." <span class="pillJ">mid-sentence</span></div><div class="di-btns"><button class="di-j" onclick="doD(5,'while')">while</button><button class="di-s" onclick="doD(5,'meanwhile')">meanwhile</button></div><div class="di-fb" id="d5f"></div></div>
+    <div class="di" id="d6"><div class="di-sent">6. "Dad washed the car. ____, Mum mowed the lawn." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-j" onclick="doD(6,'while')">while</button><button class="di-s" onclick="doD(6,'meanwhile')">meanwhile</button></div><div class="di-fb" id="d6f"></div></div>
+    <div class="drill-score" id="dScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — the sandcastle cloze 🏖️</h2>
+    <p>Job first, then punctuation picks the twin. Decide once, box it, move on.</p>
+    <div class="ok-box" style="background:#F1F8E9;border-color:#AED581"><p style="font-size:14px;line-height:2;margin:0">Our team entered the sandcastle competition, <strong>(1)____</strong> we practised digging all week. The tide was creeping in <strong>(2)____</strong> we built the tall towers. Our castle looked amazing. <strong>(3)____</strong>, a big wave knocked off the top. We rebuilt it quickly. <strong>(4)____</strong>, the judges still gave us a high score. <strong>(5)____</strong>, the team next to us was only just starting their moat.</p></div>
+    <div class="di" id="g1"><div class="di-sent"><strong>Gap 1</strong> — "entered the competition, ____ we practised all week"</div><div class="di-btns"><button class="di-w" onclick="doG(1,'so')">so</button><button class="di-w" onclick="doG(1,'as a result')">as a result</button><button class="di-w" onclick="doG(1,'however')">however</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent"><strong>Gap 2</strong> — "the tide was creeping in ____ we built the towers"</div><div class="di-btns"><button class="di-w" onclick="doG(2,'while')">while</button><button class="di-w" onclick="doG(2,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(2,'so')">so</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="di" id="g3"><div class="di-sent"><strong>Gap 3</strong> — "looked amazing. ____, a big wave knocked off the top"</div><div class="di-btns"><button class="di-w" onclick="doG(3,'however')">however</button><button class="di-w" onclick="doG(3,'although')">although</button><button class="di-w" onclick="doG(3,'meanwhile')">meanwhile</button></div><div class="di-fb" id="g3f"></div></div>
+    <div class="di" id="g4"><div class="di-sent"><strong>Gap 4</strong> — "rebuilt it quickly. ____, the judges gave us a high score"</div><div class="di-btns"><button class="di-w" onclick="doG(4,'as a result')">as a result</button><button class="di-w" onclick="doG(4,'so')">so</button><button class="di-w" onclick="doG(4,'while')">while</button></div><div class="di-fb" id="g4f"></div></div>
+    <div class="di" id="g5"><div class="di-sent"><strong>Gap 5</strong> — "____, the team next to us was only just starting their moat"</div><div class="di-btns"><button class="di-w" onclick="doG(5,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(5,'while')">while</button><button class="di-w" onclick="doG(5,'as a result')">as a result</button></div><div class="di-fb" id="g5f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Job first, then the mark before the gap picks the twin:<br>full stop → as a result / however / meanwhile &nbsp;·&nbsp; comma → so / although / while.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_ErrorOrCorrect.html" class="btn-lesson">Grammar Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var dKey={1:'as a result',2:'so',3:'although',4:'however',5:'while',6:'meanwhile'};
+var dWhy={1:'Full stop → starter twin → as a result.',2:'Comma → joiner twin → so.',3:'Comma → joiner twin → although.',4:'Full stop → starter twin → however.',5:'Mid-sentence → joiner twin → while.',6:'Full stop → starter twin → meanwhile.'};
+var dDone={};var dC=0;
+function doD(n,c){if(dDone[n])return;dDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===dKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+dWhy[n];dC++;}else{fb.className='di-fb no';fb.textContent='❌ '+dWhy[n];}if(Object.keys(dDone).length===6){var s=document.getElementById('dScore');s.className='drill-score show';s.innerHTML='<strong>Twins: '+dC+'/6</strong><br><span style="font-size:14px">'+(dC>=5?'🎉 The punctuation picked the twin every time — that is the whole skill.':'⚠️ Full stop = starter twin, comma = joiner twin. Nothing else changes.')+'</span>';}}
+
+var gKey={1:'so',2:'while',3:'however',4:'as a result',5:'meanwhile'};
+var gWhy={1:'Comma + caused → so.',2:'Mid-sentence + same time → while.',3:'Full stop + surprise → however.',4:'Full stop + caused → as a result.',5:'Full stop + same time → meanwhile.'};
+var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ '+gWhy[n];}if(Object.keys(gDone).length===5){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>Sandcastle cloze: '+gC+'/5</strong>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>

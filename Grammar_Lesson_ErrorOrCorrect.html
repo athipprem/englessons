@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Error or Correct? — Unit 17 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #8E24AA;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#6A1B9A;margin-bottom:6px}
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.ctable th{background:#4A235A;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.ctable td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.ctable tr.second td{background:#E3F2FD}.ctable tr.third td{background:#FCE4EC}
+.recipe{font-family:'Courier New',monospace;font-size:12px;background:rgba(255,255,255,0.7);padding:2px 5px;border-radius:4px;display:inline-block}
+.vb{color:#1565C0;font-weight:700}.vb3{color:#C2185B;font-weight:700}
+.two-hunt{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.hunt{flex:1;min-width:250px;border-radius:12px;padding:16px}
+.hunt.wrong{background:#FFEBEE;border:2px solid #E53935}
+.hunt.right{background:#E8F5E9;border:2px solid #43A047}
+.hunt h3{font-size:15px;margin-bottom:8px}
+.hunt.wrong h3{color:#B71C1C}.hunt.right h3{color:#1B5E20}
+.hunt p{font-size:13px;line-height:1.6;margin:0}
+.checks{margin:10px 0}
+.chk{display:flex;align-items:flex-start;gap:10px;background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 8px 8px 0;padding:10px 14px;margin:8px 0;font-size:14px;line-height:1.6}
+.chk .n{background:#F9A825;color:#fff;font-weight:700;border-radius:50%;min-width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.s2{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.s3{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.arrow{font-size:18px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di.head-w{border-color:#E53935;background:#fff6f6}
+.di.head-r{border-color:#43A047;background:#f6fff8}
+.di-head{font-size:12px;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.di.head-w .di-head{color:#B71C1C}.di.head-r .di-head{color:#1B5E20}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-wr{background:#FFEBEE;border:2px solid #E53935;color:#B71C1C;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-ri{background:#E8F5E9;border:2px solid #43A047;color:#1B5E20;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-opt{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Error or Correct?</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 17 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">You already know your conditionals really well — you can spot the type, catch a stray "will", and handle mixed sentences. The only thing that tripped you last time wasn't the grammar; it was the <strong>question</strong>. Some questions ask "which one is <em>wrong</em>?" and some ask "which one is <em>right</em>?" — and it's easy to hunt for the wrong target. One tiny habit fixes it completely.</p>
+    </div>
+    <h2>Two opposite hunts 🔍</h2>
+    <p>"Which contains an ERROR?" means find the <strong>one broken</strong> sentence. "Which is CORRECT?" means find the <strong>one clean</strong> sentence. Same grammar, opposite target. Today: one habit so you never mix them up. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <div class="rule-box"><div class="rule-big">✏️ THE HABIT: before you look at the choices, circle the question word.<br>"ERROR" → hunt the broken one 🚫 &nbsp;·&nbsp; "CORRECT" → hunt the clean one ✅</div></div>
+    <div class="two-hunt">
+      <div class="hunt wrong"><h3>🚫 "contains an ERROR?"</h3><p>Three are fine, ONE is broken. Cross out the good ones; the broken one left is your answer.</p></div>
+      <div class="hunt right"><h3>✅ "is CORRECT?"</h3><p>Three are broken, ONE is fine. Cross out the broken ones; the clean one left is your answer.</p></div>
+    </div>
+    <h2 style="margin-top:14px">Your checks (unchanged — they work) 📋</h2>
+    <table class="ctable">
+      <tr><th>Type</th><th>Recipe</th><th>Example</th></tr>
+      <tr class="second"><td><strong>Second</strong></td><td><span class="recipe">If + past simple, … would + verb</span></td><td>If I <span class="vb">had</span> a dog, I <span class="vb">would walk</span> it.</td></tr>
+      <tr class="third"><td><strong>Third</strong></td><td><span class="recipe">If + had + past participle, … would have + verb</span></td><td>If I <span class="vb3">had trained</span>, I <span class="vb3">would have won</span>.</td></tr>
+    </table>
+    <div class="checks">
+      <div class="chk"><span class="n">1</span><div>Result has <strong>"will"</strong>? → broken.</div></div>
+      <div class="chk"><span class="n">2</span><div>Result verb broken (<strong>"would caught"</strong>, "would scored")? → broken.</div></div>
+      <div class="chk"><span class="n">3</span><div>Halves don't match ("would" ↔ past simple; "would have" ↔ past participle)? → broken. Passes all three = clean ✓.</div></div>
+    </div>
+    <h2 style="margin-top:14px">The "is this one clean?" tree 🌳</h2>
+    <div class="tree">
+      <div class="node start">Take ONE sentence</div>
+      <div class="arrow">↓</div>
+      <div class="node q">"will" in the result?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node s3">✗ broken</div></div>
+        <div class="leg"><span class="lbl">NO ↓</span><div class="node q">Result verb broken? ("would caught")</div></div>
+      </div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node s3">✗ broken</div></div>
+        <div class="leg"><span class="lbl">NO ↓</span><div class="node q">Both halves match? (would↔past simple · would have↔past participle)</div></div>
+      </div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">NO</span><div class="node s3">✗ broken</div></div>
+        <div class="leg"><span class="lbl">YES</span><div class="node s2">✓ clean</div></div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — which HUNT is it? 🎯</h2>
+    <p>Just read the question and decide the target. (This is the habit — do it before every grammar question.)</p>
+    <div class="di" id="h1"><div class="di-sent">1. "Which sentence <strong>contains a grammar error</strong>?"</div><div class="di-btns"><button class="di-wr" onclick="doH(1,'w')">Find the WRONG one 🚫</button><button class="di-ri" onclick="doH(1,'r')">Find the RIGHT one ✅</button></div><div class="di-fb" id="h1f"></div></div>
+    <div class="di" id="h2"><div class="di-sent">2. "Which sentence is <strong>grammatically correct</strong>?"</div><div class="di-btns"><button class="di-wr" onclick="doH(2,'w')">Find the WRONG one 🚫</button><button class="di-ri" onclick="doH(2,'r')">Find the RIGHT one ✅</button></div><div class="di-fb" id="h2f"></div></div>
+    <div class="di" id="h3"><div class="di-sent">3. "Which sentence has a <strong>mistake</strong> in it?"</div><div class="di-btns"><button class="di-wr" onclick="doH(3,'w')">Find the WRONG one 🚫</button><button class="di-ri" onclick="doH(3,'r')">Find the RIGHT one ✅</button></div><div class="di-fb" id="h3f"></div></div>
+    <div class="di" id="h4"><div class="di-sent">4. "Which of these is <strong>written correctly</strong>?"</div><div class="di-btns"><button class="di-wr" onclick="doH(4,'w')">Find the WRONG one 🚫</button><button class="di-ri" onclick="doH(4,'r')">Find the RIGHT one ✅</button></div><div class="di-fb" id="h4f"></div></div>
+    <div class="drill-score" id="hScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — the real thing 🧩</h2>
+    <p>Circle the question word first, then cross out and choose. Notice the target flips on the last one.</p>
+    <div class="di head-w" id="p1"><div class="di-head">🚫 Which contains an ERROR?</div><div class="opts">
+      <button class="di-opt" onclick="doP(1,'a')">A. If the shed had a window, the tools would have been easy to find.</button>
+      <button class="di-opt" onclick="doP(1,'b')">B. If the map had been printed, the hikers would have found the path.</button>
+      <button class="di-opt" onclick="doP(1,'c')">C. If the pond had been cleaned, the fish would have thrived.</button>
+      <button class="di-opt" onclick="doP(1,'d')">D. If the lock had been fixed, the gate would have stayed shut.</button>
+    </div><div class="di-fb" id="p1f"></div></div>
+    <div class="di head-w" id="p2"><div class="di-head">🚫 Which contains an ERROR?</div><div class="opts">
+      <button class="di-opt" onclick="doP(2,'a')">A. If the class had a projector, the teacher would show more videos.</button>
+      <button class="di-opt" onclick="doP(2,'b')">B. If the bus had come, we would have reached school on time.</button>
+      <button class="di-opt" onclick="doP(2,'c')">C. If the roof had a skylight, the attic would have been brighter.</button>
+      <button class="di-opt" onclick="doP(2,'d')">D. If the road had been cleared, the cars would have moved freely.</button>
+    </div><div class="di-fb" id="p2f"></div></div>
+    <div class="di head-r" id="p3"><div class="di-head">✅ NOW THE OPPOSITE — which is CORRECT?</div><div class="opts">
+      <button class="di-opt" onclick="doP(3,'a')">A. If the park had a pond, ducks would have visited daily.</button>
+      <button class="di-opt" onclick="doP(3,'b')">B. If the shop had stayed open, we will have bought milk.</button>
+      <button class="di-opt" onclick="doP(3,'c')">C. If the garden had a bench, we would sit outside more.</button>
+      <button class="di-opt" onclick="doP(3,'d')">D. If the team had trained, they would scored more goals.</button>
+    </div><div class="di-fb" id="p3f"></div></div>
+    <div class="drill-score" id="pScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Circle the question word FIRST — ERROR or CORRECT. Then run the three checks and cross out. The grammar was never the problem; the target was.</div></div>
+    <p style="text-align:center;margin:0">That's both Unit 17 lessons done. On the test: pick the right twin on cloze; circle the question word on grammar. You've got this. 💪</p>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_TwinWords.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var hKey={1:'w',2:'r',3:'w',4:'r'};
+var hWhy={1:'"error" → hunt the one broken sentence.',2:'"correct" → hunt the one clean sentence.',3:'"mistake" → hunt the one broken sentence.',4:'"written correctly" → hunt the one clean sentence.'};
+var hDone={};var hC=0;
+function doH(n,c){if(hDone[n])return;hDone[n]=true;var it=document.getElementById('h'+n);var fb=document.getElementById('h'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===hKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+hWhy[n];hC++;}else{fb.className='di-fb no';fb.textContent='❌ '+hWhy[n];}if(Object.keys(hDone).length===4){var s=document.getElementById('hScore');s.className='drill-score show';s.innerHTML='<strong>Which hunt: '+hC+'/4</strong>';}}
+
+var pKey={1:'a',2:'c',3:'c'};
+var pWhy={1:'A ✗ "had a window" (Second) + "would have been" (Third) = mismatch → the error. B, C, D are clean Thirds.',2:'C ✗ "had a skylight" (Second) + "would have been" (Third) = mismatch → the error. A is a clean Second; B, D clean Thirds.',3:'C ✓ "had a bench" (Second) + "would sit" = clean Second. A mixes types; B breaks the no-"will" rule; D has "would scored" (broken).'};
+var pDone={};var pC=0;
+function doP(n,c){if(pDone[n])return;pDone[n]=true;var it=document.getElementById('p'+n);var fb=document.getElementById('p'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===pKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+pWhy[n];pC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: '+pKey[n].toUpperCase()+'. '+pWhy[n];}if(Object.keys(pDone).length===3){var s=document.getElementById('pScore');s.className='drill-score show';s.innerHTML='<strong>The real thing: '+pC+'/3</strong><br><span style="font-size:14px">'+(pC>=2?'🎉 You switched targets on the last one without missing a beat. That is the whole fix.':'⚠️ Circle the question word first: ERROR = broken one, CORRECT = clean one.')+'</span>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
