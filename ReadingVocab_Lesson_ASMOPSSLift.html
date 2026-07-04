@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading &amp; Vocabulary — The ASMOPSS Lift — Unit 18 Lesson 3</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#00695C;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(0,105,92,0.10);margin-bottom:18px}
+h2{color:#00695C;font-size:1.22rem;margin-bottom:14px}
+h2.v{color:#E65100}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#00695C,#00897B);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-box.v{background:linear-gradient(135deg,#E65100,#F57C00)}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E0F2F1;border:2px solid #4DB6AC;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#00695C;margin-bottom:6px}
+.bws-title{font-weight:700;color:#00695C;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#00695C;color:#fff}
+.node.q{background:#E0F2F1;border:2px solid #00897B;color:#00695C}
+.node.s{background:#FFF3E0;border:2px solid #FB8C00;color:#E65100}
+.arrow{font-size:18px;color:#00897B;line-height:1}
+.branch{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#00897B}
+.qtypes{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.qtypes th{background:#00695C;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.qtypes td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.passage{background:#FAFAFA;border:2px solid #B2DFDB;border-radius:10px;padding:16px 18px;margin:12px 0;font-size:14px;line-height:1.8}
+.passage p{margin-bottom:10px;font-size:14px}
+.notice{background:#FFF8E1;border:2px dashed #FFB74D;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13.5px;line-height:1.8}
+.notice-title{font-weight:700;color:#E65100;margin-bottom:4px}
+.pq{background:#fff;border:2px solid #B2DFDB;border-radius:10px;padding:16px;margin:12px 0}
+.pq.v{border-color:#FFCC80}
+.pq-text{font-size:15px;margin-bottom:6px;line-height:1.7}
+.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.pq-btn{background:#EDF2F7;border:2px solid #B2DFDB;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq.v .pq-btn{border-color:#FFCC80}
+.pq-btn:hover:not(:disabled){background:#B2DFDB}
+.pq.v .pq-btn:hover:not(:disabled){background:#FFE0B2}
+.pq button:disabled{opacity:.55;cursor:default}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#E0F2F1;color:#00695C;display:block}
+.pq.v .pq-fb.ok{background:#FFF3E0;color:#E65100}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#00695C,#00897B);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.v{background:linear-gradient(135deg,#E65100,#F57C00)}
+.drill-score.show{display:block}
+.worked{background:#fff;border:2px solid #B2DFDB;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#00695C}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #B2DFDB;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#00695C,#00897B);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #B2DFDB;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#00695C,#00897B);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading &amp; Vocabulary — The ASMOPSS Lift</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 18 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Grown-ups read dense, fact-heavy writing all the time — news articles, museum plaques, park notices, instructions. The skill isn't reading every word slowly; it's spotting the ONE big idea, understanding WHY the writer included certain details, and figuring out things the text doesn't say outright. This is also the exact skill that separated your ASMOPSS practice score (a strong 24/30) from a gold medal — reading was the one section that needs the biggest lift. Today we start building it, gently.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>Grammar and cloze are stable now (great work), so we're opening a new, light strand: reading real-world, non-fiction style passages. Your vocabulary stays warm with a short check at the end. Try this warm-up first:</p>
+    <div class="pq" id="wu1">
+      <div class="pq-text"><em>"First workers cleared the rubble, then planted grass, and by spring the empty lot had become a small garden."</em> — mainly about:</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('wu1',this,'a')">A — turning an empty lot into a garden</button>
+        <button class="pq-btn" onclick="doPQ('wu1',this,'b')">B — which grass seeds grow fastest</button>
+        <button class="pq-btn" onclick="doPQ('wu1',this,'c')">C — how to clear rubble safely</button>
+      </div>
+      <div class="pq-fb" id="wu1f"></div>
+    </div>
+    <p>That's the main idea skill — the one big point the whole passage is building toward. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Four questions, four jobs 🌳</h2>
+    <div class="tree">
+      <div class="node start">Read the question first</div>
+      <div class="arrow">↓</div>
+      <div class="node q">What is it really asking?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">"mainly about" / "best title"</span><div class="node s">MAIN IDEA — the one big point</div></div>
+        <div class="leg"><span class="lbl">"why did the writer include..."</span><div class="node s">AUTHOR'S PURPOSE — what job that detail does</div></div>
+      </div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">"what can you conclude / infer"</span><div class="node s">INFERENCE — reason it out from clues, even though it's not stated directly</div></div>
+        <div class="leg"><span class="lbl">"according to the notice/sign"</span><div class="node s">REAL-WORLD TEXT — find the exact rule stated</div></div>
+      </div>
+    </div>
+    <table class="qtypes">
+      <tr><th>Question type</th><th>What to do</th></tr>
+      <tr><td><strong>Main idea</strong></td><td>Ignore small details. Ask: "if I had to tell a friend this passage in ONE sentence, what would I say?" The right answer covers the WHOLE passage, not just one paragraph.</td></tr>
+      <tr><td><strong>Author's purpose</strong></td><td>Ask: "why did the writer bother to put THIS detail in?" — often to show a contrast, prove a point, or set up a surprise.</td></tr>
+      <tr><td><strong>Inference</strong></td><td>The answer isn't written word-for-word — combine two clues from the text yourself. Never pick an answer that fights the text, even if it "feels" plausible.</td></tr>
+      <tr><td><strong>Real-world text (notices, notes)</strong></td><td>These are about precise reading — check who does what, when, and any exceptions ("except", "only", "unless"). Read it like a rule, not a story.</td></tr>
+    </table>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch it worked out 👀</h2>
+    <div class="worked">
+      <p class="step"><b>Passage:</b> "The bakery had stood empty for two years. Some said it should be knocked down. Instead, a group of neighbours repainted it themselves and reopened it as a free library."</p>
+      <p class="step"><b>Main idea:</b> ignore the small detail (paint colour, exact time) — the whole passage is building toward: neighbours turned an empty building into a free library.</p>
+      <p class="step"><b>Author's purpose (why mention "some said it should be knocked down"?):</b> to set up a contrast — showing the surprising, better outcome that actually happened, not the expected one.</p>
+      <p class="step"><b>Inference (what does this suggest about the neighbours?):</b> the text never says "they cared about their community" directly — but repainting a building themselves and giving it away for free strongly implies exactly that. That's inference: combining clues, not quoting them.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Practice — From Quarry to Park 🏞️</h2>
+    <div class="passage">
+      <p>For nearly a hundred years, the old stone quarry on the edge of town produced blocks for building. Trucks rumbled in and out every day, and the deep pit grew wider each year. But by the 1980s, the stone had run out, and the quarry closed. For over a decade afterwards, it sat empty — a scarred, grey hole surrounded by rusting fences.</p>
+      <p>In 1995, the town council proposed something nobody expected: instead of filling the pit or leaving it fenced off, they would turn it into a public park. Critics said it was a waste of money — nobody would want to visit a hole in the ground. But the council pointed out that the quarry already had steep natural walls, a flat floor perfect for playing fields, and a spring that could be turned into a lake. Rather than build a park from nothing, they would work with the shape the quarry had already carved.</p>
+      <p>Over the next five years, workers planted thousands of trees along the quarry walls, built winding paths down to the floor, and let the spring fill a shallow lake. Today, the old quarry is one of the town's most-loved green spaces. Visitors often say they would never guess the peaceful lake and shaded paths were once a noisy, dusty pit.</p>
+      <p>The park's transformation is now studied by other towns hoping to reuse their own abandoned quarries and mines, rather than simply burying them under rubble.</p>
+    </div>
+    <div class="pq" id="q1">
+      <div class="pq-text"><strong>1. Main idea —</strong> What is this passage MAINLY about?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q1',this,'a')">A. How stone quarries produce building blocks</button>
+        <button class="pq-btn" onclick="doPQ('q1',this,'b')">B. An unlikely place becoming a loved public park</button>
+        <button class="pq-btn" onclick="doPQ('q1',this,'c')">C. Why critics disliked the town council</button>
+        <button class="pq-btn" onclick="doPQ('q1',this,'d')">D. How to plant trees along steep walls</button>
+      </div>
+      <div class="pq-fb" id="q1f"></div>
+    </div>
+    <div class="pq" id="q2">
+      <div class="pq-text"><strong>2. Author's purpose —</strong> Why does the writer most likely include what the critics said?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q2',this,'a')">A. To prove the critics were right all along</button>
+        <button class="pq-btn" onclick="doPQ('q2',this,'b')">B. To show that the plan faced real doubt before it succeeded</button>
+        <button class="pq-btn" onclick="doPQ('q2',this,'c')">C. To explain how quarries are usually filled in</button>
+        <button class="pq-btn" onclick="doPQ('q2',this,'d')">D. To criticize the town council's spending</button>
+      </div>
+      <div class="pq-fb" id="q2f"></div>
+    </div>
+    <div class="pq" id="q3">
+      <div class="pq-text"><strong>3. Inference —</strong> What can you infer about why the council chose to "work with the shape the quarry had already carved" rather than build a park from scratch?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q3',this,'a')">A. It made sense to use the quarry's natural features instead of erasing them</button>
+        <button class="pq-btn" onclick="doPQ('q3',this,'b')">B. They didn't have enough workers to flatten the land</button>
+        <button class="pq-btn" onclick="doPQ('q3',this,'c')">C. The critics demanded they keep the pit exactly as it was</button>
+        <button class="pq-btn" onclick="doPQ('q3',this,'d')">D. The lake was already there before the quarry existed</button>
+      </div>
+      <div class="pq-fb" id="q3f"></div>
+    </div>
+    <div class="notice">
+      <div class="notice-title">📋 Quarry Park — Visitor Notice</div>
+      Open daily, 7am–7pm. Dogs must be kept on leads near the lake. Cycling is allowed on the top path only — please walk bikes on all paths below the visitor centre.
+    </div>
+    <div class="pq" id="q4">
+      <div class="pq-text"><strong>4. Real-world text —</strong> According to the notice, where is cycling NOT allowed?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q4',this,'a')">A. The top path</button>
+        <button class="pq-btn" onclick="doPQ('q4',this,'b')">B. Anywhere in the park</button>
+        <button class="pq-btn" onclick="doPQ('q4',this,'c')">C. Paths below the visitor centre</button>
+        <button class="pq-btn" onclick="doPQ('q4',this,'d')">D. Near the lake only, after 7pm</button>
+      </div>
+      <div class="pq-fb" id="q4f"></div>
+    </div>
+    <div class="drill-score" id="qScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2 class="v">Vocabulary keep-sharp ✅</h2>
+    <p>Just three, to stay warm — the same Quote-and-Match check that's kept you at 6/6.</p>
+    <div class="pq v" id="v1">
+      <div class="pq-text">"Even though she was exhausted, Maya <strong>insisted</strong> on finishing the marathon." What does this suggest about Maya?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('v1',this,'a')">A. She gave up easily</button>
+        <button class="pq-btn" onclick="doPQ('v1',this,'b')">B. She was firmly determined</button>
+        <button class="pq-btn" onclick="doPQ('v1',this,'c')">C. She was confused</button>
+        <button class="pq-btn" onclick="doPQ('v1',this,'d')">D. She didn't care</button>
+      </div>
+      <div class="pq-fb" id="v1f"></div>
+    </div>
+    <div class="pq v" id="v2">
+      <div class="pq-text">"The abandoned house looked <strong>forlorn</strong>, its windows broken and its garden overgrown." What does "forlorn" mean here?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('v2',this,'a')">A. Cheerful and welcoming</button>
+        <button class="pq-btn" onclick="doPQ('v2',this,'b')">B. Sad and neglected-looking</button>
+        <button class="pq-btn" onclick="doPQ('v2',this,'c')">C. Brand new</button>
+        <button class="pq-btn" onclick="doPQ('v2',this,'d')">D. Extremely large</button>
+      </div>
+      <div class="pq-fb" id="v2f"></div>
+    </div>
+    <div class="pq v" id="v3">
+      <div class="pq-text">"Despite the coach's warning, the team grew <strong>complacent</strong> after three easy wins." What does "complacent" suggest?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('v3',this,'a')">A. Nervous and alert</button>
+        <button class="pq-btn" onclick="doPQ('v3',this,'b')">B. Too satisfied and no longer careful</button>
+        <button class="pq-btn" onclick="doPQ('v3',this,'c')">C. Angry and frustrated</button>
+        <button class="pq-btn" onclick="doPQ('v3',this,'d')">D. Exhausted</button>
+      </div>
+      <div class="pq-fb" id="v3f"></div>
+    </div>
+    <div class="drill-score v" id="vScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Main idea = the ONE big point. Author's purpose = why that detail is there. Inference = combine clues yourself. Real-world text = read it like a rule.</div></div>
+    <p style="text-align:center;margin:0">That's all three Unit 18 lessons done — well done. 💪</p>
+  </div>
+  <div class="lesson-nav">
+    <a href="Grammar_Lesson_ConditionalMaintenance.html" class="btn-prev">← Grammar Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var PQ_KEY={ wu1:'a', q1:'b', q2:'b', q3:'a', q4:'c', v1:'b', v2:'b', v3:'b' };
+var PQ_WHY={
+  wu1:'The whole passage builds to one point: an empty lot became a garden.',
+  q1:'The whole passage — quarry, closure, doubts, transformation — builds to one point: an unlikely place became a loved park. A and D are just details; C is only a small part of paragraph 2.',
+  q2:'Mentioning the critics shows the plan faced real doubt before succeeding — it makes the eventual success feel earned, not automatic.',
+  q3:'The text never says "cheaper" directly, but reusing steep walls, a flat floor, and a natural spring instead of flattening and rebuilding everything strongly implies it made practical sense.',
+  q4:'The notice says cycling is only allowed on the top path, and bikes must be walked "on all paths below the visitor centre" — so cycling is not allowed on those lower paths.',
+  v1:'"Insisted on finishing" despite exhaustion = firmly determined.',
+  v2:'"Windows broken and garden overgrown" = sad, neglected-looking.',
+  v3:'Growing careless after easy wins, despite a warning, = too satisfied and no longer careful.'
+};
+var pqDone={};var pqScores={ main:0, vocab:0 };
+function doPQ(id, btn, choice){
+  if(pqDone[id]) return; pqDone[id]=true;
+  var wrap = document.getElementById(id);
+  wrap.querySelectorAll('button').forEach(function(b){ b.disabled=true; });
+  var fb = document.getElementById(id+'f');
+  var correct = (choice === PQ_KEY[id]);
+  fb.className = correct ? 'pq-fb ok' : 'pq-fb no';
+  fb.textContent = (correct ? '✅ ' : '❌ Answer: ' + PQ_KEY[id].toUpperCase() + '. ') + PQ_WHY[id];
+  if (id.indexOf('q') === 0 && id !== 'wu1') {
+    if (correct) pqScores.main++;
+    if (['q1','q2','q3','q4'].every(function(k){ return pqDone[k]; })) {
+      var s = document.getElementById('qScore');
+      s.className = 'drill-score show';
+      s.innerHTML = '<strong>Reading practice: ' + pqScores.main + '/4</strong>';
+    }
+  }
+  if (id.indexOf('v') === 0) {
+    if (correct) pqScores.vocab++;
+    if (['v1','v2','v3'].every(function(k){ return pqDone[k]; })) {
+      var sv = document.getElementById('vScore');
+      sv.className = 'drill-score v show';
+      sv.innerHTML = '<strong>Vocab keep-sharp: ' + pqScores.vocab + '/3</strong>';
+      document.getElementById('summaryCard').style.display = 'block';
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Locking While vs Meanwhile — Unit 18 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:790px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #66BB6A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:13.5px;font-weight:700;text-align:center;max-width:560px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#FFF3E0;border:2px solid #F9A825;color:#8a5a00}
+.node.s{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.j{background:#FFF3E0;border:2px solid #E65100;color:#9a3b00}
+.arrow{font-size:20px;color:#7CB342;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#558B2F}
+.twins{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+.twins th{background:#1B5E20;color:#fff;padding:8px;font-size:12px}
+.twins td{padding:9px 10px;border-bottom:1px solid #eee;text-align:center;line-height:1.4}
+.twins .fn{font-weight:700;text-align:left;background:#F1F8E9}
+.pillS{background:#E3F2FD;color:#1565C0;border-radius:6px;padding:2px 8px;font-weight:700}
+.pillJ{background:#FFF3E0;color:#E65100;border-radius:6px;padding:2px 8px;font-weight:700}
+.worked{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#1B5E20}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-s{background:#E3F2FD;border:2px solid #1565C0;color:#1565C0;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-j{background:#FFF3E0;border:2px solid #E65100;color:#E65100;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-w{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Locking While vs Meanwhile</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 18 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Whenever you tell someone about two things happening <strong>at the same time</strong> — a story, a news report, even explaining what happened at school — you need a word that links them clearly. Get it wrong and the reader has to stop and re-read. Get it right and your writing flows. That's exactly what <em>while</em> and <em>meanwhile</em> do — they're the two TIME words for "at the same time," and today we lock the ONE thing that still mixes them up.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>Last time (Unit 17), you nailed <strong>three</strong> of the four twin pairs perfectly: <em>so</em>/<em>as a result</em> ✓, <em>although</em>/<em>however</em> ✓. Try these two warm-ups to prove it still holds:</p>
+    <div class="di" id="w1"><div class="di-sent">Warm-up A. "The bus was late. ____, we waited under the shelter." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-s" onclick="doW(1,'as a result')">as a result</button><button class="di-j" onclick="doW(1,'so')">so</button></div><div class="di-fb" id="w1f"></div></div>
+    <div class="di" id="w2"><div class="di-sent">Warm-up B. "The play was long, ____ nobody left early." <span class="pillJ">comma</span></div><div class="di-btns"><button class="di-j" onclick="doW(2,'although')">although</button><button class="di-s" onclick="doW(2,'however')">however</button></div><div class="di-fb" id="w2f"></div></div>
+    <p style="margin-top:10px">Now the ONE pair that's still slippery: <strong>while</strong> and <strong>meanwhile</strong>. In Unit 17 you swapped them — you put <em>while</em> where <em>meanwhile</em> belonged, and <em>meanwhile</em> where <em>while</em> belonged. Same job (TIME), wrong level. Today we isolate just this pair and drill it until it's automatic. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The while/meanwhile decision tree 🌳</h2>
+    <div class="tree">
+      <div class="node start">Look just before the gap</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Full stop (.) there?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES ↓</span><div class="node s">MEANWHILE<br>(starts a brand-new sentence)</div></div>
+        <div class="leg"><span class="lbl">NO — comma / mid-sentence ↓</span><div class="node j">WHILE<br>(joins two halves of ONE sentence)</div></div>
+      </div>
+    </div>
+    <h2 style="margin-top:14px">Side by side 👯</h2>
+    <table class="twins">
+      <tr><th>Job: TIME (same time)</th><th><span class="pillS">MEANWHILE</span> — sentence-starter</th><th><span class="pillJ">WHILE</span> — clause-joiner</th></tr>
+      <tr><td class="fn">Comes after…</td><td>a full stop — it begins its OWN new sentence</td><td>a comma, or sits in the middle — it glues two halves together</td></tr>
+      <tr><td class="fn">Example</td><td>Dad cooked dinner. <strong>Meanwhile</strong>, Mum read a book.</td><td>Dad cooked dinner <strong>while</strong> Mum read a book.</td></tr>
+      <tr><td class="fn">Can it stand alone at the front of a fresh sentence?</td><td>Yes — that's its whole job</td><td>No — it needs to sit between two halves in ONE sentence</td></tr>
+    </table>
+    <div class="warn-box"><div class="warn-title">The one check that never fails</div>Ask: "Is there a full stop right before this gap?" <strong>YES → meanwhile.</strong> <strong>NO (comma or nothing) → while.</strong> Both mean the exact same thing — only the punctuation before the gap decides which one you're allowed to use.</div>
+  </div>
+  <div class="card">
+    <h2>Watch it worked out, step by step 👀</h2>
+    <div class="worked">
+      <p class="step"><b>Sentence:</b> "The goalkeeper stretched to save the ball. ____, the crowd held its breath."</p>
+      <p class="step"><b>Step 1 — punctuation:</b> there's a full stop right before the gap → this is a brand-new sentence.</p>
+      <p class="step"><b>Step 2 — job:</b> two things happening at the same moment (saving the ball / crowd holding its breath) → TIME.</p>
+      <p class="step"><b>Step 3 — pick the twin:</b> full stop → sentence-starter → <b>meanwhile</b>. ✓</p>
+    </div>
+    <div class="worked">
+      <p class="step"><b>Sentence:</b> "The goalkeeper stretched to save the ball ____ the crowd held its breath."</p>
+      <p class="step"><b>Step 1 — punctuation:</b> no full stop — this is still ONE sentence, just gluing two halves together.</p>
+      <p class="step"><b>Step 2 — job:</b> same TIME meaning as before.</p>
+      <p class="step"><b>Step 3 — pick the twin:</b> mid-sentence → clause-joiner → <b>while</b>. ✓</p>
+    </div>
+    <div class="worked">
+      <p class="step"><b>Harder one:</b> "Grandad told his favourite story again. ____ everyone had heard it before, they still laughed at the ending." — Look carefully: is this TIME (same moment), or something else?</p>
+      <p class="step"><b>Answer:</b> "heard it before, but still laughed" is a SURPRISE, not a same-time event → this gap is actually CONTRAST (although/however), not while/meanwhile at all! Always double-check the JOB first — don't reach for while/meanwhile just because a gap looks similar.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Drill 1 — while or meanwhile? ⚡</h2>
+    <p>Every one of these is TIME. Just read the punctuation before the gap and choose. Click your answer to check it.</p>
+    <div class="di" id="d1"><div class="di-sent">1. "The chef chopped the vegetables. ____, the oven slowly heated up." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-s" onclick="doD(1,'meanwhile')">meanwhile</button><button class="di-j" onclick="doD(1,'while')">while</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. "The chef chopped the vegetables ____ the oven slowly heated up." <span class="pillJ">mid-sentence</span></div><div class="di-btns"><button class="di-s" onclick="doD(2,'meanwhile')">meanwhile</button><button class="di-j" onclick="doD(2,'while')">while</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "Half the class practised times tables, ____ the other half read quietly." <span class="pillJ">comma, mid-sentence</span></div><div class="di-btns"><button class="di-j" onclick="doD(3,'while')">while</button><button class="di-s" onclick="doD(3,'meanwhile')">meanwhile</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. "Half the class practised times tables. ____, the other half read quietly." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-j" onclick="doD(4,'while')">while</button><button class="di-s" onclick="doD(4,'meanwhile')">meanwhile</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="di" id="d5"><div class="di-sent">5. "The pilot checked the instruments ____ the passengers found their seats." <span class="pillJ">mid-sentence</span></div><div class="di-btns"><button class="di-j" onclick="doD(5,'while')">while</button><button class="di-s" onclick="doD(5,'meanwhile')">meanwhile</button></div><div class="di-fb" id="d5f"></div></div>
+    <div class="di" id="d6"><div class="di-sent">6. "The lifeguard scanned the pool. ____, two swimmers raced to the far end." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-j" onclick="doD(6,'while')">while</button><button class="di-s" onclick="doD(6,'meanwhile')">meanwhile</button></div><div class="di-fb" id="d6f"></div></div>
+    <div class="di" id="d7"><div class="di-sent">7. "The farmer fed the animals, ____ his daughter collected the eggs." <span class="pillJ">comma, mid-sentence</span></div><div class="di-btns"><button class="di-s" onclick="doD(7,'meanwhile')">meanwhile</button><button class="di-j" onclick="doD(7,'while')">while</button></div><div class="di-fb" id="d7f"></div></div>
+    <div class="di" id="d8"><div class="di-sent">8. "The lights in the theatre dimmed. ____, the audience fell silent." <span class="pillS">full stop</span></div><div class="di-btns"><button class="di-s" onclick="doD(8,'meanwhile')">meanwhile</button><button class="di-j" onclick="doD(8,'while')">while</button></div><div class="di-fb" id="d8f"></div></div>
+    <div class="drill-score" id="dScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Drill 2 — the school fair cloze 🎪</h2>
+    <p>This time while/meanwhile are mixed in with the twins you've already got solid. Job first, then let the punctuation pick the twin.</p>
+    <div class="ok-box" style="background:#F1F8E9;border-color:#AED581"><p style="font-size:14px;line-height:2;margin:0">The school fair started at ten o'clock, <strong>(1)____</strong> a queue had already formed by nine. Mrs Patel set up the cake stall <strong>(2)____</strong> the caretaker inflated the bouncy castle. The raffle tickets sold out within an hour. <strong>(3)____</strong>, the tombola still had prizes left at lunchtime. It began to drizzle just after midday. <strong>(4)____</strong>, most families moved under the marquee. Year 5 ran the face-painting stall <strong>(5)____</strong> Year 6 managed the coconut shy.</p></div>
+    <div class="di" id="g1"><div class="di-sent"><strong>Gap 1</strong> — "started at ten, ____ a queue had formed by nine"</div><div class="di-btns"><button class="di-w" onclick="doG(1,'although')">although</button><button class="di-w" onclick="doG(1,'so')">so</button><button class="di-w" onclick="doG(1,'while')">while</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent"><strong>Gap 2</strong> — "set up the cake stall ____ the caretaker inflated the castle"</div><div class="di-btns"><button class="di-w" onclick="doG(2,'while')">while</button><button class="di-w" onclick="doG(2,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(2,'however')">however</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="di" id="g3"><div class="di-sent"><strong>Gap 3</strong> — "sold out within an hour. ____, the tombola still had prizes"</div><div class="di-btns"><button class="di-w" onclick="doG(3,'however')">however</button><button class="di-w" onclick="doG(3,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(3,'moreover')">moreover</button></div><div class="di-fb" id="g3f"></div></div>
+    <div class="di" id="g4"><div class="di-sent"><strong>Gap 4</strong> — "began to drizzle just after midday. ____, most families moved under the marquee"</div><div class="di-btns"><button class="di-w" onclick="doG(4,'as a result')">as a result</button><button class="di-w" onclick="doG(4,'while')">while</button><button class="di-w" onclick="doG(4,'so')">so</button></div><div class="di-fb" id="g4f"></div></div>
+    <div class="di" id="g5"><div class="di-sent"><strong>Gap 5</strong> — "ran the face-painting stall ____ Year 6 managed the coconut shy"</div><div class="di-btns"><button class="di-w" onclick="doG(5,'meanwhile')">meanwhile</button><button class="di-w" onclick="doG(5,'while')">while</button><button class="di-w" onclick="doG(5,'so')">so</button></div><div class="di-fb" id="g5f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Full stop before the gap → MEANWHILE (starts fresh).<br>Comma or mid-sentence → WHILE (glues two halves).<br>Same meaning, different job in the sentence — the punctuation always decides.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_ConditionalMaintenance.html" class="btn-lesson">Grammar Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wKey={1:'as a result',2:'although'};
+var wWhy={1:'Full stop → starter twin → as a result.',2:'Comma → joiner twin → although.'};
+var wDone={};
+function doW(n,c){if(wDone[n])return;wDone[n]=true;var it=document.getElementById('w'+n);var fb=document.getElementById('w'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===wKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wWhy[n]+' Still solid.';}else{fb.className='di-fb no';fb.textContent='❌ '+wWhy[n];}}
+
+var dKey={1:'meanwhile',2:'while',3:'while',4:'meanwhile',5:'while',6:'meanwhile',7:'while',8:'meanwhile'};
+var dWhy={1:'Full stop → meanwhile.',2:'Mid-sentence → while.',3:'Comma, mid-sentence → while.',4:'Full stop → meanwhile.',5:'Mid-sentence → while.',6:'Full stop → meanwhile.',7:'Comma, mid-sentence (still ONE sentence) → while.',8:'Full stop → meanwhile.'};
+var dDone={};var dC=0;
+function doD(n,c){if(dDone[n])return;dDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===dKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+dWhy[n];dC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: '+dKey[n]+'. '+dWhy[n];}if(Object.keys(dDone).length===8){var s=document.getElementById('dScore');s.className='drill-score show';s.innerHTML='<strong>While/Meanwhile: '+dC+'/8</strong><br><span style="font-size:14px">'+(dC>=7?'🎉 Locked in — the punctuation check is automatic now.':'⚠️ Full stop = meanwhile. Comma or mid-sentence = while. Nothing else changes.')+'</span>';}}
+
+var gKey={1:'although',2:'while',3:'however',4:'as a result',5:'while'};
+var gWhy={1:'Comma + surprise (started at ten, YET a queue had already formed by nine) → although.',2:'Mid-sentence + same time → while.',3:'Full stop + surprise (sold out, YET tombola still had prizes) → however.',4:'Full stop + caused (drizzle caused the move) → as a result.',5:'Mid-sentence, no full stop before the gap + same time → while.'};
+var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(x){x.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: '+gKey[n]+'. '+gWhy[n];}if(Object.keys(gDone).length===5){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>School fair cloze: '+gC+'/5</strong>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
