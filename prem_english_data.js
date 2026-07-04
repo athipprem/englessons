@@ -602,16 +602,42 @@ PREM_ENGLISH.renderScoreChart = function(containerId) {
   container.appendChild(tip);
 };
 
-// ── Render: session log ───────────────────────────────────────────────
-PREM_ENGLISH.renderSessionLog = function(containerId) {
+// ── Render: session log (with filter: recent5 | all | pending | done | milestones) ─
+PREM_ENGLISH.isMilestoneEntry = function(u) {
+  return typeof u.n === 'string' && u.n.charAt(0) === 'M';
+};
+PREM_ENGLISH.renderSessionLog = function(containerId, filter, countId) {
   var el = document.getElementById(containerId);
   if (!el) return;
-  if (!this.unitLog || this.unitLog.length === 0) {
+  var all = this.unitLog || [];
+  filter = filter || 'recent5';
+
+  if (all.length === 0) {
+    if (countId) { var c0 = document.getElementById(countId); if (c0) c0.textContent = 'Showing 0 of 0'; }
     el.innerHTML = '<div style="text-align:center;color:#a0aec0;font-size:11px;padding:16px 0">No unit tests completed yet &mdash; Unit 1 lessons in progress</div>';
     return;
   }
+
+  var isMs = this.isMilestoneEntry;
+  var list;
+  if (filter === 'all')        list = all;
+  else if (filter === 'pending')   list = all.filter(function(u){ return u.status === 'pending'; });
+  else if (filter === 'done')      list = all.filter(function(u){ return u.status === 'done'; });
+  else if (filter === 'milestones') list = all.filter(isMs);
+  else                          list = all.slice(0, 5); // recent5 (default)
+
+  if (countId) {
+    var cEl = document.getElementById(countId);
+    if (cEl) cEl.textContent = 'Showing ' + list.length + ' of ' + all.length;
+  }
+
+  if (list.length === 0) {
+    el.innerHTML = '<div style="text-align:center;color:#a0aec0;font-size:11px;padding:16px 0">No entries match this filter</div>';
+    return;
+  }
+
   var html = '';
-  this.unitLog.forEach(function(u) {
+  list.forEach(function(u) {
     var pad = (typeof u.n === 'number' && u.n < 10) ? '0' + u.n : '' + u.n;
     var statusHtml = u.status === 'pending'
       ? '<span class="sstatus" style="background:#fff5e6;color:#c05621;border:1px solid #fbd38d">&#9201; Pending</span>'

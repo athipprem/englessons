@@ -74,6 +74,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 /* CARDS */
 .card { background:#fff; border-radius:12px; padding:18px 20px; border:1px solid #e8edf5; margin-bottom:16px; }
 .card-hd { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#718096; margin-bottom:14px; display:flex; align-items:center; gap:6px; }
+.log-hd { justify-content:space-between; margin-bottom:10px; }
+.log-hd-left { display:flex; align-items:center; gap:6px; }
+.log-count { font-size:10px; font-weight:600; text-transform:none; letter-spacing:0; color:#a0aec0; }
+.log-filter-bar { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+.log-filter-pill { border:none; background:#f0f4f8; color:#4a5568; font-size:11px; font-weight:700; padding:6px 13px; border-radius:16px; cursor:pointer; transition:background 0.15s,color 0.15s; }
+.log-filter-pill:hover { background:#e2e8f0; }
+.log-filter-pill.active { background:#4c51bf; color:#fff; }
+.log-filter-pill.active:hover { background:#434190; }
 .dot { width:6px; height:6px; border-radius:50%; display:inline-block; }
 .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
@@ -285,7 +293,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
             </div>
 
             <div class="card">
-              <div class="card-hd"><span class="dot"></span>Unit Log &mdash; newest first</div>
+              <div class="card-hd log-hd">
+                <div class="log-hd-left"><span class="dot"></span>Unit Log</div>
+                <span class="log-count" id="dash-log-count">Showing &mdash; of &mdash;</span>
+              </div>
+              <div class="log-filter-bar" id="dash-log-filters">
+                <button class="log-filter-pill active" data-filter="recent5" onclick="setLogFilter('recent5',this)">Recent 5</button>
+                <button class="log-filter-pill" data-filter="all" onclick="setLogFilter('all',this)">All</button>
+                <button class="log-filter-pill" data-filter="pending" onclick="setLogFilter('pending',this)">Pending</button>
+                <button class="log-filter-pill" data-filter="done" onclick="setLogFilter('done',this)">Done</button>
+                <button class="log-filter-pill" data-filter="milestones" onclick="setLogFilter('milestones',this)">Milestones</button>
+              </div>
               <div id="dash-session-log"></div>
             </div>
           </div>
@@ -552,9 +570,16 @@ function buildRadar() {
   });
 }
 
+// ── Unit Log filter ────────────────────────────────────────────────────
+function setLogFilter(f, btn) {
+  document.querySelectorAll('.log-filter-pill').forEach(function(b){ b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  PREM_ENGLISH.renderSessionLog('dash-session-log', f, 'dash-log-count');
+}
+
 // ── Render from prem_english_data.js ─────────────────────────────────────
 PREM_ENGLISH.renderScoreChart('dash-score-chart');
-PREM_ENGLISH.renderSessionLog('dash-session-log');
+PREM_ENGLISH.renderSessionLog('dash-session-log', 'recent5', 'dash-log-count');
 PREM_ENGLISH.renderSkillBars('dash-skill-bars', true);
 PREM_ENGLISH.renderSkillSummary('dash-skill-summary');
 PREM_ENGLISH.renderAchievement('dash-road-pct', 'dash-road-bar', 'dash-road-lbl');
