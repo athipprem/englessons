@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '4 Jul 2026',
+  updated:        '6 Jul 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           18,
-    status:      'Phase 2 · U18 Lessons Ready · Test Pending',
+    n:           19,
+    status:      'Phase 2 · U19 Lessons Ready · Test Pending',
     testPending: true
   },
 
@@ -32,61 +32,61 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 17 — updated after each test)
+  // Last completed assessment (Unit 18 — updated after each test)
   lastUnit: {
-    n: 17, label: 'Unit 17', score: 17, outOf: 20, pct: 85, delta: 4, prevScore: 13,
+    n: 18, label: 'Unit 18', score: 17, outOf: 20, pct: 85, delta: 0, prevScore: 17,
 
-    patternLabel:   'Unit 17 &mdash; 4 Jul 2026 &middot; 17/20 (85%) &middot; the grammar fix worked immediately &middot; Grammar 6/7 &middot; Cloze 5/7 &middot; Vocab 6/6',
-    patternInsight: '<strong>Score: 17/20 (85%) &mdash; a full recovery from the U16 dip, and it ties the programme&rsquo;s best.</strong> Grammar jumped 3/7 &rarr; 6/7 the moment the two question directions stopped being interleaved and the &ldquo;circle ERROR or CORRECT first&rdquo; habit was added &mdash; Q8 through Q13 all landed clean (Second-ID, both find-the-error blocks, the mixed-conditional item). The lone miss, Q14, is a &ldquo;which is grammatically CORRECT?&rdquo; item with a possible answer-key ambiguity (two of the four options are arguably both error-free) rather than a clear concept gap. <strong>Cloze held at 5/7</strong>, but the SAME twin-word trap resurfaced in a new pair: Q2/Q3 swapped <em>meanwhile</em> (sentence-starter) and <em>while</em> (clause-joiner) &mdash; the general rule is proven (so/as-a-result and although/however both held), but this one pair still needs its own isolated drill. Vocab back to a clean 6/6. <strong>U18: keep the grammar approach unchanged (it&rsquo;s working); isolate the while/meanwhile pair specifically; grammar is stable enough to reopen a light 3rd strand (ASMOPSS reading).</strong>',
+    patternLabel:   'Unit 18 &mdash; 6 Jul 2026 &middot; 17/20 (85%) &middot; ties the programme high again, third time in four units &middot; Grammar 6/7 &middot; Cloze 5/7 &middot; Vocab 6/6',
+    patternInsight: '<strong>Score: 17/20 (85%) &mdash; matches U17 exactly, section for section &mdash; and both misses are NEW error shapes, not repeats.</strong> Grammar held at 6/7; the one miss (Q9) was a false-positive &mdash; he correctly cleared two genuinely clean sentences, but flagged a THIRD clean sentence as the error just because its wording (&ldquo;had more sunlight&rdquo;, no &ldquo;been&rdquo;) looked different from its neighbours. The scan-all-four habit is working; the new fix is a &ldquo;confirm before you circle&rdquo; step. <strong>Cloze held at 5/7</strong> &mdash; the U18 lesson&rsquo;s target (isolating while vs meanwhile) WORKED (Q2 correct), but a fresh slip appeared at the last two gaps (Q6/Q7, a moreover&harr;while swap) &mdash; the same &ldquo;rushes the finish&rdquo; pacing pattern seen before at U15 and U16. Vocab stayed perfect, 6/6 &mdash; 4th clean sweep in 5 units. <strong>Separately, a quantitative script confirmed Prem&rsquo;s own feedback that MCQ correct answers are often the longest option and cluster toward B/C &mdash; new anti-bias test-design rules are locked in from U19 onward (balance option length, target an even A/B/C/D spread, verify with a script before shipping).</strong> U19: pacing habit for cloze, a confirm-step for grammar, continue the reading strand, apply the new MCQ balance rules.',
 
-    analysisLabel:   'Unit 17 Result Analysis &mdash; 4 Jul 2026',
-    analysisInsight: '<strong>Score: 17/20 (85%). The U16 diagnosis was right, and U17 proves it.</strong> Section B Grammar 6/7: removing the interleave and adding the circle-the-question-word habit fixed the mode-switching problem on first use &mdash; Q8, Q9, Q10, Q11, Q12, Q13 all correct. Q14 (which is CORRECT) is the only miss; on inspection, two of its four options are both grammatically valid (a clean Second and a clean Third), so this may be a test-design ambiguity rather than a Prem error &mdash; worth a key review. Section A Cloze 5/7: Q2 and Q3 show a clean while&harr;meanwhile swap &mdash; the general &ldquo;twin words, punctuation decides&rdquo; rule held for the other two twin families (so/as-a-result, although/however), so this is a narrow, isolated gap now, not a broad one. Section C Vocab 6/6: perfect, confirming U16&rsquo;s miss was a one-off rush slip. U18 keeps grammar unchanged, isolates the while/meanwhile pair, and reopens a light 3rd strand (ASMOPSS-style reading) since grammar is back above the 5/7 threshold.',
+    analysisLabel:   'Unit 18 Result Analysis &mdash; 6 Jul 2026',
+    analysisInsight: '<strong>Score: 17/20 (85%). Steady, and the errors are new and narrow, not repeats.</strong> Section B Grammar 6/7: Q9 asked which sentence contains an error; the real error was a Third-if-half/Second-result mismatch, but Prem instead flagged a fully consistent Second Conditional sentence that merely looked different (no &ldquo;been&rdquo;) from its Third-Conditional neighbours &mdash; a false-positive, not a missed scan. Section A Cloze 5/7: Q2 (meanwhile) correct confirms the U18 lesson&rsquo;s target fix worked; Q6/Q7 show a fresh moreover&harr;while swap at the passage&rsquo;s last two gaps, matching a known fatigue/pacing pattern (U15, U16). Section C Vocab 6/6: perfect, 4th in 5 units &mdash; fully consolidated. A separate quantitative audit of all 202 Grammar/Vocab MCQs built so far confirmed Prem&rsquo;s feedback: the correct answer is the strict-longest option 39% of the time (vs ~25% expected), and its letter position skews to B/C (65% combined vs an expected 50%). New rules apply from U19: balance option word-count, target an even A/B/C/D spread, and run a verification script before every future test ships.',
 
-    qSummary: '<strong>Full recovery (65&rarr;85), ties the programme high. Grammar 6/7 (mode-switching fix worked immediately; Q14 miss may be a key ambiguity). Cloze 5/7 (while&harr;meanwhile twin swap &mdash; the general twin rule holds, this one pair still needs isolation). Vocab 6/6 (perfect). U18: keep grammar approach; isolate while/meanwhile; reopen a light 3rd strand (ASMOPSS reading).</strong>',
+    qSummary: '<strong>Steady at 85% (ties U15/U17), 3rd time in 4 units. Grammar 6/7 (Q9 = a false-positive, flagged a correct-but-different-looking sentence, not a missed scan). Cloze 5/7 (the targeted while/meanwhile fix WORKED; a fresh moreover&harr;while swap hit the last two gaps &mdash; a pacing/fatigue pattern, 3rd time seen). Vocab 6/6 (4th in 5 units, consolidated). PLUS: a quantitative MCQ bias audit confirmed Prem&rsquo;s feedback (correct answer often longest + skews to B/C) &mdash; new anti-bias rules locked in from U19.</strong>',
 
     qBreakdown: [
       { q:'Q1',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; A (although = CONTRAST clause-joiner). Foundational.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:false, note:'&#10007; Needed E (meanwhile = TIME sentence-starter, full stop before); put H (while). Swapped with Q3 &mdash; a TIME-pair LEVEL swap. Foundational.' },
-      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed H (while = TIME clause-joiner, mid-sentence); put E (meanwhile). Swapped with Q2. Developing.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Developing.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; G (so = RESULT clause-joiner). Developing.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; D (however = CONTRAST sentence-starter). Developing.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; F (moreover = ADDITION sentence-starter). Advanced.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Identified the Second Conditional (C). Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Find-the-error (Will Ban, B). Foundational.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; E (meanwhile = TIME sentence-starter) &mdash; the U18 lesson&rsquo;s targeted fix (while vs meanwhile) held. Foundational.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; D (however = CONTRAST sentence-starter). Developing.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; G (so = RESULT clause-joiner). Developing.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Developing.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'i', pass:false, note:'&#10007; Needed F (moreover = ADDITION sentence-starter); put H (while). Swapped with Q7 &mdash; a fresh ADDITION/TIME mix-up at the passage&rsquo;s last two gaps. Developing.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'a', pass:false, note:'&#10007; Needed H (while = TIME clause-joiner); put F (moreover). Swapped with Q6 &mdash; matches the &ldquo;rushes the finish&rdquo; pacing pattern seen at U15/U16. Advanced.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Identified the Second Conditional (B). Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Real error was B (Third if-half + Second result mismatch); Prem flagged C instead &mdash; C is a genuinely clean Second Conditional that just LOOKED different (no &ldquo;been&rdquo;). A false-positive, not a missed scan. Developing.' },
       { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Find-the-error (2\\|3 mismatch, D). Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Find-the-error (2\\|3 mismatch, B). Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed Conditional (present-result, B). Developing.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Find-the-error (2\\|3 mismatch, A). Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; &ldquo;Which is CORRECT?&rdquo; (key: C); put D by elimination. D is also a clean, error-free Third Conditional &mdash; possible answer-key ambiguity (flagged for review, not treated as a concept gap). Advanced.' },
-      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; sodden = &ldquo;completely soaked&rdquo;. Foundational.' },
-      { q:'Q16', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; scorching = &ldquo;extremely hot&rdquo;. Foundational.' },
-      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; dreadful = &ldquo;terrible&rdquo;. Developing.' },
-      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; hollow = &ldquo;empty inside&rdquo;. Developing.' },
-      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; rugged = &ldquo;rough and uneven&rdquo;. Developing.' },
-      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; gigantic = &ldquo;enormous&rdquo;. Advanced.' }
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Find-the-error (Will Ban, B). Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Mixed Conditional (present-result, B). Advanced.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Find-the-error (2\\|3 mismatch, D). Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; &ldquo;Which is CORRECT?&rdquo; (C) &mdash; the U17 same-conditional-type rule closed the key-ambiguity risk; clean result. Advanced.' },
+      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; weathered = &ldquo;worn and faded by exposure&rdquo;. Foundational.' },
+      { q:'Q16', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; wizened = &ldquo;shrivelled and aged&rdquo;. Foundational.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; wary = &ldquo;cautious and alert&rdquo;. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; battered = &ldquo;severely damaged&rdquo;. Developing.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; aching = &ldquo;sore and tired&rdquo;. Developing.' },
+      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; jubilant = &ldquo;extremely joyful&rdquo;. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U17: grammar mode-switching fix confirmed (rebounded 67→75); vocab back to target; cloze steady
+  // After U18: section scores matched U17 exactly (5/7, 6/7, 6/6) — radar holds steady; both misses were new/narrow, not repeats
   skills: [
-    { name: 'Reading Compr.',    c: 75, t: 85 },   // U17: not in unit test; unchanged
-    { name: 'Vocabulary',        c: 82, t: 82 },   // U17: 6/6 — back to a clean sweep, reached target
-    { name: 'Grammar',           c: 75, t: 82 },   // U17: 6/7 — mode-switching fix confirmed; only the Q14 key-ambiguity item left
-    { name: 'Cloze Test',        c: 68, t: 80 },   // U17: 5/7 — the twin-word slip moved from so/as-a-result to while/meanwhile
+    { name: 'Reading Compr.',    c: 75, t: 85 },   // U18: not directly re-scored; reading strand continuing via lessons
+    { name: 'Vocabulary',        c: 82, t: 82 },   // U18: 6/6 — 4th clean sweep in 5 units, fully consolidated, MEETS target
+    { name: 'Grammar',           c: 75, t: 82 },   // U18: 6/7 — held steady; Q9 miss was a new false-positive type, not a repeat gap
+    { name: 'Cloze Test',        c: 68, t: 80 },   // U18: 5/7 — while/meanwhile fix held; fresh moreover/while pacing slip at last 2 gaps
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
-    { name: 'Critical Thinking', c: 62, t: 80 },   // U17: not in unit test; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U17: not in unit test; unchanged
+    { name: 'Critical Thinking', c: 62, t: 80 },   // U18: not in unit test; unchanged
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U18: not in unit test; unchanged
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
   radarCurrent:  [75, 82, 75, 68, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 17',
+  radarLegendUnit: 'Unit 18',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -108,11 +108,24 @@ var PREM_ENGLISH = {
     { n:14, score:14, outOf:20, delta:6, color:'#667eea', star:false, label:'U14' },
     { n:15, score:17, outOf:20, delta:3, color:'#89F336', star:false, label:'U15' },
     { n:16, score:13, outOf:20, delta:-4, color:'#667eea', star:false, label:'U16' },
-    { n:17, score:17, outOf:20, delta:4,  color:'#89F336', star:false, label:'U17' }
+    { n:17, score:17, outOf:20, delta:4,  color:'#89F336', star:false, label:'U17' },
+    { n:18, score:17, outOf:20, delta:0,  color:'#89F336', star:false, label:'U18' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 18,
+      title: 'Unit 18 &mdash; Cloze: While/Meanwhile Lock &middot; Grammar: Conditional Maintenance &middot; Reading &amp; Vocab: ASMOPSS Lift',
+      badge: '#89F336',
+      status: 'done',
+      note: '17/20 (85%) &mdash; <strong>ties the programme high again, 3rd time in 4 units &mdash; and both misses are NEW, not repeats.</strong> <strong>Grammar 6/7</strong>: held steady; the one miss (Q9) was a false-positive &mdash; flagged a genuinely correct sentence just because its wording looked different, not a missed scan. <strong>Cloze 5/7</strong>: the targeted while/meanwhile fix WORKED (Q2 correct); a fresh moreover&harr;while swap hit the last two gaps &mdash; the same &ldquo;rushes the finish&rdquo; pacing pattern seen at U15/U16. <strong>Vocab 6/6 &#9733;</strong> &mdash; 4th clean sweep in 5 units. <strong>NEW:</strong> a quantitative script confirmed Prem&rsquo;s own feedback that MCQ correct answers are often the longest option and cluster toward B/C &mdash; anti-bias test-design rules now locked in from U19. &middot; Next: <strong>UNIT 19</strong> &mdash; cloze pacing habit, grammar confirm-step, continue the reading strand, apply the new MCQ balance rules',
+      tags: [
+        { t:'Grammar 6/7 &#127881;', s:'background:#f0fff4;color:#276749' },
+        { t:'Cloze 5/7', s:'background:#fff8e1;color:#744210' },
+        { t:'Vocab 6/6 &#9733;', s:'background:#f0fff4;color:#276749' }
+      ]
+    },
     {
       n: 17,
       title: 'Unit 17 &mdash; Cloze: Twin Words &amp; the Level &middot; Grammar: Error or Correct?',

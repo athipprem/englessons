@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading &amp; Vocabulary — Reading Notices Precisely — Unit 19 Lesson 3</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#00695C;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(0,105,92,0.10);margin-bottom:18px}
+h2{color:#00695C;font-size:1.22rem;margin-bottom:14px}
+h2.v{color:#E65100}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#00695C,#00897B);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-box.v{background:linear-gradient(135deg,#E65100,#F57C00)}
+.rule-big{font-size:1.1rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E0F2F1;border:2px solid #4DB6AC;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#00695C;margin-bottom:6px}
+.bws-title{font-weight:700;color:#00695C;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#00695C;color:#fff}
+.node.q{background:#E0F2F1;border:2px solid #00897B;color:#00695C}
+.node.s{background:#FFF3E0;border:2px solid #FB8C00;color:#E65100}
+.arrow{font-size:18px;color:#00897B;line-height:1}
+.branch{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#00897B}
+.qtypes{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.qtypes th{background:#00695C;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.qtypes td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.passage{background:#FAFAFA;border:2px solid #B2DFDB;border-radius:10px;padding:16px 18px;margin:12px 0;font-size:14px;line-height:1.8}
+.passage p{margin-bottom:10px;font-size:14px}
+.notice{background:#FFF8E1;border:2px dashed #FFB74D;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13.5px;line-height:1.8}
+.notice-title{font-weight:700;color:#E65100;margin-bottom:4px}
+.chain{background:#fff;border:2px solid #B2DFDB;border-radius:10px;padding:12px 16px;margin:10px 0;font-size:13.5px;line-height:1.9}
+.chain .step{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+.chain .n{background:#00897B;color:#fff;font-weight:700;border-radius:50%;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.pq{background:#fff;border:2px solid #B2DFDB;border-radius:10px;padding:16px;margin:12px 0}
+.pq.v{border-color:#FFCC80}
+.pq-text{font-size:15px;margin-bottom:6px;line-height:1.7}
+.pq-opts{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.pq-btn{background:#EDF2F7;border:2px solid #B2DFDB;border-radius:8px;padding:9px 14px;font-size:14px;cursor:pointer;text-align:left;line-height:1.5}
+.pq.v .pq-btn{border-color:#FFCC80}
+.pq-btn:hover:not(:disabled){background:#B2DFDB}
+.pq.v .pq-btn:hover:not(:disabled){background:#FFE0B2}
+.pq button:disabled{opacity:.55;cursor:default}
+.pq-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;line-height:1.6}
+.pq-fb.ok{background:#E0F2F1;color:#00695C;display:block}
+.pq.v .pq-fb.ok{background:#FFF3E0;color:#E65100}
+.pq-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#00695C,#00897B);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.v{background:linear-gradient(135deg,#E65100,#F57C00)}
+.drill-score.show{display:block}
+.worked{background:#fff;border:2px solid #B2DFDB;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#00695C}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #B2DFDB;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#00695C,#00897B);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #B2DFDB;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#00695C,#00897B);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading &amp; Vocabulary — Reading Notices Precisely</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 19 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Real life is full of notices with rules that have exceptions: library fines, bus timetables, park signs, permission slips. Getting them wrong isn't just a school problem — mixing up a rule in real life can cost you money or get you in trouble! The skill is reading slowly enough to catch words like "unless," "except," and "responsible for" — because those tiny words often change who a rule actually applies to.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>Quick recap of last unit's four reading question types — just name the type, don't answer it:</p>
+    <div class="pq" id="wu1">
+      <div class="pq-text">"According to the sign, when is the pool closed for cleaning?" — this is asking for:</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('wu1',this,'b')">A — the main idea of the sign</button>
+        <button class="pq-btn" onclick="doPQ('wu1',this,'a')">B — an exact fact stated in a real-world text</button>
+        <button class="pq-btn" onclick="doPQ('wu1',this,'c')">C — an inference the sign never states</button>
+      </div>
+      <div class="pq-fb" id="wu1f"></div>
+    </div>
+    <p style="margin-top:10px">Right — that's the "real-world text" type from last unit. Today we go one level deeper into exactly that skill, because it's the one your ASMOPSS practice paper flagged as a gap: notices where the rule depends on WHO you are, not just what happened. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Quick recap — the four question types 🌳</h2>
+    <table class="qtypes">
+      <tr><th>Question type</th><th>What to do</th></tr>
+      <tr><td><strong>Main idea</strong></td><td>Ignore small details — what's the ONE sentence you'd use to sum up the whole passage?</td></tr>
+      <tr><td><strong>Author's purpose</strong></td><td>Ask: "why did the writer bother to include THIS detail?"</td></tr>
+      <tr><td><strong>Inference</strong></td><td>Combine two clues yourself — never pick an answer the text contradicts.</td></tr>
+      <tr><td><strong>Real-world text</strong></td><td>Read it like a rule, not a story — check exactly who it applies to.</td></tr>
+    </table>
+    <h2 style="margin-top:16px">Today's deep-dive: rules with a "who's responsible" chain 🔗</h2>
+    <p>Notices often have a rule, THEN a special case that changes who it applies to. Missing the special case is the single biggest way these questions get missed. The fix is to read every notice in three steps:</p>
+    <div class="chain">
+      <div class="step"><span class="n">1</span><div><strong>Find the general rule.</strong> Who does WHAT, under normal conditions?</div></div>
+      <div class="step"><span class="n">2</span><div><strong>Find every exception word.</strong> "unless," "except," "if," "under 12," "after," — each one can hand responsibility to someone ELSE.</div></div>
+      <div class="step"><span class="n">3</span><div><strong>Match the exact situation in the question to the exact exception.</strong> Don't stop at the general rule if an exception applies — the exception always wins.</div></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch it worked out 👀</h2>
+    <div class="notice">
+      <div class="notice-title">📋 Community Tool Shed — Borrowing Rules</div>
+      Any resident may borrow one tool for up to 3 days. If a tool is returned broken, the borrower must pay for a replacement. If a tool is returned late (after 3 days) but undamaged, the borrower pays a $2 late fee instead. Tools borrowed by children under 12 must be signed out by a parent, who is responsible for any fees.
+    </div>
+    <div class="worked">
+      <p class="step"><b>Question:</b> Jun, age 10, borrows a rake and returns it 5 days later, undamaged. Who pays the late fee?</p>
+      <p class="step"><b>Step 1 — general rule:</b> a tool returned late but undamaged → the borrower pays a $2 fee.</p>
+      <p class="step"><b>Step 2 — exception words:</b> "children under 12... must be signed out by a parent, who is responsible for any fees."</p>
+      <p class="step"><b>Step 3 — match the situation:</b> Jun is 10 (under 12), so the general rule ("the borrower pays") is overridden by the exception — <b>Jun's parent</b> pays the fee, not Jun.</p>
+      <p class="step"><b>The trap:</b> if you stop reading after the general rule, you'd wrongly answer "Jun." The exception sentence — easy to skim past — is what actually decides the answer.</p>
+    </div>
+    <div class="worked">
+      <p class="step"><b>Same notice, a harder combination:</b> Priya, age 14, borrows a hedge trimmer and returns it broken after 2 days. Who pays, and for what?</p>
+      <p class="step"><b>Step 1:</b> returned broken → borrower pays for a replacement (not the $2 late fee — it wasn't late, and the "broken" rule applies instead of the "late" rule).</p>
+      <p class="step"><b>Step 2 — exception check:</b> the parent-responsibility exception only applies to children UNDER 12. Priya is 14.</p>
+      <p class="step"><b>Step 3:</b> the exception does NOT apply here — <b>Priya herself</b> pays for the replacement.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Practice — Riverside Library Notice 📚</h2>
+    <div class="notice">
+      <div class="notice-title">📋 Riverside Library — Borrowing Rules</div>
+      Books may be borrowed for 14 days. A book returned after 14 days is charged 10 cents per day late, paid by the card-holder. Books borrowed on a Junior Card (ages 6–11) are fine-free if returned within 21 days; after 21 days, the standard 10-cents-per-day fee applies, charged to the parent or guardian who registered the Junior Card.
+    </div>
+    <div class="pq" id="q1">
+      <div class="pq-text"><strong>1.</strong> Sam, age 9, borrows a book on his Junior Card and returns it 18 days later. What fee does Sam owe?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q1',this,'b')">A. 40 cents (4 days late at 10 cents)</button>
+        <button class="pq-btn" onclick="doPQ('q1',this,'a')">B. No fee — 18 days is within the Junior Card's 21-day fine-free window</button>
+        <button class="pq-btn" onclick="doPQ('q1',this,'c')">C. Sam's parent owes 40 cents</button>
+        <button class="pq-btn" onclick="doPQ('q1',this,'d')">D. 140 cents (14 days late)</button>
+      </div>
+      <div class="pq-fb" id="q1f"></div>
+    </div>
+    <div class="pq" id="q2">
+      <div class="pq-text"><strong>2.</strong> Priya, age 10, borrows a book on her Junior Card and returns it 25 days later. Who pays the fee, and how much?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q2',this,'c')">A. Priya pays 110 cents</button>
+        <button class="pq-btn" onclick="doPQ('q2',this,'b')">B. No one — Junior Card books are always fine-free</button>
+        <button class="pq-btn" onclick="doPQ('q2',this,'a')">C. Priya's parent/guardian pays 40 cents (4 days past the 21-day window)</button>
+        <button class="pq-btn" onclick="doPQ('q2',this,'d')">D. Priya's parent/guardian pays 250 cents</button>
+      </div>
+      <div class="pq-fb" id="q2f"></div>
+    </div>
+    <div class="drill-score" id="qScore"></div>
+  </div>
+  <div class="card">
+    <h2>Practice — The New Footbridge 🌉</h2>
+    <div class="passage">
+      <p>For years, the two halves of Elmswood were separated by the river — anyone walking between them had to cross at the old road bridge, a fifteen-minute detour each way. Parents complained that the walk to school took twice as long as it should, and shopkeepers noticed that customers from the far side rarely visited on foot.</p>
+      <p>Last spring, the council finally built a footbridge directly across the narrowest point of the river, cutting the walk to under three minutes. Some residents had worried a modern steel bridge would look out of place next to the town's old stone buildings, so the council chose a design with wooden railings and stone-effect posts to match the surrounding architecture.</p>
+      <p>Since the bridge opened, morning school walks have shortened dramatically, and several shopkeepers on the far side report more customers arriving on foot than ever before.</p>
+    </div>
+    <div class="pq" id="q3">
+      <div class="pq-text"><strong>3. Main idea —</strong> What is this passage MAINLY about?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q3',this,'a')">A. A new footbridge that reconnected a divided town</button>
+        <button class="pq-btn" onclick="doPQ('q3',this,'b')">B. How to design a bridge that matches old buildings</button>
+        <button class="pq-btn" onclick="doPQ('q3',this,'c')">C. Complaints from parents about long walks to school</button>
+        <button class="pq-btn" onclick="doPQ('q3',this,'d')">D. Shopkeepers competing for customers</button>
+      </div>
+      <div class="pq-fb" id="q3f"></div>
+    </div>
+    <div class="pq" id="q4">
+      <div class="pq-text"><strong>4. Author's purpose —</strong> Why does the writer mention that some residents worried a steel bridge would "look out of place"?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('q4',this,'b')">A. To criticise the council's original plan</button>
+        <button class="pq-btn" onclick="doPQ('q4',this,'a')">B. To show a concern that the final design thoughtfully addressed</button>
+        <button class="pq-btn" onclick="doPQ('q4',this,'c')">C. To explain how steel bridges are built</button>
+        <button class="pq-btn" onclick="doPQ('q4',this,'d')">D. To argue that old buildings should be replaced</button>
+      </div>
+      <div class="pq-fb" id="q4f"></div>
+    </div>
+    <div class="drill-score" id="q2Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2 class="v">Vocabulary keep-sharp ✅</h2>
+    <p>Just three, to stay warm — the same Quote-and-Match check that's kept you at 6/6 four times now.</p>
+    <div class="pq v" id="v1">
+      <div class="pq-text">"The old gate was so <strong>rusted</strong> that it screeched and barely moved when pushed." What does "rusted" suggest here?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('v1',this,'a')">A. Freshly painted and smooth</button>
+        <button class="pq-btn" onclick="doPQ('v1',this,'b')">B. Corroded and stiff with age</button>
+        <button class="pq-btn" onclick="doPQ('v1',this,'c')">C. Brightly coloured</button>
+        <button class="pq-btn" onclick="doPQ('v1',this,'d')">D. Recently installed</button>
+      </div>
+      <div class="pq-fb" id="v1f"></div>
+    </div>
+    <div class="pq v" id="v2">
+      <div class="pq-text">"Even after losing the first two matches, the team stayed <strong>resilient</strong> and fought back to win the final." What does "resilient" mean here?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('v2',this,'a')">A. Quick to give up</button>
+        <button class="pq-btn" onclick="doPQ('v2',this,'b')">B. Able to recover and keep going despite setbacks</button>
+        <button class="pq-btn" onclick="doPQ('v2',this,'c')">C. Overconfident</button>
+        <button class="pq-btn" onclick="doPQ('v2',this,'d')">D. Unaware of the score</button>
+      </div>
+      <div class="pq-fb" id="v2f"></div>
+    </div>
+    <div class="pq v" id="v3">
+      <div class="pq-text">"The witness gave a <strong>vague</strong> description, unsure of the exact colour or time." What does "vague" mean here?</div>
+      <div class="pq-opts">
+        <button class="pq-btn" onclick="doPQ('v3',this,'a')">A. Extremely precise and detailed</button>
+        <button class="pq-btn" onclick="doPQ('v3',this,'b')">B. Confident and certain</button>
+        <button class="pq-btn" onclick="doPQ('v3',this,'c')">C. Unclear and imprecise</button>
+        <button class="pq-btn" onclick="doPQ('v3',this,'d')">D. Written down officially</button>
+      </div>
+      <div class="pq-fb" id="v3f"></div>
+    </div>
+    <div class="drill-score v" id="vScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">General rule → exception words ("unless," "except," "under 12") → match the exact situation. The exception always wins over the general rule.</div></div>
+    <p style="text-align:center;margin:0">That's all three Unit 19 lessons done — well done. 💪</p>
+  </div>
+  <div class="lesson-nav">
+    <a href="Grammar_Lesson_ConfirmTheOddOneOut.html" class="btn-prev">← Grammar Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var PQ_KEY={ wu1:'a', q1:'a', q2:'a', q3:'a', q4:'b', v1:'b', v2:'b', v3:'c' };
+var PQ_WHY={
+  wu1:'"According to the sign" asks for an exact fact stated in the real-world text.',
+  q1:'Sam is on a Junior Card and returned the book in 18 days — within the 21-day fine-free window, so no fee applies at all.',
+  q2:'Priya returned the book 25 days late — 4 days past the 21-day Junior Card window. The fee (4 days × 10 cents = 40 cents) is charged to the parent/guardian who registered the card, not to Priya herself.',
+  q3:'The whole passage — the old detour, the complaints, the new bridge, the design choice, the results — builds to one point: a new footbridge reconnected a divided town. B, C, and D are single details, not the whole picture.',
+  q4:'Mentioning the worry shows a real concern that the final design (wooden railings, stone-effect posts) thoughtfully addressed — it makes the successful outcome feel earned, not accidental.',
+  v1:'"Screeched and barely moved" = corroded and stiff with age.',
+  v2:'"Fought back to win" after losing = able to recover and keep going despite setbacks.',
+  v3:'"Unsure of the exact colour or time" = unclear and imprecise.'
+};
+var pqDone={};var pqScores={ main:0, main2:0, vocab:0 };
+function doPQ(id, btn, choice){
+  if(pqDone[id]) return; pqDone[id]=true;
+  var wrap = document.getElementById(id);
+  wrap.querySelectorAll('button').forEach(function(b){ b.disabled=true; });
+  var fb = document.getElementById(id+'f');
+  var correct = (choice === PQ_KEY[id]);
+  fb.className = correct ? 'pq-fb ok' : 'pq-fb no';
+  fb.textContent = (correct ? '✅ ' : '❌ Answer: ' + PQ_KEY[id].toUpperCase() + '. ') + PQ_WHY[id];
+  if (id === 'q1' || id === 'q2') {
+    if (correct) pqScores.main++;
+    if (['q1','q2'].every(function(k){ return pqDone[k]; })) {
+      var s = document.getElementById('qScore');
+      s.className = 'drill-score show';
+      s.innerHTML = '<strong>Library notice logic: ' + pqScores.main + '/2</strong>';
+    }
+  }
+  if (id === 'q3' || id === 'q4') {
+    if (correct) pqScores.main2++;
+    if (['q3','q4'].every(function(k){ return pqDone[k]; })) {
+      var s2 = document.getElementById('q2Score');
+      s2.className = 'drill-score show';
+      s2.innerHTML = '<strong>Footbridge passage: ' + pqScores.main2 + '/2</strong>';
+    }
+  }
+  if (id.indexOf('v') === 0) {
+    if (correct) pqScores.vocab++;
+    if (['v1','v2','v3'].every(function(k){ return pqDone[k]; })) {
+      var sv = document.getElementById('vScore');
+      sv.className = 'drill-score v show';
+      sv.innerHTML = '<strong>Vocab keep-sharp: ' + pqScores.vocab + '/3</strong>';
+      document.getElementById('summaryCard').style.display = 'block';
+    }
+  }
+}
+</script>
+</body>
+</html>
