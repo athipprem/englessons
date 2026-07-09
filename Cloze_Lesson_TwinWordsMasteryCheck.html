@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Twin Words Mastery Check — Unit 20 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:790px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #66BB6A;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.ok-box{background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:14px 16px;margin:12px 0}
+.warn-box{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.7}
+.warn-title{font-weight:700;color:#F57F17;margin-bottom:6px;font-size:14px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 16px;font-size:13.5px;font-weight:700;text-align:center;max-width:560px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#FFF3E0;border:2px solid #F9A825;color:#8a5a00}
+.node.s{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.j{background:#FFF3E0;border:2px solid #E65100;color:#9a3b00}
+.arrow{font-size:20px;color:#7CB342;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lbl{font-size:11px;font-weight:700;color:#558B2F}
+.twins{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+.twins th{background:#1B5E20;color:#fff;padding:8px;font-size:12px}
+.twins td{padding:9px 10px;border-bottom:1px solid #eee;text-align:center;line-height:1.4}
+.twins .fn{font-weight:700;text-align:left;background:#F1F8E9}
+.pillS{background:#E3F2FD;color:#1565C0;border-radius:6px;padding:2px 8px;font-weight:700}
+.pillJ{background:#FFF3E0;color:#E65100;border-radius:6px;padding:2px 8px;font-weight:700}
+.passage{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:16px 18px;margin:12px 0;font-size:14.5px;line-height:2}
+.passage .gap{font-weight:800;color:#1565C0;background:#E3F2FD;padding:1px 6px;border-radius:5px}
+.passage .gap.last{background:#FFF3E0;color:#E65100}
+.finish-flag{background:linear-gradient(135deg,#F9A825,#F57F17);color:#fff;border-radius:10px;padding:4px 10px;font-size:11px;font-weight:700;display:inline-block;margin-left:4px}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#F1F8E9;border:2px solid #7CB342;color:#33691E;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#2E7D32);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Twin Words Mastery Check</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 20 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Cloze passages show up everywhere — in reading tests, in real books, even in instructions you follow at home. Being able to spot whether a linking word starts a brand-new sentence or joins two halves together helps you read ANY piece of writing faster and understand it more clearly, not just in a test.</p>
+    </div>
+    <div class="ok-box">
+      <div class="why-title" style="color:#1B5E20">🎉 Huge win last unit</div>
+      <p style="margin:0;font-size:14px">You scored <strong>7/7 — a perfect Cloze section</strong> for the first time since Unit 10! Every single gap was correct, including the two gaps at the very end of the passage that had tripped you up three units in a row. The "same care on the last two gaps" habit worked completely. This lesson is short on purpose — your method is proven. We're just keeping it sharp.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>Full stop before the gap, or comma / mid-sentence? Decide the LEVEL first, no need to pick the exact word yet.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "...finished her homework, ___ she went outside to play."</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'j')">Clause-joiner</button><button class="di-opt" onclick="doWu(1,'s')">Sentence-starter</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">2. "...the bus arrived late. ___, the whole class missed the first lesson."</div><div class="di-btns"><button class="di-opt" onclick="doWu(2,'j')">Clause-joiner</button><button class="di-opt" onclick="doWu(2,'s')">Sentence-starter</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Both correct? Great — Step 1 is still automatic. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The four twin families — full recap 📋</h2>
+    <p>Same method as always — locked, unchanged. Punctuation decides the LEVEL. Meaning decides the JOB.</p>
+    <table class="twins">
+      <tr><th>Job</th><th><span class="pillJ">Clause-joiner</span><br>(comma / mid-sentence)</th><th><span class="pillS">Sentence-starter</span><br>(full stop before)</th></tr>
+      <tr><td class="fn">CONTRAST</td><td>although</td><td>however</td></tr>
+      <tr><td class="fn">RESULT</td><td>so</td><td>as a result</td></tr>
+      <tr><td class="fn">TIME</td><td>while</td><td>meanwhile</td></tr>
+      <tr><td class="fn">ADDITION</td><td>(no joiner twin)</td><td>moreover</td></tr>
+    </table>
+    <p style="font-size:13.5px;color:#558B2F"><strong>Reminder:</strong> "despite" is a preposition, not a clause-joiner — it can never fill a gap that joins two full clauses. It's the classic distractor.</p>
+    <h2 style="margin-top:14px">The decision tree — same as always 🌳</h2>
+    <div class="tree">
+      <div class="node start">Reach a gap</div>
+      <div class="arrow">↓</div>
+      <div class="node q">STEP 1 — Full stop right before the gap?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node s">Sentence-starter (however / as a result / meanwhile / moreover)</div></div>
+        <div class="leg"><span class="lbl">NO — comma/mid</span><div class="node j">Clause-joiner (although / so / while)</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="node q">STEP 2 — What's the LINK? Surprise (CONTRAST) · Caused-by (RESULT) · Same-time (TIME) · One-more-thing (ADDITION)</div>
+      <div class="arrow">↓</div>
+      <div class="node start">STEP 3 — Write your first choice. Box it. Move on — don't erase.</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Mixed practice passage — all four families together 🌱</h2>
+    <div class="warn-box">
+      <div class="warn-title">⏱️ Same care rule</div>
+      Gaps 6 and 7 are the LAST two in the passage — the exact spot where the slip happened before. Read the whole sentence for each one, just like you did for gap 1.
+    </div>
+    <div class="passage" id="passage"></div>
+    <div id="clozeQs"></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Final check — one line each ✅</h2>
+    <p>Quick standalone sentences, one per family. Pick the word that fits.</p>
+    <div id="finalQs"></div>
+    <div class="drill-score" id="fScore"></div>
+    <div class="rule-box" style="margin-top:16px"><div class="rule-big">Cloze is holding strong — 7/7 last time. Keep the SAME method every unit: punctuation decides the level, meaning decides the job, same care on every gap including the last ones.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_BeenIsNotTheTest.html" class="btn-lesson">Grammar Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+ if(cur===2 && !passageBuilt){buildPassage();passageBuilt=true;}
+ if(cur===3 && !finalBuilt){buildFinal();finalBuilt=true;}
+}
+
+var wuKey={1:'j',2:'s'};var wuWhy={1:'Comma, mid-sentence = clause-joiner.',2:'Full stop before the gap = sentence-starter.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var passageBuilt=false, finalBuilt=false;
+var BANK=["although","as a result","despite","however","meanwhile","moreover","so","while"];
+var passageText="The class had never grown vegetables before, GAP1 everyone was excited to start the new garden bed. Mia read every seed packet carefully before planting. GAP2, she still planted the carrots too close together. The rain stayed away for two whole weeks, GAP3 the soil turned hard and dry. The class watered the bed every single morning. GAP4, the seedlings slowly began to grow taller. Tom checked the tomato plants for greenfly, GAP5 Aisha pulled weeds from around the lettuce. The whole class walked out to see the new sprouts. GAP6, back in the classroom, the teacher prepared a chart to record their growth. By the end of the month, three different vegetables were finally ready to pick. GAP7, the class decided to share the whole harvest with the school kitchen.";
+var cAns={1:'although',2:'however',3:'so',4:'as a result',5:'while',6:'meanwhile',7:'moreover'};
+var cWhy={
+ 1:'Comma, mid-sentence = clause-joiner. CONTRAST (never grown before, YET excited) → although.',
+ 2:'Full stop before the gap = sentence-starter. CONTRAST (read carefully, YET still made a mistake) → however.',
+ 3:'Comma, mid-sentence = clause-joiner. RESULT (no rain CAUSED the dry soil) → so.',
+ 4:'Full stop before the gap = sentence-starter. RESULT (watering CAUSED the growth) → as a result.',
+ 5:'Comma, mid-sentence = clause-joiner. TIME (two things happening at once) → while.',
+ 6:'Full stop before the gap = sentence-starter. TIME (two different things at the same moment, different places) → meanwhile.',
+ 7:'Full stop before the gap = sentence-starter. ADDITION (one more good thing on top) → moreover. "Despite" is the unused distractor.'
+};
+function buildPassage(){
+  var html = passageText;
+  for(var i=1;i<=7;i++){
+    var cls = (i>=6) ? 'gap last' : 'gap';
+    html = html.replace('GAP'+i, '<span class="'+cls+'" id="gapmark'+i+'">('+i+')___</span>');
+  }
+  document.getElementById('passage').innerHTML = html;
+  var qhtml='';
+  for(var i=1;i<=7;i++){
+    var flag = (i>=6) ? '<span class="finish-flag">SAME CARE</span>' : '';
+    qhtml += '<div class="di" id="cq'+i+'"><div class="di-sent">Gap ('+i+')'+flag+'</div><div class="di-btns">';
+    BANK.forEach(function(w){ qhtml += '<button class="di-opt" onclick="doC('+i+',\''+w+'\')">'+w+'</button>'; });
+    qhtml += '</div><div class="di-fb" id="cq'+i+'f"></div></div>';
+  }
+  document.getElementById('clozeQs').innerHTML = qhtml;
+}
+var cDone={};var cCorrect=0;
+function doC(n,w){
+  if(cDone[n])return;cDone[n]=true;
+  var it=document.getElementById('cq'+n);var fb=document.getElementById('cq'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(w===cAns[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy[n];cCorrect++;}
+  else{fb.className='di-fb no';fb.textContent='❌ Answer: "'+cAns[n]+'". '+cWhy[n];}
+  if(Object.keys(cDone).length===7){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Mixed passage: '+cCorrect+'/7</strong>';}
+}
+
+var FQ=[
+ {s:"The library closed early for cleaning, ___ students had to return their books the next day.", ans:'so', why:'Comma mid-sentence = clause-joiner. RESULT → so.'},
+ {s:"The trail was steep and rocky. ___, the hikers reached the summit before noon.", ans:'however', why:'Full stop before = sentence-starter. CONTRAST (steep and rocky, YET they still made it) → however.'},
+ {s:"The chef prepared the dessert, ___ the waiters set the tables.", ans:'while', why:'Comma mid-sentence = clause-joiner. TIME (both happening at once) → while.'},
+ {s:"The museum extended its opening hours for the festival. ___, it added a free guided tour.", ans:'moreover', why:'Full stop before = sentence-starter. ADDITION (one more good thing on top) → moreover.'},
+ {s:"The power went out across the street. ___, the bakery next door kept its lights on with a generator.", ans:'meanwhile', why:'Full stop before = sentence-starter. TIME (different place, same moment) → meanwhile.'}
+];
+function buildFinal(){
+  var html='';
+  FQ.forEach(function(q,i){
+    var n=i+1;
+    html += '<div class="di" id="fq'+n+'"><div class="di-sent">'+(n)+'. "'+q.s.replace('___','<strong>___</strong>')+'"</div><div class="di-btns">';
+    BANK.forEach(function(w){ html += '<button class="di-opt" onclick="doF('+n+',\''+w+'\')">'+w+'</button>'; });
+    html += '</div><div class="di-fb" id="fq'+n+'f"></div></div>';
+  });
+  document.getElementById('finalQs').innerHTML = html;
+}
+var fDone={};var fCorrect=0;
+function doF(n,w){
+  if(fDone[n])return;fDone[n]=true;
+  var q=FQ[n-1];
+  var it=document.getElementById('fq'+n);var fb=document.getElementById('fq'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(w===q.ans){fb.className='di-fb ok';fb.textContent='✅ '+q.why;fCorrect++;}
+  else{fb.className='di-fb no';fb.textContent='❌ Answer: "'+q.ans+'". '+q.why;}
+  if(Object.keys(fDone).length===FQ.length){var s=document.getElementById('fScore');s.className='drill-score show';s.innerHTML='<strong>Final check: '+fCorrect+'/'+FQ.length+'</strong>';}
+}
+</script>
+</body>
+</html>

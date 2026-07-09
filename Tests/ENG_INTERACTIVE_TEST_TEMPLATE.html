@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ============================================================
+     ENG_INTERACTIVE_TEST_TEMPLATE.html  —  MASTER TEMPLATE (English / Naomi)
+     ------------------------------------------------------------
+     Reference generator for Prem's English unit & milestone tests.
+     Interactive single-page HTML replaces DOCX from Unit 20 onward
+     (rule set 7 Jul 2026 by Lui — see interactive_test_template.md and
+     workflow_sequence.md). Adapted directly from the Science coach's
+     proven build_unit_test_TEMPLATE.html (Luikishi) for consistency
+     across both coaching projects — same mechanics, English's own
+     section names/colours/marks scheme.
+
+     To build a new unit test: copy this file to
+     ENG_Unit_0XX_Test_<Topic>.html (in Lessons\Tests\), then change ONLY:
+       1. <title>, UNIT_NUM / UNIT_TITLE / UNIT_SUB consts
+       2. SECTION_PASSAGE.cloze / SECTION_PASSAGE.vocab (the shared
+          passages each section's questions refer back to)
+       3. The Q[] array:
+          - Section 'cloze' (7 questions, Q1–Q7): each question's
+            `options` is the SAME 8-word bank (A–H) in the SAME order;
+            `ans` = the 1-based index of the correct letter for that gap.
+            One word bank letter must go unused across all 7 (distractor).
+          - Section 'grammar' (7 questions, Q8–Q14): standard 4-option
+            conditional items, same design rules as the old docx template
+            (see docx_template.md — Had Test / Will Ban / mismatch checks,
+            same-conditional-type rule for "which is CORRECT?" items).
+          - Section 'vocab' (6 questions, Q15–Q20): 4-option inference
+            items tied to SECTION_PASSAGE.vocab's bracketed target words.
+       4. PASS_BAR — 80% of the unit's total marks (matches the
+          project's standing mastery threshold; default here is 16/20).
+          Milestone tests: add a 4th section 'reading' the same way,
+          recompute PASS_BAR at 80% of the new total (e.g. 22/28).
+       5. Lessons feeding this test should not recycle any of these
+          exact questions (content-purity rule, unchanged from docx era).
+
+     *** MANDATORY — ANSWER-BALANCE RULE (locked in 6 Jul 2026, after
+         Prem's own feedback that the correct MCQ answer was often the
+         longest, most-detailed option, and a quantitative script
+         confirmed it — see coaching_rules.md "MCQ Answer-Choice Bias").
+         Independently re-confirmed in the Science project too — same
+         bug, same fix, both subjects now follow it:
+       (a) balance option word-count across all 4 (or 8, for cloze)
+           choices per question — no option conspicuously longer/more
+           detailed than the others;
+       (b) deliberately vary the correct-answer position across
+           A/B/C/D so it doesn't cluster (target ~25% each over a
+           13-MCQ test — Grammar + Vocab only; cloze's 7-of-8 word-bank
+           picks aren't part of this tally);
+       (c) verify BOTH with a quantitative script before shipping —
+           reuse the python-docx-era extraction approach, adapted to
+           parse this file's own Q[] array instead of a .docx table.
+           Do not eyeball it.
+
+     KEEP these conventions (do not change):
+       - Single page, ALL questions visible at once (no pagination).
+       - Submit stays disabled until every question is answered —
+         enforced by code; do not remove the disabled-state check.
+       - On submit: full instant reveal — total score, section
+         breakdown, and right/wrong highlighting with the "why"
+         explanation shown directly under every WRONG answer (and
+         available for correct ones too) — Prem scrolls past every
+         mistake's explanation on the way to his score/save button,
+         so nothing can be skipped unseen.
+       - Answers live only inside this file's own <script> (same trust
+         model the old answer-key-on-page-2 had — view-source is the
+         only early-peek route, same risk class as before).
+       - "Save Results" button writes a JSON record — this is now the
+         ONLY score record (no handwritten/scanned copy going forward).
+         Never skip this.
+       - Results file naming: U{unit#, 3-digit}_Results_{YYYY-MM-DD}.json
+         (Milestones: M{milestone#}_Results_{YYYY-MM-DD}.json)
+       - Save location: Lessons\Tests\Results\ (pick this folder the
+         first time the save dialog opens; supporting browsers remember
+         it after). Falls back to a normal download if the browser
+         doesn't support the native save-picker.
+       - "Back to Hub" link (#btn-hub, href="../index.html") appears
+         next to Save Results once submitted — do not remove. Path is
+         one level up because tests live in Lessons\Tests\.
+       - On the hub (index.html), add a fourth card ("Take the Test")
+         below the 3 lesson cards in the This Unit panel, linking
+         straight to this file. On the LAST lesson's final screen, add
+         a "Take the Test →" button next to (or instead of) "Back to
+         Hub" so Prem can go straight from lessons into the test in one
+         loop. Once results are saved, move the test's card into the
+         Completed panel alongside that unit's 3 lesson cards, exactly
+         like the lesson cards already do — same workflow, no separate
+         "Done Tests" folder scan needed anymore (the newest file in
+         Lessons\Tests\Results\ IS the completion signal for
+         analyze-done-unit-test going forward).
+     ============================================================ -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 20 Test — Cloze · Grammar · Vocabulary</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f4f8f4;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#e2ece4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#1b5e20,#66bb6a);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#1b5e20;white-space:nowrap}
+
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+  .hint.cloze{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.grammar{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.vocab{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .gap{font-weight:800;color:#1565c0}
+
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt-row .opt{width:auto;flex:1 1 auto;min-width:64px;text-align:center}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.4rem;font-weight:900;color:#1b5e20}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;border:1.5px solid var(--line)}
+
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(10,30,18,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#1b5e20;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 20 Test — Cloze · Grammar · Vocabulary</b>
+      <span class="sub" id="hdr-sub">Phase 2 · Unit 10</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — read every sentence in full before choosing. For cloze: full stop before the gap = sentence-starter, comma/mid-sentence = clause-joiner, THEN read for the job. Give the last two gaps the same care as the first.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 20 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 20 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 20;                        // 3-digit padded for filenames automatically
+const UNIT_TITLE = "Cloze · Grammar · Vocabulary";
+const UNIT_SUB   = "Phase 2 · Unit 10";
+const PASS_BAR   = 16;                        // out of 20 (80% mastery threshold)
+const IS_MILESTONE = false;                   // true → filename uses M{n} instead of U{nn}
+const MILESTONE_NUM = null;                   // set if IS_MILESTONE is true
+
+// Shared 8-word cloze bank, A–H in this exact order (one letter per gap must
+// go unused across the 7 questions — the distractor).
+const CLOZE_BANK = ["although","as a result","despite","however","meanwhile","moreover","so","while"];
+
+const SECTION_PASSAGE = {
+  cloze: `Maya had always been shy about singing, <span class="gap">(1)___</span> she decided to try out for the school choir this year.
+    She felt terrified of forgetting the words in front of everyone. <span class="gap">(2)___</span>, she practised every evening after dinner
+    until the song felt automatic. The audition was moved forward by a whole week, <span class="gap">(3)___</span> Maya had to finish
+    learning the song much faster than planned. She ran through the final verse one more time, <span class="gap">(4)___</span> her best
+    friend listened quietly by the door. Maya practised until her voice stopped shaking completely. <span class="gap">(5)___</span>, she
+    felt ready to walk on stage with confidence. The choir teacher began calling names in alphabetical order. <span class="gap">(6)___</span>,
+    backstage, Maya quietly hummed the melody to herself one last time. Maya's audition went smoothly, and she remembered every word.
+    <span class="gap">(7)___</span>, she even added a small harmony at the end that made the teacher smile.`,
+  vocab: `Jun arrived at the pool feeling <strong>[hesitant]</strong>, staring at the diving board for a long moment before his coach gently
+    called his name. His coach had a reputation for being <strong>[unyielding]</strong> about technique, correcting the smallest mistake
+    without exception, no matter how tired a swimmer looked. After his first dive landed badly, Jun grew <strong>[subdued]</strong>, barely
+    speaking as he climbed out of the pool. His teammates, noticing his mood, cheered loudly for his second attempt, and when it landed
+    cleanly, Jun became <strong>[exuberant]</strong>, pumping his fist and grinning at everyone poolside. By the end of practice, his arms
+    felt completely <strong>[drained]</strong>, almost too heavy to lift out of the water. That night, though his body was tired, his mind
+    stayed <strong>[restless]</strong>, replaying the perfect dive over and over before he finally fell asleep.`
+};
+
+const SECTION_HINT = {
+  cloze:   "Strategy: full stop before the gap = sentence-starter (however, as a result, meanwhile, moreover); comma/mid-sentence = clause-joiner (although, so, while). Punctuation decides the family — reading decides the job.",
+  grammar: "Strategy: circle the question word first — ERROR or CORRECT? \"would have\" = THIRD (if-half needs had+past participle); plain \"would\" = SECOND (if-half needs past simple). \"Will\" is never used in the result. A sentence that just LOOKS different isn't automatically the error — confirm which check it fails.",
+  vocab:   "Strategy: quote the clue — your quote must CONTAIN the meaning. Check your answer matches the clue, not the opposite. Word-sound and story-feel do not count."
+};
+
+const Q = [
+  // Section CLOZE (Q1–Q7) — same 8-word bank for every gap; ans = 1-based index into CLOZE_BANK
+  { n:1, section:'cloze', body:"Gap (1) — \"...shy about singing, (1)___ she decided to try out...\"", options: CLOZE_BANK, ans:1,
+    why:"Comma, mid-sentence = clause-joiner. CONTRAST (shy about singing, YET tried out anyway) → although." },
+  { n:2, section:'cloze', body:"Gap (2) — \"...forgetting the words in front of everyone. (2)___, she practised...\"", options: CLOZE_BANK, ans:4,
+    why:"Full stop before the gap = sentence-starter. CONTRAST (terrified of forgetting, YET practised anyway) → however." },
+  { n:3, section:'cloze', body:"Gap (3) — \"...moved forward by a whole week, (3)___ Maya had to finish learning faster...\"", options: CLOZE_BANK, ans:7,
+    why:"Comma, mid-sentence = clause-joiner. RESULT (moved forward CAUSED the rush) → so." },
+  { n:4, section:'cloze', body:"Gap (4) — \"...ran through the final verse one more time, (4)___ her best friend listened quietly...\"", options: CLOZE_BANK, ans:8,
+    why:"Comma, mid-sentence = clause-joiner. TIME (two things happening at once) → while." },
+  { n:5, section:'cloze', body:"Gap (5) — \"...voice stopped shaking completely. (5)___, she felt ready to walk on stage...\"", options: CLOZE_BANK, ans:2,
+    why:"Full stop before the gap = sentence-starter. RESULT (steady voice CAUSED the confidence) → as a result." },
+  { n:6, section:'cloze', body:"Gap (6) — \"...calling names in alphabetical order. (6)___, backstage, Maya quietly hummed...\"", options: CLOZE_BANK, ans:5,
+    why:"Full stop before the gap = sentence-starter. TIME (both things happening at the same moment, different places) → meanwhile." },
+  { n:7, section:'cloze', body:"Gap (7) — \"...remembered every word. (7)___, she even added a small harmony...\"", options: CLOZE_BANK, ans:6,
+    why:"Full stop before the gap = sentence-starter. ADDITION (one more good thing on top) → moreover. \"Despite\" was the unused distractor — it's a preposition and can't join a full clause." },
+
+  // Section GRAMMAR (Q8–Q14) — standard 4-option conditional items
+  { n:8, section:'grammar', body:"Which sentence is a Second Conditional?",
+    options:["If the library had longer hours, more students would visit after school.",
+             "If the library had been renovated, more students would have visited.",
+             "If the shelves had been reorganised, books would have been easier to find.",
+             "If the roof had been repaired, the archives would have stayed dry."], ans:1,
+    why:"A = \"had longer hours\" (past simple) + \"would visit\" (would+verb) = Second Conditional. B, C, D are all consistent Thirds." },
+  { n:9, section:'grammar', body:"Which sentence contains a grammar error?",
+    options:["If the museum had been repainted, visitors would have admired the new colours.",
+             "If the elevator had stopped working, staff would carry boxes up manually.",
+             "If the gallery had softer lighting, paintings would look warmer.",
+             "If the entrance had been widened, crowds would have moved more easily."], ans:2,
+    why:"B ✗ \"had stopped working\" (Third if-half) + \"would carry\" (Second result) = mismatch. A, D are clean Thirds; C is a clean Second — it just looks different (no \"been\"), that's not an error on its own." },
+  { n:10, section:'grammar', body:"Which sentence contains a grammar error?",
+    options:["If the theatre had been rebuilt, the stage would have looked modern.",
+             "If the orchestra had rehearsed longer, the concert would have sounded polished.",
+             "If the balcony had more seats, more fans would have attended.",
+             "If the curtains had been replaced, the hall would have looked brighter."], ans:3,
+    why:"C ✗ \"had more seats\" (Second if-half) + \"would have attended\" (Third result) = mismatch. A, B, D are all clean Thirds." },
+  { n:11, section:'grammar', body:"Which sentence contains a grammar error?",
+    options:["If the generator had failed, the lights will go out during the show.",
+             "If the speakers had been tested, the sound would have carried further.",
+             "If the microphone had more range, singers would move around freely.",
+             "If the backdrop had been painted, the set would have looked complete."], ans:1,
+    why:"A ✗ \"will go out\" breaks the Will Ban (a result clause never uses \"will\"). B, D are clean Thirds; C is a clean Second." },
+  { n:12, section:'grammar', body:"Choose the correct option. \"If the fire exit ___ blocked last month, the inspection ___ passed today.\"",
+    options:["had not been / will not be","had not been / would not be","had not been / would not have been","was not / would not be"], ans:2,
+    why:"Mixed Conditional: a past condition (\"had not been blocked\" last month) with a present result (\"would not be\" passed today, signalled by \"today\")." },
+  { n:13, section:'grammar', body:"Which sentence contains a grammar error?",
+    options:["If the ticket office had opened earlier, the queue would have moved faster.",
+             "If the seating chart had been finalised, ushers would have guided guests easily.",
+             "If the lobby had more space, guests would wait comfortably.",
+             "If the programme had been printed, guests would know the schedule fully."], ans:4,
+    why:"D ✗ \"had been printed\" (Third if-half) + \"would know\" (Second result) = mismatch. A, B are clean Thirds; C is a clean Second." },
+  { n:14, section:'grammar', body:"Now the opposite question — which sentence is grammatically CORRECT?",
+    options:["If the spotlight had been fixed, dancers would move more confidently.",
+             "If the sound system had been upgraded, it will not crackle during the show.",
+             "If the risers had been secured, the choir would have stood safely.",
+             "If the applause had lasted longer, the cast would feel prouder."], ans:3,
+    why:"C ✓ \"had been secured\" (Third if-half) + \"would have stood\" (Third result) — fully matched, no error. A and D both mismatch a Third if-half with a Second result; B breaks the Will Ban (\"will not crackle\")." },
+
+  // Section VOCAB (Q15–Q20) — 4-option inference items tied to SECTION_PASSAGE.vocab
+  { n:15, section:'vocab', body:"What does \"hesitant\" most likely mean?",
+    options:["eager and confident","angry and impatient","tired and bored","nervous and unsure"], ans:4,
+    why:"Clue: \"staring at the board for a long moment\" before his name was called = nervous and unsure." },
+  { n:16, section:'vocab', body:"What does \"unyielding\" most likely mean?",
+    options:["relaxed and easygoing","strict and uncompromising","friendly and playful","forgetful and careless"], ans:2,
+    why:"Clue: \"correcting the smallest mistake without exception\" = strict and uncompromising." },
+  { n:17, section:'vocab', body:"What does \"subdued\" most likely mean?",
+    options:["quiet and gloomy","loud and cheerful","confused and dizzy","proud and boastful"], ans:1,
+    why:"Clue: \"barely speaking\" after a bad dive = quiet and gloomy." },
+  { n:18, section:'vocab', body:"What does \"exuberant\" most likely mean?",
+    options:["calm and unbothered","embarrassed and shy","bursting with excitement","jealous and annoyed"], ans:3,
+    why:"Clue: \"pumping his fist and grinning\" = bursting with excitement." },
+  { n:19, section:'vocab', body:"What does \"drained\" most likely mean?",
+    options:["freshly energised","slightly sore","perfectly relaxed","completely exhausted"], ans:4,
+    why:"Clue: \"almost too heavy to lift out of the water\" = completely exhausted." },
+  { n:20, section:'vocab', body:"What does \"restless\" most likely mean?",
+    options:["calm and sleepy","unable to settle","quick to forget","slow to notice"], ans:2,
+    why:"Clue: \"replaying the perfect dive over and over\" before finally falling asleep = unable to settle." },
+];
+/* ---------- END EDIT PER UNIT ---------- */
+
+const SECTION_LABEL = {
+  cloze:   "SECTION A — Cloze Test",
+  grammar: "SECTION B — Grammar",
+  vocab:   "SECTION C — Vocabulary Inference"
+};
+const SECTION_ORDER = ['cloze','grammar','vocab'];
+const TOTAL_Q = Q.length;
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+
+const chosen = {};   // { qn: optionIndex(1-based) }
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint ${q.section}">${SECTION_HINT[q.section] || ''}</div>`;
+      if (SECTION_PASSAGE[q.section]) html += `<div class="passage">${SECTION_PASSAGE[q.section]}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    const rowClass = q.section === 'cloze' ? 'opt-row' : '';
+    html += `<div class="${rowClass}">`;
+    q.options.forEach((opt, idx) => {
+      const label = q.section === 'cloze' ? String.fromCharCode(65+idx) + '. ' + opt : (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let score = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    if (isCorrect) score++;
+    sectionTally[q.section].t++;
+    if (isCorrect) sectionTally[q.section].c++;
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect };
+  });
+
+  const pct = Math.round(score/TOTAL_Q*100);
+  const pass = score >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${score} / ${TOTAL_Q}  (${pct}%)`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_Q}). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_Q} — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    isMilestone: IS_MILESTONE,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score, outOf: TOTAL_Q, pct, passBar: PASS_BAR, passed: pass,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const pad = (n, len) => String(n).padStart(len,'0');
+  const filename = IS_MILESTONE
+    ? `M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>

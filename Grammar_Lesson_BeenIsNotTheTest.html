@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — "Been" Isn't the Test — Unit 20 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #8E24AA;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#6A1B9A;margin-bottom:6px}
+.bws-title{font-weight:700;color:#6A1B9A;margin-bottom:6px;font-size:15px}
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.ctable th{background:#4A235A;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.ctable td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.ctable tr.second td{background:#E3F2FD}.ctable tr.third td{background:#FCE4EC}
+.recipe{font-family:'Courier New',monospace;font-size:12px;background:rgba(255,255,255,0.7);padding:2px 5px;border-radius:4px;display:inline-block}
+.vb{color:#1565C0;font-weight:700}.vb3{color:#C2185B;font-weight:700}
+.checks{margin:10px 0}
+.chk{display:flex;align-items:flex-start;gap:10px;background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 8px 8px 0;padding:10px 14px;margin:8px 0;font-size:14px;line-height:1.6}
+.chk .n{background:#F9A825;color:#fff;font-weight:700;border-radius:50%;min-width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.myth-box{background:#EDE7F6;border:2px solid #6b46c1;border-radius:10px;padding:14px 16px;margin:14px 0}
+.myth-title{font-weight:700;color:#4a2a7a;margin-bottom:8px;font-size:15px}
+.doer-getter{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.doer-getter th{padding:8px 9px;text-align:left;font-size:12px;color:#fff}
+.doer-getter th.doer{background:#1565C0}.doer-getter th.getter{background:#AD1457}
+.doer-getter td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.6;vertical-align:top}
+.doer-getter td.doer{background:#E3F2FD}.doer-getter td.getter{background:#FCE4EC}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.s3{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.node.confirm{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a}
+.arrow{font-size:18px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.worked{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#4A235A}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di.head-w{border-color:#E53935;background:#fff6f6}
+.di.head-r{border-color:#43A047;background:#f6fff8}
+.di.head-t{border-color:#FB8C00;background:#fffaf3}
+.di-head{font-size:12px;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.di.head-w .di-head{color:#B71C1C}.di.head-r .di-head{color:#1B5E20}.di.head-t .di-head{color:#E65100}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-wr{background:#FFEBEE;border:2px solid #E53935;color:#B71C1C;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-ri{background:#E8F5E9;border:2px solid #43A047;color:#1B5E20;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-opt{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.decoy-flag{background:linear-gradient(135deg,#6b46c1,#8E24AA);color:#fff;border-radius:10px;padding:4px 10px;font-size:11px;font-weight:700;display:inline-block;margin-left:6px}
+.today-flag{background:linear-gradient(135deg,#FB8C00,#E65100);color:#fff;border-radius:10px;padding:4px 10px;font-size:11px;font-weight:700;display:inline-block;margin-left:6px}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — "Been" Isn't the Test</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 20 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Think about two kettles. One kettle "had boiled" — it did that all by itself, nobody helped it. A cup "had been filled" — someone had to actually pour the water in; the cup couldn't fill itself. Both sentences describe something that already finished happening, but they're built slightly differently because of WHO or WHAT did the action. Grammar sentences work the same way — and today's lesson stops one word ("been") from tricking you into thinking a perfectly correct sentence is broken.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>Two sentences below. Both describe something already finished. Which one needed someone ELSE to do the action?</p>
+    <div class="di" id="wu1"><div class="di-sent">A. "The kettle had boiled."</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A did it itself</button><button class="di-opt" onclick="doWu(1,'b')">A needed help</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">B. "The cup had been filled."</div><div class="di-btns"><button class="di-opt" onclick="doWu(2,'a')">B did it itself</button><button class="di-opt" onclick="doWu(2,'b')">B needed help</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Your grammar held at 6/7 for two units, then dipped to 4/7 last unit — but look closely at WHY. Two of your three misses (Q9 and Q13) happened for the exact same reason: you saw a sentence like <em>"If the ticket booth had opened earlier..."</em> — no "been" — sitting next to sentences that all said "had been ___", and it looked wrong just because it looked different. It wasn't wrong. Today we find out exactly why sentences like that are still 100% correct, and we make sure "been" never fools you again. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <div class="myth-box">
+      <div class="myth-title">🚫 MYTH-BUSTER: "been" is NOT one of the checks</div>
+      <p style="margin:0;font-size:14px">Some verbs describe something that DOES the action itself — call these <strong>DOER</strong> verbs. Other verbs describe something that <em>has the action done TO it</em> by someone or something else — call these <strong>GETTER</strong> verbs. GETTER verbs need "been" as a normal, built-in part of their grammar. DOER verbs don't. Neither one is more "correct" than the other — they're just different jobs.</p>
+    </div>
+    <table class="doer-getter">
+      <tr><th class="doer">DOER — no "been" needed</th><th class="getter">GETTER — needs "been"</th></tr>
+      <tr><td class="doer">the booth <span class="vb3">had opened</span></td><td class="getter">the door <span class="vb3">had been opened</span> (by staff)</td></tr>
+      <tr><td class="doer">the tickets <span class="vb3">had sold out</span></td><td class="getter">the tickets <span class="vb3">had been printed</span> (by a machine)</td></tr>
+      <tr><td class="doer">the choir <span class="vb3">had rehearsed</span></td><td class="getter">the set <span class="vb3">had been painted</span> (by the crew)</td></tr>
+      <tr><td class="doer">the queue <span class="vb3">had formed</span></td><td class="getter">the hall <span class="vb3">had been decorated</span> (by volunteers)</td></tr>
+    </table>
+    <p><strong>The quick test:</strong> try adding "...by someone" after the verb. If it makes sense, it's a GETTER (needs "been"). If it sounds silly, it's a DOER (no "been" needed) — <em>"the booth had opened by someone"</em> sounds odd (the booth just opens), but <em>"the door had been opened by someone"</em> makes perfect sense.</p>
+    <h2 style="margin-top:14px">Your THREE real checks (unchanged — they still work) 📋</h2>
+    <table class="ctable">
+      <tr><th>Type</th><th>Recipe</th><th>Example</th></tr>
+      <tr class="second"><td><strong>Second</strong></td><td><span class="recipe">If + past simple, … would + verb</span></td><td>If the queue <span class="vb">had</span> fewer people, it <span class="vb">would move</span> faster.</td></tr>
+      <tr class="third"><td><strong>Third</strong></td><td><span class="recipe">If + had (been) + past participle, … would have + verb</span></td><td>If the booth <span class="vb3">had opened</span> earlier, the queue <span class="vb3">would have moved</span> faster.</td></tr>
+    </table>
+    <div class="checks">
+      <div class="chk"><span class="n">1</span><div>Result has <strong>"will"</strong>? → broken.</div></div>
+      <div class="chk"><span class="n">2</span><div>Result verb broken (<strong>"would flowed"</strong>, "would arrived")? → broken.</div></div>
+      <div class="chk"><span class="n">3</span><div>Halves don't match ("would" ↔ past simple; "would have" ↔ past participle)? → broken. Passes all three = clean ✓.</div></div>
+      <div class="chk" style="background:#EDE7F6;border-left-color:#6b46c1"><span class="n" style="background:#6b46c1">✕</span><div><strong>NOT a check:</strong> "does it have the word 'been'?" — DOER and GETTER Thirds are equally correct. Never flag a sentence just because it's missing "been."</div></div>
+    </div>
+    <h2 style="margin-top:14px">The tree — same as before, one note added 🌳</h2>
+    <div class="tree">
+      <div class="node start">Take ONE sentence</div>
+      <div class="arrow">↓</div>
+      <div class="node q">"will" in the result?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node s3">✗ broken (check 1)</div></div>
+        <div class="leg"><span class="lbl">NO ↓</span><div class="node q">Result verb broken? ("would flowed")</div></div>
+      </div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node s3">✗ broken (check 2)</div></div>
+        <div class="leg"><span class="lbl">NO ↓</span><div class="node q">Both halves match? (would↔past simple · would have↔past participle)</div></div>
+      </div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">NO</span><div class="node s3">✗ broken (check 3)</div></div>
+        <div class="leg"><span class="lbl">YES</span><div class="node confirm">✓ clean — DOER or GETTER, "been" doesn't matter</div></div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch it worked out — a DOER hiding among GETTERs 👀</h2>
+    <div class="worked">
+      <p class="step"><b>"Which sentence contains a grammar error?"</b> A. If the raffle tickets had sold out, the organisers would have printed more. B. If the backstage door had been left open, cold air would blow through the hall. C. If the hall had better heating, the guests would feel warmer during the interval. D. If the microphone stand had been fixed, the sound would have carried better.</p>
+      <p class="step"><b>First glance:</b> A says "had sold out" — no "been" — while B and D both say "had been ___". It's tempting to circle A right away because it looks different from its neighbours. Stop — "been" isn't a check.</p>
+      <p class="step"><b>Check A properly:</b> "had sold out" is a DOER verb (tickets sell out by themselves — "had sold out by someone" sounds silly). "will"? No. Broken verb? No. Halves match? "had sold out" (Third if-half) + "would have printed" (Third result) → matching Third. Passes all three — <b>A is clean.</b></p>
+      <p class="step"><b>Now check the rest:</b> C = "had better heating" (past simple) + "would feel" (would+verb) → matching Second, clean. D = "had been fixed" (Third) + "would have carried" (Third) → matching, clean. B = "had been left open" (GETTER, Third if-half) + "would blow" (plain would, Second result) → halves DON'T match. <b>B fails check 3 — that's the real error.</b></p>
+      <p class="step"><b>The lesson:</b> A "looked" suspicious for having no "been" — but it was a completely clean DOER sentence. B "looked" normal (it has "been" like everyone expects) — but it was the one that actually broke a real check. Only the three checks decide, never the presence of "been."</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>One more thing — the TODAY trap 📅</h2>
+    <p>Sometimes a sentence mixes a past CAUSE with a present-day RESULT. The clue is a present-time word in the result half, like <strong>today, now,</strong> or <strong>these days</strong>. When you see one of those words, the result half should use plain <span class="vb">would</span> (not "would have"), even though the if-half is a normal Third ("had...").</p>
+    <div class="rule-box"><div class="rule-big">📅 MIXED: past cause, present result<br><span class="recipe" style="background:rgba(255,255,255,0.25);color:#fff">If + had (been) + past participle, … would + verb (+ today / now)</span></div></div>
+    <div class="worked">
+      <p class="step"><b>Example:</b> "If the fire alarm <u>had not gone off</u> during rehearsal, the whole show <u>would not be</u> delayed <strong>today</strong>."</p>
+      <p class="step">The if-half is a normal Third ("had not gone off" — something that already happened, or didn't). But the result word "<strong>today</strong>" tells you the delay is happening RIGHT NOW, in the present — so the result needs plain "would not be", NOT "would not have been." If you see "today/now" and still pick "would have been ___", the halves don't actually match the TIME the sentence is describing, even though they'd match a normal Third pattern.</p>
+    </div>
+    <p><strong>Quick spot-check drill</strong> — does the result half need "would" (present) or "would have" (past), based on the time word?</p>
+    <div class="di head-t" id="t1"><div class="di-sent">1. "If the storm had not damaged the roof last month, the museum <strong>___</strong> open <strong>today</strong>."</div><div class="di-btns"><button class="di-opt" onclick="doT(1,'have')">would have been</button><button class="di-opt" onclick="doT(1,'be')">would be</button></div><div class="di-fb" id="t1f"></div></div>
+    <div class="di head-t" id="t2"><div class="di-sent">2. "If the crew had rehearsed more last week, the show <strong>___</strong> smoother on opening night."</div><div class="di-btns"><button class="di-opt" onclick="doT(2,'have')">would have been</button><button class="di-opt" onclick="doT(2,'be')">would be</button></div><div class="di-fb" id="t2f"></div></div>
+    <div class="di head-t" id="t3"><div class="di-sent">3. "If the sponsors had donated more, the theatre <strong>___</strong> bigger speakers <strong>now</strong>.</div><div class="di-btns"><button class="di-opt" onclick="doT(3,'have')">would have had</button><button class="di-opt" onclick="doT(3,'have-plain')">would have</button></div><div class="di-fb" id="t3f"></div></div>
+    <div class="drill-score" id="tScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Drill — the real thing (DOERs, GETTERs, and one TODAY trap) 🧩</h2>
+    <p>Circle the question word first. Some clean options are DOERs with no "been" — don't let that fool you. Run the three real checks on every option.</p>
+    <div class="di head-w" id="p1"><div class="di-head">🚫 Which contains an ERROR?</div><div class="opts">
+      <button class="di-opt" onclick="doP(1,'a')">A. If the ferry had docked late, the passengers would have missed the bus. <span class="decoy-flag">looks different</span></button>
+      <button class="di-opt" onclick="doP(1,'b')">B. If the harbour lights had been repaired, boats would arrive more safely.</button>
+      <button class="di-opt" onclick="doP(1,'c')">C. If the tide had risen faster, the pier would have flooded sooner.</button>
+      <button class="di-opt" onclick="doP(1,'d')">D. If the crates had been unloaded, the deck would have looked emptier.</button>
+    </div><div class="di-fb" id="p1f"></div></div>
+    <div class="di head-w" id="p2"><div class="di-head">🚫 Which contains an ERROR?</div><div class="opts">
+      <button class="di-opt" onclick="doP(2,'a')">A. If the market had opened earlier, shoppers would have found better bargains.</button>
+      <button class="di-opt" onclick="doP(2,'b')">B. If the stallholder had packed up early, the market would have closed quietly. <span class="decoy-flag">looks different</span></button>
+      <button class="di-opt" onclick="doP(2,'c')">C. If the delivery van had broken down, the stallholder will lose a whole day's stock.</button>
+      <button class="di-opt" onclick="doP(2,'d')">D. If the awning had been fixed, the fruit would have stayed dry.</button>
+    </div><div class="di-fb" id="p2f"></div></div>
+    <div class="di head-t" id="p3"><div class="di-head">📅 TODAY TRAP — which is CORRECT?</div><div class="opts">
+      <button class="di-opt" onclick="doP(3,'a')">A. If the bridge had not been closed for repairs, traffic would have been lighter today.</button>
+      <button class="di-opt" onclick="doP(3,'b')">B. If the bridge had not been closed for repairs, traffic would be lighter today.</button>
+      <button class="di-opt" onclick="doP(3,'c')">C. If the bridge had not closed for repairs, traffic will be lighter today.</button>
+      <button class="di-opt" onclick="doP(3,'d')">D. If the bridge was not closed for repairs, traffic would be lighter today.</button>
+    </div><div class="di-fb" id="p3f"></div></div>
+    <div class="drill-score" id="pScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">"Been" is never a check — DOER Thirds and GETTER Thirds are equally correct. Only the three real checks (will-ban, broken verb, halves-match) decide. And when you see "today/now" in the result, match the TIME, not just the recipe shape.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_TwinWordsMasteryCheck.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="ReadingVocab_Lesson_InferenceAndConnotation.html" class="btn-lesson">Reading &amp; Vocab Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuKey={1:'a',2:'b'};var wuWhy={1:'The kettle boils by itself — a DOER, no "been" needed.',2:'Someone has to pour the water — a GETTER, needs "been."'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var tKey={1:'have',2:'have',3:'have-plain'};
+var tWhy={1:'"today" = present result → needs plain "would be", not "would have been."',2:'"on opening night" (future-from-now, no present-time word like today/now) → normal Third, "would have been."',3:'"now" = present result → needs plain "would have" (present-tense possession), not "would have had."'};
+var tDone={};var tC=0;
+function doT(n,c){if(tDone[n])return;tDone[n]=true;var it=document.getElementById('t'+n);var fb=document.getElementById('t'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===tKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+tWhy[n];tC++;}else{fb.className='di-fb no';fb.textContent='❌ '+tWhy[n];}if(Object.keys(tDone).length===3){var s=document.getElementById('tScore');s.className='drill-score show';s.innerHTML='<strong>Today trap: '+tC+'/3</strong>';}}
+
+var pKey={1:'b',2:'c',3:'b'};
+var pWhy={
+ 1:'B ✗ "had been repaired" (GETTER Third if-half) + "would arrive" (plain would, Second-type result) = mismatch → the real error (check 3). A "had docked" is a clean DOER Third (docks itself), matches "would have missed." C "had risen" is a clean DOER Third (the tide rises itself), matches "would have flooded." D "had been unloaded" is a clean GETTER Third, matches "would have looked."',
+ 2:'C ✗ "will lose" breaks the Will Ban → the real error (check 1). A "had opened" is a clean DOER Third (opens by itself), matches "would have found." B "had packed up" LOOKS different (no "been") but is a clean DOER Third, matching "would have closed" — not the error. D "had been fixed" is a clean GETTER Third, matches "would have stayed."',
+ 3:'B ✓ "had not been closed" (Third if-half) + "would be lighter today" (present result, matches the word "today") — correctly mixed. A wrongly uses "would have been" with "today" (should be present "would be"). C breaks the Will Ban ("will be"). D uses "was not closed" (not a valid Third if-half shape) with "would be" — the if-half doesn\'t match a real conditional recipe.'
+};
+var pDone={};var pC=0;
+function doP(n,c){if(pDone[n])return;pDone[n]=true;var it=document.getElementById('p'+n);var fb=document.getElementById('p'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===pKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+pWhy[n];pC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: '+pKey[n].toUpperCase()+'. '+pWhy[n];}if(Object.keys(pDone).length===3){var s=document.getElementById('pScore');s.className='drill-score show';s.innerHTML='<strong>The real thing: '+pC+'/3</strong>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
