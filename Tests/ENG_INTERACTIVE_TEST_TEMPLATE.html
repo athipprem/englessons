@@ -68,8 +68,10 @@
        - "Save Results" button writes a JSON record — this is now the
          ONLY score record (no handwritten/scanned copy going forward).
          Never skip this.
-       - Results file naming: U{unit#, 3-digit}_Results_{YYYY-MM-DD}.json
-         (Milestones: M{milestone#}_Results_{YYYY-MM-DD}.json)
+       - Results file naming: ENG_U{unit#, 3-digit}_Results_{YYYY-MM-DD}.json
+         (Milestones: ENG_M{milestone#}_Results_{YYYY-MM-DD}.json) — updated
+         10 Jul 2026 per Lui, effective from the NEXT saved result onward
+         (U020_Results_2026-07-10.json, already saved, keeps its old name).
        - Save location: Lessons\Tests\Results\ (pick this folder the
          first time the save dialog opens; supporting browsers remember
          it after). Falls back to a normal download if the browser
@@ -480,8 +482,8 @@ function doSubmit(){
 async function saveResults(){
   const pad = (n, len) => String(n).padStart(len,'0');
   const filename = IS_MILESTONE
-    ? `M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
-    : `U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
   const json = JSON.stringify(lastResults, null, 2);
   const statusEl = document.getElementById('save-status');
 

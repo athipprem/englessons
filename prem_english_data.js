@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '9 Jul 2026',
+  updated:        '10 Jul 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           20,
-    status:      'Phase 2 · U20 Lessons Ready · First Interactive Test Pending',
+    n:           'M2',
+    status:      'Milestone 2 · ASMOPSS-Structured (5 sections, 40 Q, weighted scoring) · Test Ready, Awaiting Prem',
     testPending: true
   },
 
@@ -32,61 +32,61 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 19 — updated after each test)
+  // Last completed assessment (Unit 20 — updated after each test)
   lastUnit: {
-    n: 19, label: 'Unit 19', score: 16, outOf: 20, pct: 80, delta: -5, prevScore: 17,
+    n: 20, label: 'Unit 20', score: 16, outOf: 20, pct: 80, delta: 0, prevScore: 16,
 
-    patternLabel:   'Unit 19 &mdash; 9 Jul 2026 &middot; 16/20 (80%) &middot; Cloze PERFECT for the first time in 9 units &middot; Grammar 4/7 &middot; Cloze 7/7 &#9733; &middot; Vocab 5/6',
-    patternInsight: '<strong>Score: 16/20 (80%) &mdash; still clears the mastery threshold, and the story underneath is a genuine trade, not a step back.</strong> <strong>Cloze went 7/7 &#9733;</strong> &mdash; the first perfect Cloze section since Unit 10. The &ldquo;finish strong&rdquo; pacing lesson fully resolved the fatigue slip that had cost marks at the last two gaps three units running (U15, U16, U18) &mdash; both of those exact gaps were correct this time. <strong>Grammar fell to 4/7</strong> (from 6/7 at U17/U18), but the drop isolates to ONE new, specific confusion: two of the three misses (Q9, Q13) share the same cause &mdash; treating any &ldquo;had + verb&rdquo; WITHOUT &ldquo;been&rdquo; as automatically suspicious, when active-voice forms (&ldquo;had opened&rdquo;, &ldquo;had sold out&rdquo;) are just as valid a Third-Conditional if-half as passive ones (&ldquo;had been tested&rdquo;) &mdash; likely an over-correction from the U18 confirm-habit lesson. He did NOT fall for a deliberately-placed decoy at Q13, so the confirm-habit itself is working, just misapplied to the wrong surface cue. The third miss (Q12) is a DORMANT mixed-conditional/present-time-signal pattern resurfacing (not drilled since ~U5&ndash;M1). <strong>Vocab held near-perfect at 5/6</strong> (one likely rush slip: &ldquo;reluctant&rdquo; &rarr; chose &ldquo;proud and confident&rdquo;, near-opposite of the clue). U20: a dedicated 2-part Grammar fix (active/passive &ldquo;had&rdquo; + time-signal refresh), Cloze and Vocab hold at maintenance. <strong>U20 is also the FIRST unit delivered in the new interactive single-page HTML test format</strong> (docx retired from U20 onward, per Lui).',
+    patternLabel:   'Unit 20 &mdash; 10 Jul 2026 &middot; 16/20 (80%) &middot; FIRST test in the new interactive HTML format &middot; Grammar 5/7 &middot; Cloze 6/7 &middot; Vocab 5/6',
+    patternInsight: '<strong>Score: 16/20 (80%) &mdash; matches U19 exactly, and it&rsquo;s the first test ever completed fully on-screen: one page, submit once, instant scoring.</strong> <strong>Grammar rose to 5/7</strong> (from 4/7) &mdash; and BOTH Unit 19 target skills held on first real exposure: the &ldquo;been isn&rsquo;t the test&rdquo; fix worked (a DOER-type sentence with no &ldquo;been&rdquo; was correctly accepted), and the dormant mixed-conditional/&ldquo;today&rdquo; time-signal gap also closed. Two new, smaller misses appeared instead: a basic Second-vs-Third ID slip (likely a rushed first click into the section) and one item where a clean GETTER sentence was flagged as the error while the real DOER-mismatch was missed &mdash; <strong>a small adjacent over-correction</strong> (having just learned &ldquo;don&rsquo;t assume DOER = wrong,&rdquo; he may now be under-checking DOER sentences for genuine mismatches). Worth a light verbal reminder before Milestone 2, not a full lesson. <strong>Cloze 6/7</strong> &mdash; one isolated CONTRAST-vs-TIME mix-up (chose &ldquo;while&rdquo; instead of &ldquo;although&rdquo;) early in the passage, not a return of the resolved last-two-gaps pacing pattern. <strong>Vocab 5/6</strong> &mdash; one miss on an unfamiliar word (&ldquo;steadfast&rdquo;), reads as a vocabulary gap rather than a strategy failure.',
 
-    analysisLabel:   'Unit 19 Result Analysis &mdash; 9 Jul 2026',
-    analysisInsight: '<strong>Score: 16/20 (80%). A genuine trade: Cloze&rsquo;s long-standing pacing blocker fully resolves while Grammar surfaces one new, narrow, one-lesson-fixable confusion.</strong> Section A Cloze 7/7 &#9733;: every gap correct, including the two that had failed three units running &mdash; the &ldquo;finish strong&rdquo; fix is proven. Section B Grammar 4/7: Q9 and Q13 both stem from treating &ldquo;had + verb&rdquo; without &ldquo;been&rdquo; as inherently wrong, when active-voice Third-Conditional if-halves never need &ldquo;been&rdquo; &mdash; a new, specific, and directly fixable confusion, not a general regression (he also resisted an intentional decoy at Q13). Q12 is an older mixed-conditional/present-time-signal pattern resurfacing after a long gap without reinforcement. Section C Vocab 5/6: one likely rush slip on &ldquo;reluctant&rdquo;, close to opposite of the clue &mdash; Vocab has held 6/6 in 4 of the last 5 units, so this reads as isolated. Achievement holds at &asymp;88% overall &mdash; Cloze&rsquo;s gain (+6) roughly offsets Grammar&rsquo;s dip (&minus;5).',
+    analysisLabel:   'Unit 20 Result Analysis &mdash; 10 Jul 2026 (first real interactive-format JSON, graded directly from structured data)',
+    analysisInsight: '<strong>Score: 16/20 (80%), identical to U19 but a genuinely different shape.</strong> Section A Cloze 6/7: a single early CONTRAST/TIME confusion, isolated. Section B Grammar 5/7: the two U19-targeted confusions (been-as-a-check, dormant time-signal) are both CONFIRMED FIXED on first exposure &mdash; real progress, not just maintenance. The two new misses are smaller and more specific: one rushed basic-ID slip, and one &ldquo;DOER=safe&rdquo; overcorrection where a genuinely clean sentence was flagged because it superficially resembled the U19 trap shape. Section C Vocab 5/6: one unfamiliar-word miss (&ldquo;steadfast&rdquo;). Achievement holds at &asymp;88% &mdash; Grammar&rsquo;s +4 gain roughly offsets Cloze&rsquo;s &minus;2 dip. This is also the first test graded directly from the new JSON results schema (no manual transcription needed) &mdash; a workflow improvement over the old scanned-PDF method.',
 
-    qSummary: '<strong>16/20 (80%) &mdash; Cloze 7/7 &#9733; (first perfect Cloze since U10, the 3-unit pacing pattern is resolved). Grammar 4/7 (two misses share one new cause &mdash; &ldquo;been&rdquo; mistaken for a correctness check when active-voice Thirds never need it; one miss is a dormant mixed-conditional/time-signal gap resurfacing). Vocab 5/6 (one likely rush slip on &ldquo;reluctant&rdquo;). U20 = first interactive-HTML test, dedicated Grammar fix planned.</strong>',
+    qSummary: '<strong>16/20 (80%) &mdash; FIRST test in the new interactive HTML format. Cloze 6/7 (one isolated CONTRAST-vs-TIME slip). Grammar 5/7 (both U19 target fixes CONFIRMED working; two new smaller misses, incl. a &ldquo;DOER=safe&rdquo; overcorrection worth a light verbal reminder). Vocab 5/6 (one unfamiliar-word miss, &ldquo;steadfast&rdquo;). Next: MILESTONE 2, ASMOPSS-structured.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; A (although = CONTRAST clause-joiner). Foundational.' },
-      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; D (however = CONTRAST sentence-starter). Foundational.' },
-      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; G (so = RESULT clause-joiner). Developing.' },
-      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; B (as a result = RESULT sentence-starter). Developing.' },
-      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; H (while = TIME clause-joiner). Developing.' },
-      { q:'Q6',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; E (meanwhile = TIME sentence-starter) &mdash; one of the two &ldquo;finish strong&rdquo; gaps that failed 3 units running (U15/U16/U18); correct this time. Advanced.' },
-      { q:'Q7',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; F (moreover = ADDITION sentence-starter) &mdash; the OTHER &ldquo;finish strong&rdquo; gap; also correct &mdash; first perfect Cloze section since Unit 10. Advanced.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Identified the Second Conditional (A). Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Real error was B (Third if-half + Second result mismatch); Prem flagged A instead &mdash; A is a genuinely correct active-voice Third (&ldquo;had opened&rdquo;, no &ldquo;been&rdquo; needed). New &ldquo;been isn&rsquo;t the test&rdquo; confusion. Developing.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Find-the-error (2\\|3 mismatch, D). Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Find-the-error (Will Ban, D) &mdash; wrote &ldquo;WILL IS BANNED!!!&rdquo; on the paper, fully automatic. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Missed the &ldquo;today&rdquo; present-time signal in a Mixed Conditional; chose the standard-Third pairing (C) instead of the present-result pairing (A). A dormant pattern last drilled ~U5&ndash;M1. Advanced.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Real error was B (Third if-half + Second result mismatch); Prem flagged A instead &mdash; same &ldquo;been isn&rsquo;t the test&rdquo; confusion as Q9. Did NOT fall for the deliberate decoy (C, a correct-but-&ldquo;been&rdquo;-less Second) &mdash; the confirm-habit itself is working. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; &ldquo;Which is CORRECT?&rdquo; (C). Advanced.' },
-      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; apprehensive = &ldquo;nervous and anxious&rdquo;. Foundational.' },
-      { q:'Q16', topic:'Vocab',   lvl:'b', pass:false, note:'&#10007; reluctant = &ldquo;unwilling and hesitant&rdquo;; chose &ldquo;proud and confident&rdquo; &mdash; near-opposite of the clue. Likely a rush slip (Vocab has held 6/6 in 4 of the last 5 units). Foundational.' },
-      { q:'Q17', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; immaculate = &ldquo;spotlessly clean&rdquo;. Developing.' },
-      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; exasperated = &ldquo;frustrated and annoyed&rdquo;. Developing.' },
-      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; invigorated = &ldquo;bursting with energy&rdquo;. Developing.' },
-      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; euphoric = &ldquo;extremely joyful&rdquo;. Advanced.' }
+      { q:'Q1',  topic:'Cloze',   lvl:'b', pass:true,  note:'&#10003; however (CONTRAST sentence-starter). Foundational.' },
+      { q:'Q2',  topic:'Cloze',   lvl:'b', pass:false, note:'&#10007; Chose &ldquo;while&rdquo; (TIME) instead of &ldquo;although&rdquo; (CONTRAST) &mdash; a function mix-up early in the passage, not the resolved last-two-gaps pacing pattern. Foundational.' },
+      { q:'Q3',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; as a result (RESULT clause-joiner). Developing.' },
+      { q:'Q4',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; so (RESULT sentence-starter). Developing.' },
+      { q:'Q5',  topic:'Cloze',   lvl:'i', pass:true,  note:'&#10003; meanwhile (TIME sentence-starter). Developing.' },
+      { q:'Q6',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; while (TIME clause-joiner). Advanced.' },
+      { q:'Q7',  topic:'Cloze',   lvl:'a', pass:true,  note:'&#10003; moreover (ADDITION sentence-starter). Advanced.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Basic Second-vs-Third identification slip &mdash; likely a rushed first click into the section, first grammar item of the new format. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; A DOER-type Third with no &ldquo;been&rdquo; (the exact U19 trap shape) correctly accepted &mdash; the &ldquo;been isn&rsquo;t the test&rdquo; fix CONFIRMED working. Developing.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Find-the-error, correct. Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Will Ban check, correct. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Dormant mixed-conditional/&ldquo;today&rdquo; time-signal item &mdash; correct this time. Second U19 target fix CONFIRMED working. Advanced.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Flagged a clean GETTER sentence (&ldquo;had been delayed&hellip;&rdquo;) as the error while missing the real DOER-mismatch (&ldquo;had spun&hellip;would snap&rdquo;) &mdash; a small &ldquo;DOER=safe&rdquo; overcorrection: having just learned not to assume DOER=wrong, he may now be under-checking DOER sentences for genuine mismatches. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Correct. Advanced.' },
+      { q:'Q15', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; daunted = correctly identified. Foundational.' },
+      { q:'Q16', topic:'Vocab',   lvl:'b', pass:true,  note:'&#10003; disheartened = correctly identified. Foundational.' },
+      { q:'Q17', topic:'Vocab',   lvl:'i', pass:false, note:'&#10007; steadfast &mdash; chose &ldquo;loud and boastful&rdquo;, unrelated to the clue in either direction. Reads as an unfamiliar word, not a strategy failure. Developing.' },
+      { q:'Q18', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; begrudging = correctly identified. Developing.' },
+      { q:'Q19', topic:'Vocab',   lvl:'i', pass:true,  note:'&#10003; resolute = correctly identified. Developing.' },
+      { q:'Q20', topic:'Vocab',   lvl:'a', pass:true,  note:'&#10003; triumphant = correctly identified. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U19: Cloze jumps to a perfect section (+6), Grammar dips on one new narrow confusion (-5) — net achievement ~unchanged
+  // After U20: Grammar rises on both U19 fixes confirmed working (+4), Cloze dips on one isolated slip (-2) — net achievement ~unchanged
   skills: [
-    { name: 'Reading Compr.',    c: 75, t: 85 },   // U19: not directly re-scored; reading strand continuing via lessons
-    { name: 'Vocabulary',        c: 80, t: 82 },   // U19: 5/6 — one rush-slip miss ("reluctant"), essentially at target
-    { name: 'Grammar',           c: 70, t: 82 },   // U19: 4/7 — one new narrow "been isn't the test" confusion + one dormant time-signal gap, not a general regression
-    { name: 'Cloze Test',        c: 74, t: 80 },   // U19: 7/7 ★ — first perfect section since U10, the 3-unit pacing pattern is resolved
+    { name: 'Reading Compr.',    c: 75, t: 85 },   // U20: not directly re-scored; reading strand continuing via lessons
+    { name: 'Vocabulary',        c: 80, t: 82 },   // U20: 5/6 — one unfamiliar-word miss ("steadfast"), essentially at target
+    { name: 'Grammar',           c: 74, t: 82 },   // U20: 5/7 — BOTH U19 target fixes confirmed working; two new smaller misses (rushed ID slip + DOER-overcorrection)
+    { name: 'Cloze Test',        c: 72, t: 80 },   // U20: 6/7 — one isolated CONTRAST-vs-TIME slip early in the passage
     { name: 'Writing',           c: 65, t: 85 },
     { name: 'Conversation',      c: 95, t: 85 },
-    { name: 'Critical Thinking', c: 62, t: 80 },   // U19: not in unit test; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U19: not in unit test; unchanged
+    { name: 'Critical Thinking', c: 62, t: 80 },   // U20: not in unit test; unchanged
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // U20: not in unit test; unchanged
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [75, 80, 70, 74, 65, 95, 62, 55],
+  radarCurrent:  [75, 80, 74, 72, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 19',
+  radarLegendUnit: 'Unit 20',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -110,11 +110,24 @@ var PREM_ENGLISH = {
     { n:16, score:13, outOf:20, delta:-4, color:'#667eea', star:false, label:'U16' },
     { n:17, score:17, outOf:20, delta:4,  color:'#89F336', star:false, label:'U17' },
     { n:18, score:17, outOf:20, delta:0,  color:'#89F336', star:false, label:'U18' },
-    { n:19, score:16, outOf:20, delta:-5, color:'#667eea', star:false, label:'U19' }
+    { n:19, score:16, outOf:20, delta:-5, color:'#667eea', star:false, label:'U19' },
+    { n:20, score:16, outOf:20, delta:0,  color:'#667eea', star:false, label:'U20' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 20,
+      title: 'Unit 20 &mdash; Cloze: Twin Words Mastery Check &middot; Grammar: &ldquo;Been&rdquo; Isn&rsquo;t the Test &middot; Reading &amp; Vocab: Inference &amp; Connotation',
+      badge: '#667eea',
+      status: 'done',
+      note: '16/20 (80%) &mdash; <strong>the FIRST test ever completed in the new interactive single-page format &mdash; and both U19 target fixes are confirmed working.</strong> <strong>Grammar 5/7</strong> (up from 4/7): the &ldquo;been isn&rsquo;t the test&rdquo; fix held on a real DOER-type item (Q9), and the dormant mixed-conditional/&ldquo;today&rdquo; time-signal gap also closed (Q12) &mdash; real, confirmed progress. Two smaller new misses: a rushed basic ID slip (Q8) and a &ldquo;DOER=safe&rdquo; overcorrection (Q13, flagged a clean GETTER sentence while missing a real DOER-mismatch) &mdash; worth a light verbal reminder before Milestone 2. <strong>Cloze 6/7</strong>: one isolated CONTRAST-vs-TIME mix-up early in the passage (Q2), not a return of the resolved pacing pattern. <strong>Vocab 5/6</strong>: one unfamiliar-word miss (&ldquo;steadfast&rdquo;). Graded directly from the new JSON results schema &mdash; no manual transcription needed. &middot; Next: <strong>MILESTONE 2</strong> &mdash; ASMOPSS-structured (5 sections incl. Conversation + error-ID Grammar, 40 Q, weighted 2/3/5-pt scoring), test only, no lesson pack',
+      tags: [
+        { t:'Grammar 5/7 &#8593;', s:'background:#f0fff4;color:#276749' },
+        { t:'Cloze 6/7', s:'background:#fff8e1;color:#744210' },
+        { t:'Vocab 5/6', s:'background:#fff8e1;color:#744210' }
+      ]
+    },
     {
       n: 19,
       title: 'Unit 19 &mdash; Cloze: Twin Words Mastery &middot; Grammar: Been Isn&rsquo;t the Test &middot; Reading &amp; Vocab: Inference',

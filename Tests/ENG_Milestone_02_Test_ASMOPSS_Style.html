@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ENG_Milestone_02_Test_ASMOPSS_Style.html — built from ENG_INTERACTIVE_MILESTONE_TEMPLATE.html, 10 Jul 2026.
+     5 ASMOPSS-order sections, 40 questions (8/section), weighted 2/3/5-pt scoring. No lesson pack (milestone rule). -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milestone 2 — ASMOPSS-Style Review (Conversation · Vocabulary · Grammar · Cloze · Reading)</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --conv:#ad1457;  --conv-fill:#f8bbd0;  --conv-text:#ad1457;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --read:#00695c;  --read-fill:#b2dfdb;  --read-text:#00695c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f6f4fa;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4a148c,#7b1fa2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f5;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4a148c,#ab47bc);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4a148c;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.conversation{background:var(--conv-fill);color:var(--conv-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.reading{background:var(--read-fill);color:var(--read-text)}
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .gap{font-weight:800;color:#1565c0}
+  .notice{background:#FFF8E1;border:2px dashed #FFB74D;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.8}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.conversation{border-left-color:var(--conv)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.reading{border-left-color:var(--read)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .pts{font-weight:700;font-size:.75rem;color:var(--grey);background:#f4f4f8;border-radius:8px;padding:2px 8px;margin-left:6px}
+  .q p.body u{text-decoration-color:#8E24AA;text-decoration-thickness:2px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt-row .opt{width:auto;flex:1 1 auto;min-width:64px;text-align:center}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4a148c,#7b1fa2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#f3e8ff,#e1bee7);border:2px solid #4a148c}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.2rem;font-weight:900;color:#4a148c}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-sub{font-size:.85rem;color:var(--grey);margin-top:2px}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.75rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(30,10,40,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4a148c;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Milestone 2 — ASMOPSS-Style Review</b>
+      <span class="sub" id="hdr-sub">Conversation &middot; Vocabulary &middot; Grammar &middot; Cloze &middot; Reading</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — read every question in full before choosing. Each question shows how many points it's worth (2/3/5) — harder questions are worth more, just like the real ASMOPSS paper. Give every question, easy or hard, the same care.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 40 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-sub"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const MILESTONE_NUM   = 2;
+const MILESTONE_TITLE = "ASMOPSS-Style Review";
+const MILESTONE_SUB   = "Conversation · Vocabulary · Grammar · Cloze · Reading";
+const PASS_PCT = 80;
+
+const CLOZE_BANK = ["although","however","therefore","meanwhile","moreover","while","despite","so","furthermore"];
+
+const SECTION_PASSAGE = {
+  cloze: `The Saturday farmers' market had always been popular, <span class="gap">(21)___</span> this week brought an unexpected challenge.
+    Heavy rain had flooded the usual field, <span class="gap">(22)___</span> the organisers had to find a new location overnight.
+    <span class="gap">(23)___</span> the short notice, most of the stallholders still managed to set up by nine o'clock. Maria, who sold
+    honey, arrived early to help others carry their tables. <span class="gap">(24)___</span>, the fruit seller next door was still missing
+    three boxes of apples. <span class="gap">(25)___</span> many stalls opened smoothly, hers stood empty for almost an hour.
+    <span class="gap">(26)___</span>, she stayed calm and used the time to rearrange her display. The apples finally arrived just as
+    customers began lining up. <span class="gap">(27)___</span>, she sold out faster than any previous week. <span class="gap">(28)___</span>,
+    the market's youngest vendor, an eleven-year-old selling herbs, raised more money than ever before, proving that a rocky start
+    doesn't always mean a rocky day.`,
+  reading: `<b>Passage A — "Light in the Deep"</b><br><br>
+    Deep beneath the ocean's surface, where sunlight never reaches, thousands of creatures produce their own light. Scientists call this
+    ability bioluminescence, and it is far more common than most people realise — nearly three-quarters of deep-sea animals can glow in
+    some way. For many species, this light is not decoration; it is survival. An anglerfish dangles a glowing lure above its mouth to
+    attract smaller fish close enough to catch. A vampire squid, when startled, releases a cloud of glowing mucus instead of ink, confusing
+    predators long enough to escape. Some jellyfish flash a sudden burst of light to startle an attacker, buying just enough time to swim away.<br><br>
+    For years, researchers assumed bioluminescence was rare and unusual, something found only in a handful of strange deep-sea oddities.
+    Recent expeditions using deep-diving submersibles have overturned that assumption, revealing glowing organisms at nearly every depth
+    and in far greater numbers than expected. Some scientists now believe that in the deep ocean, producing light may be the rule rather
+    than the exception — and that the truly unusual creatures are the ones that don't glow at all.`
+};
+
+const SECTION_NOTICE = `<b>Passage B — Notice</b><br><br>
+  <b>COMMUNITY TOOL LIBRARY — BORROWING NOTICE</b><br>
+  Members may borrow one large tool (such as a ladder or drill) for up to 3 days, free of charge. A late fee of $2 per day applies if a
+  tool is not returned on time, unless the delay is reported to staff at least 24 hours in advance, in which case the fee is waived.`;
+
+const SECTION_HINT = {
+  conversation: "Strategy: think about what a polite, natural English speaker would actually say in this situation — not just what's grammatically possible.",
+  vocab:        "Strategy: quote the clue — your answer must match what the clue actually says, not just the general mood of the passage.",
+  grammar:      "Strategy: for error-ID questions, check EACH labelled part against the three checks (will-ban, broken verb, halves-match) before deciding. \"Been\" is not a check.",
+  cloze:        "Strategy: full stop before the gap = sentence-starter; comma/mid-sentence = clause-joiner. Punctuation decides the family — reading decides the job.",
+  reading:      "Strategy: for inference questions, gather 2–3 clues and pick the explanation that fits ALL of them — not just one."
+};
+
+const Q = [
+  // ===== PART I — CONVERSATION (Q1-8) =====
+  { n:1, section:'conversation', pts:2, body:'"It\'s raining cats and dogs outside!" What does this mean?',
+    options:["It's raining pets from the sky","It's not raining at all","It's raining very heavily","Animals are falling outside"], ans:3,
+    why:'"Raining cats and dogs" is an idiom meaning it\'s raining very heavily — it has nothing to do with actual animals.' },
+  { n:2, section:'conversation', pts:2, body:'Someone says: "Long time no see!" What is the best reply?',
+    options:["No, I saw you yesterday.","Long time indeed, see you soon.","I don't see you very often.","Yes, it's been a while!"], ans:4,
+    why:'"Long time no see" greets someone you haven\'t seen in a while — the natural reply agrees and continues the conversation.' },
+  { n:3, section:'conversation', pts:2, body:'"Could you please pass the salt?" is an example of:',
+    options:["A rude demand","A polite request","A statement about salt","A complaint about the food"], ans:2,
+    why:'"Could you please..." is a polite way to ask someone to do something — a request, not a demand.' },
+  { n:4, section:'conversation', pts:3, body:'A friend says: "I\'m feeling a bit under the weather today." What should you say?',
+    options:["Oh no, I hope you feel better.","Let's go play outside instead!","It really isn't raining outside though.","What's the weather like out today?"], ans:1,
+    why:'"Under the weather" means feeling unwell — the kind, natural reply shows concern for how they feel.' },
+  { n:5, section:'conversation', pts:3, body:'"This puzzle is a piece of cake for me!" means:',
+    options:["The puzzle looks like food","The puzzle is impossible","The puzzle takes a long time","The puzzle is very easy"], ans:4,
+    why:'"A piece of cake" is an idiom meaning something is very easy to do.' },
+  { n:6, section:'conversation', pts:3, body:'A boy shouts loudly to his friend across the library. What is the MOST polite way for the librarian to respond?',
+    options:["Excuse me, could you please lower your voice?","Hey! Stop that shouting right now!","Please get out of the library now.","Why are you being so loud today?"], ans:1,
+    why:'A polite request that explains the reason ("this is a quiet space") is more respectful and effective than a blunt command.' },
+  { n:7, section:'conversation', pts:5, body:'A student says: "Let\'s not reinvent the wheel — someone\'s probably solved this before." What is she suggesting?',
+    options:["They should build an actual wheel for this project too","They should invent something entirely new from scratch instead","They should search for existing solutions instead of starting over","They should give up on the whole project entirely"], ans:3,
+    why:'"Reinvent the wheel" means to waste effort recreating something that already exists — she\'s suggesting they search for existing solutions first.' },
+  { n:8, section:'conversation', pts:5, body:'A teacher asks the class: "Does anyone have questions, or shall we call it a day?" What is the teacher really asking?',
+    options:["What day of the week it is","Whether to end the lesson now","Whether students want to name the day","Whether anyone wants to leave the room early"], ans:2,
+    why:'"Call it a day" is an idiom meaning to stop an activity for now — the teacher is asking whether to end the lesson.' },
+
+  // ===== PART II — VOCABULARY (Q9-16) — "A Lighthouse Keeper's Diary" =====
+  { n:9, section:'vocab', pts:2, body:'Passage: "Rosa stayed vigilant through every storm, watching for ships that strayed too close to the rocks." What does "vigilant" mean here?',
+    options:["Watchful and alert","Careless and distracted","Sleepy and tired","Forgetful"], ans:1,
+    why:'Staying alert and watching for danger through every storm = watchful and alert.' },
+  { n:10, section:'vocab', pts:2, body:'Passage: "Most nights were monotonous, the same slow rounds up and down the spiral stairs." What does "monotonous" mean here?',
+    options:["Exciting and new","Boring and repetitive","Dangerous and risky","Short and quick"], ans:2,
+    why:'"The same...rounds" repeated night after night = boring and repetitive.' },
+  { n:11, section:'vocab', pts:2, body:'Passage: "The food supplies were dwindling, with barely enough left for the week." What does "dwindling" mean here?',
+    options:["Increasing quickly","Staying exactly the same","Decreasing steadily","Disappearing all at once"], ans:3,
+    why:'"Barely enough left" describes a gradual decrease = decreasing steadily.' },
+  { n:12, section:'vocab', pts:3, body:'Passage: "Dark clouds gathered with a foreboding sense that something worse was coming." What does "foreboding" mean here?',
+    options:["A calm and hopeful feeling inside","A warm feeling of pure joy","A confusing and puzzling feeling","An uneasy feeling something bad will happen"], ans:4,
+    why:'"Something worse was coming" is a clue pointing to an uneasy feeling that something bad will happen.' },
+  { n:13, section:'vocab', pts:3, body:'Passage: "The rescue was exhilarating — her heart raced as the lifeboat reached the sailors just in time." What does "exhilarating" mean here?',
+    options:["Thrilling and exciting","Calm and relaxing","Sad and tiring","Quiet and dull"], ans:1,
+    why:'"Her heart raced" is a clue pointing to something thrilling and exciting.' },
+  { n:14, section:'vocab', pts:3, body:'Passage: "She had felt apprehensive as the fog rolled in, unsure if anyone could find their way through it." What does "apprehensive" mean here?',
+    options:["Confident and calm","Nervous and worried","Angry and loud","Delighted and proud"], ans:2,
+    why:'"Unsure" and worrying about what might happen = nervous and worried.' },
+  { n:15, section:'vocab', pts:5, body:'Passage: "Her unwavering determination to keep the light burning never faltered." What does "unwavering" mean here?',
+    options:["Occasional and rare","Weak and uncertain","Steady and firm","Changing often"], ans:3,
+    why:'"Never faltered" is a clue pointing to something steady and firm, not weak or changing.' },
+  { n:16, section:'vocab', pts:5, body:'Passage: "When the sailors finally reached the shore safely, the whole village was jubilant." What does "jubilant" mean here?',
+    options:["Quietly worried","Mildly interested","Extremely tired","Extremely happy and joyful"], ans:4,
+    why:'Sailors reaching shore safely, celebrated by the whole village = extremely happy and joyful.' },
+
+  // ===== PART III — GRAMMAR (Q17-24) =====
+  { n:17, section:'grammar', pts:2, body:'Which sentence is a Second Conditional?',
+    options:["If the bakery opened earlier, more customers would come.","If the bakery had opened earlier, more customers would have come.","If the bakery had been renovated, it would have looked cleaner.","If the bakery had closed, the street would have been quieter."], ans:1,
+    why:'"opened" (past simple) + "would come" (would + verb) = Second Conditional. The other three are all Third Conditional ("had been" + "would have").' },
+  { n:18, section:'grammar', pts:2, body:'Which sentence is a Third Conditional?',
+    options:["If the robot worked properly today, the team would surely win.","If the robot had been calibrated, it would have worked perfectly.","If the robot works properly every single time, the team wins.","If the robot were much faster, it would win far more races."], ans:2,
+    why:'"had been calibrated" + "would have completed" = Third Conditional (both halves point fully to the unreal past).' },
+  { n:19, section:'grammar', pts:2, body:'Which sentence correctly avoids the Will Ban (no "will" anywhere in a conditional result)?',
+    options:["If the satellite had launched on time, it will reach orbit by now.","If the satellite had launched on time, it will have reached orbit by now.","If the satellite had launched on time, it would have reached orbit by now.","If the satellite had launched on time, it will orbit by now."], ans:3,
+    why:'A conditional result clause never uses "will" — "would have reached" is correct. The other three all sneak "will" into the result.' },
+  { n:20, section:'grammar', pts:3, body:'Which sentence has a broken verb form (wrong form after "had")?',
+    options:["If the coder had tested the code, the bug would have been found.","If the coder had checked the code, the bug would have been fixed.","If the coder had reviewed the code, the bug would have been caught.","If the coder had test the code, the bug would have been found."], ans:4,
+    why:'"had test" is broken — after "had" you need the past participle, "had tested." The other three all use the correct form.' },
+  { n:21, section:'grammar', pts:3, body:"Which sentence's two halves don't match (mixes a Second if-clause with a Third result, or the reverse)?",
+    options:["If the bike had a flat tyre, the rider would have stopped.","If the bike had a flat tyre, the rider would stop.","If the bike had had a flat tyre, the rider would have stopped.","If the bike were much faster today, the rider would surely win."], ans:1,
+    why:'"had a flat tyre" (Second, past simple) doesn\'t match "would have stopped" (Third, would have). The other three keep both halves in the same family.' },
+  { n:22, section:'grammar', pts:3, body:'The mission is happening today. "If mission control had approved the launch earlier, the rocket ___ already in orbit." Which fits the present-time signal ("today")?',
+    options:["will be","would be","would have been","had been"], ans:2,
+    why:'"Today" and "already" are present-time signals — a Third if-clause paired with a PRESENT-result ("would be") is the Mixed Conditional pattern for results that continue into now.' },
+  { n:23, section:'grammar', pts:5, body:'Which underlined part contains the grammar error? "(A) The astronomers were thrilled when the skies cleared, because (B) if the telescope had been aligned correctly, (C) they had spot the comet\'s exact path days earlier, (D) and the images would have looked stunning."',
+    options:["(A) The astronomers were thrilled when the skies cleared, because","(B) if the telescope had been aligned correctly,","(C) they had spot the comet's exact path days earlier,","(D) and the images would have looked stunning."], ans:3,
+    why:'(C) is broken — "had spot" needs the past participle, "had spotted." (A), (B), and (D) are all grammatically clean.' },
+  { n:24, section:'grammar', pts:5, body:"Which underlined part contains the grammar error? \"(A) If the bakery's new oven had arrived on time, (B) the bread would have risen perfectly, (C) but the delivery van had broken down overnight, (D) so the batch will be ruined by morning.\"",
+    options:["(A) If the bakery's new oven had arrived on time,","(B) the bread would have risen perfectly,","(C) but the delivery van had broken down overnight,","(D) so the batch will be ruined by morning."], ans:4,
+    why:'(D) breaks the Will Ban — a result clause never uses "will." It should read "the batch would be ruined." (A), (B), and (C) are all grammatically clean.' },
+
+  // ===== PART IV — CLOZE (Q25-32) — "The Farmers' Market Setback" =====
+  { n:25, section:'cloze', pts:2, body:"Gap (21) — \"...always been popular, (21)___ this week brought an unexpected challenge.\"", options: CLOZE_BANK, ans:1,
+    why:'Comma, mid-sentence, CONTRAST between "always popular" and "this week\'s challenge" → although.' },
+  { n:26, section:'cloze', pts:2, body:"Gap (22) — \"...flooded the usual field, (22)___ the organisers had to find a new location overnight.\"", options: CLOZE_BANK, ans:8,
+    why:'Comma, mid-sentence, RESULT — the flood caused the need for a new location → so.' },
+  { n:27, section:'cloze', pts:2, body:"Gap (23) — \"(23)___ the short notice, most of the stallholders still managed to set up by nine.\"", options: CLOZE_BANK, ans:7,
+    why:'Followed directly by a noun phrase ("the short notice"), not a full clause → despite.' },
+  { n:28, section:'cloze', pts:3, body:"Gap (24) — \"Maria arrived early to help others carry their tables. (24)___, the fruit seller next door was still missing three boxes of apples.\"", options: CLOZE_BANK, ans:2,
+    why:'Full stop before the gap = sentence-starter. CONTRAST between Maria\'s smooth help and the fruit seller\'s problem → however.' },
+  { n:29, section:'cloze', pts:3, body:"Gap (25) — \"(25)___ many stalls opened smoothly, hers stood empty for almost an hour.\"", options: CLOZE_BANK, ans:6,
+    why:'One sentence joining two contrasting clauses (smooth stalls vs. her empty one) → while.' },
+  { n:30, section:'cloze', pts:3, body:"Gap (26) — \"(26)___, she stayed calm and used the time to rearrange her display.\"", options: CLOZE_BANK, ans:4,
+    why:'Sentence-starter showing a parallel action happening during the empty hour → meanwhile.' },
+  { n:31, section:'cloze', pts:5, body:"Gap (27) — \"The apples finally arrived just as customers began lining up. (27)___, she sold out faster than any previous week.\"", options: CLOZE_BANK, ans:3,
+    why:'Sentence-starter, RESULT of the apples arriving right as customers lined up → therefore.' },
+  { n:32, section:'cloze', pts:5, body:"Gap (28) — \"(28)___, the market's youngest vendor...raised more money than ever before.\"", options: CLOZE_BANK, ans:9,
+    why:'Sentence-starter, ADDITION of one more example to the story → furthermore. ("Moreover" means the same thing but is the unused distractor here — only one ADDITION word was needed.)' },
+
+  // ===== PART V — READING (Q33-40) =====
+  { n:33, section:'reading', pts:2, body:"What is Passage A mainly about?",
+    options:["How and why deep-sea creatures produce light","How anglerfish specifically catch their prey","The full history of ocean exploration","Why deep-sea submersibles are useful today"], ans:1,
+    why:'The passage covers several examples (anglerfish, vampire squid, jellyfish) all under the umbrella of bioluminescence — how and why deep-sea creatures glow.' },
+  { n:34, section:'reading', pts:2, body:"According to Passage A, what does a vampire squid release when startled?",
+    options:["Only ink, and nothing more","A glowing cloud of mucus","A bright flash from its eyes","Nothing, it simply swims away"], ans:2,
+    why:'The passage states it "releases a cloud of glowing mucus instead of ink."' },
+  { n:35, section:'reading', pts:2, body:'In Passage A, "overturned that assumption" most nearly means:',
+    options:["Confirmed the old idea","Ignored the old idea","Proved the old idea wrong","Repeated the old idea"], ans:3,
+    why:'The old assumption (bioluminescence is rare) was shown to be false by new evidence — "overturned" = proved wrong.' },
+  { n:36, section:'reading', pts:3, body:"Based on Passage A, why did researchers previously think bioluminescence was rare?",
+    options:["Because bioluminescence truly is quite rare","Because most sea creatures cannot produce any light","Because glowing creatures always avoid deep-sea submersibles","Because they hadn't explored the deep ocean enough"], ans:4,
+    why:'The passage says recent expeditions "revealed glowing organisms...in far greater numbers than expected" — the old belief was based on limited exploration.' },
+  { n:37, section:'reading', pts:3, body:'Why does the author end Passage A with "the truly unusual creatures are the ones that don\'t glow at all"?',
+    options:["To emphasize how common bioluminescence really is","To argue that non-glowing creatures are extinct","To sharply criticize old outdated research methods","To introduce a brand new topic about submersibles"], ans:1,
+    why:'Flipping "unusual" onto non-glowing creatures drives home just how widespread bioluminescence really is.' },
+  { n:38, section:'reading', pts:3, body:"What can you infer about deep-sea exploration technology, based on Passage A?",
+    options:["It has stayed exactly the same for decades","Better exploration technology has changed what scientists know","It is no longer useful for scientists today","It only ever works in shallow water"], ans:2,
+    why:'"Recent expeditions using deep-diving submersibles" directly caused the new discoveries — better technology changed what scientists know.' },
+  { n:39, section:'reading', pts:5, body:"Passage B: a member keeps a borrowed ladder for 5 days without contacting staff. What should happen, according to the notice?",
+    options:["No fee at all, since it's only a small ladder","The fee is automatically and fully waived after 3 days","A $2 per-day late fee applies, since staff weren't told","The member is permanently banned from the whole library"], ans:3,
+    why:'The notice states a $2/day late fee applies unless staff are told 24 hours in advance — this member never contacted staff, so the fee applies.' },
+  { n:40, section:'reading', pts:5, body:"Passage B: another member calls staff two days before the due date to say she needs the tool a little longer. What happens to her late fee?",
+    options:["It is still charged in full each time","It is simply doubled each and every time","The notice doesn't cover this particular situation here","It is waived, since she gave advance notice."], ans:4,
+    why:'She reported the delay more than 24 hours in advance (two days), which is exactly the condition the notice states waives the fee.' },
+];
+
+const SECTION_LABEL = {
+  conversation: "PART I — Conversation",
+  vocab:        "PART II — Vocabulary",
+  grammar:      "PART III — Grammar",
+  cloze:        "PART IV — Cloze Test",
+  reading:      "PART V — Reading Comprehension"
+};
+const SECTION_ORDER = ['conversation','vocab','grammar','cloze','reading'];
+const TOTAL_Q = Q.length;
+const TOTAL_POINTS = Q.reduce((s,q) => s + q.pts, 0);
+const PASS_BAR = Math.round(TOTAL_POINTS * PASS_PCT / 100);
+
+document.getElementById('hdr-title').textContent = `Milestone ${MILESTONE_NUM} — ${MILESTONE_TITLE}`;
+document.getElementById('hdr-sub').textContent = MILESTONE_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+document.getElementById('progress-label').textContent = `0 / ${TOTAL_Q} answered`;
+
+const chosen = {};
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint">${SECTION_HINT[q.section] || ''}</div>`;
+      if (SECTION_PASSAGE[q.section]) html += `<div class="${q.section === 'reading' ? 'notice' : 'passage'}">${SECTION_PASSAGE[q.section]}</div>`;
+      if (q.section === 'reading') html += `<div class="notice">${SECTION_NOTICE}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="pts">${q.pts} pt${q.pts > 1 ? 's' : ''}</span>
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    const rowClass = q.section === 'cloze' ? 'opt-row' : '';
+    html += `<div class="${rowClass}">`;
+    q.options.forEach((opt, idx) => {
+      const label = q.section === 'cloze' ? String.fromCharCode(65+idx) + '. ' + opt : (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let pointsEarned = 0;
+  let correctCount = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0, t:0, pts:0, maxPts:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    sectionTally[q.section].t++;
+    sectionTally[q.section].maxPts += q.pts;
+    if (isCorrect){
+      pointsEarned += q.pts;
+      correctCount++;
+      sectionTally[q.section].c++;
+      sectionTally[q.section].pts += q.pts;
+    }
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect, points: q.pts, pointsEarned: isCorrect ? q.pts : 0 };
+  });
+
+  const pct = Math.round(pointsEarned/TOTAL_POINTS*100);
+  const pass = pointsEarned >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${pointsEarned} / ${TOTAL_POINTS} points  (${pct}%)`;
+  document.getElementById('score-sub').textContent = `${correctCount} / ${TOTAL_Q} questions correct`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_POINTS} points). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_POINTS} points — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].pts}/${sectionTally[s].maxPts} pts (${sectionTally[s].c}/${sectionTally[s].t})</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: null,
+    isMilestone: true,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: MILESTONE_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score: pointsEarned, outOf: TOTAL_POINTS, pct, passBar: PASS_BAR, passed: pass,
+    correctCount, questionCount: TOTAL_Q,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].pts, outOf:sectionTally[s].maxPts, correctCount:sectionTally[s].c, questionCount:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>

@@ -487,8 +487,8 @@ function doSubmit(){
 async function saveResults(){
   const pad = (n, len) => String(n).padStart(len,'0');
   const filename = IS_MILESTONE
-    ? `M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
-    : `U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
   const json = JSON.stringify(lastResults, null, 2);
   const statusEl = document.getElementById('save-status');
 
