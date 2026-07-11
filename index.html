@@ -160,6 +160,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <span class="sb-icon">&#9989;</span>
       <span class="sb-lbl">Done</span>
     </button>
+    <button class="sb-btn" onclick="showPanel('comp',this)" title="Competition Practice">
+      <span class="sb-icon">&#127942;</span>
+      <span class="sb-lbl">Comp</span>
+    </button>
     <div class="sb-divider"></div>
     <button class="sb-btn" onclick="openDashboard()" title="Coach Dashboard">
       <span class="sb-icon">&#128202;</span>
@@ -844,6 +848,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         </div>
 
       </div>
+
+      <!-- PANEL: COMPETITION PRACTICE -->
+      <div class="panel" id="panel-comp">
+        <div class="sec-div" style="padding-top:0">Competition Practice &mdash; Real Past Papers</div>
+        <div class="grid-3">
+          <div class="lesson-card" style="border-top-color:#DAA520">
+            <div class="lc-unit" style="color:#8a6a00">ASMOPSS 2024 &middot; Grade 4&ndash;6 English &middot; Set B</div>
+            <div class="lc-title">ASMOPSS 2024 Real Competition Paper (Set B)</div>
+            <div class="lc-desc">A genuine, complete ASMOPSS 2024 Grade 4&ndash;6 English paper (sat 4 Aug 2024) &mdash; real questions from the original exam, official weighting (2/3/5 points, 100 total, pass bar 80), answers verified against the official ASMOPSS answer key. Take this before Unit 21 &mdash; it's a real benchmark, not a practice test.</div>
+            <div class="lc-badges"><span class="badge" style="background:#FFF3CD;color:#8a6a00">&#127942; Ready to take</span><span class="badge" style="background:#fff3e0;color:#E65100">ASMOPSS</span></div>
+            <a class="btn-open" style="background:linear-gradient(135deg,#8a6a00,#DAA520)" href="Tests/ENG_Competition_ASMOPSS_2024_SetB.html">&#9654; Take the Test</a>
+          </div>
+        </div>
+
+        <div class="sec-div">Completed</div>
+        <div class="empty" style="color:#a0aec0;font-size:12px;padding:20px;text-align:center;border:1px dashed #e2e8f0;border-radius:12px">No competition papers completed yet &mdash; once Prem finishes one above, it'll move here with his score.</div>
+      </div>
+
     </div><!-- /content -->
   </div><!-- /main -->
 </div><!-- /app -->

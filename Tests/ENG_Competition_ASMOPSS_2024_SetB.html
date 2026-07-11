@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ENG_Competition_ASMOPSS_2024_SetB.html — REAL past competition paper, converted 11 Jul 2026.
+     Source: Asian Science and Mathematics Olympiad for Primary and Secondary Schools (ASMOPSS),
+     National Competitive Examination 2024, English Primary Grade 4-6, Sun 4 Aug 2024, Set B.
+     30 items, 5 parts (Conversation/Vocabulary/Grammar/Cloze/Reading), official weighting
+     2/3/5 points per item, 100 points total, pass bar 80 (matches the Science coach project's
+     identical ASMOPSS scoring convention). All content and the answer key are taken directly
+     from the uploaded official paper — nothing invented. To be taken by Prem BEFORE Unit 21,
+     per Lui's instruction, then analysed together with Milestone 2 to build the U21-30 plan. -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMOPSS 2024 — Real Competition Paper (English, Grade 4&ndash;6, Set B)</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --conv:#ad1457;  --conv-fill:#f8bbd0;  --conv-text:#ad1457;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --read:#00695c;  --read-fill:#b2dfdb;  --read-text:#00695c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#fffaf0;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#8a6a00,#DAA520);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.95}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  .source-note{background:#FFF3CD;border:1.5px solid #DAA520;color:#5a3d00;border-radius:10px;padding:10px 16px;font-size:.82rem;margin-bottom:14px}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#f5e6bf;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#8a6a00,#DAA520);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#8a6a00;white-space:nowrap}
+  .readfirst{background:#FFF3CD;border:1.5px solid #DAA520;color:#5a3d00;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.conversation{background:var(--conv-fill);color:var(--conv-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.reading{background:var(--read-fill);color:var(--read-text)}
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#FFF3CD;color:#5a3d00;border-left:4px solid #DAA520}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .notice{background:#FFF8E1;border:2px dashed #FFB74D;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.8;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .notice img{width:130px;border-radius:10px;flex-shrink:0}
+  .notice .notice-text{flex:1;min-width:200px}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.conversation{border-left-color:var(--conv)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.reading{border-left-color:var(--read)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .pts{font-weight:700;font-size:.75rem;color:var(--grey);background:#f4f4f8;border-radius:8px;padding:2px 8px;margin-left:6px}
+  .q p.body u{text-decoration-color:#8a6a00;text-decoration-thickness:2px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#8a6a00,#DAA520);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#FFF3CD,#FFE082);border:2px solid #8a6a00}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.2rem;font-weight:900;color:#8a6a00}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-sub{font-size:.85rem;color:var(--grey);margin-top:2px}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.75rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(50,35,0,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#8a6a00;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b>ASMOPSS 2024 &mdash; Real Competition Paper</b>
+      <span class="sub">English Primary &middot; Grade 4&ndash;6 &middot; Set B</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="source-note">&#127942; This is a REAL ASMOPSS paper, sat by students on Sunday, 4 August 2024. Every question, option, and point value below is exactly as it appeared on the original exam &mdash; nothing has been changed. This is a genuine benchmark, not a practice test written for you.</div>
+
+  <div class="readfirst">READ FIRST &mdash; read every question fully before choosing. Points (2/3/5) are shown per question, exactly as ASMOPSS weighted them. Take your time &mdash; this is about seeing where you stand, not about speed.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 30 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-sub"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PASS_PCT = 80;
+
+const LONG_CONV_PASSAGE = `<b>Situation:</b> Sally is talking to Billy about her problem at work.<br><br>
+  <b>Sally:</b> Hi, Billy&mdash;I'm calling to tell you about my problem. <b>___4___</b> I really need to talk to you.<br>
+  <b>Billy:</b> No, not at all. Come over here. I'll make you a pot of tea. Sally, what's the matter?<br>
+  <b>Sally:</b> It's about my boss. He is always finding fault with my work. <b>___5___</b> I can't literally do anything that pleases him.<br>
+  <b>Billy:</b> <b>___6___</b><br>
+  <b>Sally:</b> He probably has problems at home, but that doesn't give him the right to take it out on me!<br>
+  <b>Billy:</b> You're right, Sally. To be a good boss, one must keep his professional life completely separate from his private life.`;
+
+const CLOZE_PASSAGE = `<b>Salmonella outbreak linked to Trader Joe's basil</b><br><br>
+  Trader Joe's <b>___19___</b> its Infinite Herbs organic basil on Wednesday after the product was linked to a dozen Salmonella infections in seven states.<br><br>
+  The product was sold in <b>___20___</b> packages between February 1 and April 6 in 29 states and Washington, D.C., the company said.<br><br>
+  The US Centers for Disease Control and Prevention issued an alert advising consumers to throw away any Infinite Herbs organic basil purchased from Trader Joe's and to clean surfaces and items that may have <b>___21___</b> in contact with the contaminated basil.<br><br>
+  Salmonella infection is characterized by symptoms of diarrhea, fever and stomach cramps, according to the CDC. Symptoms develop 6 hours to 6 days after <b>___22___</b> of the bacteria and most people recover without treatment within 4 to 7 days. People with weakened immune systems, children and the elderly may experience more severe illness that requires treatment or hospitalization, the CDC said.<br><br>
+  The CDC recommends people <b>___23___</b> their health-care providers if they have severe Salmonella symptoms such as bloody diarrhea, diarrhea that does not improve for more than three days, and signs of <b>___24___</b>.`;
+
+const NOTICE_PASSAGE = `<img src="images/asmopss2024_missing_cat.jpg" alt="A small black cat">
+  <div class="notice-text"><b>Passage A &mdash; Notice</b><br><br>
+  A small black cat missing in the George Mason Hall.<br>
+  She is frightened of dogs and teenage boys.<br>
+  If you see her, please, please call 096-3567899. She is like our daughter. We really miss her!</div>`;
+
+const READING_PASSAGE = `<b>Passage B &mdash; "Natural CLASSIC"</b><br><br>
+  Each month we invite one of our experts to reveal what wildlife book&ndash;novel, guide or textbook&ndash;has influenced him or her most. This month, Martha Holmes, a marine biologist, TV presenter and film producer, has told us all.<br><br>
+  Although I'm a very keen reader, selecting the natural-history book which has influenced me most was some challenge. Upon reminiscing about my childhood, it became easier.<br><br>
+  Where the book came from still remains a mystery, and rarely have I met anyone who has heard of it. The book is Rita Richie's <i>The Golden Hawks of Genghis Khan</i>. I read it when I was about 10 years old and I remember to this day the impact it had on me.<br><br>
+  Set in 1218, it is a story of a rich orphan boy. He is growing up in the splendid city of Samarkand and is fascinated by hawks, those magnificent hunting birds. A great deal of mystery surrounds his past, but he is led to believe that a band of Mongols robbed his father of the golden hawk, a rare type of bird, and killed him. Determined to get the bird back, he leaves Samarkand and joins a group of people traveling to the country of Mongolia. What comes after is a grand adventure centered on the city of Karakorum, where the great Mongol chief Genghis Khan was then based.<br><br>
+  The book has a perfect combination of adventure, mystery, honor, friendship, danger, and suffering &ndash; all seen through the eyes of the young hero, Jalair. I still find this fantasy a thrilling read. Jalair's great fascination for the birds was enviable and inspiring. However, it was the sense of place that impressed me most. The book provides the reader with an idea of the vast open spaces of central Asia and its huge skies, without the use of the long descriptive passages that would bore a child. There are no boundaries. The emptiness of the Gobi Desert, the Tian Shan mountains, and the excitement of riding through forests and over rolling hills holds a deep fascination for me.<br><br>
+  The book gave me not only hawks, horses and a desire for wild places but also a set of values. The Mongols in <i>The Golden Hawks</i> had no interest in possessions, a characteristic that is absolutely essential for people who spent their lives travelling from place to place. Meanness was absolutely not their nature. Generosity, goodwill and optimism were highly valued. Much of their time was devoted to hard work, and the rest was pure fun. They simply loved life.<br><br>
+  Two years ago, I achieved a life-long ambition and went riding in Mongolia's mountains. I was not disappointed.`;
+
+const SECTION_HINT = {
+  conversation: "Strategy: think about what a natural English speaker would actually say next — read the whole situation first, not just the blank.",
+  vocab:        "Strategy: try each option in the sentence and ask which one actually fits the meaning, not just which one sounds fancy.",
+  grammar:      "Strategy: for error-ID items, check each labelled part on its own — subject-verb agreement, verb form, and word choice are the usual suspects.",
+  cloze:        "Strategy: read the whole sentence (sometimes the whole paragraph) around the gap before choosing — grammar AND meaning both have to fit.",
+  reading:      "Strategy: go back to the passage and find the exact sentence that answers the question — don't rely on memory alone."
+};
+
+const Q = [
+  // ===== PART I — CONVERSATION (Items 1-6) =====
+  { n:1, section:'conversation', pts:2, body:'Situation: At Jessica\'s house.<br>Peter: "Hi, are you Jessica\'s sister?"<br>Elizabeth: ___',
+    options:["I've no idea.","Yes, I do.","Why not?","That's correct."], ans:4,
+    why:'Confirming a fact about herself needs "That\'s correct" — "Yes, I do" doesn\'t answer a yes/no question about identity correctly (you\'d say "Yes, I am").' },
+  { n:2, section:'conversation', pts:3, body:'Situation: Robert meets James on his way home.<br>Robert: "What have you been up to these days?"<br>Jessie: ___',
+    options:["Fine, thanks.","It's up to you.","I'll tell you later.","Oh, just working as usual."], ans:4,
+    why:'"What have you been up to?" asks what someone has been doing — "just working as usual" directly answers that. "Fine, thanks" answers "How are you?" instead, a different question.' },
+  { n:3, section:'conversation', pts:5, body:'Situation: Bill is talking to his father, Thomas.<br>Bill: "I wish we could take a vacation."<br>Thomas: ___',
+    options:["Look—we can't afford it.","Yeah, right. We've booked a hotel.","Oh dear, I forgot to book the flight.","Perfect. Shall we go to the beach?"], ans:1,
+    why:'"I wish we could" signals something Bill thinks is NOT possible — the natural, logical reply explains why it can\'t happen. The other three options all wrongly assume a vacation is already being planned.' },
+  { n:4, section:'conversation', pts:3, body:'Long conversation, blank 4 (see passage above).',
+    options:["Do you mind if I come over to your house?","Am I a nuisance?","Have you got a minute?","I'm wondering if you could help me."], ans:1,
+    why:'Right after this line, Billy replies "Come over here" — so Sally must have asked about coming over, which only option A does.' },
+  { n:5, section:'conversation', pts:5, body:'Long conversation, blank 5 (see passage above).',
+    options:["He's on top of everything there.","He has always got my back.","He's on my case for everything.","He always sees eye to eye with me."], ans:3,
+    why:'Sally already said her boss is "always finding fault with my work" — "he\'s on my case for everything" is the idiom that matches constant criticism. The other three idioms all describe a SUPPORTIVE boss, the opposite of what Sally means.' },
+  { n:6, section:'conversation', pts:2, body:'Long conversation, blank 6 (see passage above).',
+    options:["Is it right for him to do that?","Where does he have problems?","Will there be a chance to please him?","What's the reason for all that?"], ans:4,
+    why:'Sally\'s next line starts "He probably has problems at home..." — that\'s an ANSWER to "what\'s the reason," so Billy must have asked that question.' },
+
+  // ===== PART II — VOCABULARY (Items 7-12) =====
+  { n:7, section:'vocab', pts:2, body:'The thought of going into hospital was making him ___.',
+    options:["thrilled","impressed","nervous","delighted"], ans:3,
+    why:'Going into hospital is normally an unsettling thought — "nervous" fits; the other three options are all positive feelings that don\'t match.' },
+  { n:8, section:'vocab', pts:3, body:'Police attempts to ___ criminal gangs were largely unsuccessful.',
+    options:["incur","invoke","invigorate","infiltrate"], ans:4,
+    why:'"Infiltrate" means to secretly get inside a group — exactly what police do to break up criminal gangs. The other three words don\'t fit this context at all.' },
+  { n:9, section:'vocab', pts:5, body:'An airline spokesman stated that the safety of passengers was absolutely ___.',
+    options:["negligible","paramount","detrimental","ludicrous"], ans:2,
+    why:'"Paramount" means most important — exactly what an airline would say about passenger safety. "Negligible" (unimportant) and "detrimental" (harmful) would be the opposite of the intended meaning.' },
+  { n:10, section:'vocab', pts:2, body:'Choose the word most similar to the underlined word: We are <u>delighted</u> that the negotiations have been completed successfully.',
+    options:["interested","annoyed","surprised","pleased"], ans:4,
+    why:'"Delighted" means very pleased — "pleased" is the closest match. "Annoyed" is the opposite, and "interested"/"surprised" don\'t capture the strong positive feeling.' },
+  { n:11, section:'vocab', pts:3, body:'Choose the word most similar to the underlined word: Cards are either stolen or used by fraudsters who have made <u>counterfeit</u> copies.',
+    options:["huge","fake","similar","new"], ans:2,
+    why:'"Counterfeit" means fake/forged — exactly what fraudsters make when they illegally copy real cards.' },
+  { n:12, section:'vocab', pts:5, body:'Choose the word most similar to the underlined word: The first time I saw Diana I was <u>mesmerized</u> by her beauty.',
+    options:["influenced","captivated","surprised","excited"], ans:2,
+    why:'"Mesmerized" means completely captivated/fascinated, unable to look away — "captivated" is the closest match in strength and meaning.' },
+
+  // ===== PART III — GRAMMAR (Items 13-18) =====
+  { n:13, section:'grammar', pts:2, body:'Chromium and nickel ___ commonly in areas which ___ also rich in magnesium.',
+    options:["occur, are","are occurred, are","occurred, were","were occurred, were"], ans:1,
+    why:'"Occur" is an intransitive verb — it\'s never used in the passive ("are occurred" is not valid English). The plain present tense "occur...are" is correct for a general scientific fact.' },
+  { n:14, section:'grammar', pts:3, body:'My daughter says politics ___ boring, ___ is a common attitude among teenagers.',
+    options:["is, it","are, that","is, which","are, it"], ans:3,
+    why:'"Politics" as a subject of study/opinion takes a singular verb ("is"), and "which" is the correct relative pronoun to refer back to the whole idea "politics is boring" (not "it", which would need a full new sentence).' },
+  { n:15, section:'grammar', pts:5, body:'Cotton production was ___ the increase. However, it was still a small industry ___ to hemp and canvas production.',
+    options:["on, compared","in, comparing","at, comparison","with, compares"], ans:1,
+    why:'"On the increase" is the fixed idiom for something growing. "Compared to" (using the past participle as a reduced clause) is the correct way to compare two things here.' },
+  { n:16, section:'grammar', pts:2, body:'Which underlined part is grammatically wrong? "(A)Craig (B)was always quick at maths, (C)and (D)he had trouble with reading and writing."',
+    options:["(A) Craig","(B) was always quick at maths,","(C) and","(D) he had trouble with reading and writing."], ans:3,
+    why:'(C) is wrong — "and" wrongly joins two CONTRASTING ideas (good at maths, but struggled with reading/writing) as if they simply added together. It should be "but", which signals the contrast correctly.' },
+  { n:17, section:'grammar', pts:3, body:'Which underlined part is grammatically wrong? "Individuals with (A)indecisiveness always (B)blame themselves and regret (C)to make a decision after (D)they make it."',
+    options:["(A) indecisiveness","(B) blame themselves","(C) to make","(D) they"], ans:3,
+    why:'(C) is wrong — "regret to make" is used for announcing bad news ("I regret to inform you..."). Since the decision has ALREADY been made and is now regretted, it needs the gerund form: "regret making".' },
+  { n:18, section:'grammar', pts:5, body:'Which underlined part is grammatically wrong? "Half of the purchase price (A)must be paid now, and the (B)remainder is to be paid off in (C)monthly (D)installment."',
+    options:["(A) must be paid now,", "(B) remainder", "(C) monthly", "(D) installment."], ans:4,
+    why:'(D) is wrong — paying "the remainder" off over time happens across several separate payments, so it needs the plural "installments", not the singular "installment".' },
+
+  // ===== PART IV — THE CLOZE TEST (Items 19-24) =====
+  { n:19, section:'cloze', pts:2, body:"Gap 19 (see passage above) — \"Trader Joe's ___19___ its Infinite Herbs organic basil on Wednesday...\"",
+    options:["reminded","repeated","recalled","returned"], ans:3,
+    why:'"Recalled" is the standard word for a company officially pulling a product from sale after a safety problem — exactly what\'s happening with the contaminated basil.' },
+  { n:20, section:'cloze', pts:3, body:"Gap 20 — \"The product was sold in ___20___ packages...\"",
+    options:["25-ounce","25-ounces","25 ounce","25 ounces"], ans:1,
+    why:'When a number + unit is used as an ADJECTIVE before a noun ("packages"), it stays singular and is hyphenated: "25-ounce packages" — like "a five-year-old boy".' },
+  { n:21, section:'cloze', pts:2, body:"Gap 21 — \"...items that may have ___21___ in contact with the contaminated basil.\"",
+    options:["come","came","coming","to come"], ans:1,
+    why:'After "may have", you need the past participle form: "may have come into contact" — this is present perfect modal structure ("have" + past participle).' },
+  { n:22, section:'cloze', pts:3, body:"Gap 22 — \"Symptoms develop 6 hours to 6 days after ___22___ of the bacteria...\"",
+    options:["construction","ingestion","production","inhalation"], ans:2,
+    why:'Salmonella comes from contaminated FOOD, so it\'s swallowed/eaten — "ingestion" (the act of taking something in by mouth) is the correct word, not "inhalation" (breathing in).' },
+  { n:23, section:'cloze', pts:5, body:"Gap 23 — \"The CDC recommends people ___23___ their health-care providers if...\"",
+    options:["call","calls","calling","to call"], ans:1,
+    why:'"Recommend that people call" uses the base form of the verb (the subjunctive) after "recommend" — "call", not "calls", "calling", or "to call".' },
+  { n:24, section:'cloze', pts:5, body:"Gap 24 — \"...and signs of ___24___.\"",
+    options:["suffocation","hallucination","hypertension","dehydration"], ans:4,
+    why:'Severe diarrhea causes the body to lose fluids — "dehydration" is the medically correct danger sign to watch for, not the other three unrelated conditions.' },
+
+  // ===== PART V — READING COMPREHENSION (Items 25-30) =====
+  { n:25, section:'reading', pts:3, body:"What is the purpose of this notice?",
+    options:["To find someone to adopt a cat","To ask for the public's help in finding a cat","To inform readers that a cat is missing at the George Mason Hall","To warn cat owners that the George Mason Hall is not a safe place for cats"], ans:2,
+    why:'The notice gives a phone number and asks people to call if they see the cat — that\'s directly asking for the public\'s help finding her, not just informing or warning.' },
+  { n:26, section:'reading', pts:5, body:'What is the tone of the last line of this notice? ("...She is like our daughter. We really miss her!")',
+    options:["impatient","neutral","sorrowful","anxious"], ans:4,
+    why:'"Please, please" (repeated) and the exclamation mark show urgent worry about a loved pet — "anxious" fits best. "Sorrowful" implies grief for something already lost, but they\'re still actively searching, not mourning.' },
+  { n:27, section:'reading', pts:3, body:'When first asked to choose a book, Martha Holmes ___.',
+    options:["felt excited by this opportunity","had difficulty in making a decision","chose the one she had read recently","chose the book that was written about her childhood"], ans:2,
+    why:'She says "selecting the natural-history book...was some challenge" and it "became easier" only after thinking about her childhood — that\'s describing difficulty deciding, not excitement or an easy recent pick.' },
+  { n:28, section:'reading', pts:2, body:'What does Martha say about the book "The Golden Hawks of Genghis Khan"?',
+    options:["It is known to very few people.","It is the best book she has ever read.","It was very popular when she was a child.","It is one of many mystery books she has read."], ans:1,
+    why:'She says "rarely have I met anyone who has heard of it" — that directly means the book is known to very few people.' },
+  { n:29, section:'reading', pts:2, body:'What did Martha enjoy about the book?',
+    options:["the plot of the story","the geographical setting","the descriptive writing","the changes of atmosphere"], ans:2,
+    why:'She says "it was the sense of place that impressed me most", describing "the vast open spaces of central Asia" — that\'s the geographical setting, not the plot or writing style.' },
+  { n:30, section:'reading', pts:5, body:'What values did Martha learn from the book?',
+    options:["how to be a successful traveler","how to get the most out of life","how to live in harmony with nature","how to write a good descriptive story"], ans:2,
+    why:'She describes the Mongols\' generosity, goodwill, optimism, hard work and "pure fun" — summed up as "they simply loved life," which is about getting the most out of life, not travel skills or nature specifically.' },
+];
+
+const SECTION_LABEL = {
+  conversation: "PART I — Conversation",
+  vocab:        "PART II — Vocabulary",
+  grammar:      "PART III — Grammar",
+  cloze:        "PART IV — The Cloze Test",
+  reading:      "PART V — Reading Comprehension"
+};
+const SECTION_ORDER = ['conversation','vocab','grammar','cloze','reading'];
+const TOTAL_Q = Q.length;
+const TOTAL_POINTS = Q.reduce((s,q) => s + q.pts, 0);
+const PASS_BAR = Math.round(TOTAL_POINTS * PASS_PCT / 100);
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+document.getElementById('progress-label').textContent = `0 / ${TOTAL_Q} answered`;
+
+const chosen = {};
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint">${SECTION_HINT[q.section] || ''}</div>`;
+      if (q.section === 'conversation') html += `<div class="passage">${LONG_CONV_PASSAGE}</div>`;
+      if (q.section === 'cloze') html += `<div class="passage">${CLOZE_PASSAGE}</div>`;
+      if (q.section === 'reading') html += `<div class="notice">${NOTICE_PASSAGE}</div><div class="passage">${READING_PASSAGE}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="pts">${q.pts} pt${q.pts > 1 ? 's' : ''}</span>
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let pointsEarned = 0;
+  let correctCount = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0, t:0, pts:0, maxPts:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    sectionTally[q.section].t++;
+    sectionTally[q.section].maxPts += q.pts;
+    if (isCorrect){
+      pointsEarned += q.pts;
+      correctCount++;
+      sectionTally[q.section].c++;
+      sectionTally[q.section].pts += q.pts;
+    }
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect, points: q.pts, pointsEarned: isCorrect ? q.pts : 0 };
+  });
+
+  const pct = Math.round(pointsEarned/TOTAL_POINTS*100);
+  const pass = pointsEarned >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${pointsEarned} / ${TOTAL_POINTS} points  (${pct}%)`;
+  document.getElementById('score-sub').textContent = `${correctCount} / ${TOTAL_Q} questions correct`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS on the real ASMOPSS pass bar (${PASS_BAR}/${TOTAL_POINTS} points). Look through the highlighted answers below to see why.`
+    : `Good effort on a real competition paper! ASMOPSS pass bar is ${PASS_BAR}/${TOTAL_POINTS} points — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].pts}/${sectionTally[s].maxPts} pts (${sectionTally[s].c}/${sectionTally[s].t})</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    isCompetition: true,
+    competitionSource: "ASMOPSS 2024",
+    competitionSet: "Set B",
+    unitTitle: "ASMOPSS 2024 Real Competition Paper (English, Grade 4-6, Set B)",
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score: pointsEarned, outOf: TOTAL_POINTS, pct, passBar: PASS_BAR, passed: pass,
+    correctCount, questionCount: TOTAL_Q,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].pts, outOf:sectionTally[s].maxPts, correctCount:sectionTally[s].c, questionCount:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_COMP_ASMOPSS2024_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
