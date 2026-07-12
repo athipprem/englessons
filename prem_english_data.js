@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '11 Jul 2026',
+  updated:        '12 Jul 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
     n:           21,
-    status:      'Blocked — take the ASMOPSS 2024 real competition paper first, then Unit 21 begins',
-    testPending: false
+    status:      'Cloze: Anti-Cascade &amp; &ldquo;Despite&rdquo; &middot; Grammar: Beyond Conditionals (Solo Verbs &amp; And/But) &middot; Test Ready, Awaiting Prem',
+    testPending: true
   },
 
   // Baseline = ASMOPSS 2025 assessment (reference — scores hardcoded in renderHero)

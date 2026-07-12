@@ -1,0 +1,325 @@
+{
+  "student": "Prem",
+  "isCompetition": true,
+  "competitionSource": "ASMOPSS 2024",
+  "competitionSet": "Set B",
+  "unitTitle": "ASMOPSS 2024 Real Competition Paper (English, Grade 4-6, Set B)",
+  "dateTaken": "2026-07-12",
+  "submittedAt": "2026-07-12T09:12:44.347Z",
+  "score": 58,
+  "outOf": 100,
+  "pct": 58,
+  "passBar": 80,
+  "passed": false,
+  "correctCount": 18,
+  "questionCount": 30,
+  "sections": [
+    {
+      "name": "conversation",
+      "score": 20,
+      "outOf": 20,
+      "correctCount": 6,
+      "questionCount": 6
+    },
+    {
+      "name": "vocab",
+      "score": 15,
+      "outOf": 20,
+      "correctCount": 5,
+      "questionCount": 6
+    },
+    {
+      "name": "grammar",
+      "score": 8,
+      "outOf": 20,
+      "correctCount": 2,
+      "questionCount": 6
+    },
+    {
+      "name": "cloze",
+      "score": 12,
+      "outOf": 20,
+      "correctCount": 4,
+      "questionCount": 6
+    },
+    {
+      "name": "reading",
+      "score": 3,
+      "outOf": 20,
+      "correctCount": 1,
+      "questionCount": 6
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "conversation",
+      "chosen": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "points": 2,
+      "pointsEarned": 2
+    },
+    {
+      "q": 2,
+      "section": "conversation",
+      "chosen": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 3,
+      "section": "conversation",
+      "chosen": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "points": 5,
+      "pointsEarned": 5
+    },
+    {
+      "q": 4,
+      "section": "conversation",
+      "chosen": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 5,
+      "section": "conversation",
+      "chosen": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "points": 5,
+      "pointsEarned": 5
+    },
+    {
+      "q": 6,
+      "section": "conversation",
+      "chosen": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "points": 2,
+      "pointsEarned": 2
+    },
+    {
+      "q": 7,
+      "section": "vocab",
+      "chosen": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "points": 2,
+      "pointsEarned": 2
+    },
+    {
+      "q": 8,
+      "section": "vocab",
+      "chosen": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 9,
+      "section": "vocab",
+      "chosen": 1,
+      "correct": 2,
+      "isCorrect": false,
+      "points": 5,
+      "pointsEarned": 0
+    },
+    {
+      "q": 10,
+      "section": "vocab",
+      "chosen": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "points": 2,
+      "pointsEarned": 2
+    },
+    {
+      "q": 11,
+      "section": "vocab",
+      "chosen": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 12,
+      "section": "vocab",
+      "chosen": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "points": 5,
+      "pointsEarned": 5
+    },
+    {
+      "q": 13,
+      "section": "grammar",
+      "chosen": 2,
+      "correct": 1,
+      "isCorrect": false,
+      "points": 2,
+      "pointsEarned": 0
+    },
+    {
+      "q": 14,
+      "section": "grammar",
+      "chosen": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 15,
+      "section": "grammar",
+      "chosen": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "points": 5,
+      "pointsEarned": 5
+    },
+    {
+      "q": 16,
+      "section": "grammar",
+      "chosen": 4,
+      "correct": 3,
+      "isCorrect": false,
+      "points": 2,
+      "pointsEarned": 0
+    },
+    {
+      "q": 17,
+      "section": "grammar",
+      "chosen": 4,
+      "correct": 3,
+      "isCorrect": false,
+      "points": 3,
+      "pointsEarned": 0
+    },
+    {
+      "q": 18,
+      "section": "grammar",
+      "chosen": 2,
+      "correct": 4,
+      "isCorrect": false,
+      "points": 5,
+      "pointsEarned": 0
+    },
+    {
+      "q": 19,
+      "section": "cloze",
+      "chosen": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "points": 2,
+      "pointsEarned": 2
+    },
+    {
+      "q": 20,
+      "section": "cloze",
+      "chosen": 2,
+      "correct": 1,
+      "isCorrect": false,
+      "points": 3,
+      "pointsEarned": 0
+    },
+    {
+      "q": 21,
+      "section": "cloze",
+      "chosen": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "points": 2,
+      "pointsEarned": 2
+    },
+    {
+      "q": 22,
+      "section": "cloze",
+      "chosen": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 23,
+      "section": "cloze",
+      "chosen": 4,
+      "correct": 1,
+      "isCorrect": false,
+      "points": 5,
+      "pointsEarned": 0
+    },
+    {
+      "q": 24,
+      "section": "cloze",
+      "chosen": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "points": 5,
+      "pointsEarned": 5
+    },
+    {
+      "q": 25,
+      "section": "reading",
+      "chosen": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "points": 3,
+      "pointsEarned": 3
+    },
+    {
+      "q": 26,
+      "section": "reading",
+      "chosen": 3,
+      "correct": 4,
+      "isCorrect": false,
+      "points": 5,
+      "pointsEarned": 0
+    },
+    {
+      "q": 27,
+      "section": "reading",
+      "chosen": 1,
+      "correct": 2,
+      "isCorrect": false,
+      "points": 3,
+      "pointsEarned": 0
+    },
+    {
+      "q": 28,
+      "section": "reading",
+      "chosen": 2,
+      "correct": 1,
+      "isCorrect": false,
+      "points": 2,
+      "pointsEarned": 0
+    },
+    {
+      "q": 29,
+      "section": "reading",
+      "chosen": 3,
+      "correct": 2,
+      "isCorrect": false,
+      "points": 2,
+      "pointsEarned": 0
+    },
+    {
+      "q": 30,
+      "section": "reading",
+      "chosen": 3,
+      "correct": 2,
+      "isCorrect": false,
+      "points": 5,
+      "pointsEarned": 0
+    }
+  ]
+}

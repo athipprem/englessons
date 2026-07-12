@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Beyond Conditionals: Solo Verbs &amp; And/But — Unit 21 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #8E24AA;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#6A1B9A;margin-bottom:6px}
+.bws-title{font-weight:700;color:#6A1B9A;margin-bottom:6px;font-size:15px}
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.ctable th{background:#4A235A;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.ctable td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.solo-getter{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.solo-getter th{padding:8px 9px;text-align:left;font-size:12px;color:#fff}
+.solo-getter th.solo{background:#00695C}.solo-getter th.team{background:#AD1457}
+.solo-getter td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.6;vertical-align:top}
+.solo-getter td.solo{background:#E0F2F1}.solo-getter td.team{background:#FCE4EC}
+.recipe{font-family:'Courier New',monospace;font-size:12px;background:rgba(255,255,255,0.7);padding:2px 5px;border-radius:4px;display:inline-block}
+.vb{color:#00695C;font-weight:700}.vb3{color:#C2185B;font-weight:700}
+.checks{margin:10px 0}
+.chk{display:flex;align-items:flex-start;gap:10px;background:#FFF9C4;border-left:4px solid #F9A825;border-radius:0 8px 8px 0;padding:10px 14px;margin:8px 0;font-size:14px;line-height:1.6}
+.chk .n{background:#F9A825;color:#fff;font-weight:700;border-radius:50%;min-width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.myth-box{background:#EDE7F6;border:2px solid #6b46c1;border-radius:10px;padding:14px 16px;margin:14px 0}
+.myth-title{font-weight:700;color:#4a2a7a;margin-bottom:8px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.s3{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.node.confirm{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a}
+.arrow{font-size:18px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.worked{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#4A235A}
+.andbut{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.andbut th{padding:8px 9px;text-align:left;font-size:12px;color:#fff}
+.andbut th.and-h{background:#00695C}.andbut th.but-h{background:#E65100}
+.andbut td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.6;vertical-align:top}
+.andbut td.and-c{background:#E0F2F1}.andbut td.but-c{background:#FFF3E0}
+.seg{padding:1px 4px;border-radius:3px}
+.seg.a{background:#E3F2FD}.seg.b{background:#FCE4EC}.seg.c{background:#FFF3E0}.seg.d{background:#E0F2F1}
+.segbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di.head-w{border-color:#E53935;background:#fff6f6}
+.di.head-t{border-color:#00695C;background:#f4fbfa}
+.di.head-e{border-color:#E65100;background:#fffaf3}
+.di-head{font-size:12px;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.di.head-w .di-head{color:#B71C1C}.di.head-t .di-head{color:#00695C}.di.head-e .di-head{color:#E65100}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-wr{background:#FFEBEE;border:2px solid #E53935;color:#B71C1C;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-ri{background:#E8F5E9;border:2px solid #43A047;color:#1B5E20;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.di-opt{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.solo-flag{background:linear-gradient(135deg,#00695C,#00897B);color:#fff;border-radius:10px;padding:4px 10px;font-size:11px;font-weight:700;display:inline-block;margin-left:6px}
+.andbut-flag{background:linear-gradient(135deg,#E65100,#FB8C00);color:#fff;border-radius:10px;padding:4px 10px;font-size:11px;font-weight:700;display:inline-block;margin-left:6px}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Beyond Conditionals</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 21 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">You've spent a lot of units becoming excellent at conditionals — "if" sentences, Second vs Third, the Will Ban. That work is done and it's solid. But real English grammar tests (and real writing) ask about MORE than just "if" sentences. Today you learn two brand-new rules that have nothing to do with conditionals at all: which verbs can never be "done to" something, and how to tell whether "and" or "but" is the right joining word. These are two completely new tools for your toolbox — first time ever seeing them, so we'll go slowly and from the very beginning.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>Quick warm-up on your solid conditional skills before we add anything new.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "If the museum had been renovated, more visitors would have come." Does the result half break the Will Ban?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'no')">No — it's clean</button><button class="di-opt" onclick="doWu(1,'yes')">Yes — it uses "will"</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">2. "If the choir had rehearsed more, the concert would have sounded sharper." Is "had rehearsed" a DOER (no "been") or a GETTER ("been")?</div><div class="di-btns"><button class="di-opt" onclick="doWu(2,'doer')">DOER — no "been" needed</button><button class="di-opt" onclick="doWu(2,'getter')">GETTER — needs "been"</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Both correct? Your conditional foundation is exactly where it needs to be. Now let's build on top of it. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: Concept A intro — active/passive from scratch -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>New idea #1: some verbs can NEVER have something "done to them" 🎭</h2>
+    <p>First, two brand-new words, explained simply. Look at these two sentences:</p>
+    <table class="ctable">
+      <tr><th>Sentence</th><th>What's happening</th></tr>
+      <tr><td>"The gardener <span class="vb">watered</span> the plant."</td><td>The gardener DOES the action. The plant HAS the action done to it.</td></tr>
+      <tr><td>"The plant <span class="vb3">was watered</span> (by the gardener)."</td><td>Same event, but now the sentence starts with the THING the action was done to.</td></tr>
+    </table>
+    <p>The first sentence is called <strong>active</strong> (the subject does the action). The second is called <strong>passive</strong> (the subject has the action done to it). Most verbs can go either way — "watered" / "was watered" both work. But here's the new rule for today:</p>
+    <div class="myth-box">
+      <div class="myth-title">🔑 Some verbs work completely ALONE</div>
+      <p style="margin:0;font-size:14px">A verb like "water" needs someone/something to receive the action (you water a PLANT, a LAWN, something). But some verbs never have a receiver at all — the subject just does the thing, by itself, with nothing "done to" anything else. Words like <strong>occur, happen, arrive, exist, disappear, matter, seem, belong</strong>. Nothing "gets occurred" or "gets happened" — these verbs are SOLO players. Because there's no receiver, you can <strong>never</strong> turn them into passive voice — "was occurred" or "is happened" isn't real English, no matter how you phrase it.</p>
+    </div>
+    <table class="solo-getter">
+      <tr><th class="solo">SOLO verbs — active ONLY, passive is impossible</th><th class="team">TEAM verbs — can be active OR passive</th></tr>
+      <tr><td class="solo">Earthquakes <span class="vb">occur</span> along fault lines.</td><td class="team">The workers <span class="vb">repaired</span> the fault line. / The fault line <span class="vb3">was repaired</span>.</td></tr>
+      <tr><td class="solo">The accident <span class="vb">happened</span> at noon.</td><td class="team">The city <span class="vb">recorded</span> the accident. / The accident <span class="vb3">was recorded</span>.</td></tr>
+      <tr><td class="solo">The bus <span class="vb">arrived</span> late.</td><td class="team">The driver <span class="vb">delayed</span> the bus. / The bus <span class="vb3">was delayed</span>.</td></tr>
+      <tr><td class="solo">The ancient bridge still <span class="vb">exists</span>.</td><td class="team">Engineers <span class="vb">maintain</span> the bridge. / The bridge <span class="vb3">is maintained</span>.</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">The 3-second test: try adding "...by someone/something" right after the verb.<br>Makes sense → TEAM verb, passive is fine.<br>Sounds silly → SOLO verb, passive is impossible, active only.</div></div>
+    <p><strong>Quick check</strong> — say the sentence with "by someone" added. Does it sound normal, or silly?</p>
+    <div class="di" id="a1"><div class="di-sent">1. "The storm occurred quickly." → "The storm occurred quickly BY SOMETHING."</div><div class="di-btns"><button class="di-opt" onclick="doA(1,'solo')">Sounds silly → SOLO, passive impossible</button><button class="di-opt" onclick="doA(1,'team')">Sounds normal → TEAM, passive OK</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="di" id="a2"><div class="di-sent">2. "The teacher decorated the classroom." → "The classroom was decorated BY the teacher."</div><div class="di-btns"><button class="di-opt" onclick="doA(2,'solo')">Sounds silly → SOLO, passive impossible</button><button class="di-opt" onclick="doA(2,'team')">Sounds normal → TEAM, passive OK</button></div><div class="di-fb" id="a2f"></div></div>
+    <div class="di" id="a3"><div class="di-sent">3. "The missing dog disappeared overnight." → "The missing dog disappeared overnight BY SOMETHING."</div><div class="di-btns"><button class="di-opt" onclick="doA(3,'solo')">Sounds silly → SOLO, passive impossible</button><button class="di-opt" onclick="doA(3,'team')">Sounds normal → TEAM, passive OK</button></div><div class="di-fb" id="a3f"></div></div>
+    <div class="drill-score" id="aScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Concept A worked example -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch it worked out — spotting a SOLO verb forced into passive 👀</h2>
+    <div class="worked">
+      <p class="step"><b>Sentence:</b> "Chromium and nickel <u>are occurred</u> commonly in areas which are also rich in magnesium."</p>
+      <p class="step"><b>Step 1 — find the verb:</b> "occurred". Try the by-someone test: "are occurred by something"? That sounds completely wrong — nothing DOES the occurring to chromium and nickel, they just occur, on their own.</p>
+      <p class="step"><b>Step 2 — SOLO verb confirmed:</b> "occur" is a SOLO verb, just like happen/arrive/exist. It can NEVER be passive, in any tense.</p>
+      <p class="step"><b>Step 3 — fix it:</b> the correct form is simply the active, plain present tense: "Chromium and nickel <u>occur</u> commonly in areas which <u>are</u> also rich in magnesium." (Note: "are" by itself, describing what the areas ARE, is fine — that's not a passive verb, it's just the normal verb "to be".)</p>
+      <p class="step"><b>The lesson:</b> "was/were/is/are + verb-with-ed-or-en-ending" isn't automatically wrong — but if the base verb is a SOLO verb (occur, happen, arrive, exist, disappear, matter, seem, belong), that passive shape is never correct, no matter how official-sounding the sentence looks.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Concept B — and/but -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>New idea #2: is it an "and" idea, or a "but" idea? 🔀</h2>
+    <p>You already know although/however signal a surprise or contrast, and so/as-a-result signal a cause. "And" and "but" work the exact same way, just in a single sentence instead of joining two full sentences:</p>
+    <table class="andbut">
+      <tr><th class="and-h">AND — the two ideas AGREE / ADD TOGETHER</th><th class="but-h">BUT — the two ideas CONTRAST / SURPRISE you</th></tr>
+      <tr><td class="and-c">Maya trained every day <span class="vb">and</span> won first place. <em>(hard work → good result — matches, no surprise)</em></td><td class="but-c">Maya trained every day <span class="vb3">but</span> still came last. <em>(hard work → you'd expect a good result, but she didn't get one — a surprise)</em></td></tr>
+      <tr><td class="and-c">The shop was closed <span class="vb">and</span> the lights were off. <em>(two facts about the same situation — matches)</em></td><td class="but-c">The shop was closed <span class="vb3">but</span> the lights were still on. <em>(you'd expect lights off too — a surprise)</em></td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">Read the TWO ideas being joined. Do they point the SAME direction (both good, both bad, or simply adding on)? → and. Does the SECOND idea surprise you, given the FIRST? → but.</div></div>
+    <p>In "which underlined part is wrong?" questions, the mistake is sometimes NOT a verb at all — it's the wrong joining word. A sentence using "and" for two contrasting ideas (or "but" for two matching ideas) is the error, even if every verb in it is perfectly fine.</p>
+    <p><strong>Quick check</strong> — do the two ideas agree, or contrast?</p>
+    <div class="di" id="b1"><div class="di-sent">1. "Craig was always quick at maths, ___ he had trouble with reading and writing."</div><div class="di-btns"><button class="di-opt" onclick="doB(1,'and')">and (they agree)</button><button class="di-opt" onclick="doB(1,'but')">but (they contrast)</button></div><div class="di-fb" id="b1f"></div></div>
+    <div class="di" id="b2"><div class="di-sent">2. "The rain poured all afternoon, ___ the football match was cancelled."</div><div class="di-btns"><button class="di-opt" onclick="doB(2,'and')">and (they agree)</button><button class="di-opt" onclick="doB(2,'but')">but (they contrast)</button></div><div class="di-fb" id="b2f"></div></div>
+    <div class="di" id="b3"><div class="di-sent">3. "The bakery ran out of bread by 9am, ___ still had plenty of cakes left."</div><div class="di-btns"><button class="di-opt" onclick="doB(3,'and')">and (they agree)</button><button class="di-opt" onclick="doB(3,'but')">but (they contrast)</button></div><div class="di-fb" id="b3f"></div></div>
+    <div class="drill-score" id="bScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Combined error-ID practice -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>The real thing — find the wrong underlined part (A)(B)(C)(D) 🧩</h2>
+    <p>Each sentence below is split into four labelled parts. ONE part contains the error. It could be any of the checks you now know: Will Ban, a broken verb form, mismatched halves, a SOLO verb forced into passive, or the wrong and/but. Read the whole sentence first, then choose the part.</p>
+    <div class="di head-w" id="p1">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) The volcano</span> <span class="seg b">(B) had been dormant for years,</span> <span class="seg c">(C) and</span> <span class="seg d">(D) scientists were caught off guard when it suddenly erupted.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(1,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(1,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(1,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(1,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p1f"></div>
+    </div>
+    <div class="di head-w" id="p2">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) A total eclipse</span> <span class="seg b">(B) are occurred</span> <span class="seg c">(C) only when the moon</span> <span class="seg d">(D) passes directly between the sun and Earth.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(2,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(2,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(2,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(2,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p2f"></div>
+    </div>
+    <div class="di head-w" id="p3">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) If the ferry engine</span> <span class="seg b">(B) had been serviced sooner,</span> <span class="seg c">(C) the crossing</span> <span class="seg d">(D) will not have been delayed.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(3,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(3,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(3,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(3,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p3f"></div>
+    </div>
+    <div class="di head-w" id="p4">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) The twins</span> <span class="seg b">(B) look almost identical,</span> <span class="seg c">(C) but</span> <span class="seg d">(D) they also share the exact same taste in music.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(4,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(4,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(4,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(4,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p4f"></div>
+    </div>
+    <div class="drill-score" id="pScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Two new checks join your toolbox today: SOLO verbs (occur, happen, arrive, exist, disappear, matter, seem, belong) can never be passive — active only. And "and" needs two matching/adding ideas, while "but" needs two contrasting/surprising ones. Same careful read-the-whole-sentence habit as always — just two more things to check for.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_AntiCascade.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="index.html" class="btn-lesson">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuKey={1:'no',2:'doer'};var wuWhy={1:'No "will" in the result — clean.',2:'"had rehearsed" — the choir rehearses itself, no "been" needed — a DOER.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:'solo',2:'team',3:'solo'};
+var aWhy={1:'"occurred...by something" sounds silly — the storm just occurs, nothing does the occurring TO it. SOLO verb, passive impossible.',2:'"was decorated by the teacher" sounds completely normal — the classroom receives the action. TEAM verb, passive is fine.',3:'"disappeared...by something" sounds silly — the dog just disappeared, nothing did the disappearing TO it. SOLO verb, passive impossible.'};
+var aDone={};var aC=0;
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];aC++;}else{fb.className='di-fb no';fb.textContent='❌ '+aWhy[n];}if(Object.keys(aDone).length===3){var s=document.getElementById('aScore');s.className='drill-score show';s.innerHTML='<strong>Solo vs. team verbs: '+aC+'/3</strong>';}}
+
+var bKey={1:'but',2:'and',3:'but'};
+var bWhy={1:'Good at maths, YET struggled with reading/writing — a surprise → but.',2:'Rain poured, the match was cancelled — an expected result, both point the same direction → and.',3:'Ran out of bread, YET still had cakes — a surprise twist → but.'};
+var bDone={};var bC=0;
+function doB(n,c){if(bDone[n])return;bDone[n]=true;var it=document.getElementById('b'+n);var fb=document.getElementById('b'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===bKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bWhy[n];bC++;}else{fb.className='di-fb no';fb.textContent='❌ '+bWhy[n];}if(Object.keys(bDone).length===3){var s=document.getElementById('bScore');s.className='drill-score show';s.innerHTML='<strong>And vs. but: '+bC+'/3</strong>';}}
+
+var pKey={1:'c',2:'b',3:'d',4:'c'};
+var pWhy={
+ 1:'(C) ✗ "and" wrongly joins two contrasting ideas (dormant for years, YET scientists were still caught off guard — a surprise). Should be "but". (A), (B), (D) are all clean.',
+ 2:'(B) ✗ "are occurred" — "occur" is a SOLO verb (a total eclipse just occurs, nothing occurs it) — passive is impossible here. Should be plain "occurs". (A), (C), (D) are all clean.',
+ 3:'(D) ✗ "will not have been delayed" breaks the Will Ban — a result clause never uses "will". Should be "would not have been delayed". (A), (B), (C) are all clean.',
+ 4:'(C) ✗ "but" wrongly joins two matching/adding ideas (look identical, AND also share the same taste — both are ways they are alike, no surprise). Should be "and". (A), (B), (D) are all clean.'
+};
+var pDone={};var pC=0;
+function doP(n,c){if(pDone[n])return;pDone[n]=true;var it=document.getElementById('p'+n);var fb=document.getElementById('p'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===pKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+pWhy[n];pC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: ('+pKey[n].toUpperCase()+'). '+pWhy[n];}if(Object.keys(pDone).length===4){var s=document.getElementById('pScore');s.className='drill-score show';s.innerHTML='<strong>The real thing: '+pC+'/4</strong>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
