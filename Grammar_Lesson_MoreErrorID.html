@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Gerund vs Infinitive &amp; Singular/Plural — Unit 22 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #8E24AA;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#6A1B9A;margin-bottom:6px}
+.bws-title{font-weight:700;color:#6A1B9A;margin-bottom:6px;font-size:15px}
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.ctable th{background:#4A235A;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.ctable td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.gi-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.gi-table th{padding:8px 9px;text-align:left;font-size:12px;color:#fff}
+.gi-table th.g{background:#00695C}.gi-table th.i{background:#AD1457}
+.gi-table td{padding:9px;border-bottom:1px solid #eee;line-height:1.6;vertical-align:top}
+.gi-table td.g{background:#E0F2F1}.gi-table td.i{background:#FCE4EC}
+.myth-box{background:#EDE7F6;border:2px solid #6b46c1;border-radius:10px;padding:14px 16px;margin:14px 0}
+.myth-title{font-weight:700;color:#4a2a7a;margin-bottom:8px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.s3{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.node.confirm{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a}
+.arrow{font-size:18px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.worked{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#4A235A}
+.plural-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.plural-table th{padding:8px 9px;text-align:left;font-size:12px;color:#fff;background:#4A235A}
+.plural-table td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.6;vertical-align:top}
+.plural-table td.sig{background:#F3E5F5;font-weight:700}
+.seg{padding:1px 4px;border-radius:3px}
+.seg.a{background:#E3F2FD}.seg.b{background:#FCE4EC}.seg.c{background:#FFF3E0}.seg.d{background:#E0F2F1}
+.segbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di.head-w{border-color:#E53935;background:#fff6f6}
+.di-head{font-size:12px;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.di.head-w .di-head{color:#B71C1C}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — New Checks, Round 2</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 22 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Last unit you added two brand-new checks to your grammar toolbox — SOLO verbs that can never be passive, and telling "and" from "but". The SOLO-verb check worked perfectly the very first time you were tested on it for real! The and/but check is still brand new, so one small mix-up is completely normal — we'll get one more look at it today. Then we add TWO more new checks, both taken directly from a real competition paper: choosing between "-ing" and "to + verb" after certain words, and knowing when a word needs an "s" on the end even though it doesn't look obvious. More tools, same careful read-the-whole-sentence habit.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check 🔍</div>
+    <p>One quick recap of each of last unit's two new checks.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "The volcanic eruption ___ suddenly, catching everyone off guard." Which word is correct?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'occurred')">occurred</button><button class="di-opt" onclick="doWu(1,'was occurred')">was occurred</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">2. "Maya practised every single day, ___ she still came third in the race." Which word fits?</div><div class="di-btns"><button class="di-opt" onclick="doWu(2,'but')">but</button><button class="di-opt" onclick="doWu(2,'and')">and</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Good — both checks from last unit are still fresh in your mind. Now let's add two more. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: Concept A — gerund vs infinitive -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>New idea #1: "-ing" or "to + verb" — it can change the WHOLE meaning 🔀</h2>
+    <p>First, two brand-new words, explained simply. Look at these two words that can both follow a verb:</p>
+    <table class="ctable">
+      <tr><th>Form</th><th>What it looks like</th></tr>
+      <tr><td><strong>Gerund</strong></td><td>a verb with "-ing" added, acting like a thing: <em>making, going, swimming, deciding</em></td></tr>
+      <tr><td><strong>Infinitive</strong></td><td>"to" + the plain verb: <em>to make, to go, to swim, to decide</em></td></tr>
+    </table>
+    <p>Most verbs only allow ONE of these after them ("I enjoy swimming" — never "I enjoy to swim"). But a few special verbs allow BOTH — and here's the surprise: <strong>using the wrong one can completely change what the sentence means.</strong> The word "regret" is the clearest example:</p>
+    <table class="gi-table">
+      <tr><th class="g">regret + -ING = sorry about something ALREADY DONE</th><th class="i">regret + TO + verb = used ONLY for announcing bad news right now</th></tr>
+      <tr><td class="g">"I regret <strong>leaving</strong> my umbrella at home." <em>(I already left it — now I'm sorry about that past action.)</em></td><td class="i">"I regret <strong>to inform</strong> you that the trip is cancelled." <em>(I am about to tell you something unwelcome — a special, fixed way of breaking bad news.)</em></td></tr>
+      <tr><td class="g">"She regretted <strong>not studying</strong> harder for the test." <em>(the not-studying already happened)</em></td><td class="i">"We regret <strong>to say</strong> that the show has been postponed." <em>(announcing news right now)</em></td></tr>
+    </table>
+    <div class="myth-box">
+      <div class="myth-title">🔑 The 3-second test</div>
+      <p style="margin:0;font-size:14px">Ask: is the sentence looking BACK at something that already happened, and feeling sorry about it? → use <strong>-ING</strong> (regret making, regret losing, regret saying). Is the sentence a special, formal way of announcing unwelcome news RIGHT NOW? → use <strong>TO + verb</strong> (regret to inform, regret to say, regret to announce). The "announcing news" use is much rarer — if in doubt, and the sentence is just about something in the past, -ING is almost always correct.</p>
+    </div>
+    <p><strong>Quick check</strong> — is this "looking back, sorry about the past" or "announcing news right now"?</p>
+    <div class="di" id="a1"><div class="di-sent">1. "He regretted ___ (say) something so unkind to his sister the night before."</div><div class="di-btns"><button class="di-opt" onclick="doA(1,'ing')">Looking back → saying</button><button class="di-opt" onclick="doA(1,'to')">Announcing now → to say</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="di" id="a2"><div class="di-sent">2. "We regret ___ (inform) passengers that the 6pm ferry has been cancelled."</div><div class="di-btns"><button class="di-opt" onclick="doA(2,'ing')">Looking back → informing</button><button class="di-opt" onclick="doA(2,'to')">Announcing now → to inform</button></div><div class="di-fb" id="a2f"></div></div>
+    <div class="di" id="a3"><div class="di-sent">3. "Looking back at his old photos, he regretted ___ (throw) away his childhood drawings."</div><div class="di-btns"><button class="di-opt" onclick="doA(3,'ing')">Looking back → throwing</button><button class="di-opt" onclick="doA(3,'to')">Announcing now → to throw</button></div><div class="di-fb" id="a3f"></div></div>
+    <div class="drill-score" id="aScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: worked example -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch it worked out — spotting a wrong "to + verb" 👀</h2>
+    <div class="worked">
+      <p class="step"><b>Sentence:</b> "After years of hard work finally paying off, she deeply regretted <u>to make</u> the difficult decision to leave her hometown behind."</p>
+      <p class="step"><b>Step 1 — is this looking back, or announcing news?</b> The decision has already been made ("after years... finally paying off"), and she is now feeling sorry about that PAST choice. That's looking-back, not an announcement.</p>
+      <p class="step"><b>Step 2 — pick the form:</b> looking-back → needs the "-ing" form.</p>
+      <p class="step"><b>Step 3 — fix it:</b> the correct form is "she deeply regretted <u>making</u> the difficult decision..."</p>
+      <p class="step"><b>The lesson:</b> "regret + to" is real English — but only for formally announcing unwelcome news happening right now ("I regret to inform you..."). Everywhere else, if someone is looking back and feeling sorry about something already done, it's "regret + -ing".</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Concept B — singular/plural in fixed phrases -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>New idea #2: some words secretly need an "s" 🔢</h2>
+    <p>You already know most plurals are obvious — one cat, two cats. But some phrases involve MORE THAN ONE of something even though the sentence doesn't say a number out loud. Look at this:</p>
+    <table class="ctable">
+      <tr><th>Sentence</th><th>What's really happening</th></tr>
+      <tr><td>"She paid off her new laptop in <strong>monthly installment</strong>."</td><td>❌ Wrong — "monthly" already tells you this happens more than once (every month). If it repeats, there must be more than one instalment.</td></tr>
+      <tr><td>"She paid off her new laptop in <strong>monthly installments</strong>."</td><td>✅ Correct — the word "monthly" is the clue: something that repeats every month is, by definition, more than one payment.</td></tr>
+    </table>
+    <div class="rule-box"><div class="rule-big">The 3-second test: look for a "repeating" or "counting" signal word right before the noun — words like monthly, weekly, several, various, multiple, a series of. If one of these appears, the noun almost always needs the plural "s", even if the sentence never says an exact number.</div></div>
+    <table class="plural-table">
+      <tr><th>Signal word</th><th>Example</th></tr>
+      <tr><td class="sig">monthly / weekly / yearly</td><td>paid in monthly <strong>installments</strong>, held weekly <strong>meetings</strong></td></tr>
+      <tr><td class="sig">several / various / multiple</td><td>tried several <strong>approaches</strong>, considered various <strong>options</strong></td></tr>
+      <tr><td class="sig">a series of</td><td>a series of <strong>experiments</strong>, a series of <strong>delays</strong></td></tr>
+    </table>
+    <p><strong>Quick check</strong> — does the signal word mean this happens more than once?</p>
+    <div class="di" id="b1"><div class="di-sent">1. "The scientists ran several ___ (test) before publishing their results." Singular or plural?</div><div class="di-btns"><button class="di-opt" onclick="doB(1,'plural')">tests (plural)</button><button class="di-opt" onclick="doB(1,'singular')">test (singular)</button></div><div class="di-fb" id="b1f"></div></div>
+    <div class="di" id="b2"><div class="di-sent">2. "The town hall holds a weekly ___ (meeting) for local residents." Singular or plural?</div><div class="di-btns"><button class="di-opt" onclick="doB(2,'singular')">meeting (singular)</button><button class="di-opt" onclick="doB(2,'plural')">meetings (plural)</button></div><div class="di-fb" id="b2f"></div></div>
+    <div class="di" id="b3"><div class="di-sent">3. "The bridge was closed after a series of ___ (inspection) revealed cracks in the concrete." Singular or plural?</div><div class="di-btns"><button class="di-opt" onclick="doB(3,'plural')">inspections (plural)</button><button class="di-opt" onclick="doB(3,'singular')">inspection (singular)</button></div><div class="di-fb" id="b3f"></div></div>
+    <div class="drill-score" id="bScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Combined error-ID practice -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>The real thing — find the wrong underlined part (A)(B)(C)(D) 🧩</h2>
+    <p>Each sentence below is split into four labelled parts. ONE part contains the error. It could be any check you now know: Will Ban, a broken verb form, mismatched halves, a SOLO verb forced into passive, the wrong and/but, the wrong -ing/to-verb choice, or a missing plural. Read the whole sentence first, then choose the part.</p>
+    <div class="di head-w" id="p1">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) After missing the final trial,</span> <span class="seg b">(B) the young gymnast deeply regretted</span> <span class="seg c">(C) to skip</span> <span class="seg d">(D) the extra practice sessions the week before.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(1,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(1,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(1,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(1,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p1f"></div>
+    </div>
+    <div class="di head-w" id="p2">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) The repair team</span> <span class="seg b">(B) tried several</span> <span class="seg c">(C) different method</span> <span class="seg d">(D) before the bridge finally reopened to traffic.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(2,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(2,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(2,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(2,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p2f"></div>
+    </div>
+    <div class="di head-w" id="p3">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) Thunderstorms</span> <span class="seg b">(B) are occurred</span> <span class="seg c">(C) most often</span> <span class="seg d">(D) during the warmest months of the year.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(3,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(3,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(3,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(3,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p3f"></div>
+    </div>
+    <div class="di head-w" id="p4">
+      <div class="di-head">🚫 Which underlined part is grammatically wrong?</div>
+      <div class="di-sent">"<span class="seg a">(A) The two hiking trails</span> <span class="seg b">(B) were roughly the same length,</span> <span class="seg c">(C) but</span> <span class="seg d">(D) both offered stunning mountain views along the way.</span>"</div>
+      <div class="segbtns">
+        <button class="di-opt" onclick="doP(4,'a')">(A)</button>
+        <button class="di-opt" onclick="doP(4,'b')">(B)</button>
+        <button class="di-opt" onclick="doP(4,'c')">(C)</button>
+        <button class="di-opt" onclick="doP(4,'d')">(D)</button>
+      </div>
+      <div class="di-fb" id="p4f"></div>
+    </div>
+    <div class="drill-score" id="pScore"></div>
+  </div>
+  <div class="card" id="summaryCard" style="display:none">
+    <div class="rule-box"><div class="rule-big">Two more checks join your toolbox today: "regret + -ing" for looking back, "regret + to" only for announcing news right now; and signal words like "several/monthly/a series of" mean the noun needs an "s". Same careful read-the-whole-sentence habit — now six checks deep.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Vocab_Lesson_CheckTheOpposite.html" class="btn-lesson">Vocab Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuKey={1:'occurred',2:'but'};var wuWhy={1:'"occur" is a SOLO verb — it can never be passive. "occurred" (active) is correct.',2:'Practising every day, YET coming third — a surprise contrast, so "but" is correct.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:'ing',2:'to',3:'ing'};
+var aWhy={1:'He is looking back at something the night before — already done, feeling sorry about it → "saying" (-ing).',2:'This is a formal, right-now announcement of unwelcome news (a cancelled ferry) → "to inform".',3:'He is looking back at old photos, feeling sorry about a past action → "throwing" (-ing).'};
+var aDone={};var aC=0;
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];aC++;}else{fb.className='di-fb no';fb.textContent='❌ '+aWhy[n];}if(Object.keys(aDone).length===3){var s=document.getElementById('aScore');s.className='drill-score show';s.innerHTML='<strong>Regret -ing vs. to: '+aC+'/3</strong>';}}
+
+var bKey={1:'plural',2:'plural',3:'plural'};
+var bWhy={1:'"several" signals more than one → tests (plural).',2:'"weekly" signals this repeats every week → meetings (plural).',3:'"a series of" signals more than one → inspections (plural).'};
+var bDone={};var bC=0;
+function doB(n,c){if(bDone[n])return;bDone[n]=true;var it=document.getElementById('b'+n);var fb=document.getElementById('b'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===bKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bWhy[n];bC++;}else{fb.className='di-fb no';fb.textContent='❌ '+bWhy[n];}if(Object.keys(bDone).length===3){var s=document.getElementById('bScore');s.className='drill-score show';s.innerHTML='<strong>Singular vs. plural: '+bC+'/3</strong>';}}
+
+var pKey={1:'c',2:'c',3:'b',4:'c'};
+var pWhy={
+ 1:'(C) ✗ "deeply regretted to skip" — he is looking back at the missed practice, already done, feeling sorry about it. Should be "regretted skipping". (A), (B), (D) are all clean.',
+ 2:'(C) ✗ "several different method" — "several" signals more than one, so it needs the plural "methods". (A), (B), (D) are all clean.',
+ 3:'(B) ✗ "are occurred" — "occur" is a SOLO verb (thunderstorms just occur, nothing occurs them), so passive is impossible. Should be plain "occur". (A), (C), (D) are all clean.',
+ 4:'(C) ✗ "but" wrongly joins two matching/adding ideas (same length, AND both had stunning views — both are ways the trails were alike, no surprise). Should be "and". (A), (B), (D) are all clean.'
+};
+var pDone={};var pC=0;
+function doP(n,c){if(pDone[n])return;pDone[n]=true;var it=document.getElementById('p'+n);var fb=document.getElementById('p'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===pKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+pWhy[n];pC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: ('+pKey[n].toUpperCase()+'). '+pWhy[n];}if(Object.keys(pDone).length===4){var s=document.getElementById('pScore');s.className='drill-score show';s.innerHTML='<strong>The real thing: '+pC+'/4</strong>';document.getElementById('summaryCard').style.display='block';}}
+</script>
+</body>
+</html>
