@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Mixed Conditional Refresher — Unit 23 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A235A;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:800px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,35,90,0.10);margin-bottom:18px}
+h2{color:#4A235A;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #8E24AA;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#6A1B9A;margin-bottom:6px}
+.bws-title{font-weight:700;color:#6A1B9A;margin-bottom:6px;font-size:15px}
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.ctable th{background:#4A235A;color:#fff;padding:8px 9px;text-align:left;font-size:12px}
+.ctable td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.5;vertical-align:top}
+.recipe-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.recipe-table th{padding:8px 9px;text-align:left;font-size:12px;color:#fff}
+.recipe-table th.third{background:#AD1457}.recipe-table th.second{background:#00695C}.recipe-table th.mixed{background:#4A235A}
+.recipe-table td{padding:8px 9px;border-bottom:1px solid #eee;line-height:1.6;vertical-align:top}
+.recipe-table td.third{background:#FCE4EC}.recipe-table td.second{background:#E0F2F1}.recipe-table td.mixed{background:#F3E5F5}
+.myth-box{background:#EDE7F6;border:2px solid #6b46c1;border-radius:10px;padding:14px 16px;margin:14px 0}
+.myth-title{font-weight:700;color:#4a2a7a;margin-bottom:8px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:600px;line-height:1.4}
+.node.start{background:#4A235A;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #8E24AA;color:#6A1B9A}
+.node.s3{background:#FCE4EC;border:2px solid #C2185B;color:#AD1457}
+.node.confirm{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a}
+.arrow{font-size:18px;color:#8E24AA;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#8E24AA}
+.worked{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#4A235A}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di-opt{background:#EDE7F6;border:2px solid #6b46c1;color:#4a2a7a;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.vocab-box{background:#FFF3E0;border:2px solid #FB8C00;border-radius:10px;padding:14px 16px;margin:10px 0}
+.vocab-title{font-weight:700;color:#E65100;margin-bottom:6px}
+.drill-score{background:linear-gradient(135deg,#4A235A,#6b46c1);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A235A,#6b46c1);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Mixed Conditional Refresher</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 23 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Today isn't about learning anything new — it's a check-up. Two of the newest grammar checks you learned (the "-ing"/"to" choice after words like regret, and hidden plurals after words like "several") are still fresh, so we'll give them a couple of quick reps to keep them sharp. But the main focus today is something OLDER that had a wobble last time: Mixed Conditionals — sentences that talk about a past cause and a right-now result at the same time. This one's been solid for a while, so one wobble is nothing to worry about — today just makes sure it's fully back on track.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick wins check 🔍</div>
+    <p>Two quick items on the newest content, just to confirm it's holding.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "She still regretted ___ (say) something unkind to her brother the week before." Looking back, or announcing news right now?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'ing')">Looking back → saying</button><button class="di-opt" onclick="doWu(1,'to')">Announcing now → to say</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">2. "The bakery tried several new ___ (recipe) before settling on the final one." Singular or plural?</div><div class="di-btns"><button class="di-opt" onclick="doWu(2,'plural')">recipes (plural)</button><button class="di-opt" onclick="doWu(2,'singular')">recipe (singular)</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Good — both still holding. Now let's fix today's main focus. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: Mixed Conditional explained from scratch -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Mixed Conditionals — a past cause, a right-now result 🕰️</h2>
+    <p>You already know two of the four conditional types really well. A quick reminder of both, side by side:</p>
+    <table class="recipe-table">
+      <tr><th class="second">SECOND — dream about NOW</th><th class="third">THIRD — regret the PAST</th></tr>
+      <tr><td class="second">If + past simple, ... would + verb<br><em>"If I had more time, I would help."</em><br>(the cause AND the result are both about now/the unreal present)</td><td class="third">If + had + past participle, ... would have + verb<br><em>"If I had had more time, I would have helped."</em><br>(the cause AND the result are both about the past)</td></tr>
+    </table>
+    <p>A Mixed Conditional borrows HALF from each — a cause that really happened in the PAST, but a result you can still see or feel RIGHT NOW. That's why it's called "mixed": it crosses two different times in one sentence.</p>
+    <table class="recipe-table">
+      <tr><th class="mixed">MIXED — past cause, present result</th></tr>
+      <tr><td class="mixed">If + had (not) + past participle <em>(borrowed from THIRD — the cause is really in the past)</em> ... would (not) + verb <em>(borrowed from SECOND — the result is about right now)</em><br><em>"If the roof had been repaired last year, the ceiling would not be leaking today."</em></td></tr>
+    </table>
+    <div class="myth-box">
+      <div class="myth-title">🔑 The exact spot where it slips</div>
+      <p style="margin:0;font-size:14px">Because the RESULT half looks like a Second Conditional ("would be", not "would have been"), it's easy to think the IF-half should match that and use a simple past too ("was not" instead of "had not been"). But the IF-half is still talking about something that really happened in the past — so it MUST keep the Third Conditional shape, "had (not) been ___", even though the result half looks like a Second. The giveaway that you need this Mixed recipe at all is a present-time word in the result — <strong>today, now, currently, still</strong> — signalling the result is happening RIGHT NOW, not back then.</p>
+    </div>
+    <div class="tree">
+      <div class="node start">See a conditional sentence</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Is there a present-time word in the RESULT half? (today / now / currently / still)</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node s3">MIXED recipe: IF-half = "had (not) been ___" · RESULT-half = "would (not) + verb"</div></div>
+        <div class="leg"><span class="lbl">NO</span><div class="node confirm">Regular Second or Third — check tenses match on both halves as usual</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="node start">Double-check the IF-half specifically: does it say "had (not) been", not just "was (not)"?</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: worked example -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch it worked out 👀</h2>
+    <div class="worked">
+      <p class="step"><b>Sentence to complete:</b> "If the school's irrigation system ___ properly maintained last year, the flower beds ___ so patchy right now."</p>
+      <p class="step"><b>Step 1 — spot the present-time word:</b> "right now" is sitting in the result half. That's the signal: this needs the Mixed recipe.</p>
+      <p class="step"><b>Step 2 — fill the IF-half:</b> the cause ("maintained the irrigation system") really happened (or didn't) LAST YEAR — that's the past, so it needs the Third-shape: "had not been" maintained. NOT "was not" — that's the exact trap.</p>
+      <p class="step"><b>Step 3 — fill the RESULT-half:</b> the flower beds being patchy is happening RIGHT NOW — a present state, so it needs the Second-shape: "would not be" so patchy. NOT "would not have been" — that would push the result into the past too, which contradicts "right now".</p>
+      <p class="step"><b>Full answer:</b> "If the school's irrigation system <u>had not been</u> properly maintained last year, the flower beds <u>would not be</u> so patchy right now."</p>
+      <p class="step"><b>The lesson:</b> the RESULT half looking like a Second Conditional does NOT mean the IF-half gets to look like one too. Check each half against its OWN time — past cause, present result — separately.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Mixed Conditional practice -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Your turn — pick the correct pair 🎯</h2>
+    <p><strong>Reminder</strong> — look for the present-time word first, then check the IF-half keeps the Third-shape.</p>
+    <div class="di" id="a1"><div class="di-sent">1. "If the museum's old boiler ___ replaced two winters ago, the east wing ___ so cold today."</div><div class="opts"><button class="di-opt" onclick="doA(1,1)">1. had not been / would not be</button><button class="di-opt" onclick="doA(1,2)">2. was not / would not be</button><button class="di-opt" onclick="doA(1,3)">3. had not been / would not have been</button><button class="di-opt" onclick="doA(1,4)">4. was not / would not have been</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="di" id="a2"><div class="di-sent">2. "If the coach ___ the training schedule properly last season, the team ___ so exhausted right now."</div><div class="opts"><button class="di-opt" onclick="doA(2,1)">1. did not plan / will not be</button><button class="di-opt" onclick="doA(2,2)">2. had not planned / would not be</button><button class="di-opt" onclick="doA(2,3)">3. had not planned / would not have been</button><button class="di-opt" onclick="doA(2,4)">4. was not planning / would not be</button></div><div class="di-fb" id="a2f"></div></div>
+    <div class="di" id="a3"><div class="di-sent">3. "If the town council ___ the old bridge inspected last year, drivers ___ so nervous crossing it now."</div><div class="opts"><button class="di-opt" onclick="doA(3,1)">1. had had / would not have been</button><button class="di-opt" onclick="doA(3,2)">2. has had / would not be</button><button class="di-opt" onclick="doA(3,3)">3. had had / would not be</button><button class="di-opt" onclick="doA(3,4)">4. had / will not be</button></div><div class="di-fb" id="a3f"></div></div>
+    <div class="drill-score" id="aScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: light gerund/infinitive reps -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Quick reps — "-ing" vs "to", still fresh from last unit 🔁</h2>
+    <p>Same rule as before: looking back at something already done → "-ing". Formally announcing bad news right now → "to". Two quick items, no re-teaching needed.</p>
+    <div class="di" id="g1"><div class="di-sent">1. "Looking through the old photo album, she regretted ___ (throw) away her childhood toys." Looking back, or announcing now?</div><div class="di-btns"><button class="di-opt" onclick="doG(1,'ing')">Looking back → throwing</button><button class="di-opt" onclick="doG(1,'to')">Announcing now → to throw</button></div><div class="di-fb" id="g1f"></div></div>
+    <div class="di" id="g2"><div class="di-sent">2. "We regret ___ (announce) that tonight's fireworks display has been cancelled due to weather." Looking back, or announcing now?</div><div class="di-btns"><button class="di-opt" onclick="doG(2,'to')">Announcing now → to announce</button><button class="di-opt" onclick="doG(2,'ing')">Looking back → announcing</button></div><div class="di-fb" id="g2f"></div></div>
+    <div class="drill-score" id="gScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: embedded vocab keep-sharp -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Vocabulary keep-sharp 📖</h2>
+    <div class="vocab-box">
+      <div class="vocab-title">Quick maintenance — two words from last unit, fresh sentences</div>
+      <div class="di" id="v1"><div class="di-sent">1. "Despite trying four different approaches, the repair crew's attempts to fix the old clock tower were completely ___." What does the missing word most likely mean, based on the clue?</div><div class="di-btns"><button class="di-opt" onclick="doV(1,'right')">futile — useless, with no real success</button><button class="di-opt" onclick="doV(1,'wrong')">futile — quick and effective</button></div><div class="di-fb" id="v1f"></div></div>
+      <div class="di" id="v2"><div class="di-sent">2. "Swimming across the flooded river to save the stranded puppy was a wildly ___ thing to do, everyone agreed afterward." What does the missing word most likely mean?</div><div class="di-btns"><button class="di-opt" onclick="doV(2,'right')">audacious — boldly daring, willing to take risks</button><button class="di-opt" onclick="doV(2,'wrong')">audacious — seen as fairly ordinary and unremarkable</button></div><div class="di-fb" id="v2f"></div></div>
+    </div>
+    <div class="vocab-box" style="border-color:#AD1457;background:#FCE4EC">
+      <div class="vocab-title" style="color:#AD1457">New word, same opposite-check habit 🔑</div>
+      <p style="margin:0 0 10px;font-size:14px">Remember Unit 22's habit: on a hard word, check whether one option is the near-OPPOSITE of the real answer before locking in.</p>
+      <div class="di" id="v3"><div class="di-sent">3. "Even though everyone else around him cheered wildly when their team scored, Marcus stayed completely ___, barely glancing up from his book." What does the missing word most likely mean?</div><div class="opts"><button class="di-opt" onclick="doV(3,1)">1. indifferent — not caring or interested either way</button><button class="di-opt" onclick="doV(3,2)">2. indifferent — extremely excited and enthusiastic</button><button class="di-opt" onclick="doV(3,3)">3. indifferent — nervous and easily startled</button><button class="di-opt" onclick="doV(3,4)">4. indifferent — loud and talkative</button></div><div class="di-fb" id="v3f"></div></div>
+    </div>
+    <div class="drill-score" id="vScore"></div>
+  </div>
+  <div class="card">
+    <div class="rule-box"><div class="rule-big">Mixed Conditional: the IF-half still needs "had (not) been ___" even when the result half looks like a Second Conditional ("would be", signalled by today/now/currently). Check each half against its OWN time, separately.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_BackToLevelBasics.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuKey={1:'ing',2:'plural'};var wuWhy={1:'Looking back at something already done, feeling sorry about it → "saying" (-ing).',2:'"several" signals more than one → recipes (plural).'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:1,2:2,3:3};
+var aWhy={
+ 1:'"today" signals the Mixed recipe. IF-half stays Third-shape: "had not been" (the boiler really wasn\'t replaced, in the past). RESULT-half is Second-shape: "would not be" (the cold is happening today).',
+ 2:'"right now" signals the Mixed recipe. IF-half: "had not planned" (past cause). RESULT-half: "would not be" (present state, happening right now).',
+ 3:'"now" signals the Mixed recipe. IF-half: "had had" (the inspection really did or didn\'t happen, in the past). RESULT-half: "would not be" (the nervousness is happening now).'
+};
+var aDone={};var aC=0;
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];aC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: option '+aKey[n]+'. '+aWhy[n];}if(Object.keys(aDone).length===3){var s=document.getElementById('aScore');s.className='drill-score show';s.innerHTML='<strong>Mixed Conditional practice: '+aC+'/3</strong>';}}
+
+var gKey={1:'ing',2:'to'};var gWhy={1:'Looking back at old photos, feeling sorry about a past action → "throwing" (-ing).',2:'A formal, right-now announcement of unwelcome news → "to announce".'};var gDone={};var gC=0;
+function doG(n,c){if(gDone[n])return;gDone[n]=true;var it=document.getElementById('g'+n);var fb=document.getElementById('g'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===gKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+gWhy[n];gC++;}else{fb.className='di-fb no';fb.textContent='❌ '+gWhy[n];}if(Object.keys(gDone).length===2){var s=document.getElementById('gScore');s.className='drill-score show';s.innerHTML='<strong>Regret -ing vs. to: '+gC+'/2</strong>';}}
+
+var vSimpleKey={1:'right',2:'right'};var vSimpleWhy={1:'"trying four different approaches" with no success = useless, with no real success.',2:'"swimming across a flooded river" to save a puppy = boldly daring, willing to take risks.'};var vSimpleDone={};var vC=0;var vTotal=3;
+function doV(n,c){
+  if(n===3){
+    if(vSimpleDone[3])return;vSimpleDone[3]=true;
+    var it=document.getElementById('v3');var fb=document.getElementById('v3f');
+    it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+    if(c===1){fb.className='di-fb ok';fb.textContent='✅ "barely glancing up" while everyone else cheered = not caring or interested either way. Option 2 is the near-opposite trap — the exact reverse of the real meaning.';vC++;}
+    else{fb.className='di-fb no';fb.textContent='❌ Answer: option 1. "barely glancing up" while everyone else cheered = not caring or interested either way.';}
+  } else {
+    if(vSimpleDone[n])return;vSimpleDone[n]=true;
+    var it=document.getElementById('v'+n);var fb=document.getElementById('v'+n+'f');
+    it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+    if(c===vSimpleKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+vSimpleWhy[n];vC++;}
+    else{fb.className='di-fb no';fb.textContent='❌ '+vSimpleWhy[n];}
+  }
+  if(Object.keys(vSimpleDone).length===vTotal){var s=document.getElementById('vScore');s.className='drill-score show';s.innerHTML='<strong>Vocabulary keep-sharp: '+vC+'/3</strong>';}
+}
+</script>
+</body>
+</html>
