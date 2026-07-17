@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '16 Jul 2026',
+  updated:        '17 Jul 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           23,
-    status:      'CONSOLIDATION &middot; Cloze: Back to LEVEL Basics &middot; Grammar: Mixed Conditional Refresher &middot; Test Ready, Awaiting Prem',
+    n:           24,
+    status:      'Reading Strand Launches &middot; Cloze: So vs As a Result Lock &middot; Reading &amp; Vocab: Stories Behind the Lines &middot; Test Ready, Awaiting Prem',
     testPending: true
   },
 
@@ -32,65 +32,65 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 22 — updated after each test)
+  // Last completed assessment (Unit 23 — updated after each test)
   lastUnit: {
-    n: 22, label: 'Unit 22', score: 12, outOf: 20, pct: 60, delta: -6, prevScore: 18,
+    n: 23, label: 'Unit 23', score: 15, outOf: 20, pct: 75, delta: 3, prevScore: 12,
 
-    patternLabel:   'Unit 22 &mdash; 16 Jul 2026 &middot; 12/20 (60%) &middot; FAIL &middot; a scattered, cross-section dip, not one clean skill gap',
-    patternInsight: '<strong>Score: 12/20 (60%) &mdash; a sharp drop from Unit 21&rsquo;s 90%, but the shape of the misses points at overload, not lost skill.</strong> Cloze crashed to 3/7 despite ZERO new lesson content that unit &mdash; including a LEVEL-only miss at Q5 (chose the clause-joiner &ldquo;so&rdquo; for a sentence-starter slot, a more basic error than the recent family mix-ups). Grammar 5/7 saw a previously-solid Mixed Conditional item (Q11) slip alongside the two brand-new checks (Q12 gerund/infinitive, first exposure). Vocab 4/6 missed &ldquo;futile&rdquo; (Q16) and a near-opposite trap on &ldquo;audacious&rdquo; itself (Q20, chose &ldquo;ordinary&rdquo;) &mdash; ironic, since that unit&rsquo;s lesson taught the near-opposite-check habit using a different word. This matches the Unit 13 overload signature: a skill that was solid one test prior slipping alongside genuinely-new-content misses.',
+    patternLabel:   'Unit 23 &mdash; 17 Jul 2026 &middot; 15/20 (75%) &middot; still below pass bar, but a strong recovery &mdash; priority fix confirmed',
+    patternInsight: '<strong>Score: 15/20 (75%) &mdash; up from Unit 22&rsquo;s 60%, and the consolidation plan&rsquo;s core hypothesis is directly confirmed.</strong> Q11, the direct retest of Unit 22&rsquo;s exact Mixed Conditional miss, was answered correctly &mdash; hard evidence the one-item refresher approach worked. The vocab near-opposite habit also generalised to a brand-new word (Q20, &ldquo;impartial&rdquo;), resisting a trap it was never taught on. Cloze rebuilt to 5/7 with no cascade, though Q2/Q5 revealed a specific so/as-a-result twin-word mix-up hit in both directions. Grammar 5/7 picked up two new, isolated scan misses (Q9, Q13) unrelated to the fixed issue. Vocab 5/6 &mdash; &ldquo;futile&rdquo; (Q15) missed for a second consecutive test.',
 
-    analysisLabel:   'Unit 22 Result Analysis &mdash; 16 Jul 2026 (overload dip after the strong Unit 21 result)',
-    analysisInsight: '<strong>Score: 12/20 (60%), below the 80% pass bar.</strong> Cloze 3/7: Q1/Q2/Q5/Q6 all missed with zero new cloze content that unit &mdash; not a skill regression so much as a pacing/confidence collapse under a 3-lesson unit load. Grammar 5/7: Q11&rsquo;s Mixed Conditional slip (chose &ldquo;was not&rdquo; instead of &ldquo;had not been&rdquo; for the if-half) is the clearest single thread, since that skill scored cleanly at Unit 20&ndash;21; Q12&rsquo;s gerund/infinitive miss is expected on first exposure. Vocab 4/6: &ldquo;futile&rdquo; (Q16) and the audacious near-opposite trap (Q20) are both worth a direct maintenance rep. DECISION: Unit 23 is a CONSOLIDATION unit &mdash; no new frameworks, 2 lessons only (Cloze + Grammar, Vocab embedded), each lesson pinned to one of these three specific threads rather than generic review, normal-difficulty test (easing goes into the teaching only). The planned Reading strand pushes from Unit 23 to Unit 24.',
+    analysisLabel:   'Unit 23 Result Analysis &mdash; 17 Jul 2026 (CONSOLIDATION unit outcome)',
+    analysisInsight: '<strong>Score: 15/20 (75%), still below the 80% pass bar but a real recovery.</strong> Unlike Unit 22, this is NOT a scattered cross-section pattern &mdash; the priority fix held cleanly, the new vocab habit generalised, and the remaining gaps are three specific, nameable threads: the so/as-a-result twin pair (Q2, Q5), a twice-missed vocab word (&ldquo;futile&rdquo;, Q15), and two isolated grammar scan misses (Q9, Q13) that don&rsquo;t share a cause. DECISION: Unit 24 proceeds with the planned Reading strand launch rather than another consolidation pass, folding in three light, targeted touches &mdash; an isolated so/as-a-result drill in Cloze, a direct standalone &ldquo;futile&rdquo; rep in the Reading &amp; Vocabulary lesson, and Grammar at maintenance only (no dedicated lesson, since the priority fix held).',
 
-    qSummary: '<strong>12/20 (60%) &mdash; FAIL, bar is 16/20. Cloze 3/7 (crashed despite no new content; LEVEL-only miss at Q5). Grammar 5/7 (Mixed Conditional slip on previously-solid material at Q11; gerund/infinitive miss expected on first exposure). Vocab 4/6 (missed &ldquo;futile&rdquo; and a near-opposite trap on &ldquo;audacious&rdquo; itself). Next: UNIT 23 &mdash; CONSOLIDATION, 2 lessons only, each pinned to one of these three threads; test stays normal difficulty.</strong>',
+    qSummary: '<strong>15/20 (75%) &mdash; still below the 80% bar, but +3 points from Unit 22. Cloze 5/7 (no cascade; a so/as-a-result twin-word mix-up in both directions). Grammar 5/7 (the priority Mixed Conditional retest, Q11, CORRECT; two new isolated scan misses). Vocab 5/6 (&ldquo;audacious&rdquo; fixed, near-opposite habit generalised to a new word &ldquo;impartial&rdquo;; &ldquo;futile&rdquo; missed again). Next: UNIT 24 &mdash; Reading strand launches, plus 3 light maintenance touches for the residual threads.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;however&rdquo; (CONTRAST); scored answer was &ldquo;despite&rdquo; (&ldquo;the early start&rdquo; = a thing) &mdash; missed the despite-as-sentence-starter exception. Foundational.' },
-      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;meanwhile&rdquo; (TIME); scored answer was &ldquo;moreover&rdquo; (ADDITION) &mdash; right LEVEL (sentence-starter), wrong family. Foundational.' },
+      { q:'Q1',  topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; despite (&ldquo;the tight schedule&rdquo; = a thing). Foundational.' },
+      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;so&rdquo; (clause-joiner); scored answer was &ldquo;as a result&rdquo; (sentence-starter) &mdash; a LEVEL error on the RESULT family, half of the twin-pair mix-up. Foundational.' },
       { q:'Q3',  topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; while (TIME). Foundational.' },
-      { q:'Q4',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; as a result (RESULT). Developing.' },
-      { q:'Q5',  topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;so&rdquo; (clause-joiner, RESULT); scored answer was &ldquo;however&rdquo; (sentence-starter, CONTRAST) &mdash; a genuine LEVEL error, more basic than the family mix-ups above. This is the priority fix for Unit 23&rsquo;s Cloze lesson. Developing.' },
-      { q:'Q6',  topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;although&rdquo;; scored answer was &ldquo;so&rdquo; (RESULT) &mdash; another family mix-up on a clause-joiner slot. Advanced.' },
-      { q:'Q7',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; despite (&ldquo;the tiring walk&rdquo; = a thing) &mdash; the despite exception landed correctly here, just not at Q1. Advanced.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true, note:'&#10003; Identified the Second Conditional. Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true, note:'&#10003; Found the DOER/Second mismatch. Foundational.' },
+      { q:'Q4',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; meanwhile (TIME). Developing.' },
+      { q:'Q5',  topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;as a result&rdquo; (sentence-starter); scored answer was &ldquo;so&rdquo; (clause-joiner) &mdash; the mirror-image LEVEL error of Q2, same RESULT pair, opposite direction. Priority fix for Unit 24&rsquo;s Cloze lesson. Developing.' },
+      { q:'Q6',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; however (CONTRAST). Advanced.' },
+      { q:'Q7',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; although (CONTRAST). Advanced.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true, note:'&#10003; Identified the Third Conditional. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Missed a standard conditional error-scan item &mdash; flagged a clean sentence, missed the real DOER/Second mismatch. Isolated, no shared cause with other misses. Foundational.' },
       { q:'Q10', topic:'Grammar', lvl:'i', pass:true, note:'&#10003; Correctly avoided the Will Ban. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;was not / would not be&rdquo;; scored answer was &ldquo;had not been / would not be&rdquo; &mdash; the Mixed Conditional if-half slipped on material that was solid at Unit 20&ndash;21. Priority fix for Unit 23&rsquo;s Grammar lesson. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; NEW &mdash; gerund-vs-infinitive after &ldquo;regret&rdquo;: picked the wrong underlined segment. Expected on first-ever exposure to this check. Advanced.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:true, note:'&#10003; NEW &mdash; singular/plural after &ldquo;several&rdquo;, correct on first real-test exposure. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:true, note:'&#10003; and/but connector coherence, correct &mdash; the U21 miss on this check is now resolved. Advanced.' },
-      { q:'Q15', topic:'Vocab', lvl:'b', pass:true, note:'&#10003; paramount = the most important thing &mdash; resisted the near-opposite trap (&ldquo;barely worth worrying about&rdquo;). Foundational.' },
-      { q:'Q16', topic:'Vocab', lvl:'b', pass:false, note:'&#10007; futile = useless, with no real success; chose &ldquo;well organised&rdquo;. Foundational.' },
-      { q:'Q17', topic:'Vocab', lvl:'i', pass:true, note:'&#10003; candid = honest and direct, hiding nothing. Developing.' },
-      { q:'Q18', topic:'Vocab', lvl:'i', pass:true, note:'&#10003; vivid = clear and brightly memorable. Developing.' },
-      { q:'Q19', topic:'Vocab', lvl:'a', pass:true, note:'&#10003; meager = small in number, less than enough. Advanced.' },
-      { q:'Q20', topic:'Vocab', lvl:'a', pass:false, note:'&#10007; audacious = boldly daring, willing to take risks; chose &ldquo;seen as fairly ordinary and unremarkable&rdquo; &mdash; a near-opposite trap on the very word that taught the opposite-check habit this unit. Priority fix for Unit 23&rsquo;s embedded vocab check. Advanced.' }
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true, note:'&#10003; PRIORITY RETEST &mdash; Mixed Conditional (&ldquo;had not been ___ / would not be ___&rdquo;), correct. Directly confirms the Unit 23 refresher fixed Unit 22&rsquo;s exact miss. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'a', pass:true, note:'&#10003; Gerund-vs-infinitive after &ldquo;regret&rdquo;, correct on second exposure &mdash; the light reinforcement rep held. Advanced.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Singular/plural check &mdash; picked the wrong underlined segment. Notable because the identical check was correct at Unit 22; reads as an isolated instance miss, not a concept regression. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true, note:'&#10003; and/but connector coherence, correct. Advanced.' },
+      { q:'Q15', topic:'Vocab', lvl:'b', pass:false, note:'&#10007; futile = useless, with no real success; missed for a SECOND consecutive test (also missed at Unit 22). Now a confirmed, specific gap &mdash; priority fix for Unit 24. Foundational.' },
+      { q:'Q16', topic:'Vocab', lvl:'b', pass:true, note:'&#10003; audacious = boldly daring &mdash; the direct Unit 22 retest, now fixed, resisting a fresh near-opposite trap. Foundational.' },
+      { q:'Q17', topic:'Vocab', lvl:'i', pass:true, note:'&#10003; eloquent = well-spoken, fluent and persuasive. Developing.' },
+      { q:'Q18', topic:'Vocab', lvl:'i', pass:true, note:'&#10003; vigilant = closely watchful and alert. Developing.' },
+      { q:'Q19', topic:'Vocab', lvl:'a', pass:true, note:'&#10003; ample = more than enough. Advanced.' },
+      { q:'Q20', topic:'Vocab', lvl:'a', pass:true, note:'&#10003; impartial = fair and not favouring one side &mdash; the near-opposite-check habit generalised to a brand-new word, never taught on this exact item. Strongest evidence yet the habit is genuinely learned. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U22 (overload dip, treated as pacing/confidence not lost skill, per the Unit 13 precedent):
-  // Cloze -13 — crashed to 3/7 despite zero new content, incl. a LEVEL-only miss (Q5);
-  // Grammar -4 — a previously-solid Mixed Conditional item (Q11) slipped alongside 2 brand-new checks;
-  // Vocab -6 — missed "futile" plus a near-opposite trap on "audacious" itself;
-  // Reading/Writing/Conversation/CritThink/FigLang untested by U22, held at prior levels
+  // After U23 (strong recovery, priority fix confirmed — not another overload dip):
+  // Cloze +6 — rebuilt to 5/7 with no cascade, though a specific twin-word gap remains;
+  // Grammar +4 — the priority Mixed Conditional fix CONFIRMED (Q11 correct); two new isolated scan misses;
+  // Vocab +4 — near-opposite habit generalised to a brand-new word (impartial), audacious fix confirmed;
+  // Reading/Writing/Conversation/CritThink/FigLang untested by U23, held at prior levels
   skills: [
-    { name: 'Reading Compr.',    c: 80, t: 85 },   // not tested at U22; unchanged
-    { name: 'Vocabulary',        c: 78, t: 82 },   // U22: 4/6 — missed "futile" + the audacious near-opposite trap
-    { name: 'Grammar',           c: 76, t: 82 },   // U22: 5/7 — Mixed Conditional slip on previously-solid material (Q11)
-    { name: 'Cloze Test',        c: 62, t: 80 },   // U22: 3/7 — crashed despite no new content; LEVEL-only miss at Q5 is the priority fix
+    { name: 'Reading Compr.',    c: 80, t: 85 },   // not tested at U23; unchanged (Reading strand launches at U24)
+    { name: 'Vocabulary',        c: 82, t: 82 },   // U23: 5/6 — audacious fixed, near-opposite habit generalised; futile still a specific gap
+    { name: 'Grammar',           c: 80, t: 82 },   // U23: 5/7 — priority Mixed Conditional fix CONFIRMED; 2 new isolated scan misses
+    { name: 'Cloze Test',        c: 68, t: 80 },   // U23: 5/7 — no cascade; a specific so/as-a-result twin-word gap remains
     { name: 'Writing',           c: 65, t: 85 },
-    { name: 'Conversation',      c: 90, t: 85 },   // not tested at U22; unchanged
-    { name: 'Critical Thinking', c: 62, t: 80 },   // not tested at U22; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // not tested at U22; unchanged
+    { name: 'Conversation',      c: 90, t: 85 },   // not tested at U23; unchanged
+    { name: 'Critical Thinking', c: 62, t: 80 },   // not tested at U23; unchanged
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // not tested at U23; unchanged
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [80, 78, 76, 62, 65, 90, 62, 55],
+  radarCurrent:  [80, 82, 80, 68, 65, 90, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 22',
+  radarLegendUnit: 'Unit 23',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -118,11 +118,24 @@ var PREM_ENGLISH = {
     { n:20, score:16, outOf:20, delta:0,  color:'#667eea', star:false, label:'U20' },
     { n:'M2', score:92, outOf:125, delta:null, color:'#9f7aea', star:false, label:'M2', milestone:true },
     { n:21, score:18, outOf:20, delta:2, color:'#89F336', star:false, label:'U21' },
-    { n:22, score:12, outOf:20, delta:-6, color:'#fc4e4e', star:false, label:'U22' }
+    { n:22, score:12, outOf:20, delta:-6, color:'#fc4e4e', star:false, label:'U22' },
+    { n:23, score:15, outOf:20, delta:3, color:'#667eea', star:false, label:'U23' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 23,
+      title: 'Unit 23 &mdash; CONSOLIDATION &middot; Cloze: Back to LEVEL Basics &middot; Grammar: Mixed Conditional Refresher',
+      badge: '#667eea',
+      status: 'done',
+      note: '15/20 (75%) &mdash; <strong>still below the 80% pass bar, but a strong recovery from Unit 22&rsquo;s 60% &mdash; and the priority fix is CONFIRMED working.</strong> Q11, the direct retest of Unit 22&rsquo;s exact Mixed Conditional miss, was answered <strong>correctly</strong> &mdash; hard evidence the one-item refresher approach worked. The vocab near-opposite habit also <strong>generalised to a brand-new word</strong> (Q20, &ldquo;impartial&rdquo;), resisting a trap it was never taught on. <strong>Cloze 5/7</strong> &mdash; no cascade, though Q2/Q5 revealed a specific so/as-a-result twin-word mix-up hit in BOTH directions. <strong>Grammar 5/7</strong> &mdash; two new, isolated scan misses (Q9, Q13) unrelated to the fixed issue. <strong>Vocab 5/6</strong> &mdash; &ldquo;futile&rdquo; missed for a SECOND consecutive test, now a confirmed specific gap. Unlike Unit 22, this is not a scattered cross-section pattern &mdash; three narrow, nameable threads on top of real, confirmed progress. &middot; Next: <strong>UNIT 24</strong> &mdash; the Reading strand launches on schedule, with three light maintenance touches folded in for the residual threads',
+      tags: [
+        { t:'Cloze 5/7', s:'background:#fff8e1;color:#744210' },
+        { t:'Grammar 5/7 (Q11 &#127881;)', s:'background:#fff8e1;color:#744210' },
+        { t:'Vocab 5/6', s:'background:#fff8e1;color:#744210' }
+      ]
+    },
     {
       n: 22,
       title: 'Unit 22 &mdash; Cloze: Locked-In Check &middot; Grammar: More Error-ID (Gerund/Infinitive &amp; Plural) &middot; Vocab: Check for the Opposite',

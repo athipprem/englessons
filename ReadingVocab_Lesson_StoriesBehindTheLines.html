@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading & Vocabulary — Stories Behind the Lines — Unit 24 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EBF2FA;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1a3a6b;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(26,58,107,0.10);margin-bottom:18px}
+h2{color:#1a3a6b;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0D47A1;margin-bottom:6px}
+.bws-title{font-weight:700;color:#0D47A1;margin-bottom:6px;font-size:15px}
+.twins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.twin-card{border-radius:10px;padding:14px}
+.twin-card.a{background:#E3F2FD;border:2px solid #1565C0}
+.twin-card.b{background:#FFF3E0;border:2px solid #FB8C00}
+.twin-word{font-size:1.05rem;font-weight:800;margin-bottom:6px;text-align:center}
+.twin-card.a .twin-word{color:#0D47A1}
+.twin-card.b .twin-word{color:#E65100}
+.twin-ex{font-size:12.5px;color:#444;line-height:1.5}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1a3a6b;color:#fff}
+.node.q{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.a{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20}
+.node.b{background:#FFF3E0;border:2px solid #FB8C00;color:#E65100}
+.arrow{font-size:18px;color:#1565C0;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#1565C0}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.di-opt{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.passage-box{background:#F9FBFF;border:2px solid #BBDEFB;border-radius:10px;padding:16px 18px;margin:14px 0;font-size:14px;line-height:1.9}
+.passage-box p{margin-bottom:10px}
+.vocab-box{background:#FFF3E0;border:2px solid #FB8C00;border-radius:10px;padding:14px 16px;margin:10px 0}
+.vocab-title{font-weight:700;color:#E65100;margin-bottom:6px}
+.drill-score{background:linear-gradient(135deg,#1a3a6b,#2c5282);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1a3a6b,#2c5282);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.btn-hub{display:inline-block;background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-prev{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading &amp; Vocabulary — Stories Behind the Lines</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 24 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 📖</div>
+      <p style="margin:0;font-size:14px">Every notice or short passage you've read so far tells you what you need to know in one or two sentences, right where you'd expect it. Real stories — the kind in books, magazine profiles, and competition reading tests — don't work that way. They spread the important stuff across several paragraphs, and a lot of it is never stated directly at all — you have to notice HOW something is said, not just WHAT is said, to understand how a character feels or what the story is really about. This is a brand-new kind of reading, and today builds it from the very beginning.</p>
+    </div>
+    <div class="bws-title">Before We Start — a quick warm-up 🔍</div>
+    <p>Two short examples to get your brain in "story mode" before we build the real tools.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "It was raining." Does this tell you WHERE/WHEN a story happens, or WHAT is happening in the story?</div><div class="opts"><button class="di-opt" onclick="doWu(1,'a')">Where/when it happens</button><button class="di-opt" onclick="doWu(1,'b')">What is happening</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">2. "She slammed the door and stormed off without a word." What is this sentence mostly showing you?</div><div class="opts"><button class="di-opt" onclick="doWu(2,'a')">How she feels, through her actions</button><button class="di-opt" onclick="doWu(2,'b')">The exact time of day</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Good instincts already. Let's turn them into a proper toolkit. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: what's different + overall strategy tree -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>A different kind of passage 🧭</h2>
+    <p>The notices and short passages you've read before give you an answer in one nearby sentence — find the sentence, find the answer. A STORY passage is different: it's several paragraphs long, and the answer to a question might depend on something from paragraph 1 AND paragraph 3 put together. You can't just hunt for one matching sentence — you need to hold the whole story in your head first.</p>
+    <div class="why-box">
+      <div class="why-title">🔑 The new overall strategy</div>
+      <p style="margin:0;font-size:14px">Read the WHOLE passage once, all the way through, before looking at any questions — just to get the general shape of the story (who, roughly what happens, how it ends). THEN go question by question. For each question, ask: is the answer written down directly somewhere (a LITERAL question), or do I need to combine two or more clues myself (an INFERENCE question)?</p>
+    </div>
+    <div class="tree">
+      <div class="node start">Read the whole passage once, start to finish</div>
+      <div class="arrow">↓</div>
+      <div class="node start">Look at a question</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Is the answer stated directly, in one place?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node a">LITERAL — find that exact spot, quote it</div></div>
+        <div class="leg"><span class="lbl">NO</span><div class="node b">INFERENCE — combine 2+ clues from different spots</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="node start">For INFERENCE questions especially — check what the character DOES and SAYS, not just what the narrator states outright</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: setting vs plot -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Setting vs. Plot — two easy-to-mix-up words 🏞️</h2>
+    <p>These two words sound similar in tests because they're both about "what a story has" — but they answer completely different questions.</p>
+    <div class="twins">
+      <div class="twin-card a">
+        <div class="twin-word">SETTING</div>
+        <div class="twin-ex">WHERE and WHEN the story happens. A place, a time period, a season, a kind of location.<br><br><em>"a small fishing village, early one foggy morning"</em></div>
+      </div>
+      <div class="twin-card b">
+        <div class="twin-word">PLOT</div>
+        <div class="twin-ex">WHAT HAPPENS in the story — the events, in order, that make up the action.<br><br><em>"a boy loses his family's only boat and must find a way to earn money to replace it"</em></div>
+      </div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 The quick test</div>
+      <p style="margin:0;font-size:14px">Ask: "could I draw this as a still, frozen picture (no movement)?" — if yes, that's SETTING. Ask: "does this describe something changing or happening over time?" — if yes, that's PLOT.</p>
+    </div>
+    <div class="di" id="a1"><div class="di-sent">1. "The story takes place in a busy night market lit by paper lanterns." Setting or plot?</div><div class="opts"><button class="di-opt" onclick="doA(1,'a')">Setting</button><button class="di-opt" onclick="doA(1,'b')">Plot</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="di" id="a2"><div class="di-sent">2. "A girl discovers a locked box hidden under her grandmother's bed and slowly figures out what's inside." Setting or plot?</div><div class="opts"><button class="di-opt" onclick="doA(2,'b')">Plot</button><button class="di-opt" onclick="doA(2,'a')">Setting</button></div><div class="di-fb" id="a2f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: tone -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Tone — how the writer wants you to FEEL 🎭</h2>
+    <p>Tone is almost never written as a direct sentence like "this part is sad." Instead, the writer picks certain WORDS and DETAILS that make you feel a certain way without saying it outright.</p>
+    <div class="why-box">
+      <div class="why-title">🔑 How to find tone</div>
+      <p style="margin:0;font-size:14px">Look at the word choices, not just the events. "She walked slowly" is neutral. "She trudged, shoulders slumped, staring at the ground" is the SAME event (walking) but the word choices make it feel heavy and sad. Ask yourself: "if I read this out loud, what feeling would be in my voice?"</p>
+    </div>
+    <div class="tree">
+      <div class="node start">Read the sentence/paragraph</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Which words carry extra feeling, beyond the plain facts?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Name the feeling those specific words point to (proud, worried, hopeful, embarrassed...)</div>
+    </div>
+    <div class="di" id="b1"><div class="di-sent">1. "Her hands trembled as she unfolded the exam results, and for a moment she couldn't make herself look down at the page." What tone do these details create?</div><div class="opts"><button class="di-opt" onclick="doB(1,1)">1. Nervous / anxious</button><button class="di-opt" onclick="doB(1,2)">2. Bored and uninterested</button><button class="di-opt" onclick="doB(1,3)">3. Angry and frustrated</button><button class="di-opt" onclick="doB(1,4)">4. Calm and relaxed</button></div><div class="di-fb" id="b1f"></div></div>
+    <div class="di" id="b2"><div class="di-sent">2. "He grinned the whole walk home, replaying the winning goal over and over in his head." What tone do these details create?</div><div class="opts"><button class="di-opt" onclick="doB(2,1)">1. Disappointed</button><button class="di-opt" onclick="doB(2,2)">2. Joyful / proud</button><button class="di-opt" onclick="doB(2,3)">3. Confused</button><button class="di-opt" onclick="doB(2,4)">4. Exhausted and annoyed</button></div><div class="di-fb" id="b2f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: theme -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Theme — the big message of the whole story 💡</h2>
+    <p>Theme is the biggest, most zoomed-out idea of all — it's not about any one moment, it's about what the WHOLE story seems to be teaching or valuing, once it's finished.</p>
+    <div class="why-box">
+      <div class="why-title">🔑 How to find theme</div>
+      <p style="margin:0;font-size:14px">Ask yourself at the very end: "What did the main character learn, or what mattered most to them by the end?" Theme is usually a short idea like "don't give up," "family support matters," or "it's okay to ask for help" — never a single fact from one paragraph.</p>
+    </div>
+    <div class="tree">
+      <div class="node start">Finish reading the whole story</div>
+      <div class="arrow">↓</div>
+      <div class="node q">What changed for the character, or what did they learn?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Turn that into one short, general idea — that's the theme</div>
+    </div>
+    <div class="di" id="c1"><div class="di-sent">1. A boy fails to fix his bike three times, almost gives up, but tries a fourth way after his sister offers to help — and it finally works. What's the most likely THEME?</div><div class="opts"><button class="di-opt" onclick="doC(1,2)">1. Bikes are hard to fix</button><button class="di-opt" onclick="doC(1,1)">2. Asking for help and not giving up can lead to success</button><button class="di-opt" onclick="doC(1,3)">3. His sister is good with tools</button><button class="di-opt" onclick="doC(1,4)">4. It was a sunny afternoon</button></div><div class="di-fb" id="c1f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: full passage practice -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Full passage practice 📄</h2>
+    <p>Read the whole story once before answering anything below.</p>
+    <div class="passage-box">
+      <p><strong>The Kite That Wouldn't Fly</strong></p>
+      <p>Nok had entered the village kite festival every year since she was six, and every year her kite crashed within seconds of leaving her hands. This year she was determined to finally get one off the ground properly — and stay in the air longer than her cousin Ploy, who won every single time.</p>
+      <p>She spent two whole weekends building her kite from bamboo strips and old cloth, following instructions from a library book with a cracked spine. The first test flight nose-dived straight into the dirt. She rebuilt the frame. The second attempt spun wildly and tangled itself in the mango tree. Nok sat down hard on the grass, staring at the torn cloth caught in the branches, and didn't say anything for a long time.</p>
+      <p>Her grandfather, who had been watching from his usual chair on the porch, walked over slowly and picked up one of the broken bamboo strips. "You've got the shape right," he said, turning it over in his hands. "It's the wind you haven't figured out yet — not the kite." He showed her how to check which way the breeze was moving before every launch, using nothing but a handful of dry grass tossed into the air.</p>
+      <p>Nok rebuilt the kite a third time, this time paying attention to the grass, the direction of the breeze, the angle of her arm. When she let go, the kite wobbled, dipped — and then caught the wind and climbed. She laughed out loud, watching it rise higher than the mango tree, higher than the roofline of her house, a small bright shape steady against the sky.</p>
+      <p>She didn't beat Ploy that year. But she stood in the field long after the judging ended, kite string looped around her wrist, grinning up at the one thing she had finally gotten to stay in the air.</p>
+    </div>
+    <div class="di" id="d1"><div class="di-sent">1. Where does most of this story take place?</div><div class="opts"><button class="di-opt" onclick="doD(1,3)">1. Inside the village library</button><button class="di-opt" onclick="doD(1,2)">2. At the kite festival judging area</button><button class="di-opt" onclick="doD(1,1)">3. Near Nok's house, in the field and on the porch</button><button class="di-opt" onclick="doD(1,4)">4. On a boat by the river</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="di" id="d2"><div class="di-sent">2. Which of these is part of the PLOT, not the setting?</div><div class="opts"><button class="di-opt" onclick="doD(2,2)">1. The mango tree in the yard</button><button class="di-opt" onclick="doD(2,1)">2. Nok rebuilding the kite three times</button><button class="di-opt" onclick="doD(2,3)">3. Her grandfather's usual chair on the porch</button><button class="di-opt" onclick="doD(2,4)">4. The village where the festival is held</button></div><div class="di-fb" id="d2f"></div></div>
+    <div class="di" id="d3"><div class="di-sent">3. "Nok sat down hard on the grass, staring at the torn cloth caught in the branches, and didn't say anything for a long time." What tone does this moment create?</div><div class="opts"><button class="di-opt" onclick="doD(3,4)">1. Excited and hopeful</button><button class="di-opt" onclick="doD(3,3)">2. Bored</button><button class="di-opt" onclick="doD(3,2)">3. Amused</button><button class="di-opt" onclick="doD(3,1)">4. Discouraged / disappointed</button></div><div class="di-fb" id="d3f"></div></div>
+    <div class="di" id="d4"><div class="di-sent">4. What did Nok's grandfather teach her that actually fixed the problem?</div><div class="opts"><button class="di-opt" onclick="doD(4,3)">1. How to build a stronger bamboo frame</button><button class="di-opt" onclick="doD(4,1)">2. How to check the wind's direction before launching</button><button class="di-opt" onclick="doD(4,2)">3. How to run faster while launching</button><button class="di-opt" onclick="doD(4,4)">4. How to tie a better knot in the string</button></div><div class="di-fb" id="d4f"></div></div>
+    <div class="di" id="d5"><div class="di-sent">5. What is the most likely THEME of this story?</div><div class="opts"><button class="di-opt" onclick="doD(5,2)">1. Kite festivals happen every year</button><button class="di-opt" onclick="doD(5,4)">2. Winning is the only thing that matters</button><button class="di-opt" onclick="doD(5,1)">3. Learning from others and not giving up can matter more than winning</button><button class="di-opt" onclick="doD(5,3)">4. Bamboo is a good material for building</button></div><div class="di-fb" id="d5f"></div></div>
+    <div class="drill-score" id="dScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: embedded vocab -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Vocabulary keep-sharp 📖</h2>
+    <div class="vocab-box">
+      <div class="vocab-title">A proper, standalone look at "futile" 🎯</div>
+      <p style="margin:0 0 10px;font-size:14px">This word has slipped twice now on quick passage mentions — so this time, no passage, just the word on its own with one clear example.</p>
+      <p style="margin:0 0 10px;font-size:14px"><strong>futile</strong> = completely useless; having no real chance of success, no matter how much effort goes in.</p>
+      <p style="margin:0 0 10px;font-size:14px">Example: "Bailing water out of the sinking rowboat with a small cup was futile — the boat was going down no matter what he did."</p>
+      <div class="di" id="v1"><div class="di-sent">1. "After the fifth attempt to start the old lawnmower failed, Somchai finally admitted the repair was futile." What does "futile" mean here?</div><div class="opts"><button class="di-opt" onclick="doV(1,2)">1. Quick and easy</button><button class="di-opt" onclick="doV(1,1)">2. Useless, with no real chance of success</button><button class="di-opt" onclick="doV(1,3)">3. Expensive</button><button class="di-opt" onclick="doV(1,4)">4. Interesting</button></div><div class="di-fb" id="v1f"></div></div>
+    </div>
+    <div class="vocab-box" style="border-color:#AD1457;background:#FCE4EC">
+      <div class="vocab-title" style="color:#AD1457">Keep the opposite-check habit sharp 🔑</div>
+      <p style="margin:0 0 10px;font-size:14px">A fresh word, continuing the habit that worked so well last time on "impartial."</p>
+      <div class="di" id="v2"><div class="di-sent">2. "Instead of planning the trip for months like usual, they packed a bag and left the very same afternoon — a completely spontaneous decision." What does "spontaneous" most likely mean?</div><div class="opts"><button class="di-opt" onclick="doV(2,3)">1. Carefully planned long in advance</button><button class="di-opt" onclick="doV(2,2)">2. Expensive and complicated</button><button class="di-opt" onclick="doV(2,1)">3. Done suddenly, without planning ahead</button><button class="di-opt" onclick="doV(2,4)">4. Boring and predictable</button></div><div class="di-fb" id="v2f"></div></div>
+    </div>
+    <div class="drill-score" id="vScore"></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_SoAsAResultLock.html" class="btn-prev">← Cloze Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);}
+
+var wuKey={1:'a',2:'a'};var wuWhy={1:'"It was raining" tells you the WEATHER/TIME conditions — that\'s setting.',2:'Slamming the door and storming off SHOWS how she feels through action, not a stated time or place.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:'a',2:'b'};var aWhy={1:'A night market lit by lanterns is a WHERE — a place. Setting.',2:'Discovering a box and figuring out what\'s inside is something HAPPENING over time. Plot.'};var aDone={};
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+aWhy[n];}}
+
+var bKey={1:1,2:2};var bWhy={1:'Trembling hands and being unable to look down both point to nervous/anxious.',2:'Grinning the whole walk home and replaying a win both point to joyful/proud.'};var bDone={};
+function doB(n,c){if(bDone[n])return;bDone[n]=true;var it=document.getElementById('b'+n);var fb=document.getElementById('b'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===bKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+bWhy[n];}}
+
+var cKey={1:1};var cWhy2={1:'The boy almost gave up but succeeded once he accepted help and tried again — that\'s the general lesson, not any single fact.'};var cDone={};
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var it=document.getElementById('c'+n);var fb=document.getElementById('c'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===cKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy2[n];}else{fb.className='di-fb no';fb.textContent='❌ '+cWhy2[n];}}
+
+var dKey={1:1,2:1,3:1,4:1,5:1};
+var dWhy={
+ 1:'The story mostly happens in the field near Nok\'s house and on the porch — that\'s stated across several paragraphs, not one sentence.',
+ 2:'Rebuilding the kite three times is an EVENT happening over time — plot. The mango tree, the porch chair, and the village are all setting details.',
+ 3:'Sitting down hard, staring, and going silent all point to discouragement/disappointment after the crash.',
+ 4:'Her grandfather taught her to check the wind\'s direction before launching — that\'s what actually fixed the problem, not a stronger frame or a better knot.',
+ 5:'She didn\'t win, but the story ends on her grandfather\'s help and her own persistence getting the kite to fly — the message is about learning from others and not giving up, not about winning.'
+};
+var dDone={};var dC=0;
+function doD(n,c){
+  if(dDone[n])return;dDone[n]=true;
+  var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c===dKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+dWhy[n];dC++;}
+  else{fb.className='di-fb no';fb.textContent='❌ '+dWhy[n];}
+  if(Object.keys(dDone).length===5){var s=document.getElementById('dScore');s.className='drill-score show';s.innerHTML='<strong>Story passage practice: '+dC+'/5</strong>';}
+}
+
+var vKey={1:1,2:3};var vWhy={1:'Five failed attempts, then giving up on the repair = useless, with no real chance of success.',2:'Packing and leaving the same afternoon, instead of months of planning = done suddenly, without planning ahead. Option 1 ("carefully planned long in advance") is the near-opposite trap.'};var vDone={};var vC=0;
+function doV(n,c){if(vDone[n])return;vDone[n]=true;var it=document.getElementById('v'+n);var fb=document.getElementById('v'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===vKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+vWhy[n];vC++;}else{fb.className='di-fb no';fb.textContent='❌ '+vWhy[n];}if(Object.keys(vDone).length===2){var s=document.getElementById('vScore');s.className='drill-score show';s.innerHTML='<strong>Vocabulary: '+vC+'/2</strong>';}}
+</script>
+</body>
+</html>
