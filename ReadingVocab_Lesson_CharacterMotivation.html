@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading &amp; Vocabulary — Character Motivation — Unit 25 Lesson 3</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#FFF8ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1565C0;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(21,101,192,0.10);margin-bottom:18px}
+h2{color:#1565C0;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1565C0,#FB8C00);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#FFF3E0;border:2px solid #FB8C00;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#E65100;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1565C0;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1565C0;color:#fff}
+.node.q{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.a{background:#2E7D32;color:#fff}
+.node.b{background:#EF6C00;color:#fff}
+.arrow{font-size:18px;color:#1565C0;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#1565C0}
+.twins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.twin-card{border-radius:10px;padding:14px}
+.twin-card.ext{background:#E3F2FD;border:2px solid #1565C0}
+.twin-card.int{background:#FFF3E0;border:2px solid #FB8C00}
+.twin-title{font-weight:800;margin-bottom:6px;font-size:1.02rem}
+.twin-card.ext .twin-title{color:#0D47A1}
+.twin-card.int .twin-title{color:#E65100}
+.twin-ex{font-size:12.5px;color:#444;line-height:1.6}
+.excerpt{background:#FBF7F0;border:2px dashed #DDBB88;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.8;font-style:italic}
+.passage{background:#FBF7F0;border:2px solid #E8CFA0;border-radius:12px;padding:18px;margin:14px 0;font-size:14.5px;line-height:1.9}
+.passage h3{color:#8B5A2B;font-size:1rem;margin-bottom:8px}
+.di{background:#fff;border:2px solid #FFE0B2;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#FFF3E0;border:2px solid #FB8C00;color:#E65100;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1565C0,#FB8C00);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #FFE0B2;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1565C0,#FB8C00);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #FFE0B2;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1565C0,#0D47A1);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading &amp; Vocabulary — Character Motivation</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 25 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 📖</div>
+      <p style="margin:0;font-size:14px">You've already learned to spot a story's setting, plot, tone, and theme. Today we add one more skill on top: figuring out WHY a character does what they do — their motivation. This is one of the biggest jumps between "reading" and "reading closely," and it's exactly the kind of question that shows up in tougher comprehension passages. Once you can explain a character's motivation, you understand the story at a much deeper level.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick recap 🔍</div>
+    <p>Two fast checks on skills from the last Reading lesson.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. Which of these is a TONE word (describes the feeling/mood of the writing)?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) hopeful</button><button class="di-opt" onclick="doWu(1,'b')">B) kitchen</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="di" id="wu2"><div class="di-sent">2. The THEME of a story is...</div><div class="di-btns"><button class="di-opt" onclick="doWu(2,'a')">A) the big life lesson or message underneath the story</button><button class="di-opt" onclick="doWu(2,'b')">B) the exact place and time the story happens</button></div><div class="di-fb" id="wu2f"></div></div>
+    <p style="margin-top:10px">Good — solid foundation. Let's build on it. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: what is motivation -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>What is "character motivation"? 🎯</h2>
+    <p>Motivation is the REASON a character does something — what they want, or what feeling is pushing them to act. Authors rarely say the reason directly. You have to piece it together like a detective, using three clues: what the character DOES, what they SAY, and what happens AFTERWARD.</p>
+    <div class="tree">
+      <div class="node start">To find a character's motivation, ask:</div>
+      <div class="arrow">↓</div>
+      <div class="node q">What does the character do or say that seems important?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">What do they seem to WANT — a feeling, a person's approval, to fix something, to prove something?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Does the story's ending or outcome support that guess?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">That "want" is the motivation.</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: external vs internal -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Two kinds of motivation 🧭</h2>
+    <p>Motivations usually come from one of two places:</p>
+    <div class="twins">
+      <div class="twin-card ext">
+        <div class="twin-title">🌍 EXTERNAL</div>
+        <div class="twin-ex">Comes from OUTSIDE the character — a rule, a person telling them to, a prize, a deadline.<br><br><em>"Coach said everyone had to run the extra lap, so Dan ran it."</em></div>
+      </div>
+      <div class="twin-card int">
+        <div class="twin-title">💛 INTERNAL</div>
+        <div class="twin-ex">Comes from INSIDE the character — a feeling like love, pride, guilt, fear, or wanting to prove something to themselves.<br><br><em>"Dan ran the extra lap even though no one was watching, because he wanted to prove to himself he could."</em></div>
+      </div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 How to tell them apart</div>
+      <p style="margin:0;font-size:14px">Ask: "if nobody else was around, would the character still do it?" If YES, it's likely INTERNAL (a feeling). If they'd only do it because someone told them to or something outside is forcing it, it's EXTERNAL.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: worked example -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Worked example 👀</h2>
+    <div class="excerpt">"Every morning before school, Tara watered the row of sunflowers she had planted along the fence. Nobody had asked her to. Her little brother teased her about it, saying flowers were boring. But Tara kept going out, rain or shine, remembering how her father used to grow sunflowers in their old garden before they moved."</div>
+    <div class="worked" style="background:#fff;border:2px solid #FFE0B2;border-radius:10px;padding:14px 16px;margin:10px 0">
+      <p style="font-size:13.5px;line-height:1.8;margin:0"><b>What does she do?</b> Waters sunflowers every morning, even though nobody asked and her brother teases her.<br><b>What might she want?</b> A connection to her father and their old garden — a memory, not approval from anyone else.<br><b>Does the outcome support it?</b> Yes — she keeps going despite teasing, which only makes sense if the reason comes from inside her, not from wanting outside approval.<br><b>Answer:</b> INTERNAL motivation — she's keeping a memory of her father alive.</p>
+    </div>
+    <div class="di" id="a1"><div class="di-sent">Your turn:<br><br>"Malee practiced her violin for two hours every night, even after her fingers ached. Her parents never made her — in fact, they sometimes told her to rest. She kept thinking about the school concert, and how badly she wanted to play the solo perfectly, just for herself."<br><br>Is Malee's motivation external or internal?</div><div class="di-btns"><button class="di-opt" onclick="doA(1,'int')">Internal — a personal want, not outside pressure</button><button class="di-opt" onclick="doA(1,'ext')">External — someone is making her practice</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: practice items -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Practice — spot the motivation 🎯</h2>
+    <div class="di" id="b1"><div class="di-sent">1. "The librarian told every student they had to return overdue books by Friday, or lose library privileges for a month. Omar rushed to return his books that afternoon." What is Omar's motivation?</div><div class="opts"><button class="di-opt" onclick="doB(1,'ext')">1. External — avoiding the librarian's punishment</button><button class="di-opt" onclick="doB(1,'int')">2. Internal — a personal feeling pushing him</button></div><div class="di-fb" id="b1f"></div></div>
+    <div class="di" id="b2"><div class="di-sent">2. "After losing the spelling bee last year, Priya spent every lunch break quietly practicing word lists by herself, telling no one." What is Priya's motivation?</div><div class="opts"><button class="di-opt" onclick="doB(2,'int')">1. Internal — wanting to prove something to herself after the loss</button><button class="di-opt" onclick="doB(2,'ext')">2. External — a teacher assigned the practice</button></div><div class="di-fb" id="b2f"></div></div>
+    <div class="di" id="b3"><div class="di-sent">3. "The new rule said any student caught littering had to pick up trash for a week. Jamie stopped dropping wrappers on the field." What is Jamie's motivation?</div><div class="opts"><button class="di-opt" onclick="doB(3,'ext')">1. External — avoiding the punishment in the new rule</button><button class="di-opt" onclick="doB(3,'int')">2. Internal — a sudden personal love of the environment</button></div><div class="di-fb" id="b3f"></div></div>
+    <div class="drill-score" id="bScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: full passage -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Full story practice 📚</h2>
+    <div class="passage">
+      <h3>The Lantern Contest</h3>
+      <p>Mali's grandmother had taught her how to fold paper lanterns since she was five years old, sitting together at the kitchen table every autumn evening. Delicate creases, careful folds, a candle glowing inside — Grandma always said a good lantern should look like it was made of light itself.</p>
+      <p>Then, in September, Grandma moved two streets away to live with Mali's aunt, in a part of town where she knew almost no one. On their weekend video calls, Grandma still smiled, but her voice had lost some of its usual sparkle. She mentioned the new neighbours politely, never warmly. Mali noticed, and it worried her.</p>
+      <p>When the community centre announced its annual Lantern Festival contest, Mali signed up immediately — not because a teacher assigned it, and not really for the small trophy either. She spent three weekends practicing, ruining a dozen sheets of paper before her folds finally matched the ones Grandma had shown her years ago.</p>
+      <p>On the night of the festival, Mali carried her finished lantern — glowing gold, folded exactly the way Grandma had taught her — straight to her grandmother's new street and set it on the porch railing, lit and glowing, facing the window. A moment later, the porch light switched on, and Grandma stepped outside, staring at the lantern with her hand pressed to her chest, smiling the widest smile Mali had seen in months.</p>
+    </div>
+    <div class="di" id="c1"><div class="di-sent">1. (Setting) Where does most of the story's action lead Mali to travel?</div><div class="opts"><button class="di-opt" onclick="doC(1,3)">1. School</button><button class="di-opt" onclick="doC(1,2)">2. The community centre</button><button class="di-opt" onclick="doC(1,1)">3. Her grandmother's new street</button></div><div class="di-fb" id="c1f"></div></div>
+    <div class="di" id="c2"><div class="di-sent">2. (Motivation) Why does Mali really enter the lantern contest?</div><div class="opts"><button class="di-opt" onclick="doC(2,2)">1. To win the small trophy</button><button class="di-opt" onclick="doC(2,1)">2. To cheer up her grandmother, who seems lonely since moving</button><button class="di-opt" onclick="doC(2,3)">3. Because a teacher required it for class</button></div><div class="di-fb" id="c2f"></div></div>
+    <div class="di" id="c3"><div class="di-sent">3. (Internal or external?) Is Mali's motivation internal or external?</div><div class="di-btns"><button class="di-opt" onclick="doC(3,'int')">Internal — it comes from her own care for her grandmother</button><button class="di-opt" onclick="doC(3,'ext')">External — someone required her to enter</button></div><div class="di-fb" id="c3f"></div></div>
+    <div class="di" id="c4"><div class="di-sent">4. (Tone) Which word best matches the tone of the story's final paragraph?</div><div class="opts"><button class="di-opt" onclick="doC(4,3)">1. Frightening</button><button class="di-opt" onclick="doC(4,2)">2. Bored</button><button class="di-opt" onclick="doC(4,1)">3. Warm and touching</button></div><div class="di-fb" id="c4f"></div></div>
+    <div class="di" id="c5"><div class="di-sent">5. (Theme) Which message fits this story best?</div><div class="opts"><button class="di-opt" onclick="doC(5,1)">1. A thoughtful gift can remind someone they aren't forgotten</button><button class="di-opt" onclick="doC(5,2)">2. Contests are the best way to make friends</button><button class="di-opt" onclick="doC(5,3)">3. Paper folding is easy once you practice once</button></div><div class="di-fb" id="c5f"></div></div>
+    <div class="di" id="c6"><div class="di-sent">6. (Vocabulary) Grandma's voice "had lost some of its usual sparkle." A word close in meaning to how Grandma felt is "wistful" (a quiet, gentle sadness, often missing something). Which word means roughly the OPPOSITE of wistful?</div><div class="opts"><button class="di-opt" onclick="doC(6,2)">1. Nervous</button><button class="di-opt" onclick="doC(6,1)">2. Cheerful</button><button class="di-opt" onclick="doC(6,3)">3. Sleepy</button></div><div class="di-fb" id="c6f"></div></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Great work! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">To find motivation: notice what a character does and says, guess what they want, then check if the ending supports it. Ask "would they still do it if nobody was watching?" to tell internal from external.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Grammar_Lesson_ThreeChecksReset.html" class="btn-hub">← Prev Lesson</a>
+    <a href="index.html" class="btn-lesson">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'a',2:'a'};var wuWhy={1:'Correct — "hopeful" describes a feeling/mood, which is a tone word.',2:'Correct — theme is the underlying life lesson, not the setting.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:'int'};var aWhy={1:'Internal — her parents told her to rest, not practice, and she kept going anyway for her own personal want (playing the solo perfectly). Since the pressure isn\'t coming from outside, it must be coming from inside her.'};var aDone={};
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+aWhy[n];}}
+
+var bKey={1:'ext',2:'int',3:'ext'};
+var bWhy={
+ 1:'The librarian\'s rule (lose privileges) is the outside pressure driving Omar\'s action — external.',
+ 2:'No one assigned this. Priya practices alone, telling no one, driven by her own past loss — internal.',
+ 3:'The new rule with its punishment is what changed Jamie\'s behaviour — external, even though the result (less littering) looks good.'
+};
+var bDone={};var bC=0;
+function doB(n,c){if(bDone[n])return;bDone[n]=true;var it=document.getElementById('b'+n);var fb=document.getElementById('b'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===bKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bWhy[n];bC++;}else{fb.className='di-fb no';fb.textContent='❌ '+bWhy[n];}if(Object.keys(bDone).length===3){var s=document.getElementById('bScore');s.className='drill-score show';s.innerHTML='<strong>Motivation practice: '+bC+'/3</strong>';}}
+
+var cKey={1:1,2:1,3:'int',4:1,5:1,6:1};
+var cWhy={
+ 1:'Mali\'s biggest journey in the story is carrying the finished lantern to her grandmother\'s new street.',
+ 2:'The story states the trophy wasn\'t really why she entered — the real reason is her worry about Grandma seeming lonely since the move.',
+ 3:'Nobody required Mali to enter or to deliver the lantern in person — it comes from her own care for her grandmother, so it\'s internal.',
+ 4:'Grandma smiling "the widest smile in months" while Mali watches is a warm, touching moment.',
+ 5:'The lantern reminds Grandma that she is thought of and not forgotten in her new home — that is the story\'s core message.',
+ 6:'"Wistful" is a quiet sadness, missing something. "Cheerful" is its opposite — happy and bright, not missing anything.'
+};
+var cDone={};var cC=0;
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var it=document.getElementById('c'+n);var fb=document.getElementById('c'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===cKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy[n];cC++;}else{fb.className='di-fb no';fb.textContent='❌ '+cWhy[n];}if(Object.keys(cDone).length===6){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Full story practice: '+cC+'/6</strong>';}}
+
+function buildReport(){
+  var b=(Object.keys(bDone).length===3)?bC:0;
+  var c=(Object.keys(cDone).length===6)?cC:0;
+  document.getElementById('reportWrap').innerHTML='<p><strong>Internal vs external practice:</strong> '+b+'/3<br><strong>The Lantern Contest — full comprehension:</strong> '+c+'/6</p>';
+}
+</script>
+</body>
+</html>
