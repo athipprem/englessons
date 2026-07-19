@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Grammar Forms in the Blank — Unit 26 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.cmp-card{border-radius:10px;padding:14px;text-align:center}
+.cmp-card.adj{background:#E8F5E9;border:2px solid #2E7D32}
+.cmp-card.noun{background:#FFF3E0;border:2px solid #FB8C00}
+.cmp-title{font-size:1.02rem;font-weight:800;margin-bottom:6px}
+.cmp-card.adj .cmp-title{color:#1B5E20}
+.cmp-card.noun .cmp-title{color:#E65100}
+.cmp-ex{font-size:12.5px;color:#444;line-height:1.7}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20}
+.node.a{background:#2E7D32;color:#fff}
+.node.b{background:#EF6C00;color:#fff}
+.arrow{font-size:18px;color:#2E7D32;line-height:1}
+.branch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.branch .leg{display:flex;flex-direction:column;align-items:center;gap:3px}
+.lbl{font-size:11px;font-weight:700;color:#2E7D32}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.passage{background:#fff;border:2px solid #C8E6C9;border-radius:12px;padding:16px;margin:14px 0;font-size:14.5px;line-height:1.9}
+.gap{font-weight:800;color:#1B5E20;cursor:pointer;text-decoration:underline dotted}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#43A047);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Grammar Forms in the Blank</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 26 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🧩</div>
+      <p style="margin:0;font-size:14px">Every cloze passage you've done so far asks you to pick the right CONNECTING WORD (so, however, although...). Today's skill is different — some competition passages leave a gap where the missing piece isn't a connector at all, it's a small GRAMMAR FORM: the right shape of a word, not the right meaning. This shows up on real exams, so today we learn two brand-new grammar-in-the-blank patterns from scratch.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>One quick check on a skill from last unit, just to stay sharp.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "Nobody watered the seedlings all weekend. ___, most of them survived the heat better than expected." Family?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'contrast')">CONTRAST (however) — a surprise result</button><button class="di-opt" onclick="doWu(1,'result')">RESULT (as a result) — a caused result</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Good — now for two completely new patterns. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: compound adjective hyphenation -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>New pattern #1 — the hyphen rule 🔗</h2>
+    <p>Look at these two sentences: <em>"She carried a 25-ounce bag."</em> and <em>"The bag weighed 25 ounces."</em> Both are about the exact same bag, but one says "25-ounce" (hyphenated, singular, no -s) and the other says "25 ounces" (no hyphen, plural, with -s). Neither is a typo — they follow a real rule.</p>
+    <div class="compare">
+      <div class="cmp-card adj">
+        <div class="cmp-title">🔗 Number + Unit AS A DESCRIBER</div>
+        <div class="cmp-ex">When the number+unit sits directly in front of a noun, describing it like an adjective, HYPHENATE it and keep the unit SINGULAR (no -s) — even though the number is bigger than one.<br><br><em>a 25-ounce bag · a 10-year-old boy · a 5-mile hike</em></div>
+      </div>
+      <div class="cmp-card noun">
+        <div class="cmp-title">📏 Number + Unit AS A MEASUREMENT</div>
+        <div class="cmp-ex">When the number+unit stands on its own (usually after "is/was/weighed"), with NO noun right after it, there's no hyphen and the unit stays PLURAL as normal.<br><br><em>The bag weighed 25 ounces · He is 10 years old · They hiked 5 miles</em></div>
+      </div>
+    </div>
+    <div class="tree">
+      <div class="node start">Is there a NOUN right after the number+unit?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES — describing that noun</span><div class="node a">Hyphenate + singular unit</div></div>
+        <div class="leg"><span class="lbl">NO — standing alone</span><div class="node b">No hyphen + plural unit</div></div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: practice hyphen rule -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Practice — hyphen or no hyphen? 🎯</h2>
+    <div class="di" id="a1"><div class="di-sent">1. "The zoo just welcomed a ___ elephant calf." (2/week/old)</div><div class="opts"><button class="di-opt" onclick="doA(1,'hyph')">2-week-old (hyphenated, singular)</button><button class="di-opt" onclick="doA(1,'plain')">2 weeks old (no hyphen, plural)</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="di" id="a2"><div class="di-sent">2. "By the time she finished the race, she had run ___." (10/mile)</div><div class="opts"><button class="di-opt" onclick="doA(2,'plain')">10 miles (no hyphen, plural)</button><button class="di-opt" onclick="doA(2,'hyph')">10-mile (hyphenated, singular)</button></div><div class="di-fb" id="a2f"></div></div>
+    <div class="di" id="a3"><div class="di-sent">3. "They built a sturdy ___ fence around the garden." (6/foot)</div><div class="opts"><button class="di-opt" onclick="doA(3,'hyph')">6-foot (hyphenated, singular)</button><button class="di-opt" onclick="doA(3,'plain')">6 feet (no hyphen, plural)</button></div><div class="di-fb" id="a3f"></div></div>
+    <div class="di" id="a4"><div class="di-sent">4. "The delivery driver said the parcel weighed almost ___." (3/kilogram)</div><div class="opts"><button class="di-opt" onclick="doA(4,'plain')">3 kilograms (no hyphen, plural)</button><button class="di-opt" onclick="doA(4,'hyph')">3-kilogram (hyphenated, singular)</button></div><div class="di-fb" id="a4f"></div></div>
+    <div class="drill-score" id="aScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: subjunctive -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>New pattern #2 — the "recommend that" rule 📢</h2>
+    <p>Read this sentence out loud: <em>"The doctor recommended that he ___ more water."</em> Your ear might want "drinks" (matching "he"). But the correct answer is actually <strong>"drink"</strong> — the plain, base form, with no -s, no matter who the subject is. This special pattern is called the <strong>subjunctive</strong>, and it only shows up after a small group of trigger words.</p>
+    <div class="rule-box">
+      <div class="rule-big">After recommend that / suggest that / insist that / require that / demand that — the verb goes back to its BASE FORM. No -s. No "to." No tense change. Every time, no matter the subject.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why it feels wrong but is right</div>
+      <p style="margin:0;font-size:14px">These trigger words are all about someone WANTING something to happen — not something that's already true. English marks that "wanted, not yet real" feeling by stripping the verb down to its bare form. Compare: "He drinks water" (a fact) vs. "I recommend that he drink water" (a wish/suggestion, base form).</p>
+    </div>
+    <div class="tree">
+      <div class="node start">Does the sentence use recommend / suggest / insist / require / demand + "that"?</div>
+      <div class="branch">
+        <div class="leg"><span class="lbl">YES</span><div class="node a">Use the BASE verb form (no -s, no "to")</div></div>
+        <div class="leg"><span class="lbl">NO</span><div class="node b">Use the normal tense as usual</div></div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: practice subjunctive -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Practice — spot the base form 🎯</h2>
+    <div class="di" id="b1"><div class="di-sent">1. "The coach insists that every player ___ (arrive) fifteen minutes early." Which form?</div><div class="opts"><button class="di-opt" onclick="doB(1,1)">1. arrive (base form)</button><button class="di-opt" onclick="doB(1,2)">2. arrives</button><button class="di-opt" onclick="doB(1,3)">3. to arrive</button></div><div class="di-fb" id="b1f"></div></div>
+    <div class="di" id="b2"><div class="di-sent">2. "The notice recommends that visitors ___ (not/feed) the animals at the sanctuary." Which form?</div><div class="opts"><button class="di-opt" onclick="doB(2,1)">1. not feed (base form)</button><button class="di-opt" onclick="doB(2,2)">2. don't feeds</button><button class="di-opt" onclick="doB(2,3)">3. not to feed</button></div><div class="di-fb" id="b2f"></div></div>
+    <div class="di" id="b3"><div class="di-sent">3. "The airline requires that each passenger ___ (show) a valid ticket before boarding." Which form?</div><div class="opts"><button class="di-opt" onclick="doB(3,1)">1. show (base form)</button><button class="di-opt" onclick="doB(3,2)">2. shows</button><button class="di-opt" onclick="doB(3,3)">3. showing</button></div><div class="di-fb" id="b3f"></div></div>
+    <div class="di" id="b4"><div class="di-sent">4. "My grandmother always suggests that we ___ (try) the soup before adding more salt." Which form?</div><div class="opts"><button class="di-opt" onclick="doB(4,1)">1. try (base form)</button><button class="di-opt" onclick="doB(4,2)">2. tries</button><button class="di-opt" onclick="doB(4,3)">3. tried</button></div><div class="di-fb" id="b4f"></div></div>
+    <div class="drill-score" id="bScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: full passage practice combining both -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Full passage practice 📚</h2>
+    <p style="font-size:13.5px;color:#555">Click each gap to choose the correct form. This passage mixes both new patterns — read carefully before choosing.</p>
+    <div class="passage" id="passageBox"></div>
+    <div id="passageQs"></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>New patterns locked in! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Describing a noun directly → hyphenate + singular unit. Standing alone → no hyphen + plural. After recommend/suggest/insist/require/demand + "that" → always the base verb form, no -s, no "to."</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Grammar_Lesson_LabelItToFindIt.html" class="btn-lesson">Next Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s5'){buildPassage();}
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'contrast'};var wuWhy={1:'Correct — nobody watered them, YET they mostly survived: a surprise, not a caused result, so CONTRAST (however).'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:'hyph',2:'plain',3:'hyph',4:'plain'};
+var aWhy={
+ 1:'"elephant calf" is the noun right after — 2-week-old is describing it, so hyphenate + singular.',
+ 2:'Nothing follows "10 miles" — it stands alone as a measurement, so no hyphen, plural.',
+ 3:'"fence" is the noun right after — 6-foot is describing it, so hyphenate + singular.',
+ 4:'Nothing follows "3 kilograms" — it stands alone as a measurement, so no hyphen, plural.'
+};
+var aDone={};var aC=0;
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];aC++;}else{fb.className='di-fb no';fb.textContent='❌ '+aWhy[n];}if(Object.keys(aDone).length===4){var s=document.getElementById('aScore');s.className='drill-score show';s.innerHTML='<strong>Hyphen rule: '+aC+'/4</strong>';}}
+
+var bKey={1:1,2:1,3:1,4:1};
+var bWhy={
+ 1:'"insists that" is a trigger phrase — base form, no matter the subject: arrive.',
+ 2:'"recommends that" is a trigger phrase — base form: not feed.',
+ 3:'"requires that" is a trigger phrase — base form: show.',
+ 4:'"suggests that" is a trigger phrase — base form: try.'
+};
+var bDone={};var bC=0;
+function doB(n,c){if(bDone[n])return;bDone[n]=true;var it=document.getElementById('b'+n);var fb=document.getElementById('b'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===bKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bWhy[n];bC++;}else{fb.className='di-fb no';fb.textContent='❌ '+bWhy[n];}if(Object.keys(bDone).length===4){var s=document.getElementById('bScore');s.className='drill-score show';s.innerHTML='<strong>Subjunctive rule: '+bC+'/4</strong>';}}
+
+var cKey={};var cWhy={};var cDone={};var cC=0;
+function buildPassage(){
+  var html = 'Last spring, our neighbourhood held its first community bake sale. The organiser recommended that every stall '+
+  '<span class="gap" data-n="1">(1)___</span> a clear price list, so nobody would have to ask twice. Mrs. Alavi\'s stall sold a popular '+
+  '<span class="gap" data-n="2">(2)___</span> banana bread, sliced into small squares for tasting. Her loaf, before slicing, actually weighed almost '+
+  '<span class="gap" data-n="3">(3)___</span>, which surprised everyone. Because the queue grew so long, the committee insisted that latecomers '+
+  '<span class="gap" data-n="4">(4)___</span> patiently at the back rather than pushing forward. By early afternoon, a '+
+  '<span class="gap" data-n="5">(5)___</span> child had eaten more slices than anyone else, and everyone agreed the whole event had been a wonderful success.';
+  document.getElementById('passageBox').innerHTML = html;
+
+  cKey[1]='display'; cKey[2]='1-pound'; cKey[3]='2 pounds'; cKey[4]='wait'; cKey[5]='7-year-old';
+  var OPTS = {
+    1: [['display','display (base form — recommended that ___)'],['displays','displays']],
+    2: [['1-pound','1-pound (hyphenated, singular — describing "banana bread")'],['1 pound','1 pound']],
+    3: [['2 pounds','2 pounds (no hyphen, plural — stands alone after "weighed")'],['2-pound','2-pound']],
+    4: [['wait','wait (base form — insisted that ___)'],['waits','waits']],
+    5: [['7-year-old','7-year-old (hyphenated, singular — describing "child")'],['7 years old','7 years old']]
+  };
+  cWhy[1]='"recommended that" is a trigger phrase — base form: display.';
+  cWhy[2]='"banana bread" is the noun right after — hyphenate + singular: 1-pound.';
+  cWhy[3]='Nothing follows "2 pounds" here — it stands alone after "weighed", so no hyphen, plural.';
+  cWhy[4]='"insisted that" is a trigger phrase — base form: wait.';
+  cWhy[5]='"child" is the noun right after — hyphenate + singular: 7-year-old.';
+
+  var qHtml = '';
+  for (var n=1;n<=5;n++){
+    qHtml += '<div class="di" id="c'+n+'"><div class="di-sent">Gap ('+n+') — click the correct form:</div><div class="di-btns">';
+    OPTS[n].forEach(function(pair){
+      qHtml += '<button class="di-opt" onclick="doC('+n+',\''+pair[0]+'\')">'+pair[1]+'</button>';
+    });
+    qHtml += '</div><div class="di-fb" id="c'+n+'f"></div></div>';
+  }
+  document.getElementById('passageQs').innerHTML = qHtml;
+}
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var it=document.getElementById('c'+n);var fb=document.getElementById('c'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===cKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy[n];cC++;}else{fb.className='di-fb no';fb.textContent='❌ '+cWhy[n];}var gapEl=document.querySelector('.gap[data-n="'+n+'"]');if(gapEl)gapEl.textContent=c;if(Object.keys(cDone).length===5){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Full passage: '+cC+'/5</strong>';}}
+
+function buildReport(){
+  var a=(Object.keys(aDone).length===4)?aC:0;
+  var b=(Object.keys(bDone).length===4)?bC:0;
+  var c=(Object.keys(cDone).length===5)?cC:0;
+  document.getElementById('reportWrap').innerHTML='<p><strong>Hyphen rule practice:</strong> '+a+'/4<br><strong>Subjunctive rule practice:</strong> '+b+'/4<br><strong>Full passage (both patterns):</strong> '+c+'/5</p>';
+}
+</script>
+</body>
+</html>

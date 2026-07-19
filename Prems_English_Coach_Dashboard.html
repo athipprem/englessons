@@ -249,7 +249,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         <span class="tb-badge tb-blue">&#128221; ISA 2026 &middot; ~65th pct</span>
         <span class="tb-badge tb-teal">&#127942; ASMOPSS 2025 &middot; Hon. Mention</span>
         <span class="tb-badge tb-silver">&#9999;&#65039; School Writing &middot; 22/25</span>
-        <span class="tb-badge tb-green" id="dash-topbar-unit-badge"></span>
       </div>
     </div>
 
@@ -267,7 +266,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       </div>
       <div class="hero-box">
         <div class="hero-val" id="dash-hero-units-val">&#8212;</div>
-        <div class="hero-lbl">Units completed</div>
+        <div class="hero-lbl">Unit + Milestone Completed</div>
         <div class="hero-sub" id="dash-hero-units-sub">...</div>
       </div>
       <div class="hero-box">
@@ -588,7 +587,6 @@ PREM_ENGLISH.renderPatternInsight('dash-pattern-insight');
 PREM_ENGLISH.renderPriorityGaps('dash-priority-gaps');
 PREM_ENGLISH.renderQBreakdown('dash-q-breakdown');
 PREM_ENGLISH.renderAnalysisInsight('dash-analysis-insight');
-PREM_ENGLISH.renderUnitBadge('dash-topbar-unit-badge');
 // Hero skill % (box 1 value — computed dynamically)
 var dhs = document.getElementById('dash-hero-skill');
 if (dhs) dhs.textContent = PREM_ENGLISH.achievement() + '%';
