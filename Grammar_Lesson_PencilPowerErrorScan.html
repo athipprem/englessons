@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar — Pencil Power: Error Scan — Unit 27 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF2F7;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:840px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0D47A1;margin-bottom:6px}
+.bws-title{font-weight:700;color:#0D47A1;margin-bottom:6px;font-size:15px}
+.diag-box{background:#FFF3E0;border:2px solid #FB8C00;border-radius:10px;padding:14px 16px;margin:12px 0}
+.diag-title{font-weight:700;color:#E65100;margin-bottom:6px}
+.pencil-note{background:#FFF8E1;border:2px dashed #FBC02D;border-radius:10px;padding:10px 14px;margin:10px 0;font-size:13px;font-weight:700;color:#8a6d00;text-align:center}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.di-btns{display:flex;flex-direction:column;gap:6px}
+.di-opt{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.worked{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:14px 16px;margin:10px 0}
+.worked .step{font-size:13.5px;line-height:1.8;margin:0}
+.worked .step b{color:#0d47a1}
+.item-num{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-weight:800;font-size:12px;margin-right:6px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#0d47a1,#1e88e5);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar — Pencil Power: Error Scan</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 27 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🔍</div>
+      <p style="margin:0;font-size:14px">"Which sentence has an error?" questions show up on every real test you'll ever take — ISA, ASMOPSS, school exams, all of them. Today we change HOW we practise this one, because the last approach didn't stick without a screen helping.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick check on what's still solid 🎉</div>
+    <p>Gerund/infinitive after "regret" stayed correct again last test — quick confirm it's still automatic.</p>
+    <div class="di" id="wu1"><div class="di-sent">1. "Looking back now, he always regretted ___ (quit) the swim team so early." Which form?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'ing')">quitting (Photo-Album Rosa — looking back)</button><button class="di-opt" onclick="doWu(1,'to')">to quit (Announcement Rosa)</button></div><div class="di-fb" id="wu1f"></div></div>
+    <div class="diag-box">
+      <div class="diag-title">🔎 What actually happened last test — an honest look</div>
+      <p style="margin:0;font-size:14px">On every single error-scan question you got wrong last test, you picked one of the CORRECT, matching sentences — never once the actual broken one. That's an important clue: clicking to reveal labels on-screen helped WHILE you were doing it, but that helper isn't there on the real test, so the habit didn't come with you. Today we build the exact same routine using nothing but your own pencil and paper — the same kind of fix that cracked the very first grammar check in this whole programme, years ago.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: new pencil instruction -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The new rule: pencil, not clicking ✏️</h2>
+    <p>The routine itself hasn't changed: label the IF-half (THIRD-shape "had ___ed" or SECOND-shape plain past), then label the RESULT-half ("would have ___ed" = THIRD, plain "would ___" = SECOND). If the two labels don't match, that option is broken.</p>
+    <div class="rule-box">
+      <div class="rule-big">From today — on practice AND on the real test — grab a pencil and paper. For every option, write "3rd" or "2nd" above the IF-half, then write "3rd" or "2nd" above the RESULT-half. Only after all four options are labelled on YOUR paper do you choose an answer.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why your own pencil beats clicking</div>
+      <p style="margin:0;font-size:14px">Clicking a button to reveal a label does the "stop and look" step FOR you. Writing it yourself forces YOUR eyes to actually do the checking, with nothing else doing it for you — which is exactly the condition you'll be in on test day. It's slower at first. That's expected. It gets fast with reps, the same way the Had Test drill did.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: worked example -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Watch the pencil routine, step by step 👀</h2>
+    <div class="worked">
+      <p class="step"><b>Option 1:</b> "If the janitor had locked the gym early, the team would have practised in the hallway instead." Pencil above IF-half: <b>3rd</b> ("had locked"). Pencil above RESULT-half: <b>3rd</b> ("would have practised"). Match → clean.</p>
+      <p class="step"><b>Option 2:</b> "If the scoreboard had stopped working, the referee would call the time out loud instead." Pencil: IF-half <b>3rd</b> ("had stopped"). RESULT-half <b>2nd</b> (plain "would call"). Labels DON'T match → this is the error.</p>
+      <p class="step"><b>Option 3:</b> "If the whistle had been left at home, the coach would have used a loud clap instead." IF-half: <b>3rd</b>. RESULT-half: <b>3rd</b>. Match → clean.</p>
+      <p class="step"><b>Option 4:</b> "If the bleachers had been wet, the crowd would have stood along the fence instead." IF-half: <b>3rd</b>. RESULT-half: <b>3rd</b>. Match → clean.</p>
+      <p class="step"><b>Answer: Option 2</b> — the only pair of pencil labels that didn't match. Notice every option got labelled first, even the clean ones — that's the whole point of writing it down instead of guessing by feel.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: high-volume drill -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Pencil drill — 10 rounds 🏷️</h2>
+    <div class="pencil-note">✏️ Grab paper now. Label all four options with your pencil BEFORE you click an answer. No clicking to reveal this time — just decide, then check.</div>
+
+    <div class="di" id="d1"><div class="di-sent"><span class="item-num">1</span>Which sentence contains an error? (School Play — costumes)<br>1. If the lighting cues had been programmed correctly, the final scene would look far more dramatic.<br>2. If the costumes had arrived on time, the dress rehearsal would have gone smoothly.<br>3. If the lead actor had forgotten his lines, the director would have stepped in immediately.<br>4. If the curtains had been repaired in advance, nothing would have snagged during the show.</div><div class="di-btns"><button class="di-opt" onclick="doD(1,1)">Option 1</button><button class="di-opt" onclick="doD(1,2)">Option 2</button><button class="di-opt" onclick="doD(1,3)">Option 3</button><button class="di-opt" onclick="doD(1,4)">Option 4</button></div><div class="di-fb" id="d1f"></div></div>
+
+    <div class="di" id="d2"><div class="di-sent"><span class="item-num">2</span>Which sentence contains an error? (rehearsal)<br>1. If the pianist had practised the song daily, the musical numbers would have sounded polished.<br>2. If the props table had been organised, actors would grab the right item every time.<br>3. If the backstage crew had rehearsed the scene changes, the transitions would have been seamless.<br>4. If the microphones had been tested beforehand, the audience would have heard every word clearly.</div><div class="di-btns"><button class="di-opt" onclick="doD(2,1)">Option 1</button><button class="di-opt" onclick="doD(2,2)">Option 2</button><button class="di-opt" onclick="doD(2,3)">Option 3</button><button class="di-opt" onclick="doD(2,4)">Option 4</button></div><div class="di-fb" id="d2f"></div></div>
+
+    <div class="di" id="d3"><div class="di-sent"><span class="item-num">3</span>Which sentence contains an error? (opening night)<br>1. If the ticket booth had opened earlier, the queue would have moved much faster.<br>2. If the programme booklets had been printed correctly, parents would have known the running order.<br>3. If the front-row seats had been reserved properly, latecomers would sit in the wrong place.<br>4. If the fire exits had been blocked, the safety officer would have stopped the show.</div><div class="di-btns"><button class="di-opt" onclick="doD(3,1)">Option 1</button><button class="di-opt" onclick="doD(3,2)">Option 2</button><button class="di-opt" onclick="doD(3,3)">Option 3</button><button class="di-opt" onclick="doD(3,4)">Option 4</button></div><div class="di-fb" id="d3f"></div></div>
+
+    <div class="di" id="d4"><div class="di-sent"><span class="item-num">4</span>Which sentence contains an error? (costumes, part 2)<br>1. If the seamstress had measured everyone twice, the costumes would have fit perfectly.<br>2. If the wig had been pinned securely, it would not have slipped during the dance number.<br>3. If the shoes had been the right size, walking on stage would have felt much easier.<br>4. If the fabric had been ordered sooner, the tailoring would start a week earlier.</div><div class="di-btns"><button class="di-opt" onclick="doD(4,1)">Option 1</button><button class="di-opt" onclick="doD(4,2)">Option 2</button><button class="di-opt" onclick="doD(4,3)">Option 3</button><button class="di-opt" onclick="doD(4,4)">Option 4</button></div><div class="di-fb" id="d4f"></div></div>
+
+    <div class="di" id="d5"><div class="di-sent"><span class="item-num">5</span>Which sentence contains an error? (set design)<br>1. If the glue had been stronger, the cardboard castle would stay standing through the whole show.<br>2. If the backdrop had been painted a week ahead, the paint would have dried completely.<br>3. If the set pieces had been measured accurately, they would have fit through the backstage door.<br>4. If the paint fumes had cleared by opening night, nobody would have felt dizzy on stage.</div><div class="di-btns"><button class="di-opt" onclick="doD(5,1)">Option 1</button><button class="di-opt" onclick="doD(5,2)">Option 2</button><button class="di-opt" onclick="doD(5,3)">Option 3</button><button class="di-opt" onclick="doD(5,4)">Option 4</button></div><div class="di-fb" id="d5f"></div></div>
+
+    <div class="di" id="d6"><div class="di-sent"><span class="item-num">6</span>Which sentence contains an error? (auditions)<br>1. If more students had auditioned, the director would have had more roles to fill.<br>2. If the audition schedule had been posted earlier, fewer students would show up confused.<br>3. If the callback list had been checked twice, no name would have been left off by mistake.<br>4. If the audition room had been quieter, the judges would have heard every performer clearly.</div><div class="di-btns"><button class="di-opt" onclick="doD(6,1)">Option 1</button><button class="di-opt" onclick="doD(6,2)">Option 2</button><button class="di-opt" onclick="doD(6,3)">Option 3</button><button class="di-opt" onclick="doD(6,4)">Option 4</button></div><div class="di-fb" id="d6f"></div></div>
+
+    <div class="di" id="d7"><div class="di-sent"><span class="item-num">7</span>Which sentence contains an error? (technical rehearsal)<br>1. If the sound system had been tested Monday, Tuesday's rehearsal would have run without interruptions.<br>2. If the smoke machine had been switched off sooner, the stage would have cleared before the next scene.<br>3. If the spotlight operator had studied the script, the light would follow the actors more naturally.<br>4. If the trapdoor had been oiled properly, it would not have creaked during the silent scene.</div><div class="di-btns"><button class="di-opt" onclick="doD(7,1)">Option 1</button><button class="di-opt" onclick="doD(7,2)">Option 2</button><button class="di-opt" onclick="doD(7,3)">Option 3</button><button class="di-opt" onclick="doD(7,4)">Option 4</button></div><div class="di-fb" id="d7f"></div></div>
+
+    <div class="di" id="d8"><div class="di-sent"><span class="item-num">8</span>Which sentence contains an error? (dress rehearsal)<br>1. If the understudy had learned the choreography, she would have been ready to step in.<br>2. If the orchestra pit had been checked for space, the musicians would have fit comfortably.<br>3. If the final run-through had started on time, the whole cast would have gone home earlier.<br>4. If the quick-change booth had been built bigger, actors would change costumes without bumping elbows.</div><div class="di-btns"><button class="di-opt" onclick="doD(8,1)">Option 1</button><button class="di-opt" onclick="doD(8,2)">Option 2</button><button class="di-opt" onclick="doD(8,3)">Option 3</button><button class="di-opt" onclick="doD(8,4)">Option 4</button></div><div class="di-fb" id="d8f"></div></div>
+
+    <div class="di" id="d9"><div class="di-sent"><span class="item-num">9</span>Which sentence contains an error? (closing night)<br>1. If the encore had been rehearsed properly, the whole cast would bow together in perfect timing.<br>2. If the final show had sold out sooner, the theatre would have added an extra performance.<br>3. If the flowers for the cast had arrived early, they would not have wilted before curtain call.<br>4. If the thank-you speech had been shorter, the audience would have stayed for the whole thing.</div><div class="di-btns"><button class="di-opt" onclick="doD(9,1)">Option 1</button><button class="di-opt" onclick="doD(9,2)">Option 2</button><button class="di-opt" onclick="doD(9,3)">Option 3</button><button class="di-opt" onclick="doD(9,4)">Option 4</button></div><div class="di-fb" id="d9f"></div></div>
+
+    <div class="di" id="d10"><div class="di-sent"><span class="item-num">10</span>Which sentence contains an error? (post-show)<br>1. If the reviews had been published sooner, more families would have bought tickets for closing weekend.<br>2. If the props had been returned to the store room, next year's team would find them easily.<br>3. If the photographer had stayed for curtain call, the yearbook would have had a group photo.<br>4. If the cast party had been planned earlier, everyone would have known where to meet.</div><div class="di-btns"><button class="di-opt" onclick="doD(10,1)">Option 1</button><button class="di-opt" onclick="doD(10,2)">Option 2</button><button class="di-opt" onclick="doD(10,3)">Option 3</button><button class="di-opt" onclick="doD(10,4)">Option 4</button></div><div class="di-fb" id="d10f"></div></div>
+
+    <div class="drill-score" id="dScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Mixed-vs-Second quick retest -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>One quick tune-up — Mixed vs Second 🔧</h2>
+    <p style="font-size:13.5px;color:#555">This slipped once last test after being solid the test before — probably just tiredness from the error-scan block right before it. Quick check it's still there.</p>
+    <div class="di" id="e1"><div class="di-sent">"If the school's music room ___ soundproofed last year, the choir practice ___ so much noise for the whole hallway right now." Choose the correct pair.</div><div class="di-btns"><button class="di-opt" onclick="doE(1,1)">1. was not / would not make</button><button class="di-opt" onclick="doE(1,2)">2. had not been / would not make</button><button class="di-opt" onclick="doE(1,3)">3. had not been / will not make</button><button class="di-opt" onclick="doE(1,4)">4. had not been / would not have made</button></div><div class="di-fb" id="e1f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: report + nav -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Great effort! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">On every error-scan question — practice AND the real test — write "2nd" or "3rd" above each half of every option with your own pencil before you choose. If the labels match, it's clean. If they don't, that's your error.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_TriggerWordFirst.html" class="btn-hub">← Prev Lesson</a>
+    <a href="index.html" class="btn-lesson">Back to Hub →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s5'){buildReport();}
+}
+
+var wuKey={1:'ing'};var wuWhy={1:'Correct — "looking back now" is Photo-Album Rosa: already happened, feeling sorry about it → quitting.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var dKey={1:1,2:2,3:3,4:4,5:1,6:2,7:3,8:4,9:1,10:2};
+var dWhy={
+ 1:'Option 1 ✗ — "had been programmed" (3rd IF-half) + "would look" (plain would, 2nd-type result) = mismatch. Options 2, 3, 4 are all clean 3rd/3rd pairs.',
+ 2:'Option 2 ✗ — "had been organised" (3rd) + "would grab" (plain would, 2nd-type) = mismatch. Options 1, 3, 4 are all clean 3rd/3rd pairs.',
+ 3:'Option 3 ✗ — "had been reserved" (3rd) + "would sit" (plain would, 2nd-type) = mismatch. Options 1, 2, 4 are all clean 3rd/3rd pairs.',
+ 4:'Option 4 ✗ — "had been ordered" (3rd) + "would start" (plain would, 2nd-type) = mismatch. Options 1, 2, 3 are all clean 3rd/3rd pairs.',
+ 5:'Option 1 ✗ — "had been stronger" (3rd) + "would stay" (plain would, 2nd-type) = mismatch. Options 2, 3, 4 are all clean 3rd/3rd pairs.',
+ 6:'Option 2 ✗ — "had been posted" (3rd) + "would show" (plain would, 2nd-type) = mismatch. Options 1, 3, 4 are all clean 3rd/3rd pairs.',
+ 7:'Option 3 ✗ — "had studied" (3rd) + "would follow" (plain would, 2nd-type) = mismatch. Options 1, 2, 4 are all clean 3rd/3rd pairs.',
+ 8:'Option 4 ✗ — "had been built" (3rd) + "would change" (plain would, 2nd-type) = mismatch. Options 1, 2, 3 are all clean 3rd/3rd pairs.',
+ 9:'Option 1 ✗ — "had been rehearsed" (3rd) + "would bow" (plain would, 2nd-type) = mismatch. Options 2, 3, 4 are all clean 3rd/3rd pairs.',
+ 10:'Option 2 ✗ — "had been returned" (3rd) + "would find" (plain would, 2nd-type) = mismatch. Options 1, 3, 4 are all clean 3rd/3rd pairs.'
+};
+var dDone={};var dC=0;
+function doD(n,c){if(dDone[n])return;dDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===dKey[n]){fb.className='di-fb ok';fb.textContent='✅ Correct — '+dWhy[n];dC++;}else{fb.className='di-fb no';fb.textContent='❌ Answer: option '+dKey[n]+'. '+dWhy[n];}if(Object.keys(dDone).length===10){var s=document.getElementById('dScore');s.className='drill-score show';s.innerHTML='<strong>Pencil drill: '+dC+'/10</strong>';}}
+
+var eKey={1:2};var eWhy={1:'"right now" signals the Mixed recipe: a past cause ("had not been" soundproofed last year) with a PRESENT result ("would not make" so much noise right now). Option 1\'s if-half isn\'t the valid shape. Option 3 breaks the Will Ban. Option 4 wrongly pushes the result into the past.'};var eDone={};
+function doE(n,c){if(eDone[n])return;eDone[n]=true;var it=document.getElementById('e'+n);var fb=document.getElementById('e'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===eKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+eWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+eWhy[n];}}
+
+function buildReport(){
+  var d=(Object.keys(dDone).length===10)?dC:0;
+  var e=dDone[1]?(eKey[1]===2?1:0):null;
+  document.getElementById('reportWrap').innerHTML='<p><strong>Pencil drill (10 rounds):</strong> '+d+'/10<br><strong>Mixed-vs-Second tune-up:</strong> '+(e===null?'not attempted':(e?'correct ✅':'try the routine again next time'))+'</p>';
+}
+</script>
+</body>
+</html>
