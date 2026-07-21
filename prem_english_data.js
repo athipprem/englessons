@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '20 Jul 2026',
+  updated:        '21 Jul 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           27,
-    status:      'Cloze: Trigger Word First &middot; Grammar: Pencil Power Error Scan &middot; Test Ready, Awaiting Prem',
+    n:           28,
+    status:      'Cloze: Spot It Yourself &middot; Grammar &amp; Vocab: Protect and Polish &middot; Test Ready, Awaiting Prem',
     testPending: true
   },
 
@@ -32,67 +32,67 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 26 — updated after each test)
+  // Last completed assessment (Unit 27 — updated after each test)
   lastUnit: {
-    n: 26, label: 'Unit 26', score: 11, outOf: 20, pct: 55, delta: -3, prevScore: 14,
+    n: 27, label: 'Unit 27', score: 14, outOf: 20, pct: 70, delta: 3, prevScore: 11,
 
-    patternLabel:   'Unit 26 &mdash; 20 Jul 2026 &middot; 11/20 (55%) &middot; second-lowest score in the programme &mdash; but concentrated in 2 clearly-diagnosed causes, not a broad dip',
-    patternInsight: '<strong>Score: 11/20 (55%), down from 14/20 &mdash; a low score with a narrow, well-defined cause.</strong> The written-labelling escalation for error-scan did NOT transfer to the unscaffolded test: 1/5 correct, and every wrong pick flagged a genuinely clean sentence rather than the real mismatch &mdash; the same &ldquo;surface impression&rdquo; signature as the last 3 tests, now confirmed across FOUR straight tests (1/10 total, 11%). Mixed-vs-Second Conditional, confirmed fixed with a clean 2/2 at Unit 25, backslid to a miss &mdash; a basic if-half identification slip, plausibly fatigue from three consecutive error-scan struggles right before it. Cloze&rsquo;s brand-new subjunctive strand failed ALL THREE attempts (0/3), but with a crystal-clear cause: every miss chose the ordinary &ldquo;-s&rdquo; agreement form instead of the base form &mdash; an old, deeply automatic habit overriding a brand-new rule, not misunderstanding. The OTHER new Cloze pattern, compound-adjective hyphenation, scored a clean 2/2. Vocabulary &amp; Reading stayed PERFECT (6/6) for a THIRD straight test.',
+    patternLabel:   'Unit 27 &mdash; 21 Jul 2026 &middot; 14/20 (70%) &middot; a genuinely split result &mdash; Grammar&rsquo;s pencil-drill escalation worked spectacularly, Cloze&rsquo;s instructional habit did not transfer',
+    patternInsight: '<strong>Score: 14/20 (70%), up from 11/20 &mdash; a genuinely split result, not a simple recovery.</strong> Grammar jumped from 2/7 to <strong>6/7</strong> &mdash; error-scan specifically went from 1/5 (Unit 26, guided click-labelling) to <strong>4/5</strong> (Unit 27, unscaffolded pencil-and-paper drilling), the single largest single-test jump on any sub-skill in the programme&rsquo;s history, hard evidence the FORMAT was the real blocker all along. Mixed-vs-Second Conditional was correct again, confirming Unit 26&rsquo;s miss was fatigue, not a reopening. Cloze, however, fell to <strong>2/7</strong>: the subjunctive strand missed 3 of 4 attempts, and remarkably, the wrong answer was the exact same &ldquo;-s&rdquo; agreement form as last test on every miss &mdash; the &ldquo;trigger word first&rdquo; habit taught this unit did not change Prem&rsquo;s real behaviour. Compound-adjective hyphenation, solid at 2/2 last test, unexpectedly slipped to 0/2. Vocabulary &amp; Reading stayed PERFECT (6/6) for a FOURTH consecutive test, though Q20 accidentally leaked Q18&rsquo;s answer this unit (flagged by Prem himself) &mdash; now fixed via a new test-design rule.',
 
-    analysisLabel:   'Unit 26 Result Analysis &mdash; 20 Jul 2026 (labelling escalation shows no transfer yet; subjunctive miss pattern is unusually clean and fixable)',
-    analysisInsight: '<strong>Score: 11/20 (55%), FAIL by a wide margin &mdash; but NOT the Unit 13/22 overload-dip signature.</strong> Vocab is completely untouched (3rd straight 6/6) and one of two brand-new Cloze patterns (hyphenation) hit 100% &mdash; a true overload dip would catch previously-solid material broadly, including the anchor skill. The damage has two distinct, specific causes: (1) the click-to-reveal labelling built into the Unit 26 lesson didn&rsquo;t leave behind a routine Prem reproduces unprompted, with no click-through scaffold forcing the check on the real test; (2) the subjunctive pattern lost a direct competition against a much older, more automatic habit (ordinary subject-verb agreement) &mdash; a normal, very fixable first-exposure problem, not a comprehension failure. DECISION: Unit 27 stays at 2 lessons and does NOT introduce another new method &mdash; it scales up volume and removes scaffolding instead. Grammar switches from click-to-reveal to a high-volume, UNSCAFFOLDED written drill (10 items, mirroring the historical Had Test escalation) plus an explicit instruction to physically write labels on paper during the real test. Cloze gets one short lesson teaching a &ldquo;spot the trigger word first&rdquo; override habit, rather than reteaching the subjunctive concept itself (which Prem already understands &mdash; he&rsquo;s not guessing randomly, he&rsquo;s consistently defaulting to the wrong-but-familiar rule).',
+    analysisLabel:   'Unit 27 Result Analysis &mdash; 21 Jul 2026 (a direct, controlled comparison of two fix strategies: unscaffolded volume drilling worked immediately, an instructional reminder did not)',
+    analysisInsight: '<strong>The core lesson this unit is methodological, not just about Prem&rsquo;s grammar: an unscaffolded, physical, high-volume drill produced immediate transfer where a scaffolded (click-to-reveal) version and an instructional habit both failed to.</strong> Grammar&rsquo;s fix is validated with real data &mdash; Q8, Q9, Q10, and Q12 all correct, only Q14 missed, and error-scan&rsquo;s cross-test trend (U23 0/1 &rarr; U24 0/1 &rarr; U25 0/2 &rarr; U26 1/5 &rarr; U27 4/5) lines up exactly with the introduction of the unscaffolded format. Root-cause investigation of the Unit 27 Cloze lesson (during Unit 28 prep) found every practice item had been pre-labelled &ldquo;trigger word: X&rdquo; / &ldquo;no trigger word&rdquo; &mdash; the actual detection skill was never genuinely drilled, which explains why the instructional habit didn&rsquo;t transfer even though it named the diagnosis correctly. DECISION: Unit 28 drops Grammar to light maintenance only (protect a working fix, don&rsquo;t add more) and gives Cloze the SAME category of fix that just worked for Grammar &mdash; a forced, physical, two-step, zero-clue mechanic (Cloze_Lesson_SpotItYourself.html) rather than another instructional reminder. Hyphenation gets one light retest item only, since one bad data point after a clean first test isn&rsquo;t yet a confirmed pattern.',
 
-    qSummary: '<strong>11/20 (55%), FAIL &mdash; a low score with two narrow, well-diagnosed causes. Error-scan\'s new labelling method scored 1/5 on the unscaffolded test, same &ldquo;flags a clean sentence&rdquo; signature as the last 3 tests (1/10 total across 4 tests). Mixed-vs-Second backslid once after a clean pass at Unit 25 &mdash; one data point, needs a retest. Subjunctive (brand new) went 0/3, every miss choosing the ordinary &ldquo;-s&rdquo; form &mdash; a fixable habit-override problem, not confusion. Hyphenation (also brand new) went a clean 2/2. Vocab/Reading PERFECT (6/6) for a 3rd straight test. Next: UNIT 27 &mdash; Grammar shifts to high-volume unscaffolded written drilling, Cloze gets a &ldquo;trigger word first&rdquo; override habit.</strong>',
+    qSummary: '<strong>14/20 (70%), up from 11/20 &mdash; a genuinely split result. Grammar&rsquo;s unscaffolded pencil-drill escalation worked immediately: error-scan 1/5&rarr;4/5, the largest single-test jump on any sub-skill in the programme. Mixed-vs-Second confirmed not reopened; gerund/infinitive holds. Cloze&rsquo;s instructional &ldquo;trigger word first&rdquo; habit did NOT transfer: subjunctive stayed at 1/4 with the identical &ldquo;-s&rdquo; agreement miss as last test; hyphenation unexpectedly slipped 2/2&rarr;0/2. Vocab/Reading PERFECT (6/6) for a 4th straight test, though Q20 leaked Q18&rsquo;s answer this unit (Prem caught it himself) &mdash; fixed going forward. Next: UNIT 28 &mdash; Grammar to light maintenance, Cloze gets a genuine unscaffolded two-step detection drill (root cause: Unit 27&rsquo;s practice items were secretly pre-labelled).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; 2-litre bottle (hyphenated, singular &mdash; describing &ldquo;bottle&rdquo;). Foundational.' },
-      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;displays&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;display&rdquo; (base form after &ldquo;recommended that&rdquo;) &mdash; the ordinary SVA habit overriding the new subjunctive rule. Foundational.' },
-      { q:'Q3',  topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; although (CONTRAST, clause-joiner). Foundational.' },
-      { q:'Q4',  topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;explains&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;explain&rdquo; (base form after &ldquo;insisted that&rdquo;) &mdash; same SVA-override pattern as Q2. Developing.' },
-      { q:'Q5',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; 3-metre string (hyphenated, singular &mdash; describing &ldquo;string&rdquo;). Developing.' },
-      { q:'Q6',  topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;so&rdquo; (RESULT); scored answer was &ldquo;however&rdquo; (CONTRAST) &mdash; a 3rd occurrence of the RESULT-vs-CONTRAST family confusion, though only one test item this unit. Advanced.' },
-      { q:'Q7',  topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;becomes&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;become&rdquo; (base form after &ldquo;suggested that&rdquo;) &mdash; 3rd of 3 subjunctive misses, all the identical SVA-override pattern. Advanced.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Error-scan miss &mdash; flagged a clean, matching sentence instead of the real mismatch. 1st of 4 misses this test on the identical sub-skill &mdash; now 4 consecutive tests, near-zero successful reps (1/10 total). Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Error-scan miss &mdash; flagged a different clean sentence instead of the real mismatch. Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Error-scan miss &mdash; flagged a clean sentence instead of the real mismatch, same signature again. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Mixed-vs-Second fill-blank &mdash; chose &ldquo;was not / would not study&rdquo; instead of &ldquo;had not been / would not study&rdquo;, a basic if-half slip. Backslid after a clean 2/2 at Unit 25; sits right after 3 straight error-scan struggles, plausibly fatigue &mdash; needs a retest before calling it reopened. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'a', pass:true, note:'&#10003; Error-scan, correct &mdash; the ONE successful error-scan rep this test, keeping the thread from going fully to zero. Advanced.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:true, note:'&#10003; Gerund/infinitive (&ldquo;never learning&rdquo;), correct &mdash; thread stays confirmed, 3rd correct rep running. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Error-scan miss &mdash; flagged a clean sentence instead of the real mismatch, 4th of 4 misses this test. Advanced.' },
-      { q:'Q15', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Theme (helping others the way you wished someone had helped you is deeply rewarding). Foundational.' },
-      { q:'Q16', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Motivation (remembers struggling alone with fractions, wants to prevent that for others) &mdash; internal motivation, correct. Foundational.' },
-      { q:'Q17', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Detail-recall (nobody assigned him this job &mdash; the director only made a general request). Developing.' },
-      { q:'Q18', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; ashamed = feeling embarrassed or bad about something. Developing.' },
-      { q:'Q19', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Motivation-inference (he directly gave someone else the help he once wished he&rsquo;d had). Advanced.' },
-      { q:'Q20', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; proud = opposite of ashamed &mdash; near-opposite-check habit holds on a fresh word, avoiding the &ldquo;exhausted&rdquo; near-opposite trap. Advanced.' }
+      { q:'Q1',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;forms&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;form&rdquo; (base form after &ldquo;recommended that&rdquo;) &mdash; identical SVA-override pattern as Unit 26. Foundational.' },
+      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose the no-hyphen form; scored answer was &ldquo;6-foot&rdquo; (hyphenated, singular &mdash; describing &ldquo;fence&rdquo;) &mdash; an unexpected slip after a clean 2/2 last test. Foundational.' },
+      { q:'Q3',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;wears&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;wear&rdquo; (base form after &ldquo;insisted that&rdquo;) &mdash; same pattern as Q1. Foundational.' },
+      { q:'Q4',  topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Wrong singular/plural pairing on a standalone measurement gap; scored answer was &ldquo;2 metres&rdquo; (no hyphen, plural, standing alone). Developing.' },
+      { q:'Q5',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; although (CONTRAST, clause-joiner) &mdash; the one RESULT-vs-CONTRAST item, correct. Developing.' },
+      { q:'Q6',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; host (base form after &ldquo;suggested that&rdquo;) &mdash; the ONE subjunctive item Prem got right this test. Advanced.' },
+      { q:'Q7',  topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;accompanies&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;accompany&rdquo; (base form after &ldquo;required that&rdquo;) &mdash; 3rd of 4 subjunctive misses, identical SVA-override pattern. Advanced.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Error-scan correct &mdash; flagged the real mismatch (&ldquo;had arrived&rdquo; + &ldquo;would start&rdquo;). 1st of 4 successful reps this test, up from 1/5 last test. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Error-scan correct &mdash; flagged the real mismatch (&ldquo;had been weighed&rdquo; + &ldquo;would rise&rdquo;). Foundational.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Error-scan correct &mdash; flagged the real mismatch (&ldquo;had restocked&rdquo; + &ldquo;would buy&rdquo;). Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed-vs-Second correct (&ldquo;had not been / would not swim&rdquo;) &mdash; confirms Unit 26&rsquo;s miss was fatigue, not a reopening. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Error-scan correct &mdash; flagged the real mismatch (&ldquo;had been filled&rdquo; + &ldquo;would move&rdquo;). 4th of 4 successful reps &mdash; error-scan jumps to 4/5, up from 1/5 last test. Advanced.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Gerund/infinitive (&ldquo;never learning&rdquo;), correct &mdash; 4th straight correct rep. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Error-scan miss &mdash; flagged a clean sentence over the real mismatch (&ldquo;had been set up&rdquo; + &ldquo;would find&rdquo;). The one miss out of five &mdash; still a real improvement over 1/5 last test. Advanced.' },
+      { q:'Q15', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Theme (facing fear and racing anyway is real courage). Foundational.' },
+      { q:'Q16', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Motivation (recalls his coach&rsquo;s words and shows up). Foundational.' },
+      { q:'Q17', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Detail-recall (third place, his best finish ever). Developing.' },
+      { q:'Q18', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; breathless = out of breath from physical effort. Correct on paper, but Q20&rsquo;s stem accidentally restated this definition &mdash; not clean evidence this unit (flagged by Prem himself; fixed going forward via the new no-definition-leak rule). Developing.' },
+      { q:'Q19', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Inference (the nerves hadn&rsquo;t disappeared, but no longer stop him). Advanced.' },
+      { q:'Q20', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; rested = opposite of breathless &mdash; but this item&rsquo;s own stem leaked Q18&rsquo;s answer (&ldquo;out of breath&rdquo;); see note on Q18. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U26 (a low score concentrated in 2 diagnosed causes, not a broad dip):
-  // Reading/Vocabulary unchanged — both already at target, 3rd straight PERFECT test for Vocab/Reading combined;
-  // Grammar -4 — error-scan now 1/10 across 4 tests (near-zero transfer), plus a one-off Mixed-vs-Second backslide;
-  //   tempered by gerund/infinitive holding correct for a 3rd straight rep;
-  // Cloze -4 — hyphenation (brand new) scored a clean 2/2, but subjunctive (also brand new) went 0/3 with a
-  //   consistent, fixable SVA-override cause; RESULT-vs-CONTRAST also missed its one light-touch item;
-  // Writing/Conversation/CritThink/FigLang untested by U26, held at prior levels
+  // After U27 (a genuinely split result — Grammar's escalation worked, Cloze's did not transfer):
+  // Reading/Vocabulary unchanged — both already at target, 4th straight PERFECT test for Vocab/Reading combined;
+  // Grammar +5 — error-scan jumped 1/5→4/5 (unscaffolded pencil drill), the largest single-test jump on any
+  //   sub-skill in the programme; Mixed-vs-Second confirmed not reopened; gerund/infinitive holds (4th straight);
+  // Cloze -4 — subjunctive stayed stuck at 1/4 with the identical SVA-override miss as last test, and
+  //   hyphenation (previously clean 2/2) unexpectedly slipped to 0/2;
+  // Writing/Conversation/CritThink/FigLang untested by U27, held at prior levels
   skills: [
-    { name: 'Reading Compr.',    c: 85, t: 85 },   // not tested standalone at U26 (folds into Vocab section); unchanged, already at target
-    { name: 'Vocabulary',        c: 82, t: 82 },   // U26: 6/6 PERFECT — 3rd straight perfect test, already at target
-    { name: 'Grammar',           c: 74, t: 82 },   // U26: 2/7 — error-scan now 1/10 across 4 tests, Mixed-vs-Second backslid once; gerund/infinitive still holding (3rd straight correct)
-    { name: 'Cloze Test',        c: 60, t: 80 },   // U26: 3/7 — hyphenation (new) 2/2 clean, but subjunctive (new) 0/3 with a clear, fixable SVA-override cause
+    { name: 'Reading Compr.',    c: 85, t: 85 },   // not tested standalone at U27 (folds into Vocab section); unchanged, already at target
+    { name: 'Vocabulary',        c: 82, t: 82 },   // U27: 6/6 PERFECT — 4th straight perfect test, already at target
+    { name: 'Grammar',           c: 79, t: 82 },   // U27: 6/7 — error-scan 4/5 (largest single-test jump in the programme), Mixed-vs-Second confirmed stable, gerund/infinitive 4th straight correct
+    { name: 'Cloze Test',        c: 56, t: 80 },   // U27: 2/7 — subjunctive stuck at 1/4 (identical SVA-override miss), hyphenation unexpectedly slipped 2/2→0/2
     { name: 'Writing',           c: 65, t: 85 },
-    { name: 'Conversation',      c: 90, t: 85 },   // not tested at U26; unchanged
-    { name: 'Critical Thinking', c: 62, t: 80 },   // not tested at U26; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // not tested at U26; unchanged
+    { name: 'Conversation',      c: 90, t: 85 },   // not tested at U27; unchanged
+    { name: 'Critical Thinking', c: 62, t: 80 },   // not tested at U27; unchanged
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // not tested at U27; unchanged
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [85, 82, 74, 60, 65, 90, 62, 55],
+  radarCurrent:  [85, 82, 79, 56, 65, 90, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 26',
+  radarLegendUnit: 'Unit 27',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -124,11 +124,24 @@ var PREM_ENGLISH = {
     { n:23, score:15, outOf:20, delta:3, color:'#667eea', star:false, label:'U23' },
     { n:24, score:15, outOf:20, delta:0, color:'#667eea', star:false, label:'U24' },
     { n:25, score:14, outOf:20, delta:-1, color:'#667eea', star:false, label:'U25' },
-    { n:26, score:11, outOf:20, delta:-3, color:'#fc4e4e', star:false, label:'U26' }
+    { n:26, score:11, outOf:20, delta:-3, color:'#fc4e4e', star:false, label:'U26' },
+    { n:27, score:14, outOf:20, delta:3,  color:'#667eea', star:false, label:'U27' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 27,
+      title: 'Unit 27 &mdash; Cloze: Trigger Word First &middot; Grammar: Pencil Power Error Scan',
+      badge: '#667eea',
+      status: 'done',
+      note: '14/20 (70%) &mdash; <strong>a genuinely split result: Grammar&rsquo;s pencil-drill escalation worked spectacularly, Cloze&rsquo;s instructional habit did not transfer.</strong> This test was a deliberate controlled experiment &mdash; same error-scan structure as Unit 26, only the teaching METHOD changed. <strong>Grammar 6/7</strong> &#127881; &mdash; error-scan jumped from 1/5 (guided click-labelling) to <strong>4/5</strong> (unscaffolded pencil-and-paper drilling), the largest single-test jump on any sub-skill in the programme&rsquo;s history; Mixed-vs-Second confirmed not reopened, gerund/infinitive holds. <strong>Cloze fell to 2/7</strong> &mdash; the subjunctive strand missed 3 of 4 attempts, choosing the IDENTICAL &ldquo;-s&rdquo; agreement form as Unit 26 on every miss; hyphenation (clean 2/2 last test) unexpectedly slipped to 0/2. <strong>Vocab 6/6 &#9733; PERFECT</strong> for a FOURTH straight test, though Q20 accidentally leaked Q18&rsquo;s answer this unit &mdash; flagged by Prem himself, now fixed via a new no-definition-leak rule. Root-cause work during Unit 28 prep found Unit 27&rsquo;s Cloze lesson had secretly pre-labelled every practice item (&ldquo;trigger word: X&rdquo;), explaining why the instructional fix never had a chance to transfer. &middot; Next: <strong>UNIT 28</strong> &mdash; Grammar drops to light maintenance (protect the win), Cloze gets a genuine unscaffolded two-step detection drill',
+      tags: [
+        { t:'Cloze 2/7 &#9888;&#9888;', s:'background:#fff0f0;color:#c53030' },
+        { t:'Grammar 6/7 &#127881;', s:'background:#f0fff4;color:#276749' },
+        { t:'Vocab 6/6 &#9733;', s:'background:#f0fff4;color:#276749' }
+      ]
+    },
     {
       n: 26,
       title: 'Unit 26 &mdash; Grammar Narrows to Error-Scan &middot; Cloze: Grammar Forms in the Blank &middot; Grammar: Label It to Find It',
