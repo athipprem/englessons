@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMOPSS Final Week — Day 3: Grammar Error-ID &amp; Tense Traps</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F5F3FB;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#6B46C1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(107,70,193,0.10);margin-bottom:18px}
+h2{color:#6B46C1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#6B46C1,#DAA520);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#FFF3CD;border:2px solid #DAA520;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#8a6a00;margin-bottom:6px}
+.bws-title{font-weight:700;color:#6B46C1;margin-bottom:6px;font-size:15px}
+.twins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.twin-card{border-radius:10px;padding:14px}
+.twin-card.ext{background:#EDE7F6;border:2px solid #6B46C1}
+.twin-card.int{background:#FFF3CD;border:2px solid #DAA520}
+.twin-title{font-weight:800;margin-bottom:6px;font-size:1.02rem}
+.twin-card.ext .twin-title{color:#4527A0}
+.twin-card.int .twin-title{color:#8a6a00}
+.twin-ex{font-size:12.5px;color:#444;line-height:1.6}
+.di{background:#fff;border:2px solid #D1C4E9;border-radius:10px;padding:12px 16px;margin:8px 0}
+.di-sent{font-size:14px;line-height:1.6;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#EDE7F6;border:2px solid #6B46C1;color:#4527A0;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#6B46C1,#DAA520);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #D1C4E9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#6B46C1,#DAA520);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #D1C4E9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#6B46C1,#4527A0);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">ASMOPSS Final Week — Day 3: Grammar Error-ID &amp; Tense Traps</span>
+  <div class="nav-right">
+    <span class="nav-pill">Day 3 of 5</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters ⚙️</div>
+      <p style="margin:0;font-size:14px">On the real 2024 paper, Grammar crashed to 2/6 — but every single miss was a mechanic never taught in the regular lesson track, not a knowledge gap. Today covers exactly those 4 mechanics: interrupted past actions, quantity phrases that "look plural but act singular," double comparatives, and word order inside embedded questions. These are genuinely new rules, but each one is small and quick to lock in.</p>
+    </div>
+    <div class="bws-title">Before We Start 🔍</div>
+    <p>Quick check on something you already know well from ISA Grammar:</p>
+    <div class="di" id="wu1"><div class="di-sent">"He ___ a book when his friend called him." Which fits?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) was reading</button><button class="di-opt" onclick="doWu(1,'b')">B) read</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — an action already IN PROGRESS, interrupted by a shorter one. Let's formalise this and add 3 more mechanics. <strong>Next →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: interrupted past + progressive passive -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Mechanic 1 — the interrupted past ⏱️</h2>
+    <p>When one past action was already IN PROGRESS and a second, shorter action interrupts it, the longer/background action takes <strong>past continuous</strong> ("was/were + -ing"), and the shorter, interrupting action takes <strong>past simple</strong>.</p>
+    <div class="twins">
+      <div class="twin-card ext">
+        <div class="twin-title">📖 Background (longer)</div>
+        <div class="twin-ex">was reading, was walking, was sleeping — the action already happening</div>
+      </div>
+      <div class="twin-card int">
+        <div class="twin-title">⚡ Interrupter (shorter)</div>
+        <div class="twin-ex">called, knocked, rang — the sudden action that cuts in</div>
+      </div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Bonus mechanic — the "in-progress" passive</div>
+      <p style="margin:0;font-size:14px">A similar idea applies to things being built/done RIGHT NOW: "A hospital <b>is being built</b> in our neighborhood now" — not "is built" (that would mean it's already finished) and not "builds" (that\'s a general habit, not a current one-time project).</p>
+    </div>
+    <div class="di" id="a1"><div class="di-sent">"A hospital ___ in our neighborhood now, and traffic congestion ___ around the area because of the ongoing work."</div><div class="opts"><button class="di-opt" onclick="doA(1,2)">1. is built / happens</button><button class="di-opt" onclick="doA(1,1)">2. is being built / happens</button><button class="di-opt" onclick="doA(1,3)">3. builds / is happened</button></div><div class="di-fb" id="a1f"></div></div>
+    <div class="drill-score" id="aScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: quantity + singular verb -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Mechanic 2 — a whole AMOUNT is one thing 💰</h2>
+    <p>A phrase describing a total amount of money, time, or distance — even though it LOOKS plural (has an "-s") — is treated as ONE single amount, so it takes a SINGULAR verb.</p>
+    <div class="why-box">
+      <div class="why-title">🔑 The test</div>
+      <p style="margin:0;font-size:14px">Ask: "am I talking about several separate things, or one total amount?" "Ten dollars" isn't ten separate one-dollar items here — it's one price. "Three hours" isn't three separate hour-blocks — it's one length of time. One amount → singular verb (is/was/has).</p>
+    </div>
+    <div class="di" id="b1"><div class="di-sent">"Ten dollars ___ a small price to pay for something ___ you truly happy."</div><div class="opts"><button class="di-opt" onclick="doB(1,2)">1. are / makes</button><button class="di-opt" onclick="doB(1,1)">2. is / that makes</button><button class="di-opt" onclick="doB(1,3)">3. are / that makes</button></div><div class="di-fb" id="b1f"></div></div>
+    <div class="di" id="b2"><div class="di-sent">Which underlined part is wrong? "Please remember to display (A) your pass and check the sign to see how long you can stay (B) — usually three hours (C) are allowed (D)."</div><div class="opts"><button class="di-opt" onclick="doB(2,3)">1. (A) display</button><button class="di-opt" onclick="doB(2,4)">2. (B) how long you can stay</button><button class="di-opt" onclick="doB(2,1)">3. (C) three hours</button><button class="di-opt" onclick="doB(2,2)">4. (D) are allowed</button></div><div class="di-fb" id="b2f"></div></div>
+    <div class="drill-score" id="bScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: double comparative -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Mechanic 3 — never stack two comparatives 📏</h2>
+    <p>English only marks "more/-er" ONCE per comparison. Either add "-er" to a short word, or put "more" before a longer word — never both, and never "very more."</p>
+    <div class="twins">
+      <div class="twin-card ext">
+        <div class="twin-title">✅ Correct</div>
+        <div class="twin-ex">much more enjoyable · far more comfortable · a lot happier · even better</div>
+      </div>
+      <div class="twin-card int">
+        <div class="twin-title">❌ Wrong (double-marked)</div>
+        <div class="twin-ex">very more enjoyable · more happier · more better</div>
+      </div>
+    </div>
+    <div class="di" id="c1"><div class="di-sent">Which underlined part is wrong? "The weather this summer is better (A) than last year's, with clearer skies and less humidity (B), making outdoor activities (C) very more enjoyable (D) for everyone."</div><div class="opts"><button class="di-opt" onclick="doC(1,3)">1. (A) better than</button><button class="di-opt" onclick="doC(1,4)">2. (B) less humidity</button><button class="di-opt" onclick="doC(1,1)">3. (C) making outdoor activities</button><button class="di-opt" onclick="doC(1,2)">4. (D) very more enjoyable</button></div><div class="di-fb" id="c1f"></div></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: embedded question word order -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Mechanic 4 — questions hidden inside a sentence 🔀</h2>
+    <p>When a question gets tucked INSIDE a bigger sentence ("she asked where...", "I wonder if...", "he explained why..."), it stops acting like a question and goes back to normal STATEMENT word order — subject before verb.</p>
+    <div class="twins">
+      <div class="twin-card ext">
+        <div class="twin-title">❓ Real question</div>
+        <div class="twin-ex">"Where <u>was</u> the theatre?" — verb before subject, question mark</div>
+      </div>
+      <div class="twin-card int">
+        <div class="twin-title">🔀 Embedded (hidden) question</div>
+        <div class="twin-ex">"He asked where the theatre <u>was</u>." — subject before verb, no question mark</div>
+      </div>
+    </div>
+    <div class="di" id="d1"><div class="di-sent">Which underlined part is wrong? "A man stopped me (A) in the street and asked (B) if I knew (C) where was the theatre (D)."</div><div class="opts"><button class="di-opt" onclick="doD(1,3)">1. (A) stopped me</button><button class="di-opt" onclick="doD(1,4)">2. (B) asked</button><button class="di-opt" onclick="doD(1,1)">3. (C) if I knew</button><button class="di-opt" onclick="doD(1,2)">4. (D) where was the theatre</button></div><div class="di-fb" id="d1f"></div></div>
+    <div class="drill-score" id="dScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: mixed practice -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Mixed practice — all 4 mechanics together 🎯</h2>
+    <div class="di" id="f1"><div class="di-sent">1. "She ___ dinner when the phone ___ suddenly."</div><div class="opts"><button class="di-opt" onclick="doF(1,'a')">A. was cooking / rang</button><button class="di-opt" onclick="doF(1,'b')">B. cooked / was ringing</button></div><div class="di-fb" id="f1f"></div></div>
+    <div class="di" id="f2"><div class="di-sent">2. Which underlined part is wrong? "Five kilometres (A) are a long way (B) to walk in this heat, (C) especially without water (D)."</div><div class="opts"><button class="di-opt" onclick="doF(2,1)">A. (A) Five kilometres</button><button class="di-opt" onclick="doF(2,2)">B. (B) are a long way</button><button class="di-opt" onclick="doF(2,3)">C. (C) especially</button><button class="di-opt" onclick="doF(2,4)">D. (D) without water</button></div><div class="di-fb" id="f2f"></div></div>
+    <div class="di" id="f3"><div class="di-sent">3. Which underlined part is wrong? "The new bridge is (A) much stronger, and traffic flows (B) more smoother now that it's (C) finally open to (D) the public."</div><div class="opts"><button class="di-opt" onclick="doF(3,1)">A. (A) much stronger</button><button class="di-opt" onclick="doF(3,2)">B. (B) more smoother</button><button class="di-opt" onclick="doF(3,3)">C. (C) finally open</button><button class="di-opt" onclick="doF(3,4)">D. (D) the public</button></div><div class="di-fb" id="f3f"></div></div>
+    <div class="di" id="f4"><div class="di-sent">4. Which underlined part is wrong? "The teacher (A) wanted to know (B) why were the students (C) so quiet (D) that morning."</div><div class="opts"><button class="di-opt" onclick="doF(4,1)">A. (A) wanted to know</button><button class="di-opt" onclick="doF(4,2)">B. (B) why were the students</button><button class="di-opt" onclick="doF(4,3)">C. (C) so quiet</button><button class="di-opt" onclick="doF(4,4)">D. (D) that morning</button></div><div class="di-fb" id="f4f"></div></div>
+    <div class="drill-score" id="fScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Day 3 done! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">4 mechanics: (1) longer action = was/were + -ing, interrupter = simple past. (2) A whole amount (money/time/distance) is ONE thing → singular verb, even if it looks plural. (3) Never stack two comparative markers — no "very more." (4) Inside an embedded question ("asked where..."), word order goes back to statement order: subject before verb.</div></div>
+    <p style="font-size:13px;color:#555;margin-top:10px">Tomorrow (Day 4): a lighter day — sharpening Vocabulary and Conversation, your two strongest sections.</p>
+  </div>
+  <div class="lesson-nav">
+    <a href="ASMOPSS_Sprint_Day2_RealWorldTexts.html" class="btn-hub">← Prev Day</a>
+    <a href="ASMOPSS_Sprint_Day4_VocabConversation.html" class="btn-lesson">Day 4 →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'a'};var wuWhy={1:'Correct — "was reading" is the background action in progress; "called" is the short interrupter.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var aKey={1:1};var aWhy={1:'"Is being built" = happening right now, not finished (rules out "is built") and not a general habit (rules out "builds"). "Happens" fits the ongoing general effect.'};var aDone={};
+function doA(n,c){if(aDone[n])return;aDone[n]=true;var it=document.getElementById('a'+n);var fb=document.getElementById('a'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===aKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+aWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+aWhy[n];}var s=document.getElementById('aScore');s.className='drill-score show';s.innerHTML='<strong>Mechanic 1 practice: done</strong>';}
+
+var bKey={1:1,2:2};var bWhy={
+ 1:'"Ten dollars" is one total price, not ten separate items → singular "is". "That makes" is needed to complete the relative clause correctly.',
+ 2:'"Three hours" is one total length of time, not three separate hours → it needs "IS allowed", not "ARE allowed". (D) is the error.'
+};var bDone={};var bC=0;
+function doB(n,c){if(bDone[n])return;bDone[n]=true;var it=document.getElementById('b'+n);var fb=document.getElementById('b'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===bKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bWhy[n];bC++;}else{fb.className='di-fb no';fb.textContent='❌ '+bWhy[n];}if(Object.keys(bDone).length===2){var s=document.getElementById('bScore');s.className='drill-score show';s.innerHTML='<strong>Mechanic 2 practice: '+bC+'/2</strong>';}}
+
+var cKey={1:2};var cWhy={1:'"Very more enjoyable" stacks two comparative markers. It should be just "more enjoyable" or "much more enjoyable" — never "very more."'};var cDone={};
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var it=document.getElementById('c'+n);var fb=document.getElementById('c'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===cKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+cWhy[n];}var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Mechanic 3 practice: done</strong>';}
+
+var dKey={1:4};var dWhy={1:'Inside the embedded question ("asked if I knew where..."), word order goes back to statement order: "where the theatre WAS", not "where WAS the theatre".'};var dDone={};
+function doD(n,c){if(dDone[n])return;dDone[n]=true;var it=document.getElementById('d'+n);var fb=document.getElementById('d'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===dKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+dWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+dWhy[n];}var s=document.getElementById('dScore');s.className='drill-score show';s.innerHTML='<strong>Mechanic 4 practice: done</strong>';}
+
+var fKey={1:'a',2:2,3:2,4:2};
+var fWhy={
+ 1:'"Was cooking" (background, in progress) + "rang" (short interrupter) — the classic interrupted-past pattern.',
+ 2:'"Five kilometres" is one total distance, not five separate items → needs "IS a long way", not "ARE". (B) is the error.',
+ 3:'"More smoother" stacks two comparative markers ("more" + "-er"). It should be just "smoother". (B) is the error.',
+ 4:'Embedded question after "wanted to know" needs statement word order: "why the students WERE so quiet", not "why WERE the students". (B) is the error.'
+};
+var fDone={};var fC=0;
+function doF(n,c){if(fDone[n])return;fDone[n]=true;var it=document.getElementById('f'+n);var fb=document.getElementById('f'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===fKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+fWhy[n];fC++;}else{fb.className='di-fb no';fb.textContent='❌ '+fWhy[n];}if(Object.keys(fDone).length===4){var s=document.getElementById('fScore');s.className='drill-score show';s.innerHTML='<strong>Mixed practice: '+fC+'/4</strong>';}}
+
+function buildReport(){
+  var f=(Object.keys(fDone).length===4)?fC:0;
+  document.getElementById('reportWrap').innerHTML='<p><strong>Mixed practice (all 4 mechanics):</strong> '+f+'/4</p>';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ENG_Competition_ASMOPSS_2026_PredictedMock.html — built 31 Jul 2026, the Day-6 deliverable of the
+     "ASMOPSS Final Week Sprint" (see ASMOPSS_2026_Prediction_FinalWeekPlan.md). This is NOT a real past
+     paper — it is freshly authored content in the predicted 2026 format, based on the stable structure
+     found across the 2023/2024/2025 real papers (30 items, 5 parts of 20 points each, 2/3/5-point
+     weighting, 100 points total, pass bar 80). Content deliberately avoids reusing any real-paper
+     passages/items Prem has already seen, and is weighted toward his diagnosed gaps (Reading main
+     idea/purpose/inference, Grammar error-ID mechanics) while keeping Vocabulary/Conversation/Cloze at
+     a maintaining difficulty, matching the week's 5 lesson days. -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMOPSS 2026 — Predicted Mock Exam (English, Grade 4&ndash;6)</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --conv:#ad1457;  --conv-fill:#f8bbd0;  --conv-text:#ad1457;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --gram:#6b46c1;  --gram-fill:#e9d8fd;  --gram-text:#553c9a;
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --read:#00695c;  --read-fill:#b2dfdb;  --read-text:#00695c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#fffaf0;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#8a6a00,#DAA520);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.95}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  .source-note{background:#FFF3CD;border:1.5px solid #DAA520;color:#5a3d00;border-radius:10px;padding:10px 16px;font-size:.82rem;margin-bottom:14px}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#f5e6bf;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#8a6a00,#DAA520);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#8a6a00;white-space:nowrap}
+  .readfirst{background:#FFF3CD;border:1.5px solid #DAA520;color:#5a3d00;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.conversation{background:var(--conv-fill);color:var(--conv-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.reading{background:var(--read-fill);color:var(--read-text)}
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#FFF3CD;color:#5a3d00;border-left:4px solid #DAA520}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .notice{background:#FFF8E1;border:2px dashed #FFB74D;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.8}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.conversation{border-left-color:var(--conv)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.reading{border-left-color:var(--read)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .pts{font-weight:700;font-size:.75rem;color:var(--grey);background:#f4f4f8;border-radius:8px;padding:2px 8px;margin-left:6px}
+  .q p.body u{text-decoration-color:#8a6a00;text-decoration-thickness:2px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#8a6a00,#DAA520);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#FFF3CD,#FFE082);border:2px solid #8a6a00}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.2rem;font-weight:900;color:#8a6a00}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-sub{font-size:.85rem;color:var(--grey);margin-top:2px}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.75rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(50,35,0,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#8a6a00;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b>ASMOPSS 2026 &mdash; Predicted Mock Exam</b>
+      <span class="sub">English Primary &middot; Grade 4&ndash;6 &middot; Final Week Sprint, Day 6</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="source-note">&#128204; This is NOT a real past paper &mdash; it's a freshly written mock built to match the exact format found across the 2023/2024/2025 real papers (same 5 parts, same 2/3/5-point weighting, 100 points, pass bar 80), targeting your identified gaps. Treat it like the real thing: 90 minutes, one calm pass, first instinct then move on.</div>
+
+  <div class="readfirst">READ FIRST &mdash; read every question fully before choosing. Points (2/3/5) are shown per question. Aim for ~90 minutes total &mdash; see Day 5's pacing table for a section-by-section guide.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 30 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-sub"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PASS_PCT = 80;
+
+const LONG_CONV_PASSAGE = `<b>Situation:</b> Ben is helping his Aunt Carol move some boxes.<br><br>
+  <b>Aunt Carol:</b> Ben, <b>___4___</b><br>
+  <b>Ben:</b> Sure, what do you need?<br>
+  <b>Aunt Carol:</b> Could you carry these boxes to the garage? <b>___5___</b><br>
+  <b>Ben:</b> <b>___6___</b><br>
+  <b>Aunt Carol:</b> That's very thoughtful of you, thanks!`;
+
+const CLOZE_PASSAGE = `<b>Coral Reef Restoration</b><br><br>
+  Coral reefs around the world have been dying at an alarming rate, and scientists <b>___19___</b> this trend directly to rising ocean temperatures. When water becomes too warm, corals expel the colourful algae living inside them, a process <b>___20___</b> bleaching.<br><br>
+  In response, marine biologists have begun growing new coral fragments in underwater nurseries before transplanting them onto damaged reefs. Early results <b>___21___</b> encouraging so far.<br><br>
+  <b>___22___</b>, restoration alone cannot solve the underlying problem, since warmer water will keep damaging even the healthiest new coral. Conservationists insist that governments <b>___23___</b> coral restoration as only one part of a much larger climate plan, not a complete fix on its own.<br><br>
+  Without stronger action on ocean temperatures, even the most <b>___24___</b> managed restoration projects will struggle to keep pace with the damage.`;
+
+const NOTICE_PASSAGE = `<b>Passage A &mdash; Notice</b><br><br>
+  <b>COMMUNITY POOL &mdash; CLOSED FOR MAINTENANCE</b><br>
+  The pool will be closed Monday through Wednesday this week for filter repairs. Regular hours resume Thursday. Season passes will be extended by 3 days to make up for the closure.`;
+
+const NOTE_PASSAGE = `<b>Passage B &mdash; A note</b><br><br>
+  <i>"Jess, I borrowed your bike to get to practice since mine has a flat tire. I'll drop it back at your place by 6, and I already put air in both tires so yours rides better too! &mdash; Tom"</i>`;
+
+const READING_PASSAGE = `<b>Passage C &mdash; "The Little Free Library Movement"</b><br><br>
+  In 2009, a man in Wisconsin built a small wooden box shaped like a one-room schoolhouse and filled it with books, placing it in his front yard in memory of his mother, a former teacher who loved reading. He invited neighbours to take a book, leave a book, and pass the joy of reading along. He had no idea that his small tribute would spark something far bigger.<br><br>
+  Word of the tiny library spread through friends, then online, and within a few years thousands of nearly identical boxes had appeared on lawns, in parks, and outside cafes across dozens of countries. Each "Little Free Library" runs on the same simple, unsupervised system: anyone can take a book, and anyone can leave one, with no library card, no due date, and no fees.<br><br>
+  Supporters say the movement does more than just circulate books. Neighbours who had never spoken before begin chatting at the little wooden boxes, comparing what they've read. In neighbourhoods with few bookstores or a distant public library, a Little Free Library can be the only free source of books within walking distance.<br><br>
+  Critics point out that the movement can't replace a fully staffed public library, with its trained librarians, research resources, and programmes for children. Still, most agree a small box of donated books, however modest, adds something a big institution sometimes can't: a chance meeting with a neighbour over a shared love of reading.`;
+
+const SECTION_HINT = {
+  conversation: "Strategy: think about what a natural English speaker would actually say next — read the whole situation first, not just the blank.",
+  vocab:        "Strategy: match the STRENGTH/intensity of the original word, not just its general topic.",
+  grammar:      "Strategy: for error-ID items, check each labelled part on its own — tense/aspect, quantity agreement, and comparative form are the usual suspects.",
+  cloze:        "Strategy: read the whole sentence around each gap before choosing — grammar AND meaning both have to fit.",
+  reading:      "Strategy: for the long passage, ask whether each choice covers the WHOLE passage or just one detail before picking main idea/purpose answers."
+};
+
+const Q = [
+  // ===== PART I — CONVERSATION (Items 1-6) =====
+  { n:1, section:'conversation', pts:2, body:'Situation: In a library.<br>A: "Excuse me, could you keep your voice down a little?"<br>B: ___',
+    options:["I'm terribly sorry, I didn't realize.","No, I won't be quiet.","I don't have a voice today.","That's very kind of you."], ans:1,
+    why:'A polite request for quiet naturally gets a polite apology — "I\'m terribly sorry, I didn\'t realize" fits. The others either refuse rudely, misread "voice" literally, or respond as if a favour was done, not requested.' },
+  { n:2, section:'conversation', pts:3, body:'Situation: At school.<br>A: "Do you fancy joining us for the trip on Saturday?"<br>B: ___',
+    options:["I'd love to, but I've already got plans.","I fancy chocolate more than trips.","No, I don't join anything.","Saturday is my favorite day."], ans:1,
+    why:'"Fancy joining" is an invitation — a natural reply accepts or politely declines with a reason. Option 2 wrongly treats "fancy" as "like" (a different meaning), and the other two don\'t address the invitation at all.' },
+  { n:3, section:'conversation', pts:5, body:'Maya: "I heard you got the promotion!"<br>Liam: "___ I still can\'t quite believe it."',
+    options:["I'm over the moon.","I'm on thin ice.","It's not my cup of tea.","I'm all ears."], ans:1,
+    why:'"Over the moon" means extremely happy — matching good news about a promotion, and "still can\'t quite believe it" continues that excited tone. The other idioms mean being in danger ("on thin ice"), disliking something ("not my cup of tea"), or listening closely ("all ears") — none fit celebrating news.' },
+  { n:4, section:'conversation', pts:3, body:'Long conversation, blank 4 (see passage above).',
+    options:["have you got a moment?","do you like boxes?","are you in the garage?","why are you so tired?"], ans:1,
+    why:'Ben\'s reply "Sure, what do you need?" responds naturally to being asked if he has a moment to help — none of the other options make sense as something to respond to that way.' },
+  { n:5, section:'conversation', pts:5, body:'Long conversation, blank 5 (see passage above).',
+    options:["They're quite heavy, so be careful with your back.","They're empty, so don't worry about it.","I already carried them myself.","I don't need help anymore."], ans:1,
+    why:'Aunt Carol is actively asking Ben to carry boxes, so warning him they\'re heavy makes sense as a caring addition to the request. The other options contradict her asking for help at all.' },
+  { n:6, section:'conversation', pts:2, body:'Long conversation, blank 6 (see passage above).',
+    options:["No problem — I'll also stack them neatly so they don't fall.","I'm too tired to help today.","Why don't you carry them?","I don't think they're heavy at all."], ans:1,
+    why:'Aunt Carol\'s response, "That\'s very thoughtful of you," rewards Ben doing something extra and kind beyond what was asked — only option 1 offers an extra thoughtful action.' },
+
+  // ===== PART II — VOCABULARY (Items 7-12) =====
+  { n:7, section:'vocab', pts:2, body:'The volunteers were very ___ about the beach clean-up, arriving an hour early to help.',
+    options:["enthusiastic","reluctant","indifferent","exhausted"], ans:1,
+    why:'Arriving an hour early to help shows eagerness — "enthusiastic" fits exactly. "Reluctant" and "indifferent" both suggest a lack of interest, the opposite of arriving early.' },
+  { n:8, section:'vocab', pts:3, body:'The old bridge was considered ___ after the inspection revealed cracks in its foundation.',
+    options:["reliable","unsafe","attractive","historic"], ans:2,
+    why:'Cracks in the foundation are a safety problem, making "unsafe" the logical result of the inspection. "Reliable" is the opposite of what cracks would suggest.' },
+  { n:9, section:'vocab', pts:5, body:'Her explanation was so ___ that even the youngest students understood the difficult topic immediately.',
+    options:["vague","lengthy","lucid","technical"], ans:3,
+    why:'"Lucid" means very clear — exactly why even young students would understand a difficult topic immediately. "Vague" and "technical" would make understanding HARDER, not easier.' },
+  { n:10, section:'vocab', pts:2, body:'Choose the word most similar to the underlined word: The manager\'s decision to cancel the event was highly <u>controversial</u>.',
+    options:["disputed","popular","simple","expected"], ans:1,
+    why:'"Controversial" means causing disagreement/dispute — "disputed" is the closest match. "Popular" is close to the opposite.' },
+  { n:11, section:'vocab', pts:3, body:'Choose the word most similar to the underlined word: The scientist\'s theory was later proven to be entirely <u>fallacious</u>.',
+    options:["accurate","famous","mistaken","complicated"], ans:3,
+    why:'"Fallacious" means based on a mistaken belief/false — "mistaken" is the direct match. "Accurate" is the opposite.' },
+  { n:12, section:'vocab', pts:5, body:'Choose the word most similar to the underlined word: The committee\'s response to the crisis was widely seen as <u>inadequate</u>.',
+    options:["generous","delayed","confusing","insufficient"], ans:4,
+    why:'"Inadequate" means not enough — "insufficient" is the closest match in both meaning and strength. "Generous" is close to the opposite.' },
+
+  // ===== PART III — GRAMMAR (Items 13-18) =====
+  { n:13, section:'grammar', pts:2, body:'She ___ in the garden when it suddenly ___ to rain.',
+    options:["worked / was starting","works / starts","was working / started","had worked / was starting"], ans:3,
+    why:'"Was working" (the longer background action already in progress) is interrupted by the shorter action "started" (past simple) — the classic interrupted-past pattern.' },
+  { n:14, section:'grammar', pts:3, body:'Two kilometres ___ not a long distance for someone ___ runs every day.',
+    options:["is / who","are / that","are / who","is / which"], ans:1,
+    why:'"Two kilometres" is one total distance, not two separate items, so it needs the singular verb "is". Since "someone" refers to a person, the relative pronoun must be "who", not "that/which".' },
+  { n:15, section:'grammar', pts:5, body:'A new library ___ in the town centre now, and residents ___ excited about its opening next month.',
+    options:["is already built / are","was built / were","was building / were","is being built / are"], ans:4,
+    why:'"Is being built" shows an ongoing, not-yet-finished project happening right now — "is already built" would wrongly mean it\'s already finished, and "was building" wrongly places it in the past. "Residents" (plural) needs "are".' },
+  { n:16, section:'grammar', pts:2, body:'Which underlined part is grammatically/logically wrong? "The museum\'s newest exhibit (A) was extremely popular, (B) but visitors (C) still had to wait (D) in a very long queue to get in."',
+    options:["(A) was extremely popular","(B) but","(C) still had to wait","(D) in a very long queue"], ans:2,
+    why:'A popular exhibit naturally causing a long queue is a normal RESULT relationship, not a clash — it needs "so", not the CONTRAST word "but". (B) is the error.' },
+  { n:17, section:'grammar', pts:3, body:'Which underlined part is grammatically wrong? "The tourist (A) approached a local shopkeeper and (B) asked politely (C) if she knew (D) where was the nearest train station."',
+    options:["(A) approached a local shopkeeper","(B) asked politely","(C) if she knew","(D) where was the nearest train station"], ans:4,
+    why:'Inside the embedded question ("asked... if she knew where..."), word order returns to statement order: "where the nearest train station WAS", not "where WAS the nearest train station". (D) is the error.' },
+  { n:18, section:'grammar', pts:5, body:'Which underlined part is grammatically wrong? "After the renovation, the office felt (A) much brighter and the new layout made it (B) more easier (C) for staff to move around (D) between desks."',
+    options:["(A) much brighter","(B) more easier","(C) for staff to move around","(D) between desks"], ans:2,
+    why:'"More easier" stacks two comparative markers ("more" + "-er"). It should be just "easier". (B) is the error.' },
+
+  // ===== PART IV — THE CLOZE TEST (Items 19-24) =====
+  { n:19, section:'cloze', pts:2, body:"Gap 19 (see passage above) — \"...and scientists ___19___ this trend directly to rising ocean temperatures.\"",
+    options:["link","links","linking","linked"], ans:1,
+    why:'"Scientists" is plural, and this is a general present-tense fact, so it needs the base form "link", not "links".' },
+  { n:20, section:'cloze', pts:3, body:"Gap 20 — \"...a process ___20___ bleaching.\"",
+    options:["call","calling","known as","calls"], ans:3,
+    why:'"Known as" is the fixed phrase for naming a process — "a process known as bleaching" is the natural, correct construction.' },
+  { n:21, section:'cloze', pts:2, body:"Gap 21 — \"Early results ___21___ encouraging so far.\"",
+    options:["is","are","was","being"], ans:2,
+    why:'"Results" is plural, so it needs the plural verb "are", not "is" or "was".' },
+  { n:22, section:'cloze', pts:3, body:"Gap 22 — \"___22___, restoration alone cannot solve the underlying problem...\"",
+    options:["Therefore","However","In addition","As a result"], ans:2,
+    why:'The passage shifts from describing encouraging survival results to a limitation ("cannot solve the underlying problem") — that shift needs the CONTRAST word "However", not a result word like "Therefore".' },
+  { n:23, section:'cloze', pts:5, body:"Gap 23 — \"Conservationists insist that governments ___23___ coral restoration as only one part of a much larger climate plan...\"",
+    options:["treat","treats","treating","to treat"], ans:1,
+    why:'"Insist that" is a subjunctive trigger — it\'s always followed by the base form of the verb: "treat", not "treats", "treating", or "to treat".' },
+  { n:24, section:'cloze', pts:5, body:"Gap 24 — \"...even the most ___24___ managed restoration projects will struggle...\"",
+    options:["careful","carefully","care","caring"], ans:2,
+    why:'"Managed" is a past participle acting like an adjective here, and it needs an ADVERB before it to describe HOW it\'s managed: "carefully managed", not the adjective "careful".' },
+
+  // ===== PART V — READING COMPREHENSION (Items 25-30) =====
+  { n:25, section:'reading', pts:3, body:"Which statement is correct?",
+    options:["The pool is closed for the entire week.","Season pass holders will get 3 extra days added to their pass.","The filter repairs will take place on Thursday.","The pool will remain closed indefinitely."], ans:2,
+    why:'The notice states directly: "Season passes will be extended by 3 days to make up for the closure." The pool is closed Monday-Wednesday only, and reopens Thursday — not closed all week or indefinitely.' },
+  { n:26, section:'reading', pts:5, body:"What has Tom done?",
+    options:["He will fix Jess's flat tire.","He borrowed Jess's bike and improved its tires as a thank-you.","He asked Jess to fix his bike.","He will return the bike tomorrow morning."], ans:2,
+    why:'Tom borrowed the bike (his own has a flat tire) and adds that he "already put air in both tires so yours rides better too" — a small thank-you gesture. He says he\'ll return it "by 6" (today evening), not tomorrow.' },
+  { n:27, section:'reading', pts:3, body:'What is this passage mainly about?',
+    options:["How to build a wooden box for a garden","A small personal tribute that grew into a global book-sharing movement","Why public libraries need more funding","The history of Wisconsin's public schools"], ans:2,
+    why:'The whole passage traces one man\'s personal tribute box growing into a worldwide movement — covering its origin, spread, benefits, and limits. The other options are true-but-narrow details or not stated at all.' },
+  { n:28, section:'reading', pts:2, body:'In the passage, "circulate" most nearly means:',
+    options:["donate permanently","move from person to person","destroy","write"], ans:2,
+    why:'"Circulate" describes books moving from reader to reader through the take-one/leave-one system — "move from person to person" captures that exactly.' },
+  { n:29, section:'reading', pts:2, body:'According to the passage, why can a Little Free Library be especially valuable in some neighbourhoods?',
+    options:["It has more books than a public library","It may be the only free, walkable source of books nearby","It has trained librarians","It offers children's programmes"], ans:2,
+    why:'The passage states directly that in neighbourhoods "with few bookstores or a distant public library," it "can be the only free source of books within walking distance" — the other options are things the passage says public libraries have, not Little Free Libraries.' },
+  { n:30, section:'reading', pts:5, body:'What does the last paragraph suggest about the relationship between Little Free Libraries and public libraries?',
+    options:["Little Free Libraries will completely replace public libraries","They serve different purposes, each offering something the other doesn't","Public libraries are becoming unnecessary","Critics believe Little Free Libraries should be shut down"], ans:2,
+    why:'The passage says a Little Free Library "adds something a big institution sometimes can\'t" while acknowledging it "can\'t replace" a fully staffed library — meaning the two serve different, complementary purposes, not that one replaces the other.' },
+];
+
+const SECTION_LABEL = {
+  conversation: "PART I — Conversation",
+  vocab:        "PART II — Vocabulary",
+  grammar:      "PART III — Grammar",
+  cloze:        "PART IV — The Cloze Test",
+  reading:      "PART V — Reading Comprehension"
+};
+const SECTION_ORDER = ['conversation','vocab','grammar','cloze','reading'];
+const TOTAL_Q = Q.length;
+const TOTAL_POINTS = Q.reduce((s,q) => s + q.pts, 0);
+const PASS_BAR = Math.round(TOTAL_POINTS * PASS_PCT / 100);
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+document.getElementById('progress-label').textContent = `0 / ${TOTAL_Q} answered`;
+
+const chosen = {};
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint">${SECTION_HINT[q.section] || ''}</div>`;
+      if (q.section === 'conversation') html += `<div class="passage">${LONG_CONV_PASSAGE}</div>`;
+      if (q.section === 'cloze') html += `<div class="passage">${CLOZE_PASSAGE}</div>`;
+      if (q.section === 'reading') html += `<div class="notice">${NOTICE_PASSAGE}</div><div class="notice">${NOTE_PASSAGE}</div><div class="passage">${READING_PASSAGE}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="pts">${q.pts} pt${q.pts > 1 ? 's' : ''}</span>
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let pointsEarned = 0;
+  let correctCount = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0, t:0, pts:0, maxPts:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    sectionTally[q.section].t++;
+    sectionTally[q.section].maxPts += q.pts;
+    if (isCorrect){
+      pointsEarned += q.pts;
+      correctCount++;
+      sectionTally[q.section].c++;
+      sectionTally[q.section].pts += q.pts;
+    }
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect, points: q.pts, pointsEarned: isCorrect ? q.pts : 0 };
+  });
+
+  const pct = Math.round(pointsEarned/TOTAL_POINTS*100);
+  const pass = pointsEarned >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${pointsEarned} / ${TOTAL_POINTS} points  (${pct}%)`;
+  document.getElementById('score-sub').textContent = `${correctCount} / ${TOTAL_Q} questions correct`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS on the predicted ASMOPSS pass bar (${PASS_BAR}/${TOTAL_POINTS} points). Look through the highlighted answers below, then rest easy before Sunday.`
+    : `Good effort on the mock! Predicted pass bar is ${PASS_BAR}/${TOTAL_POINTS} points — look through the highlighted answers below, then review just the misses with Naomi before Sunday. No new content this close to the exam, just review.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].pts}/${sectionTally[s].maxPts} pts (${sectionTally[s].c}/${sectionTally[s].t})</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    isCompetition: true,
+    competitionSource: "ASMOPSS 2026 Predicted Mock",
+    competitionSet: "Final Week Sprint — Day 6",
+    unitTitle: "ASMOPSS 2026 Predicted Mock Exam (English, Grade 4-6)",
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score: pointsEarned, outOf: TOTAL_POINTS, pct, passBar: PASS_BAR, passed: pass,
+    correctCount, questionCount: TOTAL_Q,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].pts, outOf:sectionTally[s].maxPts, correctCount:sectionTally[s].c, questionCount:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_COMP_ASMOPSS2026Mock_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
