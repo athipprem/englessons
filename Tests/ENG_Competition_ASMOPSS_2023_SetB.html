@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ENG_Competition_ASMOPSS_2023_SetB.html — REAL past competition paper, converted 31 Jul 2026.
+     Source: Asian Science and Mathematics Olympiad for Primary and Secondary Schools (ASMOPSS),
+     National Competitive Examination 2023, English Primary Grade 4-6, Sat 19 Aug 2023, Set B.
+     30 items, 5 parts (Conversation/Vocabulary/Grammar/Cloze/Reading), official weighting
+     2/3/5 points per item, 100 points total, pass bar 80 (matches the 2024 Set B competition
+     test's identical ASMOPSS scoring convention — see ENG_Competition_ASMOPSS_2024_SetB.html).
+     All content and the answer key are taken directly from the uploaded official paper —
+     nothing invented. Reading Passage A's illustration (sleeping man + alarm clock) was
+     cropped from the original PDF and saved to images/asmopss2023_snorer.jpg. -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMOPSS 2023 — Real Competition Paper (English, Grade 4&ndash;6, Set B)</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --conv:#ad1457;  --conv-fill:#f8bbd0;  --conv-text:#ad1457;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --read:#00695c;  --read-fill:#b2dfdb;  --read-text:#00695c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#fffaf0;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#8a6a00,#DAA520);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.95}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  .source-note{background:#FFF3CD;border:1.5px solid #DAA520;color:#5a3d00;border-radius:10px;padding:10px 16px;font-size:.82rem;margin-bottom:14px}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#f5e6bf;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#8a6a00,#DAA520);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#8a6a00;white-space:nowrap}
+  .readfirst{background:#FFF3CD;border:1.5px solid #DAA520;color:#5a3d00;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.conversation{background:var(--conv-fill);color:var(--conv-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.reading{background:var(--read-fill);color:var(--read-text)}
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#FFF3CD;color:#5a3d00;border-left:4px solid #DAA520}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .notice{background:#FFF8E1;border:2px dashed #FFB74D;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.8;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .notice img{width:170px;border-radius:10px;flex-shrink:0}
+  .notice .notice-text{flex:1;min-width:200px}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.conversation{border-left-color:var(--conv)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.reading{border-left-color:var(--read)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .pts{font-weight:700;font-size:.75rem;color:var(--grey);background:#f4f4f8;border-radius:8px;padding:2px 8px;margin-left:6px}
+  .q p.body u{text-decoration-color:#8a6a00;text-decoration-thickness:2px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#8a6a00,#DAA520);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#FFF3CD,#FFE082);border:2px solid #8a6a00}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.2rem;font-weight:900;color:#8a6a00}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-sub{font-size:.85rem;color:var(--grey);margin-top:2px}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.75rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(50,35,0,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#8a6a00;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b>ASMOPSS 2023 &mdash; Real Competition Paper</b>
+      <span class="sub">English Primary &middot; Grade 4&ndash;6 &middot; Set B</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="source-note">&#127942; This is a REAL ASMOPSS paper, sat by students on Saturday, 19 August 2023. Every question, option, and point value below is exactly as it appeared on the original exam &mdash; nothing has been changed. This is a genuine benchmark, not a practice test written for you.</div>
+
+  <div class="readfirst">READ FIRST &mdash; read every question fully before choosing. Points (2/3/5) are shown per question, exactly as ASMOPSS weighted them. Take your time &mdash; this is about seeing where you stand, not about speed.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 30 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-sub"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PASS_PCT = 80;
+
+const LONG_CONV_PASSAGE = `<b>Situation:</b> Billy helps Sally solve an office problem.<br><br>
+  <b>Sally:</b> Excuse me, Billy. <b>___4___</b><br>
+  <b>Billy:</b> Yes, Sally. What's the problem?<br>
+  <b>Sally:</b> I'm having a problem with the photocopy machine. <b>___5___</b><br>
+  <b>Billy:</b> Sure, let's have a look.<br>
+  <b>Sally:</b> <b>___6___</b><br>
+  <b>Billy:</b> It's nothing to worry about. See this red light flashing on and off. That means it is out of paper. All you have to do is to put some more in.<br>
+  <b>Sally:</b> Is that all?<br>
+  <b>Billy:</b> Right.<br>
+  <b>Sally:</b> Thanks a lot, Billy.`;
+
+const CLOZE_PASSAGE = `Uncontrolled sleep apnea &mdash; a disorder <b>___19___</b> people stop breathing for 10 seconds or more at a time multiple times a night &mdash; may <b>___20___</b> future brain health, a new study found.<br><br>
+  It is <b>___21___</b> 936 million adults worldwide between the ages of 30 and 69 may <b>___22___</b> from sleep apnea, with many more people <b>___23___</b>. If the sleep apnea is severe and untreated, people have three times the risk of dying from any cause.<br><br>
+  People with severe sleep apnea who spent less time in a deep sleep, also known as slow-wave sleep, <b>___24___</b> more damage to the white matter of the brain than people who had more slow-wave sleep, according to the study.`;
+
+const NOTICE_PASSAGE = `<img src="images/asmopss2023_snorer.jpg" alt="A man snoring in bed next to an alarm clock">
+  <div class="notice-text"><b>Passage A &mdash; Advertisement</b><br><br>
+  <b>Are you a snorer?</b><br>
+  Tried: Anti-Snoring Pillows? Herbal Remedies? Nasal Strips? Chin Straps? Dental Braces?<br>
+  But they don't work!<br><br>
+  &ldquo;Snore Fighter&rdquo; The latest snore-stopping device. It functions by transmitting light signals into the snorer's face, stopping the snoring mechanism but not waking you up.<br>
+  Restoring deep, peaceful sleep only costs $30.<br><br>
+  For more details, please call +44(0) 145 239 2464</div>`;
+
+const READING_PASSAGE = `<b>Passage B &mdash; News Report</b><br><br>
+  Brisbane is now suffering a devastating plague. Is it an outbreak, crime, or corruption?<br><br>
+  No, toads. The huge, ugly and poisonous cane toads have caused great problems for Brisbane, the third largest city of Australia. The toad population has been increasing sharply in Brisbane, as female cane toads can produce as many as 40,000 eggs at a time. Not only do the amphibians pose a threat to Australia's ecology, they do have glands that produce bufotenine, a toxic substance that can kill dogs, cats, and even human babies. In order to cope with the problem, thousands of Brisbanites are volunteering for an &ldquo;eradication night&rdquo; to get rid of the invaders.<br><br>
+  The problem arose in 1932, when Australia imported approximately 100 cane toads from Latin America, trying to use the toads to control beetles, which were attacking sugar crops. However, the tactic had apparently done more harm than good. Another big problem occurred when the number of toads suddenly multiplied and spread all over Queensland and northern New South Wales. Mark Lewis, a producer of a documentary on toads, revealed that it was a monstrous mistake the Australian government had made.<br><br>
+  In order to get rid of the invading amphibians, Brisbane is carefully running the eradication campaign. A four-page color brochure called &ldquo;101 Ways to Kill a Cane [Toad]&rdquo; is given to prepare citizens to kill the huge toads. Greg Stegman, an organizer of the Cane Toad Eradication Campaign, suggests using Dettol, a disinfectant, to eradicate the toads. Nevertheless, some people also suggest another less painful way: putting the toads in the freezer to kill them humanely.`;
+
+const SECTION_HINT = {
+  conversation: "Strategy: think about what a natural English speaker would actually say next — read the whole situation first, not just the blank.",
+  vocab:        "Strategy: try each option in the sentence and ask which one actually fits the meaning, not just which one sounds fancy.",
+  grammar:      "Strategy: for error-ID items, check each labelled part on its own — subject-verb agreement, verb form, and word choice are the usual suspects.",
+  cloze:        "Strategy: read the whole sentence (sometimes the whole paragraph) around the gap before choosing — grammar AND meaning both have to fit.",
+  reading:      "Strategy: go back to the passage and find the exact sentence that answers the question — don't rely on memory alone."
+};
+
+const Q = [
+  // ===== PART I — CONVERSATION (Items 1-6) =====
+  { n:1, section:'conversation', pts:2, body:'Situation: In a department store.<br>Shop assistant: "Good morning, sir. What can I do for you?"<br>Customer: ___',
+    options:["I'm just browsing, thank you.","I don't need your help.","No, nothing","Sorry, I don't intend to buy anything."], ans:1,
+    why:'"I\'m just browsing, thank you" is the natural, polite thing to say when you don\'t need help yet — it answers the question warmly. The other three all sound blunt or a little rude for this situation.' },
+  { n:2, section:'conversation', pts:3, body:'Situation: In a shop.<br>Customer: "This box is very heavy. Can you give me a hand?"<br>Shop assistant: ___',
+    options:["Sorry, my hands are dirty.","Yes, I can give you one of my hands.","No, that box isn't mine.","Sure, I'll be glad to help."], ans:4,
+    why:'"Can you give me a hand?" is an idiom that means "can you help me?" — "Sure, I\'ll be glad to help" is the natural reply. Option B wrongly treats "give me a hand" as a literal request for an actual hand.' },
+  { n:3, section:'conversation', pts:5, body:'Janet: "Can I try out your new bicycle?"<br>June: ___',
+    options:["It serves you right.","It's on me.","Be my guest.","It's your turn."], ans:3,
+    why:'"Be my guest" is the idiom for happily giving someone permission to use something of yours — exactly right for June answering "can I try your bike?" The others are idioms with completely different meanings (deserved punishment, I\'m paying, your turn now).' },
+  { n:4, section:'conversation', pts:3, body:'Long conversation, blank 4 (see passage above).',
+    options:["What's wrong?","Do you know the problem?","Have you got a minute?","Aren't you busy now?"], ans:3,
+    why:'Sally is about to ask for help and needs to check Billy is free first — "Have you got a minute?" is the natural opener, and Billy\'s reply "Yes, Sally. What\'s the problem?" fits as an answer to that, inviting her to continue.' },
+  { n:5, section:'conversation', pts:5, body:'Long conversation, blank 5 (see passage above).',
+    options:["Fix it immediately.","Do you mind helping me?","I don't know how to solve it.","I was wondering if you could help me."], ans:4,
+    why:'"I was wondering if you could help me" is a polite, indirect way to ask for help that matches Billy\'s response, "Sure, let\'s have a look." "Fix it immediately" is a demand, not a request, and doesn\'t match Billy\'s helpful, unhurried tone.' },
+  { n:6, section:'conversation', pts:2, body:'Long conversation, blank 6 (see passage above).',
+    options:["Anything serious?","Does it work?","Can you look at it?","What's new?"], ans:1,
+    why:'Billy\'s reply, "It\'s nothing to worry about," directly answers a worry about how bad the problem is — that matches "Anything serious?" The other options don\'t fit what Billy says next.' },
+
+  // ===== PART II — VOCABULARY (Items 7-12) =====
+  { n:7, section:'vocab', pts:2, body:'They were really ___ about the project, but now they seem to have lost interest in it now.',
+    options:["frightened","excited","disappointed","amused"], ans:2,
+    why:'The sentence contrasts an earlier feeling with "lost interest now" — that contrast only makes sense if they started out "excited". The other words don\'t naturally fade into "losing interest".' },
+  { n:8, section:'vocab', pts:3, body:'One by one, the old buildings in the city have been ___ and replaced with modern tower blocks.',
+    options:["demolished","renovated","preserved","promoted"], ans:1,
+    why:'"Replaced with modern tower blocks" means the old buildings were torn down — "demolished" fits exactly. "Renovated" and "preserved" both mean the old buildings were kept, which contradicts "replaced".' },
+  { n:9, section:'vocab', pts:5, body:'The lives of thousands of birds are in ___ as a result of the oil spill.',
+    options:["proportion","obscurity","disguise","jeopardy"], ans:4,
+    why:'"In jeopardy" means in danger — exactly right for birds threatened by an oil spill. The other three words don\'t fit the idea of being at risk.' },
+  { n:10, section:'vocab', pts:2, body:'Choose the word most similar to the underlined word: We are <u>delighted</u> that the negotiations have been completed successfully.',
+    options:["interested","annoyed","surprised","pleased"], ans:4,
+    why:'"Delighted" means very pleased — "pleased" is the closest match. "Annoyed" is the opposite, and "interested"/"surprised" don\'t capture the strong positive feeling.' },
+  { n:11, section:'vocab', pts:3, body:'Choose the word most similar to the underlined word: The whole house <u>trembled</u> as the train went by.',
+    options:["shook","fell","cracked","turned"], ans:1,
+    why:'"Trembled" means shook slightly and repeatedly — "shook" is the direct match. "Fell", "cracked", and "turned" all describe something more drastic or different from a light shaking.' },
+  { n:12, section:'vocab', pts:5, body:'Choose the word most similar to the underlined word: The results of the experiments were <u>ambiguous</u>, so they will have to be done again.',
+    options:["unimportant","unclear","unreliable","unreadable"], ans:2,
+    why:'"Ambiguous" means open to more than one interpretation, i.e. unclear — that\'s exactly why the experiment needs redoing. "Unreliable" is close but means the results can\'t be trusted, which is a different problem from being unclear.' },
+
+  // ===== PART III — GRAMMAR (Items 13-18) =====
+  { n:13, section:'grammar', pts:2, body:'He started working for the company in 1995 and ___ there ever since.',
+    options:["is","was","has been","had been"], ans:3,
+    why:'"Ever since" a past starting point, continuing up to now, is the classic signal for the present perfect: "has been". "Is" ignores the 1995 start, and "was"/"had been" wrongly suggest he no longer works there.' },
+  { n:14, section:'grammar', pts:3, body:'She ___ alcohol and was ___ on her feet.',
+    options:["smelled, unsteady","smelled, unsteadily","smelled of, unsteady","smelled of, unsteadily"], ans:3,
+    why:'"Smelled of" (not just "smelled") is needed when describing what scent came FROM her. After "was", an adjective describing her ("unsteady") is needed, not an adverb ("unsteadily") — you\'d only use the adverb with an action verb like "walked unsteadily".' },
+  { n:15, section:'grammar', pts:5, body:'___ in 1935 in Ohio, Alcoholics Anonymous is now a world-wide organization.',
+    options:["Found","Founded","Founding","Finding"], ans:2,
+    why:'This is a reduced passive clause — the organization WAS founded (by someone), so the past participle "Founded" is needed. "Found" is a different word (to locate something), and "Founding"/"Finding" would wrongly suggest the organization was doing the founding/finding itself.' },
+  { n:16, section:'grammar', pts:2, body:'Which underlined part is grammatically wrong? "She is (A)carefully not to criticize the president, but she (B)makes it clear that she thinks (C)government\'s policies should be (D)far more radical."',
+    options:["(A) carefully","(B) makes it clear","(C) government's policies","(D) far more radical"], ans:1,
+    why:'(A) is wrong — after "is", you need an adjective describing her ("careful"), not the adverb "carefully". Compare: "she is careful not to..." is correct, but "she is carefully not to..." is not natural English.' },
+  { n:17, section:'grammar', pts:3, body:'Which underlined part is grammatically wrong? "Please remember (A)to display your Blue Badge and (B)check the sign to see (C)how long you can stay – usually (D)three hours are allowed."',
+    options:["(A) to display", "(B) check the sign", "(C) how long you can stay", "(D) three hours are allowed"], ans:4,
+    why:'(D) is wrong — "three hours" here is being treated as one single period of time, not three separate items, so it needs a singular verb: "usually three hours is allowed", not "are allowed".' },
+  { n:18, section:'grammar', pts:5, body:'Which underlined part is grammatically wrong? "My (A)coming summer holiday (B)started on the same day as my cousin, and I was (C)much looking forward to (D)seeing him."',
+    options:["(A) coming summer holiday", "(B) started", "(C) much", "(D) seeing him"], ans:3,
+    why:'(C) is wrong — "much" alone can\'t modify "looking forward to"; it needs "very much" ("I was very much looking forward to seeing him"). Using bare "much" before a present-participle phrase like this isn\'t natural English.' },
+
+  // ===== PART IV — THE CLOZE TEST (Items 19-24) =====
+  { n:19, section:'cloze', pts:3, body:"Gap 19 (see passage above) — \"a disorder ___19___ people stop breathing for 10 seconds or more...\"",
+    options:["which","in which","why","when"], ans:2,
+    why:'The gap needs a relative clause meaning "a disorder DURING WHICH people stop breathing" — "in which" carries that missing preposition. Plain "which" alone would leave the sentence without the needed "in", and "why"/"when" don\'t fit describing a disorder this way.' },
+  { n:20, section:'cloze', pts:2, body:"Gap 20 — \"...may ___20___ future brain health, a new study found.\"",
+    options:["harm","harming","to harm","harmed"], ans:1,
+    why:'After the modal "may", English always uses the plain base form of the verb — "may harm", not "may harming/to harm/harmed".' },
+  { n:21, section:'cloze', pts:3, body:"Gap 21 — \"It is ___21___ 936 million adults worldwide...may suffer from sleep apnea...\"",
+    options:["realized","denied","proposed","estimated"], ans:4,
+    why:'A huge, approximate number like "936 million" is a calculation, not a fact that\'s "realized", "denied", or "proposed" — "It is estimated that..." is the standard phrase for reporting a study\'s approximate figure.' },
+  { n:22, section:'cloze', pts:2, body:"Gap 22 — \"...936 million adults worldwide...may ___22___ from sleep apnea...\"",
+    options:["hurt","affect","result","suffer"], ans:4,
+    why:'"Suffer from" a medical condition is the fixed, natural phrase for having an illness. "Affect", "hurt", and "result" don\'t combine correctly with "from [a condition]" in this way.' },
+  { n:23, section:'cloze', pts:5, body:"Gap 23 — \"...with many more people ___23___.\"",
+    options:["unproven","undiagnosed","unleashed","unfulfilled"], ans:2,
+    why:'The sentence is about people who HAVE sleep apnea but haven\'t been officially identified by a doctor — "undiagnosed" is exactly that medical term. The other three words don\'t relate to a medical diagnosis at all.' },
+  { n:24, section:'cloze', pts:5, body:"Gap 24 — \"People...who spent less time in a deep sleep...___24___ more damage to the white matter of the brain than people who had more slow-wave sleep...\"",
+    options:["had","they had","have","who had"], ans:1,
+    why:'The main clause is "People...had more damage...than people who had more slow-wave sleep" — it needs a plain main verb, "had", to match the parallel "had" later in the sentence. "They had" and "who had" would wrongly create a second, disconnected clause, and "have" breaks the past-tense agreement with the rest of the (already past-tense) study description.' },
+
+  // ===== PART V — READING COMPREHENSION (Items 25-30) =====
+  { n:25, section:'reading', pts:3, body:"What does the above advertisement introduce?",
+    options:["A piece of bedroom furniture","A promising innovation","A new type of alarm clock","An anti-snoring drug"], ans:2,
+    why:'The ad is selling "Snore Fighter", a brand-new device that claims to stop snoring using light signals — that\'s a promising new invention (an innovation), not furniture, a clock, or a drug (it\'s a device, not something you take).' },
+  { n:26, section:'reading', pts:5, body:'What does the advertiser try to do in the first part of the advertisement?',
+    options:["Asking for customers' opinions","Offering a product discount","Indicating the failure of other products","Comparing \"Snore Fighter\" with similar products"], ans:3,
+    why:'The ad opens by listing pillows, herbal remedies, nasal strips, chin straps, and dental braces, then says "But they don\'t work!" — that\'s pointing out that other products fail, to set up why you need Snore Fighter instead.' },
+  { n:27, section:'reading', pts:3, body:'What is the main idea of this passage?',
+    options:["Cane toads are very dangerous amphibians.","Cane toads have a high reproduction rate.","Brisbane is facing the biggest environmental problem.","Brisbane is working to deal with the cane toad menace."], ans:4,
+    why:'The passage covers the toad problem AND how Brisbane is actively fighting back (eradication nights, the brochure, disinfectant, the freezer method) — that combination of problem + response is best summed up by "Brisbane is working to deal with the cane toad menace." The other options only describe part of the story.' },
+  { n:28, section:'reading', pts:2, body:'Which of the following living things is not harmed by cane toads?',
+    options:["humans","insects","crops","pets"], ans:3,
+    why:'Toads were brought in specifically to eat beetles that were attacking sugar crops — so crops are what the toads were meant to PROTECT, not harm. Humans (babies), pets (dogs/cats), and insects (the beetles the toads eat) are all directly affected.' },
+  { n:29, section:'reading', pts:2, body:'What is the most important reason for the sudden spread in Queensland?',
+    options:["The toads have plenty of beetles to feed on.","The toads multiply very quickly.","It is difficult to eradicate to toads.","It is inhumane to kill the toad with disinfectants."], ans:2,
+    why:'The passage states female cane toads "can produce as many as 40,000 eggs at a time" — that explosive breeding rate is the direct cause of the population spreading so fast, not the food supply or difficulty of eradication.' },
+  { n:30, section:'reading', pts:5, body:'Which of the following statements can be inferred from the passage?',
+    options:["Cane toads can be resistant to disinfectants.","All Brisbanites are required to join an \"eradication night.\"","Some people do not want the toads to suffer before dying.","Killing cane toads with disinfectants is more effective than popping them into the freezer."], ans:3,
+    why:'The passage says some people suggest freezing the toads as "another less painful way…to kill them humanely" — choosing a method specifically because it causes less pain implies they care about the toads not suffering. Nothing in the passage says eradication nights are compulsory or compares which method is more "effective".' },
+];
+
+const SECTION_LABEL = {
+  conversation: "PART I — Conversation",
+  vocab:        "PART II — Vocabulary",
+  grammar:      "PART III — Grammar",
+  cloze:        "PART IV — The Cloze Test",
+  reading:      "PART V — Reading Comprehension"
+};
+const SECTION_ORDER = ['conversation','vocab','grammar','cloze','reading'];
+const TOTAL_Q = Q.length;
+const TOTAL_POINTS = Q.reduce((s,q) => s + q.pts, 0);
+const PASS_BAR = Math.round(TOTAL_POINTS * PASS_PCT / 100);
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+document.getElementById('progress-label').textContent = `0 / ${TOTAL_Q} answered`;
+
+const chosen = {};
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint">${SECTION_HINT[q.section] || ''}</div>`;
+      if (q.section === 'conversation') html += `<div class="passage">${LONG_CONV_PASSAGE}</div>`;
+      if (q.section === 'cloze') html += `<div class="passage">${CLOZE_PASSAGE}</div>`;
+      if (q.section === 'reading') html += `<div class="notice">${NOTICE_PASSAGE}</div><div class="passage">${READING_PASSAGE}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="pts">${q.pts} pt${q.pts > 1 ? 's' : ''}</span>
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let pointsEarned = 0;
+  let correctCount = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0, t:0, pts:0, maxPts:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    sectionTally[q.section].t++;
+    sectionTally[q.section].maxPts += q.pts;
+    if (isCorrect){
+      pointsEarned += q.pts;
+      correctCount++;
+      sectionTally[q.section].c++;
+      sectionTally[q.section].pts += q.pts;
+    }
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect, points: q.pts, pointsEarned: isCorrect ? q.pts : 0 };
+  });
+
+  const pct = Math.round(pointsEarned/TOTAL_POINTS*100);
+  const pass = pointsEarned >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${pointsEarned} / ${TOTAL_POINTS} points  (${pct}%)`;
+  document.getElementById('score-sub').textContent = `${correctCount} / ${TOTAL_Q} questions correct`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS on the real ASMOPSS pass bar (${PASS_BAR}/${TOTAL_POINTS} points). Look through the highlighted answers below to see why.`
+    : `Good effort on a real competition paper! ASMOPSS pass bar is ${PASS_BAR}/${TOTAL_POINTS} points — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].pts}/${sectionTally[s].maxPts} pts (${sectionTally[s].c}/${sectionTally[s].t})</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    isCompetition: true,
+    competitionSource: "ASMOPSS 2023",
+    competitionSet: "Set B",
+    unitTitle: "ASMOPSS 2023 Real Competition Paper (English, Grade 4-6, Set B)",
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score: pointsEarned, outOf: TOTAL_POINTS, pct, passBar: PASS_BAR, passed: pass,
+    correctCount, questionCount: TOTAL_Q,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].pts, outOf:sectionTally[s].maxPts, correctCount:sectionTally[s].c, questionCount:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_COMP_ASMOPSS2023_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
