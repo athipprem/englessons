@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMOPSS Final Week — Day 8: Rest &amp; Ready</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F0FAF3;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.wrap{max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.hero{background:linear-gradient(135deg,#1B5E20,#DAA520);color:#fff;border-radius:14px;padding:28px 22px;text-align:center;margin-bottom:18px}
+.hero h1{font-size:1.5rem;margin-bottom:8px;line-height:1.4}
+.hero p{color:#fff;opacity:.95;font-size:14.5px;margin-bottom:0}
+.win-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.win{background:#F0FAF3;border:2px solid #C8E6C9;border-radius:10px;padding:14px;text-align:center}
+.win-num{font-size:1.5rem;font-weight:800;color:#1B5E20}
+.win-label{font-size:12px;color:#555;margin-top:4px;line-height:1.4}
+@media(max-width:520px){.win-grid{grid-template-columns:1fr}}
+.checklist{margin:10px 0}
+.check-item{display:flex;align-items:center;gap:12px;background:#F0FAF3;border:2px solid #C8E6C9;border-radius:10px;padding:12px 14px;margin-bottom:8px;cursor:pointer;transition:background .15s}
+.check-item.done{background:#E8F5E9;border-color:#1B5E20}
+.check-box{width:24px;height:24px;min-width:24px;border-radius:6px;border:2px solid #1B5E20;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;background:#fff}
+.check-item.done .check-box{background:#1B5E20}
+.check-text{font-size:14.5px;line-height:1.5}
+.breathe-box{background:#FFF3CD;border:2px solid #DAA520;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.breathe-title{font-weight:700;color:#8a6a00;margin-bottom:10px}
+.breathe-steps{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:13px;font-weight:700}
+.breathe-step{background:#fff;border:2px solid #DAA520;color:#8a6a00;border-radius:20px;padding:8px 16px}
+.note-box{background:#E0F2F1;border:2px solid #00695c;border-radius:10px;padding:14px 16px;margin:14px 0}
+.note-title{font-weight:700;color:#004d40;margin-bottom:6px}
+.sign-off{text-align:center;font-size:14.5px;color:#555;margin-top:6px}
+.lesson-nav{display:flex;justify-content:center;align-items:center;margin-top:10px;padding-top:16px;border-top:2px solid #C8E6C9}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 26px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Day 8 — Rest &amp; Ready</span>
+  <span class="nav-pill">Nothing to do today 🌿</span>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>You've done the work. Today, just rest. 🌿</h1>
+    <p>No lessons. No tests. No new words to learn. Tomorrow you just get to show what you already know.</p>
+  </div>
+
+  <div class="card">
+    <h2>Look how far you've come this week 🏅</h2>
+    <p>This isn't guessing — these are your real results from this exact week:</p>
+    <div class="win-grid">
+      <div class="win"><div class="win-num">6/6 ★</div><div class="win-label">Perfect Reading score on the full mock — the exact skill we worked hardest on</div></div>
+      <div class="win"><div class="win-num">82/100</div><div class="win-label">Your first-ever PASS on a full ASMOPSS-format test</div></div>
+      <div class="win"><div class="win-num">1→4/6</div><div class="win-label">Reading jumped on the SAME 2024 paper you'd struggled with before</div></div>
+      <div class="win"><div class="win-num">3 papers</div><div class="win-label">Real, full-length papers sat this week — you've already proven you can do this</div></div>
+    </div>
+    <p style="margin-bottom:0">Your brain has already built the habits it needs. Resting today is part of the plan, not a break from it — it's how what you learned actually sticks.</p>
+  </div>
+
+  <div class="card">
+    <h2>Tonight's easy checklist ✅</h2>
+    <p style="margin-bottom:10px">Tap each one once it's done. No wrong answers here — just tick them off.</p>
+    <div class="checklist">
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Pack 2 pencils, an eraser, and a sharpener</div></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Pack your ID / exam ticket</div></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Lay out tomorrow's clothes</div></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Pack a water bottle and a small snack</div></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Do something fun and relaxing this afternoon</div></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Lights out at a good bedtime — no screens right before sleep</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>A calm-down breathing trick 🌬️</h2>
+    <p>If you feel nervous tonight or right before the test starts tomorrow, try this a few times:</p>
+    <div class="breathe-box">
+      <div class="breathe-title">Breathe in — hold — breathe out</div>
+      <div class="breathe-steps">
+        <div class="breathe-step">Breathe in for 4</div>
+        <div class="breathe-step">Hold for 4</div>
+        <div class="breathe-step">Breathe out for 4</div>
+      </div>
+      <p style="margin-top:10px;margin-bottom:0;font-size:13px">Do this 3 times. It tells your brain "I'm okay," so you can think clearly.</p>
+    </div>
+    <div class="note-box">
+      <div class="note-title">🔑 One thing to remember tomorrow</div>
+      <p style="margin:0;font-size:14px">First instinct → write it down → move on. You already know the material. Trust yourself.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="sign-off">You've put in real work all week, Prem — the Reading jump alone proves the routines you built are working. Whatever happens tomorrow, you've already made real progress. Go enjoy your day off. 🍀<br><strong>— Naomi</strong></p>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Back to Hub</a>
+  </div>
+</div>
+
+<script>
+function toggleCheck(el){
+  el.classList.toggle('done');
+  var box = el.querySelector('.check-box');
+  box.textContent = el.classList.contains('done') ? '✓' : '';
+}
+</script>
+</body>
+</html>
