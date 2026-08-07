@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 30 Test — Cloze · Grammar · Vocabulary</title>
+<!-- Built from ENG_INTERACTIVE_TEST_TEMPLATE.html, 7 Aug 2026. Repurposed per Lui's direct request: instead of
+     the originally-planned "Cloze pencil-escalation only" unit, Unit 30 targets the specific hard-tier (5-point)
+     ASMOPSS item types identified as Prem's remaining weak spots after this week's 5 real-condition sittings
+     (2024 orig/retake, 2023 orig/retake, 2026 mock): tense-parallelism cloze gaps, linking-verb+adjective and
+     "much"/"very much" grammar error-ID, and nuanced near-synonym vocab precision. Cloze ALSO carries the
+     standing pencil-first escalation from the lesson (write-before-reveal), matching the fix that worked for
+     Grammar's error-scan. Difficulty skews Advanced/hard-tier but keeps light maintenance items (hyphenation,
+     subjunctive, mismatch cross-check, gerund/infinitive, RESULT/CONTRAST) so previously-won skills aren't
+     dropped. Built and intended for AFTER the 9 Aug 2026 ASMOPSS exam — not part of this week's assessment
+     count, per the standing max-1-assessment/day and rest-day rules. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f4f8f4;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#e2ece4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#1b5e20,#66bb6a);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#1b5e20;white-space:nowrap}
+
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+  .hint.cloze{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.grammar{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.vocab{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .gap{font-weight:800;color:#1565c0}
+
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt-row .opt{width:auto;flex:1 1 auto;min-width:64px;text-align:center}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.4rem;font-weight:900;color:#1b5e20}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;border:1.5px solid var(--line)}
+
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(10,30,18,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#1b5e20;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 30 Test — Cloze · Grammar · Vocabulary</b>
+      <span class="sub" id="hdr-sub">Hard-Tier Focus · Post-ASMOPSS</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — for cloze: some gaps compare two groups with "than" — check that both verb tenses match, like a seesaw. Others are the familiar trigger-word, hyphenation, or connector checks. For grammar: after smell/look/taste/feel/seem, use the plain describing-word, not the "-ly" form; "much" needs "very" in front of it before an "-ing" phrase; the if-clause mismatch check still applies where it appears. For vocabulary: read the whole story once, then pick the word that matches EXACTLY, not just roughly.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 20 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 20 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 30;
+const UNIT_TITLE = "Cloze · Grammar · Vocabulary";
+const UNIT_SUB   = "Hard-Tier Focus · Post-ASMOPSS";
+const PASS_BAR   = 16;                        // out of 20 (80% mastery threshold)
+const IS_MILESTONE = false;
+const MILESTONE_NUM = null;
+
+const SECTION_PASSAGE = {
+  vocab: `Ren had spent the whole rehearsal watching the lead dancer glide through the routine without a
+    single mistake, while Ren's own steps kept landing half a beat late. By the third run-through, Ren's
+    arms felt heavy and the counts in Ren's head had turned into a blur. Most dancers would have asked to
+    sit the number out, but Ren stayed at the back of the room, quietly repeating just the tricky eight
+    counts over and over, long after the others had gone to get water. When the choreographer called
+    everyone back, Ren still wasn't perfect — but the half-beat lag was gone, replaced by something close
+    to confidence. Ren didn't say anything about it afterward. There didn't seem to be any need to.`
+};
+
+const SECTION_HINT = {
+  cloze:   "Strategy: when a sentence compares two groups with \"than,\" find the tense already used for the first group and match it exactly for the second — don't switch to \"have\" or add an extra \"who\"/\"they\". Otherwise, use your usual checks: trigger-word base form, hyphenation (describes the next noun = hyphen+singular; stands alone = no hyphen+plural), and RESULT vs CONTRAST connectors.",
+  grammar: "Strategy: after smell/look/taste/feel/seem, the describing-word (adjective) is correct, not the \"-ly\" action-word (adverb) — these verbs describe a STATE, not an action. If you see \"much\" sitting right before an \"-ing\" verb phrase, it needs \"very\" attached. Where the if-clause mismatch check appears, use your pencil routine as always.",
+  vocab:   "Strategy: read the whole story once before answering anything. For word-meaning questions, pick the option that matches EXACTLY, not just something in the same general direction. For motivation and theme questions, think about the WHOLE story."
+};
+
+const Q = [
+  // Section CLOZE (Q1-Q7) — NEW hard-tier skill: tense-parallelism in "than" comparisons (Q1, Q3, Q6 —
+  // 3 of 7, the dominant focus), first exposure at test level. Maintenance: hyphenation (Q2), subjunctive
+  // trigger-word (Q4), RESULT/CONTRAST connector (Q5), formal-register vocab-in-cloze (Q7).
+  { n:1, section:'cloze', body:"Gap (1) — \"Hikers who checked the weather forecast avoided the storm, unlike hikers who (1)___ the warning.\"",
+    options:["ignore","ignored","have ignored","who ignored"], ans:2,
+    why:"\"checked\" (first group) is simple past — match it exactly: ignored, not \"ignore\" or \"have ignored\"." },
+  { n:2, section:'cloze', body:"Gap (2) — \"The new sign warned drivers about a (2)___ tunnel just ahead of the junction.\"",
+    options:["3-metre","3 metre","3 metres","3-metres"], ans:1,
+    why:"\"tunnel\" is the noun right after — the number+unit describes it directly, so hyphenate + singular: 3-metre." },
+  { n:3, section:'cloze', body:"Gap (3) — \"Swimmers who warmed up properly finished the race strong, while swimmers who (3)___ the warm-up struggled by the final lap.\"",
+    options:["skip","skipped","have skipped","who skipped"], ans:2,
+    why:"\"warmed up\" (first group) is simple past — match it exactly: skipped." },
+  { n:4, section:'cloze', body:"Gap (4) — \"The librarian insisted that every student (4)___ their books back before the holidays began.\"",
+    options:["brings","bring","to bring","brought"], ans:2,
+    why:"\"insisted that\" is a trigger phrase — spot it first, then go straight to the base form: bring." },
+  { n:5, section:'cloze', body:"Gap (5) — \"The forecast promised clear skies all weekend, (5)___ the festival was moved outdoors at the last minute.\"",
+    options:["so","however","although","meanwhile"], ans:1,
+    why:"Comma, mid-sentence = clause-joiner. Clear skies were promised, and BECAUSE of that the festival moved outdoors — a direct cause and result: so." },
+  { n:6, section:'cloze', body:"Gap (6) — \"Cyclists who inflated their tyres before the race rode faster than cyclists who (6)___ theirs.\"",
+    options:["forget","forgot","have forgotten","who forgot"], ans:2,
+    why:"\"inflated\" (first group) is simple past — match it exactly: forgot, not \"forget\" or the doubled \"who forgot\"." },
+  { n:7, section:'cloze', body:"Gap (7) — \"Doctors confirmed the illness had gone (7)___ for almost a year before any symptoms appeared.\"",
+    options:["unnoticed","undiagnosed","unfinished","untouched"], ans:2,
+    why:"\"Undiagnosed\" means not yet identified by a doctor — exactly right for an illness with no symptoms for a year. The others don't fit a medical context this precisely." },
+
+  // Section GRAMMAR (Q8-Q14) — NEW hard-tier skill: linking-verb+adjective (Q8, Q10, Q14 — 3 of 7) and
+  // "much"/"very much" (Q9, Q12 — 2 of 7). Maintenance: if-clause mismatch cross-check (Q11), gerund/
+  // infinitive "regret" (Q13).
+  { n:8, section:'grammar', body:"Which sentence contains an error? A) \"The bread tasted stale despite being fresh that morning.\" B) \"The bread tasted stalely despite being fresh that morning.\" C) \"She sliced the bread carefully before serving it.\" D) \"The kitchen smelled wonderful after the bread finished baking.\"",
+    options:["A","B","C","D"], ans:2,
+    why:"B is wrong — \"tasted\" describes a STATE, so it needs the plain describing-word \"stale\", not \"stalely\". A, C, and D are all correct." },
+  { n:9, section:'grammar', body:"Which sentence contains an error? A) \"He was very much surprised by the sudden applause.\" B) \"They walked briskly to avoid the rain.\" C) \"She was much dreading the long car journey ahead.\" D) \"The choir sounded wonderful during the final song.\"",
+    options:["A","B","C","D"], ans:3,
+    why:"C is wrong — \"much dreading\" needs its partner: \"very much dreading\". A, B, and D are all correct." },
+  { n:10, section:'grammar', body:"Which sentence contains an error? A) \"The paint looked patchy after only one coat.\" B) \"The workers painted the fence quickly before the rain started.\" C) \"The milk smelled sourly after being left out overnight.\" D) \"The cake tasted perfect straight out of the oven.\"",
+    options:["A","B","C","D"], ans:3,
+    why:"C is wrong — \"smelled\" describes a STATE, so it needs the plain describing-word \"sour\", not \"sourly\". A, B, and D are all correct." },
+  { n:11, section:'grammar', body:"Which sentence contains an error? A) \"If the ferry had left on schedule, the passengers would have reached the island by noon.\" B) \"If the ferry had left on schedule, the passengers would reach the island by noon.\" C) \"If the captain had checked the tide tables, the delay would have been avoided.\" D) \"If the crew had loaded the cargo faster, the ferry would have departed sooner.\"",
+    options:["A","B","C","D"], ans:2,
+    why:"B is wrong — \"had left\" (3rd IF-half) + \"would reach\" (plain would, 2nd-type result) = mismatch. A, C, and D are all clean 3rd/3rd pairs." },
+  { n:12, section:'grammar', body:"Which sentence contains an error? A) \"The twins were much relieved to see the lost dog return safely.\" B) \"The audience clapped enthusiastically at the end of the play.\" C) \"He was very much impressed by the orchestra's final performance.\" D) \"The gardener trimmed the hedges neatly along the front path.\"",
+    options:["A","B","C","D"], ans:1,
+    why:"A is wrong — \"much relieved\" needs its partner: \"very much relieved\". B, C, and D are all correct." },
+  { n:13, section:'grammar', body:"The captain announced over the tannoy, \"We regret ___ (inform) passengers that the flight has been delayed by two hours.\" Which form?",
+    options:["to inform","informing"], ans:1,
+    why:"The captain is speaking live, right now, over the tannoy — a live announcement → to inform." },
+  { n:14, section:'grammar', body:"Which sentence contains an error? A) \"The velvet curtains felt softly against her fingertips.\" B) \"The orchestra tuned their instruments quietly before the show.\" C) \"The soup smelled delicious as soon as it started simmering.\" D) \"The old floorboards looked worn near the doorway.\"",
+    options:["A","B","C","D"], ans:1,
+    why:"A is wrong — \"felt\" describes a STATE, so it needs the plain describing-word \"soft\", not \"softly\". B, C, and D are all correct." },
+
+  // Section VOCAB (Q15-Q20) — fresh narrative (dance rehearsal), same rotation as recent units: theme,
+  // motivation, detail-recall, vocab-in-context (a nuanced near-synonym item, the hard-tier flavour),
+  // inference, near-opposite check (name only, no bracketed gloss, per the no-definition-leak rule).
+  { n:15, section:'vocab', body:"What is the most likely THEME (the big lesson) of this story?",
+    options:["Natural talent always wins in the end",
+             "Quiet, repeated practice can close a gap that talent alone can't",
+             "It's better to sit out than risk making mistakes",
+             "Dancers should always copy the lead dancer exactly"], ans:2,
+    why:"Ren isn't naturally as skilled as the lead dancer but closes the gap through quiet, repeated practice on just the hard part — the story's point is about persistence, not talent." },
+  { n:16, section:'vocab', body:"Why does Ren keep practising the same eight counts instead of leaving with the others?",
+    options:["The choreographer orders Ren to stay behind",
+             "Ren wants to prove something to the lead dancer",
+             "Ren is trying to fix the exact part that's going wrong",
+             "Ren is waiting for a ride home"], ans:3,
+    why:"The passage says Ren \"quietly repeat[s] just the tricky eight counts\" — a targeted, self-directed fix, not pressure from anyone else." },
+  { n:17, section:'vocab', body:"According to the passage, what happens to Ren's dancing by the end of the rehearsal?",
+    options:["Ren becomes completely perfect",
+             "Ren quits the routine entirely",
+             "The half-beat lag disappears, though Ren still isn't perfect",
+             "Ren switches to a different dance routine"], ans:3,
+    why:"The passage says \"Ren still wasn't perfect — but the half-beat lag was gone\" — clear improvement, not total perfection." },
+  { n:18, section:'vocab', body:"What does \"a blur\" most likely mean, as used in the passage (\"the counts in Ren's head had turned into a blur\")?",
+    options:["something bright and colourful",
+             "something loud and repetitive",
+             "something unclear and hard to follow",
+             "something exciting and fast-paced"], ans:3,
+    why:"Clue: the counts \"turned into a blur\" right after Ren's steps kept landing late and arms felt heavy — a sign of confusion, of things becoming unclear and jumbled, not bright or exciting." },
+  { n:19, section:'vocab', body:"What does the last line (\"There didn't seem to be any need to\") suggest about how Ren felt?",
+    options:["Ren was too embarrassed to talk about it",
+             "Ren felt quietly satisfied and didn't need outside praise",
+             "Ren forgot about the improvement entirely",
+             "Ren was upset that nobody noticed"], ans:2,
+    why:"Ren stayed quiet not out of embarrassment or being upset, but because the private sense of progress was enough on its own — a quiet, self-contained satisfaction." },
+  { n:20, section:'vocab', body:"Which word means roughly the OPPOSITE of \"confidence\", as it applies to how Ren felt early in the rehearsal?",
+    options:["determination","self-doubt","excitement","curiosity"], ans:2,
+    why:"Early on, Ren's steps lagged and the counts became a blur — the opposite of confidence in that moment is self-doubt, not determination, excitement, or curiosity." },
+];
+/* ---------- END EDIT PER UNIT ---------- */
+
+const SECTION_LABEL = {
+  cloze:   "SECTION A — Cloze Test",
+  grammar: "SECTION B — Grammar",
+  vocab:   "SECTION C — Vocabulary &amp; Reading"
+};
+const SECTION_ORDER = ['cloze','grammar','vocab'];
+const TOTAL_Q = Q.length;
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+
+const chosen = {};   // { qn: optionIndex(1-based) }
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint ${q.section}">${SECTION_HINT[q.section] || ''}</div>`;
+      if (SECTION_PASSAGE[q.section]) html += `<div class="passage">${SECTION_PASSAGE[q.section]}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    html += `<div>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let score = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    if (isCorrect) score++;
+    sectionTally[q.section].t++;
+    if (isCorrect) sectionTally[q.section].c++;
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect };
+  });
+
+  const pct = Math.round(score/TOTAL_Q*100);
+  const pass = score >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${score} / ${TOTAL_Q}  (${pct}%)`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_Q}). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_Q} — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    isMilestone: IS_MILESTONE,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score, outOf: TOTAL_Q, pct, passBar: PASS_BAR, passed: pass,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const pad = (n, len) => String(n).padStart(len,'0');
+  const filename = IS_MILESTONE
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
