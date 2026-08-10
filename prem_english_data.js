@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '25 Jul 2026',
+  updated:        '10 Aug 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           30,
-    status:      'Result logged, Unit 30 pack not yet built &mdash; Cloze needs a pencil-and-paper escalation (per Unit 29 analysis)',
-    testPending: false
+    n:           'M3',
+    status:      'Milestone 3 ready &mdash; not yet taken. Redesigned per the real-exam transfer-gap review: Vocab gets permanent near-opposite traps, Conversation adds multi-turn dialogues, Grammar consolidates Unit 30&rsquo;s hard-tier rules, Cloze mixes tense-parallelism with subjunctive/hyphenation maintenance, Reading stays live (not parked on maintenance).',
+    testPending: true
   },
 
   // Baseline = ASMOPSS 2025 assessment (reference — scores hardcoded in renderHero)
@@ -32,69 +32,72 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 29 — updated after each test)
+  // Last completed assessment (Unit 30 — updated after each test)
   lastUnit: {
-    n: 29, label: 'Unit 29', score: 14, outOf: 20, pct: 70, delta: -2, prevScore: 16,
+    n: 30, label: 'Unit 30', score: 16, outOf: 20, pct: 80, delta: 2, prevScore: 14,
 
-    patternLabel:   'Unit 29 &mdash; 25 Jul 2026 &middot; 14/20 (70%) &middot; FAIL &mdash; Grammar&rsquo;s first-ever PERFECT section, Vocab&rsquo;s 6th straight perfect test, but Cloze crashes to its worst result yet on round 2 of the same fix',
-    patternInsight: '<strong>Score: 14/20 (70%), down from 16/20 &mdash; FAIL, first drop since Unit 27.</strong> Grammar hit a PERFECT <strong>7/7</strong> for the first time ever &mdash; error-scan alone went 5/5 for a THIRD consecutive test (1/5&rarr;4/5&rarr;5/5&rarr;5/5), fully satisfying the retirement threshold, and the Announcement-Rosa gerund/infinitive retest also landed clean. Vocabulary stayed PERFECT (6/6) for a SIXTH consecutive test. But Cloze collapsed to <strong>1/7</strong>, its worst result of the programme &mdash; all 4 subjunctive attempts (Q1, Q3, Q6, Q7) chose the identical old &ldquo;-s&rdquo; agreement form, and both hyphenation attempts (Q2, Q4) produced a new &ldquo;invalid hybrid&rdquo; error shape (hyphen + plural together, e.g. &ldquo;6-feet&rdquo;, &ldquo;20-metres&rdquo;) not seen before. Only the CONTRAST connector (Q5, &ldquo;although&rdquo;) was correct.',
+    patternLabel:   'Unit 30 &mdash; 8 Aug 2026 &middot; 16/20 (80%) &middot; PASS &mdash; taken the day before the real ASMOPSS exam, on hard-tier content built less than 24 hours earlier',
+    patternInsight: '<strong>Score: 16/20 (80%), up from 14/20 &mdash; PASS, on brand-new hard-tier content.</strong> Cloze rebounded to <strong>6/7</strong> &mdash; the predict-first (write-before-reveal) pencil escalation, mirroring exactly what worked for Grammar&rsquo;s error-scan, transferred immediately: the 3 new tense-parallelism items all correct, only Q2 (hyphenation, &ldquo;3 metre&rdquo; instead of &ldquo;3-metre&rdquo;) missed. Grammar dropped to <strong>4/7</strong> on its two brand-new hard-tier rules (linking-verb+adjective, &ldquo;much&rdquo; vs &ldquo;very much&rdquo;) &mdash; reopened deliberately per Lui&rsquo;s request after being retired to maintenance at Unit 29. Vocabulary stayed PERFECT (6/6) for a SEVENTH consecutive test.',
 
-    analysisLabel:   'Unit 29 Result Analysis &mdash; 25 Jul 2026 (Grammar fully retires to maintenance; Cloze&rsquo;s two-step mechanic regresses sharply on its second outing &mdash; a structural hypothesis, not just &ldquo;still broken&rdquo;)',
-    analysisInsight: '<strong>Grammar is done.</strong> Three consecutive strong error-scan tests (5/5, 5/5, 5/5 across Units 27-29) satisfies the standing &ldquo;3 consecutive units correct &rarr; retire to maintenance&rdquo; rule &mdash; Grammar drops out of dedicated lesson time from Unit 30 onward, light maintenance reps only. <strong>Cloze needs a real format change, not another round of the same fix.</strong> The &ldquo;Spot It Yourself&rdquo; two-step mechanic removed the old pre-labelling bug (genuine progress from Unit 27&rsquo;s root cause), but Round 1 (Unit 28) showed only modest gains (4/7) and Round 2 (Unit 29, identical format) regressed to the worst-ever result (1/7). New working hypothesis: Grammar&rsquo;s fix succeeded specifically because it required a PHYSICAL WRITTEN pencil-and-paper action before any answer was possible &mdash; Cloze&rsquo;s mechanic, despite being unscaffolded, is still entirely on-screen and click-based (both Step 1 and Step 2 are button clicks). DECISION: Unit 30 escalates Cloze to a genuine pencil-and-paper task, mirroring exactly what worked for Grammar, rather than a third round of the same click-based format.',
+    analysisLabel:   'Unit 30 Result Analysis &mdash; 8 Aug 2026 (Cloze&rsquo;s pencil-first fix validated on first exposure; Grammar&rsquo;s new hard-tier content needs one more confirming rep; one flag worth watching)',
+    analysisInsight: '<strong>Cloze&rsquo;s fix works.</strong> The predict-first mechanic (write your answer before the options reveal) is the same underlying trick that broke Grammar&rsquo;s 4-test error-scan stall in Unit 27 &mdash; applied to Cloze for the first time in Unit 30, it went 3/3 on brand-new tense-parallelism content immediately. Hyphenation remains the one unresolved thread (Q2), a distinct sub-skill from the escalation that just worked. <strong>Grammar&rsquo;s dip is mostly expected first-exposure noise, but one item deserves a flag.</strong> Of the 3 misses, 2 (Q9, Q10) were on the brand-new linking-verb+adjective and much/very-much rules &mdash; a normal miss rate for content taught less than 24 hours earlier. But Q11 missed the if-clause mismatch cross-check, a previously solid MAINTENANCE item, not new content &mdash; the most likely explanation is fatigue (this was Prem&rsquo;s 5th significant assessment activity in 8 days, several on days planned as rest/review-only) rather than a reopened gap, but it should get one confirming rep before being written off completely.',
 
-    qSummary: '<strong>14/20 (70%), FAIL &mdash; first drop since Unit 27. Grammar&rsquo;s error-scan hit a PERFECT 5/5 for a THIRD straight test (7/7 overall, Grammar&rsquo;s best-ever result) &mdash; retirement threshold met, drops to maintenance from Unit 30. Vocab PERFECT (6/6) for a 6th straight test. Cloze crashed to 1/7, its worst result yet: all 4 subjunctive misses were the identical old &ldquo;-s&rdquo; habit, and hyphenation produced a new &ldquo;invalid hybrid&rdquo; error (hyphen + plural together) on both attempts. Working hypothesis: Grammar&rsquo;s fix worked because it required physical pencil-writing; Cloze&rsquo;s fix, despite being unscaffolded, is still fully on-screen/click-based &mdash; may explain why the identical format regressed on its second run. Next: UNIT 30 &mdash; Cloze escalates to a genuine pencil-and-paper task; Grammar moves to light maintenance only.</strong>',
+    qSummary: '<strong>16/20 (80%), PASS &mdash; taken the day before the real 9 Aug ASMOPSS exam, on content built less than 24 hours earlier. Cloze rebounded to 6/7 &mdash; the predict-first pencil escalation (same fix that worked for Grammar) transferred immediately on brand-new tense-parallelism content; hyphenation (Q2) is still the one unresolved thread. Grammar dropped to 4/7 on two brand-new hard-tier rules reopened per Lui&rsquo;s request (linking-verb+adjective, much/very-much) &mdash; 2 of 3 misses are normal first-exposure noise on new content, but Q11 missed the previously solid if-clause mismatch check, likely fatigue-related given this is the 5th significant test activity in 8 days. Vocab PERFECT (6/6) for a 7th straight test. Next: MILESTONE 3, redesigned per the real-exam transfer-gap review.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;picks&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;pick&rdquo; (base form after &ldquo;recommended that&rdquo;) &mdash; identical old habit as every subjunctive miss since Unit 26. Foundational.' },
-      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;6-feet&rdquo; (hyphenated AND plural &mdash; an invalid hybrid); scored answer was &ldquo;6-foot&rdquo; (hyphenated, singular unit, describing &ldquo;shelf&rdquo;) &mdash; a new error shape, not seen before. Foundational.' },
-      { q:'Q3',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;inspects&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;inspect&rdquo; (base form after &ldquo;insisted that&rdquo;) &mdash; identical old habit. Foundational.' },
-      { q:'Q4',  topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;20-metres&rdquo; (hyphenated AND plural &mdash; the invalid hybrid again); scored answer was &ldquo;20 metres&rdquo; (no hyphen, plural, standalone measurement, nothing following it) &mdash; same new hyphenation error shape as Q2. Developing.' },
-      { q:'Q5',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; although (CONTRAST, clause-joiner) &mdash; the one Cloze item correct this test. Developing.' },
-      { q:'Q6',  topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;runs&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;run&rdquo; (base form after &ldquo;suggested that&rdquo;) &mdash; identical old habit, 3rd of 4 straight subjunctive misses this test. Advanced.' },
-      { q:'Q7',  topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;monitors&rdquo; (the &ndash;s agreement form); scored answer was &ldquo;monitor&rdquo; (base form after &ldquo;required that&rdquo;) &mdash; identical old habit, 4th of 4 straight subjunctive misses &mdash; every single subjunctive trigger missed this test. Advanced.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Error-scan correct. Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Error-scan correct. Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Error-scan correct. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Mixed-vs-Second correct &mdash; 4th clean rep. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Error-scan correct. 5th of 5 successful reps &mdash; error-scan hits a PERFECT 5/5 for a THIRD straight test (1/5&rarr;4/5&rarr;5/5&rarr;5/5) &mdash; retirement threshold met. Advanced.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; to inform (Announcement Rosa, live announcement at assembly) &mdash; the retest after Unit 28&rsquo;s first-ever miss on this thread came back clean. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; Error-scan correct &mdash; Grammar&rsquo;s first-ever PERFECT 7/7 section. Advanced.' },
-      { q:'Q15', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Theme (sticking with something difficult eventually pays off &mdash; Maya practises for 3 weeks despite repeated failure). Foundational.' },
-      { q:'Q16', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Motivation (she refuses to let herself quit, an internal decision, not outside pressure). Foundational.' },
-      { q:'Q17', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Detail-recall (three weeks trying to land the ollie). Developing.' },
-      { q:'Q18', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; persistent = continuing to try despite difficulty. Developing.' },
-      { q:'Q19', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Inference (quietly proud after weeks of effort &mdash; a private pride, not needing an audience). Advanced.' },
-      { q:'Q20', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; half-hearted = opposite of persistent &mdash; referenced by name only, no leaked definition. Vocab PERFECT for a 6th straight test. Advanced.' }
+      { q:'Q1',  topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; ignored (tense-parallelism: matches &ldquo;checked&rdquo; in the first clause). Foundational.' },
+      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;3 metre&rdquo; (no hyphen); scored answer was &ldquo;3-metre&rdquo; (hyphenated compound adjective before &ldquo;tunnel&rdquo;) &mdash; hyphenation remains the one unresolved Cloze thread. Foundational.' },
+      { q:'Q3',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; skipped (tense-parallelism: matches &ldquo;warmed up&rdquo;). Developing.' },
+      { q:'Q4',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; bring (subjunctive base form after &ldquo;insisted that&rdquo;). Developing.' },
+      { q:'Q5',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; so (RESULT, clause-joiner). Developing.' },
+      { q:'Q6',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; forgot (tense-parallelism: matches &ldquo;inflated&rdquo;). Advanced.' },
+      { q:'Q7',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; undiagnosed (precise medical-context vocab-in-cloze). Advanced &mdash; Cloze finishes 6/7, its best result since the two 7/7 perfects.' },
+      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; NEW hard-tier rule (linking-verb+adjective, &ldquo;tasted stale&rdquo; not &ldquo;stalely&rdquo;) correct on first exposure. Foundational.' },
+      { q:'Q9',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Chose A (a correct sentence); scored answer was C (&ldquo;much dreading&rdquo; needs its partner &ldquo;very much dreading&rdquo;) &mdash; NEW hard-tier rule, first exposure. Foundational.' },
+      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose D (a correct sentence); scored answer was C (&ldquo;smelled sourly&rdquo; needs the plain describing-word &ldquo;sour&rdquo;) &mdash; NEW hard-tier rule, first exposure. Developing.' },
+      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose A (a correct sentence); scored answer was B (&ldquo;had left&rdquo; + plain &ldquo;would reach&rdquo; is a 3rd/2nd mismatch) &mdash; a previously solid MAINTENANCE item, not new content; likely a fatigue blip (5th significant test activity in 8 days), flagged for one confirming rep rather than a reopened gap. Developing.' },
+      { q:'Q12', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; NEW hard-tier rule (&ldquo;much relieved&rdquo; needs &ldquo;very much relieved&rdquo;) correct. Advanced.' },
+      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; to inform (live announcement over the tannoy) &mdash; gerund/infinitive maintenance holds. Advanced.' },
+      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; NEW hard-tier rule (linking-verb+adjective) correct &mdash; Grammar finishes 4/7, with 2 of 3 misses being normal first-exposure noise on brand-new content. Advanced.' },
+      { q:'Q15', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Correct. Foundational.' },
+      { q:'Q16', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Correct. Foundational.' },
+      { q:'Q17', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Correct. Developing.' },
+      { q:'Q18', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Correct. Developing.' },
+      { q:'Q19', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Correct. Advanced.' },
+      { q:'Q20', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Correct &mdash; Vocab PERFECT (6/6) for a SEVENTH straight test. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U29 (FAIL 14/20 — Grammar's first-ever PERFECT 7/7 retires it to maintenance, Cloze crashes to worst-ever 1/7):
-  // Reading/Vocabulary unchanged — both already at target, Vocab's 6th straight PERFECT test;
-  // Grammar +1, reaches target — error-scan hit a PERFECT 5/5 for a THIRD straight test (1/5→4/5→5/5→5/5),
-  //   satisfies the "3 consecutive units correct" retirement rule, drops to maintenance from Unit 30;
-  // Cloze -8 — crashed to 1/7 (worst result of the programme): all 4 subjunctive misses the identical old "-s"
-  //   habit, both hyphenation attempts a NEW "invalid hybrid" error shape (hyphen+plural together);
-  //   working hypothesis: the two-step mechanic is still fully on-screen/click-based, unlike Grammar's
-  //   pencil-and-paper fix — Unit 30 escalates Cloze to a genuine written task;
-  // Writing/Conversation/CritThink/FigLang untested by U29, held at prior levels
+  // After U30 (PASS 16/20 — Cloze's pencil-first escalation validated immediately on brand-new content;
+  //   Grammar deliberately reopened for 2 brand-new hard-tier rules, dips as expected on first exposure):
+  // Reading/Vocabulary unchanged — both already at target, Vocab's 7th straight PERFECT test;
+  // Grammar -8 — deliberately reopened per Lui's request (linking-verb+adjective, much/very-much);
+  //   2 of 3 misses are normal first-exposure noise on brand-new content, but Q11 (if-clause mismatch,
+  //   a previously solid maintenance item) also slipped — likely fatigue, flagged for one confirming rep;
+  // Cloze +16 — rebounded sharply to 6/7 on brand-new tense-parallelism content: the predict-first pencil
+  //   escalation (same fix that worked for Grammar's error-scan) transferred on first exposure; hyphenation
+  //   (Q2) remains the one still-unresolved thread — one strong result, not yet a 3-test confirmed fix;
+  // Writing/Conversation/CritThink/FigLang untested by U30, held at prior levels — per the 10 Aug 2026
+  //   coaching-rules update, Conversation/Writing/CritThink/FigLang radar numbers are ESTIMATES pending
+  //   real scored checkpoints (Conversation gets one at Milestone 3; Writing/CritThink/FigLang by M4/M5)
   skills: [
-    { name: 'Reading Compr.',    c: 85, t: 85 },   // not tested standalone at U29 (folds into Vocab section); unchanged, already at target
-    { name: 'Vocabulary',        c: 82, t: 82 },   // U29: 6/6 PERFECT — 6th straight perfect test, already at target
-    { name: 'Grammar',           c: 82, t: 82 },   // U29: 7/7 PERFECT — error-scan 5/5 for a 3rd straight test, retirement threshold met, target reached
-    { name: 'Cloze Test',        c: 52, t: 80 },   // U29: 1/7 — worst-ever result; subjunctive 0/4 (same old "-s" habit), hyphenation 0/2 (new invalid-hybrid error)
-    { name: 'Writing',           c: 65, t: 85 },
-    { name: 'Conversation',      c: 90, t: 85 },   // not tested at U29; unchanged
-    { name: 'Critical Thinking', c: 62, t: 80 },   // not tested at U29; unchanged
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // not tested at U29; unchanged
+    { name: 'Reading Compr.',    c: 85, t: 85 },   // not tested standalone at U30 (folds into Vocab section); unchanged, already at target
+    { name: 'Vocabulary',        c: 82, t: 82 },   // U30: 6/6 PERFECT — 7th straight perfect test, already at target
+    { name: 'Grammar',           c: 74, t: 82 },   // U30: 4/7 — deliberately reopened for 2 brand-new hard-tier rules; 2 of 3 misses are normal first-exposure noise, 1 (Q11) a maintenance-item slip worth a confirming rep
+    { name: 'Cloze Test',        c: 68, t: 80 },   // U30: 6/7 — pencil-first escalation transferred immediately on brand-new content; hyphenation (Q2) still open, one result not yet a confirmed 3-test fix
+    { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
+    { name: 'Conversation',      c: 90, t: 85 },   // ESTIMATE — not tested since ISA-track inception; the real ASMOPSS exam surfaced a 35pp drop on this same skill, so this number needs Milestone 3's live check before it can be trusted
+    { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; first real checkpoint planned by Milestone 4
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [85, 82, 82, 52, 65, 90, 62, 55],
+  radarCurrent:  [85, 82, 74, 68, 65, 90, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 29',
+  radarLegendUnit: 'Unit 30',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -129,11 +132,24 @@ var PREM_ENGLISH = {
     { n:26, score:11, outOf:20, delta:-3, color:'#fc4e4e', star:false, label:'U26' },
     { n:27, score:14, outOf:20, delta:3,  color:'#667eea', star:false, label:'U27' },
     { n:28, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U28' },
-    { n:29, score:14, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U29' }
+    { n:29, score:14, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U29' },
+    { n:30, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U30' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 30,
+      title: 'Unit 30 &mdash; Cloze: Keeping Sentences Balanced &middot; Grammar &amp; Vocab: Precision Under Pressure',
+      badge: '#89F336',
+      status: 'done',
+      note: '16/20 (80%) &mdash; <strong>PASS, taken the day before the real 9 Aug ASMOPSS exam, on hard-tier content built less than 24 hours earlier.</strong> <strong>Cloze rebounded to 6/7</strong> &mdash; the predict-first (write-before-reveal) pencil escalation, the same underlying trick that broke Grammar&rsquo;s 4-test error-scan stall back at Unit 27, transferred immediately to brand-new tense-parallelism content: all 3 new items correct, only hyphenation (Q2, &ldquo;3 metre&rdquo; instead of &ldquo;3-metre&rdquo;) missed. <strong>Grammar dropped to 4/7</strong> on two brand-new hard-tier rules reopened per Lui&rsquo;s explicit request (linking-verb+adjective, &ldquo;much&rdquo; vs &ldquo;very much&rdquo;) &mdash; 2 of the 3 misses are normal first-exposure noise on content taught under 24 hours earlier, but the 3rd (Q11) slipped on a previously solid MAINTENANCE item (if-clause mismatch), most likely a fatigue blip given this was Prem&rsquo;s 5th significant assessment activity in 8 days. <strong>Vocab 6/6 &#9733; PERFECT</strong> for a SEVENTH straight test. &middot; Next: <strong>MILESTONE 3</strong> &mdash; redesigned per the real-exam transfer-gap review (see coaching_rules): Vocab gets permanent near-opposite traps, Conversation adds multi-turn dialogues, Grammar consolidates these 2 new hard-tier rules, Cloze mixes tense-parallelism with subjunctive/hyphenation maintenance, Reading stays live rather than dropping to complacent maintenance.',
+      tags: [
+        { t:'Cloze 6/7', s:'background:#f0fff4;color:#276749' },
+        { t:'Grammar 4/7 (2 new-content misses)', s:'background:#fff8e1;color:#744210' },
+        { t:'Vocab 6/6 &#9733;', s:'background:#f0fff4;color:#276749' }
+      ]
+    },
     {
       n: 29,
       title: 'Unit 29 &mdash; Cloze: Spot It Yourself, Round 2 &middot; Grammar &amp; Vocab: Keep It Steady',
