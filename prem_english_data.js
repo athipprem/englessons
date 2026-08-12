@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '10 Aug 2026',
+  updated:        '13 Aug 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           'M3',
-    status:      'Milestone 3 ready &mdash; not yet taken. Redesigned per the real-exam transfer-gap review: Vocab gets permanent near-opposite traps, Conversation adds multi-turn dialogues, Grammar consolidates Unit 30&rsquo;s hard-tier rules, Cloze mixes tense-parallelism with subjunctive/hyphenation maintenance, Reading stays live (not parked on maintenance).',
+    n:           31,
+    status:      'Unit 31 ready &mdash; not yet taken. Reopens the normal lesson-pack cycle after Milestone 3 (93/125, 74%, FAIL) &mdash; a direct, targeted rebuild of Grammar and Cloze, the two sections that failed. Cloze is majority hyphenation (5 of 7 items) across FOUR compound patterns, including the no-hyphen/standalone direction. Grammar is majority cross-verb linking-verb+adjective drilling (5 of 7 items), embedded in error-scan format from the first item, plus a &ldquo;thereby+-ing&rdquo; repeat.',
     testPending: true
   },
 
@@ -32,72 +32,96 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 30 — updated after each test)
+  // Last completed assessment (Milestone 3 — updated after each test)
   lastUnit: {
-    n: 30, label: 'Unit 30', score: 16, outOf: 20, pct: 80, delta: 2, prevScore: 14,
+    n: 'M3', label: 'Milestone 3', score: 93, outOf: 125, pct: 74, delta: 1, prevScore: 92,
 
-    patternLabel:   'Unit 30 &mdash; 8 Aug 2026 &middot; 16/20 (80%) &middot; PASS &mdash; taken the day before the real ASMOPSS exam, on hard-tier content built less than 24 hours earlier',
-    patternInsight: '<strong>Score: 16/20 (80%), up from 14/20 &mdash; PASS, on brand-new hard-tier content.</strong> Cloze rebounded to <strong>6/7</strong> &mdash; the predict-first (write-before-reveal) pencil escalation, mirroring exactly what worked for Grammar&rsquo;s error-scan, transferred immediately: the 3 new tense-parallelism items all correct, only Q2 (hyphenation, &ldquo;3 metre&rdquo; instead of &ldquo;3-metre&rdquo;) missed. Grammar dropped to <strong>4/7</strong> on its two brand-new hard-tier rules (linking-verb+adjective, &ldquo;much&rdquo; vs &ldquo;very much&rdquo;) &mdash; reopened deliberately per Lui&rsquo;s request after being retired to maintenance at Unit 29. Vocabulary stayed PERFECT (6/6) for a SEVENTH consecutive test.',
+    patternLabel:   'Milestone 3 &mdash; 10 Aug 2026 &middot; 93/125 (74%) &middot; FAIL (pass bar 100/125) &mdash; taken the same day it was built',
+    patternInsight: '<strong>Score: 93/125 (74%), FAIL &mdash; but a sharply divided result, not a broad one.</strong> Conversation went <strong>25/25 (8/8) PERFECT</strong> and Reading went <strong>25/25 (8/8) PERFECT</strong> &mdash; both sections redesigned this cycle (multi-turn dialogues, kept-live passages), both validated on first exposure. Vocabulary held <strong>20/25 (6/8, 80%)</strong> &mdash; both deliberately-designed reversal-trap items (tenacious, candid) were answered correctly, confirming that fix works; the 2 misses were organic near-opposite confusion on undesignated words. Grammar fell to <strong>13/25 (5/8, 52%)</strong> and Cloze to <strong>10/25 (4/8, 40%)</strong> &mdash; both FAILED, and both show the identical signature: a rule answered correctly on one item, missed on another instance of the SAME rule.',
 
-    analysisLabel:   'Unit 30 Result Analysis &mdash; 8 Aug 2026 (Cloze&rsquo;s pencil-first fix validated on first exposure; Grammar&rsquo;s new hard-tier content needs one more confirming rep; one flag worth watching)',
-    analysisInsight: '<strong>Cloze&rsquo;s fix works.</strong> The predict-first mechanic (write your answer before the options reveal) is the same underlying trick that broke Grammar&rsquo;s 4-test error-scan stall in Unit 27 &mdash; applied to Cloze for the first time in Unit 30, it went 3/3 on brand-new tense-parallelism content immediately. Hyphenation remains the one unresolved thread (Q2), a distinct sub-skill from the escalation that just worked. <strong>Grammar&rsquo;s dip is mostly expected first-exposure noise, but one item deserves a flag.</strong> Of the 3 misses, 2 (Q9, Q10) were on the brand-new linking-verb+adjective and much/very-much rules &mdash; a normal miss rate for content taught less than 24 hours earlier. But Q11 missed the if-clause mismatch cross-check, a previously solid MAINTENANCE item, not new content &mdash; the most likely explanation is fatigue (this was Prem&rsquo;s 5th significant assessment activity in 8 days, several on days planned as rest/review-only) rather than a reopened gap, but it should get one confirming rep before being written off completely.',
+    analysisLabel:   'Milestone 3 Result Analysis &mdash; 10 Aug 2026 (Conversation &amp; Reading prove the redesign works; Grammar and Cloze confirm a transfer problem, not a knowledge gap; hyphenation confirmed still broken)',
+    analysisInsight: '<strong>The redesign worked exactly where it was aimed.</strong> Conversation&rsquo;s new multi-turn dialogue format and Vocabulary&rsquo;s permanent reversal-traps were both built to answer the real ASMOPSS 2026 exam&rsquo;s transfer-gap findings &mdash; Conversation went perfect, and both designed traps were caught. <strong>Grammar and Cloze, left as &ldquo;maintenance,&rdquo; are where the milestone was lost.</strong> Grammar answered &ldquo;felt exhausted&rdquo; correctly but missed &ldquo;tasted delicious&rdquo; (Q17) &mdash; the identical linking-verb+adjective rule, inconsistent across verbs &mdash; and the same rule broke down again once embedded in an error-scan synthesis item (Q24). Cloze answered &ldquo;trained&hellip;adapted&rdquo; correctly but missed &ldquo;studied&hellip;improved&rdquo; (Q27) &mdash; the identical tense-parallelism rule, same inconsistency pattern. <strong>The single most concentrated loss: BOTH 5-point hyphenation items missed</strong> (three-year-old &rarr; &ldquo;three year-old&rdquo;; well-trained &rarr; &ldquo;well trained&rdquo;) &mdash; confirming Unit 30&rsquo;s apparent 6/7 hyphenation recovery did not generalise past its original number-unit pattern (&ldquo;3-metre&rdquo;) to compound-adjective-before-noun patterns. This is a transfer problem, not a missing rule &mdash; Unit 31 is built as a direct, targeted rebuild of exactly these two sections.',
 
-    qSummary: '<strong>16/20 (80%), PASS &mdash; taken the day before the real 9 Aug ASMOPSS exam, on content built less than 24 hours earlier. Cloze rebounded to 6/7 &mdash; the predict-first pencil escalation (same fix that worked for Grammar) transferred immediately on brand-new tense-parallelism content; hyphenation (Q2) is still the one unresolved thread. Grammar dropped to 4/7 on two brand-new hard-tier rules reopened per Lui&rsquo;s request (linking-verb+adjective, much/very-much) &mdash; 2 of 3 misses are normal first-exposure noise on new content, but Q11 missed the previously solid if-clause mismatch check, likely fatigue-related given this is the 5th significant test activity in 8 days. Vocab PERFECT (6/6) for a 7th straight test. Next: MILESTONE 3, redesigned per the real-exam transfer-gap review.</strong>',
+    qSummary: '<strong>93/125 (74%), FAIL (pass bar 100/125) &mdash; taken the same day the test was built. Conversation 8/8 PERFECT and Reading 8/8 PERFECT, both redesigned this cycle and both validated on first exposure. Vocab 6/8 (80%) &mdash; both designed reversal-traps (tenacious, candid) answered correctly; 2 organic misses elsewhere (invigorating, wary). Grammar 5/8 (52%) and Cloze 4/8 (40%) FAILED &mdash; both show a rule right on one item, wrong on another instance of the identical rule (transfer problem, not knowledge gap). Cloze lost both 5-pt hyphenation items, confirming hyphenation is still not durably fixed. Next: UNIT 31, a direct rebuild of Grammar and Cloze.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; ignored (tense-parallelism: matches &ldquo;checked&rdquo; in the first clause). Foundational.' },
-      { q:'Q2',  topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;3 metre&rdquo; (no hyphen); scored answer was &ldquo;3-metre&rdquo; (hyphenated compound adjective before &ldquo;tunnel&rdquo;) &mdash; hyphenation remains the one unresolved Cloze thread. Foundational.' },
-      { q:'Q3',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; skipped (tense-parallelism: matches &ldquo;warmed up&rdquo;). Developing.' },
-      { q:'Q4',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; bring (subjunctive base form after &ldquo;insisted that&rdquo;). Developing.' },
-      { q:'Q5',  topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; so (RESULT, clause-joiner). Developing.' },
-      { q:'Q6',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; forgot (tense-parallelism: matches &ldquo;inflated&rdquo;). Advanced.' },
-      { q:'Q7',  topic:'Cloze', lvl:'a', pass:true,  note:'&#10003; undiagnosed (precise medical-context vocab-in-cloze). Advanced &mdash; Cloze finishes 6/7, its best result since the two 7/7 perfects.' },
-      { q:'Q8',  topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; NEW hard-tier rule (linking-verb+adjective, &ldquo;tasted stale&rdquo; not &ldquo;stalely&rdquo;) correct on first exposure. Foundational.' },
-      { q:'Q9',  topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Chose A (a correct sentence); scored answer was C (&ldquo;much dreading&rdquo; needs its partner &ldquo;very much dreading&rdquo;) &mdash; NEW hard-tier rule, first exposure. Foundational.' },
-      { q:'Q10', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose D (a correct sentence); scored answer was C (&ldquo;smelled sourly&rdquo; needs the plain describing-word &ldquo;sour&rdquo;) &mdash; NEW hard-tier rule, first exposure. Developing.' },
-      { q:'Q11', topic:'Grammar', lvl:'i', pass:false, note:'&#10007; Chose A (a correct sentence); scored answer was B (&ldquo;had left&rdquo; + plain &ldquo;would reach&rdquo; is a 3rd/2nd mismatch) &mdash; a previously solid MAINTENANCE item, not new content; likely a fatigue blip (5th significant test activity in 8 days), flagged for one confirming rep rather than a reopened gap. Developing.' },
-      { q:'Q12', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; NEW hard-tier rule (&ldquo;much relieved&rdquo; needs &ldquo;very much relieved&rdquo;) correct. Advanced.' },
-      { q:'Q13', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; to inform (live announcement over the tannoy) &mdash; gerund/infinitive maintenance holds. Advanced.' },
-      { q:'Q14', topic:'Grammar', lvl:'a', pass:true,  note:'&#10003; NEW hard-tier rule (linking-verb+adjective) correct &mdash; Grammar finishes 4/7, with 2 of 3 misses being normal first-exposure noise on brand-new content. Advanced.' },
-      { q:'Q15', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Correct. Foundational.' },
-      { q:'Q16', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Correct. Foundational.' },
-      { q:'Q17', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Correct. Developing.' },
-      { q:'Q18', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Correct. Developing.' },
-      { q:'Q19', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Correct. Advanced.' },
-      { q:'Q20', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; Correct &mdash; Vocab PERFECT (6/6) for a SEVENTH straight test. Advanced.' }
+      { q:'Q1',  topic:'Conversation', lvl:'b', pass:true,  note:'&#10003; &ldquo;Hi, I&rsquo;m Sam &mdash; want to sit with us at lunch?&rdquo; (break the ice). Foundational.' },
+      { q:'Q2',  topic:'Conversation', lvl:'b', pass:true,  note:'&#10003; Extremely expensive (cost an arm and a leg). Foundational.' },
+      { q:'Q3',  topic:'Conversation', lvl:'b', pass:true,  note:'&#10003; A polite request (&ldquo;Would you mind&hellip;&rdquo;). Foundational.' },
+      { q:'Q4',  topic:'Conversation', lvl:'i', pass:true,  note:'&#10003; Want to grab something to eat? (starving = hungry, not literal). Developing.' },
+      { q:'Q5',  topic:'Conversation', lvl:'i', pass:true,  note:'&#10003; It&rsquo;s now your turn to decide or act (ball is in your court). Developing.' },
+      { q:'Q6',  topic:'Conversation', lvl:'i', pass:true,  note:'&#10003; NEW multi-turn dialogue item &mdash; correctly tracked B&rsquo;s real point (teamwork, not defense) across all 4 turns. Developing.' },
+      { q:'Q7',  topic:'Conversation', lvl:'a', pass:true,  note:'&#10003; NEW multi-turn dialogue item &mdash; correctly read the subtle &ldquo;talk later&rdquo; distinction (delay, not avoid forever). Advanced.' },
+      { q:'Q8',  topic:'Conversation', lvl:'a', pass:true,  note:'&#10003; Worked very late into the night (burn the midnight oil) &mdash; Conversation finishes 8/8, PERFECT. Both new multi-turn items held. Advanced.' },
+      { q:'Q9',  topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Not cared for or looked after (neglected). Foundational.' },
+      { q:'Q10', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Very careful and precise (meticulous). Foundational.' },
+      { q:'Q11', topic:'Vocab', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;Making you feel tired and drained&rdquo;; scored answer was &ldquo;Making you feel more energetic&rdquo; (invigorating) &mdash; a near-opposite reversal error on an UNDESIGNATED item, not one of the deliberate traps. Foundational.' },
+      { q:'Q12', topic:'Vocab', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;Completely uninterested&rdquo;; scored answer was &ldquo;Cautious and a little distrustful&rdquo; (wary) &mdash; another organic meaning-confusion, not one of the deliberate traps. Developing.' },
+      { q:'Q13', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Intimidating and difficult to face (daunting). Developing.' },
+      { q:'Q14', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Good at finding clever solutions with what&rsquo;s available (resourceful). Developing.' },
+      { q:'Q15', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; DESIGNED reversal-trap item (tenacious) &mdash; correctly chose &ldquo;refusing to give up&rdquo; over the near-opposite distractor &ldquo;indifferent.&rdquo; Advanced.' },
+      { q:'Q16', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; DESIGNED reversal-trap item (candid) &mdash; correctly chose &ldquo;honest and direct&rdquo; over the near-opposite distractor &ldquo;evasive&rdquo; &mdash; Vocab finishes 6/8 (80%); both deliberate traps held, both organic misses were on undesignated items. Advanced.' },
+      { q:'Q17', topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;delicately&rdquo;; scored answer was &ldquo;delicious&rdquo; (linking-verb+adjective, &ldquo;tasted&rdquo;) &mdash; the SAME rule Q20 gets right (&ldquo;felt exhausted&rdquo;), an inconsistency across verbs, not a missing rule. Foundational.' },
+      { q:'Q18', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; very much (impressed). Foundational.' },
+      { q:'Q19', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly identified &ldquo;He speaks English good.&rdquo; as the error. Foundational.' },
+      { q:'Q20', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; exhausted (felt) &mdash; the same linking-verb rule that slipped at Q17. Developing.' },
+      { q:'Q21', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; very much (relieved). Developing.' },
+      { q:'Q22', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Little did he know&hellip; (fronted inversion, first exposure, correct). Developing.' },
+      { q:'Q23', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;&hellip;thereby time was saved each day.&rdquo;; scored answer was &ldquo;&hellip;thereby saving time each day.&rdquo; &mdash; &ldquo;thereby&rdquo;+-ing, first exposure. Advanced.' },
+      { q:'Q24', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Error-scan synthesis item &mdash; flagged &ldquo;(D) so she prepared to publish her findings&rdquo; as the error; the actual error was &ldquo;(B) she felt confidently&rdquo; (same linking-verb rule missed at Q17, now buried inside a 4-option scan) &mdash; Grammar finishes 5/8 (52%), FAIL. Advanced.' },
+      { q:'Q25', topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; However (full-stop sentence-starter, contrast). Foundational.' },
+      { q:'Q26', topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; so (comma, clause-joiner, result). Foundational.' },
+      { q:'Q27', topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;study&rdquo;; scored answer was &ldquo;studied&rdquo; (tense-parallelism, &ldquo;studied&hellip;improved&rdquo;) &mdash; the SAME rule Q28 gets right (&ldquo;trained&hellip;adapted&rdquo;), an inconsistency, not a missing rule. Foundational.' },
+      { q:'Q28', topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; trained (tense-parallelism) &mdash; the same rule that slipped at Q27. Developing.' },
+      { q:'Q29', topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; arrive (subjunctive, active voice, base form after &ldquo;insisted that&rdquo;). Developing.' },
+      { q:'Q30', topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;is submitted&rdquo;; scored answer was &ldquo;be submitted&rdquo; (subjunctive, PASSIVE voice) &mdash; the active-voice form held at Q29 but the rule has not generalised to the passive form yet. Developing.' },
+      { q:'Q31', topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;three year-old&rdquo;; scored answer was &ldquo;three-year-old&rdquo; (age compound before a noun) &mdash; hyphenation miss #1 of 2, confirming Unit 30&rsquo;s recovery did not generalise to this pattern. Advanced.' },
+      { q:'Q32', topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;well trained&rdquo;; scored answer was &ldquo;well-trained&rdquo; (participle compound before a noun) &mdash; hyphenation miss #2 of 2 &mdash; Cloze finishes 4/8 (40%), the weakest section, both 5-pt items lost to hyphenation. Advanced.' },
+      { q:'Q33', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; How octopuses use colour and texture to communicate, not just hide (main idea). Foundational.' },
+      { q:'Q34', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Special skin cells that help an octopus change colour (chromatophores, detail). Foundational.' },
+      { q:'Q35', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Imitate or copy closely (mimic, vocab-in-context). Foundational.' },
+      { q:'Q36', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; Because octopuses are almost certainly colourblind themselves (inference). Developing.' },
+      { q:'Q37', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; To emphasize that colour-changing serves more purposes than just hiding (author&rsquo;s purpose). Developing.' },
+      { q:'Q38', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; There are still open questions about how octopuses coordinate this skill (inference). Developing.' },
+      { q:'Q39', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; It may be reassigned to someone on the waiting list (notice, applied reasoning). Advanced.' },
+      { q:'Q40', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; It is NOT eligible for reassignment, since she gave advance notice (notice, applied reasoning) &mdash; Reading finishes 8/8, PERFECT. Advanced.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After U30 (PASS 16/20 — Cloze's pencil-first escalation validated immediately on brand-new content;
-  //   Grammar deliberately reopened for 2 brand-new hard-tier rules, dips as expected on first exposure):
-  // Reading/Vocabulary unchanged — both already at target, Vocab's 7th straight PERFECT test;
-  // Grammar -8 — deliberately reopened per Lui's request (linking-verb+adjective, much/very-much);
-  //   2 of 3 misses are normal first-exposure noise on brand-new content, but Q11 (if-clause mismatch,
-  //   a previously solid maintenance item) also slipped — likely fatigue, flagged for one confirming rep;
-  // Cloze +16 — rebounded sharply to 6/7 on brand-new tense-parallelism content: the predict-first pencil
-  //   escalation (same fix that worked for Grammar's error-scan) transferred on first exposure; hyphenation
-  //   (Q2) remains the one still-unresolved thread — one strong result, not yet a 3-test confirmed fix;
-  // Writing/Conversation/CritThink/FigLang untested by U30, held at prior levels — per the 10 Aug 2026
-  //   coaching-rules update, Conversation/Writing/CritThink/FigLang radar numbers are ESTIMATES pending
-  //   real scored checkpoints (Conversation gets one at Milestone 3; Writing/CritThink/FigLang by M4/M5)
+  // After MILESTONE 3 (93/125, 74%, FAIL, 10 Aug 2026) — the first REAL-CONDITION check for Conversation,
+  //   and confirmation (not first-exposure noise) for Grammar/Cloze:
+  // Reading unchanged — already at target, 8/8 PERFECT again;
+  // Vocabulary -2 — 6/8 (80%) under real conditions; both designed reversal-traps held, 2 organic misses
+  //   on undesignated items keep this just off target rather than at it;
+  // Grammar -4 — 5/8 (52%) on a real milestone-scale check confirms this is a genuine transfer gap (right on
+  //   one linking verb, wrong on another; breaks down further inside error-scan), not first-exposure noise
+  //   as first assumed after Unit 30 — walked back down accordingly, Unit 31 rebuilds it directly;
+  // Cloze -8 — 4/8 (40%), the weakest section; BOTH 5-pt hyphenation items missed, confirming Unit 30's
+  //   apparent 6/7 recovery did NOT generalise past its original number-unit pattern — walked back down
+  //   more sharply than Grammar since this was the most concentrated single point-loss on the test;
+  // Conversation +5 — its FIRST real-condition check (per the 10 Aug coaching-rules stress-test rule) went
+  //   8/8 PERFECT, including both new multi-turn items; ESTIMATE flag removed, moved to a validated number
+  //   (kept below a full jump to 100 since one milestone section is confirming, not yet a long-run trend);
+  // Writing/Critical Thinking/Figurative Language — still ESTIMATES, untested this cycle; first checkpoints
+  //   remain Figurative Language by Milestone 4, Writing + Critical Thinking by Milestone 5
   skills: [
-    { name: 'Reading Compr.',    c: 85, t: 85 },   // not tested standalone at U30 (folds into Vocab section); unchanged, already at target
-    { name: 'Vocabulary',        c: 82, t: 82 },   // U30: 6/6 PERFECT — 7th straight perfect test, already at target
-    { name: 'Grammar',           c: 74, t: 82 },   // U30: 4/7 — deliberately reopened for 2 brand-new hard-tier rules; 2 of 3 misses are normal first-exposure noise, 1 (Q11) a maintenance-item slip worth a confirming rep
-    { name: 'Cloze Test',        c: 68, t: 80 },   // U30: 6/7 — pencil-first escalation transferred immediately on brand-new content; hyphenation (Q2) still open, one result not yet a confirmed 3-test fix
+    { name: 'Reading Compr.',    c: 85, t: 85 },   // M3: 8/8 PERFECT again — unchanged, already at target
+    { name: 'Vocabulary',        c: 80, t: 82 },   // M3: 6/8 (80%) — both designed reversal-traps held; 2 organic misses on undesignated items
+    { name: 'Grammar',           c: 70, t: 82 },   // M3: 5/8 (52%), FAIL — confirms a real cross-verb transfer gap, not first-exposure noise; Unit 31 rebuilds directly
+    { name: 'Cloze Test',        c: 60, t: 80 },   // M3: 4/8 (40%), FAIL — both 5-pt hyphenation items lost; Unit 30's recovery confirmed NOT to have generalised
     { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
-    { name: 'Conversation',      c: 90, t: 85 },   // ESTIMATE — not tested since ISA-track inception; the real ASMOPSS exam surfaced a 35pp drop on this same skill, so this number needs Milestone 3's live check before it can be trusted
+    { name: 'Conversation',      c: 95, t: 85 },   // M3: 8/8 PERFECT — first-ever REAL-CONDITION check, ESTIMATE flag removed, validated number
     { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
     { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; first real checkpoint planned by Milestone 4
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [85, 82, 74, 68, 65, 90, 62, 55],
+  radarCurrent:  [85, 80, 70, 60, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 30',
+  radarLegendUnit: 'Milestone 3',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -133,11 +157,26 @@ var PREM_ENGLISH = {
     { n:27, score:14, outOf:20, delta:3,  color:'#667eea', star:false, label:'U27' },
     { n:28, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U28' },
     { n:29, score:14, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U29' },
-    { n:30, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U30' }
+    { n:30, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U30' },
+    { n:'M3', score:93, outOf:125, delta:null, color:'#9f7aea', star:false, label:'M3', milestone:true }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 'M3',
+      title: 'Milestone 3 &mdash; Real-Exam Transfer-Gap Rebuild (Conversation, Vocab, Grammar, Cloze, Reading)',
+      badge: '#f6993f',
+      status: 'done',
+      note: '93/125 (74%) &mdash; <strong>FAIL (pass bar 100/125), taken the same day it was built &mdash; a sharply divided result, not a broad one.</strong> <strong>Conversation 8/8 PERFECT</strong> and <strong>Reading 8/8 PERFECT</strong> &mdash; both sections redesigned this cycle (multi-turn dialogues, kept-live passages) validated on first exposure, directly answering the real ASMOPSS 2026 exam&rsquo;s Conversation/Reading gap. <strong>Vocab 6/8 (80%)</strong> &mdash; both DESIGNED reversal-trap items (tenacious, candid) answered correctly, confirming that fix works; 2 organic misses on undesignated words (invigorating, wary) show the underlying habit still isn&rsquo;t fully general. <strong>Grammar 5/8 (52%) and Cloze 4/8 (40%) both FAILED</strong> with the identical signature: a rule right on one item, wrong on another instance of the SAME rule (Grammar: &ldquo;tasted delicious&rdquo; missed, &ldquo;felt exhausted&rdquo; correct; Cloze: &ldquo;studied&hellip;improved&rdquo; missed, &ldquo;trained&hellip;adapted&rdquo; correct) &mdash; a transfer problem, not a knowledge gap. Cloze&rsquo;s worst point: BOTH 5-pt hyphenation items missed, confirming Unit 30&rsquo;s apparent 6/7 recovery did not generalise past its original pattern. &middot; Next: <strong>UNIT 31</strong> &mdash; a direct, targeted rebuild of Grammar and Cloze (majority hyphenation across 4 patterns; majority cross-verb linking-verb drilling embedded in error-scan from the first item), reopening the normal lesson-pack cycle.',
+      tags: [
+        { t:'Conversation 8/8 &#127881; PERFECT', s:'background:#f0fff4;color:#276749' },
+        { t:'Reading 8/8 &#127881; PERFECT', s:'background:#f0fff4;color:#276749' },
+        { t:'Vocab 6/8 (traps held)', s:'background:#f0fff4;color:#276749' },
+        { t:'Grammar 5/8 &#9888;&#9888;', s:'background:#fff0f0;color:#c53030' },
+        { t:'Cloze 4/8 &#9888;&#9888;&#9888;', s:'background:#fff0f0;color:#c53030' }
+      ]
+    },
     {
       n: 30,
       title: 'Unit 30 &mdash; Cloze: Keeping Sentences Balanced &middot; Grammar &amp; Vocab: Precision Under Pressure',
@@ -636,9 +675,15 @@ PREM_ENGLISH.renderScoreChart = function(containerId) {
   (this.unitLog || []).forEach(function(u) { logMap[u.n] = u; });
   var outOf = this.outOf || 20;
   var ns = 'http://www.w3.org/2000/svg';
-  var W = 540, H = 224;
+  var H = 224;
   var PL = 44, PR = 82, PT = 18, PB = 56;
-  var pw = W - PL - PR, ph = H - PT - PB;
+  // Plot width grows with the number of data points (min 22px/point) so labels never
+  // have to squeeze tighter than that — chart scrolls horizontally once it outgrows the card.
+  var SPACING = 22, MIN_PW = 414;
+  var pw = Math.max(MIN_PW, scores.length > 1 ? (scores.length - 1) * SPACING : MIN_PW);
+  var needsScroll = pw > MIN_PW;
+  var W = PL + PR + pw;
+  var ph = H - PT - PB;
   var x0 = PL, y0 = PT, x1 = PL + pw, y1 = PT + ph;
   var yMin = 40, yMax = 100;
   function pctY(pct) { return y0 + ph * (yMax - pct) / (yMax - yMin); }
@@ -662,8 +707,13 @@ PREM_ENGLISH.renderScoreChart = function(containerId) {
   }
   var svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-  svg.setAttribute('width', '100%');
-  svg.style.cssText = 'display:block;overflow:visible';
+  if (needsScroll) {
+    svg.setAttribute('width', W);
+    svg.style.cssText = 'display:block;overflow:visible;min-width:' + W + 'px';
+  } else {
+    svg.setAttribute('width', '100%');
+    svg.style.cssText = 'display:block;overflow:visible';
+  }
   // Y-axis grid
   [40, 50, 60, 70, 80, 90, 100].forEach(function(pct) {
     var y = pctY(pct);
@@ -756,13 +806,14 @@ PREM_ENGLISH.renderScoreChart = function(containerId) {
       hit.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
     })(p.x, p.y, tipHtml);
   });
-  // X-axis labels
+  // X-axis labels — rotated, single-line. The % readout was dropped from here (it's still
+  // shown on hover via the tooltip) so labels stay legible as the score history grows past
+  // the chart's original ~20-point design width, rather than smashing together.
   pts.forEach(function(p) {
-    svg.appendChild(tx(p.s.label || ('U' + p.s.n), {
-      x: p.x, y: y1 + 14, 'text-anchor': 'middle', 'font-size': '9.5', fill: '#4a5568', 'font-weight': '600'
-    }));
-    svg.appendChild(tx(Math.round(p.pct) + '%', {
-      x: p.x, y: y1 + 26, 'text-anchor': 'middle', 'font-size': '8.5', fill: '#a0aec0'
+    var lbl = p.s.label || ('U' + p.s.n);
+    svg.appendChild(tx(lbl, {
+      x: p.x, y: y1 + 13, 'text-anchor': 'end', 'font-size': '9.5', fill: '#4a5568', 'font-weight': '600',
+      transform: 'rotate(-40 ' + p.x + ' ' + (y1 + 13) + ')'
     }));
   });
   // Legend

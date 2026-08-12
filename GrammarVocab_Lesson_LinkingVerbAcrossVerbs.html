@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar &amp; Vocabulary — One Rule, Every Linking Verb — Unit 31 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0D47A1;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.win-box{background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;padding:14px 16px;margin:12px 0}
+.win-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bonus-box{background:#FCE4EC;border:2px solid #AD1457;border-radius:10px;padding:14px 16px;margin:12px 0}
+.bonus-title{font-weight:700;color:#880E4F;margin-bottom:6px}
+.verb-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.verb-chip{background:#0D47A1;color:#fff;padding:8px 16px;border-radius:20px;font-size:14px;font-weight:700}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#0D47A1;color:#fff}
+.node.q{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.a{background:#1565C0;color:#fff}
+.arrow{font-size:18px;color:#0D47A1;line-height:1}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di.bonus{border-color:#F8BBD0}
+.di.bonus .di-opt{background:#FCE4EC;border-color:#AD1457;color:#880E4F}
+.di.vocab{border-color:#C8E6C9}
+.di.vocab .di-opt{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.drill-score{background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#0D47A1,#1565C0);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-test{display:inline-block;background:linear-gradient(135deg,#c62828,#e53935);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar &amp; Vocabulary — One Rule, Every Linking Verb</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 31 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">You already know that after "felt," you write "felt exhausted," not "felt exhaustedly." That's one linking verb. But there are SIX common linking verbs that all follow the exact same rule — taste, feel, look, seem, sound, smell — and on the last test, the rule held for one of them but slipped on another. Today we prove the rule works identically no matter which of the six shows up, including when it's hiding inside a "find the error" question instead of a simple fill-in-the-blank.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>A reminder of something you already do well:</p>
+    <div class="di" id="wu1"><div class="di-sent">"After the long hike, everyone felt ___ ." Which fits?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) exhausted</button><button class="di-opt" onclick="doWu(1,'b')">B) exhaustedly</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — after "felt," you need the plain describing-word. <strong>Now let's check the other five verbs too. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: the full rule across all six verbs -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Six verbs, ONE identical rule 🎯</h2>
+    <p>These six words all do the same job: they connect the subject to a describing-word, instead of describing an action. Because of that, they ALL need the plain adjective after them, never the "-ly" adverb.</p>
+    <div class="verb-grid">
+      <span class="verb-chip">taste</span><span class="verb-chip">feel</span><span class="verb-chip">look</span>
+      <span class="verb-chip">seem</span><span class="verb-chip">sound</span><span class="verb-chip">smell</span>
+    </div>
+    <div class="tree">
+      <div class="node start">See one of these six verbs in a sentence?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Ask: is it describing a STATE (how something IS), not an ACTION (something being done)?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Use the plain describing-word (adjective) right after it — never the "-ly" form. Do this check on EVERY linking verb in a sentence, even ones that already "sound fine."</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why it slipped on the last test</div>
+      <p style="margin:0;font-size:14px">"The stew tasted delicious" and "everyone felt exhausted" use the EXACT same rule — but "tasted" got missed even though "felt" was correct. That's not a knowledge gap, it's a consistency gap: the rule wasn't checked automatically on every linking verb, only on the ones already practised the most. Today changes that.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: worked examples across multiple verbs -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Worked examples — every verb, one at a time 🔍</h2>
+    <p><strong>taste:</strong> "The soup tasted (spicy) after Dad added extra pepper." — spicy, not spicily.</p>
+    <p><strong>look:</strong> "The old bridge looked (unsafe) after the flood." — unsafe, not unsafely.</p>
+    <p><strong>seem:</strong> "The puzzle seemed (impossible) at first glance." — impossible, not impossibly.</p>
+    <p><strong>sound:</strong> "The engine sounded (rough) after the long drive." — rough, not roughly.</p>
+    <p><strong>smell:</strong> "The bakery smelled (amazing) every single morning." — amazing (this one already looks like an adjective, so it's an easy one to trust).</p>
+    <div class="why-box">
+      <div class="why-title">🔑 The universal check</div>
+      <p style="margin:0;font-size:14px">Cover up the rest of the sentence and ask: "does this word describe how the SUBJECT is, or how an action was DONE?" If it describes the subject, it's a describing-word — never add "-ly."</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: error-scan escalation -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Now the harder version — hiding inside "find the error" 🔎</h2>
+    <p>Last time, this rule broke down once it was buried inside a 4-sentence "which one has the error?" question instead of a simple fill-in-the-blank. The fix: check EVERY sentence's linking verb, even the ones that seem obviously fine at a glance — the error is often the one you'd skip past fastest.</p>
+    <div class="win-box">
+      <div class="win-title">📋 Your scan routine</div>
+      <p style="margin:0;font-size:14px">For each of the four sentences: find the linking verb (if there is one), check the word right after it, and only THEN decide if that sentence is clean. Don't stop scanning after the first sentence "sounds right."</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: error-scan drill round 1 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Error-scan drill — round 1 🔎</h2>
+    <p style="font-size:13.5px;color:#555">Check every sentence's linking verb before deciding which one has the error.</p>
+    <div class="di" id="es1">
+      <div class="di-sent">Which sentence contains an error?<br>A) The violin sounded beautiful in the empty hall.<br>B) The runners jogged steadily around the track.<br>C) The paint looked patchily after only one coat.<br>D) The cake tasted perfect straight from the oven.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doEs(1,'A')">A</button>
+        <button class="di-opt" onclick="doEs(1,'B')">B</button>
+        <button class="di-opt" onclick="doEs(1,'C')">C</button>
+        <button class="di-opt" onclick="doEs(1,'D')">D</button>
+      </div>
+      <div class="di-fb" id="es1f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: error-scan drill round 2 + thereby mini-teach -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Error-scan drill — round 2, plus one more pattern 🔎</h2>
+    <div class="di" id="es2">
+      <div class="di-sent">Which sentence contains an error?<br>A) The gym smelled sweaty after the tournament.<br>B) The teacher spoke clearly during the lesson.<br>C) The lake seemed calmly under the morning fog.<br>D) The old floor felt cold beneath their feet.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doEs(2,'A')">A</button>
+        <button class="di-opt" onclick="doEs(2,'B')">B</button>
+        <button class="di-opt" onclick="doEs(2,'C')">C</button>
+        <button class="di-opt" onclick="doEs(2,'D')">D</button>
+      </div>
+      <div class="di-fb" id="es2f"></div>
+    </div>
+    <div class="bonus-box">
+      <div class="bonus-title">🎁 Bonus pattern — "thereby"</div>
+      <p style="margin:0 0 10px;font-size:14px">One more rule from the last test: "thereby" is always followed by an "-ing" word, never a brand-new subject and verb. "The bridge shortened the trip, thereby saving time" — not "thereby time was saved."</p>
+    </div>
+    <div class="di bonus" id="tb1">
+      <div class="di-sent">"The new filter cleaned the water faster, thereby ___ costs for the whole village." Which fits?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doTb('a')">A) cost</button>
+        <button class="di-opt" onclick="doTb('b')">B) reducing</button>
+        <button class="di-opt" onclick="doTb('c')">C) it reduced</button>
+      </div>
+      <div class="di-fb" id="tb1f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: vocab maintenance + report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Quick vocab check-in — trust the direction, not the vibe 📖</h2>
+    <p style="font-size:13.5px;color:#555">A fast reminder before the test: always check your answer points in the SAME direction as the clue, not the opposite direction.</p>
+    <div class="di vocab" id="vb1">
+      <div class="di-sent">"Even after losing the final match, the whole team stayed remarkably resilient, already planning next season's training." What does "resilient" mean here?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doVb('a')">A) Quick to recover from setbacks</button>
+        <button class="di-opt" onclick="doVb('b')">B) Easily discouraged and giving up</button>
+      </div>
+      <div class="di-fb" id="vb1f"></div>
+    </div>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Taste, feel, look, seem, sound, smell — same rule every time: plain describing-word after them, never "-ly." Check it on every sentence, even the ones that look fine at first glance.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Tests/ENG_Unit_031_Test_Cloze_Grammar_Vocab.html" class="btn-test">Take the Test →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'a'};var wuWhy={1:'Correct — "felt" needs the plain describing-word: exhausted.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var esKey={1:'C',2:'C'};
+var esWhy={
+  1:'C is wrong — "looked" describes a STATE, so it needs "patchy," not "patchily." A, B, and D are all correct.',
+  2:'C is wrong — "seemed" describes a STATE, so it needs "calm," not "calmly." A, B, and D are all correct.'
+};
+var esDone={};var esScore=0;
+function doEs(n,c){
+  if(esDone[n])return;esDone[n]=true;
+  var it=document.getElementById('es'+n);var fb=document.getElementById('es'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c===esKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+esWhy[n];esScore++;}
+  else{fb.className='di-fb no';fb.textContent='❌ '+esWhy[n];}
+}
+
+var tbDone=false;
+function doTb(c){
+  if(tbDone)return;tbDone=true;
+  var it=document.getElementById('tb1');var fb=document.getElementById('tb1f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c==='b'){fb.className='di-fb ok';fb.textContent='✅ "Thereby" is followed by an -ing word: reducing, not "cost" or "it reduced."';}
+  else{fb.className='di-fb no';fb.textContent='❌ "Thereby" is followed by an -ing word: reducing, not "cost" or "it reduced."';}
+}
+
+var vbDone=false;
+function doVb(c){
+  if(vbDone)return;vbDone=true;
+  var it=document.getElementById('vb1');var fb=document.getElementById('vb1f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c==='a'){fb.className='di-fb ok';fb.textContent='✅ The team keeps going and plans ahead despite losing — that\'s bouncing back, not giving up. "Easily discouraged" is the near-opposite trap.';}
+  else{fb.className='di-fb no';fb.textContent='❌ The team keeps going and plans ahead despite losing — that\'s bouncing back, not giving up. "Easily discouraged" is the near-opposite trap.';}
+}
+
+function buildReport(){
+  document.getElementById('reportWrap').innerHTML='<p><strong>Error-scan drills:</strong> '+esScore+'/2 &middot; <strong>Thereby check:</strong> '+(tbDone?'done':'—')+' &middot; <strong>Vocab check-in:</strong> '+(vbDone?'done':'—')+'</p>';
+}
+</script>
+</body>
+</html>

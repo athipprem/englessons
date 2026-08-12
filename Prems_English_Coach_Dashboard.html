@@ -87,7 +87,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
 
 /* SCORE LINE CHART */
-.bar-chart { width:100%; position:relative; }
+.bar-chart { width:100%; position:relative; overflow-x:auto; overflow-y:hidden; padding-bottom:2px; }
+.bar-chart::-webkit-scrollbar { height:6px; }
+.bar-chart::-webkit-scrollbar-track { background:#f0f4f8; border-radius:3px; }
+.bar-chart::-webkit-scrollbar-thumb { background:#cbd5e0; border-radius:3px; }
+.bar-chart::-webkit-scrollbar-thumb:hover { background:#a0aec0; }
 
 /* GAPS */
 .gap-item { margin-bottom:12px; }

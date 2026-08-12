@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 31 Test — Cloze · Grammar · Vocabulary</title>
+<!-- Built from ENG_INTERACTIVE_TEST_TEMPLATE.html, 13 Aug 2026. Reopens the normal lesson-pack cycle after
+     Milestone 3 (93/125, 74%, FAIL, 10 Aug 2026), which showed Grammar (52%) and Cloze (40%) both carrying
+     the same failure signature: a rule answered correctly on one item, missed on another instance of the
+     identical rule (transfer problem, not a knowledge gap). Cloze also lost BOTH 5-pt hyphenation items
+     (three-year-old, well-trained), confirming Unit 30's apparent 6/7 hyphenation recovery did not generalise
+     past its original number-unit pattern. This unit is a direct, targeted rebuild: Cloze is majority
+     hyphenation (5 of 7 items) across FOUR different compound patterns, deliberately including the
+     no-hyphen/standalone direction (not just "always add a hyphen"). Grammar is majority cross-verb
+     linking-verb+adjective drilling (5 of 7 items across taste/feel/look/seem/sound/smell), embedded directly
+     in error-scan format from the first item (not eased in), plus a "thereby+-ing" repeat of M3's Q23 miss.
+     Vocab carries 2 deliberate near-opposite reversal-trap distractors per the standing rule. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f4f8f4;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#e2ece4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#1b5e20,#66bb6a);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#1b5e20;white-space:nowrap}
+
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+  .hint.cloze{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.grammar{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.vocab{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .gap{font-weight:800;color:#1565c0}
+
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt-row .opt{width:auto;flex:1 1 auto;min-width:64px;text-align:center}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.4rem;font-weight:900;color:#1b5e20}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;border:1.5px solid var(--line)}
+
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(10,30,18,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#1b5e20;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 31 Test — Cloze · Grammar · Vocabulary</b>
+      <span class="sub" id="hdr-sub">Hyphenation Focus · Cross-Verb Grammar Reset</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — for cloze: check whether the phrase sits directly in front of a noun (hyphenate + keep it singular) or stands alone after a verb like "was" or "took" (no hyphen, plural). For grammar: after taste/feel/look/seem/sound/smell, use the plain describing-word, never the "-ly" form — check EVERY sentence's linking verb, not just the obvious one; "thereby" is always followed by an "-ing" word. For vocabulary: read the whole story once, then double-check your answer points in the SAME direction as the clue, not the opposite.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 20 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 20 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 31;
+const UNIT_TITLE = "Cloze · Grammar · Vocabulary";
+const UNIT_SUB   = "Hyphenation Focus · Cross-Verb Grammar Reset";
+const PASS_BAR   = 16;                        // out of 20 (80% mastery threshold)
+const IS_MILESTONE = false;
+const MILESTONE_NUM = null;
+
+const SECTION_PASSAGE = {
+  vocab: `Mara had just turned twelve when she moved to Fenwick Point to live with her uncle, Mr. Doyle, the
+    last lighthouse keeper on the coast. She felt apprehensive on her first night alone in the lighthouse,
+    listening to every creak of the old spiral stairs. When Mr. Doyle told her the light could guide ships
+    from twenty miles away, Mara was skeptical until she saw it flash across the dark water herself. At first
+    she was reluctant to climb the narrow stairs in the dark, but she forced herself up anyway, one hand
+    gripping the rope rail. During a fierce storm that autumn, Mara made a valiant effort to keep the lamp
+    burning, refusing to give up even as wind tore at the windows. Mr. Doyle could be obstinate about the old
+    traditions, insisting on hand-trimming the wick exactly as his own grandfather had, and refusing to let
+    Mara change even the smallest routine. But when the storm cracked part of the lamp room's glass, the two
+    of them proved just how resilient they were — rebuilding it together within a week, as if the damage had
+    barely slowed them down.`
+};
+
+const SECTION_HINT = {
+  cloze:   "Strategy: before every gap, check whether the describing phrase sits directly in front of a noun (hyphenate + keep it singular) or stands alone after a verb like \"was\", \"took\", or \"lasted\" (no hyphen, plural stays plural). Otherwise use your usual trigger-word and connector checks.",
+  grammar: "Strategy: after taste/feel/look/seem/sound/smell, the describing-word (adjective) is correct, not the \"-ly\" action-word (adverb) — check this rule on EVERY linking verb you see, not just the ones that tripped you up before. \"Thereby\" is always followed by an -ing word, never a new subject+verb. \"Much\" needs \"very\" in front of it before a participle-adjective.",
+  vocab:   "Strategy: read the whole story once before answering anything. Double-check your answer means the SAME direction as the clue, not the opposite — a near-opposite trap is the easiest way to lose points."
+};
+
+const Q = [
+  // Section CLOZE (Q1-Q7) — dedicated hyphenation rebuild after M3's 0/2 on both 5-pt hyphenation items.
+  // Q1/Q2 and Q3/Q4 are deliberate before-noun vs standalone CONTRAST PAIRS across two different compound
+  // patterns (number+unit, age compound); Q5 repeats M3's exact missed participle pattern (well-trained) in
+  // a new sentence. Maintenance: RESULT/CONTRAST connector (Q6), subjunctive trigger-word (Q7).
+  { n:1, section:'cloze', body:"Gap (1) — \"The bakery introduced a (1)___ loaf that stays fresh twice as long.\"",
+    options:["2-day","2 days","2-days","2 day"], ans:1,
+    why:"\"loaf\" is the noun right after — the number+unit phrase describes it directly, so hyphenate + singular: 2-day." },
+  { n:2, section:'cloze', body:"Gap (2) — \"The repair crew said the job would take (2)___ to finish, so Dad decided to wait at the café nearby.\"",
+    options:["two-hours","two-hour","two hours","two hour"], ans:3,
+    why:"Standing alone after \"take,\" with no noun directly after it — no hyphen, plural stays plural: two hours." },
+  { n:3, section:'cloze', body:"Gap (3) — \"The library still relies on a (3)___ computer system that crashes almost every week.\"",
+    options:["ten year old","ten-year-old","ten years old","ten-years-old"], ans:2,
+    why:"\"computer system\" is the noun right after — the age compound describes it directly, so fully hyphenate, singular \"year\": ten-year-old." },
+  { n:4, section:'cloze', body:"Gap (4) — \"When Mara asked how old the system was, the librarian sighed and said it was (4)___.\"",
+    options:["ten-year-old","ten-years-old","ten year-old","ten years old"], ans:4,
+    why:"Standing alone after \"was\" (predicate position), not describing a following noun — no hyphen, \"years\" back to plural: ten years old." },
+  { n:5, section:'cloze', body:"Gap (5) — \"The rescue centre only sends (5)___ dogs out on search missions.\"",
+    options:["well-trained","well trained","welltrained","well-train"], ans:1,
+    why:"\"dogs\" is the noun right after — the two-word description works together to modify it, so it needs a hyphen: well-trained." },
+  { n:6, section:'cloze', body:"Gap (6) — \"The forecast had promised a dry, sunny weekend. (6)___, the hikers packed rain jackets just in case.\"",
+    options:["Therefore","Moreover","However","Meanwhile"], ans:3,
+    why:"Full stop before the gap = sentence-starter. CONTRAST between the promised dry forecast and packing rain gear anyway → However." },
+  { n:7, section:'cloze', body:"Gap (7) — \"The coach demanded that every player (7)___ early for the morning practice.\"",
+    options:["arrives","arrive","arrived","to arrive"], ans:2,
+    why:"\"demanded that\" is a trigger phrase — base form, no -s: arrive." },
+
+  // Section GRAMMAR (Q8-Q14) — dedicated cross-verb linking-verb+adjective rebuild after M3's inconsistent
+  // result (right on "felt", wrong on "tasted" and inside error-scan). Embedded in error-scan format from
+  // the FIRST item (Q8), not eased in gradually, per the coaching-improvement finding. Covers all 6 linking
+  // verbs (taste, feel, look, seem, sound, smell) across Q8-11, Q13. Q12 repeats M3's exact missed
+  // "thereby+-ing" pattern in a new context. Q14 is light much/very-much maintenance (already fairly solid).
+  { n:8, section:'grammar', body:"Which sentence contains an error? A) \"The bakery smelled wonderful every morning.\" B) \"The children played quietly in the next room.\" C) \"The garden looked beautiful after the spring rain.\" D) \"The crowd sounded happily when the winner was announced.\"",
+    options:["A","B","C","D"], ans:4,
+    why:"D is wrong — \"sounded\" describes a STATE, so it needs the plain describing-word \"happy\", not \"happily\". A, B, and C are all correct." },
+  { n:9, section:'grammar', body:"\"The stew tasted (9)___ after simmering on the stove all afternoon.\" Which word correctly completes the sentence?",
+    options:["delicious","deliciously","delicately","delicate"], ans:1,
+    why:"After the linking verb \"tasted,\" use the adjective \"delicious\" — not the -ly adverb \"deliciously,\" and not the unrelated adjective \"delicate.\"" },
+  { n:10, section:'grammar', body:"Which sentence contains an error? A) \"The garden smelled fresh after the morning rain.\" B) \"The candle smelled sweetly on the windowsill.\" C) \"The children played quietly in the next room.\" D) \"The bakery smelled wonderful every morning.\"",
+    options:["A","B","C","D"], ans:2,
+    why:"B is wrong — \"smelled\" describes a STATE, so it needs the plain describing-word \"sweet\", not \"sweetly\". A, C, and D are all correct." },
+  { n:11, section:'grammar', body:"\"Everyone in the dressing room (11)___ confident just minutes before the big match.\" Which word correctly completes the sentence?",
+    options:["confidently","confidence","confident","confidents"], ans:3,
+    why:"After the linking verb \"seemed,\" use the adjective \"confident\" — not the adverb \"confidently\" or the noun \"confidence.\"" },
+  { n:12, section:'grammar', body:"Which sentence uses \"thereby\" correctly? A) \"The new machine reduced errors, thereby quality improved.\" B) \"The new machine reduced errors, thereby improve quality.\" C) \"The new machine reduced errors, thereby it improved quality.\" D) \"The new machine reduced errors, thereby improving quality.\"",
+    options:["A","B","C","D"], ans:4,
+    why:"\"Thereby\" is followed by an -ing participle (\"thereby improving...\"), not a new subject-and-verb clause." },
+  { n:13, section:'grammar', body:"Which sentence contains an error? A) \"The music sounded strangely in the empty concert hall.\" B) \"The bread felt warm straight from the oven.\" C) \"The joke seemed funny to almost everyone.\" D) \"The paint looked wet along the edge of the fence.\"",
+    options:["A","B","C","D"], ans:1,
+    why:"A is wrong — \"sounded\" describes a STATE, so it needs the plain describing-word \"strange\", not \"strangely\". B, C, and D are all correct." },
+  { n:14, section:'grammar', body:"\"The whole crowd was (14)___ surprised when the underdog team won.\" Which word or phrase correctly completes the sentence?",
+    options:["much","very much","too much","so much of"], ans:2,
+    why:"\"Much\" alone cannot sit directly in front of a participle-adjective like \"surprised\" — it needs \"very\" in front of it: \"very much surprised.\"" },
+
+  // Section VOCAB (Q15-Q20) — fresh narrative ("The Lighthouse Keeper's Apprentice"), all-new word set
+  // (apprehensive, skeptical, reluctant, valiant, obstinate, resilient — none reused from prior units).
+  // Q18 and Q20 carry deliberate near-opposite reversal-trap distractors per the standing Vocab rule.
+  { n:15, section:'vocab', body:"What does \"apprehensive\" mean, as used in the passage (\"She felt apprehensive on her first night alone\")?",
+    options:["Excited and eager", "Bored and indifferent", "Confident and calm", "Nervous and worried"], ans:4,
+    why:"Listening anxiously to every creak on her first night alone is a clue pointing to feeling nervous and worried." },
+  { n:16, section:'vocab', body:"What does \"skeptical\" mean, as used in the passage (\"Mara was skeptical until she saw it flash across the dark water\")?",
+    options:["Doubtful and unconvinced", "Completely certain", "Very impressed", "Slightly amused"], ans:1,
+    why:"Mara doesn't believe the claim until she sees proof herself — that's being doubtful and unconvinced." },
+  { n:17, section:'vocab', body:"What does \"reluctant\" mean, as used in the passage (\"she was reluctant to climb the narrow stairs in the dark\")?",
+    options:["Eager and quick", "Angry and frustrated", "Unwilling and hesitant", "Proud and boastful"], ans:3,
+    why:"She forces herself up \"anyway\" — a clue that she didn't want to at first, meaning unwilling and hesitant." },
+  { n:18, section:'vocab', body:"What does \"valiant\" mean, as used in the passage (\"Mara made a valiant effort to keep the lamp burning, refusing to give up\")?",
+    options:["Careless and lazy", "Brave and determined", "Confused and lost", "Cowardly and fearful"], ans:2,
+    why:"Refusing to give up even as the storm tore at the windows describes being brave and determined — the near opposite, \"cowardly and fearful,\" describes someone who would have given up immediately." },
+  { n:19, section:'vocab', body:"What does \"obstinate\" mean, as used in the passage (\"Mr. Doyle could be obstinate about the old traditions, refusing to let Mara change even the smallest routine\")?",
+    options:["Flexible and open-minded", "Generous and kind", "Forgetful and careless", "Stubborn and unwilling to change"], ans:4,
+    why:"Refusing to let even the smallest routine change is a clue pointing to being stubborn and unwilling to change." },
+  { n:20, section:'vocab', body:"What does \"resilient\" mean, as used in the passage (\"the two of them proved just how resilient they were — rebuilding it together within a week\")?",
+    options:["Easily discouraged and giving up", "Slow and unmotivated", "Quick to recover from hardship", "Indifferent to the damage"], ans:3,
+    why:"Rebuilding the damaged lamp room within a week, right after the storm, describes being quick to recover from hardship — the near opposite, \"easily discouraged and giving up,\" describes someone who wouldn't have rebuilt at all." },
+];
+/* ---------- END EDIT PER UNIT ---------- */
+
+const SECTION_LABEL = {
+  cloze:   "SECTION A — Cloze Test",
+  grammar: "SECTION B — Grammar",
+  vocab:   "SECTION C — Vocabulary &amp; Reading"
+};
+const SECTION_ORDER = ['cloze','grammar','vocab'];
+const TOTAL_Q = Q.length;
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+
+const chosen = {};   // { qn: optionIndex(1-based) }
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint ${q.section}">${SECTION_HINT[q.section] || ''}</div>`;
+      if (SECTION_PASSAGE[q.section]) html += `<div class="passage">${SECTION_PASSAGE[q.section]}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    html += `<div>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let score = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    if (isCorrect) score++;
+    sectionTally[q.section].t++;
+    if (isCorrect) sectionTally[q.section].c++;
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect };
+  });
+
+  const pct = Math.round(score/TOTAL_Q*100);
+  const pass = score >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${score} / ${TOTAL_Q}  (${pct}%)`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_Q}). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_Q} — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    isMilestone: IS_MILESTONE,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score, outOf: TOTAL_Q, pct, passBar: PASS_BAR, passed: pass,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const pad = (n, len) => String(n).padStart(len,'0');
+  const filename = IS_MILESTONE
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
