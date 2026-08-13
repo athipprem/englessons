@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Locking In Hyphenation &amp; Subjunctive — Unit 32 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.win-box{background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;padding:14px 16px;margin:12px 0}
+.win-title{font-weight:700;color:#0D47A1;margin-bottom:6px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20}
+.node.a{background:#2E7D32;color:#fff}
+.arrow{font-size:18px;color:#1B5E20;line-height:1}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.predict-gate{background:#FFF3CD;border:1.5px dashed #DAA520;border-radius:8px;padding:10px 12px;margin-top:6px}
+.predict-note{font-size:12.5px;color:#8a6a00;margin-bottom:8px}
+.opts-wrap{display:none;margin-top:8px}
+.opts-wrap.show{display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#43A047);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Locking In Hyphenation &amp; Subjunctive</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 32 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Last unit, hyphenation jumped from 0 out of 2 to 4 out of 5 — real, measurable progress. This unit isn't about learning something new; it's about proving that progress sticks. We'll also give the subjunctive rule ("insisted that she arrive," not "arrives") one more confirming check, since it slipped back to an old habit last time. Skills that get confirmed twice in a row are skills you can trust on the real exam.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>A reminder of something you already do well:</p>
+    <div class="di" id="wu1"><div class="di-sent">"The rescue centre only sends ___ dogs out on search missions." Which fits?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) well-trained</button><button class="di-opt" onclick="doWu(1,'b')">B) well trained</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — "dogs" is right after, so it hyphenates. <strong>Today we lock that in across a few more patterns. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: quick rule recap -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Quick recap — the rule that's now working 🎯</h2>
+    <div class="tree">
+      <div class="node start">Spot a number, age, or two-word description in a sentence.</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Is it sitting DIRECTLY in front of a noun, working as ONE team to describe it?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">YES → hyphenate, keep any number word SINGULAR. NO (standing alone after a verb) → no hyphen, back to PLURAL.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 One thing to double-check this time</div>
+      <p style="margin:0;font-size:14px">Last unit's one slip was an age compound sitting right before a noun ("a ten-year-old computer system") — the hyphenated form got missed even though the standalone form ("is ten years old") was correct. Today's practice puts that exact pattern back in front of you once more, so it's confirmed, not just close.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: subjunctive recap -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Subjunctive recap — the base-form rule 📋</h2>
+    <p>When a sentence uses a trigger phrase like "insisted that," "demanded that," "recommended that," or "It is vital that," the verb that follows drops back to its plain BASE form — no "-s," no tense change — no matter who or what is doing the action.</p>
+    <p><strong>Example:</strong> "The coach demanded that every player arrive early." NOT "arrives," even though "every player" sounds like it should take an "-s" verb.</p>
+    <div class="why-box">
+      <div class="why-title">🔑 Why this one slipped</div>
+      <p style="margin:0;font-size:14px">"Arrive" without the "-s" can feel wrong out loud, because most present-tense sentences DO take an "-s" after a singular subject. The trigger phrase overrides that normal rule — spot the trigger FIRST, then go straight to the plain form without checking the subject at all.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: predict-first drill round 1 (hyphenation) -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Predict first, then check — hyphenation ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Read the sentence, write YOUR answer on paper, then tap the button to reveal the choices.</p>
+    <div id="pWrap1"></div>
+    <div class="drill-score" id="p1Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: predict-first drill round 2 (subjunctive) -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Predict first, then check — subjunctive ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Same routine — write first, then reveal.</p>
+    <div id="pWrap2"></div>
+    <div class="drill-score" id="p2Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: full passage -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Full passage practice 📚</h2>
+    <p style="font-size:13.5px;color:#555">A short passage mixing hyphenation, subjunctive, and a connector check. Write your answer for each gap on paper first, then reveal and check.</p>
+    <div class="passage" id="passageBox"></div>
+    <div id="passageQs"></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Nicely done — these skills are getting steadier! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Before a noun → hyphenate + singular. Standing alone → no hyphen + plural. After a trigger phrase like "insisted that" → plain base form, no "-s," no matter the subject.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="GrammarVocab_Lesson_RotatingTheVerbs.html" class="btn-lesson">Next Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s3'&&!pBuilt[1]){buildPredict(1,'pWrap1',P_SET1);}
+if(SCREENS[cur]==='s4'&&!pBuilt[2]){buildPredict(2,'pWrap2',P_SET2);}
+if(SCREENS[cur]==='s5'){buildPassage();}
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'a'};var wuWhy={1:'Correct — "dogs" is the noun right after, so hyphenate: well-trained.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+// ── Predict-first drill data ──
+var P_SET1 = [
+  { sent:'"The tour guide pointed out a ___ oak tree in the middle of the courtyard."', opts:['two hundred year old','two-hundred-year-old','two hundred years old','two-hundred-years-old'], ans:'two-hundred-year-old', why:'"oak tree" is the noun right after — hyphenate the whole compound, singular "year": two-hundred-year-old.' },
+  { sent:'"According to the plaque, the oak tree is ___ ."', opts:['two-hundred-year-old','two-hundred-years-old','two hundred years old','two hundred year-old'], ans:'two hundred years old', why:'Standing alone after "is" — no hyphen, "years" back to plural: two hundred years old.' }
+];
+var P_SET2 = [
+  { sent:'"The judges insisted that every contestant ___ (submit) the form by Friday."', opts:['submits','submitted','submit','to submit'], ans:'submit', why:'"insisted that" is the trigger — base form, no -s: submit.' },
+  { sent:'"It is essential that the volunteer ___ (wear) a safety vest at all times."', opts:['wears','wear','wearing','wore'], ans:'wear', why:'"It is essential that" is the trigger — base form, no -s: wear.' }
+];
+
+var pBuilt={};var pScore={1:0,2:0};var pDone={};
+
+function buildPredict(setId, containerId, items){
+  pBuilt[setId]=true; pDone[setId]={};
+  var html='';
+  items.forEach(function(it,i){
+    var n=i+1;
+    html += '<div class="di" id="p'+setId+'-'+n+'">';
+    html += '<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    html += '<div class="predict-gate" id="p'+setId+'-'+n+'-gate">';
+    html += '<div class="predict-note">✍️ Write YOUR answer on paper first, then tap below.</div>';
+    html += '<button class="di-opt" onclick="revealPredict('+setId+','+n+')">I\'ve written mine — show me the choices</button>';
+    html += '</div>';
+    html += '<div class="opts-wrap" id="p'+setId+'-'+n+'-opts"><div class="di-btns">';
+    it.opts.forEach(function(o){
+      html += '<button class="di-opt" onclick="doPredict('+setId+','+n+',\''+o+'\')">'+o+'</button>';
+    });
+    html += '</div></div>';
+    html += '<div class="di-fb" id="p'+setId+'-'+n+'-fb"></div>';
+    html += '</div>';
+  });
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function revealPredict(setId, n){
+  document.getElementById('p'+setId+'-'+n+'-gate').style.display='none';
+  document.getElementById('p'+setId+'-'+n+'-opts').className='opts-wrap show';
+}
+
+function doPredict(setId, n, choice){
+  if (pDone[setId][n]) return;
+  pDone[setId][n]=true;
+  var items = (setId===1)?P_SET1:P_SET2;
+  var it = items[n-1];
+  document.getElementById('p'+setId+'-'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  var fb = document.getElementById('p'+setId+'-'+n+'-fb');
+  var correct = (choice === it.ans);
+  if (correct){ fb.className='di-fb ok'; fb.textContent='✅ '+it.why; pScore[setId]++; }
+  else { fb.className='di-fb no'; fb.textContent='❌ '+it.why; }
+  if (Object.keys(pDone[setId]).length===2){
+    var s=document.getElementById('p'+setId+'Score');
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round '+setId+': '+pScore[setId]+'/2</strong>';
+  }
+}
+
+var cKey={};var cWhy={};var cDone={};var cC=0;
+function buildPassage(){
+  var html = 'The city archive recently acquired a <span class="gap" data-n="1">(1)___</span> letter written by a local sailor. '+
+  'Historians confirmed the letter is <span class="gap" data-n="2">(2)___</span>, based on the paper and ink used. '+
+  'The head archivist insisted that every new document <span class="gap" data-n="3">(3)___</span> photographed before handling. '+
+  'Most letters from that era had crumbled to dust, <span class="gap" data-n="4">(4)___</span> this one somehow survived in near-perfect condition. '+
+  'Visitors who read the plaque carefully often notice far more than visitors who <span class="gap" data-n="5">(5)___</span> walk past it.';
+  document.getElementById('passageBox').innerHTML = html;
+
+  cKey[1]='hundred-year-old'; cKey[2]='a hundred years old'; cKey[3]='be'; cKey[4]='but'; cKey[5]='just';
+  var OPTS = {
+    1: ['hundred year old','hundred-year-old','hundred years old','hundred-years-old'],
+    2: ['hundred-years-old','a hundred years old','hundred-year-old','a hundred year-old'],
+    3: ['is','was','be','being'],
+    4: ['so','but','moreover','meanwhile'],
+    5: ['just','also','then','instead']
+  };
+  cWhy[1]='"letter" is the noun right after — hyphenate + singular: hundred-year-old.';
+  cWhy[2]='Standing alone after "is" — no hyphen, plural: a hundred years old.';
+  cWhy[3]='"insisted that" is the trigger — base form, no -s: be (photographed).';
+  cWhy[4]='Comma, mid-sentence, CONTRAST — most letters crumbled but this one survived → but.';
+  cWhy[5]='"visitors who ___ walk past it" needs "just" (meaning "merely") to contrast with the visitors who read carefully.';
+
+  var qHtml = '';
+  for (var n=1;n<=5;n++){
+    qHtml += '<div class="di" id="c'+n+'">';
+    qHtml += '<div class="di-sent">Gap ('+n+') — write your answer first, then reveal:</div>';
+    qHtml += '<div class="predict-gate" id="c'+n+'-gate"><div class="predict-note">✍️ Write it on paper, then tap below.</div><button class="di-opt" onclick="revealC('+n+')">Show me the choices</button></div>';
+    qHtml += '<div class="opts-wrap" id="c'+n+'-opts"><div class="di-btns">';
+    OPTS[n].forEach(function(o){ qHtml += '<button class="di-opt" onclick="doC('+n+',\''+o+'\')">'+o+'</button>'; });
+    qHtml += '</div></div><div class="di-fb" id="c'+n+'f"></div></div>';
+  }
+  document.getElementById('passageQs').innerHTML = qHtml;
+}
+function revealC(n){ document.getElementById('c'+n+'-gate').style.display='none'; document.getElementById('c'+n+'-opts').className='opts-wrap show'; }
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var fb=document.getElementById('c'+n+'f');document.getElementById('c'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===cKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy[n];cC++;}else{fb.className='di-fb no';fb.textContent='❌ '+cWhy[n];}var gapEl=document.querySelector('.gap[data-n="'+n+'"]');if(gapEl)gapEl.textContent=c;if(Object.keys(cDone).length===5){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Full passage: '+cC+'/5</strong>';}}
+
+function buildReport(){
+  var r1=pScore[1], r2=pScore[2];
+  var c=(Object.keys(cDone).length===5)?cC:0;
+  document.getElementById('reportWrap').innerHTML='<p><strong>Round 1 (hyphenation):</strong> '+r1+'/2 &middot; <strong>Round 2 (subjunctive):</strong> '+r2+'/2 &middot; <strong>Full passage:</strong> '+c+'/5</p>';
+}
+</script>
+</body>
+</html>

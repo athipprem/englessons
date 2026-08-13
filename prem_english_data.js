@@ -21,8 +21,8 @@ var PREM_ENGLISH = {
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           31,
-    status:      'Unit 31 ready &mdash; not yet taken. Reopens the normal lesson-pack cycle after Milestone 3 (93/125, 74%, FAIL) &mdash; a direct, targeted rebuild of Grammar and Cloze, the two sections that failed. Cloze is majority hyphenation (5 of 7 items) across FOUR compound patterns, including the no-hyphen/standalone direction. Grammar is majority cross-verb linking-verb+adjective drilling (5 of 7 items), embedded in error-scan format from the first item, plus a &ldquo;thereby+-ing&rdquo; repeat.',
+    n:           32,
+    status:      'Unit 32 ready &mdash; not yet taken. Follows Unit 31 (15/19 valid, &asymp;79% &mdash; Q11 discounted as a defective fill-in-blank item, now fixed and re-asked cleanly). Cloze steps hyphenation down to ONE light confirming rep, gives subjunctive one confirming rep, and otherwise rotates normal maintenance. Grammar rotates the six linking verbs through untested formats: smell (direct), look (error-scan), sound (direct), seem (direct repair + error-scan). Taste and thereby are not repeated.',
     testPending: true
   },
 
@@ -32,96 +32,69 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Milestone 3 — updated after each test)
+  // Last completed assessment (Unit 31 — updated after each test)
   lastUnit: {
-    n: 'M3', label: 'Milestone 3', score: 93, outOf: 125, pct: 74, delta: 1, prevScore: 92,
+    n: 31, label: 'Unit 31', score: 15, outOf: 19, pct: 79, delta: -1, prevScore: 16,
 
-    patternLabel:   'Milestone 3 &mdash; 10 Aug 2026 &middot; 93/125 (74%) &middot; FAIL (pass bar 100/125) &mdash; taken the same day it was built',
-    patternInsight: '<strong>Score: 93/125 (74%), FAIL &mdash; but a sharply divided result, not a broad one.</strong> Conversation went <strong>25/25 (8/8) PERFECT</strong> and Reading went <strong>25/25 (8/8) PERFECT</strong> &mdash; both sections redesigned this cycle (multi-turn dialogues, kept-live passages), both validated on first exposure. Vocabulary held <strong>20/25 (6/8, 80%)</strong> &mdash; both deliberately-designed reversal-trap items (tenacious, candid) were answered correctly, confirming that fix works; the 2 misses were organic near-opposite confusion on undesignated words. Grammar fell to <strong>13/25 (5/8, 52%)</strong> and Cloze to <strong>10/25 (4/8, 40%)</strong> &mdash; both FAILED, and both show the identical signature: a rule answered correctly on one item, missed on another instance of the SAME rule.',
+    patternLabel:   'Unit 31 &mdash; 13 Aug 2026 &middot; 15/20 raw (75%), 15/19 valid (&asymp;79%) after Q11 was discounted as a defective item &mdash; near-pass, not the 5-point gap the raw score suggested',
+    patternInsight: '<strong>15/20 raw (75%), but Q11 was a defective fill-in-blank item &mdash; the sentence left &ldquo;confident&rdquo; typed out as fixed text right after the blank while the answer options were also forms of &ldquo;confident,&rdquo; so no option could sensibly complete it as shown.</strong> Discounting that item, Prem scored <strong>15 of 19 VALID questions (&asymp;79%)</strong> &mdash; a near-pass, not the full 5-point gap the raw score implied. <strong>Grammar&rsquo;s rebuild landed well:</strong> every direct repeat of Milestone 3&rsquo;s exact misses (&ldquo;tasted delicious,&rdquo; the error-scan-embedded version, and &ldquo;thereby+-ing&rdquo;) was answered correctly &mdash; Grammar&rsquo;s true read is <strong>5/6 valid (83%)</strong>. One genuine new miss surfaced on &ldquo;smell&rdquo; in error-scan format. <strong>Cloze&rsquo;s dedicated hyphenation lesson worked:</strong> 4 of 5 hyphenation items correct, only the age-compound-before-noun pattern missed (the opposite error direction from Milestone 3). Vocab held 5/6 &mdash; the reversal-trap item (valiant) held, resilient was missed to a different wrong answer. The defective item is now fixed in the test file, and a new standing rule (skill H.6: substitute every option into the blank before shipping) guards against a repeat.',
 
-    analysisLabel:   'Milestone 3 Result Analysis &mdash; 10 Aug 2026 (Conversation &amp; Reading prove the redesign works; Grammar and Cloze confirm a transfer problem, not a knowledge gap; hyphenation confirmed still broken)',
-    analysisInsight: '<strong>The redesign worked exactly where it was aimed.</strong> Conversation&rsquo;s new multi-turn dialogue format and Vocabulary&rsquo;s permanent reversal-traps were both built to answer the real ASMOPSS 2026 exam&rsquo;s transfer-gap findings &mdash; Conversation went perfect, and both designed traps were caught. <strong>Grammar and Cloze, left as &ldquo;maintenance,&rdquo; are where the milestone was lost.</strong> Grammar answered &ldquo;felt exhausted&rdquo; correctly but missed &ldquo;tasted delicious&rdquo; (Q17) &mdash; the identical linking-verb+adjective rule, inconsistent across verbs &mdash; and the same rule broke down again once embedded in an error-scan synthesis item (Q24). Cloze answered &ldquo;trained&hellip;adapted&rdquo; correctly but missed &ldquo;studied&hellip;improved&rdquo; (Q27) &mdash; the identical tense-parallelism rule, same inconsistency pattern. <strong>The single most concentrated loss: BOTH 5-point hyphenation items missed</strong> (three-year-old &rarr; &ldquo;three year-old&rdquo;; well-trained &rarr; &ldquo;well trained&rdquo;) &mdash; confirming Unit 30&rsquo;s apparent 6/7 hyphenation recovery did not generalise past its original number-unit pattern (&ldquo;3-metre&rdquo;) to compound-adjective-before-noun patterns. This is a transfer problem, not a missing rule &mdash; Unit 31 is built as a direct, targeted rebuild of exactly these two sections.',
+    analysisLabel:   'Unit 31 Result Analysis &mdash; 13 Aug 2026 (a targeted Grammar/Cloze rebuild that mostly worked, undercut by one shipping defect, corrected after Lui flagged it)',
+    analysisInsight: '<strong>The direct rebuild worked where it was aimed.</strong> Every item that directly re-asked one of Milestone 3&rsquo;s exact misses came back correct: &ldquo;tasted delicious&rdquo; (the old Q17 miss), &ldquo;thereby+-ing&rdquo; (the old Q23 miss), and the error-scan-embedded version of the linking-verb rule (the old Q24 miss) were all answered correctly this time. Hyphenation improved sharply &mdash; 4 of 5 items correct, versus 0/2 at Milestone 3 &mdash; though the age-compound-before-noun pattern still slipped once, in the OPPOSITE direction (under-hyphenating instead of over-hyphenating). <strong>The one real defect this unit was a shipping error, not a coaching gap.</strong> Q11 left the target word &ldquo;confident&rdquo; sitting as fixed text immediately after the blank while all four options were also forms of &ldquo;confident&rdquo; &mdash; unanswerable as written, and Prem&rsquo;s marked miss there carried no real signal. Caught only because Lui asked directly what the correct answer was meant to be. Fixed in the live test file (the blank now sits directly after &ldquo;seemed&rdquo;) and a clean version will be re-asked in Unit 32, alongside a new standing verification rule (H.6) requiring every fill-in-blank option to be substituted into the sentence before shipping.',
 
-    qSummary: '<strong>93/125 (74%), FAIL (pass bar 100/125) &mdash; taken the same day the test was built. Conversation 8/8 PERFECT and Reading 8/8 PERFECT, both redesigned this cycle and both validated on first exposure. Vocab 6/8 (80%) &mdash; both designed reversal-traps (tenacious, candid) answered correctly; 2 organic misses elsewhere (invigorating, wary). Grammar 5/8 (52%) and Cloze 4/8 (40%) FAILED &mdash; both show a rule right on one item, wrong on another instance of the identical rule (transfer problem, not knowledge gap). Cloze lost both 5-pt hyphenation items, confirming hyphenation is still not durably fixed. Next: UNIT 31, a direct rebuild of Grammar and Cloze.</strong>',
+    qSummary: '<strong>15/20 raw (75%), 15/19 valid (&asymp;79%) after discounting Q11 as a defective item &mdash; a near-pass, not a clear fail. Grammar 5/6 valid (83%) &mdash; all 3 direct repeats of Milestone 3&rsquo;s misses landed correctly; 1 new miss on &ldquo;smell.&rdquo; Cloze 5/7 &mdash; 4/5 hyphenation items correct (clear improvement from M3&rsquo;s 0/2), 1 old subjunctive habit resurfaced. Vocab 5/6 &mdash; reversal-trap (valiant) held; resilient missed to a different wrong answer. Next: UNIT 32, light maintenance on hyphenation/subjunctive, Grammar rotates smell/look/sound/seem through untested formats.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Conversation', lvl:'b', pass:true,  note:'&#10003; &ldquo;Hi, I&rsquo;m Sam &mdash; want to sit with us at lunch?&rdquo; (break the ice). Foundational.' },
-      { q:'Q2',  topic:'Conversation', lvl:'b', pass:true,  note:'&#10003; Extremely expensive (cost an arm and a leg). Foundational.' },
-      { q:'Q3',  topic:'Conversation', lvl:'b', pass:true,  note:'&#10003; A polite request (&ldquo;Would you mind&hellip;&rdquo;). Foundational.' },
-      { q:'Q4',  topic:'Conversation', lvl:'i', pass:true,  note:'&#10003; Want to grab something to eat? (starving = hungry, not literal). Developing.' },
-      { q:'Q5',  topic:'Conversation', lvl:'i', pass:true,  note:'&#10003; It&rsquo;s now your turn to decide or act (ball is in your court). Developing.' },
-      { q:'Q6',  topic:'Conversation', lvl:'i', pass:true,  note:'&#10003; NEW multi-turn dialogue item &mdash; correctly tracked B&rsquo;s real point (teamwork, not defense) across all 4 turns. Developing.' },
-      { q:'Q7',  topic:'Conversation', lvl:'a', pass:true,  note:'&#10003; NEW multi-turn dialogue item &mdash; correctly read the subtle &ldquo;talk later&rdquo; distinction (delay, not avoid forever). Advanced.' },
-      { q:'Q8',  topic:'Conversation', lvl:'a', pass:true,  note:'&#10003; Worked very late into the night (burn the midnight oil) &mdash; Conversation finishes 8/8, PERFECT. Both new multi-turn items held. Advanced.' },
-      { q:'Q9',  topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Not cared for or looked after (neglected). Foundational.' },
-      { q:'Q10', topic:'Vocab', lvl:'b', pass:true,  note:'&#10003; Very careful and precise (meticulous). Foundational.' },
-      { q:'Q11', topic:'Vocab', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;Making you feel tired and drained&rdquo;; scored answer was &ldquo;Making you feel more energetic&rdquo; (invigorating) &mdash; a near-opposite reversal error on an UNDESIGNATED item, not one of the deliberate traps. Foundational.' },
-      { q:'Q12', topic:'Vocab', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;Completely uninterested&rdquo;; scored answer was &ldquo;Cautious and a little distrustful&rdquo; (wary) &mdash; another organic meaning-confusion, not one of the deliberate traps. Developing.' },
-      { q:'Q13', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Intimidating and difficult to face (daunting). Developing.' },
-      { q:'Q14', topic:'Vocab', lvl:'i', pass:true,  note:'&#10003; Good at finding clever solutions with what&rsquo;s available (resourceful). Developing.' },
-      { q:'Q15', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; DESIGNED reversal-trap item (tenacious) &mdash; correctly chose &ldquo;refusing to give up&rdquo; over the near-opposite distractor &ldquo;indifferent.&rdquo; Advanced.' },
-      { q:'Q16', topic:'Vocab', lvl:'a', pass:true,  note:'&#10003; DESIGNED reversal-trap item (candid) &mdash; correctly chose &ldquo;honest and direct&rdquo; over the near-opposite distractor &ldquo;evasive&rdquo; &mdash; Vocab finishes 6/8 (80%); both deliberate traps held, both organic misses were on undesignated items. Advanced.' },
-      { q:'Q17', topic:'Grammar', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;delicately&rdquo;; scored answer was &ldquo;delicious&rdquo; (linking-verb+adjective, &ldquo;tasted&rdquo;) &mdash; the SAME rule Q20 gets right (&ldquo;felt exhausted&rdquo;), an inconsistency across verbs, not a missing rule. Foundational.' },
-      { q:'Q18', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; very much (impressed). Foundational.' },
-      { q:'Q19', topic:'Grammar', lvl:'b', pass:true,  note:'&#10003; Correctly identified &ldquo;He speaks English good.&rdquo; as the error. Foundational.' },
-      { q:'Q20', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; exhausted (felt) &mdash; the same linking-verb rule that slipped at Q17. Developing.' },
-      { q:'Q21', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; very much (relieved). Developing.' },
-      { q:'Q22', topic:'Grammar', lvl:'i', pass:true,  note:'&#10003; Little did he know&hellip; (fronted inversion, first exposure, correct). Developing.' },
-      { q:'Q23', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;&hellip;thereby time was saved each day.&rdquo;; scored answer was &ldquo;&hellip;thereby saving time each day.&rdquo; &mdash; &ldquo;thereby&rdquo;+-ing, first exposure. Advanced.' },
-      { q:'Q24', topic:'Grammar', lvl:'a', pass:false, note:'&#10007; Error-scan synthesis item &mdash; flagged &ldquo;(D) so she prepared to publish her findings&rdquo; as the error; the actual error was &ldquo;(B) she felt confidently&rdquo; (same linking-verb rule missed at Q17, now buried inside a 4-option scan) &mdash; Grammar finishes 5/8 (52%), FAIL. Advanced.' },
-      { q:'Q25', topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; However (full-stop sentence-starter, contrast). Foundational.' },
-      { q:'Q26', topic:'Cloze', lvl:'b', pass:true,  note:'&#10003; so (comma, clause-joiner, result). Foundational.' },
-      { q:'Q27', topic:'Cloze', lvl:'b', pass:false, note:'&#10007; Chose &ldquo;study&rdquo;; scored answer was &ldquo;studied&rdquo; (tense-parallelism, &ldquo;studied&hellip;improved&rdquo;) &mdash; the SAME rule Q28 gets right (&ldquo;trained&hellip;adapted&rdquo;), an inconsistency, not a missing rule. Foundational.' },
-      { q:'Q28', topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; trained (tense-parallelism) &mdash; the same rule that slipped at Q27. Developing.' },
-      { q:'Q29', topic:'Cloze', lvl:'i', pass:true,  note:'&#10003; arrive (subjunctive, active voice, base form after &ldquo;insisted that&rdquo;). Developing.' },
-      { q:'Q30', topic:'Cloze', lvl:'i', pass:false, note:'&#10007; Chose &ldquo;is submitted&rdquo;; scored answer was &ldquo;be submitted&rdquo; (subjunctive, PASSIVE voice) &mdash; the active-voice form held at Q29 but the rule has not generalised to the passive form yet. Developing.' },
-      { q:'Q31', topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;three year-old&rdquo;; scored answer was &ldquo;three-year-old&rdquo; (age compound before a noun) &mdash; hyphenation miss #1 of 2, confirming Unit 30&rsquo;s recovery did not generalise to this pattern. Advanced.' },
-      { q:'Q32', topic:'Cloze', lvl:'a', pass:false, note:'&#10007; Chose &ldquo;well trained&rdquo;; scored answer was &ldquo;well-trained&rdquo; (participle compound before a noun) &mdash; hyphenation miss #2 of 2 &mdash; Cloze finishes 4/8 (40%), the weakest section, both 5-pt items lost to hyphenation. Advanced.' },
-      { q:'Q33', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; How octopuses use colour and texture to communicate, not just hide (main idea). Foundational.' },
-      { q:'Q34', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Special skin cells that help an octopus change colour (chromatophores, detail). Foundational.' },
-      { q:'Q35', topic:'Reading', lvl:'b', pass:true,  note:'&#10003; Imitate or copy closely (mimic, vocab-in-context). Foundational.' },
-      { q:'Q36', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; Because octopuses are almost certainly colourblind themselves (inference). Developing.' },
-      { q:'Q37', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; To emphasize that colour-changing serves more purposes than just hiding (author&rsquo;s purpose). Developing.' },
-      { q:'Q38', topic:'Reading', lvl:'i', pass:true,  note:'&#10003; There are still open questions about how octopuses coordinate this skill (inference). Developing.' },
-      { q:'Q39', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; It may be reassigned to someone on the waiting list (notice, applied reasoning). Advanced.' },
-      { q:'Q40', topic:'Reading', lvl:'a', pass:true,  note:'&#10003; It is NOT eligible for reassignment, since she gave advance notice (notice, applied reasoning) &mdash; Reading finishes 8/8, PERFECT. Advanced.' }
+      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; 2-day (number+unit before a noun, hyphenate + singular).' },
+      { q:'Q2',  topic:'Cloze', pass:true,  note:'&#10003; two hours (standing alone after &ldquo;take,&rdquo; no hyphen, plural).' },
+      { q:'Q3',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;ten year old&rdquo;; scored answer was &ldquo;ten-year-old&rdquo; (age compound before a noun) &mdash; the one hyphenation miss, opposite direction from Milestone 3 (under- instead of over-hyphenating).' },
+      { q:'Q4',  topic:'Cloze', pass:true,  note:'&#10003; ten years old (standing alone after &ldquo;was,&rdquo; no hyphen, plural).' },
+      { q:'Q5',  topic:'Cloze', pass:true,  note:'&#10003; well-trained (participle compound before a noun) &mdash; the exact Milestone 3 miss, correct this time.' },
+      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; However (full-stop sentence-starter, contrast).' },
+      { q:'Q7',  topic:'Cloze', pass:false, note:'&#10007; Old subjunctive &ldquo;-s&rdquo; habit resurfaced &mdash; Cloze finishes 5/7.' },
+      { q:'Q8',  topic:'Grammar', pass:true,  note:'&#10003; Error-scan &mdash; correctly flagged &ldquo;sounded happily.&rdquo;' },
+      { q:'Q9',  topic:'Grammar', pass:true,  note:'&#10003; delicious (tasted) &mdash; direct repeat of Milestone 3&rsquo;s Q17 miss, correct this time.' },
+      { q:'Q10', topic:'Grammar', pass:false, note:'&#10007; Error-scan, &ldquo;smelled sweetly&rdquo; &mdash; the one genuine new miss this unit, first time smell tested in this format.' },
+      { q:'Q11', topic:'Grammar', pass:null,  note:'&#9888; DISCOUNTED &mdash; shipping defect (&ldquo;confident&rdquo; left as fixed text with all 4 options also forms of &ldquo;confident&rdquo;), unanswerable as shown. Fixed in the test file; re-asked cleanly in Unit 32.' },
+      { q:'Q12', topic:'Grammar', pass:true,  note:'&#10003; thereby improving (thereby+-ing) &mdash; direct repeat of Milestone 3&rsquo;s Q23 miss, correct this time.' },
+      { q:'Q13', topic:'Grammar', pass:true,  note:'&#10003; Error-scan, &ldquo;sounded strangely&rdquo; &mdash; direct repeat of the error-scan-embedded version of Milestone 3&rsquo;s Q24 miss, correct this time. Grammar finishes 5/6 valid (83%).' },
+      { q:'Q14', topic:'Grammar', pass:true,  note:'&#10003; very much (surprised).' },
+      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; apprehensive &mdash; nervous and worried.' },
+      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; skeptical &mdash; doubtful and unconvinced.' },
+      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; reluctant &mdash; unwilling and hesitant.' },
+      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; DESIGNED reversal-trap item (valiant) &mdash; correctly chose &ldquo;brave and determined&rdquo; over the near-opposite distractor &ldquo;cowardly and fearful.&rdquo;' },
+      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; obstinate &mdash; stubborn and unwilling to change.' },
+      { q:'Q20', topic:'Vocab', pass:false, note:'&#10007; resilient &mdash; missed to a different wrong answer, not the deliberate reversal-trap distractor itself. Vocab finishes 5/6.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After MILESTONE 3 (93/125, 74%, FAIL, 10 Aug 2026) — the first REAL-CONDITION check for Conversation,
-  //   and confirmation (not first-exposure noise) for Grammar/Cloze:
-  // Reading unchanged — already at target, 8/8 PERFECT again;
-  // Vocabulary -2 — 6/8 (80%) under real conditions; both designed reversal-traps held, 2 organic misses
-  //   on undesignated items keep this just off target rather than at it;
-  // Grammar -4 — 5/8 (52%) on a real milestone-scale check confirms this is a genuine transfer gap (right on
-  //   one linking verb, wrong on another; breaks down further inside error-scan), not first-exposure noise
-  //   as first assumed after Unit 30 — walked back down accordingly, Unit 31 rebuilds it directly;
-  // Cloze -8 — 4/8 (40%), the weakest section; BOTH 5-pt hyphenation items missed, confirming Unit 30's
-  //   apparent 6/7 recovery did NOT generalise past its original number-unit pattern — walked back down
-  //   more sharply than Grammar since this was the most concentrated single point-loss on the test;
-  // Conversation +5 — its FIRST real-condition check (per the 10 Aug coaching-rules stress-test rule) went
-  //   8/8 PERFECT, including both new multi-turn items; ESTIMATE flag removed, moved to a validated number
-  //   (kept below a full jump to 100 since one milestone section is confirming, not yet a long-run trend);
-  // Writing/Critical Thinking/Figurative Language — still ESTIMATES, untested this cycle; first checkpoints
-  //   remain Figurative Language by Milestone 4, Writing + Critical Thinking by Milestone 5
+  // After UNIT 31 (15/19 valid, &asymp;79%, 13 Aug 2026) — Q11 discounted as a defective shipping item, not a
+  //   real coaching signal:
+  // Reading/Writing/Conversation/CritThink/FigLang unchanged — not tested this unit;
+  // Vocabulary +1 — 5/6 (83%) held close to target; reversal-trap (valiant) confirmed again;
+  // Grammar +4 — 5/6 valid (83%) confirms Milestone 3's misses were genuinely fixed by direct rebuild
+  //   (tasted delicious, thereby+-ing, and the error-scan-embedded version all landed); one new miss on
+  //   smell keeps it short of full target;
+  // Cloze +8 — 5/7 (71%) confirms real generalisation of the hyphenation fix (4/5, versus M3's 0/2), though
+  //   one pattern (age-compound-before-noun) and the old subjunctive habit still need more reps
   skills: [
-    { name: 'Reading Compr.',    c: 85, t: 85 },   // M3: 8/8 PERFECT again — unchanged, already at target
-    { name: 'Vocabulary',        c: 80, t: 82 },   // M3: 6/8 (80%) — both designed reversal-traps held; 2 organic misses on undesignated items
-    { name: 'Grammar',           c: 70, t: 82 },   // M3: 5/8 (52%), FAIL — confirms a real cross-verb transfer gap, not first-exposure noise; Unit 31 rebuilds directly
-    { name: 'Cloze Test',        c: 60, t: 80 },   // M3: 4/8 (40%), FAIL — both 5-pt hyphenation items lost; Unit 30's recovery confirmed NOT to have generalised
+    { name: 'Reading Compr.',    c: 85, t: 85 },   // Unchanged — not tested this unit, already at target
+    { name: 'Vocabulary',        c: 81, t: 82 },   // U31: 5/6 (83%) — reversal-trap (valiant) held again
+    { name: 'Grammar',           c: 74, t: 82 },   // U31: 5/6 valid (83%) — direct rebuild of M3's misses confirmed working; 1 new miss on smell
+    { name: 'Cloze Test',        c: 68, t: 80 },   // U31: 5/7 (71%) — hyphenation fix confirmed generalising (4/5, up from M3's 0/2)
     { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
-    { name: 'Conversation',      c: 95, t: 85 },   // M3: 8/8 PERFECT — first-ever REAL-CONDITION check, ESTIMATE flag removed, validated number
+    { name: 'Conversation',      c: 95, t: 85 },   // Unchanged — not tested this unit
     { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
     { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; first real checkpoint planned by Milestone 4
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [85, 80, 70, 60, 65, 95, 62, 55],
+  radarCurrent:  [85, 81, 74, 68, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Milestone 3',
+  radarLegendUnit: 'Unit 31',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -158,11 +131,25 @@ var PREM_ENGLISH = {
     { n:28, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U28' },
     { n:29, score:14, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U29' },
     { n:30, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U30' },
-    { n:'M3', score:93, outOf:125, delta:null, color:'#9f7aea', star:false, label:'M3', milestone:true }
+    { n:'M3', score:93, outOf:125, delta:null, color:'#9f7aea', star:false, label:'M3', milestone:true },
+    { n:31, score:15, outOf:19, delta:-1, color:'#667eea', star:false, label:'U31' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 31,
+      title: 'Unit 31 &mdash; Cloze: Hyphenation Across Patterns &middot; Grammar &amp; Vocab: One Rule, Every Linking Verb',
+      badge: '#667eea',
+      status: 'done',
+      note: '15/20 raw (75%), 15/19 VALID (&asymp;79%) &mdash; <strong>a near-pass, not the 5-point gap the raw score suggested, once a shipping defect is corrected for.</strong> Q11 left &ldquo;confident&rdquo; typed out as fixed text right after the blank while all four answer options were also forms of &ldquo;confident&rdquo; &mdash; unanswerable as shown, caught only after Lui asked directly what the correct answer was meant to be. Discounting it: <strong>Grammar 5/6 valid (83%)</strong> &mdash; every direct repeat of Milestone 3&rsquo;s exact misses (tasted delicious, thereby+-ing, the error-scan-embedded version) landed correctly this time; one genuine new miss on &ldquo;smell.&rdquo; <strong>Cloze 5/7</strong> &mdash; the dedicated hyphenation rebuild worked, 4 of 5 items correct (versus M3&rsquo;s 0/2), only the age-compound-before-noun pattern missed, in the opposite direction from before; one old subjunctive &ldquo;-s&rdquo; habit resurfaced. <strong>Vocab 5/6</strong> &mdash; the reversal-trap item (valiant) held again. The defective item is fixed in the live test file, and a new standing rule (skill H.6: substitute every fill-in-blank option into the sentence before shipping) now guards against a repeat. &middot; Next: <strong>UNIT 32</strong> &mdash; hyphenation and subjunctive step down to light confirming reps, Grammar rotates smell/look/sound/seem through untested formats, and the repaired &ldquo;seemed calm&rdquo; item is re-asked cleanly.',
+      tags: [
+        { t:'15/19 valid (&asymp;79%) &mdash; near-pass', s:'background:#f0f5ff;color:#4c51bf' },
+        { t:'Grammar 5/6 valid (83%) &#127881;', s:'background:#f0fff4;color:#276749' },
+        { t:'Cloze 5/7 (hyphenation fix confirmed)', s:'background:#f0fff4;color:#276749' },
+        { t:'Q11 discounted &mdash; shipping defect', s:'background:#fff8e1;color:#744210' }
+      ]
+    },
     {
       n: 'M3',
       title: 'Milestone 3 &mdash; Real-Exam Transfer-Gap Rebuild (Conversation, Vocab, Grammar, Cloze, Reading)',
