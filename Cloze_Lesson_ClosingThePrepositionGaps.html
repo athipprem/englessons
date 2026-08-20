@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Closing the Preposition Gaps — Unit 33 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20}
+.node.a{background:#2E7D32;color:#fff}
+.arrow{font-size:18px;color:#1B5E20;line-height:1}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.predict-gate{background:#FFF3CD;border:1.5px dashed #DAA520;border-radius:8px;padding:10px 12px;margin-top:6px}
+.predict-note{font-size:12.5px;color:#8a6a00;margin-bottom:8px}
+.opts-wrap{display:none;margin-top:8px}
+.opts-wrap.show{display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#43A047);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Closing the Preposition Gaps</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 33 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Last unit, hyphenation and subjunctive both held steady — real proof those fixes stuck. But two brand-new gaps showed up: a verb right after a preposition ("accustomed to working"), and a fixed phrase that just has to be memorised ("arrive AT a decision"). These aren't rare — they show up constantly in real writing and in ASMOPSS-style reading passages. Today closes both gaps for good.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>A reminder of something you already do well:</p>
+    <div class="di" id="wu1"><div class="di-sent">"The museum insisted on ___ every visitor's bag before entry." Which fits?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) check</button><button class="di-opt" onclick="doWu(1,'b')">B) checking</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — after a preposition like "on," the verb always takes the -ing form. <strong>Today we lock that in, plus a memorised phrase. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: gerund after preposition rule -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The rule: preposition + verb = always -ing 🎯</h2>
+    <p>Whenever a verb comes DIRECTLY after a preposition (words like <em>to, on, at, about, of, for, in, with</em>), that verb must take the <strong>-ing</strong> form — never the plain base form, never "to + verb."</p>
+    <div class="tree">
+      <div class="node start">See a preposition (to/on/at/about/of/for...) in a sentence?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Is a verb sitting DIRECTLY after that preposition?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">YES → that verb takes -ing, no matter what. "worried about losing," "good at drawing," "responsible for cleaning."</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why this trips people up</div>
+      <p style="margin:0;font-size:14px">"Accustomed to work" SOUNDS okay out loud because "to" often signals an infinitive ("wants to work," "needs to work") — but "to" here isn't part of an infinitive, it's a preposition glued to "accustomed." The trick: check whether "to" is attached to a describing word/phrase (accustomed TO, used TO, look forward TO) — if so, it's a preposition, and -ing follows.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: fixed idiom rule -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Memorised phrase: "arrive AT a decision" 📋</h2>
+    <p>Some preposition choices don't follow a logic rule at all — they're just fixed, memorised phrases (called collocations). "Arrive at a decision" is one: the verb "arrive" is always paired with "at" when talking about REACHING a decision, conclusion, or agreement — never "to," "on," or "in."</p>
+    <p><strong>Example:</strong> "After the long meeting, the committee arrived <em>at</em> a conclusion." NOT "arrived to a conclusion."</p>
+    <div class="why-box">
+      <div class="why-title">🔑 How to handle fixed phrases</div>
+      <p style="margin:0;font-size:14px">You can't reason your way to a fixed phrase the way you can with a rule — you simply have to remember it, the same way you remember "arrive at a decision" is correct English. When you're not sure, picture the exact phrase as a single locked-together unit: "ARRIVE-AT-A-DECISION," not three separate words to choose between.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: predict-first drill round 1 (gerund after preposition) -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Predict first, then check — preposition + -ing ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Read the sentence, write YOUR answer on paper, then tap the button to reveal the choices.</p>
+    <div id="pWrap1"></div>
+    <div class="drill-score" id="p1Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: predict-first drill round 2 (fixed idiom) -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Predict first, then check — "arrive at" ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Same routine — write first, then reveal.</p>
+    <div id="pWrap2"></div>
+    <div class="drill-score" id="p2Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: full passage -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Full passage practice 📚</h2>
+    <p style="font-size:13.5px;color:#555">A short passage mixing preposition+-ing, the fixed idiom, plus a light hyphenation and subjunctive touch. Write your answer for each gap on paper first, then reveal and check.</p>
+    <div class="passage" id="passageBox"></div>
+    <div id="passageQs"></div>
+    <div class="drill-score" id="cScore"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Two gaps closed! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">A verb right after a preposition always takes -ing — no exceptions. "Arrive at a decision" is a fixed phrase to memorise, not a rule to reason through.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="GrammarVocab_Lesson_ClosingTheVerbGaps.html" class="btn-lesson">Next Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s3'&&!pBuilt[1]){buildPredict(1,'pWrap1',P_SET1);}
+if(SCREENS[cur]==='s4'&&!pBuilt[2]){buildPredict(2,'pWrap2',P_SET2);}
+if(SCREENS[cur]==='s5'){buildPassage();}
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'b'};var wuWhy={1:'Correct — "insisted on" is a preposition, so the verb after it takes -ing: checking.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+// ── Predict-first drill data ──
+var P_SET1 = [
+  { sent:'"The whole team was worried about ___ (lose) the championship game."', opts:['lose','losing','lost','to lose'], ans:'losing', why:'"worried about" — "about" is a preposition, so the verb after it takes -ing: losing.' },
+  { sent:'"My cousin has always been good at ___ (draw) realistic animals."', opts:['drawing','draw','drew','to draw'], ans:'drawing', why:'"good at" — "at" is a preposition, so the verb after it takes -ing: drawing.' }
+];
+var P_SET2 = [
+  { sent:'"It took the jury almost six hours to arrive ___ a verdict."', opts:['to','on','at','in'], ans:'at', why:'"arrive AT a verdict/decision/conclusion" is a fixed phrase — always "at," never "to," "on," or "in."' }
+];
+
+var pBuilt={};var pScore={1:0,2:0};var pDone={};
+
+function buildPredict(setId, containerId, items){
+  pBuilt[setId]=true; pDone[setId]={};
+  var html='';
+  items.forEach(function(it,i){
+    var n=i+1;
+    html += '<div class="di" id="p'+setId+'-'+n+'">';
+    html += '<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    html += '<div class="predict-gate" id="p'+setId+'-'+n+'-gate">';
+    html += '<div class="predict-note">✍️ Write YOUR answer on paper first, then tap below.</div>';
+    html += '<button class="di-opt" onclick="revealPredict('+setId+','+n+')">I\'ve written mine — show me the choices</button>';
+    html += '</div>';
+    html += '<div class="opts-wrap" id="p'+setId+'-'+n+'-opts"><div class="di-btns">';
+    it.opts.forEach(function(o){
+      html += '<button class="di-opt" onclick="doPredict('+setId+','+n+',\''+o+'\')">'+o+'</button>';
+    });
+    html += '</div></div>';
+    html += '<div class="di-fb" id="p'+setId+'-'+n+'-fb"></div>';
+    html += '</div>';
+  });
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function revealPredict(setId, n){
+  document.getElementById('p'+setId+'-'+n+'-gate').style.display='none';
+  document.getElementById('p'+setId+'-'+n+'-opts').className='opts-wrap show';
+}
+
+function doPredict(setId, n, choice){
+  if (pDone[setId][n]) return;
+  pDone[setId][n]=true;
+  var items = (setId===1)?P_SET1:P_SET2;
+  var it = items[n-1];
+  document.getElementById('p'+setId+'-'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  var fb = document.getElementById('p'+setId+'-'+n+'-fb');
+  var correct = (choice === it.ans);
+  if (correct){ fb.className='di-fb ok'; fb.textContent='✅ '+it.why; pScore[setId]++; }
+  else { fb.className='di-fb no'; fb.textContent='❌ '+it.why; }
+  var total = items.length;
+  if (Object.keys(pDone[setId]).length===total){
+    var s=document.getElementById('p'+setId+'Score');
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round '+setId+': '+pScore[setId]+'/'+total+'</strong>';
+  }
+}
+
+var cKey={};var cWhy={};var cDone={};var cC=0;
+function buildPassage(){
+  var html = 'The town council spent weeks debating the new park design before finally arriving <span class="gap" data-n="1">(1)___</span> a plan everyone liked. '+
+  'Several residents admitted to <span class="gap" data-n="2">(2)___</span> the original proposal at first, worried it would remove too many trees. '+
+  'The lead architect insisted that the final blueprint <span class="gap" data-n="3">(3)___</span> approved by an independent inspector before construction began. '+
+  'The park will feature a <span class="gap" data-n="4">(4)___</span> fountain donated by a local family. '+
+  'Interested residents are capable of <span class="gap" data-n="5">(5)___</span> feedback directly to the council office any weekday morning.';
+  document.getElementById('passageBox').innerHTML = html;
+
+  cKey[1]='at'; cKey[2]='opposing'; cKey[3]='be'; cKey[4]='two-tier'; cKey[5]='submitting';
+  var OPTS = {
+    1: ['to','on','at','in'],
+    2: ['oppose','opposing','opposed','to oppose'],
+    3: ['is','was','be','being'],
+    4: ['two tier','two-tier','two-tiers','two-tier\'s'],
+    5: ['submit','submitting','submitted','to submit']
+  };
+  cWhy[1]='"arrive AT a plan/decision" is the fixed phrase — always "at."';
+  cWhy[2]='"admitted to" — "to" here is a preposition, so the verb after it takes -ing: opposing.';
+  cWhy[3]='"insisted that" is a subjunctive trigger — base form, no -s: be (approved).';
+  cWhy[4]='"fountain" is the noun right after — hyphenate + singular: two-tier.';
+  cWhy[5]='"capable of" — "of" is a preposition, so the verb after it takes -ing: submitting.';
+
+  var qHtml = '';
+  for (var n=1;n<=5;n++){
+    qHtml += '<div class="di" id="c'+n+'">';
+    qHtml += '<div class="di-sent">Gap ('+n+') — write your answer first, then reveal:</div>';
+    qHtml += '<div class="predict-gate" id="c'+n+'-gate"><div class="predict-note">✍️ Write it on paper, then tap below.</div><button class="di-opt" onclick="revealC('+n+')">Show me the choices</button></div>';
+    qHtml += '<div class="opts-wrap" id="c'+n+'-opts"><div class="di-btns">';
+    OPTS[n].forEach(function(o){ qHtml += '<button class="di-opt" onclick="doC('+n+',\''+o+'\')">'+o+'</button>'; });
+    qHtml += '</div></div><div class="di-fb" id="c'+n+'f"></div></div>';
+  }
+  document.getElementById('passageQs').innerHTML = qHtml;
+}
+function revealC(n){ document.getElementById('c'+n+'-gate').style.display='none'; document.getElementById('c'+n+'-opts').className='opts-wrap show'; }
+function doC(n,c){if(cDone[n])return;cDone[n]=true;var fb=document.getElementById('c'+n+'f');document.getElementById('c'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===cKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+cWhy[n];cC++;}else{fb.className='di-fb no';fb.textContent='❌ '+cWhy[n];}var gapEl=document.querySelector('.gap[data-n="'+n+'"]');if(gapEl)gapEl.textContent=c;if(Object.keys(cDone).length===5){var s=document.getElementById('cScore');s.className='drill-score show';s.innerHTML='<strong>Full passage: '+cC+'/5</strong>';}}
+
+function buildReport(){
+  var r1=pScore[1], r2=pScore[2];
+  var c=(Object.keys(cDone).length===5)?cC:0;
+  document.getElementById('reportWrap').innerHTML='<p><strong>Round 1 (preposition + -ing):</strong> '+r1+'/2 &middot; <strong>Round 2 (arrive at):</strong> '+r2+'/1 &middot; <strong>Full passage:</strong> '+c+'/5</p>';
+}
+</script>
+</body>
+</html>
