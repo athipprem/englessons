@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Building a Persuasive Paragraph — Unit 34 Lesson 3</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F3E5F5;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#4A148C;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(74,20,140,0.10);margin-bottom:18px}
+h2{color:#4A148C;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.school-tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.rule-box{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#F3E5F5;border:2px solid #7B1FA2;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#4A148C;margin-bottom:6px}
+.bws-title{font-weight:700;color:#4A148C;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#4A148C;color:#fff}
+.node.q{background:#F3E5F5;border:2px solid #7B1FA2;color:#4A148C}
+.node.a{background:#7B1FA2;color:#fff}
+.arrow{font-size:18px;color:#4A148C;line-height:1}
+.model{background:#F9F5FF;border:1.5px solid #CE93D8;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.8}
+.model .tag{display:inline-block;font-size:10.5px;font-weight:800;padding:1px 7px;border-radius:8px;margin-right:5px;background:#7B1FA2;color:#fff}
+.di{background:#fff;border:2px solid #E1BEE7;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#F3E5F5;border:2px solid #7B1FA2;color:#4A148C;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.predict-gate{background:#FFF3CD;border:1.5px dashed #DAA520;border-radius:8px;padding:10px 12px;margin-top:6px}
+.predict-note{font-size:12.5px;color:#8a6a00;margin-bottom:8px}
+.opts-wrap{display:none;margin-top:8px}
+.opts-wrap.show{display:block}
+.drill-score{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.plan-box{background:#F9F5FF;border:1.5px solid #CE93D8;border-radius:10px;padding:14px 16px;margin:10px 0}
+.plan-lbl{font-weight:700;color:#4A148C;font-size:13px;margin-bottom:4px}
+.plan-input{width:100%;border:1.5px solid #CE93D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:inherit;margin-bottom:10px}
+textarea.plan-input{resize:vertical;min-height:44px}
+.write-area{width:100%;min-height:160px;border:1.5px solid #7B1FA2;border-radius:10px;padding:12px;font-size:14.5px;font-family:inherit;line-height:1.6;resize:vertical}
+.checklist{background:#F9F5FF;border:1.5px solid #CE93D8;border-radius:10px;padding:14px 16px;margin:12px 0}
+.checklist label{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;margin:8px 0;cursor:pointer}
+.checklist input{margin-top:3px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#4A148C,#7B1FA2);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #E1BEE7;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-test{display:inline-block;background:linear-gradient(135deg,#c62828,#e53935);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Writing — Building a Persuasive Paragraph</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 34 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="school-tag">🏫 SCHOOL CURRICULUM — Semester One, Unit Test 1-2</div>
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Your school's Writing task will likely ask you to share YOUR opinion on a topic, just like <em>Have Your Say</em> does with homework, uniforms, and computers at school. Today you'll learn the exact structure of a strong persuasive paragraph, see a model, plan your own, and then write one using ideas from <em>Life in Space</em>.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>Think about how "Have Your Say" is organised:</p>
+    <div class="di" id="wu1"><div class="di-sent">Each topic in "Have Your Say" shows reasons FOR an idea, reasons AGAINST it, and then asks "What do you think?" Why does the book do this, instead of just giving one opinion?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) To help the reader see both sides before forming their own opinion</button><button class="di-opt" onclick="doWu(1,'b')">B) Because the author couldn't decide</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px"><strong>Strong persuasive writing does the same thing — let's learn the structure. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: structure decision tree -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The four-part structure 🏗️</h2>
+    <p>A strong persuasive paragraph always has the same four parts, in this order:</p>
+    <div class="tree">
+      <div class="node start">1. OPINION — say clearly what you think, right at the start.</div>
+      <div class="arrow">↓</div>
+      <div class="node q">2. REASON + EXAMPLE — give a reason, and back it up with a real example or detail.</div>
+      <div class="arrow">↓</div>
+      <div class="node q">3. ANOTHER SIDE — briefly show you understand the other opinion too (this is what makes an argument strong, not weak).</div>
+      <div class="arrow">↓</div>
+      <div class="node a">4. CONCLUSION — restate your opinion in a slightly different way, to finish strongly.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why part 3 matters</div>
+      <p style="margin:0;font-size:14px">It might feel strange to mention the OTHER side of the argument when you're trying to convince someone — but "Have Your Say" always shows both sides. Acknowledging the other opinion (then explaining why you still think what you think) makes your writing sound thoughtful, not one-sided.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: model paragraph -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>A model paragraph, labelled 📋</h2>
+    <p>Here is a persuasive paragraph about school canteens, with each part labelled:</p>
+    <div class="model">
+      <span class="tag">OPINION</span>I believe school canteens should offer more fruit and vegetable choices at lunchtime.<br><br>
+      <span class="tag">REASON + EXAMPLE</span>Firstly, eating healthy food helps students concentrate better in class. For example, a student who eats a balanced lunch with fruit is less likely to feel tired during afternoon lessons than a student who only eats chips.<br><br>
+      <span class="tag">ANOTHER SIDE</span>Some students might say that healthy food is less exciting than foods like pizza or chips. However, canteens could still offer these foods sometimes, while making fruit and vegetables easier to choose every day.<br><br>
+      <span class="tag">CONCLUSION</span>For these reasons, I think school canteens should make healthy food the easiest option, without banning treats completely.
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Notice</div>
+      <p style="margin:0;font-size:14px">The connective words "Firstly," "For example," "Some students might say," and "However" all signal exactly which part of the structure you're in. Using connectives like these makes your paragraph easy to follow.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: planning scaffold -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Plan your own paragraph 📝</h2>
+    <p><strong>Topic:</strong> Should people set up a colony and live on the Moon or Mars in the future? Use what you learned in <em>Life in Space</em> to help you plan.</p>
+    <div class="plan-box">
+      <div class="plan-lbl">1. My OPINION (yes or no, and why in one sentence):</div>
+      <textarea class="plan-input" id="plan1" placeholder="e.g. I think people should NOT live on the Moon yet, because..."></textarea>
+      <div class="plan-lbl">2. My REASON + EXAMPLE:</div>
+      <textarea class="plan-input" id="plan2" placeholder="e.g. Astronauts already find it hard to stay healthy in space because of weightlessness..."></textarea>
+      <div class="plan-lbl">3. The OTHER SIDE (what would someone who disagrees with me say?):</div>
+      <textarea class="plan-input" id="plan3" placeholder="e.g. Some people might say we need a new planet because Earth is getting crowded..."></textarea>
+      <div class="plan-lbl">4. My CONCLUSION (restate my opinion):</div>
+      <textarea class="plan-input" id="plan4" placeholder="e.g. So, I think..."></textarea>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Tip</div>
+      <p style="margin:0;font-size:14px">You don't need to write full sentences here yet — just jot down your ideas for each box. On the next screen, you'll turn these notes into a real paragraph.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: write it + self-check -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Write your paragraph ✍️</h2>
+    <p>Now turn your plan into a real paragraph. Aim for 5-8 sentences, using the four-part structure.</p>
+    <textarea class="write-area" id="finalWriting" placeholder="Write your persuasive paragraph here..."></textarea>
+    <div class="checklist">
+      <div class="plan-lbl" style="margin-bottom:8px">Self-check before you finish — tick each box:</div>
+      <label><input type="checkbox">My first sentence clearly states my OPINION.</label>
+      <label><input type="checkbox">I gave at least one REASON with an EXAMPLE.</label>
+      <label><input type="checkbox">I mentioned the OTHER SIDE of the argument.</label>
+      <label><input type="checkbox">My last sentence restates my opinion (CONCLUSION).</label>
+      <label><input type="checkbox">I used connective words like "firstly," "however," or "for example."</label>
+      <label><input type="checkbox">I checked my spelling, especially any words from "Life in Space" or "Have Your Say."</label>
+    </div>
+    <p style="font-size:12.5px;color:#666">This paragraph isn't scored automatically — share it with Naomi, a parent, or your teacher to get feedback using the checklist above.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: writing-craft drill -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Writing-craft check ✔️</h2>
+    <p style="font-size:13.5px;color:#555">A few quick questions about strong writing craft, matching what your test will ask. Write your answer first, then reveal.</p>
+    <div id="pWrap1"></div>
+    <div class="drill-score" id="p1Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Ready to write persuasively! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Opinion → Reason + Example → Other Side → Conclusion. Use connectives like "firstly," "however," and "for example" to guide your reader through each part.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Tests/ENG_Unit_034_Test_SchoolCurriculum.html" class="btn-test">Take the Test →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s5'&&!pBuilt[1]){buildPredict(1,'pWrap1',P_SET1);}
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'a'};var wuWhy={1:'Correct — showing both sides helps the reader think it through and form their own, well-considered opinion.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+// ── Predict-first drill data ──
+var P_SET1 = [
+  { sent:'Which is the best OPINION topic sentence for a paragraph about school pets?', opts:['Some schools have pets.','I believe every school should have a class pet.','Pets are animals that live with people.'], ans:'I believe every school should have a class pet.', why:'A strong opinion sentence states clearly what YOU think, right away — "I believe..." does this. The others are just facts, not opinions.' },
+  { sent:'Fill the gap: "Students should be allowed more time at recess, ___ they would return to class more focused and ready to learn."', opts:['however','since','meanwhile'], ans:'since', why:'"Since" here works like "because" — it introduces the REASON behind the opinion. "However" signals a contrast, and "meanwhile" signals something happening at the same time, not a reason.' },
+  { sent:'Which sentence gives an OPINION rather than a FACT?', opts:['A recipe usually lists its ingredients first.', 'I believe cooking class should be offered every week, not just once a term.', 'Ovens can reach very high temperatures.'], ans:'I believe cooking class should be offered every week, not just once a term.', why:'"I believe..." signals a personal opinion. The other two sentences are facts that can be checked and proven true.' },
+  { sent:'Read: "Some people believe tablets are better than textbooks." Which sentence best follows it with a supporting REASON?', opts:['Tablets are electronic devices.', 'This is because tablets can store hundreds of books in one lightweight device.', 'Some students like reading.'], ans:'This is because tablets can store hundreds of books in one lightweight device.', why:'A good supporting reason explains WHY the opinion makes sense with a specific detail — storing hundreds of books in one device is a clear reason.' }
+];
+
+var pBuilt={};var pScore={1:0};var pDone={};
+
+function buildPredict(setId, containerId, items){
+  pBuilt[setId]=true; pDone[setId]={};
+  var html='';
+  items.forEach(function(it,i){
+    var n=i+1;
+    html += '<div class="di" id="p'+setId+'-'+n+'">';
+    html += '<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    html += '<div class="predict-gate" id="p'+setId+'-'+n+'-gate">';
+    html += '<div class="predict-note">✍️ Write YOUR answer on paper first, then tap below.</div>';
+    html += '<button class="di-opt" onclick="revealPredict('+setId+','+n+')">I\'ve written mine — show me the choices</button>';
+    html += '</div>';
+    html += '<div class="opts-wrap" id="p'+setId+'-'+n+'-opts"><div class="di-btns">';
+    it.opts.forEach(function(o){
+      html += '<button class="di-opt" onclick="doPredict('+setId+','+n+',\''+o.replace(/'/g,"\\'")+'\')">'+o+'</button>';
+    });
+    html += '</div></div>';
+    html += '<div class="di-fb" id="p'+setId+'-'+n+'-fb"></div>';
+    html += '</div>';
+  });
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function revealPredict(setId, n){
+  document.getElementById('p'+setId+'-'+n+'-gate').style.display='none';
+  document.getElementById('p'+setId+'-'+n+'-opts').className='opts-wrap show';
+}
+
+function doPredict(setId, n, choice){
+  if (pDone[setId][n]) return;
+  pDone[setId][n]=true;
+  var items = P_SET1;
+  var it = items[n-1];
+  document.getElementById('p'+setId+'-'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  var fb = document.getElementById('p'+setId+'-'+n+'-fb');
+  var correct = (choice === it.ans);
+  if (correct){ fb.className='di-fb ok'; fb.textContent='✅ '+it.why; pScore[setId]++; }
+  else { fb.className='di-fb no'; fb.textContent='❌ '+it.why; }
+  var total = items.length;
+  if (Object.keys(pDone[setId]).length===total){
+    var s=document.getElementById('p'+setId+'Score');
+    s.className='drill-score show';
+    s.innerHTML='<strong>Writing-craft check: '+pScore[setId]+'/'+total+'</strong>';
+  }
+}
+
+function buildReport(){
+  var r1=pScore[1];
+  document.getElementById('reportWrap').innerHTML='<p><strong>Writing-craft check:</strong> '+r1+'/4 &middot; Your planned paragraph is ready to share with Naomi or your teacher for feedback.</p>';
+}
+</script>
+</body>
+</html>

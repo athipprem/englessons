@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '13 Aug 2026',
+  updated:        '27 Aug 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           33,
-    status:      'Unit 33 ready &mdash; not yet taken. Confirms smell/sound in direct fill-in format and closes the loop on Cloze&rsquo;s preposition gaps.',
+    n:           34,
+    status:      '🏫 School Curriculum unit &mdash; preps Prem for his real Semester One school test (Spelling/Vocab, Reading, Writing). Unit 35 returns to the ISA track as a gap-review unit.',
     testPending: true
   },
 
@@ -32,69 +32,70 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 32 — updated after each test)
+  // Last completed assessment (Unit 33 — updated after each test)
   lastUnit: {
-    n: 32, label: 'Unit 32', score: 13, outOf: 20, pct: 65, delta: -10, prevScore: 15,
+    n: 33, label: 'Unit 33', score: 14, outOf: 20, pct: 70, delta: 1, prevScore: 13,
 
-    patternLabel:   'Unit 32 &mdash; 19 Aug 2026 &middot; 13/20 (65%) &mdash; FAIL by 3 points, sharpest single-test drop since Milestone 3',
-    patternInsight: '<strong>Cloze&rsquo;s confirming-rep plan worked exactly as designed &mdash; both hyphenation and subjunctive held (5/7), confirming Unit 31&rsquo;s fixes are durable.</strong> The misses were only on fresh content (gerund-after-preposition, the &ldquo;arrive at a decision&rdquo; idiom). <strong>Grammar fell to 3/7 (43%)</strong>, but the pattern is precise: smell and sound were BOTH missed in direct fill-in format &mdash; while the same rule held perfectly in error-scan format and on &ldquo;seem&rdquo; (including the repaired Q9, proving Unit 31&rsquo;s Q11 fix carried real signal). Two previously twice-confirmed items also backslid: Little-inversion and much/very-much, plausibly overload from packing 7 distinct combos into one 7-item section. <strong>Vocab held 5/6</strong> &mdash; the reversal-trap item (gregarious) held a 3rd straight test; the miss (wistful) was NOT the trap, the 2nd straight test with this exact non-trap-final-item-miss shape.',
+    patternLabel:   'Unit 33 &mdash; 21 Aug 2026 &middot; 14/20 (70%) &mdash; FAIL by 2 points, the 3rd straight sub-80% unit test',
+    patternInsight: '<strong>The targeted fix from Unit 32 landed exactly as designed.</strong> Smell (Q8) and sound (Q9) direct fill-in, plus smell in error-scan format (Q12), were ALL correct &mdash; the precise gap Unit 32 isolated is now closed across every format tested. <strong>But the overall score barely moved</strong>, because Little-inversion (Q10) and much/very-much (Q11) BOTH missed for a SECOND straight test &mdash; after 2 clean results each at Milestone 3/Unit 31, then missed at Unit 32, now missed again &mdash; upgrading both from a one-test blip to a confirmed, reopened gap. <strong>Cloze finished 4/7</strong> &mdash; gerund-after-preposition (Q1, Q2) both closed cleanly, but &ldquo;arrive at a decision&rdquo; (Q3) was missed for the SECOND straight test with the identical wrong answer (&ldquo;to&rdquo;) as Unit 32, plus new misses on superlative form (Q4) and a subjunctive backslide (Q7) that corrects Unit 32&rsquo;s premature &ldquo;durably fixed&rdquo; call. <strong>Vocab went a clean 6/6, PERFECT</strong> &mdash; both reversal-traps held AND the last item was also correct, breaking the 2-test &ldquo;final item missed to non-trap&rdquo; pattern from Units 31&ndash;32.',
 
-    analysisLabel:   'Unit 32 Result Analysis &mdash; 19 Aug 2026 (Cloze confirming-rep plan validated; Grammar verb-rotation isolates a precise, narrow new gap plus two maintenance backslides)',
-    analysisInsight: '<strong>The Cloze half of this unit is a clean success.</strong> Both items built to confirm Unit 31&rsquo;s fixes &mdash; hyphenation (Q1) and subjunctive (Q2) &mdash; landed correctly, meaning both can now be considered durably stable rather than freshly-fixed. <strong>The Grammar half surfaced real, usable signal rather than a vague dip.</strong> Q8 (smell, direct fill-in) and Q11 (sound, direct fill-in) were the ONLY rule-related misses &mdash; Q9 (seem, direct fill-in, the clean repair of Unit 31&rsquo;s defective Q11), Q10 (look, error-scan) and Q12 (seem, error-scan) all held. This rules out a rule-wide relapse and isolates the gap precisely to smell/sound in direct fill-in format on first exposure. The two maintenance backslides (Q13 Little-inversion, Q14 much/very-much) are the one genuinely ambiguous finding &mdash; each had 2 prior clean results, so one miss isn&rsquo;t enough to call either reopened, but shouldn&rsquo;t be ignored either. The overall FAIL (65%, well under the 80% pass bar) is real, but concentrated in one section with a legible cause.',
+    analysisLabel:   'Unit 33 Result Analysis &mdash; 21 Aug 2026 (the two targeted Grammar fixes both land clean, but Little-inversion and much/very-much confirm as real reopened gaps, and new misses surface in Cloze)',
+    analysisInsight: '<strong>The narrow, targeted fix worked exactly as designed.</strong> Smell and sound are genuinely closed now, across both direct fill-in and error-scan formats &mdash; real progress that validates the &ldquo;one confirming rep on the exact isolated gap&rdquo; approach. <strong>But the overall score barely moved (65% &rarr; 70%, still a FAIL)</strong> because two other items graduated from &ldquo;maintenance blip&rdquo; to &ldquo;confirmed reopened gap&rdquo; by missing a second time running, and three new-ish misses surfaced in Cloze (the persistent &ldquo;arrive at&rdquo; idiom, a new superlative slip, a subjunctive backslide). This is a whack-a-mole pattern: fixing one narrow, well-diagnosed gap doesn&rsquo;t by itself move the overall score if other previously-solid content is simultaneously slipping. Three unit tests in a row now (Unit 31 75%, Unit 32 65%, Unit 33 70%) have landed below the 80% pass bar.',
 
-    qSummary: '<strong>13/20 (65%) FAIL, sharpest drop since Milestone 3. Cloze 5/7 &mdash; both confirming-rep targets (hyphenation, subjunctive) correct; misses only on fresh content (gerund-after-preposition, &ldquo;arrive at a decision&rdquo;). Grammar 3/7 (43%) &mdash; smell and sound both missed in direct fill-in format only (error-scan and &ldquo;seem&rdquo; all held); Little-inversion and much/very-much both backslid after 2 prior clean results each. Vocab 5/6 &mdash; reversal-trap (gregarious) held a 3rd straight test; miss (wistful) was NOT the trap, 2nd straight test with this shape. Next: UNIT 33, confirming reps for smell/sound direct fill-in + the 2 backslid items, close the loop on Cloze&rsquo;s 2 new misses, reduce Grammar novelty density.</strong>',
+    qSummary: '<strong>14/20 (70%) FAIL, 3rd straight sub-80% test. Grammar 4/7 &mdash; smell/sound fully closed across both formats; Little-inversion and much/very-much both missed a 2nd straight test (confirmed reopened gap); Type-1 conditional a new miss. Cloze 4/7 &mdash; gerund-after-preposition closed; &ldquo;arrive at a decision&rdquo; missed a 2nd straight test (identical wrong answer); new misses on superlative form and subjunctive (a backslide). Vocab 6/6 PERFECT &mdash; both reversal-traps held, last item also correct, breaking the 2-test final-item-miss pattern. Next: UNIT 34 pauses for a real-school-test prep unit (Spelling/Vocab from readers, Reading Comprehension, Writing); UNIT 35 is a dedicated gap-review unit closing everything still open from Units 31-34.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; five-course (number+unit before a noun, hyphenate + singular).' },
-      { q:'Q2',  topic:'Cloze', pass:true,  note:'&#10003; wear (subjunctive, &ldquo;insists that&rdquo; trigger, base form).' },
-      { q:'Q3',  topic:'Cloze', pass:true,  note:'&#10003; As a result (full-stop sentence-starter, result connector).' },
-      { q:'Q4',  topic:'Cloze', pass:true,  note:'&#10003; had (past perfect, one past event finished before another).' },
-      { q:'Q5',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;work&rdquo;; scored answer was &ldquo;working&rdquo; (gerund after preposition &ldquo;accustomed to&rdquo;) &mdash; a genuine first-exposure miss, not a repeat of anything previously taught.' },
-      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; most difficult (superlative, comparing three trails).' },
-      { q:'Q7',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;to&rdquo;; scored answer was &ldquo;at&rdquo; (&ldquo;arrive AT a decision&rdquo; fixed idiom) &mdash; another first-exposure miss on a memorised phrase, not taught before. Cloze finishes 5/7.' },
-      { q:'Q8',  topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;strongly&rdquo;; scored answer was &ldquo;strong&rdquo; (smell, direct fill-in) &mdash; the linking-verb rule missed on this specific verb in this specific format, first exposure this way.' },
-      { q:'Q9',  topic:'Grammar', pass:true,  note:'&#10003; calm (seemed) &mdash; the clean repair of Unit 31&rsquo;s defective Q11, correct this time, proving the fix carried real signal.' },
-      { q:'Q10', topic:'Grammar', pass:true,  note:'&#10003; Error-scan &mdash; correctly flagged &ldquo;looked eerily.&rdquo;' },
-      { q:'Q11', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;harshly&rdquo;; scored answer was &ldquo;harsh&rdquo; (sound, direct fill-in) &mdash; the identical miss shape as Q8, on a different verb, same format.' },
-      { q:'Q12', topic:'Grammar', pass:true,  note:'&#10003; Error-scan &mdash; correctly flagged &ldquo;seemed strangely.&rdquo;' },
-      { q:'Q13', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;Little he did know...&rdquo;; scored answer was &ldquo;Little did he know...&rdquo; &mdash; correct at Milestone 3&rsquo;s first exposure, now backslid.' },
-      { q:'Q14', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;too much&rdquo;; scored answer was &ldquo;very much&rdquo; &mdash; correct at both Milestone 3 and Unit 31, now backslid. Grammar finishes 3/7 (43%).' },
-      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; perceptive &mdash; quick to notice and understand.' },
-      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; dubious &mdash; doubtful and unsure.' },
-      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; meager &mdash; small and scanty.' },
-      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; tranquil &mdash; calm and peaceful.' },
-      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; DESIGNED reversal-trap item (gregarious) &mdash; correctly chose &ldquo;sociable and outgoing&rdquo; over the near-opposite distractor &ldquo;withdrawn and unfriendly&rdquo; &mdash; 3rd straight test a trap has held.' },
-      { q:'Q20', topic:'Vocab', pass:false, note:'&#10007; wistful &mdash; missed to a different wrong answer (&ldquo;angry and bitter&rdquo;), not the deliberate reversal-trap distractor (&ldquo;cheerful and carefree&rdquo;) itself. Vocab finishes 5/6 &mdash; 2nd straight test with this exact non-trap-final-item-miss shape.' }
+      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; explaining (gerund after preposition &ldquo;responsible for&rdquo;) &mdash; closes Unit 32&rsquo;s first-exposure miss.' },
+      { q:'Q2',  topic:'Cloze', pass:true,  note:'&#10003; seeing (gerund after preposition &ldquo;interested in&rdquo;) &mdash; gerund-after-preposition now closed on 2 exposures.' },
+      { q:'Q3',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;to&rdquo;; scored answer was &ldquo;at&rdquo; (&ldquo;arrive AT a decision&rdquo; fixed idiom) &mdash; the IDENTICAL wrong answer as Unit 32&rsquo;s miss on this exact phrase. 2nd straight miss &mdash; plain re-exposure isn&rsquo;t fixing it.' },
+      { q:'Q4',  topic:'Cloze', pass:false, note:'&#10007; Chose the invented non-word &ldquo;clearliest&rdquo;; scored answer was &ldquo;most clearly&rdquo; (superlative form) &mdash; a new, first-time miss.' },
+      { q:'Q5',  topic:'Cloze', pass:true,  note:'&#10003; had (past perfect, one past event finished before another).' },
+      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; Instead (contrast connector, sentence-starter).' },
+      { q:'Q7',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;returns&rdquo;; scored answer was &ldquo;return&rdquo; (subjunctive, &ldquo;recommended that&rdquo; trigger) &mdash; a backslide that corrects Unit 32&rsquo;s premature &ldquo;durably fixed&rdquo; call. Cloze finishes 4/7.' },
+      { q:'Q8',  topic:'Grammar', pass:true,  note:'&#10003; intense (smell, direct fill-in) &mdash; closes the exact Unit 32 gap.' },
+      { q:'Q9',  topic:'Grammar', pass:true,  note:'&#10003; deafening (sound, direct fill-in) &mdash; closes the exact Unit 32 gap.' },
+      { q:'Q10', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;Little she did realize...&rdquo;; scored answer was &ldquo;Little did she realize...&rdquo; &mdash; missed at Unit 32 too. 2nd straight miss after 2 prior clean results &mdash; now a confirmed reopened gap.' },
+      { q:'Q11', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;much&rdquo;; scored answer was &ldquo;very much&rdquo; &mdash; missed at Unit 32 too. 2nd straight miss &mdash; confirmed reopened gap, same as Little-inversion.' },
+      { q:'Q12', topic:'Grammar', pass:true,  note:'&#10003; Error-scan &mdash; correctly flagged &ldquo;smelled crisply.&rdquo; Smell now closed in both direct fill-in AND error-scan format.' },
+      { q:'Q13', topic:'Grammar', pass:true,  note:'&#10003; Error-scan &mdash; correctly flagged the &ldquo;thereby reducing costs&rdquo; sentence as correct usage (thereby+-ing).' },
+      { q:'Q14', topic:'Grammar', pass:false, note:'&#10007; Chose the Type-1/Type-2 mix &ldquo;finishes...would&rdquo;; scored answer was &ldquo;finishes...will&rdquo; (Type-1 conditional) &mdash; a new miss on content the build notes called &ldquo;pure repetition, no new content.&rdquo; Grammar finishes 4/7.' },
+      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; diligent &mdash; hardworking and careful.' },
+      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; ambivalent &mdash; having mixed or conflicting feelings.' },
+      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; DESIGNED reversal-trap item (meticulous) &mdash; correctly chose &ldquo;extremely careful and precise&rdquo; over the near-opposite distractor &ldquo;careless and sloppy.&rdquo;' },
+      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; exasperated &mdash; frustrated and annoyed.' },
+      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; DESIGNED reversal-trap item (altruistic) &mdash; correctly chose &ldquo;unselfish and generous&rdquo; over the near-opposite distractor &ldquo;selfish and self-centered.&rdquo;' },
+      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; unassuming &mdash; modest and not boastful. The LAST item, correct this time &mdash; breaks the 2-test &ldquo;final vocab item missed to non-trap answer&rdquo; pattern from Units 31-32. Vocab finishes a PERFECT 6/6.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After UNIT 32 (13/20, 65% FAIL, 19 Aug 2026):
+  // After UNIT 33 (14/20, 70% FAIL, 21 Aug 2026):
   // Reading/Writing/Conversation/CritThink/FigLang unchanged — not tested this unit;
-  // Vocabulary +1 — 5/6 (83%) held close to target; reversal-trap (gregarious) confirmed a 3rd time;
-  // Cloze +2 — 5/7 (71%) essentially flat; both confirmed skills (hyphenation, subjunctive) held cleanly,
-  //   misses were both on fresh content never taught before, not a regression of anything mastered;
-  // Grammar -9 — 3/7 (43%), a real and diagnosed pull-back, not a full relapse: the miss is narrow (smell +
-  //   sound in direct fill-in format only, while error-scan format and "seem" all held), plus 2 previously
-  //   twice-confirmed maintenance items (Little-inversion, much/very-much) backslid — pulled back
-  //   meaningfully but not all the way to Milestone-3-era lows, since most of the rule set still held
+  // Vocabulary +3 — 6/6 (100%) PERFECT, both reversal-traps held AND the last-item-miss pattern broke;
+  // Grammar -1 — 4/7 (57%), a genuine wash: smell/sound fully closed (real, durable progress) is offset by
+  //   Little-inversion + much/very-much both confirming as reopened gaps (2 straight misses each, not blips
+  //   anymore) plus a new Type-1 conditional miss — net slightly negative since 2 confirmed regressions
+  //   outweigh 1 confirmed fix;
+  // Cloze -6 — 4/7 (57%), a real pull-back: gerund-after-preposition closed (positive), but "arrive at a
+  //   decision" is now a confirmed 2-miss sticky idiom, subjunctive backslid after being called "durably
+  //   fixed" last unit, and a new superlative-form miss surfaced — more negatives than positives this time
   skills: [
     { name: 'Reading Compr.',    c: 85, t: 85 },   // Unchanged — not tested this unit, already at target
-    { name: 'Vocabulary',        c: 82, t: 82 },   // U32: 5/6 (83%) — reversal-trap (gregarious) held a 3rd straight test
-    { name: 'Grammar',           c: 65, t: 82 },   // U32: 3/7 (43%) — narrow, diagnosed gap (smell/sound direct fill-in) + 2 maintenance backslides
-    { name: 'Cloze Test',        c: 70, t: 80 },   // U32: 5/7 (71%) — both confirmed skills held; misses were fresh, untaught content
-    { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
+    { name: 'Vocabulary',        c: 85, t: 82 },   // U33: 6/6 (100%) PERFECT — both reversal-traps held, last-item-miss pattern broken
+    { name: 'Grammar',           c: 64, t: 82 },   // U33: 4/7 (57%) — smell/sound closed, but Little-inversion + much/very-much confirmed reopened, new conditional miss
+    { name: 'Cloze Test',        c: 64, t: 80 },   // U33: 4/7 (57%) — gerund-after-prep closed; "arrive at" confirmed sticky, subjunctive backslid, new superlative miss
+    { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — never scored on the ISA track; first real checkpoint planned by Milestone 5 (Unit 34's school-curriculum Writing lesson is practice, not a scored ISA checkpoint)
     { name: 'Conversation',      c: 95, t: 85 },   // Unchanged — not tested this unit
     { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
     { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; first real checkpoint planned by Milestone 4
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [85, 82, 65, 70, 65, 95, 62, 55],
+  radarCurrent:  [85, 85, 64, 64, 65, 95, 62, 55],
   radarTarget:   [85, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 32',
+  radarLegendUnit: 'Unit 33',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -133,11 +134,25 @@ var PREM_ENGLISH = {
     { n:30, score:16, outOf:20, delta:2,  color:'#89F336', star:false, label:'U30' },
     { n:'M3', score:93, outOf:125, delta:null, color:'#9f7aea', star:false, label:'M3', milestone:true },
     { n:31, score:15, outOf:19, delta:-1, color:'#667eea', star:false, label:'U31' },
-    { n:32, score:13, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U32' }
+    { n:32, score:13, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U32' },
+    { n:33, score:14, outOf:20, delta:1,  color:'#fc4e4e', star:false, label:'U33' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 33,
+      title: 'Unit 33 &mdash; Cloze: Closing the Preposition Gaps &middot; Grammar &amp; Vocab: Closing the Verb Gaps',
+      badge: '#fc4e4e',
+      status: 'done',
+      note: '14/20 (70%) &mdash; <strong>FAIL by 2 points, the 3rd straight sub-80% unit test.</strong> <strong>The targeted Unit 32 fix landed exactly as designed</strong> &mdash; smell (Q8) and sound (Q9) direct fill-in, plus smell in error-scan format (Q12), were ALL correct, closing that precise gap across every format tested. <strong>But the overall score barely moved</strong>, because Little-inversion (Q10) and much/very-much (Q11) BOTH missed for a SECOND straight test &mdash; after 2 clean results each at Milestone 3/Unit 31, then missed at Unit 32, now missed again &mdash; upgrading both to a confirmed, reopened gap needing a real re-teach, not another confirming rep. <strong>Cloze finished 4/7</strong> &mdash; gerund-after-preposition (Q1, Q2) both closed cleanly, but &ldquo;arrive at a decision&rdquo; (Q3) was missed for the SECOND straight test with the identical wrong answer (&ldquo;to&rdquo;) as Unit 32, plus new misses on superlative form (Q4) and a subjunctive backslide (Q7) that corrects Unit 32&rsquo;s premature &ldquo;durably fixed&rdquo; call. <strong>Vocab went a clean 6/6, PERFECT</strong> &mdash; both reversal-traps (Q17, Q19) held, and the last item (Q20) was ALSO correct, breaking the 2-test &ldquo;final vocab item missed to non-trap answer&rdquo; pattern from Units 31&ndash;32. &middot; Next: <strong>UNIT 34</strong> pauses the ISA rotation for a real-school-test prep unit (Spelling/Vocab from readers, Reading Comprehension, Writing); <strong>UNIT 35</strong> is a dedicated gap-review unit closing everything still open from Units 31-34.',
+      tags: [
+        { t:'14/20 (70%) FAIL', s:'background:#fff0f0;color:#c53030' },
+        { t:'Grammar 4/7 (smell/sound closed, 2 gaps reopened)', s:'background:#fff0f0;color:#c53030' },
+        { t:'Cloze 4/7 ("arrive at" sticky, 2nd miss)', s:'background:#fff0f0;color:#c53030' },
+        { t:'Vocab 6/6 &#127881; PERFECT', s:'background:#f0fff4;color:#276749' }
+      ]
+    },
     {
       n: 32,
       title: 'Unit 32 &mdash; Cloze: Locking In Hyphenation &amp; Subjunctive &middot; Grammar &amp; Vocab: Rotating the Verbs',

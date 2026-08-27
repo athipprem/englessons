@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 34 Test — School Curriculum: Spelling, Reading &amp; Writing</title>
+<!-- Built from ENG_INTERACTIVE_TEST_TEMPLATE.html lineage, 27 Aug 2026. SPECIAL UNIT: built to directly prepare
+     Prem for his real school assessment (Semester One, Unit Test 1-2): Spelling/Vocabulary from readers
+     "Life in Space" and "Have Your Say", Reading Comprehension, and a Writing task. Longer than the standard
+     20-item unit test (30 items) to properly cover all 3 school-assessment areas. Every question tagged with
+     an ISA difficulty tier (Intermediate or Applied only, no Basic, per Lui's direction) — tier-split reported
+     in the results JSON alongside section-split. Reading passages and all sentences are ORIGINAL compositions
+     (not copied from either reader) that embed the readers' actual glossary vocabulary in fresh context, per
+     the standing no-reuse rule. MCQ answer position verified exact 8/8/7/7 across all 30 items.-->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --spell:#8A5A00; --spell-fill:#FEEBC8; --spell-text:#8A5A00;
+    --read:#0d47a1;  --read-fill:#BBDEFB;  --read-text:#0d47a1;
+    --write:#4A148C; --write-fill:#E1BEE7; --write-text:#4A148C;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#FFFBF0;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+
+  .school-banner{background:#FEEBC8;color:#8A5A00;border-radius:12px;padding:8px 16px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.3px;margin-bottom:8px}
+
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#8A5A00,#C08A1E);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#f0e6cc;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#8A5A00,#C08A1E);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#8A5A00;white-space:nowrap}
+
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.spell{background:var(--spell-fill);color:var(--spell-text)}
+  .band.read{background:var(--read-fill);color:var(--read-text)}
+  .band.write{background:var(--write-fill);color:var(--write-text)}
+
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+  .hint.spell{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.read{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.write{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .ptitle{font-weight:800;color:#0d47a1;margin-bottom:6px;font-size:.85rem;text-transform:uppercase;letter-spacing:.3px}
+
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.spell{border-left-color:var(--spell)}
+  .q.read{border-left-color:var(--read)}
+  .q.write{border-left-color:var(--write)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q .tier-tag{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;background:#eef2f7;color:#4a5568}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#8A5A00;background:#fff8ea;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#8A5A00,#C08A1E);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.4rem;font-weight:900;color:#8A5A00}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  #tier-scores{display:flex;justify-content:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;border:1.5px solid var(--line)}
+
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(30,20,10,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#8A5A00;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="school-banner">🏫 SCHOOL CURRICULUM — Semester One, Unit Test 1-2 (Life in Space &amp; Have Your Say)</div>
+
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 34 Test — School Curriculum</b>
+      <span class="sub" id="hdr-sub">Spelling &amp; Vocabulary · Reading Comprehension · Writing</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — this test is longer than usual (30 questions) because it covers everything on your real school test: spelling and vocabulary from both readers, reading comprehension, and writing craft. Take your time, and remember: this book uses BRITISH spelling ("-ise" not "-ize").</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 30 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+    <div id="tier-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 30 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 34;
+const UNIT_TITLE = "School Curriculum: Spelling, Reading &amp; Writing";
+const UNIT_SUB   = "Spelling & Vocabulary · Reading Comprehension · Writing";
+const PASS_BAR   = 24;                        // out of 30 (80% mastery threshold)
+const IS_MILESTONE = false;
+const MILESTONE_NUM = null;
+
+const SECTION_PASSAGE = {
+  read: null // passages are embedded per sub-group below instead of once per section
+};
+
+const SECTION_HINT = {
+  spell:   "Strategy: for meaning questions, think about how the word was used in the reader, not just a dictionary definition. For spelling, say the word in chunks. Remember this book uses BRITISH spelling (\"socialise\", not \"socialize\").",
+  read:    "Strategy: work out whether the passage is INFORMATIONAL (facts about one topic) or PERSUASIVE (different opinions) before answering. For inference questions, combine two separate clues from the passage.",
+  write:   "Strategy: a strong persuasive paragraph has 4 parts: OPINION, REASON + EXAMPLE, THE OTHER SIDE, and a CONCLUSION that restates the opinion."
+};
+
+const Q = [
+  // ===== SECTION SPELL (Q1-Q12): Spelling & Vocabulary from both readers =====
+  { n:1, section:'spell', tier:'Intermediate', body:"What does \"gravity\" mean?",
+    options:["an invisible force that pulls things towards the Earth","a force that pushes things away from the Earth","the path a planet follows around the Sun","a type of spacecraft engine"], ans:1,
+    why:"Gravity is the invisible force that pulls things towards the Earth (from \"Life in Space\")." },
+  { n:2, section:'spell', tier:'Intermediate', body:"What does \"orbit\" mean?",
+    options:["a type of rocket","the curved path a planet or spacecraft follows around a star or planet","a scientist who studies stars","the force that pulls objects down"], ans:2,
+    why:"Orbit is the curved path a planet, moon, or spacecraft follows as it circles a star or planet." },
+  { n:3, section:'spell', tier:'Intermediate', body:"What does \"opinions\" mean?",
+    options:["facts that can be proven true","questions asked in an interview","what people personally believe about something","rules that must be followed"], ans:3,
+    why:"Opinions are what people personally believe about something (from \"Have Your Say\")." },
+  { n:4, section:'spell', tier:'Applied', body:"\"Astronomers use telescopes to study the stars and planets from Earth.\" Based on this sentence, what is an astronomer?",
+    options:["a machine that flies into space","an astronaut who lives on a space station","a type of satellite","a scientist who studies space and its objects"], ans:4,
+    why:"The sentence shows astronomers study the stars and planets — they are scientists who study space." },
+  { n:5, section:'spell', tier:'Applied', body:"\"Children say that wearing jewellery to school lets them express their individuality.\" Based on this sentence, what does individuality mean?",
+    options:["a person's own special character or style, different from others","following exactly the same rules as everyone else","a type of school uniform","an argument between friends"], ans:1,
+    why:"Expressing individuality means showing your own special character or style." },
+  { n:6, section:'spell', tier:'Applied', body:"\"New technology like tablets and computers is changing the way students learn.\" Based on this sentence, what does technology mean?",
+    options:["old-fashioned tools no longer used","inventions and tools that make work or life easier","a subject taught only in high school","a type of homework"], ans:2,
+    why:"Technology means inventions and tools — like tablets and computers — that make work or life easier." },
+  { n:7, section:'spell', tier:'Intermediate', body:"Which word is spelled correctly?",
+    options:["satelite","sattelite","satellite","satellight"], ans:3,
+    why:"\"Satellite\" has a double \"l\" — sat-EL-lite." },
+  { n:8, section:'spell', tier:'Intermediate', body:"Which word is spelled correctly?",
+    options:["socialize","sociallise","socilise","socialise"], ans:4,
+    why:"This book uses British spelling: \"socialise\" ends in \"-ise\", not the American \"-ize\"." },
+  { n:9, section:'spell', tier:'Intermediate', body:"Which word is spelled correctly?",
+    options:["docking","dockking","dokking","docing"], ans:1,
+    why:"\"Docking\" has a single \"ck\" — not doubled, not \"k\" alone." },
+  { n:10, section:'spell', tier:'Applied', body:"\"A ___ gives a rocket extra power at take-off, then falls away once it is no longer needed.\" Which word or phrase best completes the sentence?",
+    options:["launch pad","booster rocket","space station","satellite"], ans:2,
+    why:"A booster rocket gives extra power at take-off, then falls away — exactly as described in \"Life in Space\"." },
+  { n:11, section:'spell', tier:'Applied', body:"\"The two friends had a friendly ___ about whether homework should be given every night.\" Which word best completes the sentence?",
+    options:["interview","culture","argument","games console"], ans:3,
+    why:"An argument is a discussion where opinions vary — exactly what's happening between the two friends." },
+  { n:12, section:'spell', tier:'Applied', body:"\"There is no air in space, so there is no ___ to slow a spinning object down.\" Which word best completes the sentence?",
+    options:["gravity","orbit","technology","friction"], ans:4,
+    why:"Friction is the force created when objects rub together, which slows movement down — with no air, there's no friction." },
+
+  // ===== SECTION READ (Q13-Q24): Reading Comprehension, 2 original passages =====
+  { n:13, section:'read', tier:'Intermediate', passageGroup:'A', body:"What is the passage mainly about?",
+    options:["Different opinions about whether tablets should replace textbooks","How to fix a broken tablet","The history of textbooks","A list of rules for using tablets at school"], ans:1,
+    why:"The whole passage presents different opinions on tablets replacing textbooks — that's the main idea." },
+  { n:14, section:'read', tier:'Intermediate', passageGroup:'A', body:"According to the passage, what is one reason some students like using tablets?",
+    options:["Tablets are cheaper than textbooks","Tablets let them show their individuality and connect to useful technology","Tablets never run out of battery","Tablets are required by law"], ans:2,
+    why:"The passage states students like that tablets let them show individuality and connect to useful technology." },
+  { n:15, section:'read', tier:'Intermediate', passageGroup:'A', body:"According to the passage, what is one reason some teachers worry about tablets?",
+    options:["Tablets are too heavy to carry","Tablets cannot connect to the internet","Students may not socialise enough with classmates","Textbooks are more colourful"], ans:3,
+    why:"The passage states some teachers worry students do not socialise enough with classmates during lessons." },
+  { n:16, section:'read', tier:'Applied', passageGroup:'A', body:"Based on how it's used in the passage, what does \"individuality\" mean?",
+    options:["working together as a group","a type of textbook","a rule at school","a person's own special way of doing things"], ans:4,
+    why:"Individuality, as used in the passage, means a person's own special way of doing things." },
+  { n:17, section:'read', tier:'Applied', passageGroup:'A', body:"Why might a student who gets distracted by games on a tablet prefer using a textbook instead?",
+    options:["Because a textbook cannot show games, so there is less to distract them","Because textbooks are more colourful","Because textbooks are cheaper","Because teachers prefer textbooks"], ans:1,
+    why:"Combining the fact that games distract this student with the fact that textbooks can't run games, a textbook removes the distraction." },
+  { n:18, section:'read', tier:'Applied', passageGroup:'A', body:"Why does the passage present both the reasons FOR and the reasons AGAINST tablets, instead of only one side?",
+    options:["The author could not decide which side to write about","To help the reader think about both sides before forming their own opinion","Because the passage ran out of things to say","To make the passage longer"], ans:2,
+    why:"Presenting both sides, like \"Have Your Say\" does, helps the reader think it through and form their own opinion." },
+  { n:19, section:'read', tier:'Intermediate', passageGroup:'B', body:"About how many times does the ISS circle the Earth each day, according to the passage?",
+    options:["About six times","About sixty times","About sixteen times","About one time"], ans:3,
+    why:"The passage states the ISS circles the Earth about sixteen times every day." },
+  { n:20, section:'read', tier:'Intermediate', passageGroup:'B', body:"What is \"docking\", according to the passage?",
+    options:["When a spacecraft lands back on Earth","When an astronaut goes for a space walk","When a satellite stops working","When a spacecraft locks securely onto the space station"], ans:4,
+    why:"Docking is when a spacecraft locks securely onto the ISS so astronauts and supplies can move between them." },
+  { n:21, section:'read', tier:'Intermediate', passageGroup:'B', body:"What is this passage mainly about?",
+    options:["Life and work aboard the International Space Station","How to become an astronaut","The history of rockets","How satellites are built"], ans:1,
+    why:"The whole passage describes life and work aboard the International Space Station." },
+  { n:22, section:'read', tier:'Applied', passageGroup:'B', body:"Based on how it's used in the passage, what does \"friction\" mean?",
+    options:["a force that speeds objects up","the force created when objects rub together, which slows movement down","a type of space food","the path a satellite follows"], ans:2,
+    why:"Friction, as used in the passage, is the force created when objects rub together, which slows movement down." },
+  { n:23, section:'read', tier:'Applied', passageGroup:'B', body:"Based on the passage, why might a tool an astronaut sets spinning keep turning for a long time aboard the ISS?",
+    options:["Because astronauts spin it on purpose","Because the ISS is always moving","Because there is no friction in space to slow it down","Because tools are lighter in space"], ans:3,
+    why:"Combining the two facts — no air means no friction, and friction is what slows things down — the tool keeps spinning because nothing slows it down." },
+  { n:24, section:'read', tier:'Applied', passageGroup:'B', body:"Why do you think the author included the detail about the spinning tool?",
+    options:["Because tools are an important part of space travel","To test if the reader is paying attention","Because the author ran out of facts about the ISS","To help the reader understand what \"no friction\" really means, using an example"], ans:4,
+    why:"The spinning-tool detail is a vivid, concrete example that helps the reader picture what \"no friction\" actually means." },
+
+  // ===== SECTION WRITE (Q25-Q30): Writing Conventions =====
+  { n:25, section:'write', tier:'Intermediate', body:"Which is the best OPINION topic sentence for a persuasive paragraph about school libraries?",
+    options:["I believe every school should have a bigger library.","Libraries have many books.","A library is a room full of books.","Some schools do not have libraries."], ans:1,
+    why:"\"I believe...\" clearly states an opinion right away. The others are just facts, not opinions." },
+  { n:26, section:'write', tier:'Intermediate', body:"Which connective word signals that the writer is about to give a REASON?",
+    options:["however","because","next","meanwhile"], ans:2,
+    why:"\"Because\" signals a reason is coming. \"However\" signals contrast; \"next\" and \"meanwhile\" signal time, not a reason." },
+  { n:27, section:'write', tier:'Intermediate', body:"Which sentence gives an OPINION rather than a FACT?",
+    options:["The Earth orbits the Sun once a year.","A rocket needs fuel to launch.","I think Mars would be more exciting to explore than the Moon.","Astronauts wear spacesuits outside the spacecraft."], ans:3,
+    why:"\"I think...\" signals a personal opinion. The other three sentences are facts that can be checked and proven true." },
+  { n:28, section:'write', tier:'Applied', body:"Read: \"Some people believe school uniforms should be optional.\" Which sentence best follows it with a supporting REASON?",
+    options:["Uniforms are a type of clothing.","Some schools have uniforms.","Clothing comes in many colours.","This is because students could then choose clothes that reflect their own individuality."], ans:4,
+    why:"A good supporting reason explains WHY the opinion makes sense — choosing clothes that reflect individuality is a clear reason." },
+  { n:29, section:'write', tier:'Applied', body:"A student wrote a persuasive paragraph but did not mention the other side of the argument at all. Based on what you've learned, why could this make the writing weaker?",
+    options:["Because leaving out the other side can make the argument seem one-sided instead of thoughtful","Because the paragraph would be too short","Because it is against the rules to write about only one opinion","Because the reader will not understand the topic"], ans:1,
+    why:"Mentioning the other side (then explaining why you still hold your opinion) is what makes persuasive writing sound thoughtful, not one-sided." },
+  { n:30, section:'write', tier:'Applied', body:"Which of these best restates an opinion to CONCLUDE a persuasive paragraph about class pets?",
+    options:["Class pets are animals kept in a classroom.","For these reasons, I believe every classroom would benefit from having a pet to care for.","Some classrooms have fish tanks.","Pets need food and water every day."], ans:2,
+    why:"A strong conclusion restates the writer's opinion, using the reasons already given — \"For these reasons, I believe...\" does exactly that." },
+];
+/* ---------- END EDIT PER UNIT ---------- */
+
+const PASSAGES = {
+  A: { title: "PASSAGE A — Should Tablets Replace Textbooks in Class?", text: "Many schools around the world are having a big argument about whether tablets should replace paper textbooks in the classroom. People have different opinions about this change.<br><br>Some students say tablets let them show their individuality. They can choose colourful backgrounds, type instead of write, and organise their notes however they like. Tablets can also connect to useful technology, like dictionaries and videos, that help explain difficult topics. Because everything is stored in one device, students do not need to carry heavy bags full of books.<br><br>However, other people are not convinced. Some teachers worry that students spend too much time staring at screens and do not socialise enough with their classmates during lessons. Others point out that tablets can break easily, run out of battery, and are expensive to replace if lost or damaged. A few students even admit they get distracted by games on their tablets instead of doing their schoolwork.<br><br>So, should tablets replace textbooks? Before you decide, think carefully about both sides of the argument, and consider what would work best for you and your class." },
+  B: { title: "PASSAGE B — The International Space Station: A Home Above the Clouds", text: "High above the Earth, astronauts live and work on board the International Space Station, or ISS. The ISS travels in orbit around our planet, circling the Earth about sixteen times every single day.<br><br>Getting to the ISS is not simple. A spacecraft must launch from Earth and then carefully manoeuvre until it reaches the station. This process, called docking, allows the spacecraft to lock securely onto the ISS so astronauts and supplies can move safely between the two.<br><br>Once inside, astronauts experience very little gravity, which means everyday objects, and even the astronauts themselves, float freely unless they are strapped down. Because there is no air resistance in space, there is also no friction to slow moving objects down. This means that a tool an astronaut sets spinning while making repairs could keep turning for a surprisingly long time before it finally stops.<br><br>The ISS also works closely with a network of satellites that orbit the Earth, helping scientists on the ground track weather, communicate with astronauts, and collect important data.<br><br>Building and running a space station like the ISS takes teamwork from scientists and astronauts around the world, all working together to learn more about life beyond our planet." }
+};
+
+const SECTION_LABEL = {
+  spell: "SECTION A — Spelling &amp; Vocabulary",
+  read:  "SECTION B — Reading Comprehension",
+  write: "SECTION C — Writing Conventions"
+};
+const SECTION_ORDER = ['spell','read','write'];
+const TIER_ORDER = ['Intermediate','Applied'];
+const TOTAL_Q = Q.length;
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — School Curriculum`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+
+const chosen = {};   // { qn: optionIndex(1-based) }
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  let lastPassageGroup = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint ${q.section}">${SECTION_HINT[q.section] || ''}</div>`;
+      lastSection = q.section;
+      lastPassageGroup = null;
+    }
+    if (q.passageGroup && q.passageGroup !== lastPassageGroup){
+      const p = PASSAGES[q.passageGroup];
+      html += `<div class="passage"><div class="ptitle">${p.title}</div>${p.text}</div>`;
+      lastPassageGroup = q.passageGroup;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}<span class="tier-tag">${q.tier}</span>
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    html += `<div>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let score = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0,t:0});
+  const tierTally = {};
+  TIER_ORDER.forEach(t => tierTally[t] = {c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    if (isCorrect) score++;
+    sectionTally[q.section].t++;
+    if (isCorrect) sectionTally[q.section].c++;
+    tierTally[q.tier].t++;
+    if (isCorrect) tierTally[q.tier].c++;
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, tier: q.tier, chosen: given, correct: q.ans, isCorrect };
+  });
+
+  const pct = Math.round(score/TOTAL_Q*100);
+  const pass = score >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${score} / ${TOTAL_Q}  (${pct}%)`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_Q}). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_Q} — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s==='spell'?'Spelling/Vocab':s==='read'?'Reading':'Writing'}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('');
+  document.getElementById('tier-scores').innerHTML =
+    TIER_ORDER.map(t => `<div class="sec-chip">${t}: ${tierTally[t].c}/${tierTally[t].t}</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    isMilestone: IS_MILESTONE,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: UNIT_TITLE,
+    schoolCurriculum: true,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score, outOf: TOTAL_Q, pct, passBar: PASS_BAR, passed: pass,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    tiers: TIER_ORDER.map(t => ({ name:t, score:tierTally[t].c, outOf:tierTally[t].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const pad = (n, len) => String(n).padStart(len,'0');
+  const filename = IS_MILESTONE
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>

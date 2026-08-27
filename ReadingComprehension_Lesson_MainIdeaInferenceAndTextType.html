@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Comprehension — Main Idea, Inference &amp; Text Type — Unit 34 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.school-tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.bws-title{font-weight:700;color:#0d47a1;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#0d47a1;color:#fff}
+.node.q{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1}
+.node.a{background:#1e88e5;color:#fff}
+.arrow{font-size:18px;color:#0d47a1;line-height:1}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13.5px;line-height:1.8}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.predict-gate{background:#FFF3CD;border:1.5px dashed #DAA520;border-radius:8px;padding:10px 12px;margin-top:6px}
+.predict-note{font-size:12.5px;color:#8a6a00;margin-bottom:8px}
+.opts-wrap{display:none;margin-top:8px}
+.opts-wrap.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#0d47a1,#1e88e5);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading Comprehension — Main Idea, Inference &amp; Text Type</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 34 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="school-tag">🏫 SCHOOL CURRICULUM — Semester One, Unit Test 1-2</div>
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px"><em>Have Your Say</em> and <em>Life in Space</em> are two very different KINDS of text — one shares opinions and debates, the other explains facts. Your school test's Reading Comprehension section will ask you questions about passages like these. Today you'll learn to spot the text type, find the main idea, answer inference questions, and work out a word's meaning from context — the four skills that show up again and again.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>Think about the two readers:</p>
+    <div class="di" id="wu1"><div class="di-sent">"Life in Space" explains facts about astronauts and rockets. "Have Your Say" presents different opinions about issues like homework and school uniforms. Which book is PERSUASIVE (trying to get you to think about different sides of an argument)?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) Life in Space</button><button class="di-opt" onclick="doWu(1,'b')">B) Have Your Say</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px"><strong>Let's learn exactly how to tell the two types apart, and how to answer questions on each. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: text type -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Spotting the text type 🔎</h2>
+    <p>Before you answer any question, quickly work out what KIND of text you're reading — it changes what to look for.</p>
+    <div class="tree">
+      <div class="node start">Skim the passage — what is it doing?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Does it explain facts about ONE topic (like a science book)? Or does it show DIFFERENT opinions about an issue?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Facts about one topic → INFORMATIONAL (like "Life in Space"). Different opinions on an issue → PERSUASIVE (like "Have Your Say").</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why this helps</div>
+      <p style="margin:0;font-size:14px">In an INFORMATIONAL text, look for facts, numbers, and how things work. In a PERSUASIVE text, look for the "for" side, the "against" side, and what the writer wants YOU to think about. Knowing the type before you read the questions makes every answer faster to find.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: main idea + detail -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Main idea vs. detail 🎯</h2>
+    <p>The MAIN IDEA is what the WHOLE passage is mostly about. A DETAIL is just one small fact that supports it.</p>
+    <div class="passage" id="miPassage">Hand-held electronic games are very popular. Many schools have banned them from the playground because they can distract children from playing and talking with friends. Some children disagree, saying the games are fun to share with others. But many people worry that children already spend too much time looking at screens instead of being active outside.</div>
+    <div class="why-box">
+      <div class="why-title">🔑 Worked example</div>
+      <p style="margin:0;font-size:14px"><strong>Main idea:</strong> people have different opinions about whether electronic games should be allowed at school. <strong>A detail:</strong> "some children disagree, saying the games are fun to share." The detail is just ONE small piece — the main idea covers the WHOLE passage.</p>
+    </div>
+    <div class="di" id="mi1"><div class="di-sent">Which of these is the MAIN IDEA of the passage above, not just one detail?</div><div class="di-btns"><button class="di-opt" onclick="doMi(1,'a')">A) Some children think the games are fun to share.</button><button class="di-opt" onclick="doMi(1,'b')">B) People have different opinions about electronic games at school.</button></div><div class="di-fb" id="mi1f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: inference + vocab in context -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Inference &amp; word meaning from context 🧠</h2>
+    <p>An INFERENCE question asks you to work out something the passage doesn't say directly, by combining two clues. A VOCAB-IN-CONTEXT question asks what a word means, based on how it's used — not just its dictionary definition.</p>
+    <div class="passage" id="infPassage">On Earth, a rolling ball soon stops because of friction, the rubbing force between the ball and the ground. Objects in space behave very differently. Because there is almost nothing for a moving object to rub against out there, once something starts moving it can carry on at the same speed for a remarkably long time.</div>
+    <div class="tree">
+      <div class="node start">Two separate facts in the passage:</div>
+      <div class="arrow">↓</div>
+      <div class="node q">(1) A rubbing force normally slows moving objects down on Earth. (2) In space, that rubbing force barely exists.</div>
+      <div class="arrow">↓</div>
+      <div class="node a">COMBINE them → in space, objects keep moving because nothing is rubbing against them to slow them down. That's the inference — the passage never spells this out in one sentence, but the two facts link together.</div>
+    </div>
+    <div class="di" id="inf1"><div class="di-sent">Based on the passage, what does "friction" most likely mean?</div><div class="di-btns"><button class="di-opt" onclick="doInf(1,'a')">A) a force that slows moving objects down</button><button class="di-opt" onclick="doInf(1,'b')">B) a force that speeds objects up</button></div><div class="di-fb" id="inf1f"></div></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: predict-first drill (informational passage) -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Practice passage — INFORMATIONAL 🚀</h2>
+    <p style="font-size:13.5px;color:#555">Read the passage, then answer each question. Write your answer first, then reveal.</p>
+    <div class="passage">Rockets need a huge amount of fuel to escape the Earth's gravity. As the rocket engines burn fuel, they produce hot gases that push the rocket upward. Some rockets use booster rockets attached to their sides for extra power at take-off. Once the boosters have done their job, they fall away and the main rocket continues alone into orbit.</div>
+    <div id="pWrap1"></div>
+    <div class="drill-score" id="p1Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: predict-first drill (persuasive passage) -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Practice passage — PERSUASIVE 💬</h2>
+    <p style="font-size:13.5px;color:#555">Read the passage, then answer each question. Write your answer first, then reveal.</p>
+    <div class="passage">Some schools let students choose their own seats in class, while others assign a seating plan. Students who prefer choosing their own seats say it lets them sit with friends and feel more comfortable. However, teachers who use a seating plan say it helps students concentrate and reduces arguments about who sits where. What do you think — should students choose their own seats?</div>
+    <div id="pWrap2"></div>
+    <div class="drill-score" id="p2Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: report + nav -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Four reading skills locked in! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Spot the text type first. The main idea covers the WHOLE passage — a detail is just one piece. To infer, combine two separate clues. To find a word's meaning, look at how it's used in the sentence.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="Writing_Lesson_BuildingAPersuasiveParagraph.html" class="btn-lesson">Next Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s4'&&!pBuilt[1]){buildPredict(1,'pWrap1',P_SET1);}
+if(SCREENS[cur]==='s5'&&!pBuilt[2]){buildPredict(2,'pWrap2',P_SET2);}
+if(SCREENS[cur]==='s6'){buildReport();}
+}
+
+var wuKey={1:'b'};var wuWhy={1:'Correct — "Have Your Say" is persuasive, presenting different opinions on issues for you to think about.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var miKey={1:'b'};var miWhy={1:'Correct — the main idea covers the whole passage: different opinions about electronic games at school. The "fun to share" comment is just one supporting detail.'};var miDone={};
+function doMi(n,c){if(miDone[n])return;miDone[n]=true;var it=document.getElementById('mi'+n);var fb=document.getElementById('mi'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===miKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+miWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+miWhy[n];}}
+
+var infKey={1:'a'};var infWhy={1:'Correct — the passage shows friction is what would normally slow an object down, so without friction, nothing slows the pen down.'};var infDone={};
+function doInf(n,c){if(infDone[n])return;infDone[n]=true;var it=document.getElementById('inf'+n);var fb=document.getElementById('inf'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===infKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+infWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+infWhy[n];}}
+
+// ── Predict-first drill data ──
+var P_SET1 = [
+  { sent:'What is this passage mainly about?', opts:['How rockets use fuel and booster rockets to take off','What astronauts eat in space','How satellites are launched'], ans:'How rockets use fuel and booster rockets to take off', why:'The whole passage explains how rockets burn fuel and use booster rockets to take off — that\'s the main idea.' },
+  { sent:'What happens to the booster rockets once they have done their job?', opts:['They stay attached the whole flight','They fall away','They turn into satellites'], ans:'They fall away', why:'The passage states directly that once the boosters have done their job, they fall away.' },
+  { sent:'Based on the passage, what do rockets need to overcome in order to leave Earth?', opts:['friction','the Earth\'s gravity','the launch pad'], ans:'the Earth\'s gravity', why:'The passage says rockets need fuel to escape the Earth\'s gravity — that\'s the force being overcome.' }
+];
+var P_SET2 = [
+  { sent:'What is this passage mainly about?', opts:['Different opinions on whether students should choose their own seats','How to make new friends at school','A rule that all schools must follow'], ans:'Different opinions on whether students should choose their own seats', why:'The passage presents both sides of an opinion — that\'s the main idea of a persuasive text.' },
+  { sent:'According to the passage, why might a teacher prefer an assigned seating plan?', opts:['It helps concentration and reduces arguments','It lets students sit with friends','It is required by the school uniform rules'], ans:'It helps concentration and reduces arguments', why:'The passage directly states that a seating plan helps students concentrate and reduces arguments.' },
+  { sent:'Why does the passage end with a question ("What do you think...")?', opts:['To test if you were reading','To invite the reader to form their own opinion, like "Have Your Say" does','Because the writer forgot to finish the passage'], ans:'To invite the reader to form their own opinion, like "Have Your Say" does', why:'Persuasive texts often end by inviting the reader to think about the issue and form their own opinion — exactly like "Have Your Say".' }
+];
+
+var pBuilt={};var pScore={1:0,2:0};var pDone={};
+
+function buildPredict(setId, containerId, items){
+  pBuilt[setId]=true; pDone[setId]={};
+  var html='';
+  items.forEach(function(it,i){
+    var n=i+1;
+    html += '<div class="di" id="p'+setId+'-'+n+'">';
+    html += '<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    html += '<div class="predict-gate" id="p'+setId+'-'+n+'-gate">';
+    html += '<div class="predict-note">✍️ Write YOUR answer on paper first, then tap below.</div>';
+    html += '<button class="di-opt" onclick="revealPredict('+setId+','+n+')">I\'ve written mine — show me the choices</button>';
+    html += '</div>';
+    html += '<div class="opts-wrap" id="p'+setId+'-'+n+'-opts"><div class="di-btns">';
+    it.opts.forEach(function(o){
+      html += '<button class="di-opt" onclick="doPredict('+setId+','+n+',\''+o.replace(/'/g,"\\'")+'\')">'+o+'</button>';
+    });
+    html += '</div></div>';
+    html += '<div class="di-fb" id="p'+setId+'-'+n+'-fb"></div>';
+    html += '</div>';
+  });
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function revealPredict(setId, n){
+  document.getElementById('p'+setId+'-'+n+'-gate').style.display='none';
+  document.getElementById('p'+setId+'-'+n+'-opts').className='opts-wrap show';
+}
+
+function doPredict(setId, n, choice){
+  if (pDone[setId][n]) return;
+  pDone[setId][n]=true;
+  var items = (setId===1)?P_SET1:P_SET2;
+  var it = items[n-1];
+  document.getElementById('p'+setId+'-'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  var fb = document.getElementById('p'+setId+'-'+n+'-fb');
+  var correct = (choice === it.ans);
+  if (correct){ fb.className='di-fb ok'; fb.textContent='✅ '+it.why; pScore[setId]++; }
+  else { fb.className='di-fb no'; fb.textContent='❌ '+it.why; }
+  var total = items.length;
+  if (Object.keys(pDone[setId]).length===total){
+    var s=document.getElementById('p'+setId+'Score');
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round '+setId+': '+pScore[setId]+'/'+total+'</strong>';
+  }
+}
+
+function buildReport(){
+  var r1=pScore[1], r2=pScore[2];
+  document.getElementById('reportWrap').innerHTML='<p><strong>Informational passage:</strong> '+r1+'/3 &middot; <strong>Persuasive passage:</strong> '+r2+'/3</p>';
+}
+</script>
+</body>
+</html>
