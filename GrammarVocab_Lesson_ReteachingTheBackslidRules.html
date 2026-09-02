@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar &amp; Vocabulary — Reteaching the Backslid Rules — Unit 35 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0D47A1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0D47A1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0D47A1;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.chip{padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:700}
+.chip.closed{background:#2E7D32;color:#fff}
+.chip.watch{background:#E65100;color:#fff}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#0D47A1;color:#fff}
+.node.q{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.a{background:#1565C0;color:#fff}
+.arrow{font-size:18px;color:#0D47A1;line-height:1}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di.vocab{border-color:#C8E6C9}
+.di.vocab .di-opt{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.di.prod{border-color:#FFCC80;background:#FFF8E1}
+.di.prod textarea{width:100%;min-height:56px;border:1.5px solid #DAA520;border-radius:8px;padding:8px;font-family:inherit;font-size:13.5px;margin-top:6px}
+.drill-score{background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#0D47A1,#1565C0);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-test{display:inline-block;background:linear-gradient(135deg,#c62828,#e53935);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar &amp; Vocabulary — Reteaching the Backslid Rules</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 35 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Two grammar habits worked perfectly a while back, then slipped for two tests in a row — that means a light "one more question" fix won't be enough this time. Today goes back to square one on both: the full picture explanation again, more practice items than usual, and each one checked in more than one question style. Plus one quick refresher on a brand-new miss, and a fast vocab habit check before the test.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>A reminder of something that already works:</p>
+    <div class="di" id="wu1"><div class="di-sent">Which sentence contains an error? A) The soup tasted rich after simmering all afternoon. B) The hallway smelled musty behind the old bookshelf. C) The choir sounded beautifully in the stone chapel.</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A</button><button class="di-opt" onclick="doWu(1,'b')">B</button><button class="di-opt" onclick="doWu(1,'c')">C</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — the linking-verb rule is fully solid now. <strong>Today's two targets need a bigger fix. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: gap map -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The exact gap map 🗺️</h2>
+    <div class="chip-wrap">
+      <span class="chip closed">smell/sound linking verbs ✓</span>
+      <span class="chip closed">gerund after preposition ✓</span>
+      <span class="chip watch">Little-inversion — BACKSLID ⚠️</span>
+      <span class="chip watch">much / very much — BACKSLID ⚠️</span>
+      <span class="chip watch">Type-1 conditional — NEW ⚠️</span>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 What "backslid" means here</div>
+      <p style="margin:0;font-size:14px">Little-inversion and much/very-much were BOTH correct twice in a row around Milestone 3 and Unit 31 — genuinely learned. Then both were missed at Unit 32 AND Unit 33. A skill that was solid and then broke twice needs the FULL original explanation again, more practice than usual, and checking in more than one question style in the same sitting — not just one quick reminder question.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Little-inversion reteach -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Little-inversion — full reteach 🔄</h2>
+    <p>Normally, a sentence goes SUBJECT then VERB: "He knew." But when a sentence starts with the word "Little" (meaning "hardly at all," "barely"), something unusual happens: the subject and the helper verb SWAP places.</p>
+    <div class="tree">
+      <div class="node start">Does the sentence start with the word "Little"?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Normal order would be: subject + helper verb + main verb (He did know / She did realize).</div>
+      <div class="arrow">↓</div>
+      <div class="node a">SWAP the subject and helper verb: "Little" + helper verb + subject + main verb. "Little did he know," "Little did she realize" — never "Little he knew."</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Worked examples with FRESH verbs</div>
+      <p style="margin:0;font-size:14px">"Little did the captain imagine how rough the crossing would become." <br>"Little did the twins anticipate the surprise waiting at home." <br>"Little did the crowd expect the fireworks to start early." Notice: it's ALWAYS "did" + subject + the plain base verb (imagine, anticipate, expect) — never the past-tense form.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: much/very much reteach -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Much vs. very much — full reteach ⚖️</h2>
+    <p>"Much" and "very much" both mean roughly "a lot" — but they can't just swap freely. "Much" cannot sit directly in front of a describing-word that comes from a verb (a participle-adjective like "moved," "impressed," "startled"). In that spot, it needs "very" glued in front of it first.</p>
+    <div class="tree">
+      <div class="node start">Is "much"/"very much" sitting right before a participle-adjective (a describing-word ending in -ed, e.g. "startled," "convinced")?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">"Much" alone CANNOT go there. It needs a partner.</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Use "VERY MUCH" in front of a participle-adjective: "very much startled," "very much convinced." Plain "much" is fine before a comparative ("much better") or in a negative/question about amount ("not much," "how much").</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Worked examples with FRESH participle-adjectives</div>
+      <p style="margin:0;font-size:14px">"The scientists were very much startled by the unexpected result." <br>"The jury seemed very much convinced by the closing argument." Compare: "This route is much better than the old one" — here "much" sits fine, because "better" is a comparative, not a participle-adjective.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Type-1 conditional refresher -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Type-1 conditional — quick refresher ☂️</h2>
+    <p>This one is a single new slip — just needs one clean confirming round. Type-1 (real/likely future) pairs a PRESENT-tense "if" clause with a "will" result clause.</p>
+    <div class="tree">
+      <div class="node start">Talking about something realistic that might happen in the future?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">If + PRESENT tense, ... WILL + base verb. "If the rain stops, the match will go ahead." Never "will" in the if-half, never "would" in the result-half.</div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: cross-format drill: Little-inversion -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Little-inversion — three formats, same rule 🔎</h2>
+    <p style="font-size:13.5px;color:#555">Real learning has to survive more than one question style — direct choice, error-scan, and writing it yourself.</p>
+    <div class="di" id="rq1">
+      <div class="di-sent">1. Which sentence is correctly written?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(1,'a')">A) Little did the sailors expect the storm to arrive so quickly.</button>
+        <button class="di-opt" onclick="doRq(1,'b')">B) Little the sailors expected the storm to arrive so quickly.</button>
+      </div>
+      <div class="di-fb" id="rq1f"></div>
+    </div>
+    <div class="di" id="rq2">
+      <div class="di-sent">2. Which sentence contains an error?<br>A) Little did the hikers realize how far the summit actually was.<br>B) Little the campers knew about the wildlife nearby.<br>C) Little did the tourists imagine the museum would be closed.<br>D) Little did the students anticipate such a difficult exam.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(2,'A')">A</button>
+        <button class="di-opt" onclick="doRq(2,'B')">B</button>
+        <button class="di-opt" onclick="doRq(2,'C')">C</button>
+        <button class="di-opt" onclick="doRq(2,'D')">D</button>
+      </div>
+      <div class="di-fb" id="rq2f"></div>
+    </div>
+    <div class="di prod" id="rq3">
+      <div class="di-sent">3. Write it yourself — finish this sentence correctly using "Little did...": "Little did the puppy ___ (know) that the vet visit would be so quick."</div>
+      <textarea id="rq3-input" placeholder="Type your full sentence here..."></textarea>
+      <div class="di-btns" style="margin-top:8px"><button class="di-opt" onclick="doRq3()">Check my sentence</button></div>
+      <div class="di-fb" id="rq3f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: cross-format drill: much/very much -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Much / very much — three formats, same rule 🔎</h2>
+    <div class="di" id="rq4">
+      <div class="di-sent">4. "The audience was ___ shaken by the powerful ending." Which fits?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(4,'a')">A) much</button>
+        <button class="di-opt" onclick="doRq(4,'b')">B) very much</button>
+      </div>
+      <div class="di-fb" id="rq4f"></div>
+    </div>
+    <div class="di" id="rq5">
+      <div class="di-sent">5. Which sentence contains an error?<br>A) The teacher was very much encouraged by the students' progress.<br>B) The travellers were much delighted by the unexpected upgrade.<br>C) This recipe is much simpler than the last one.<br>D) The manager wasn't much bothered by the small delay.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(5,'A')">A</button>
+        <button class="di-opt" onclick="doRq(5,'B')">B</button>
+        <button class="di-opt" onclick="doRq(5,'C')">C</button>
+        <button class="di-opt" onclick="doRq(5,'D')">D</button>
+      </div>
+      <div class="di-fb" id="rq5f"></div>
+    </div>
+    <div class="di prod" id="rq6">
+      <div class="di-sent">6. Write it yourself — finish this sentence correctly: "The volunteers were ___ (grateful — as a participle-adjective feeling: 'moved') by the community's support."</div>
+      <textarea id="rq6-input" placeholder="Type your full sentence here..."></textarea>
+      <div class="di-btns" style="margin-top:8px"><button class="di-opt" onclick="doRq6()">Check my sentence</button></div>
+      <div class="di-fb" id="rq6f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S7: Type-1 confirming rep + vocab reminder + report + nav -->
+<div class="screen" id="s7">
+  <div class="card">
+    <h2>Type-1 conditional confirming rep + vocab reminder 📖</h2>
+    <div class="di" id="rq7">
+      <div class="di-sent">7. Which sentence is correctly written?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(7,'a')">A) If the rain stops before noon, the match will go ahead.</button>
+        <button class="di-opt" onclick="doRq(7,'b')">B) If the rain will stop before noon, the match goes ahead.</button>
+      </div>
+      <div class="di-fb" id="rq7f"></div>
+    </div>
+    <p style="font-size:13.5px;color:#555;margin-top:16px">One more habit check before the test: a reversal-trap distractor means the WRONG answer choice is the near-OPPOSITE of the clue — always double-check your answer points the SAME direction as the clue, not the opposite. Same care on the easy-looking items as the hard ones.</p>
+    <div class="di vocab" id="vb1">
+      <div class="di-sent">"Although the room was completely silent, the negotiator remained implacable, refusing to change his position no matter how the other side pleaded." What does "implacable" mean here?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doVb('a')">A) Firm and unwilling to change</button>
+        <button class="di-opt" onclick="doVb('b')">B) Easily persuaded and flexible</button>
+      </div>
+      <div class="di-fb" id="vb1f"></div>
+    </div>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">"Little" at the start flips subject and helper verb, on any verb. "Much" needs "very" in front of it before a participle-adjective. Type-1 conditional: present tense + "will." A near-opposite answer is still wrong — check direction, not just "does this sound related."</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_LockingTheStickyAndOscillatingGaps.html" class="btn-lesson">← Prev Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub</a>
+    <a href="Tests/ENG_Unit_035_Test_Cloze_Grammar_Vocab.html" class="btn-test">Take the Test →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s7'){buildReport();}
+}
+
+var wuKey={1:'c'};var wuWhy={1:'Correct — C is wrong: "sounded" describes a STATE, so it needs "beautiful," not "beautifully." A and B are both correct.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var rqKey={1:'a',2:'B',4:'b',5:'B',7:'a'};
+var rqWhy={
+  1:'Correct — "Little" at the start flips the subject and helper verb: Little did the sailors expect — not "Little the sailors expected."',
+  2:'B is wrong — "Little the campers knew" should be "Little did the campers know." A, C, and D are all correct.',
+  4:'Correct — "much" alone can\'t sit in front of "shaken" — it needs "very": very much shaken.',
+  5:'B is wrong — "much delighted" should be "very much delighted." A, C, and D are all correct.',
+  7:'Correct — Type-1 conditional: present tense in the if-half ("stops"), "will" in the result-half ("will go ahead").'
+};
+var rqDone={};var rqScore=0;
+function doRq(n,c){
+  if(rqDone[n])return;rqDone[n]=true;
+  var it=document.getElementById('rq'+n);var fb=document.getElementById('rq'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c===rqKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+rqWhy[n];rqScore++;}
+  else{fb.className='di-fb no';fb.textContent='❌ '+rqWhy[n];}
+}
+
+var rq3Done=false;
+function doRq3(){
+  if(rq3Done)return;rq3Done=true;
+  var v=document.getElementById('rq3-input').value.trim().toLowerCase();
+  var fb=document.getElementById('rq3f');
+  document.getElementById('rq3-input').disabled=true;
+  var hasFlip = v.indexOf('little did the puppy know')===0;
+  if(hasFlip){fb.className='di-fb ok';fb.textContent='✅ Great — "Little did the puppy know" keeps the flipped order (Little + did + subject + base verb). Model answer: "Little did the puppy know that the vet visit would be so quick."';}
+  else{fb.className='di-fb no';fb.textContent='❌ Check the order — it should start "Little did the puppy know..." (Little + did + subject + base verb), not "Little the puppy knew..."';}
+}
+var rq6Done=false;
+function doRq6(){
+  if(rq6Done)return;rq6Done=true;
+  var v=document.getElementById('rq6-input').value.trim().toLowerCase();
+  var fb=document.getElementById('rq6f');
+  document.getElementById('rq6-input').disabled=true;
+  var hasVeryMuch = v.indexOf('very much moved')!==-1 || v.indexOf('very much')!==-1;
+  if(hasVeryMuch){fb.className='di-fb ok';fb.textContent="✅ Nice — \"very much moved\" is the correct pairing before a participle-adjective. Model answer: \"The volunteers were very much moved by the community's support.\"";}
+  else{fb.className='di-fb no';fb.textContent='❌ Check your phrase — it needs "VERY MUCH" (not just "much") in front of the participle-adjective "moved."';}
+}
+
+var esKey={1:'B'};
+var esDone={};
+function doEs(n,c){}
+
+var vbDone=false;
+function doVb(c){
+  if(vbDone)return;vbDone=true;
+  var it=document.getElementById('vb1');var fb=document.getElementById('vb1f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c==='a'){fb.className='di-fb ok';fb.textContent='✅ "Implacable" means firm and unwilling to change — "refusing to change his position no matter how the other side pleaded" is the clue, and the answer points the SAME direction: firm, not the near-opposite trap "easily persuaded."';}
+  else{fb.className='di-fb no';fb.textContent='❌ "Implacable" means firm and unwilling to change — "refusing to change his position no matter how the other side pleaded" is the clue, and the answer points the SAME direction: firm, not the near-opposite trap "easily persuaded."';}
+}
+
+function buildReport(){
+  document.getElementById('reportWrap').innerHTML='<p><strong>MCQ items (Q1,2,4,5,7):</strong> '+rqScore+'/5 &middot; plus 2 write-it-yourself production checks.</p>';
+}
+</script>
+</body>
+</html>
