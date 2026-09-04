@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar &amp; Vocabulary — Rebuilding Type-1 &amp; Launching Figurative Language — Unit 36 Lesson 2</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0D47A1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0D47A1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0D47A1;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.chip{padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:700}
+.chip.closed{background:#2E7D32;color:#fff}
+.chip.watch{background:#E65100;color:#fff}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#0D47A1;color:#fff}
+.node.q{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1}
+.node.a{background:#1565C0;color:#fff}
+.arrow{font-size:18px;color:#0D47A1;line-height:1}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E3F2FD;border:2px solid #1565C0;color:#0D47A1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di.vocab{border-color:#C8E6C9}
+.di.vocab .di-opt{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.di.bonus{border-color:#FFCC80;background:#FFF8E1}
+.di.bonus .di-opt{background:#FFF3CD;border-color:#DAA520;color:#8a6a00}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.di.prod{border-color:#FFCC80;background:#FFF8E1}
+.di.prod textarea{width:100%;min-height:56px;border:1.5px solid #DAA520;border-radius:8px;padding:8px;font-family:inherit;font-size:13.5px;margin-top:6px}
+.drill-score{background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.bonus-badge{display:inline-block;background:#DAA520;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;margin-bottom:10px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#0D47A1,#1565C0);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-test{display:inline-block;background:linear-gradient(135deg,#c62828,#e53935);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Grammar &amp; Vocabulary — Rebuilding Type-1 &amp; Meeting Figurative Language</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 36 · Lesson 2</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">One grammar rule has now been missed on two tests in a row — that needs the full explanation again, not just one more question. Two other rules only slipped in a NEW question style, so today builds that missing piece. And to close today out, you'll meet a brand-new skill for the first time — Figurative Language — just a fun first look, nothing scored yet.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>A reminder of something that already works:</p>
+    <div class="di" id="wu1"><div class="di-sent">Which sentence is correctly written?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) Little did the artist realize how much attention her painting would attract.</button><button class="di-opt" onclick="doWu(1,'b')">B) Little the artist realized how much attention her painting would attract.</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — the flipped word order is solid. <strong>Today zooms in on one small piece of it, plus two other targets. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: gap map -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The exact gap map 🗺️</h2>
+    <div class="chip-wrap">
+      <span class="chip closed">Little-inversion — word order ✓</span>
+      <span class="chip closed">much / very much — direct form ✓</span>
+      <span class="chip closed">linking verbs ✓</span>
+      <span class="chip watch">Type-1 conditional — BACKSLID ⚠️</span>
+      <span class="chip watch">much / very much — spotting IN a sentence ⚠️ NEW</span>
+      <span class="chip watch">Little-inversion — the exact verb form after "did" ⚠️ NEW</span>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 What each target actually needs</div>
+      <p style="margin:0;font-size:14px"><strong>Type-1 conditional</strong> has now been missed at Unit 33 AND Unit 35 — a light "one more question" fix already failed once, so today it gets the FULL re-teach: the decision tree rebuilt, more practice items, and more than one question style. <strong>Much/very-much</strong> and <strong>Little-inversion</strong> are both solid at the "write it yourself" level — today adds the missing piece: spotting them hidden inside someone else's sentence, and nailing the exact verb form.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Type-1 conditional full re-teach -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Type-1 conditional — full re-teach ☂️</h2>
+    <p>Type-1 describes something REAL and LIKELY in the future: "If the rain stops, the match will go ahead." The mix-up usually happens because Type-1 gets tangled up with Type-2 (a more IMAGINED, less likely idea about NOW): "If I won the lottery, I would travel the world." Both are valid — the trap is mixing their halves together.</p>
+    <div class="tree">
+      <div class="node start">Look at the RESULT half FIRST. Does it say "will"?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">"will" → this MUST be Type-1 → the if-half MUST be present tense (opens, stops, rains). Plain "would" (no "have") → this MUST be Type-2 → the if-half MUST be past simple (opened, stopped, rained).</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Do the two halves match the SAME row? If yes, correct. If the if-half is present tense but the result says "would" — or the if-half is past tense but the result says "will" — that's the error.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 One extra check: the Will-Ban</div>
+      <p style="margin:0;font-size:14px">The if-half itself NEVER uses "will," even in Type-1: "If the tide will come in early" is always wrong — it should be "If the tide comes in early." "Will" only ever appears in the RESULT half.</p>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Worked examples, side by side</div>
+      <p style="margin:0;font-size:14px"><strong>Type-1 (real, likely):</strong> "If the museum opens early, the tour will start on time."<br><strong>Type-2 (imagined, less likely):</strong> "If the museum opened early, the tour would start on time."<br>Notice: every word in each sentence matches ITS OWN row — never a present if-half paired with "would," and never a past if-half paired with "will."</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: much/very-much error-scan strategy -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Much / very much — spotting it in a sentence 🕵️</h2>
+    <p>You already know the rule for writing your own sentence. Now it's time to use it to check someone ELSE's sentence — using the same one-at-a-time scanning routine from Lesson 1.</p>
+    <div class="tree">
+      <div class="node start">Read sentence A. Find any word "much" or "very much." Is it sitting right before a participle-adjective (a feeling word ending in -ed, like "delighted," "astonished," "relieved")?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">If YES — is "very" glued in front of "much"? If "much" is alone, that sentence FAILS the check.</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Repeat for B, C, D — one at a time. Exactly one sentence will fail. Remember: "much" alone is FINE before a comparative ("much faster," "much better") — only participle-adjectives need "very much."</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Worked example</div>
+      <p style="margin:0;font-size:14px">A) The crowd was very much delighted by the fireworks display. — ✓ has "very," passes.<br>B) The critics were much astonished by the unexpected twist. — ✗ "much astonished" needs "very" — FAILS. This is the answer.<br>C) This laptop is much faster than the old one. — ✓ "much" before a comparative is fine, passes.<br>D) The neighbors weren't much troubled by the noise. — ✓ this is a negative-amount use, not a participle-adjective pairing, passes.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Little-inversion did+base-form detail -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Little-inversion — the exact verb form after "did" 🔍</h2>
+    <p>The flipped order itself is already solid: "Little" + "did" + subject. Today's fine-tune is about what comes right AFTER the subject — that verb must stay in its plain BASE form, because "did" is already carrying the past tense for the whole sentence.</p>
+    <div class="tree">
+      <div class="node start">"Little did [subject] ___" — what goes in the blank?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Always the BASE form — no "-ed," no "-s." "Did" already shows it happened in the past, so the main verb doesn't need its own past-tense ending too.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Correct vs. incorrect, side by side</div>
+      <p style="margin:0;font-size:14px">✅ "Little did she anticipate the trouble ahead." (base form: anticipate)<br>❌ "Little did she anticipated the trouble ahead." (wrong — "anticipated" is already past tense, and "did" is doing that job)</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: cross-format drill: Type-1 conditional -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Type-1 conditional — three formats, same rule 🔎</h2>
+    <p style="font-size:13.5px;color:#555">Direct choice, error-scan, and writing it yourself — the full re-teach check.</p>
+    <div class="di" id="rq1">
+      <div class="di-sent">1. Which sentence is correctly written?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(1,'a')">A) If the tide comes in early, the boats will return by sunset.</button>
+        <button class="di-opt" onclick="doRq(1,'b')">B) If the tide will come in early, the boats return by sunset.</button>
+      </div>
+      <div class="di-fb" id="rq1f"></div>
+    </div>
+    <div class="di" id="rq2">
+      <div class="di-sent">2. Which sentence contains an error?<br>A) If the bridge closes for repairs, traffic will slow down.<br>B) If the festival starts on time, more people will attend.<br>C) If the workshop finishes early, the students would leave immediately.<br>D) If the signal improves, the call will connect.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(2,'A')">A</button>
+        <button class="di-opt" onclick="doRq(2,'B')">B</button>
+        <button class="di-opt" onclick="doRq(2,'C')">C</button>
+        <button class="di-opt" onclick="doRq(2,'D')">D</button>
+      </div>
+      <div class="di-fb" id="rq2f"></div>
+    </div>
+    <div class="di prod" id="rq3">
+      <div class="di-sent">3. Write it yourself — finish this sentence correctly as a Type-1 conditional: "If the library extends its hours, ___ (more students / visit) in the evenings."</div>
+      <textarea id="rq3-input" placeholder="Type your full sentence here..."></textarea>
+      <div class="di-btns" style="margin-top:8px"><button class="di-opt" onclick="doRq3()">Check my sentence</button></div>
+      <div class="di-fb" id="rq3f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: cross-format drill: much/very-much error-scan -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Much / very much — spot it in a sentence 🔎</h2>
+    <div class="di" id="rq4">
+      <div class="di-sent">4. Which sentence contains an error?<br>A) The crowd was very much delighted by the fireworks display.<br>B) The critics were much astonished by the unexpected twist.<br>C) This laptop is much faster than the old one.<br>D) The neighbors weren't much troubled by the noise.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(4,'A')">A</button>
+        <button class="di-opt" onclick="doRq(4,'B')">B</button>
+        <button class="di-opt" onclick="doRq(4,'C')">C</button>
+        <button class="di-opt" onclick="doRq(4,'D')">D</button>
+      </div>
+      <div class="di-fb" id="rq4f"></div>
+    </div>
+    <div class="di" id="rq5">
+      <div class="di-sent">5. Which sentence contains an error?<br>A) The parents were much relieved when the flight landed safely.<br>B) The reviewers were very much impressed by the debut novel.<br>C) The children were very much excited about the field trip.<br>D) This puzzle is much trickier than the last one.</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(5,'A')">A</button>
+        <button class="di-opt" onclick="doRq(5,'B')">B</button>
+        <button class="di-opt" onclick="doRq(5,'C')">C</button>
+        <button class="di-opt" onclick="doRq(5,'D')">D</button>
+      </div>
+      <div class="di-fb" id="rq5f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S7: Little-inversion confirming rep + vocab reminder -->
+<div class="screen" id="s7">
+  <div class="card">
+    <h2>Little-inversion confirming rep + vocab reminder 📖</h2>
+    <div class="di" id="rq6">
+      <div class="di-sent">6. "Little did the crew ___ (realize) how close the storm actually was." Which fits?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doRq(6,'a')">A) realize</button>
+        <button class="di-opt" onclick="doRq(6,'b')">B) realized</button>
+      </div>
+      <div class="di-fb" id="rq6f"></div>
+    </div>
+    <p style="font-size:13.5px;color:#555;margin-top:16px">One more habit check before the test: a reversal-trap distractor means the WRONG answer choice is the near-OPPOSITE of the clue — always double-check your answer points the SAME direction as the clue.</p>
+    <div class="di vocab" id="vb1">
+      <div class="di-sent">"Because the smoke alarm kept beeping at random times, the technician was meticulous when rewiring it, double-checking every connection twice." What does "meticulous" mean here?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doVb('a')">A) Careful and precise</button>
+        <button class="di-opt" onclick="doVb('b')">B) Careless and rushed</button>
+      </div>
+      <div class="di-fb" id="vb1f"></div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S8: NEW skill preview — Figurative Language + report + nav -->
+<div class="screen" id="s8">
+  <div class="card">
+    <span class="bonus-badge">🌈 BONUS — not scored on this unit's test</span>
+    <h2>Meet Your New Skill: Figurative Language!</h2>
+    <p>Figurative language is when words paint a picture instead of just stating a plain fact. Two of the most common kinds are the simile and the metaphor.</p>
+    <div class="why-box">
+      <div class="why-title">🔑 Simile — compares using "like" or "as"</div>
+      <p style="margin:0;font-size:14px">"The wind howled <strong>like</strong> a wolf." "Her smile was <strong>as</strong> bright <strong>as</strong> sunshine." A simile always keeps "like" or "as" as the connecting word.</p>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Metaphor — says one thing simply IS another</div>
+      <p style="margin:0;font-size:14px">"The classroom <strong>was</strong> a zoo during recess." "The old car was a dinosaur, wheezing up every hill." No "like" or "as" — the sentence just states it directly, as if it were literally true.</p>
+    </div>
+    <p style="font-size:13.5px;color:#555">This is just a first look — no pressure, nothing scored yet. Over the next few units you'll get more practice spotting and using these, building up toward your first real scored check later on.</p>
+    <div class="di bonus" id="bq1">
+      <div class="di-sent">Just for fun: "Her smile was as bright as sunshine." Simile or metaphor?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doBq(1,'a')">A) Simile</button>
+        <button class="di-opt" onclick="doBq(1,'b')">B) Metaphor</button>
+      </div>
+      <div class="di-fb" id="bq1f"></div>
+    </div>
+    <div class="di bonus" id="bq2">
+      <div class="di-sent">Just for fun: "The old car was a dinosaur, wheezing up every hill." Simile or metaphor?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doBq(2,'a')">A) Simile</button>
+        <button class="di-opt" onclick="doBq(2,'b')">B) Metaphor</button>
+      </div>
+      <div class="di-fb" id="bq2f"></div>
+    </div>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Type-1 conditional: read the result half first ("will" = Type-1, present if-half). Much/very-much and Little-inversion: check them one sentence at a time using the scanning routine. Simile uses "like/as"; metaphor says one thing simply IS another.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="Cloze_Lesson_ScanningForTheFlawedSentence.html" class="btn-lesson">← Prev Lesson</a>
+    <a href="index.html" class="btn-hub">Back to Hub</a>
+    <a href="Tests/ENG_Unit_036_Test_Cloze_Grammar_Vocab.html" class="btn-test">Take the Test →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7','s8'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s8'){buildReport();}
+}
+
+var wuKey={1:'a'};var wuWhy={1:'Correct — the subject and helper verb flip after "Little": Little did the artist realize — not "Little the artist realized."'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+var rqKey={1:'a',2:'C',4:'B',5:'A',6:'a'};
+var rqWhy={
+  1:'Correct — Type-1 conditional: present tense in the if-half ("comes"), "will" in the result-half ("will return"), and no "will" in the if-half.',
+  2:'C is wrong — "the students would leave immediately" mismatches the present if-half ("finishes"). It should say "will leave." A, B, and D are all correct Type-1 sentences.',
+  4:'B is wrong — "much astonished" should be "very much astonished." A, C, and D are all correct.',
+  5:'A is wrong — "much relieved" should be "very much relieved." B, C, and D are all correct.',
+  6:'Correct — after "did," the main verb stays in its BASE form: realize, not realized.'
+};
+var rqDone={};var rqScore=0;
+function doRq(n,c){
+  if(rqDone[n])return;rqDone[n]=true;
+  var it=document.getElementById('rq'+n);var fb=document.getElementById('rq'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c===rqKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+rqWhy[n];rqScore++;}
+  else{fb.className='di-fb no';fb.textContent='❌ '+rqWhy[n];}
+}
+
+var rq3Done=false;
+function doRq3(){
+  if(rq3Done)return;rq3Done=true;
+  var v=document.getElementById('rq3-input').value.trim().toLowerCase();
+  var fb=document.getElementById('rq3f');
+  document.getElementById('rq3-input').disabled=true;
+  var hasWill = v.indexOf('will visit')!==-1;
+  if(hasWill){fb.className='di-fb ok';fb.textContent="✅ Nice — \"will visit\" is the correct Type-1 result-half pairing with a present if-half. Model answer: \"If the library extends its hours, more students will visit in the evenings.\"";}
+  else{fb.className='di-fb no';fb.textContent='❌ Check your result half — it needs "WILL" plus the base verb (will visit), since the if-half is present tense.';}
+}
+
+var vbDone=false;
+function doVb(c){
+  if(vbDone)return;vbDone=true;
+  var it=document.getElementById('vb1');var fb=document.getElementById('vb1f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c==='a'){fb.className='di-fb ok';fb.textContent='✅ "Meticulous" means careful and precise — "double-checking every connection twice" is the clue, and the answer points the SAME direction: careful, not the near-opposite trap "careless and rushed."';}
+  else{fb.className='di-fb no';fb.textContent='❌ "Meticulous" means careful and precise — "double-checking every connection twice" is the clue, and the answer points the SAME direction: careful, not the near-opposite trap "careless and rushed."';}
+}
+
+var bqKey={1:'a',2:'b'};
+var bqWhy={1:'Simile — it uses "as...as" to compare the smile to sunshine.',2:'Metaphor — it says the car simply WAS a dinosaur, with no "like" or "as."'};
+var bqDone={};var bqScore=0;
+function doBq(n,c){
+  if(bqDone[n])return;bqDone[n]=true;
+  var it=document.getElementById('bq'+n);var fb=document.getElementById('bq'+n+'f');
+  it.querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  if(c===bqKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+bqWhy[n];bqScore++;}
+  else{fb.className='di-fb no';fb.textContent='❌ '+bqWhy[n];}
+}
+
+function buildReport(){
+  document.getElementById('reportWrap').innerHTML='<p><strong>MCQ items (Q1,2,4,5,6):</strong> '+rqScore+'/5 &middot; plus 1 write-it-yourself production check &middot; <strong>Bonus Figurative Language preview:</strong> '+bqScore+'/2 (not scored on the test).</p>';
+}
+</script>
+</body>
+</html>

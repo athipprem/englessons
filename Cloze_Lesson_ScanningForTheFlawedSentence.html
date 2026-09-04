@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Scanning for the Flawed Sentence — Unit 36 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20}
+.node.a{background:#2E7D32;color:#fff}
+.arrow{font-size:18px;color:#1B5E20;line-height:1}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.predict-gate{background:#FFF3CD;border:1.5px dashed #DAA520;border-radius:8px;padding:10px 12px;margin-top:6px}
+.predict-note{font-size:12.5px;color:#8a6a00;margin-bottom:8px}
+.opts-wrap{display:none;margin-top:8px}
+.opts-wrap.show{display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.anchor-box{background:#FFF8E1;border:2px dashed #DAA520;border-radius:12px;padding:16px;margin:14px 0;text-align:center}
+.anchor-title{font-weight:700;color:#8a6a00;margin-bottom:8px;font-size:14.5px}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.chip{padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:700}
+.chip.closed{background:#2E7D32;color:#fff}
+.chip.watch{background:#E65100;color:#fff}
+.trigger-bank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.trigger-chip{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:6px 13px;border-radius:16px;font-size:13px;font-weight:700}
+.step-list{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:14px 18px;margin:12px 0}
+.step-list li{font-size:14px;line-height:1.7;margin-bottom:4px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#43A047);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Scanning for the Flawed Sentence</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 36 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Unit 35 proved something important: two rules you already know solidly — "arrive AT a decision" and the subjunctive — can still get missed when they show up in a NEW kind of question. Knowing a rule for writing your own answer is one skill. Spotting when someone ELSE has broken that rule, hidden inside a sentence that otherwise looks fine, is a different skill. Today builds exactly that second skill — the same "find the flawed sentence" move that ISA and real exams use constantly.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>A reminder that the rule itself is still rock-solid:</p>
+    <div class="di" id="wu1"><div class="di-sent">"The two clubs finally arrived ___ a plan for the fundraiser." Which fits?</div><div class="di-btns"><button class="di-opt" onclick="doWu(1,'a')">A) at</button><button class="di-opt" onclick="doWu(1,'b')">B) to</button></div><div class="di-fb" id="wu1f"></div></div>
+    <p style="margin-top:10px">Right — the phrase itself is locked in. So why did Unit 35's error-scan question still trip it up? <strong>Let's find out. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: gap map -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>The exact gap map 🗺️</h2>
+    <p>Here's precisely what's closed and what still needs work, based on Unit 35's real result:</p>
+    <div class="chip-wrap">
+      <span class="chip closed">"arrive at" — direct recall ✓</span>
+      <span class="chip closed">subjunctive — reporting-verb triggers ✓</span>
+      <span class="chip closed">superlative ✓</span>
+      <span class="chip closed">gerund after preposition ✓</span>
+      <span class="chip watch">"arrive at" — spotting IN a sentence ⚠️ NEW</span>
+      <span class="chip watch">subjunctive — adjective+"that" triggers ⚠️ NEW</span>
+      <span class="chip watch">Instead vs Moreover ⚠️ light miss</span>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why these are NEW gaps, not old ones reopening</div>
+      <p style="margin:0;font-size:14px"><strong>"Arrive at":</strong> Unit 35's fill-in-the-blank question (write the missing word yourself) was correct. Unit 35's find-the-error question (spot which of 4 sentences is wrong) was missed. Same rule, different JOB — today we build the scanning job. <strong>Subjunctive:</strong> the trigger "suggested that ___" was correct, but "it is important that ___" was missed — that's a new SHAPE of trigger (an adjective + "that," not a reporting verb + "that") that hasn't been drilled yet. <strong>Instead vs Moreover:</strong> a single miss, needs one light refresher.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: arrive-at error-scan strategy -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>The scanning strategy: check ONE sentence at a time 🕵️</h2>
+    <p>When four sentences sit on the page together, your eyes want to skim all four at once looking for whichever one "feels" wrong. That's exactly how a correct sentence gets missed and a fine one gets flagged by accident. The fix is a strict, one-at-a-time routine — the same "box it, don't erase" precision habit from Cloze, applied to scanning instead of writing.</p>
+    <div class="anchor-box">
+      <div class="anchor-title">🚉 Same train picture — now hunting for the ONE wrong platform</div>
+      <p style="margin:0;font-size:14.5px">Four trains, four sentences. Three of them pull in correctly — <strong>AT</strong> the platform. Exactly one was sent to the wrong platform ("to," "on," or "in"). Your job isn't to guess by feel which train "looks" wrong — it's to check each platform sign, one at a time, until you find the mismatch.</p>
+    </div>
+    <div class="tree">
+      <div class="node start">Read sentence A only. Does it say "arrive AT" before decision / verdict / agreement / conclusion / resolution? Mark it ✓ or ✗ in your head.</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Now B. Then C. Then D. One sentence at a time — never compare two sentences against each other, only each one against the rule.</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Exactly ONE sentence will fail the check. That's your answer — even if a different sentence "sounds" more unusual for some other reason.</div>
+    </div>
+    <div class="step-list">
+      <p style="margin-bottom:6px;font-weight:700;color:#1B5E20;font-size:14px">Worked example</p>
+      <p style="margin:0;font-size:13.5px">A) The editors arrived at a final draft after weeks of revisions. — ✓ AT, passes.<br>B) The passengers arrived to the station just in time. — ✗ "arrived TO" — FAILS. This is the answer.<br>C) The board arrived at a resolution without much debate. — ✓ AT, passes.<br>D) The chefs arrived at a new recipe after several attempts. — ✓ AT, passes.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: subjunctive adjective-trigger expansion -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Subjunctive: a NEW shape of trigger 🔎</h2>
+    <p>You've already locked in reporting-verb triggers — "suggested that," "requested that," "demanded that." Today's new shape is an <strong>adjective + "it is ___ that"</strong> — the trigger word isn't a verb about what someone SAID, it's a describing word about how important something is. Same underlying rule, different-looking cue — so the "spot the cue first" habit has to work on this shape too, not just the familiar one.</p>
+    <div class="tree">
+      <div class="node start">See "that" in the middle of a sentence?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">STOP. Scan backwards. Is the trigger a REPORTING VERB ("suggested," "requested") OR an ADJECTIVE pattern ("it is essential/vital/important/necessary that")?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Either shape → same result → base form, no -s, no matter who's doing it.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 The adjective-trigger bank — today's new territory</div>
+      <div class="trigger-bank">
+        <span class="trigger-chip">it is essential that</span>
+        <span class="trigger-chip">it is vital that</span>
+        <span class="trigger-chip">it is important that</span>
+        <span class="trigger-chip">it is necessary that</span>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:#555">Worked example: "It is necessary that every camper (wear) a life jacket." → "it is necessary that" is the trigger, the same family as "essential/vital/important" → base form → <strong>wear</strong>, not "wears."</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: connector refresher -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Instead vs Moreover: quick refresher 🔀</h2>
+    <p>Both words can start a new sentence right after a full stop — the question is what job they're doing.</p>
+    <div class="tree">
+      <div class="node start">Does the new sentence SURPRISE you compared to the first one — the opposite of what you'd expect?</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Does it instead just ADD another fact that agrees with the first one?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Surprise / opposite → Instead. Extra matching fact → Moreover.</div>
+    </div>
+    <p style="font-size:13.5px;color:#555">Worked example: "The forecast promised sunshine all weekend. Instead, the rain never let up." — the rain is the OPPOSITE of the sunny forecast, so it's a surprise → Instead, not Moreover.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: predict-drill round 1: arrive at error-scan -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Predict first, then check — spotting "arrive at" errors ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Use the one-at-a-time scanning routine. Write YOUR answer on paper first, then reveal.</p>
+    <div id="pWrap1"></div>
+    <div class="drill-score" id="p1Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: predict-drill round 2: subjunctive adjective triggers -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Predict first, then check — adjective+"that" triggers ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Spot the cue, then decide the base form.</p>
+    <div id="pWrap2"></div>
+    <div class="drill-score" id="p2Score"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S7: predict-drill round 3: connector + report + nav -->
+<div class="screen" id="s7">
+  <div class="card">
+    <h2>Predict first, then check — Instead vs Moreover ✍️</h2>
+    <div id="pWrap3"></div>
+    <div class="drill-score" id="p3Score"></div>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">"Arrive AT" is locked — check each sentence one at a time to spot the mismatch. Subjunctive: adjective triggers ("essential/vital/important/necessary that") work exactly like reporting-verb triggers. Instead = surprise/opposite; Moreover = matching extra fact.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="GrammarVocab_Lesson_RebuildingType1AndFigurativeLaunch.html" class="btn-lesson">Next Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7'];var cur=0;
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;document.getElementById(SCREENS[cur]).className='screen';cur=n;document.getElementById(SCREENS[cur]).className='screen active';document.getElementById('prevBtn').disabled=(cur===0);document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);window.scrollTo(0,0);
+if(SCREENS[cur]==='s5'&&!pBuilt[1]){buildPredict(1,'pWrap1',P_SET1);}
+if(SCREENS[cur]==='s6'&&!pBuilt[2]){buildPredict(2,'pWrap2',P_SET2);}
+if(SCREENS[cur]==='s7'&&!pBuilt[3]){buildPredict(3,'pWrap3',P_SET3);}
+if(SCREENS[cur]==='s7'){buildReport();}
+}
+
+var wuKey={1:'a'};var wuWhy={1:'Correct — "arrive AT a plan/decision/agreement" is the locked phrase: at.'};var wuDone={};
+function doWu(n,c){if(wuDone[n])return;wuDone[n]=true;var it=document.getElementById('wu'+n);var fb=document.getElementById('wu'+n+'f');it.querySelectorAll('button').forEach(function(b){b.disabled=true;});if(c===wuKey[n]){fb.className='di-fb ok';fb.textContent='✅ '+wuWhy[n];}else{fb.className='di-fb no';fb.textContent='❌ '+wuWhy[n];}}
+
+// ── Predict-first drill data ──
+var P_SET1 = [
+  { sent:'Which sentence contains an error?<br>A) The historians arrived at a shared theory after comparing the letters.<br>B) The volunteers arrived to the shelter before the storm hit.<br>C) The couple arrived at a name for the puppy after a week of ideas.<br>D) The engineers arrived at a solution just before the deadline.', opts:['A','B','C','D'], ans:'B', why:'B is wrong — "arrived TO the shelter" is a different use ("arrive to" is never correct for places or decisions — it should be "arrived AT the shelter"). A, C, and D correctly use "arrived at."' },
+  { sent:'Which sentence contains an error?<br>A) The explorers arrived to a hidden valley after days of hiking.<br>B) The teachers arrived at a fair grading policy after a long meeting.<br>C) The siblings arrived at a compromise about the weekend chores.<br>D) The council arrived at a final budget for the new year.', opts:['A','B','C','D'], ans:'A', why:'A is wrong — "arrived TO a hidden valley" should be "arrived AT a hidden valley." B, C, and D are all correct.' }
+];
+var P_SET2 = [
+  { sent:'"It is essential that every diver ___ (check) their oxygen tank before descending."', opts:['checks','check','checked','checking'], ans:'check', why:'"It is essential that" is an adjective-pattern subjunctive trigger — base form, no -s: check.' },
+  { sent:'"It is necessary that the manager ___ (approve) the budget before Friday."', opts:['approve','approves','approved','approving'], ans:'approve', why:'"It is necessary that" is an adjective-pattern subjunctive trigger — base form, no -s: approve.' }
+];
+var P_SET3 = [
+  { sent:'"The bakery had promised fresh bread by 8 a.m. ___, the ovens broke down and nothing was ready until noon."', opts:['Moreover','Instead','Additionally','Similarly'], ans:'Instead', why:'The broken ovens are the OPPOSITE of the promised fresh bread — a surprise/contrast, not an extra matching fact → Instead.' }
+];
+
+var pBuilt={};var pScore={1:0,2:0,3:0};var pDone={};
+
+function buildPredict(setId, containerId, items){
+  pBuilt[setId]=true; pDone[setId]={};
+  var html='';
+  items.forEach(function(it,i){
+    var n=i+1;
+    html += '<div class="di" id="p'+setId+'-'+n+'">';
+    html += '<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    html += '<div class="predict-gate" id="p'+setId+'-'+n+'-gate">';
+    html += '<div class="predict-note">✍️ Write YOUR answer on paper first, then tap below.</div>';
+    html += '<button class="di-opt" onclick="revealPredict('+setId+','+n+')">I\'ve written mine — show me the choices</button>';
+    html += '</div>';
+    html += '<div class="opts-wrap" id="p'+setId+'-'+n+'-opts"><div class="di-btns">';
+    it.opts.forEach(function(o){
+      html += '<button class="di-opt" onclick="doPredict('+setId+','+n+',\''+o+'\')">'+o+'</button>';
+    });
+    html += '</div></div>';
+    html += '<div class="di-fb" id="p'+setId+'-'+n+'-fb"></div>';
+    html += '</div>';
+  });
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function revealPredict(setId, n){
+  document.getElementById('p'+setId+'-'+n+'-gate').style.display='none';
+  document.getElementById('p'+setId+'-'+n+'-opts').className='opts-wrap show';
+}
+
+function doPredict(setId, n, choice){
+  if (pDone[setId][n]) return;
+  pDone[setId][n]=true;
+  var items = (setId===1)?P_SET1:(setId===2)?P_SET2:P_SET3;
+  var it = items[n-1];
+  document.getElementById('p'+setId+'-'+n+'-opts').querySelectorAll('button').forEach(function(b){b.disabled=true;});
+  var fb = document.getElementById('p'+setId+'-'+n+'-fb');
+  var correct = (choice === it.ans);
+  if (correct){ fb.className='di-fb ok'; fb.textContent='✅ '+it.why; pScore[setId]++; }
+  else { fb.className='di-fb no'; fb.textContent='❌ '+it.why; }
+  var total = items.length;
+  if (Object.keys(pDone[setId]).length===total){
+    var s=document.getElementById('p'+setId+'Score');
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round '+setId+': '+pScore[setId]+'/'+total+'</strong>';
+  }
+}
+
+function buildReport(){
+  document.getElementById('reportWrap').innerHTML='<p><strong>Round 1 (arrive-at scanning):</strong> '+pScore[1]+'/2 &middot; <strong>Round 2 (subjunctive adjective triggers):</strong> '+pScore[2]+'/2 &middot; <strong>Round 3 (Instead vs Moreover):</strong> '+pScore[3]+'/1</p>';
+}
+</script>
+</body>
+</html>

@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '2 Sep 2026',
+  updated:        '3 Sep 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           35,
-    status:      '🔁 Gap-Closure Review unit &mdash; no new content, closes 6 items still open from Units 31-34 (arrive at a decision, subjunctive, superlative, Little-inversion, much/very-much, Type-1 conditional).',
+    n:           36,
+    status:      'Normal rotation unit &mdash; closes Unit 35&rsquo;s exact format-transfer gaps (arrive at + much/very-much error-scan, Type-1 conditional re-teach, Little-inversion did+base-form detail) and launches Figurative Language as a new, ungraded growth strand ahead of its Milestone 4 scored checkpoint.',
     testPending: true
   },
 
@@ -32,82 +32,70 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 34 — updated after each test)
+  // Last completed assessment (Unit 35 — updated after each test)
   lastUnit: {
-    n: 34, label: 'Unit 34 🏫', score: 29, outOf: 30, pct: 97, delta: null, prevScore: 14,
+    n: 35, label: 'Unit 35 🔁', score: 12, outOf: 20, pct: 60, delta: -2, prevScore: 14,
 
-    patternLabel:   'Unit 34 &mdash; 27 Aug 2026 &middot; 29/30 (97%) &mdash; PASS, the strongest result of the last 5 tests',
-    patternInsight: '<strong>A one-off School Curriculum detour, built to directly prep Prem for his real school Semester One test</strong> (Spelling/Vocabulary from &ldquo;Life in Space&rdquo; &amp; &ldquo;Have Your Say&rdquo;, Reading Comprehension, Writing) &mdash; scored out of 30, longer than the standard 20-item format, pass bar 24/30. <strong>Reading Comprehension 12/12, PERFECT</strong> &mdash; every item across both original passages (persuasive &ldquo;Should Tablets Replace Textbooks?&rdquo; and informational &ldquo;The International Space Station&rdquo;) correct, including every Applied-tier inference and critical-thinking item. <strong>Writing Conventions 6/6, PERFECT</strong> &mdash; every persuasive-writing craft item correct. <strong>Spelling &amp; Vocabulary 11/12</strong> &mdash; a single isolated miss (Q10): &ldquo;launch pad&rdquo; chosen instead of the correct &ldquo;booster rocket&rdquo;, two related &ldquo;Life in Space&rdquo; concepts (the SITE a rocket lifts off from vs. the MECHANISM that gives extra power and falls away) &mdash; a plausible mix-up, not a pattern. By tier: Intermediate 15/15 PERFECT, Applied 14/15.',
+    patternLabel:   'Unit 35 (Gap-Closure Review) &mdash; 3 Sep 2026 &middot; 12/20 (60%) &mdash; FAIL, lowest since Unit 26',
+    patternInsight: '<strong>A clear cross-cutting pattern, not scattered misses.</strong> Cloze 4/7: &ldquo;arrive at&rdquo; held perfectly in direct fill-in (its locked phrase) but missed its first-ever error-scan exposure; the subjunctive adjective-trigger family (essential/vital/important that) missed on first exposure while reporting-verb triggers held; a light connector slip (Instead vs Moreover). Grammar 3/7: Little-inversion&rsquo;s word order held (error-scan correct) but the exact &ldquo;did+base form&rdquo; verb detail missed; much/very-much held in direct form but missed its first error-scan exposure; Type-1 conditional missed for a SECOND straight test (also missed at Unit 33), now a genuine backslide needing a full re-teach. Vocab 5/6 &mdash; both reversal traps held, one isolated miss on &ldquo;earnest.&rdquo; <strong>The headline finding: &ldquo;arrive at&rdquo; and much/very-much BOTH failed on their first-ever exposure to error-scan format specifically</strong> &mdash; a format-transfer gap, not a content gap; the underlying rules are solid.',
 
-    analysisLabel:   'Unit 34 Result Analysis &mdash; 27 Aug 2026 (Reading and Writing both go perfect; a single isolated vocabulary word-choice slip is the only miss)',
-    analysisInsight: '<strong>An excellent, low-noise result</strong> &mdash; a single isolated vocabulary slip against an otherwise perfect paper, on content that matters both for Prem&rsquo;s real school test and for genuine ISA-track skill transfer (reading comprehension and persuasive-writing craft are both real ISA skills, just tested here with different, off-rotation vocabulary). No dedicated re-teach needed &mdash; a brief flashcard-style review of &ldquo;booster rocket&rdquo; vs. &ldquo;launch pad&rdquo; before the real school test is enough. Because this unit tested Spelling/Reading/Writing and not Grammar or Cloze, <strong>it has zero effect on Unit 35&rsquo;s existing 6-item gap-review plan</strong> (Little-inversion, much/very-much, &ldquo;arrive at a decision&rdquo;, subjunctive, superlative form, Type-1 conditional &mdash; all unchanged). Unit 35 returns to the normal ISA track as the pre-planned gap-review unit for Units 31-34.',
+    analysisLabel:   'Unit 35 Result Analysis &mdash; 3 Sep 2026 (two skills solid in direct-recall form, both missed their first error-scan exposure &mdash; a naming, not a knowing, problem)',
+    analysisInsight: '<strong>A precisely diagnosable result, not a broad regression.</strong> &ldquo;Arrive at&rdquo; and much/very-much both prove the underlying grammar is genuinely understood (both passed direct fill-in cleanly) &mdash; what&rsquo;s missing is the separate skill of spotting the same rule broken inside someone else&rsquo;s sentence. Type-1 conditional is now a confirmed 2-test backslide (Unit 33, Unit 35) and needs the full re-teach treatment: decision tree rebuilt, more volume, multiple formats in one sitting. This is the 4th straight sub-80% test (U31 75%, U32 65%, U33 70%, U35 60%) &mdash; Unit 40 remains the next scheduled gap-review checkpoint per the standing cadence, but Unit 36 gets a head start by targeting these exact 3 items immediately rather than waiting. Also: Unit 36 takes a first, ungraded look at Figurative Language, per the staggered plan to have its first SCORED checkpoint land by Milestone 4.',
 
-    qSummary: '<strong>29/30 (97%) PASS &mdash; strongest result of the last 5 tests. Reading Comprehension 12/12 PERFECT (both passages, all question types incl. Applied-tier inference). Writing Conventions 6/6 PERFECT (persuasive-writing craft). Spelling &amp; Vocabulary 11/12 &mdash; one isolated miss (launch pad vs. booster rocket). Tiers: Intermediate 15/15 PERFECT, Applied 14/15. No dedicated follow-up needed beyond a quick flashcard check on the missed word pair. Doesn&rsquo;t touch Grammar/Cloze, so Unit 35&rsquo;s gap-review plan is unaffected. Next: UNIT 35 &mdash; a dedicated gap-review unit closing everything still open from Units 31-34 (Little-inversion, much/very-much, arrive at a decision, subjunctive, superlative form, Type-1 conditional).</strong>',
+    qSummary: '<strong>12/20 (60%) FAIL &mdash; lowest since Unit 26, but a clean, nameable pattern. Cloze 4/7: &ldquo;arrive at&rdquo; and much/very-much/subjunctive all solid in their known format, both missed their first error-scan/new-trigger exposure. Grammar 3/7: Little-inversion&rsquo;s word order held, only the did+base-form detail missed; Type-1 conditional backslid for a 2nd straight test. Vocab 5/6 &mdash; both reversal traps held. Next: UNIT 36 &mdash; dedicated error-scan practice for &ldquo;arrive at&rdquo; and much/very-much, a full Type-1 conditional re-teach, a Little-inversion detail fix, and a first ungraded look at Figurative Language.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Spelling/Vocab', pass:true, note:'&#10003; gravity &mdash; an invisible force that pulls things towards the Earth.' },
-      { q:'Q2',  topic:'Spelling/Vocab', pass:true, note:'&#10003; orbit &mdash; the curved path a planet or spacecraft follows around a star or planet.' },
-      { q:'Q3',  topic:'Spelling/Vocab', pass:true, note:'&#10003; opinions &mdash; what people personally believe about something.' },
-      { q:'Q4',  topic:'Spelling/Vocab', pass:true, note:'&#10003; astronomer &mdash; a scientist who studies space and its objects, correctly inferred from context.' },
-      { q:'Q5',  topic:'Spelling/Vocab', pass:true, note:'&#10003; individuality &mdash; a person&rsquo;s own special character or style, correctly inferred from context.' },
-      { q:'Q6',  topic:'Spelling/Vocab', pass:true, note:'&#10003; technology &mdash; inventions and tools that make work or life easier, correctly inferred from context.' },
-      { q:'Q7',  topic:'Spelling/Vocab', pass:true, note:'&#10003; satellite &mdash; correct spelling, double &ldquo;l&rdquo;.' },
-      { q:'Q8',  topic:'Spelling/Vocab', pass:true, note:'&#10003; socialise &mdash; correct British spelling, &ldquo;-ise&rdquo; not &ldquo;-ize&rdquo;.' },
-      { q:'Q9',  topic:'Spelling/Vocab', pass:true, note:'&#10003; docking &mdash; correct spelling, single &ldquo;ck&rdquo;.' },
-      { q:'Q10', topic:'Spelling/Vocab', pass:false, note:'&#10007; Chose &ldquo;launch pad&rdquo;; scored answer was &ldquo;booster rocket&rdquo; &mdash; a mix-up between two related &ldquo;Life in Space&rdquo; concepts (the launch SITE vs. the extra-power MECHANISM that falls away). The only miss on the whole test.' },
-      { q:'Q11', topic:'Spelling/Vocab', pass:true, note:'&#10003; argument &mdash; correctly inferred from context (a friendly discussion where opinions vary).' },
-      { q:'Q12', topic:'Spelling/Vocab', pass:true, note:'&#10003; friction &mdash; the force created when objects rub together, which slows movement down. Spelling/Vocab finishes 11/12.' },
-      { q:'Q13', topic:'Reading', pass:true, note:'&#10003; Main idea, Passage A (tablets vs. textbooks) &mdash; different opinions about whether tablets should replace textbooks.' },
-      { q:'Q14', topic:'Reading', pass:true, note:'&#10003; Detail recall, Passage A &mdash; tablets let students show individuality and connect to useful technology.' },
-      { q:'Q15', topic:'Reading', pass:true, note:'&#10003; Detail recall, Passage A &mdash; students may not socialise enough with classmates.' },
-      { q:'Q16', topic:'Reading', pass:true, note:'&#10003; Vocab-in-context, Passage A &mdash; individuality means a person&rsquo;s own special way of doing things.' },
-      { q:'Q17', topic:'Reading', pass:true, note:'&#10003; Inference (Applied), Passage A &mdash; a textbook removes the games-distraction problem since it can&rsquo;t run games.' },
-      { q:'Q18', topic:'Reading', pass:true, note:'&#10003; Critical thinking (Applied), Passage A &mdash; presenting both sides helps the reader form their own opinion.' },
-      { q:'Q19', topic:'Reading', pass:true, note:'&#10003; Detail recall, Passage B (ISS) &mdash; the ISS circles the Earth about sixteen times a day.' },
-      { q:'Q20', topic:'Reading', pass:true, note:'&#10003; Detail recall, Passage B &mdash; docking is when a spacecraft locks securely onto the space station.' },
-      { q:'Q21', topic:'Reading', pass:true, note:'&#10003; Main idea, Passage B &mdash; life and work aboard the International Space Station.' },
-      { q:'Q22', topic:'Reading', pass:true, note:'&#10003; Vocab-in-context, Passage B &mdash; friction is the force created when objects rub together, which slows movement down.' },
-      { q:'Q23', topic:'Reading', pass:true, note:'&#10003; Inference (Applied), Passage B &mdash; combining &ldquo;no air = no friction&rdquo; and &ldquo;friction slows things down&rdquo; to explain why a spinning tool keeps turning.' },
-      { q:'Q24', topic:'Reading', pass:true, note:'&#10003; Critical thinking (Applied), Passage B &mdash; the spinning-tool detail helps the reader picture what &ldquo;no friction&rdquo; really means. Reading finishes a PERFECT 12/12.' },
-      { q:'Q25', topic:'Writing', pass:true, note:'&#10003; &ldquo;I believe every school should have a bigger library&rdquo; is the clear opinion topic sentence.' },
-      { q:'Q26', topic:'Writing', pass:true, note:'&#10003; &ldquo;because&rdquo; is the connective that signals a reason is coming.' },
-      { q:'Q27', topic:'Writing', pass:true, note:'&#10003; &ldquo;I think Mars would be more exciting to explore than the Moon&rdquo; is the opinion, not a fact.' },
-      { q:'Q28', topic:'Writing', pass:true, note:'&#10003; (Applied) correctly picked the sentence giving a supporting reason (choosing clothes that reflect individuality).' },
-      { q:'Q29', topic:'Writing', pass:true, note:'&#10003; (Applied) correctly identified that skipping the other side makes an argument seem one-sided, not thoughtful.' },
-      { q:'Q30', topic:'Writing', pass:true, note:'&#10003; (Applied) correctly picked the strongest concluding sentence restating the opinion. Writing finishes a PERFECT 6/6.' }
+      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;arrived AT a merger agreement&rdquo; &mdash; the locked phrase holds in direct fill-in.' },
+      { q:'Q2',  topic:'Cloze', pass:false, note:'&#10007; Chose A (board arrived at a resolution &mdash; actually correct); missed that B (&ldquo;referees arrived TO a final decision&rdquo;) was the flawed sentence. First-ever &ldquo;arrive at&rdquo; error-scan exposure.' },
+      { q:'Q3',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;suggested that every player attend&rdquo; &mdash; reporting-verb subjunctive trigger holds.' },
+      { q:'Q4',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;notifies&rdquo; (the old &ldquo;-s&rdquo; agreement habit) instead of &ldquo;notify&rdquo; &mdash; &ldquo;it is important that&rdquo; is an adjective-pattern trigger, a shape never drilled in a scored test before.' },
+      { q:'Q5',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;the last one was by far the most original&rdquo; &mdash; superlative form holds cleanly.' },
+      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;thanked for organizing&rdquo; &mdash; gerund-after-preposition holds.' },
+      { q:'Q7',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;Moreover&rdquo; instead of &ldquo;Instead&rdquo; for a contrast between a sunny forecast and ongoing rain &mdash; a light connector-logic slip. Cloze finishes 4/7.' },
+      { q:'Q8',  topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;Little did she anticipated&rdquo; (wrong verb form after &ldquo;did&rdquo;) instead of &ldquo;anticipate&rdquo; &mdash; the flipped word order itself was applied correctly, only the base-form detail slipped.' },
+      { q:'Q9',  topic:'Grammar', pass:true,  note:'&#10003; Correctly spotted &ldquo;Little the coach imagined&rdquo; as the flawed sentence &mdash; confirms the word-order concept itself is solid.' },
+      { q:'Q10', topic:'Grammar', pass:true,  note:'&#10003; &ldquo;very much impressed&rdquo; &mdash; much/very-much holds in direct fill-in.' },
+      { q:'Q11', topic:'Grammar', pass:false, note:'&#10007; Chose A (very much relieved &mdash; actually correct); missed that C (&ldquo;critics were much astonished&rdquo;) was the flawed sentence. First-ever much/very-much error-scan exposure.' },
+      { q:'Q12', topic:'Grammar', pass:false, note:'&#10007; Chose C (&ldquo;if the museum opens early, the tour WOULD start&rdquo;, a Type-1/Type-2 mismatch) instead of D (&ldquo;...WILL start&rdquo;) &mdash; Type-1 conditional&rsquo;s SECOND straight miss (also missed at Unit 33), now a confirmed backslide.' },
+      { q:'Q13', topic:'Grammar', pass:true,  note:'&#10003; &ldquo;the bread smelled wonderful&rdquo; &mdash; linking-verb + adjective holds.' },
+      { q:'Q14', topic:'Grammar', pass:false, note:'&#10007; Chose C (&ldquo;thereby it reduced&rdquo;, a new subject-verb clause) instead of B (&ldquo;thereby reducing&rdquo;) &mdash; a rare miss on a normally-closed maintenance item. Grammar finishes 3/7.' },
+      { q:'Q15', topic:'Vocab', pass:false, note:'&#10007; Chose &ldquo;Slow and reluctant&rdquo; instead of &ldquo;Sincere and serious&rdquo; for &ldquo;earnest&rdquo; &mdash; an isolated miss, not a trap item.' },
+      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;apprehensive&rdquo; &mdash; worried and anxious, correctly identified.' },
+      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;resourceful&rdquo; &mdash; reversal-trap item, correctly avoided the near-opposite &ldquo;helpless&rdquo; distractor.' },
+      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;indignant&rdquo; &mdash; offended and angry, correctly identified.' },
+      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;benevolent&rdquo; &mdash; reversal-trap item, correctly avoided the near-opposite &ldquo;selfish&rdquo; distractor.' },
+      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;reserved&rdquo; &mdash; quiet and modest, correctly identified. Vocab finishes 5/6, both designed reversal traps held.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After UNIT 34 (29/30, 97% PASS, 27 Aug 2026 — a one-off School Curriculum detour, not part of the normal
-  // Cloze/Grammar/Vocab ISA rotation):
-  // Grammar/Cloze/Writing/Conversation/CritThink/FigLang unchanged — not tested this unit (Writing's ESTIMATE
-  //   flag stays in place — U34's Writing section was craft-recognition MCQ, not the actual scored composition
-  //   checkpoint the standing protocol requires before that flag can be removed);
-  // Reading Compr. +2 (85→87, target 85→87) — a MODEST bump for a genuine real-condition stress test: 12/12
-  //   PERFECT across 2 original passages, every question type incl. Applied-tier inference and critical
-  //   thinking. Same underlying ISA skill (main idea, inference, vocab-in-context), just off-rotation content
-  //   (school-reader vocabulary, not the normal ISA rotation) — kept modest rather than a full jump for that
-  //   reason;
-  // Vocabulary +1 (85→86) — Spelling/Vocab 11/12 (92%), strong but not perfect (one isolated word-choice
-  //   miss), so a smaller bump than Reading's; target left unchanged since it was already exceeded
+  // After UNIT 35 (12/20, 60% FAIL, 3 Sep 2026 — Gap-Closure Review, back on the normal Cloze/Grammar/Vocab scale):
+  // Reading/Writing/Conversation/CritThink/FigLang unchanged — not tested this unit;
+  // Grammar -2 (64→62) — the format-transfer misses (much/very-much, "arrive at" via error-scan) show the
+  //   underlying rules ARE known, but Type-1 conditional's 2nd straight backslide is a genuine regression signal,
+  //   so a modest downward adjustment reflects the real, still-open gap rather than treating this as pure noise;
+  // Cloze -1 (64→63) — a smaller dip than Grammar's, since Cloze's misses were mostly first-exposure-to-new-
+  //   format items (error-scan, a new subjunctive trigger shape) rather than a repeat backslide on a previously
+  //   "closed" item;
+  // Vocabulary unchanged (86) — 5/6 (83%) with both designed reversal traps held; one isolated miss doesn't
+  //   move an already-exceeded target
   skills: [
-    { name: 'Reading Compr.',    c: 87, t: 87 },   // U34: Reading 12/12 (100%) PERFECT, real-condition stress test — modest bump (off-rotation content)
-    { name: 'Vocabulary',        c: 86, t: 82 },   // U34: Spelling/Vocab 11/12 (92%) — small bump, one isolated miss
-    { name: 'Grammar',           c: 64, t: 82 },   // Unchanged — not tested this unit (U34 was Spelling/Reading/Writing only)
-    { name: 'Cloze Test',        c: 64, t: 80 },   // Unchanged — not tested this unit
-    { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — still unchanged. U34's Writing Conventions 6/6 PERFECT was craft-recognition MCQ, not the scored composition checkpoint the standing protocol requires before this flag can be removed; first real checkpoint planned by Milestone 5
+    { name: 'Reading Compr.',    c: 87, t: 87 },   // Unchanged — not tested this unit
+    { name: 'Vocabulary',        c: 86, t: 82 },   // U35: Vocab 5/6 (83%) — both reversal traps held, one isolated miss, no change
+    { name: 'Grammar',           c: 62, t: 82 },   // U35: Grammar 3/7 (43%) — Type-1 conditional 2nd straight backslide + 2 format-transfer misses
+    { name: 'Cloze Test',        c: 63, t: 80 },   // U35: Cloze 4/7 (57%) — first-exposure format/trigger misses, not repeat backslides
+    { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — unchanged; first real checkpoint planned by Milestone 5
     { name: 'Conversation',      c: 95, t: 85 },   // Unchanged — not tested this unit
     { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; first real checkpoint planned by Milestone 4
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; Unit 36 launches lesson-only exposure; first real checkpoint planned by Milestone 4
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [87, 86, 64, 64, 65, 95, 62, 55],
+  radarCurrent:  [87, 86, 62, 63, 65, 95, 62, 55],
   radarTarget:   [87, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 34',
+  radarLegendUnit: 'Unit 35',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -148,11 +136,25 @@ var PREM_ENGLISH = {
     { n:31, score:15, outOf:19, delta:-1, color:'#667eea', star:false, label:'U31' },
     { n:32, score:13, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U32' },
     { n:33, score:14, outOf:20, delta:1,  color:'#fc4e4e', star:false, label:'U33' },
-    { n:34, score:29, outOf:30, delta:null, color:'#89F336', star:true, label:'U34 🏫' }
+    { n:34, score:29, outOf:30, delta:null, color:'#89F336', star:true, label:'U34 🏫' },
+    { n:35, score:12, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U35 🔁' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 35,
+      title: 'Unit 35 &mdash; 🔁 Gap-Closure Review: Units 31-34',
+      badge: '#fc4e4e',
+      status: 'done',
+      note: '12/20 (60%) &mdash; <strong>FAIL, lowest since Unit 26 &mdash; but a clean, nameable pattern, not a broad regression.</strong> <strong>Cloze 4/7:</strong> &ldquo;arrive at a decision&rdquo; held PERFECTLY in direct fill-in (its locked phrase is genuinely learned) but missed its first-ever error-scan exposure; the subjunctive adjective-trigger family (&ldquo;it is essential/vital/important that&rdquo;) missed on first exposure while the already-drilled reporting-verb triggers (&ldquo;suggested that&rdquo;) held; a light Instead-vs-Moreover connector slip. <strong>Grammar 3/7:</strong> Little-inversion&rsquo;s flipped word order held (correctly spotted in error-scan) but the exact &ldquo;did+BASE form&rdquo; verb detail slipped; much/very-much held in direct fill-in but missed its first error-scan exposure; Type-1 conditional missed for a SECOND straight test (also missed at Unit 33), now a confirmed backslide needing a full re-teach. <strong>Vocab 5/6</strong> &mdash; both designed reversal-trap items held, one isolated miss on &ldquo;earnest.&rdquo; <strong>The headline finding: &ldquo;arrive at&rdquo; and much/very-much BOTH failed on their first-ever exposure to ERROR-SCAN format specifically</strong> &mdash; the underlying grammar is solid; what&rsquo;s missing is the separate skill of spotting the same rule broken inside someone else&rsquo;s sentence. &middot; Next: <strong>UNIT 36</strong> gives &ldquo;arrive at&rdquo; and much/very-much dedicated error-scan practice, gives Type-1 conditional a full re-teach across 3 formats, fixes the Little-inversion verb-form detail, and takes a first, ungraded look at Figurative Language as a new growth strand ahead of its Milestone 4 scored checkpoint.',
+      tags: [
+        { t:'12/20 (60%) FAIL', s:'background:#fff0f0;color:#c53030' },
+        { t:'Cloze 4/7 (format-transfer gap)', s:'background:#fff0f0;color:#c53030' },
+        { t:'Grammar 3/7 (Type-1 backslide)', s:'background:#fff0f0;color:#c53030' },
+        { t:'Vocab 5/6 (both traps held)', s:'background:#fff8e1;color:#744210' }
+      ]
+    },
     {
       n: 34,
       title: 'Unit 34 &mdash; 🏫 School Curriculum: Spelling, Reading &amp; Writing (real school Semester One test prep)',

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 36 Test — Cloze · Grammar · Vocabulary</title>
+<!-- Built from ENG_INTERACTIVE_TEST_TEMPLATE.html, 3 Sep 2026. UNIT 36 IS A NORMAL ROTATION UNIT (Unit 35 was
+     the dedicated gap-review unit; Unit 40 is the next one per the 21 Aug 2026 cadence rule). Content carries
+     forward the specific open items flagged in Unit 35's real result (12/20, 60% FAIL) plus launches Figurative
+     Language as the new L3 growth strand (lesson-only, ungraded — see coaching_rules.md's staggered-checkpoint
+     plan, first SCORED Figurative Language checkpoint is due by Milestone 4, not this unit). Classification:
+     "arrive at" (Q1/Q2) and "much/very-much" (Q10) both passed cleanly in DIRECT fill-in format at Unit 35 but
+     missed on their first-ever ERROR-SCAN exposure — routine handling per the standard first-exposure-in-a-new-
+     format rule: one more confirming rep in error-scan format (2 items for arrive-at, since it's had 2 error-
+     scan misses across the block; 1 for much/very-much, since it's had exactly 1). Subjunctive (Q3/Q4) is
+     refined further: the reporting-verb trigger shape ("suggested that") is now solid, but the adjective+"that"
+     shape ("it is important that") missed on its first exposure — Q3/Q4 give 2 fresh adjective-trigger reps.
+     Type-1 conditional (Q8/Q9) has now missed at Unit 33 AND Unit 35 (2 misses) — escalated to a genuine
+     re-teach per the backslid/reopened taxonomy: 2 scored formats here (direct MCQ + error-scan), plus a 3rd
+     production/write-it-yourself rep in the lesson only. Little-inversion (Q12) had its word-order concept
+     confirmed solid (error-scan correct) but missed the specific "did + BASE form" detail (chose the past-tense
+     form) — one light confirming rep on that exact detail. Q6/Q7/Q11/Q13/Q14 are light, already-closed
+     maintenance reps (gerund-after-preposition, superlative, much/very-much direct form, linking-verb adjective,
+     thereby+-ing) — no new grammar/cloze rule introduced anywhere. Vocab (Q15-Q20) is a normal maintenance
+     rotation with a fresh narrative ("Aisha's Community Garden") and 2 reversal-trap items at Q17/Q19 — a third
+     confirming data point for that placement (held clean at Unit 33 and Unit 35). Every fill-in-the-blank item
+     has been checked against skill rule H.6. MCQ correct-answer position is exact 5/5/5/5 across A/B/C/D.
+     Figurative Language (simile/metaphor) does NOT appear anywhere in this scored test, by design. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f4f8f4;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#e2ece4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#1b5e20,#66bb6a);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#1b5e20;white-space:nowrap}
+
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+  .hint.cloze{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.grammar{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.vocab{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .gap{font-weight:800;color:#1565c0}
+
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt-row .opt{width:auto;flex:1 1 auto;min-width:64px;text-align:center}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.4rem;font-weight:900;color:#1b5e20}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;border:1.5px solid var(--line)}
+
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(10,30,18,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#1b5e20;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 36 Test — Cloze · Grammar · Vocabulary</b>
+      <span class="sub" id="hdr-sub">Closing Unit 35's Format Gaps</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — for cloze: check "arrive at" sentences ONE AT A TIME, don't skim for whichever "feels" wrong. Subjunctive triggers can be a reporting verb (suggested that) OR an adjective pattern (it is essential/vital/important/necessary that) — either way, base form, no -s. For grammar: Type-1 conditional — read the RESULT half first ("will" means the if-half must be present tense). "Much" needs "very" in front of it before a participle-adjective. After "Little did [subject]," the next verb stays in its plain base form. For vocabulary: read the whole story once, then double-check your answer points in the SAME direction as the clue, not the opposite.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 20 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 20 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 36;
+const UNIT_TITLE = "Cloze · Grammar · Vocabulary";
+const UNIT_SUB   = "Closing Unit 35's Format Gaps";
+const PASS_BAR   = 16;                        // out of 20 (80% mastery threshold)
+const IS_MILESTONE = false;
+const MILESTONE_NUM = null;
+
+const SECTION_PASSAGE = {
+  vocab: `Aisha had signed up to help run the community garden plot behind her apartment block, and she worked in
+    a diligent way, checking the soil moisture every single morning before school. After a raccoon knocked over
+    three seedling trays one night, Aisha grew wary of leaving the compost bin open overnight. She came up with
+    an ingenious way to water the young seedlings using old plastic bottles with tiny holes poked in the caps,
+    so the plants could drink slowly even on the hottest afternoons. One boy from her class was contemptuous of
+    the whole project, rolling his eyes and calling it a waste of time whenever he walked past. Aisha's teacher,
+    though, was compassionate about the wilted tomato plants, gently reassuring the disappointed students that
+    they could simply replant next week. When the garden won first prize at the neighborhood fair, Aisha stayed
+    humble about it, quietly thanking her team without any big announcement.`
+};
+
+const SECTION_HINT = {
+  cloze:   "Strategy: for \"arrive at a decision/agreement/verdict,\" check each sentence ONE AT A TIME against the rule — don't skim for whichever one \"feels\" wrong. Subjunctive triggers can be a reporting verb (suggested that, requested that) OR an adjective pattern (it is essential/vital/important/necessary that) — spot the cue before you answer either way, then use the plain base form, no -s. Otherwise use your usual connector, tense, and preposition checks.",
+  grammar: "Strategy: for Type-1 conditional, read the RESULT half first — \"will\" means the if-half must be present tense, and \"will\" never appears in the if-half itself. For much/very-much, check each sentence one at a time — \"much\" alone can't sit directly before a participle-adjective (delighted, astonished, impressed) without \"very\" in front of it. After \"Little did [subject],\" the next verb stays in its plain BASE form, no -ed, no -s.",
+  vocab:   "Strategy: read the whole story once before answering anything. Double-check your answer means the SAME direction as the clue, not the opposite — a near-opposite trap is the easiest way to lose points."
+};
+
+const Q = [
+  // Section CLOZE (Q1-Q7) — Q1/Q2 give "arrive at" 2 more error-scan reps (its first-ever error-scan miss was
+  // at Unit 35; direct-recall format is fully solid). Q3/Q4 give subjunctive 2 fresh adjective+"that" trigger
+  // reps (its first-ever miss on this trigger shape; reporting-verb triggers are solid). Q5 is Instead vs
+  // Moreover's one confirming rep after a single Unit 35 miss. Q6/Q7 are light, already-closed maintenance
+  // (gerund-after-preposition, superlative) — zero new rules.
+  { n:1, section:'cloze', body:"Which sentence contains an error?<br>A) The scientists arrived to a groundbreaking conclusion after years of research.<br>B) The panel arrived at a fair decision after hearing both sides.<br>C) The hikers arrived at the summit just before sunset.<br>D) The jury arrived at a unanimous verdict late in the evening.",
+    options:["A","B","C","D"], ans:1,
+    why:"A is wrong — \"arrived TO a groundbreaking conclusion\" should be \"arrived AT a groundbreaking conclusion.\" B, C, and D are all correct." },
+  { n:2, section:'cloze', body:"Which sentence contains an error?<br>A) The committee arrived at a compromise everyone could accept.<br>B) The tourists arrived to the airport two hours early.<br>C) The doctors arrived at a diagnosis after several tests.<br>D) The team arrived at a strategy before the big match.",
+    options:["A","B","C","D"], ans:2,
+    why:"B is wrong — \"arrived TO the airport\" should be \"arrived AT the airport.\" A, C, and D are all correct." },
+  { n:3, section:'cloze', body:"Gap (3) — \"It is essential that every camper (3)___ a life jacket before entering the water.\"",
+    options:["wears","wore","wear","wearing"], ans:3,
+    why:"\"It is essential that\" is an adjective-pattern subjunctive trigger — base form, no -s: wear." },
+  { n:4, section:'cloze', body:"Gap (4) — \"It is vital that the patient (4)___ the medication exactly as prescribed.\"",
+    options:["takes","took","taking","take"], ans:4,
+    why:"\"It is vital that\" is an adjective-pattern subjunctive trigger — base form, no -s: take." },
+  { n:5, section:'cloze', body:"Gap (5) — \"The weather app predicted a calm afternoon. (5)___, a sudden storm rolled in before lunch.\"",
+    options:["Instead","Moreover","Additionally","Similarly"], ans:1,
+    why:"Full stop before the gap = sentence-starter. CONTRAST between the calm forecast and the sudden storm → Instead." },
+  { n:6, section:'cloze', body:"Gap (6) — \"The players were praised for (6)___ so well as a team throughout the tournament.\"",
+    options:["cooperate","cooperating","cooperated","to cooperate"], ans:2,
+    why:"\"praised for\" — \"for\" is a preposition, so the verb after it takes -ing: cooperating." },
+  { n:7, section:'cloze', body:"Gap (7) — \"Out of all seven volunteers, Maria arrived (7)___ to help set up the stalls.\"",
+    options:["earlier","more early","earliest","most early"], ans:3,
+    why:"Comparing SEVEN volunteers needs the superlative form: earliest." },
+
+  // Section GRAMMAR (Q8-Q14) — Q8/Q9 give Type-1 conditional a genuine re-teach: 2 scored formats (direct MCQ,
+  // error-scan), after 2 straight misses (Unit 33, Unit 35). Q10 gives much/very-much its first error-scan
+  // confirming rep. Q11 is much/very-much's already-solid direct form, light maintenance. Q12 is Little-
+  // inversion's one confirming rep on the specific "did + BASE form" detail (word order itself is solid).
+  // Q13/Q14 are light, already-closed maintenance (linking verb, thereby+-ing) — zero new rules.
+  { n:8, section:'grammar', body:"Which sentence is correctly written? A) If the coach arrives early, the practice would start on time. B) If the coach arrived early, the practice will start on time. C) If the coach will arrive early, the practice starts on time. D) If the coach arrives early, the practice will start on time.",
+    options:["A","B","C","D"], ans:4,
+    why:"A Type-1 (real/likely future) conditional pairs a present-tense \"if\" clause with a \"will\" result clause, and never uses \"will\" in the if-half: If the coach arrives..., the practice will start..." },
+  { n:9, section:'grammar', body:"Which sentence contains an error? A) If the museum stays open late, more visitors would come. B) If it rains tomorrow, the match will be postponed. C) If the bakery sells out early, customers will return the next day. D) If the train arrives on time, the passengers will make their connection.",
+    options:["A","B","C","D"], ans:1,
+    why:"A is wrong — the if-half is present tense (\"stays\"), so the result-half must say \"will come,\" not \"would come.\" B, C, and D are all correct." },
+  { n:10, section:'grammar', body:"Which sentence contains an error? A) The audience was very much moved by the speech. B) The judges were much amazed by the young violinist's skill. C) The neighbors were very much relieved when the power came back. D) This model is much lighter than the previous version.",
+    options:["A","B","C","D"], ans:2,
+    why:"B is wrong — \"much amazed\" should be \"very much amazed.\" A, C, and D are all correct — D's \"much lighter\" is fine because \"lighter\" is a comparative, not a participle-adjective." },
+  { n:11, section:'grammar', body:"\"The staff were (11)___ surprised when the inspection results came back perfect.\" Which word or phrase correctly completes the sentence?",
+    options:["much","too much","very much","so much of"], ans:3,
+    why:"\"Much\" alone cannot sit directly in front of a participle-adjective like \"surprised\" — it needs \"very\" in front of it: \"very much surprised.\"" },
+  { n:12, section:'grammar', body:"\"Little (12)___ the storm to change course so quickly.\" Which fits?",
+    options:["did the sailors expected", "the sailors did expect", "did the sailors expecting", "did the sailors expect"], ans:4,
+    why:"After \"Little did the sailors,\" the main verb stays in its plain BASE form: expect — not \"expected,\" since \"did\" already carries the past tense." },
+  { n:13, section:'grammar', body:"\"The soup tasted (13)___ after Grandma added extra spices.\" Which word correctly completes the sentence?",
+    options:["delicious","deliciously","delight","delighted"], ans:1,
+    why:"After the linking verb \"tasted,\" use the adjective \"delicious\" — not the -ly adverb \"deliciously\"." },
+  { n:14, section:'grammar', body:"Which sentence uses \"thereby\" correctly? A) The factory upgraded its filters, thereby reduced harmful emissions by half. B) The factory upgraded its filters, thereby reducing harmful emissions by half. C) The factory upgraded its filters, thereby it reduced harmful emissions by half. D) The factory upgraded its filters, thereby to reduce harmful emissions by half.",
+    options:["A","B","C","D"], ans:2,
+    why:"\"Thereby\" is followed by an -ing participle (\"thereby reducing...\"), not a new subject-and-verb clause." },
+
+  // Section VOCAB (Q15-Q20) — fresh narrative ("Aisha's Community Garden"), all-new word set (diligent, wary,
+  // ingenious, contemptuous, compassionate, humble/unassuming — none reused from prior units). Reversal-trap
+  // items at Q17 (ingenious) and Q19 (compassionate) — a third confirming data point for that placement (held
+  // clean at Unit 33 and Unit 35).
+  { n:15, section:'vocab', body:"What does \"diligent\" mean, as used in the passage (\"she worked in a diligent way, checking the soil moisture every single morning before school\")?",
+    options:["Careless and forgetful", "Loud and impatient", "Hardworking and careful", "Slow and reluctant"], ans:3,
+    why:"Checking the soil every single morning is a clue pointing to hardworking and careful." },
+  { n:16, section:'vocab', body:"What does \"wary\" mean, as used in the passage (\"after a raccoon knocked over three seedling trays one night, Aisha grew wary of leaving the compost bin open overnight\")?",
+    options:["Excited and eager", "Confident and relaxed", "Angry and upset", "Cautious and on guard"], ans:4,
+    why:"Being extra careful about the compost bin after the raccoon incident is a clue pointing to cautious and on guard." },
+  { n:17, section:'vocab', body:"What does \"ingenious\" mean, as used in the passage (\"she came up with an ingenious way to water the young seedlings using old plastic bottles with tiny holes poked in the caps\")?",
+    options:["Cleverly inventive and original", "Unoriginal and lacking creativity", "Wasteful and careless", "Confused and uncertain"], ans:1,
+    why:"Inventing a clever watering trick from old bottles is a clue pointing to cleverly inventive and original — the near opposite, \"unoriginal and lacking creativity,\" describes someone who couldn't have come up with the idea at all." },
+  { n:18, section:'vocab', body:"What does \"contemptuous\" mean, as used in the passage (\"one boy from her class was contemptuous of the whole project, rolling his eyes and calling it a waste of time\")?",
+    options:["Excited and supportive", "Scornful and disrespectful", "Nervous and shy", "Grateful and thankful"], ans:2,
+    why:"Rolling his eyes and calling the project a waste of time is a clue pointing to scornful and disrespectful." },
+  { n:19, section:'vocab', body:"What does \"compassionate\" mean, as used in the passage (\"Aisha's teacher, though, was compassionate about the wilted tomato plants, gently reassuring the disappointed students\")?",
+    options:["Selfish and uncaring", "Confused and mistaken", "Kind and caring", "Bored and indifferent"], ans:3,
+    why:"Gently reassuring the disappointed students is a clue pointing to kind and caring — the near opposite, \"selfish and uncaring,\" describes someone who would have ignored their disappointment instead." },
+  { n:20, section:'vocab', body:"What does \"humble\" mean, as used in the passage (\"when the garden won first prize at the neighborhood fair, Aisha stayed humble about it, quietly thanking her team without any big announcement\")?",
+    options:["Loud and boastful", "Angry and frustrated", "Confused and uncertain", "Humble and modest"], ans:4,
+    why:"Quietly thanking her team without any big announcement is a clue pointing to humble and modest." },
+];
+/* ---------- END EDIT PER UNIT ---------- */
+
+const SECTION_LABEL = {
+  cloze:   "SECTION A — Cloze Test",
+  grammar: "SECTION B — Grammar",
+  vocab:   "SECTION C — Vocabulary &amp; Reading"
+};
+const SECTION_ORDER = ['cloze','grammar','vocab'];
+const TOTAL_Q = Q.length;
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+
+const chosen = {};   // { qn: optionIndex(1-based) }
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint ${q.section}">${SECTION_HINT[q.section] || ''}</div>`;
+      if (SECTION_PASSAGE[q.section]) html += `<div class="passage">${SECTION_PASSAGE[q.section]}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    html += `<div>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let score = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    if (isCorrect) score++;
+    sectionTally[q.section].t++;
+    if (isCorrect) sectionTally[q.section].c++;
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect };
+  });
+
+  const pct = Math.round(score/TOTAL_Q*100);
+  const pass = score >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${score} / ${TOTAL_Q}  (${pct}%)`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_Q}). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_Q} — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    isMilestone: IS_MILESTONE,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score, outOf: TOTAL_Q, pct, passBar: PASS_BAR, passed: pass,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const pad = (n, len) => String(n).padStart(len,'0');
+  const filename = IS_MILESTONE
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
