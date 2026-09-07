@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloze — Keeping the Closed Rules Sharp — Unit 37 Lesson 1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#EDF7ED;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#1B5E20;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(27,94,32,0.10);margin-bottom:18px}
+h2{color:#1B5E20;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.rule-box{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#1B5E20;margin-bottom:6px}
+.bws-title{font-weight:700;color:#1B5E20;margin-bottom:6px;font-size:15px}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:640px;line-height:1.4}
+.node.start{background:#1B5E20;color:#fff}
+.node.q{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20}
+.node.a{background:#2E7D32;color:#fff}
+.arrow{font-size:18px;color:#1B5E20;line-height:1}
+.di{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.predict-gate{background:#FFF3CD;border:1.5px dashed #DAA520;border-radius:8px;padding:10px 12px;margin-top:6px}
+.predict-note{font-size:12.5px;color:#8a6a00;margin-bottom:8px}
+.opts-wrap{display:none;margin-top:8px}
+.opts-wrap.show{display:block}
+.drill-score{background:linear-gradient(135deg,#1B5E20,#43A047);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.anchor-box{background:#FFF8E1;border:2px dashed #DAA520;border-radius:12px;padding:16px;margin:14px 0;text-align:center}
+.anchor-title{font-weight:700;color:#8a6a00;margin-bottom:8px;font-size:14.5px}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.chip{padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:700}
+.chip.closed{background:#2E7D32;color:#fff}
+.chip.watch{background:#E65100;color:#fff}
+.trigger-bank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.trigger-chip{background:#E8F5E9;border:2px solid #2E7D32;color:#1B5E20;padding:6px 13px;border-radius:16px;font-size:13px;font-weight:700}
+.step-list{background:#fff;border:2px solid #C8E6C9;border-radius:10px;padding:14px 18px;margin:12px 0}
+.step-list li{font-size:14px;line-height:1.7;margin-bottom:4px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#1B5E20,#43A047);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #C8E6C9;gap:10px}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#0D47A1,#1565C0);color:#fff;text-decoration:none;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700}
+.retry-box{margin-top:10px;background:#FFF8E1;border:2px dashed #F9A825;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#8a6a00;margin-bottom:6px;letter-spacing:.3px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #F9A825;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#5b4a00}
+.walk b{color:#8a6a00}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.di-opt.pickme{animation:none;box-shadow:0 0 0 3px rgba(249,168,37,.35)}
+.round-head{font-size:12px;font-weight:800;letter-spacing:.4px;color:#546E7A;margin-bottom:6px;text-transform:uppercase}
+.svgwrap{margin:14px 0;text-align:center}
+.svgwrap svg{max-width:100%;height:auto}
+.paper-note{font-size:13px;background:#F1F8E9;border:1px dashed #7CB342;border-radius:8px;padding:8px 10px;margin-bottom:10px;color:#33691E;font-weight:600}
+.anchor-box{background:#FFF8E1;border:2px dashed #DAA520;border-radius:12px;padding:16px;margin:14px 0;text-align:center}
+.anchor-title{font-weight:700;color:#8a6a00;margin-bottom:8px;font-size:14.5px}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Cloze — Keeping the Closed Rules Sharp</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 37 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Every day you choose between two words without noticing. "We were going to walk — <em>instead</em>, we took the boat." "The shop is open late; <em>moreover</em>, it delivers." Get the joining word right and the person listening understands you straight away. Get it wrong and they picture something that never happened. This lesson keeps four small habits sharp — the ones you have already got right on your last few tests. <strong>Nothing here is new.</strong> This is the easy half of Unit 37, on purpose: the real work is in Lesson 2, and it only needs one thing from you.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <p>One quick check to wake up your ears:</p>
+    <div class="di" id="wu1">
+      <div class="di-sent">"The museum opens on Mondays now. ___, it stays open until eight on Fridays." Which fits?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doWu(1,'a','a','The late Friday opening is an EXTRA fact added on top of the Monday opening. Nothing was swapped out, so it is Moreover.')">A) Moreover</button>
+        <button class="di-opt" onclick="doWu(1,'b','a','The late Friday opening is an EXTRA fact added on top of the Monday opening. Nothing was swapped out, so it is Moreover.')">B) Instead</button>
+      </div>
+      <div class="di-fb" id="wu1f"></div>
+    </div>
+    <p style="margin-top:10px">That is the whole idea of this lesson: <strong>a small check you can do in two seconds. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>What this unit is doing differently 🎯</h2>
+    <p>Last time, one unit tried to fix six different things at once. That was too many — six new things in one week is not learning, it is juggling. So Unit 37 does the opposite: <strong>Lesson 2 fixes exactly ONE thing, and gives it a whole lesson to itself.</strong></p>
+    <p style="margin-top:10px">This lesson, Lesson 1, has <strong>no new rules at all</strong>. Every single thing on this page is something you have already answered correctly on a recent test. You are just keeping it warm.</p>
+    <div class="chip-wrap">
+      <span class="chip closed">-ing after a small joining word ✓</span>
+      <span class="chip closed">comparing things (-er, -est, more, most) ✓</span>
+      <span class="chip closed">Instead vs Moreover ✓</span>
+      <span class="chip closed">matching a list of jobs ✓</span>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why we still practise things you already get right</div>
+      <p style="margin:0;font-size:14px">A rule you got right once can go quiet and slip away a few weeks later — that has happened before. Five minutes of easy practice keeps it there. And there is a second reason: going into Lesson 2 feeling <strong>"I can do this"</strong> is worth a lot. Easy first, hard second.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Your cloze decision tree — the same one, always 🌳</h2>
+    <p>This is the routine you use on <strong>every</strong> cloze gap, in every test, forever. It never changes. Read it top to bottom:</p>
+    <div class="tree">
+      <div class="node start">START — look at the gap</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>Step 1 — LEVEL.</strong> Is there a full stop just before the gap?<br>Full stop before it → <strong>Sentence-starter</strong>. Comma or middle of the sentence → <strong>Clause-joiner</strong>.</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>Step 2 — LINK.</strong> What job is the gap doing?<br><strong>RESULT</strong> · <strong>CONTRAST</strong> · <strong>TIME</strong> · <strong>ADDITION</strong></div>
+      <div class="arrow">↓</div>
+      <div class="node a"><strong>Step 3 —</strong> write your first choice, <strong>box it</strong>, and move on. Do not go back and erase.</div>
+    </div>
+    <div class="anchor-box">
+      <div class="anchor-title">What Step 1's label is actually for</div>
+      <p style="margin:0;font-size:14px">A <strong>sentence-starter</strong> is a word that can begin a brand-new sentence after a full stop — <em>Instead, Moreover, However, Therefore</em>. A <strong>clause-joiner</strong> sits inside one sentence and glues two pieces together — <em>because, although, while, so</em>. Naming the level first stops you dropping a joiner into a starter's place.</p>
+      <p style="margin:8px 0 0;font-size:14px">Every gap you meet today is a <strong>sentence-starter</strong> — check for yourself: each one has a full stop sitting right in front of it.</p>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Why Step 3 matters as much as the other two</div>
+      <p style="margin:0;font-size:14px">The biggest cloze disasters do not come from not knowing the rule. They come from going back, changing a good answer, then changing it again, and running out of time and nerve. <strong>Decide once. Box it. Move on.</strong></p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Instead vs Moreover — swap or add? 🔀</h2>
+    <p>These two words look similar on the page and do completely opposite jobs. Here is the picture:</p>
+    <div class="svgwrap">
+      <svg viewBox="0 0 640 250" role="img" aria-label="Instead means one thing swaps in for another; Moreover means a second thing is added on top.">
+        <rect x="8" y="8" width="304" height="234" rx="14" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+        <text x="160" y="38" text-anchor="middle" font-family="Segoe UI,Arial" font-size="17" font-weight="700" fill="#E65100">INSTEAD = a SWAP</text>
+        <rect x="34" y="60" width="112" height="52" rx="10" fill="#fff" stroke="#BDBDBD" stroke-width="2"/>
+        <text x="90" y="92" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" fill="#9E9E9E">cupcakes</text>
+        <line x1="40" y1="108" x2="140" y2="64" stroke="#D32F2F" stroke-width="3"/>
+        <path d="M158 86 L196 86" stroke="#E65100" stroke-width="3" marker-end="url(#ar1)"/>
+        <rect x="200" y="60" width="112" height="52" rx="10" fill="#FFE0B2" stroke="#E65100" stroke-width="2"/>
+        <text x="256" y="92" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="700" fill="#E65100">banana bread</text>
+        <text x="160" y="150" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#5D4037">The first thing did NOT happen.</text>
+        <text x="160" y="172" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#5D4037">The second one took its place.</text>
+        <text x="160" y="208" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" font-weight="700" fill="#E65100">one out, one in</text>
+        <rect x="328" y="8" width="304" height="234" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+        <text x="480" y="38" text-anchor="middle" font-family="Segoe UI,Arial" font-size="17" font-weight="700" fill="#2E7D32">MOREOVER = an ADD</text>
+        <rect x="354" y="60" width="112" height="52" rx="10" fill="#C8E6C9" stroke="#2E7D32" stroke-width="2"/>
+        <text x="410" y="92" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" font-weight="700" fill="#1B5E20">cupcakes</text>
+        <text x="482" y="94" text-anchor="middle" font-family="Segoe UI,Arial" font-size="24" font-weight="700" fill="#2E7D32">+</text>
+        <rect x="500" y="60" width="112" height="52" rx="10" fill="#C8E6C9" stroke="#2E7D32" stroke-width="2"/>
+        <text x="556" y="92" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" font-weight="700" fill="#1B5E20">cookies</text>
+        <text x="480" y="150" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#1B5E20">The first thing is STILL there.</text>
+        <text x="480" y="172" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#1B5E20">A second one joins it.</text>
+        <text x="480" y="208" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" font-weight="700" fill="#2E7D32">both on the pile</text>
+        <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#E65100"/></marker></defs>
+      </svg>
+    </div>
+    <div class="tree">
+      <div class="node start">Read both sentences. Ask ONE question:</div>
+      <div class="arrow">↓</div>
+      <div class="node q">Did the first thing actually happen?</div>
+      <div class="arrow">↓</div>
+      <div class="node a"><strong>NO — something took its place → Instead.</strong><br><strong>YES — and something else joined it → Moreover.</strong></div>
+    </div>
+    <div class="rule-box"><span class="rule-big">Careful:</span> <strong>Instead</strong> is not just "something surprising happened." It means one thing came <strong>in place of</strong> another. If nothing was replaced, it is not <em>Instead</em>.</div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Two more two-second checks ⏱️</h2>
+    <div class="anchor-box">
+      <div class="anchor-title">Check 1 — look at the ONE word before the gap</div>
+      <p style="margin:0;font-size:14px">If the word sitting right in front of the gap is a small joining word — <strong>for, about, at, after, without, of, in</strong> — then the verb after it puts on <strong>-ing</strong>. Nothing else in the sentence matters.</p>
+      <p style="margin:8px 0 0;font-size:14px">"praised <strong>for</strong> ___" → praised for <strong>helping</strong>. · "good <strong>at</strong> ___" → good at <strong>drawing</strong>. · "talked <strong>about</strong> ___" → talked about <strong>moving</strong>.</p>
+    </div>
+    <div class="anchor-box" style="margin-top:12px">
+      <div class="anchor-title">Check 2 — count how many, then look how long</div>
+      <p style="margin:0;font-size:14px"><strong>Exactly two things?</strong> Use the <strong>-er</strong> form. The word <em>than</em> is your giveaway. → "taller <em>than</em>", "quicker <em>than</em>"</p>
+      <p style="margin:8px 0 0;font-size:14px"><strong>Lots of things?</strong> Use the <strong>-est</strong> form. The words <em>of all</em> or <em>out of</em> are your giveaway. → "the tallest of all"</p>
+      <p style="margin:8px 0 0;font-size:14px"><strong>How do you know if a word is "long"? Clap it.</strong> One or two claps — <em>fast, tall, heav-y, short</em> — is a short word, and short words take the ending: <em>faster</em>, <em>fastest</em>.</p><p style="margin:8px 0 0;font-size:14px">Three claps or more — <em>im-press-ive, beau-ti-ful, col-our-ful</em> — is a long word. Long words never squeeze an ending on the end. They put a helper word in front instead:</p><p style="margin:8px 0 0;font-size:14px">→ two things: <strong>more</strong> colourful <em>than</em> · lots of things: the <strong>most</strong> colourful <em>of all</em><br>Never "colourfuller", never "colourfullest".</p>
+    </div>
+    <div class="anchor-box" style="margin-top:12px">
+      <div class="anchor-title">Check 3 — dress the list the same way</div>
+      <p style="margin:0;font-size:14px">When a sentence lists jobs — "he <strong>feeds</strong> the cat, <strong>waters</strong> the plants, and ___ the bins" — look at the other jobs, not at the gap. Whatever ending they wear, the last one copies: <strong>empties</strong>.</p>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5 -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Practice — swap or add? ✍️</h2>
+    <div id="w1"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6 -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Practice — the word before the gap ✍️</h2>
+    <div id="w2"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S7 -->
+<div class="screen" id="s7">
+  <div class="card">
+    <h2>Practice — comparing, and matching a list ✍️</h2>
+    <div id="w3"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S8 -->
+<div class="screen" id="s8">
+  <div class="card">
+    <h2>How that went 📋</h2>
+    <div id="reportWrap"></div>
+    <div class="anchor-box" style="margin-top:14px">
+      <div class="anchor-title">Carry these four into the test</div>
+      <p style="margin:0;font-size:14px"><strong>1.</strong> Swap it out → <em>Instead</em>. Pile it on → <em>Moreover</em>.<br>
+      <strong>2.</strong> Small joining word before the gap → the verb takes <strong>-ing</strong>.<br>
+      <strong>3.</strong> Two things → <strong>-er</strong> (look for <em>than</em>). Lots of things → <strong>-est</strong> (look for <em>of all</em>). Long word → <strong>most</strong> in front.<br>
+      <strong>4.</strong> A list of jobs all wears the same ending.</p>
+    </div>
+    <p style="margin-top:14px">That is the whole of Lesson 1 — no new rules, just keeping what you already own. <strong>Lesson 2 is the real work, and it is only one thing. →</strong></p>
+    <div class="lesson-nav">
+      <a href="index.html" class="btn-hub">← Hub</a>
+      <a href="Grammar_Lesson_Type1ConditionalRebuild.html" class="btn-lesson">Lesson 2 →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7','s8'];var cur=0;
+var SCREEN_ROUNDS={s5:[1],s6:[2],s7:[3]};
+var built={};
+function onScreen(sid){
+  if(sid==='s5'&&!built[1]){built[1]=1;buildDrill(1,'w1',R1,'<div class="round-head">Round 1 · swap or add?</div><div class="paper-note">✍️ Say the answer out loud before you tap. If you get one wrong you will get a fresh one straight after — that is normal, and it is how it sticks.</div>');}
+  if(sid==='s6'&&!built[2]){built[2]=1;buildDrill(2,'w2',R2,'<div class="round-head">Round 2 · the word before the gap</div>');}
+  if(sid==='s7'&&!built[3]){built[3]=1;buildDrill(3,'w3',R3,'<div class="round-head">Round 3 · comparing things, and matching a list</div>');}
+  if(sid==='s8'){buildReport();}
+}
+function buildReport(){
+  var t='';
+  [1,2,3].forEach(function(r){
+    var R=RD[r];
+    var names={1:'Round 1 (swap or add)',2:'Round 2 (word before the gap)',3:'Round 3 (comparing + list matching)'};
+    t+='<p style="margin:4px 0"><strong>'+names[r]+':</strong> '+(R?R.score+'/'+R.items.length+' right first time':'not attempted')+'</p>';
+  });
+  document.getElementById('reportWrap').innerHTML=t;
+}
+
+var R1=[
+ {sent:'"The school trip was going to be to the zoo. ___, it was moved to the science museum."',
+  opts:['Moreover','Instead','Similarly','Therefore'],ans:1,
+  why:'The science museum took the zoo\'s place — one thing swapped in for another. A swap is <strong>Instead</strong>.',
+  alt:{sent:'"Dad had planned to cook fish for dinner. ___, he made a big pot of soup."',
+       opts:['Instead','Moreover','Similarly','Therefore'],ans:0,
+       why:'The soup came in place of the fish — a swap → <strong>Instead</strong>.'},
+  walk:'Ask yourself one question: <b>did something take the place of something else?</b> Dad planned fish. He did not make fish. He made soup. The soup <b>swapped in</b> for the fish. A swap is always <b>Instead</b>. If it were <i>Moreover</i>, it would mean he made the fish AND the soup — but the fish never happened.'},
+ {sent:'"The park has a new running track. ___, it now has a small skate ramp as well."',
+  opts:['Instead','Moreover','Otherwise','However'],ans:1,
+  why:'Nothing was swapped. The skate ramp is an EXTRA good thing on top of the track, and adding is <strong>Moreover</strong>.',
+  alt:{sent:'"The bakery bakes its bread fresh every day. ___, it costs less than the supermarket\'s."',
+       opts:['Moreover','Instead','However','Therefore'],ans:0,
+       why:'The low price is a second good thing added to the fresh bread → <strong>Moreover</strong>.'},
+  walk:'Ask: <b>was anything swapped, or was something added?</b> The bread is still fresh — nothing was taken away. The low price is just <b>one more good thing on the pile</b>. Adding a second matching fact is always <b>Moreover</b>. <i>Instead</i> would only work if the bakery had stopped baking bread and sold something else.'},
+ {sent:'"Mai had saved up all year for a bicycle. ___, she bought a second-hand guitar."',
+  opts:['Moreover','Similarly','Instead','Furthermore'],ans:2,
+  why:'The guitar took the bicycle\'s place — she bought one thing rather than the other. That swap is <strong>Instead</strong>.',
+  alt:{sent:'"We were going to walk to the market. ___, we took the boat along the canal."',
+       opts:['Moreover','Instead','Similarly','Therefore'],ans:1,
+       why:'The boat replaced the walk — a swap → <strong>Instead</strong>.'},
+  walk:'Check what actually happened. Did they walk? <b>No.</b> Did they take the boat? <b>Yes.</b> One plan was dropped and another took its place — that is a <b>swap</b>, and a swap is <b>Instead</b>. <i>Moreover</i> would mean they walked AND took the boat.'},
+ {sent:'"The new bus route runs every ten minutes. ___, it stops right outside the hospital."',
+  opts:['Instead','Otherwise','However','Moreover'],ans:3,
+  why:'The hospital stop is a second helpful fact added to the first one — nothing was replaced. Adding is <strong>Moreover</strong>.',
+  alt:{sent:'"This library is open every evening. ___, it has a quiet room just for reading."',
+       opts:['Moreover','Instead','However','Therefore'],ans:0,
+       why:'The quiet room is one more good thing about the same library → <strong>Moreover</strong>.'},
+  walk:'Is the library still open every evening? <b>Yes.</b> Nothing was cancelled or replaced. The quiet room is simply <b>another good thing about the same place</b>. Adding is <b>Moreover</b>. Remember the test: swap it out → <i>Instead</i>; pile it on → <i>Moreover</i>.'}
+];
+
+var R2=[
+ {sent:'"The whole class was rewarded for ___ the playground so tidy."',
+  opts:['keep','keeping','kept','to keep'],ans:1,
+  why:'The word right before the gap is <strong>for</strong> — one of those small joining words — so the verb puts on -ing: <strong>keeping</strong>.',
+  alt:{sent:'"Ploy was thanked for ___ the cat while we were away."',
+       opts:['feeding','feed','fed','to feed'],ans:0,
+       why:'<strong>for</strong> is one of those small joining words, so the verb takes -ing: <strong>feeding</strong>.'},
+  walk:'Find the little word sitting just before the gap: <b>for</b>. <b>For</b> is a preposition — one of those small joining words like <i>for, about, at, after, without</i>. Any verb that comes straight after a preposition puts on <b>-ing</b>. So feed becomes <b>feeding</b>. It does not matter what the rest of the sentence is doing — the word right in front of the gap decides it on its own.'},
+ {sent:'"The twins spent all afternoon talking about ___ a treehouse in the garden."',
+  opts:['build','to build','building','built'],ans:2,
+  why:'The word right before the gap is <strong>about</strong> — one of those small joining words — so the verb takes -ing: <strong>building</strong>.',
+  alt:{sent:'"We are thinking about ___ the chess club on Friday."',
+       opts:['to join','join','joined','joining'],ans:3,
+       why:'<strong>about</strong> is one of those small joining words, so the verb takes -ing: <strong>joining</strong>.'},
+  walk:'Look immediately before the gap: <b>about</b>. That is a preposition, exactly like <i>for</i>. Straight after a preposition, a verb always wears <b>-ing</b>: join → <b>joining</b>. "To join" is a trap because it sounds fine on its own — but it is not what follows a preposition.'},
+ {sent:'"Somchai is very good at ___ problems that no one else can work out."',
+  opts:['solve','solving','solved','to solve'],ans:1,
+  why:'The word right before the gap is <strong>at</strong> — one of those small joining words — so the verb takes -ing: <strong>solving</strong>.',
+  alt:{sent:'"Bee apologised for ___ the door so loudly."',
+       opts:['shut','to shut','shutting','shuts'],ans:2,
+       why:'<strong>for</strong> is one of those small joining words, so the verb takes -ing: <strong>shutting</strong>.'},
+  walk:'Same one move every time. What is the word directly before the gap? <b>for</b>. Is it a preposition? <b>Yes.</b> Then the verb takes <b>-ing</b>: shut → <b>shutting</b>. You do not need to understand the rest of the sentence at all — just look at the one word in front of the gap.'}
+];
+
+var R3=[
+ {sent:'"My schoolbag is ___ than yours."',
+  opts:['heaviest','heavier','more heavy','the most heavy'],ans:1,
+  why:'Only TWO bags are being compared, and <strong>than</strong> proves it — two things take the -er form: <strong>heavier</strong>.',
+  alt:{sent:'"This path is ___ than the one along the river."',
+       opts:['shortest','more short','shorter','the most short'],ans:2,
+       why:'Two paths, and the word <strong>than</strong> — that is the -er form: <strong>shorter</strong>.'},
+  walk:'Count what is being compared. "This path" and "the one along the river" — that is <b>two</b> things. Two things always take the <b>-er</b> ending, and the word <b>than</b> is your giveaway that there are exactly two. So it is <b>shorter</b>. "Shortest" would need lots of paths, not two.'},
+ {sent:'"Of all the eight cakes on the table, Grandma\'s was the ___."',
+  opts:['sweeter','more sweet','sweetest','most sweet'],ans:2,
+  why:'Eight cakes is LOTS, not two — lots of things take the -est form: <strong>sweetest</strong>.',
+  alt:{sent:'"Out of the fifteen runners, Kwan was the ___."',
+       opts:['faster','fastest','more fast','most fast'],ans:1,
+       why:'Fifteen runners is lots, so it is the -est form: <strong>fastest</strong>.'},
+  walk:'Count again. Fifteen runners is <b>lots</b>, not two. Lots of things take the <b>-est</b> ending: <b>fastest</b>. "Faster" would only be right if there were exactly two runners racing each other. The words <b>out of</b> and <b>of all</b> are your clue that a whole group is being compared.'},
+ {sent:'"Out of the twenty entries, Pim\'s model was the ___."',
+  opts:['most impressive','impressivest','more impressive','impressiver'],ans:0,
+  why:'Twenty entries is lots (so it is the -est job), but <strong>impressive</strong> is a long word — long words use <strong>most</strong> in front instead of adding -est.',
+  alt:{sent:'"Of all nine photographs on the wall, this one is the ___."',
+       opts:['beautifuller','more beautiful','beautifullest','most beautiful'],ans:3,
+       why:'Nine is lots (the -est job), and <strong>beautiful</strong> is a long word — so it takes <strong>most beautiful</strong>.'},
+  walk:'Two checks, in order. <b>First: how many?</b> Nine photographs is lots, so this is the -est job, not the -er job. <b>Second: how long is the word?</b> <i>Beautiful</i> is a long word, and long words do not squeeze -est on the end — they put <b>most</b> in front instead. Put the two together: <b>most beautiful</b>. Short words like <i>fast</i> add -est; long words like <i>beautiful</i> take <i>most</i>.'},
+ {sent:'"After school Ton does his homework, tidies his desk, and ___ the dog."',
+  opts:['walking','walks','walk','to walk'],ans:1,
+  why:'The other jobs in the list are <strong>does</strong> and <strong>tidies</strong> — the third one has to be dressed the same way: <strong>walks</strong>.',
+  alt:{sent:'"Each morning Grandpa waters the plants, sweeps the step, and ___ the birds."',
+       opts:['to feed','feeds','feeding','feed'],ans:1,
+       why:'The list already says <strong>waters</strong> and <strong>sweeps</strong>, so the third job matches: <strong>feeds</strong>.'},
+  walk:'Look at the other jobs in the list, not at the gap. <b>waters</b> … <b>sweeps</b> … They both end the same way. The third job has to be dressed exactly like its brothers: <b>feeds</b>. Think of three people in the same uniform — you cannot send the last one out in different clothes. Whatever ending the first two have, the last one copies.'}
+];
+
+/* ---------- shared drill engine (Unit 37) ----------
+   Every item runs a FORCED-RETRY chain, per the standing rule added 7 Sep 2026:
+     stage 1  main item        -> right: done.  wrong: show why, unlock a FRESH variant.
+     stage 2  fresh variant    -> right: done.  wrong: show a full walk-through, then
+     stage 3  guided           -> the variant's buttons come back and he must tap the
+                                  correct one before the item counts as resolved.
+   A round's Next button stays locked until every item in it is resolved.
+   Round score counts FIRST-ATTEMPT correct answers only.                              */
+var RD={};           // rid -> {items, resolved, score, container}
+var RSTATE={};       // rid -> { n -> stage }
+
+function optBtns(rid,n,stage,opts){
+  var h='';
+  for(var i=0;i<opts.length;i++){
+    h+='<button class="di-opt" id="o'+rid+'-'+n+'-'+stage+'-'+i+'" onclick="doAns('+rid+','+n+','+stage+','+i+')">'+opts[i]+'</button>';
+  }
+  return h;
+}
+
+function buildDrill(rid,containerId,items,noteHtml){
+  RD[rid]={items:items,resolved:0,score:0};
+  RSTATE[rid]={};
+  var h = noteHtml ? noteHtml : '';
+  for(var i=0;i<items.length;i++){
+    var it=items[i], n=i+1;
+    RSTATE[rid][n]=1;
+    h+='<div class="di" id="d'+rid+'-'+n+'">';
+    h+='<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    h+='<div class="di-btns" id="b'+rid+'-'+n+'-1">'+optBtns(rid,n,1,it.opts)+'</div>';
+    h+='<div class="di-fb" id="f'+rid+'-'+n+'-1"></div>';
+    h+='<div id="s2'+rid+'-'+n+'" style="display:none"><div class="retry-box">';
+    h+='<div class="retry-title">🔁 Have another go — a fresh one</div>';
+    h+='<div class="di-sent">'+it.alt.sent+'</div>';
+    h+='<div class="di-btns" id="b'+rid+'-'+n+'-2">'+optBtns(rid,n,2,it.alt.opts)+'</div>';
+    h+='<div class="di-fb" id="f'+rid+'-'+n+'-2"></div>';
+    h+='<div id="w'+rid+'-'+n+'"></div>';
+    h+='</div></div>';
+    h+='</div>';
+  }
+  h+='<div class="drill-score" id="sc'+rid+'"></div>';
+  h+='<div class="lock-note" id="lk'+rid+'">Finish every question on this page before you move on — including the fresh ones.</div>';
+  document.getElementById(containerId).innerHTML=h;
+}
+
+function lockRow(rid,n,stage){
+  var b=document.getElementById('b'+rid+'-'+n+'-'+stage);
+  if(!b)return;
+  var bs=b.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=true;bs[i].className='di-opt';}
+}
+function unlockRow(rid,n,stage){
+  var b=document.getElementById('b'+rid+'-'+n+'-'+stage);
+  if(!b)return;
+  var bs=b.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=false;bs[i].className='di-opt pickme';}
+}
+
+function markResolved(rid){
+  var R=RD[rid];
+  R.resolved++;
+  if(R.resolved===R.items.length){
+    var s=document.getElementById('sc'+rid);
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round done — '+R.score+'/'+R.items.length+' right first time.</strong><br>'+
+      '<span style="font-size:13px;opacity:.9">Every question here ended on a correct answer, which is the part that sticks.</span>';
+    var lk=document.getElementById('lk'+rid); if(lk) lk.className='lock-note';
+  }
+}
+
+function doAns(rid,n,stage,idx){
+  var R=RD[rid], it=R.items[n-1];
+  var st=RSTATE[rid][n];
+  if(stage===1){
+    if(st!==1) return;
+    lockRow(rid,n,1);
+    var fb=document.getElementById('f'+rid+'-'+n+'-1');
+    if(idx===it.ans){
+      fb.className='di-fb ok'; fb.innerHTML='✅ '+it.why;
+      RSTATE[rid][n]=0; R.score++; markResolved(rid);
+    }else{
+      fb.className='di-fb no'; fb.innerHTML='❌ '+it.why;
+      RSTATE[rid][n]=2;
+      document.getElementById('s2'+rid+'-'+n).style.display='block';
+    }
+    return;
+  }
+  if(stage===2){
+    if(st===2){
+      lockRow(rid,n,2);
+      var f2=document.getElementById('f'+rid+'-'+n+'-2');
+      if(idx===it.alt.ans){
+        f2.className='di-fb ok'; f2.innerHTML='✅ '+it.alt.why+' <strong>That is the one that counts — you finished it right.</strong>';
+        RSTATE[rid][n]=0; markResolved(rid);
+      }else{
+        f2.className='di-fb no'; f2.innerHTML='❌ Not that one either. Read this through slowly:';
+        document.getElementById('w'+rid+'-'+n).innerHTML='<div class="walk">'+it.walk+
+          '<br><br><b>Now tap the right answer above to carry on.</b></div>';
+        RSTATE[rid][n]=3;
+        unlockRow(rid,n,2);
+      }
+      return;
+    }
+    if(st===3){
+      var f3=document.getElementById('f'+rid+'-'+n+'-2');
+      if(idx===it.alt.ans){
+        lockRow(rid,n,2);
+        f3.className='di-fb ok'; f3.innerHTML='✅ '+it.alt.why+' <strong>Good — that is how it should look.</strong>';
+        RSTATE[rid][n]=0; markResolved(rid);
+      }else{
+        f3.className='di-fb no'; f3.innerHTML='❌ Still not it — read the yellow box once more, then tap the answer it points to.';
+      }
+    }
+  }
+}
+
+/* ---- warm-up (single, ungated, not part of a round) ---- */
+var wuDone={};
+function doWu(n,c,key,why){
+  if(wuDone[n])return; wuDone[n]=true;
+  var it=document.getElementById('wu'+n), fb=document.getElementById('wu'+n+'f');
+  var bs=it.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=true;}
+  fb.className='di-fb '+(c===key?'ok':'no');
+  fb.innerHTML=(c===key?'✅ ':'❌ ')+why;
+}
+
+/* ---- screen navigation with round locking ---- */
+function roundsOnScreen(sid){ return (SCREEN_ROUNDS[sid]||[]); }
+function screenLocked(sid){
+  var rs=roundsOnScreen(sid);
+  for(var i=0;i<rs.length;i++){
+    var R=RD[rs[i]];
+    if(!R || R.resolved<R.items.length) return rs[i];
+  }
+  return 0;
+}
+function goScreen(d){
+  var sid=SCREENS[cur];
+  if(d>0){
+    var locked=screenLocked(sid);
+    if(locked){
+      var lk=document.getElementById('lk'+locked);
+      if(lk){ lk.className='lock-note show'; lk.scrollIntoView({behavior:'smooth',block:'center'}); }
+      return;
+    }
+  }
+  var n=cur+d; if(n<0||n>=SCREENS.length)return;
+  document.getElementById(SCREENS[cur]).className='screen';
+  cur=n;
+  document.getElementById(SCREENS[cur]).className='screen active';
+  document.getElementById('prevBtn').disabled=(cur===0);
+  document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);
+  window.scrollTo(0,0);
+  onScreen(SCREENS[cur]);
+}
+</script>
+</body>
+</html>

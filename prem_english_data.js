@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '3 Sep 2026',
+  updated:        '7 Sep 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           36,
-    status:      'Normal rotation unit &mdash; closes Unit 35&rsquo;s exact format-transfer gaps (arrive at + much/very-much error-scan, Type-1 conditional re-teach, Little-inversion did+base-form detail) and launches Figurative Language as a new, ungraded growth strand ahead of its Milestone 4 scored checkpoint.',
+    n:           37,
+    status:      '&#128295; REPAIR UNIT &mdash; the first of three single-target repair units (U37/38/39) agreed with Lui on 7 Sep 2026 after Unit 36 scored 10/20 with all six of its targeted items failed and all five untaught items passed. Unit 37 repairs exactly ONE rule &mdash; the Type-1 conditional, missed at Units 33, 35 and 36 &mdash; with a whole lesson, 15 practice reps across four formats, and a forced retry on every miss. Type-2 is never named or taught. Lesson 1 is maintenance only, zero new rules. The test probes no untaught gap, so the score reads cleanly as a test of the method itself.',
     testPending: true
   },
 
@@ -32,45 +32,46 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 35 — updated after each test)
+  // Last completed assessment (Unit 36 — updated after each test)
   lastUnit: {
-    n: 35, label: 'Unit 35 🔁', score: 12, outOf: 20, pct: 60, delta: -2, prevScore: 14,
+    n: 36, label: 'Unit 36', score: 10, outOf: 20, pct: 50, delta: -2, prevScore: 12,
 
-    patternLabel:   'Unit 35 (Gap-Closure Review) &mdash; 3 Sep 2026 &middot; 12/20 (60%) &mdash; FAIL, lowest since Unit 26',
-    patternInsight: '<strong>A clear cross-cutting pattern, not scattered misses.</strong> Cloze 4/7: &ldquo;arrive at&rdquo; held perfectly in direct fill-in (its locked phrase) but missed its first-ever error-scan exposure; the subjunctive adjective-trigger family (essential/vital/important that) missed on first exposure while reporting-verb triggers held; a light connector slip (Instead vs Moreover). Grammar 3/7: Little-inversion&rsquo;s word order held (error-scan correct) but the exact &ldquo;did+base form&rdquo; verb detail missed; much/very-much held in direct form but missed its first error-scan exposure; Type-1 conditional missed for a SECOND straight test (also missed at Unit 33), now a genuine backslide needing a full re-teach. Vocab 5/6 &mdash; both reversal traps held, one isolated miss on &ldquo;earnest.&rdquo; <strong>The headline finding: &ldquo;arrive at&rdquo; and much/very-much BOTH failed on their first-ever exposure to error-scan format specifically</strong> &mdash; a format-transfer gap, not a content gap; the underlying rules are solid.',
+    patternLabel:   'Unit 36 &mdash; 6 Sep 2026 &middot; 10/20 (50%) &mdash; FAIL, the lowest unit-test result in the programme',
+    patternInsight: '<strong>The result splits perfectly along the taught/untaught line.</strong> Unit 36 targeted six items and <strong>all six failed</strong>: &ldquo;arrive at&rdquo; error-scan (Q1, Q2), subjunctive adjective-triggers (Q3, Q4), Type-1 conditional in both formats (Q8, Q9), much/very-much in both formats (Q10, Q11), Little-inversion&rsquo;s did+base-form detail (Q12) and the vocab reversal trap (Q19). The five items it did NOT teach &mdash; Instead vs Moreover, gerund-after-preposition, superlative, linking verb, thereby+-ing &mdash; <strong>all passed, 5/5</strong>. Everything the unit taught was failed; everything it left alone was passed. That is a lesson-design failure, not a student regression.',
 
-    analysisLabel:   'Unit 35 Result Analysis &mdash; 3 Sep 2026 (two skills solid in direct-recall form, both missed their first error-scan exposure &mdash; a naming, not a knowing, problem)',
-    analysisInsight: '<strong>A precisely diagnosable result, not a broad regression.</strong> &ldquo;Arrive at&rdquo; and much/very-much both prove the underlying grammar is genuinely understood (both passed direct fill-in cleanly) &mdash; what&rsquo;s missing is the separate skill of spotting the same rule broken inside someone else&rsquo;s sentence. Type-1 conditional is now a confirmed 2-test backslide (Unit 33, Unit 35) and needs the full re-teach treatment: decision tree rebuilt, more volume, multiple formats in one sitting. This is the 4th straight sub-80% test (U31 75%, U32 65%, U33 70%, U35 60%) &mdash; Unit 40 remains the next scheduled gap-review checkpoint per the standing cadence, but Unit 36 gets a head start by targeting these exact 3 items immediately rather than waiting. Also: Unit 36 takes a first, ungraded look at Figurative Language, per the staggered plan to have its first SCORED checkpoint land by Milestone 4.',
+    analysisLabel:   'Unit 36 Result Analysis &mdash; 6 Sep 2026 (six repair targets in one unit was overload &mdash; and one previously-solid rule was actively damaged)',
+    analysisInsight: '<strong>Worse than a failed fix.</strong> much/very-much in direct fill-in was SOLID at Unit 35 and BROKE at Unit 36 (Q11), because the lesson stacked two exceptions onto the core rule in the same screen with no way to tell them apart (&ldquo;much faster&rdquo; as a comparative; &ldquo;weren&rsquo;t much troubled&rdquo; as an undefined &ldquo;negative-amount use&rdquo;, applied to a word that IS a participle-adjective). On Q10 Prem then flagged a CORRECT sentence (&ldquo;very much relieved&rdquo;) as the error. The Type-1 &ldquo;full re-teach&rdquo; put Type-2 in the same decision tree, turning recall into discrimination for a rule already being failed &mdash; and Q8 came back with exactly the halves-mixing error that contrast was meant to prevent. <strong>Cause confirmed by Lui (7 Sep): Prem spent less time on the test because he had not grasped the concepts, not from carelessness &mdash; &ldquo;6 within 1 unit were too overload.&rdquo;</strong> Also found: the test&rsquo;s READ FIRST bar printed the much/very-much and Little-inversion rules verbatim (he had both answers on the page and missed both), Q20 offered &ldquo;Humble and modest&rdquo; as an option for the word &ldquo;humble&rdquo;, and three code defects sit unfixed in both U36 lesson files. <strong>Decision: Units 37/38/39 become SINGLE-TARGET repair units</strong> &mdash; U37 = Type-1 conditional alone, U38 = much/very-much rebuilt from zero plus &ldquo;arrive at&rdquo; as a one-line co-rider, U39 = subjunctive adjective-triggers plus the Little-inversion detail. The reversal trap becomes a permanent habit cue in every vocab section rather than a unit target; Figurative Language does not ride along on a repair unit. Unit 40 remains the combined gap-review checkpoint.',
 
-    qSummary: '<strong>12/20 (60%) FAIL &mdash; lowest since Unit 26, but a clean, nameable pattern. Cloze 4/7: &ldquo;arrive at&rdquo; and much/very-much/subjunctive all solid in their known format, both missed their first error-scan/new-trigger exposure. Grammar 3/7: Little-inversion&rsquo;s word order held, only the did+base-form detail missed; Type-1 conditional backslid for a 2nd straight test. Vocab 5/6 &mdash; both reversal traps held. Next: UNIT 36 &mdash; dedicated error-scan practice for &ldquo;arrive at&rdquo; and much/very-much, a full Type-1 conditional re-teach, a Little-inversion detail fix, and a first ungraded look at Figurative Language.</strong>',
+    qSummary: '<strong>10/20 (50%) FAIL &mdash; the lowest unit-test result recorded and the 5th straight sub-80% (U31 79 &rarr; U32 65 &rarr; U33 70 &rarr; U35 60 &rarr; U36 50). Cloze 3/7, Grammar 2/7, Vocab 5/6. The finding that matters is not the number but its shape: 0/10 on every item the unit taught, 5/5 on every item it did not. Six repairs in one unit was overload, and one rule that had been solid was broken by its own lesson. Next: UNIT 37 &mdash; one broken rule, one whole lesson, 15 reps, forced retry on every miss.</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;arrived AT a merger agreement&rdquo; &mdash; the locked phrase holds in direct fill-in.' },
-      { q:'Q2',  topic:'Cloze', pass:false, note:'&#10007; Chose A (board arrived at a resolution &mdash; actually correct); missed that B (&ldquo;referees arrived TO a final decision&rdquo;) was the flawed sentence. First-ever &ldquo;arrive at&rdquo; error-scan exposure.' },
-      { q:'Q3',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;suggested that every player attend&rdquo; &mdash; reporting-verb subjunctive trigger holds.' },
-      { q:'Q4',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;notifies&rdquo; (the old &ldquo;-s&rdquo; agreement habit) instead of &ldquo;notify&rdquo; &mdash; &ldquo;it is important that&rdquo; is an adjective-pattern trigger, a shape never drilled in a scored test before.' },
-      { q:'Q5',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;the last one was by far the most original&rdquo; &mdash; superlative form holds cleanly.' },
-      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; &ldquo;thanked for organizing&rdquo; &mdash; gerund-after-preposition holds.' },
-      { q:'Q7',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;Moreover&rdquo; instead of &ldquo;Instead&rdquo; for a contrast between a sunny forecast and ongoing rain &mdash; a light connector-logic slip. Cloze finishes 4/7.' },
-      { q:'Q8',  topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;Little did she anticipated&rdquo; (wrong verb form after &ldquo;did&rdquo;) instead of &ldquo;anticipate&rdquo; &mdash; the flipped word order itself was applied correctly, only the base-form detail slipped.' },
-      { q:'Q9',  topic:'Grammar', pass:true,  note:'&#10003; Correctly spotted &ldquo;Little the coach imagined&rdquo; as the flawed sentence &mdash; confirms the word-order concept itself is solid.' },
-      { q:'Q10', topic:'Grammar', pass:true,  note:'&#10003; &ldquo;very much impressed&rdquo; &mdash; much/very-much holds in direct fill-in.' },
-      { q:'Q11', topic:'Grammar', pass:false, note:'&#10007; Chose A (very much relieved &mdash; actually correct); missed that C (&ldquo;critics were much astonished&rdquo;) was the flawed sentence. First-ever much/very-much error-scan exposure.' },
-      { q:'Q12', topic:'Grammar', pass:false, note:'&#10007; Chose C (&ldquo;if the museum opens early, the tour WOULD start&rdquo;, a Type-1/Type-2 mismatch) instead of D (&ldquo;...WILL start&rdquo;) &mdash; Type-1 conditional&rsquo;s SECOND straight miss (also missed at Unit 33), now a confirmed backslide.' },
-      { q:'Q13', topic:'Grammar', pass:true,  note:'&#10003; &ldquo;the bread smelled wonderful&rdquo; &mdash; linking-verb + adjective holds.' },
-      { q:'Q14', topic:'Grammar', pass:false, note:'&#10007; Chose C (&ldquo;thereby it reduced&rdquo;, a new subject-verb clause) instead of B (&ldquo;thereby reducing&rdquo;) &mdash; a rare miss on a normally-closed maintenance item. Grammar finishes 3/7.' },
-      { q:'Q15', topic:'Vocab', pass:false, note:'&#10007; Chose &ldquo;Slow and reluctant&rdquo; instead of &ldquo;Sincere and serious&rdquo; for &ldquo;earnest&rdquo; &mdash; an isolated miss, not a trap item.' },
-      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;apprehensive&rdquo; &mdash; worried and anxious, correctly identified.' },
-      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;resourceful&rdquo; &mdash; reversal-trap item, correctly avoided the near-opposite &ldquo;helpless&rdquo; distractor.' },
-      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;indignant&rdquo; &mdash; offended and angry, correctly identified.' },
-      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;benevolent&rdquo; &mdash; reversal-trap item, correctly avoided the near-opposite &ldquo;selfish&rdquo; distractor.' },
-      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;reserved&rdquo; &mdash; quiet and modest, correctly identified. Vocab finishes 5/6, both designed reversal traps held.' }
+      { q:'Q1',  topic:'Cloze', pass:false, note:'&#10007; Chose B (a correct sentence); missed that A (&ldquo;arrived TO a groundbreaking conclusion&rdquo;) was the flawed one. 2nd straight error-scan miss on this rule.' },
+      { q:'Q2',  topic:'Cloze', pass:false, note:'&#10007; Chose D (a correct sentence); missed B (&ldquo;arrived TO the airport&rdquo;). Note: the lesson taught a noun-list check that did not cover place nouns like &ldquo;the airport&rdquo; or &ldquo;the summit&rdquo;.' },
+      { q:'Q3',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;wears&rdquo; &mdash; &ldquo;It is essential that&rdquo; needs the base form. 2nd straight miss on the adjective-trigger family.' },
+      { q:'Q4',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;takes&rdquo; &mdash; &ldquo;It is vital that&rdquo; needs the base form. Both adjective-trigger reps missed.' },
+      { q:'Q5',  topic:'Cloze', pass:true,  note:'&#10003; Instead vs Moreover &mdash; the light connector fix held. NOT a Unit 36 repair target.' },
+      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; Gerund after a preposition &mdash; maintenance, held clean. NOT a repair target.' },
+      { q:'Q7',  topic:'Cloze', pass:true,  note:'&#10003; Superlative &mdash; maintenance, held clean. NOT a repair target.' },
+      { q:'Q8',  topic:'Grammar', pass:false, note:'&#10007; Chose A (present if-half paired with &ldquo;would&rdquo;) &mdash; exactly the halves-mixing error the lesson&rsquo;s Type-1/Type-2 contrast table was meant to prevent. 3rd straight test missed.' },
+      { q:'Q9',  topic:'Grammar', pass:false, note:'&#10007; Type-1 error-scan &mdash; chose C, missed A (&ldquo;more visitors would come&rdquo;). Both scored Type-1 formats missed.' },
+      { q:'Q10', topic:'Grammar', pass:false, note:'&#10007; Chose C (&ldquo;very much relieved&rdquo; &mdash; actually CORRECT) instead of B. Flagged a correct sentence as the error.' },
+      { q:'Q11', topic:'Grammar', pass:false, note:'&#10007; <strong>REGRESSION</strong> &mdash; chose bare &ldquo;much&rdquo; over &ldquo;very much&rdquo; in the direct fill-in format, which had held CLEAN at Unit 35. Traced to the lesson stacking two unexplained exceptions onto the core rule in one screen.' },
+      { q:'Q12', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;did the sailors expected&rdquo; &mdash; the did+BASE form detail missed again, despite the test&rsquo;s own instruction bar stating this rule verbatim.' },
+      { q:'Q13', topic:'Grammar', pass:true,  note:'&#10003; Linking verb + adjective (&ldquo;tasted delicious&rdquo;) &mdash; maintenance, held clean. NOT a repair target.' },
+      { q:'Q14', topic:'Grammar', pass:true,  note:'&#10003; thereby + -ing &mdash; maintenance, held clean. NOT a repair target.' },
+      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;diligent&rdquo; &mdash; hardworking and careful, correctly identified.' },
+      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;wary&rdquo; &mdash; cautious and on guard, correctly identified.' },
+      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;ingenious&rdquo; &mdash; reversal-trap slot, held. 4th clean result at this slot.' },
+      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;contemptuous&rdquo; &mdash; scornful and disrespectful, correctly identified.' },
+      { q:'Q19', topic:'Vocab', pass:false, note:'&#10007; &ldquo;compassionate&rdquo; &mdash; chose the near-opposite (&ldquo;selfish and uncaring&rdquo;). <strong>First break of a reversal trap in 3 tests</strong>; the habit had only one 2-option reminder in the lesson, with identical feedback for right and wrong.' },
+      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;humble&rdquo; &mdash; correct, but the item was defective: option D read &ldquo;Humble and modest&rdquo;, i.e. the target word defined itself. Free point, no real signal.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After UNIT 35 (12/20, 60% FAIL, 3 Sep 2026 — Gap-Closure Review, back on the normal Cloze/Grammar/Vocab scale):
+  // After UNIT 36 (10/20, 50% FAIL, 6 Sep 2026 — lowest unit test recorded; 0/10 on every targeted item,
+  //   5/5 on every untaught maintenance item — a lesson-design failure, not a broad regression):
   // Reading/Writing/Conversation/CritThink/FigLang unchanged — not tested this unit;
   // Grammar -2 (64→62) — the format-transfer misses (much/very-much, "arrive at" via error-scan) show the
   //   underlying rules ARE known, but Type-1 conditional's 2nd straight backslide is a genuine regression signal,
@@ -82,20 +83,20 @@ var PREM_ENGLISH = {
   //   move an already-exceeded target
   skills: [
     { name: 'Reading Compr.',    c: 87, t: 87 },   // Unchanged — not tested this unit
-    { name: 'Vocabulary',        c: 86, t: 82 },   // U35: Vocab 5/6 (83%) — both reversal traps held, one isolated miss, no change
-    { name: 'Grammar',           c: 62, t: 82 },   // U35: Grammar 3/7 (43%) — Type-1 conditional 2nd straight backslide + 2 format-transfer misses
-    { name: 'Cloze Test',        c: 63, t: 80 },   // U35: Cloze 4/7 (57%) — first-exposure format/trigger misses, not repeat backslides
+    { name: 'Vocabulary',        c: 85, t: 82 },   // U36: Vocab 5/6 (83%) — -1: still strong, but a reversal trap broke for the first time in 3 tests
+    { name: 'Grammar',           c: 57, t: 82 },   // U36: Grammar 2/7 (29%) — -5: Type-1 missed a 3rd straight test AND much/very-much regressed in a format that had been solid
+    { name: 'Cloze Test',        c: 59, t: 80 },   // U36: Cloze 3/7 (43%) — -4: both targeted repairs missed again on a second exposure
     { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — unchanged; first real checkpoint planned by Milestone 5
     { name: 'Conversation',      c: 95, t: 85 },   // Unchanged — not tested this unit
     { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored; Unit 36 launches lesson-only exposure; first real checkpoint planned by Milestone 4
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored. Unit 36 gave it one ungraded look; it does NOT ride along on the U37-39 repair units (7 Sep decision), so its runway restarts at U40+, still ahead of the Milestone 4 checkpoint
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [87, 86, 62, 63, 65, 95, 62, 55],
+  radarCurrent:  [87, 85, 57, 59, 65, 95, 62, 55],
   radarTarget:   [87, 82, 82, 80, 85, 85, 80, 78],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 35',
+  radarLegendUnit: 'Unit 36',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -137,11 +138,26 @@ var PREM_ENGLISH = {
     { n:32, score:13, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U32' },
     { n:33, score:14, outOf:20, delta:1,  color:'#fc4e4e', star:false, label:'U33' },
     { n:34, score:29, outOf:30, delta:null, color:'#89F336', star:true, label:'U34 🏫' },
-    { n:35, score:12, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U35 🔁' }
+    { n:35, score:12, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U35 🔁' },
+    { n:36, score:10, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U36' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 36,
+      title: 'Unit 36 &mdash; Closing Unit 35&rsquo;s Format Gaps + Figurative Language',
+      badge: '#fc4e4e',
+      status: 'done',
+      note: '10/20 (50%) &mdash; <strong>FAIL, the lowest unit-test result in the programme, and the 5th straight sub-80%.</strong> <strong>The result splits perfectly along the taught/untaught line: all SIX targeted re-teach items failed, all FIVE untaught maintenance items passed 5/5.</strong> Cloze 3/7 &mdash; both &ldquo;arrive at&rdquo; error-scan reps and both subjunctive adjective-trigger reps missed. Grammar 2/7 &mdash; Type-1 conditional missed a 3rd straight test in both formats, the Little-inversion detail missed again, and much/very-much <strong>regressed</strong>: its direct fill-in form had held clean at Unit 35 and broke here, after the lesson stacked two unexplained exceptions onto the core rule in one screen. Vocab 5/6 &mdash; the reversal trap broke for the first time in 3 tests. <strong>Cause confirmed by Lui: six repair targets in one unit was overload.</strong> Also found: the test&rsquo;s instruction bar printed two of the rules under test verbatim, Q20 offered &ldquo;Humble and modest&rdquo; for the word &ldquo;humble&rdquo;, and three code defects sit unfixed in both lesson files. &middot; Next: <strong>UNIT 37</strong> &mdash; the first SINGLE-TARGET repair unit: one broken rule, one whole lesson, 15 reps, forced retry on every miss.',
+      tags: [
+        { t:'10/20 (50%) FAIL', s:'background:#fff0f0;color:#c53030' },
+        { t:'0/10 on targeted items', s:'background:#fff0f0;color:#c53030' },
+        { t:'5/5 on untaught items', s:'background:#f0fff4;color:#276749' },
+        { t:'much/very-much REGRESSED', s:'background:#fff0f0;color:#c53030' },
+        { t:'&rarr; U37/38/39 single-target', s:'background:#ebf8ff;color:#2c5282' }
+      ]
+    },
     {
       n: 35,
       title: 'Unit 35 &mdash; 🔁 Gap-Closure Review: Units 31-34',

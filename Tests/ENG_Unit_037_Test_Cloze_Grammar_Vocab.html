@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 37 Test — Cloze · Grammar · Vocabulary</title>
+<!-- Built from ENG_INTERACTIVE_TEST_TEMPLATE.html, 7 Sep 2026. UNIT 37 IS A SINGLE-TARGET REPAIR UNIT.
+     Grammar Q8-Q14 are ALL Type-1 conditional (the one repair target, 3 straight failures: U33/U35/U36).
+     Cloze Q1-Q7 are closed-maintenance items only — no untaught open gap is probed here, so the score reads
+     cleanly as a test of whether the single-target approach worked. Vocab Q15-Q20 is a fresh narrative with
+     the permanent reversal traps at Q17/Q19. READ FIRST carries habit cues only, never a statement of any
+     rule under test (new standing rule, 7 Sep 2026, after Unit 36 printed its own answers in that bar). -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --cloze:#1b5e20; --cloze-fill:#c8e6c9; --cloze-text:#1b5e20;
+    --gram:#0d47a1;  --gram-fill:#bbdefb;  --gram-text:#0d47a1;
+    --vocab:#e65100; --vocab-fill:#ffe0b2; --vocab-text:#e65100;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f4f8f4;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#e2ece4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#1b5e20,#66bb6a);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#1b5e20;white-space:nowrap}
+
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.cloze{background:var(--cloze-fill);color:var(--cloze-text)}
+  .band.grammar{background:var(--gram-fill);color:var(--gram-text)}
+  .band.vocab{background:var(--vocab-fill);color:var(--vocab-text)}
+
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+  .hint.cloze{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.grammar{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .hint.vocab{background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .passage .gap{font-weight:800;color:#1565c0}
+
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q.cloze{border-left-color:var(--cloze)}
+  .q.grammar{border-left-color:var(--gram)}
+  .q.vocab{border-left-color:var(--vocab)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt-row .opt{width:auto;flex:1 1 auto;min-width:64px;text-align:center}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#1b5e20,#43a047);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.4rem;font-weight:900;color:#1b5e20}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;border:1.5px solid var(--line)}
+
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(10,30,18,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#1b5e20;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 37 Test — Cloze · Grammar · Vocabulary</b>
+      <span class="sub" id="hdr-sub">Closing Unit 35's Format Gaps</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="readfirst">READ FIRST — <b>Cloze:</b> use your decision tree. Full stop before the gap means a sentence-starter. Decide what job the gap is doing, write your first choice, box it, and move on — don't go back and erase. <b>Grammar:</b> every question in this section is about the same one pattern you practised all week. Find the two halves of the sentence first, then check them against each other, one sentence at a time. <b>Vocabulary:</b> read the whole story once before you answer anything. Find the clue in the story for each word, then check that your answer points the SAME way as the clue, not the opposite way.</div>
+
+  <div id="progress-bar">
+    <span id="progress-label">0 / 20 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 20 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 37;
+const UNIT_TITLE = "Cloze · Grammar · Vocabulary";
+const UNIT_SUB   = "Repair Unit — One Pattern, Done Properly";
+const PASS_BAR   = 16;                 // out of 20 (80% mastery threshold)
+const IS_MILESTONE = false;
+const MILESTONE_NUM = null;
+
+const SECTION_PASSAGE = {
+  vocab: `Nara had promised to help at the animal shelter every Saturday, but at first she was timid about it,
+  worrying that the biggest dogs would be too much for her. Her older brother Kit was methodical at the gate all
+  morning, checking the latch in the same order every single time a visitor came through. Nara turned out to be
+  versatile too, moving from feeding the puppies to scrubbing the water trays to mending a loose fence panel,
+  without once being asked. One visitor stayed nonchalant about the whole thing — he shrugged, said it made no
+  difference to him either way, and wandered back to his car. Nara was gracious with every single person who came
+  in, thanking them warmly even when they asked her the same question five times over. And when the oldest dog
+  would not walk, Nara was relentless, sitting beside him and coaxing him gently for a whole hour until at last he
+  stood up.`
+};
+
+const SECTION_HINT = {
+  cloze:   "Use your decision tree. Full stop before the gap means a sentence-starter. Decide what job the gap is doing, write your first choice, box it, and move on — don't go back and erase.",
+  grammar: "Every question in this section is about the same one pattern you practised all week. Find the two halves of the sentence first, then check them against each other — one sentence at a time.",
+  vocab:   "Read the whole story once before you answer anything. Find the clue in the story for each word, then check that your answer points the SAME way as the clue."
+};
+
+const Q = [
+  // Section CLOZE (Q1-Q7) — MAINTENANCE ONLY, zero new rules and zero untaught open gaps.
+  // Every item here is a rule that has already held clean on a recent test (gerund-after-preposition,
+  // superlative/comparative, connectors, tense parallelism — all correct at Unit 36). This section is
+  // deliberately NOT used to re-probe "arrive at", the subjunctive or much/very-much: those are Unit 38 /
+  // Unit 39 targets, and testing them here would drag the score without telling us anything about whether
+  // the single-target repair worked. Unit 37's whole purpose is a clean read on ONE variable.
+  { n:1, section:'cloze', body:"Gap (1) — \"The whole team was praised for (1)___ the recycling bins every single week.\"",
+    options:["empty","emptying","emptied","to empty"], ans:2,
+    why:"The word right before the gap is \"for\", one of those small joining words. The verb straight after one of them puts on -ing: emptying." },
+  { n:2, section:'cloze', body:"Gap (2) — \"Mali apologised for (2)___ the wrong bus and arriving so late.\"",
+    options:["taking","take","took","to take"], ans:1,
+    why:"The word right before the gap is \"for\", one of those small joining words, so the verb after it puts on -ing: taking. The matching \"arriving\" later in the sentence follows the same pattern." },
+  { n:3, section:'cloze', body:"Gap (3) — \"Of the twelve posters on the wall, Noi's was the (3)___ of them all.\"",
+    options:["more colourful","colourfullest","most colourful","colourfuller"], ans:3,
+    why:"Twelve posters is lots, not two — so this is the -est job. But \"colourful\" is a long word, and long words put \"most\" in front instead of adding -est: most colourful." },
+  { n:4, section:'cloze', body:"Gap (4) — \"This footbridge is (4)___ than the old one by nearly ten metres.\"",
+    options:["longest","more longer","the most long","longer"], ans:4,
+    why:"Only TWO bridges are being compared, and the word \"than\" is the giveaway — two things take the -er form: longer." },
+  { n:5, section:'cloze', body:"Gap (5) — \"The bakery had planned to sell cupcakes all morning. (5)___, they sold banana bread right up until closing time.\"",
+    options:["Moreover","Instead","Similarly","Therefore"], ans:2,
+    why:"Full stop before the gap = sentence-starter. The banana bread REPLACED the cupcakes — one thing swapped in place of another → Instead." },
+  { n:6, section:'cloze', body:"Gap (6) — \"The new library opens on Sundays now. (6)___, it lends out board games as well as books.\"",
+    options:["Instead","However","Moreover","Otherwise"], ans:3,
+    why:"Full stop before the gap = sentence-starter. Nothing is being swapped and nothing is surprising — the second sentence just ADDS another good thing → Moreover." },
+  { n:7, section:'cloze', body:"Gap (7) — \"Every morning Anong feeds the chickens, waters the garden, and (7)___ the eggs before breakfast.\"",
+    options:["collecting","collect","to collect","collects"], ans:4,
+    why:"The list is \"feeds ... waters ... and ___\". All three jobs must be built the same way, so the third one matches the first two: collects." },
+
+  // Section GRAMMAR (Q8-Q14) — the repair measurement. ALL SEVEN items are Type-1 conditional, the single
+  // target of this unit, across four formats: fill the if-half (Q8, Q12), fill the result-half (Q9),
+  // pick-the-correct-sentence (Q10, Q14), and error-scan (Q11, Q13). Type-2 is never named or taught in
+  // Unit 37's lesson — "would" appears only as a wrong option, and the taught rule ("the result half says
+  // WILL") is by itself enough to reject it without knowing what Type-2 is.
+  { n:8, section:'grammar', body:"Gap (8) — \"If the bus (8)___ on time, we will reach the museum before it opens.\"",
+    options:["will arrive","arrives","arrived","arriving"], ans:2,
+    why:"The other half says \"will reach\", so this is the pattern you practised. The if-half takes a plain now-verb, and \"will\" is never allowed inside the if-half: arrives." },
+  { n:9, section:'grammar', body:"Gap (9) — \"If Nok practises the solo every day, she (9)___ it perfectly at the concert.\"",
+    options:["played","would play","will play","will played"], ans:3,
+    why:"The if-half is a plain now-verb (\"practises\"), so the result half must be WILL plus the plain base verb: will play. Not \"will played\" — only one of the two carries the ending, and \"will\" already does that job." },
+  { n:10, section:'grammar', body:"Which sentence is correctly written? A) If the rain stops, the parade would begin on time. B) If the rain will stop, the parade begins on time. C) If the rain stopped, the parade will begin on time. D) If the rain stops, the parade will begin on time.",
+    options:["A","B","C","D"], ans:4,
+    why:"D is the only one where both halves match: a plain now-verb in the if-half (\"stops\") and WILL plus a base verb in the result half (\"will begin\"). A's result half says \"would\"; B puts \"will\" inside the if-half; C's if-half has slipped into the past (\"stopped\")." },
+  { n:11, section:'grammar', body:"Which sentence contains an error? A) If the shop opens early, the queue will move faster. B) If the ferry will leave at six, the tourists will miss it. C) If the printer runs out of ink, the posters will be late. D) If the wind drops, the kites will come down.",
+    options:["A","B","C","D"], ans:2,
+    why:"B is wrong — \"will\" has been put inside the if-half (\"If the ferry will leave\"). It should read \"If the ferry leaves at six.\" A, C and D all keep a plain now-verb in the if-half and \"will\" in the result half." },
+  { n:12, section:'grammar', body:"Gap (12) — \"If it (12)___ heavily tonight, the football match will be cancelled.\"",
+    options:["rains","will rain","rained","raining"], ans:1,
+    why:"The other half says \"will be cancelled\", so the if-half takes a plain now-verb: rains. \"Will\" belongs only in the result half, never in the if-half." },
+  { n:13, section:'grammar', body:"Which sentence contains an error? A) If the museum stays open late, more visitors would come. B) If the alarm rings, everyone will leave the building. C) If Grandma arrives early, we will start the cake. D) If the road floods, the bus will take another route.",
+    options:["A","B","C","D"], ans:1,
+    why:"A is wrong — the if-half is a plain now-verb (\"stays\"), so its result half has to say \"will come\", not \"would come\". B, C and D are all built correctly." },
+  { n:14, section:'grammar', body:"Which sentence is correctly written? A) If Dara finds her ticket, she would join the trip. B) If Dara will find her ticket, she joins the trip. C) If Dara finds her ticket, she will join the trip. D) If Dara found her ticket, she will join the trip.",
+    options:["A","B","C","D"], ans:3,
+    why:"C is the only matching pair: plain now-verb in the if-half (\"finds\") and WILL plus a base verb in the result half (\"will join\"). A's result half says \"would\"; B puts \"will\" inside the if-half; D's if-half has slipped into the past (\"found\")." },
+
+  // Section VOCAB (Q15-Q20) — fresh narrative ("Nara at the Animal Shelter"), all-new word set (timid, methodical,
+  // versatile, nonchalant, gracious, relentless — every one verified unused across all prior units and
+  // milestones by an automated scan of every past test file). Permanent
+  // reversal traps sit at Q17 (resourceful) and Q19 (courteous), the established slots. Reversal traps held
+  // at Unit 33 and Unit 35 and broke at Unit 36's Q19, so this is the re-check on that slot.
+  { n:15, section:'vocab', body:"What does \"timid\" mean, as used in the passage (\"at first she was timid about it, worrying that the biggest dogs would be too much for her\")?",
+    options:["Bold and fearless","Shy and easily scared","Loud and cheerful","Angry and impatient"], ans:2,
+    why:"Worrying that the big dogs would be too much for her is the clue: shy and easily scared." },
+  { n:16, section:'vocab', body:"What does \"methodical\" mean, as used in the passage (\"Kit was methodical at the gate all morning, checking the latch in the same order every single time a visitor came through\")?",
+    options:["Careless and random","Rushed and messy","Slow and confused","Orderly and step-by-step"], ans:4,
+    why:"Doing the same checks in the same order every single time is the clue: orderly and step-by-step." },
+  { n:17, section:'vocab', body:"What does \"versatile\" mean, as used in the passage (\"Nara turned out to be versatile too, moving from feeding the puppies to scrubbing the water trays to mending a loose fence panel\")?",
+    options:["Able to do many different jobs","Able to do only one job","Unwilling to help out at all","Careless with the shelter's tools"], ans:1,
+    why:"Moving from feeding to scrubbing to mending is the clue: able to do many different jobs. Check the direction — \"able to do only one job\" is the near opposite, and describes someone who could not have covered all three." },
+  { n:18, section:'vocab', body:"What does \"nonchalant\" mean, as used in the passage (\"One visitor stayed nonchalant about the whole thing — he shrugged, said it made no difference to him either way\")?",
+    options:["Casually unconcerned about it","Deeply worried about it","Extremely delighted by it","Loudly angry about it"], ans:1,
+    why:"Shrugging and saying it made no difference to him either way is the clue: casually unconcerned about it." },
+  { n:19, section:'vocab', body:"What does \"gracious\" mean, as used in the passage (\"Nara was gracious with every single person who came in, thanking them warmly even when they asked her the same question five times over\")?",
+    options:["Rude and ungrateful","Shy and silent","Kind and well-mannered","Hurried and impatient"], ans:3,
+    why:"Thanking people warmly even on the fifth repeat of the same question is the clue: kind and well-mannered. Check the direction — \"rude and ungrateful\" is the near opposite, and describes exactly what she did NOT do." },
+  { n:20, section:'vocab', body:"What does \"relentless\" mean, as used in the passage (\"when the oldest dog would not walk, Nara was relentless, sitting beside him and coaxing him gently for a whole hour until at last he stood up\")?",
+    options:["Giving up very quickly","Easily distracted by others","Frightened of hard work","Refusing to give up"], ans:4,
+    why:"Staying beside the dog and coaxing him for a whole hour until he finally stood up is the clue: refusing to give up." },
+];
+
+/* ---------- END EDIT PER UNIT ---------- */
+
+const SECTION_LABEL = {
+  cloze:   "SECTION A — Cloze Test",
+  grammar: "SECTION B — Grammar",
+  vocab:   "SECTION C — Vocabulary &amp; Reading"
+};
+const SECTION_ORDER = ['cloze','grammar','vocab'];
+const TOTAL_Q = Q.length;
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${TOTAL_Q} to submit`;
+
+const chosen = {};   // { qn: optionIndex(1-based) }
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint ${q.section}">${SECTION_HINT[q.section] || ''}</div>`;
+      if (SECTION_PASSAGE[q.section]) html += `<div class="passage">${SECTION_PASSAGE[q.section]}</div>`;
+      lastSection = q.section;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+      </p>`;
+    html += `<div>`;
+    q.options.forEach((opt, idx) => {
+      const label = (idx+1) + '. ' + opt;
+      html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${label}</button>`;
+    });
+    html += `</div>`;
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why}</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = Object.keys(chosen).length;
+  document.getElementById('progress-label').textContent = `${n} / ${TOTAL_Q} answered`;
+  document.getElementById('progress-fill').style.width = (n/TOTAL_Q*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === TOTAL_Q){
+    btn.disabled = false;
+    btn.textContent = 'Submit Test';
+  } else {
+    btn.disabled = true;
+    btn.textContent = `Answer all ${TOTAL_Q} to submit (${TOTAL_Q-n} left)`;
+  }
+}
+
+function askConfirmSubmit(){
+  if (Object.keys(chosen).length < TOTAL_Q) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+
+  let score = 0;
+  const sectionTally = {};
+  SECTION_ORDER.forEach(s => sectionTally[s] = {c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    if (isCorrect) score++;
+    sectionTally[q.section].t++;
+    if (isCorrect) sectionTally[q.section].c++;
+
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect ? `tag-ok-${q.n}` : `tag-bad-${q.n}`).classList.add('show');
+
+    return { q: q.n, section: q.section, chosen: given, correct: q.ans, isCorrect };
+  });
+
+  const pct = Math.round(score/TOTAL_Q*100);
+  const pass = score >= PASS_BAR;
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show', pass ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `${score} / ${TOTAL_Q}  (${pct}%)`;
+  document.getElementById('score-msg').textContent = pass
+    ? `🎉 Great job, Prem! That's a PASS (bar is ${PASS_BAR}/${TOTAL_Q}). Look through the highlighted answers below to see why.`
+    : `Good effort! Bar is ${PASS_BAR}/${TOTAL_Q} — look through the highlighted answers below, then talk it through with Naomi.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${s.charAt(0).toUpperCase()+s.slice(1)}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('');
+
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    isMilestone: IS_MILESTONE,
+    milestoneNum: MILESTONE_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    score, outOf: TOTAL_Q, pct, passBar: PASS_BAR, passed: pass,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers
+  };
+}
+
+async function saveResults(){
+  const pad = (n, len) => String(n).padStart(len,'0');
+  const filename = IS_MILESTONE
+    ? `ENG_M${MILESTONE_NUM}_Results_${lastResults.dateTaken}.json`
+    : `ENG_U${pad(UNIT_NUM,3)}_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}. (First time, pick the Lessons\\Tests\\Results folder — your browser will suggest it again next time.)`;
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; }
+    }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
