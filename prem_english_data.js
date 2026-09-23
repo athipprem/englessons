@@ -15,14 +15,14 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '7 Sep 2026',
+  updated:        '23 Sep 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           37,
-    status:      '&#128295; REPAIR UNIT &mdash; the first of three single-target repair units (U37/38/39) agreed with Lui on 7 Sep 2026 after Unit 36 scored 10/20 with all six of its targeted items failed and all five untaught items passed. Unit 37 repairs exactly ONE rule &mdash; the Type-1 conditional, missed at Units 33, 35 and 36 &mdash; with a whole lesson, 15 practice reps across four formats, and a forced retry on every miss. Type-2 is never named or taught. Lesson 1 is maintenance only, zero new rules. The test probes no untaught gap, so the score reads cleanly as a test of the method itself.',
+    n:           38,
+    status:      '&#127979; SCHOOL TEST 3-4 PREP &mdash; three lessons (Spelling/Vocab word bank across 3 readers, Reading Comprehension three-mark-answers method, Opinion Essay two-reason framework) plus two test papers (Paper 1: Vocab/Reading, 48 items/60 marks; Paper 2: Task W opinion essay, "Should wild animals be kept in zoos?"), built directly from Prem&rsquo;s real school Unit Test 3-4 on 1&ndash;2 Oct 2026. Built after Unit 37 held 18/20 (90%) &mdash; the Type-1 conditional repair worked and is now closed. Session boundary: Unit 39 is NOT started until both papers and the real school result exist.',
     testPending: true
   },
 
@@ -32,71 +32,76 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 36 — updated after each test)
+  // Last completed assessment (Unit 37 — updated after each test)
   lastUnit: {
-    n: 36, label: 'Unit 36', score: 10, outOf: 20, pct: 50, delta: -2, prevScore: 12,
+    n: 37, label: 'Unit 37', score: 18, outOf: 20, pct: 90, delta: 8, prevScore: 10,
 
-    patternLabel:   'Unit 36 &mdash; 6 Sep 2026 &middot; 10/20 (50%) &mdash; FAIL, the lowest unit-test result in the programme',
-    patternInsight: '<strong>The result splits perfectly along the taught/untaught line.</strong> Unit 36 targeted six items and <strong>all six failed</strong>: &ldquo;arrive at&rdquo; error-scan (Q1, Q2), subjunctive adjective-triggers (Q3, Q4), Type-1 conditional in both formats (Q8, Q9), much/very-much in both formats (Q10, Q11), Little-inversion&rsquo;s did+base-form detail (Q12) and the vocab reversal trap (Q19). The five items it did NOT teach &mdash; Instead vs Moreover, gerund-after-preposition, superlative, linking verb, thereby+-ing &mdash; <strong>all passed, 5/5</strong>. Everything the unit taught was failed; everything it left alone was passed. That is a lesson-design failure, not a student regression.',
+    patternLabel:   'Unit 37 &mdash; 21 Sep 2026 &middot; 18/20 (90%) &mdash; PASS, the strongest result since Unit 34, and the single-target repair method is confirmed working',
+    patternInsight: '<strong>The Type-1 conditional repair held across every format tested.</strong> Unit 37 was built to fix exactly ONE rule &mdash; the Type-1 conditional, missed at Units 33, 35 and 36 &mdash; with a whole lesson, 15 reps across four formats, and a forced retry on every miss. Of the six scored Type-1 items (Q8&ndash;Q14, minus the connector filler), <strong>five landed clean</strong>: gap-fill in both directions (Q8, Q9, Q12), identify-the-correct-sentence (Q10), and identify-the-error on the would-in-result-clause fault (Q13, the same fault Q14 later missed). Cloze 6/7, Grammar 6/7, Vocab 6/6 (PERFECT).',
 
-    analysisLabel:   'Unit 36 Result Analysis &mdash; 6 Sep 2026 (six repair targets in one unit was overload &mdash; and one previously-solid rule was actively damaged)',
-    analysisInsight: '<strong>Worse than a failed fix.</strong> much/very-much in direct fill-in was SOLID at Unit 35 and BROKE at Unit 36 (Q11), because the lesson stacked two exceptions onto the core rule in the same screen with no way to tell them apart (&ldquo;much faster&rdquo; as a comparative; &ldquo;weren&rsquo;t much troubled&rdquo; as an undefined &ldquo;negative-amount use&rdquo;, applied to a word that IS a participle-adjective). On Q10 Prem then flagged a CORRECT sentence (&ldquo;very much relieved&rdquo;) as the error. The Type-1 &ldquo;full re-teach&rdquo; put Type-2 in the same decision tree, turning recall into discrimination for a rule already being failed &mdash; and Q8 came back with exactly the halves-mixing error that contrast was meant to prevent. <strong>Cause confirmed by Lui (7 Sep): Prem spent less time on the test because he had not grasped the concepts, not from carelessness &mdash; &ldquo;6 within 1 unit were too overload.&rdquo;</strong> Also found: the test&rsquo;s READ FIRST bar printed the much/very-much and Little-inversion rules verbatim (he had both answers on the page and missed both), Q20 offered &ldquo;Humble and modest&rdquo; as an option for the word &ldquo;humble&rdquo;, and three code defects sit unfixed in both U36 lesson files. <strong>Decision: Units 37/38/39 become SINGLE-TARGET repair units</strong> &mdash; U37 = Type-1 conditional alone, U38 = much/very-much rebuilt from zero plus &ldquo;arrive at&rdquo; as a one-line co-rider, U39 = subjunctive adjective-triggers plus the Little-inversion detail. The reversal trap becomes a permanent habit cue in every vocab section rather than a unit target; Figurative Language does not ride along on a repair unit. Unit 40 remains the combined gap-review checkpoint.',
+    analysisLabel:   'Unit 37 Result Analysis &mdash; 21 Sep 2026 (one rule, one lesson, overload fixed &mdash; two narrow misses remain)',
+    analysisInsight: '<strong>Two isolated misses, both previously-flagged watch items, not new gaps.</strong> Q5 missed the Instead-vs-Moreover connector pair (chose the addition-sense word where the sentence needed the substitution-sense one) &mdash; the same pair he answered correctly in the opposite direction at Q6, and the identical connector was already missed once before at Unit 35. Q14 missed the Type-1 conditional in the &ldquo;identify the correctly-written sentence&rdquo; format &mdash; choosing a present-tense if-clause paired with &ldquo;would&rdquo; in the result clause &mdash; the exact fault Q13 asked him to spot in error-scan format and got right; the gap is format-specific (recognise-the-flaw vs. recognise-the-fix), not a fresh clause-pairing error. Vocab held two near-opposite reversal-trap distractors (Q17 versatile, Q19 gracious) cleanly. No leaked answers or paper defects found; all four Type-1 error-spotting items used distinct surface scenes. <strong>Decision: the single-target repair method (one rule, one lesson, forced retry) is validated &mdash; Type-1 conditional is now closed as a repair target.</strong> Unit 38 pivots to a school-test-prep unit (real school Unit Test 3-4, 1&ndash;2 Oct 2026) rather than continuing the U38/U39 repair sequence, since the school date takes priority; Instead-vs-Moreover gets a light confirming touch in Unit 38 Lesson 3.',
 
-    qSummary: '<strong>10/20 (50%) FAIL &mdash; the lowest unit-test result recorded and the 5th straight sub-80% (U31 79 &rarr; U32 65 &rarr; U33 70 &rarr; U35 60 &rarr; U36 50). Cloze 3/7, Grammar 2/7, Vocab 5/6. The finding that matters is not the number but its shape: 0/10 on every item the unit taught, 5/5 on every item it did not. Six repairs in one unit was overload, and one rule that had been solid was broken by its own lesson. Next: UNIT 37 &mdash; one broken rule, one whole lesson, 15 reps, forced retry on every miss.</strong>',
+    qSummary: '<strong>18/20 (90%) PASS &mdash; strongest result since Unit 34 (29/30), and a clean break from the 5-test sub-80% run (U31 79 &rarr; U32 65 &rarr; U33 70 &rarr; U35 60 &rarr; U36 50). Cloze 6/7, Grammar 6/7, Vocab 6/6 PERFECT. Both misses (Q5 connector, Q14 Type-1 format-specific) are narrow and previously flagged, not new gaps. Next: UNIT 38 &mdash; real school Unit Test 3-4 prep (1&ndash;2 Oct 2026).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', pass:false, note:'&#10007; Chose B (a correct sentence); missed that A (&ldquo;arrived TO a groundbreaking conclusion&rdquo;) was the flawed one. 2nd straight error-scan miss on this rule.' },
-      { q:'Q2',  topic:'Cloze', pass:false, note:'&#10007; Chose D (a correct sentence); missed B (&ldquo;arrived TO the airport&rdquo;). Note: the lesson taught a noun-list check that did not cover place nouns like &ldquo;the airport&rdquo; or &ldquo;the summit&rdquo;.' },
-      { q:'Q3',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;wears&rdquo; &mdash; &ldquo;It is essential that&rdquo; needs the base form. 2nd straight miss on the adjective-trigger family.' },
-      { q:'Q4',  topic:'Cloze', pass:false, note:'&#10007; Chose &ldquo;takes&rdquo; &mdash; &ldquo;It is vital that&rdquo; needs the base form. Both adjective-trigger reps missed.' },
-      { q:'Q5',  topic:'Cloze', pass:true,  note:'&#10003; Instead vs Moreover &mdash; the light connector fix held. NOT a Unit 36 repair target.' },
-      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; Gerund after a preposition &mdash; maintenance, held clean. NOT a repair target.' },
-      { q:'Q7',  topic:'Cloze', pass:true,  note:'&#10003; Superlative &mdash; maintenance, held clean. NOT a repair target.' },
-      { q:'Q8',  topic:'Grammar', pass:false, note:'&#10007; Chose A (present if-half paired with &ldquo;would&rdquo;) &mdash; exactly the halves-mixing error the lesson&rsquo;s Type-1/Type-2 contrast table was meant to prevent. 3rd straight test missed.' },
-      { q:'Q9',  topic:'Grammar', pass:false, note:'&#10007; Type-1 error-scan &mdash; chose C, missed A (&ldquo;more visitors would come&rdquo;). Both scored Type-1 formats missed.' },
-      { q:'Q10', topic:'Grammar', pass:false, note:'&#10007; Chose C (&ldquo;very much relieved&rdquo; &mdash; actually CORRECT) instead of B. Flagged a correct sentence as the error.' },
-      { q:'Q11', topic:'Grammar', pass:false, note:'&#10007; <strong>REGRESSION</strong> &mdash; chose bare &ldquo;much&rdquo; over &ldquo;very much&rdquo; in the direct fill-in format, which had held CLEAN at Unit 35. Traced to the lesson stacking two unexplained exceptions onto the core rule in one screen.' },
-      { q:'Q12', topic:'Grammar', pass:false, note:'&#10007; Chose &ldquo;did the sailors expected&rdquo; &mdash; the did+BASE form detail missed again, despite the test&rsquo;s own instruction bar stating this rule verbatim.' },
-      { q:'Q13', topic:'Grammar', pass:true,  note:'&#10003; Linking verb + adjective (&ldquo;tasted delicious&rdquo;) &mdash; maintenance, held clean. NOT a repair target.' },
-      { q:'Q14', topic:'Grammar', pass:true,  note:'&#10003; thereby + -ing &mdash; maintenance, held clean. NOT a repair target.' },
-      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;diligent&rdquo; &mdash; hardworking and careful, correctly identified.' },
-      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;wary&rdquo; &mdash; cautious and on guard, correctly identified.' },
-      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;ingenious&rdquo; &mdash; reversal-trap slot, held. 4th clean result at this slot.' },
-      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;contemptuous&rdquo; &mdash; scornful and disrespectful, correctly identified.' },
-      { q:'Q19', topic:'Vocab', pass:false, note:'&#10007; &ldquo;compassionate&rdquo; &mdash; chose the near-opposite (&ldquo;selfish and uncaring&rdquo;). <strong>First break of a reversal trap in 3 tests</strong>; the habit had only one 2-option reminder in the lesson, with identical feedback for right and wrong.' },
-      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; &ldquo;humble&rdquo; &mdash; correct, but the item was defective: option D read &ldquo;Humble and modest&rdquo;, i.e. the target word defined itself. Free point, no real signal.' }
+      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; Gerund after preposition ("for ___ing") &mdash; "emptying", correct.' },
+      { q:'Q2',  topic:'Cloze', pass:true,  note:'&#10003; Gerund after preposition ("for ___ing") &mdash; "taking", correct.' },
+      { q:'Q3',  topic:'Cloze', pass:true,  note:'&#10003; Superlative, long adjective &mdash; "most colourful", correct.' },
+      { q:'Q4',  topic:'Cloze', pass:true,  note:'&#10003; Comparative with "than" &mdash; "longest", correct.' },
+      { q:'Q5',  topic:'Cloze', pass:false, note:'&#10007; Instead vs Moreover &mdash; chose "Moreover" (addition sense) where the sentence described a substitution ("planned to sell cupcakes&hellip; Instead, they sold banana bread"). Same connector pair missed once before at Unit 35.' },
+      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; Instead vs Moreover, opposite direction &mdash; "Moreover" (addition sense), correct.' },
+      { q:'Q7',  topic:'Cloze', pass:true,  note:'&#10003; Parallel structure in a verb list &mdash; "collects", correct.' },
+      { q:'Q8',  topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional gap-fill (if-clause = present) &mdash; "arrives", correct. Repair target held.' },
+      { q:'Q9',  topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional gap-fill (result clause = will+base) &mdash; "will play", correct. Repair target held.' },
+      { q:'Q10', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional, identify correctly-written sentence &mdash; sentence D, correct. Repair target held.' },
+      { q:'Q11', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional, identify the error ("will" inside if-clause) &mdash; sentence B, correct. Repair target held.' },
+      { q:'Q12', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional gap-fill (if-clause = present) &mdash; "rains", correct. Repair target held.' },
+      { q:'Q13', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional, identify the error ("would" in result clause after present if-clause) &mdash; sentence A, correct. Same fault type as Q14, spotted correctly here in error-scan format.' },
+      { q:'Q14', topic:'Grammar', pass:false, note:'&#10007; Type-1 conditional, identify correctly-written sentence &mdash; chose sentence A ("If Dara finds her ticket, she would join the trip"), a present if-clause paired with "would". Correct answer C pairs it with "will join". Same fault as Q13, but here he selected the flawed sentence rather than flagging it &mdash; format-specific gap.' },
+      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; "timid" &mdash; shy and easily scared, correct.' },
+      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; "methodical" &mdash; orderly and step-by-step, correct.' },
+      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; "versatile" &mdash; able to do many different jobs, correct; did not fall for the near-opposite distractor.' },
+      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; "nonchalant" &mdash; casually unconcerned, correct.' },
+      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; "gracious" &mdash; kind and well-mannered, correct; did not fall for the near-opposite distractor.' },
+      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; "relentless" &mdash; refusing to give up, correct.' }
     ]
   },
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
-  // After UNIT 36 (10/20, 50% FAIL, 6 Sep 2026 — lowest unit test recorded; 0/10 on every targeted item,
-  //   5/5 on every untaught maintenance item — a lesson-design failure, not a broad regression):
+  // After UNIT 37 (18/20, 90% PASS, 21 Sep 2026 — Type-1 conditional repair confirmed working, 5/6 scored
+  //   items held clean; only Q5 connector and Q14 format-specific Type-1 miss):
   // Reading/Writing/Conversation/CritThink/FigLang unchanged — not tested this unit;
-  // Grammar -2 (64→62) — the format-transfer misses (much/very-much, "arrive at" via error-scan) show the
-  //   underlying rules ARE known, but Type-1 conditional's 2nd straight backslide is a genuine regression signal,
-  //   so a modest downward adjustment reflects the real, still-open gap rather than treating this as pure noise;
-  // Cloze -1 (64→63) — a smaller dip than Grammar's, since Cloze's misses were mostly first-exposure-to-new-
-  //   format items (error-scan, a new subjunctive trigger shape) rather than a repeat backslide on a previously
-  //   "closed" item;
-  // Vocabulary unchanged (86) — 5/6 (83%) with both designed reversal traps held; one isolated miss doesn't
-  //   move an already-exceeded target
+  // Grammar +6 (57→63) — Type-1 conditional held clean in 5 of 6 formats after three straight failures at
+  //   U33/U35/U36; the one miss (Q14) is a narrow format-specific gap (recognise-the-fix vs recognise-the-flaw),
+  //   not a reopened clause-pairing error, so a solid but not full-credit recovery;
+  // Cloze +4 (59→63) — 6/7, only miss the Instead-vs-Moreover connector (already flagged at Unit 35), all
+  //   other cloze forms (gerund, superlative, comparative, parallel structure) held clean;
+  // Vocabulary +1 (85→86) — 6/6 PERFECT, both designed reversal-trap distractors (versatile, gracious) held
   skills: [
     { name: 'Reading Compr.',    c: 87, t: 87 },   // Unchanged — not tested this unit
-    { name: 'Vocabulary',        c: 85, t: 82 },   // U36: Vocab 5/6 (83%) — -1: still strong, but a reversal trap broke for the first time in 3 tests
-    { name: 'Grammar',           c: 57, t: 82 },   // U36: Grammar 2/7 (29%) — -5: Type-1 missed a 3rd straight test AND much/very-much regressed in a format that had been solid
-    { name: 'Cloze Test',        c: 59, t: 80 },   // U36: Cloze 3/7 (43%) — -4: both targeted repairs missed again on a second exposure
-    { name: 'Writing',           c: 65, t: 85 },   // ESTIMATE — unchanged; first real checkpoint planned by Milestone 5
+    { name: 'Vocabulary',        c: 86, t: 82 },   // U37: Vocab 6/6 (100%) PERFECT — +1, both reversal traps held
+    { name: 'Grammar',           c: 63, t: 82 },   // U37: Grammar 6/7 (86%) — +6: Type-1 conditional repair held in 5/6 formats, one narrow format-specific miss remains (Q14)
+    { name: 'Cloze Test',        c: 63, t: 80 },   // U37: Cloze 6/7 (86%) — +4: only miss was the already-flagged Instead-vs-Moreover connector pair
+    { name: 'Writing',           c: 72, t: 88 },   // 11 Sep 2026: no longer an estimate — his real Y5 school Assessment #2 marked his
+                                                  //   expository response 18/25 (72%) on the school's 5-trait rubric: his LOWEST
+                                                  //   externally-scored English mark. Still not coach-measured — Unit 38's Task W is
+                                                  //   the programme's first scored writing checkpoint.
     { name: 'Conversation',      c: 95, t: 85 },   // Unchanged — not tested this unit
-    { name: 'Critical Thinking', c: 62, t: 80 },   // ESTIMATE — never scored; first real checkpoint planned by Milestone 5
-    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored. Unit 36 gave it one ungraded look; it does NOT ride along on the U37-39 repair units (7 Sep decision), so its runway restarts at U40+, still ahead of the Milestone 4 checkpoint
+    { name: 'Critical Thinking', c: 62, t: 78 },   // ESTIMATE — still never scored. Queues behind Writing and higher-order
+                                                  //   Reading; deliberately NOT added during the consolidation phase (11 Sep 2026).
+    { name: 'Figurative Lang.',  c: 55, t: 78 }    // ESTIMATE — never scored. Does not ride along on the school-test-prep unit; runway restarts at U40+, still ahead of the Milestone 4 checkpoint
   ],
 
   // Radar axes order: Reading, Vocabulary, Grammar, Cloze, Writing, Conversation, CritThink, FigLang
-  radarCurrent:  [87, 85, 57, 59, 65, 95, 62, 55],
-  radarTarget:   [87, 82, 82, 80, 85, 85, 80, 78],
+  radarCurrent:  [87, 86, 63, 63, 72, 95, 62, 55],
+  // Targets re-pointed 11 Sep 2026 for the ISA-only phase: Reading and Writing are the two domains ISA
+  //   actually assesses, so they carry the ambition. Grammar/Cloze are not ISA sections — their targets drop to
+  //   a realistic 'accurate inside real writing' hold rather than a competition-grammar ceiling.
+  radarTarget:   [92, 88, 75, 72, 85, 85, 78, 75],
   radarBaseline: [62, 58, 58, 46, 65, 95, 50, 42],
-  radarLegendUnit: 'Unit 36',
+  radarLegendUnit: 'Unit 37',
 
   // ── Score history (unit tests only — ASMOPSS shown separately) ────
   outOf: 20,
@@ -139,11 +144,25 @@ var PREM_ENGLISH = {
     { n:33, score:14, outOf:20, delta:1,  color:'#fc4e4e', star:false, label:'U33' },
     { n:34, score:29, outOf:30, delta:null, color:'#89F336', star:true, label:'U34 🏫' },
     { n:35, score:12, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U35 🔁' },
-    { n:36, score:10, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U36' }
+    { n:36, score:10, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U36' },
+    { n:37, score:18, outOf:20, delta:8,  color:'#89F336', star:true,  label:'U37' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 37,
+      title: 'Unit 37 &mdash; Repair Unit: Type-1 Conditional (single-target)',
+      badge: '#89F336',
+      status: 'done',
+      note: '18/20 (90%) &mdash; <strong>PASS, strongest result since Unit 34, and the single-target repair method is confirmed working.</strong> Type-1 conditional held clean in 5 of 6 scored formats &mdash; gap-fill both directions (Q8, Q9, Q12), identify-the-correct-sentence (Q10), and identify-the-error on the would-in-result-clause fault (Q13) &mdash; after three straight failures at Units 33, 35 and 36. <strong>Cloze 6/7</strong> &mdash; only miss was the Instead-vs-Moreover connector (Q5, already flagged at Unit 35); the same pair answered correctly in the opposite direction (Q6). <strong>Grammar 6/7</strong> &mdash; the one miss (Q14) was the SAME clause-pairing fault Q13 correctly spotted, but in the reverse "identify the correctly-written sentence" format &mdash; a narrow, format-specific gap, not a reopened error. <strong>Vocab 6/6 PERFECT</strong> &mdash; both designed reversal-trap distractors (versatile, gracious) held. No leaked answers or paper defects found. &middot; Next: <strong>UNIT 38</strong> pivots to real school Unit Test 3-4 prep (Spelling/Vocab, Reading Comprehension, Opinion Essay) ahead of the 1&ndash;2 Oct 2026 school test, giving Instead-vs-Moreover a light confirming touch along the way.',
+      tags: [
+        { t:'18/20 (90%) PASS &#127881;', s:'background:#f0fff4;color:#276749' },
+        { t:'Type-1 conditional REPAIRED', s:'background:#f0fff4;color:#276749' },
+        { t:'Vocab 6/6 &#9733; PERFECT', s:'background:#f0fff4;color:#276749' },
+        { t:'&rarr; U38 school test prep', s:'background:#ebf8ff;color:#2c5282' }
+      ]
+    },
     {
       n: 36,
       title: 'Unit 36 &mdash; Closing Unit 35&rsquo;s Format Gaps + Figurative Language',
@@ -629,40 +648,40 @@ var PREM_ENGLISH = {
   // ── Priority gaps ────────────────────────────────────────────────
   priorityGaps: [
     {
-      label:     'Cloze Test &mdash; systemic gap (Priority 1)',
+      label:     'Writing &mdash; his weakest measured skill (Priority 1)',
       pill:      'p1', pillText: 'Priority &#9888;',
-      score:     'ASMOPSS 10/20 (50%). Errors at ALL difficulty levels including Basic (Q23 &#10007;). Cloze is the intersection of grammar + vocabulary + text coherence. Must resolve Basic-level errors before advancing. Phase 1 focus: 2 cloze passages per session until Basic-level questions are 100% reliable.',
-      fillClass: 'g1', fillPct: 18
+      score:     'ISA assesses Writing on two separate ACER scales &mdash; Narrative and Expository, both extended tasks &mdash; and this programme has never once scored a piece of Prem&rsquo;s own writing. <strong>His school has: Assessment #2 (2 Sep 2026) marked his expository response 18/25 (72%) on a 5-trait rubric &mdash; his lowest externally-scored English mark anywhere, Style &amp; Voice lowest at 3/5.</strong> The real sample shows one developed reason instead of two, speculative evidence rather than concrete examples, a conclusion introducing a reason never argued, and spoken register intruding. <strong>Unit 38 is the programme&rsquo;s first scored checkpoint</strong> &mdash; marked on his school&rsquo;s own rubric, so the two scores are directly comparable.',
+      fillClass: 'g1', fillPct: 72
     },
     {
-      label:     'Vocabulary &mdash; Intermediate / Applied level',
+      label:     'Higher-order reading &mdash; Evaluating &amp; Reflecting (Priority 1)',
       pill:      'p1', pillText: 'Priority &#9888;',
-      score:     'ASMOPSS 12/20 (60%). Q8 &#10007; Intermediate, Q9 &#10007; Applied. Knows words at surface level but struggles with nuance, connotation, and advanced context usage. Phase 1 target: 10 new words/week with word family maps and context-based usage.',
-      fillClass: 'g1', fillPct: 28
+      score:     'Reading is his strongest measured skill (12/12 at Unit 34, 20/20 on the real ASMOPSS paper, 100% cumulative on every reading item ever set). But Top 5% is won at the top end of the hardest ISA reading domain &mdash; inference, author&rsquo;s purpose, evaluating and reflecting &mdash; and that end has never been stretched. Strength is not the same as ceiling.',
+      fillClass: 'g1', fillPct: 55
     },
     {
-      label:     'Grammar &mdash; complex structures (Intermediate / Applied)',
+      label:     'Sentence accuracy &mdash; inside real writing, not as rules',
       pill:      'p2', pillText: 'Monitor &#128992;',
-      score:     'ASMOPSS 12/20 (60%). Q15 &#10007; Intermediate, Q17 &#10007; Applied. Conditionals, tense consistency, and clause embedding are not yet secure. Phase 1 focus: conditional sentences (if I went&hellip; I would), complex tenses, clause embedding.',
-      fillClass: 'g2', fillPct: 35
+      score:     'Cumulative Grammar 66/105 (63%) and Cloze 60/105 (57%) &mdash; his weakest real area, and it does matter for ISA writing conventions. <strong>But it was being tested through competition error-ID constructions ISA never assesses.</strong> From Unit 38 it is taught and tested only as accuracy inside real sentences and real drafts: subject-verb agreement, tense consistency, punctuation of joined sentences, and the proofread routine.',
+      fillClass: 'g2', fillPct: 60
     },
     {
-      label:     'Writing precision &mdash; Proficient ceiling',
+      label:     'Critical Thinking &mdash; never scored',
       pill:      'p2', pillText: 'Develop &#128218;',
-      score:     'School writing 22/25 &mdash; all dimensions Proficient. Simple vocabulary (&ldquo;very hard&rdquo;, &ldquo;a lot more&rdquo;), repetitive sentence openings (&ldquo;I would also like&hellip;&rdquo; &times;2), tense slips in conditionals. Phase 2 target: 3 sentence types per paragraph, no two consecutive openings the same, 2+ above-grade-level words per paragraph.',
-      fillClass: 'g2', fillPct: 42
+      score:     'Named in the original ISA 2027 brief, never appeared in a scored unit or milestone test. The radar figure (62) is an estimate. Not scheduled yet &mdash; it queues behind Writing and higher-order Reading, and should not be added while the programme is consolidating.',
+      fillClass: 'g2', fillPct: 40
     },
     {
-      label:     'Higher-order reading &mdash; Evaluating &amp; Reflecting',
-      pill:      'p2', pillText: 'Develop &#128218;',
-      score:     'ISA 2026 (Gr.4) &mdash; at/above median for Grade 4, but inference, author&rsquo;s purpose, and evaluating &amp; reflecting are the hardest ISA reading domain. Literal retrieval is solid; higher-order tasks are where Top 5% scores are won. Phase 2 priority.',
-      fillClass: 'g2', fillPct: 38
-    },
-    {
-      label:     'Conversation &mdash; EXCEEDS TARGET',
-      pill:      'ps', pillText: 'Solid &#10003;',
-      score:     'ASMOPSS Conversation 20/20 (100%) &mdash; including Q6&#9733; (only 21.6% correct). Natural communicator. No work needed here &mdash; maintain and leverage as a confidence base.',
+      label:     'RETIRED &mdash; ASMOPSS competition grammar',
+      pill:      'ps', pillText: 'Closed &#10003;',
+      score:     '<strong>much / &ldquo;very much&rdquo;, Little-inversion, subjunctive adjective-triggers and &ldquo;arrive at&rdquo; were retired as targets on 11 Sep 2026.</strong> All are ASMOPSS error-ID constructions; ISA does not test them, and &ldquo;very much surprised&rdquo; is dated English no native speaker says. Closed by decision, not by mastery &mdash; do not re-open them as unclosed gaps. Type-1 conditional (Unit 37) is NOT retired: it is ordinary grammar that appears in real writing.',
       fillClass: 'gs', fillPct: 100
+    },
+    {
+      label:     'Vocabulary &amp; Conversation &mdash; holding',
+      pill:      'ps', pillText: 'Solid &#10003;',
+      score:     'Vocabulary 83/90 (92%) cumulative with the reversal traps in place; Conversation 20/20 on the real ASMOPSS paper. Conversation is not an ISA domain &mdash; keep it as a confidence base, do not spend unit marks on it. Vocabulary continues as a maintenance section with permanent near-opposite traps.',
+      fillClass: 'gs', fillPct: 92
     }
   ],
 

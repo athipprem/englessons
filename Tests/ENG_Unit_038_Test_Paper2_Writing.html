@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 38 Test — Paper 2: Writing</title>
+<!-- Built from BUILD_PLAN_ENG_U038_SchoolTest34_Prep.md §10 and interactive_test_template.md's Task W spec.
+     Task W only -- no auto-score. Marked separately by Naomi against St. Mark's 5-trait rubric (18/25 baseline). -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{ --ink:#2d3748; --grey:#718096; --line:#e2e8f0; }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:780px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  .prompt-box{background:#fff;border:2px solid #7B1FA2;border-radius:14px;padding:20px;margin-bottom:16px;text-align:center}
+  .prompt-box .q{font-size:1.15rem;font-weight:800;color:#4A148C;margin-bottom:8px}
+  .prompt-box .sub{font-size:.92rem;color:var(--ink)}
+  .instr{font-size:.85rem;background:#f3e8ff;border-left:4px solid #9b59b6;color:#4a235a;border-radius:8px;padding:10px 14px;margin-bottom:16px}
+  .plan-box{background:#F9F5FF;border:1.5px solid #CE93D8;border-radius:12px;padding:16px;margin-bottom:16px}
+  .plan-box h3{color:#4A148C;font-size:.95rem;margin:0 0 10px}
+  .plan-lbl{font-weight:700;color:#4A148C;font-size:.82rem;margin-bottom:3px;margin-top:10px}
+  .plan-lbl:first-of-type{margin-top:0}
+  .plan-input{width:100%;border:1.5px solid #CE93D8;border-radius:8px;padding:7px 10px;font-size:.88rem;font-family:inherit;resize:vertical;min-height:36px}
+  .write-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+  .write-card h3{color:#4A148C;font-size:1rem;margin:0 0 10px}
+  #task-w{width:100%;min-height:340px;border:1.5px solid #7B1FA2;border-radius:10px;padding:14px;font-size:1rem;font-family:inherit;line-height:1.7;resize:vertical}
+  #wordcount{font-size:.82rem;color:var(--grey);margin-top:6px;text-align:right}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #done-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #done-banner.show{display:block}
+  #done-big{font-size:1.5rem;font-weight:900;color:#1b5e20}
+  #done-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b>Unit 38 Test — Paper 2: Writing</b>
+      <span class="sub">School Unit Test 3-4 Prep 🏫</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="instr">About 200–280 words, 4–5 paragraphs, about 25 minutes. Plan first, using the boxes below. Naomi marks this separately — it is not auto-scored.</div>
+
+  <div class="prompt-box">
+    <div class="q">Should wild animals be kept in zoos?</div>
+    <div class="sub">Give your opinion and strong reasons for what you believe.</div>
+  </div>
+
+  <div class="plan-box">
+    <h3>Plan first — five boxes</h3>
+    <div class="plan-lbl">1. My POSITION:</div><input class="plan-input" type="text" id="plan1">
+    <div class="plan-lbl">2. My REASON 1 + example:</div><textarea class="plan-input" id="plan2"></textarea>
+    <div class="plan-lbl">3. My REASON 2 + example:</div><textarea class="plan-input" id="plan3"></textarea>
+    <div class="plan-lbl">4. My OTHER SIDE:</div><textarea class="plan-input" id="plan4"></textarea>
+    <div class="plan-lbl">5. My CONCLUSION:</div><textarea class="plan-input" id="plan5"></textarea>
+  </div>
+
+  <div class="write-card">
+    <h3>Write your essay ✍️</h3>
+    <textarea id="task-w" placeholder="Write your essay here..." oninput="updateWordCount()"></textarea>
+    <div id="wordcount">0 words</div>
+  </div>
+
+  <div id="done-banner">
+    <div id="done-big">Saved for Naomi 🎉</div>
+    <div id="done-msg"></div>
+  </div>
+
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Write your answer above to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+</div>
+
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit your essay?</h3>
+    <p>Once you submit, you can't change your answer. Make sure you're happy with it!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const UNIT_NUM = 38;
+const TASK_W_PROMPT = "Should wild animals be kept in zoos? Give your opinion and strong reasons for what you believe.";
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+let submitted = false;
+let lastResults = null;
+
+function wordCountOf(s){ return (s.trim().match(/\S+/g) || []).length; }
+function updateWordCount(){
+  const val = document.getElementById('task-w').value;
+  const n = wordCountOf(val);
+  document.getElementById('wordcount').textContent = n + ' words';
+  const btn = document.getElementById('btn-submit');
+  if (n >= 100){
+    btn.disabled = false;
+    btn.textContent = 'Submit Paper 2';
+  } else {
+    btn.disabled = true;
+    btn.textContent = 'Write your answer above to submit';
+  }
+}
+
+function askConfirmSubmit(){
+  const n = wordCountOf(document.getElementById('task-w').value);
+  if (n < 100) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.getElementById('task-w').disabled = true;
+  ['plan1','plan2','plan3','plan4','plan5'].forEach(id=>document.getElementById(id).disabled=true);
+
+  const response = document.getElementById('task-w').value;
+  const wordCount = wordCountOf(response);
+  const minutesSpent = Math.round((Date.now()-openedAtMs)/60000);
+
+  const banner = document.getElementById('done-banner');
+  banner.classList.add('show');
+  document.getElementById('done-msg').textContent = `You wrote ${wordCount} words in ${minutesSpent} minute${minutesSpent===1?'':'s'}. Naomi will mark this against your school's 5-trait rubric.`;
+  banner.scrollIntoView({behavior:'smooth'});
+
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    paper: 2,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    openedAt: openedAt,
+    minutesSpent,
+    plan: {
+      position: document.getElementById('plan1').value,
+      reason1: document.getElementById('plan2').value,
+      reason2: document.getElementById('plan3').value,
+      otherSide: document.getElementById('plan4').value,
+      conclusion: document.getElementById('plan5').value
+    },
+    writingTask: {
+      prompt: TASK_W_PROMPT,
+      response: response,
+      wordCount: wordCount,
+      rubricScore: null,
+      rubricBreakdown: null
+    }
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_U038P2_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}.`;
+      return;
+    } catch(e){ if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; } }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+updateWordCount();
+</script>
+</body>
+</html>
