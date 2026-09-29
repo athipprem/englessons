@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 38 Test — Paper 1: Vocabulary &amp; Reading</title>
+<!-- Built from BUILD_PLAN_ENG_U038_SchoolTest34_Prep.md §11/§11.1/§11.2. Extends the ENG interactive test
+     engine (spell/select/mcq/written item types, tier field, deferred written marking). 48 items, 60 marks,
+     pass bar 48/60 (80%). Answer keys for Sections A/B/C and the 12 reading-MCQ answer positions are pinned
+     verbatim from the plan. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --spell:#8A5A00; --spell-fill:#FEEBC8; --spell-text:#8A5A00;
+    --meaning:#4A148C; --meaning-fill:#E1BEE7; --meaning-text:#4A148C;
+    --boxcloze:#00695c; --boxcloze-fill:#B2DFDB; --boxcloze-text:#00695c;
+    --reading:#0d47a1; --reading-fill:#BBDEFB; --reading-text:#0d47a1;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:840px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.spell{background:var(--spell-fill);color:var(--spell-text)}
+  .band.meaning{background:var(--meaning-fill);color:var(--meaning-text)}
+  .band.boxcloze{background:var(--boxcloze-fill);color:var(--boxcloze-text)}
+  .band.reading{background:var(--reading-fill);color:var(--reading-text)}
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .defpanel,.boxpanel{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.88rem}
+  .defpanel table{width:100%;border-collapse:collapse}
+  .defpanel td{padding:4px 6px;vertical-align:top}
+  .defpanel td.letter{font-weight:800;color:var(--meaning-text);width:24px}
+  .boxpanel{text-align:center;font-weight:700;color:var(--boxcloze-text);letter-spacing:.3px}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.75}
+  .passage h4{margin:0 0 6px;color:var(--reading-text);font-size:.95rem}
+  .mtable{width:100%;border-collapse:collapse;margin:10px 0;font-size:.82rem}
+  .mtable th,.mtable td{border:1px solid #90CAF9;padding:5px 7px;text-align:left}
+  .mtable th{background:#BBDEFB;color:#0d47a1}
+  .safety{background:#FFF3D6;border:1.5px dashed #C08A1E;border-radius:8px;padding:8px 12px;font-size:.85rem;margin:8px 0}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.spell{border-left-color:var(--spell)}
+  .q.meaning{border-left-color:var(--meaning)}
+  .q.boxcloze{border-left-color:var(--boxcloze)}
+  .q.reading{border-left-color:var(--reading)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .tier-tag{font-size:.68rem;font-weight:800;background:#eee;color:#666;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  select.selin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;background:#fff}
+  select.selin.correct{border-color:var(--ok);background:var(--ok-l)}
+  select.selin.wrong{border-color:var(--bad);background:var(--bad-l)}
+  input.spellin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem}
+  input.spellin.correct{border-color:var(--ok);background:var(--ok-l)}
+  input.spellin.wrong{border-color:var(--bad);background:var(--bad-l)}
+  textarea.writtenin{width:100%;min-height:90px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  .btn.next{background:linear-gradient(135deg,#c62828,#e53935);color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-banner.fail{background:linear-gradient(135deg,#fff3e8,#ffe0c2);border:2px solid #e65100}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-banner.fail #score-big{color:#a34700}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 38 Test — Paper 1: Vocabulary &amp; Reading</b>
+      <span class="sub" id="hdr-sub">Natural Record Breakers · The Dragon Skateboard · Freedom</span>
+    </div>
+    <div class="meta">Name: <input type="text" id="hdr-name" placeholder="Your name" style="width:110px;border:none;border-radius:6px;padding:2px 6px;font-size:.8rem"><br>Date: <span id="hdr-date"></span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 48 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 48 to submit</button>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Index</a>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit Paper 1?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 38;
+const UNIT_TITLE = "Paper 1: Vocabulary & Reading";
+const UNIT_SUB   = "School Unit Test 3-4 Prep 🏫";
+const PASS_BAR   = 48;                 // out of 60
+const TOTAL_MARKS = 60;
+const AUTO_OUT_OF = 42;
+const WRITTEN_MARKS = 18;
+
+const SECTION_ORDER = ['spell','meaning','boxcloze','reading'];
+const SECTION_LABEL = {
+  spell:   "SECTION A — Fix the Spelling",
+  meaning: "SECTION B — What Does It Mean?",
+  boxcloze:"SECTION C — Fill From the Box",
+  reading: "SECTION D — Reading Comprehension"
+};
+const SECTION_HINT = {
+  spell:   "Read the sentence. The underlined word is misspelled — type it correctly.",
+  meaning: "Match each word to its letter using the definitions panel above.",
+  boxcloze:"Read the whole sentence first. Choose the one box word that fits. Not every box word is used.",
+  reading: "Read each text fully before answering. Answer using full, proper sentences."
+};
+
+const DEFINITIONS = [
+  "looked at someone in a very angry way",
+  "dead and finished forever, and never able to become active again",
+  "a flat, high area of land",
+  "up in the air and flying",
+  "a person who moves from place to place to find water and food",
+  "full of tiny holes that let water or air pass through",
+  "someone or something that comes into a place where it is not wanted",
+  "to wear something away slowly, a little at a time",
+  "an area with a fence or walls all around it, where animals are kept",
+  "sleeping, or not active at the moment, but able to wake up again"
+];
+const BOX_WORDS = ["admired","balance","climate","competition","crater","crouched","delta","dismay","injured","species","stumbled","survive"];
+
+const Q = [
+  /* ===== SECTION A — Spelling correction (Q1-10), type spell, 1 mark each ===== */
+  { n:1, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The waterfall\'s height made for a <u>spektakuler</u> view from the lookout point."', ans:'spectacular',
+    why:'The correct spelling is "spectacular" — spec-TAC-u-lar, four beats, none dropped.' },
+  { n:2, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"Every house on our street knows each other well in this <u>naybourhood</u>."', ans:'neighbourhood',
+    why:'The correct spelling is "neighbourhood" — British spelling keeps the "-our".' },
+  { n:3, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"Austin used his <u>binokulars</u> to watch the eagle circle over the mountain."', ans:'binoculars',
+    why:'The correct spelling is "binoculars" — with a "c", not a "k".' },
+  { n:4, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The whole village lost <u>electrisity</u> during the storm last night."', ans:'electricity',
+    why:'The correct spelling is "electricity" — with a "c", not an "s".' },
+  { n:5, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"She <u>wispered</u> the answer so the rest of the class wouldn\'t hear."', ans:'whispered',
+    why:'The correct spelling is "whispered" — don\'t drop the silent "h".' },
+  { n:6, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"It took real <u>imajinasion</u> to turn the broken chip into something new."', ans:'imagination',
+    why:'The correct spelling is "imagination" — with a "g" (sounds like "j") and "-tion".' },
+  { n:7, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The sky <u>gradualy</u> turned orange as the sun set over the desert."', ans:'gradually',
+    why:'The correct spelling is "gradually" — with a double "l" at the end.' },
+  { n:8, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The vet <u>egzamined</u> the eagle\'s wing carefully before making a decision."', ans:'examined',
+    why:'The correct spelling is "examined" — with an "x", even though it sounds like "gz".' },
+  { n:9, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The two cyclists narrowly avoided a <u>colision</u> at the corner."', ans:'collision',
+    why:'The correct spelling is "collision" — with a double "l".' },
+  { n:10, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"They searched <u>desperatly</u> for the missing dog as it grew dark."', ans:'desperately',
+    why:'The correct spelling is "desperately" — des-per-ate-ly, four beats, none dropped.' },
+
+  /* ===== SECTION B — Definition matching (Q11-20), type select, 1 mark each ===== */
+  { n:11, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'plateau', ans:3, why:'A plateau is "a flat, high area of land" — letter C.' },
+  { n:12, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'porous', ans:6, why:'Porous means "full of tiny holes that let water or air pass through" — letter F.' },
+  { n:13, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'dormant', ans:10, why:'Dormant means "sleeping, or not active at the moment, but able to wake up again" — letter J.' },
+  { n:14, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'extinct', ans:2, why:'Extinct means "dead and finished forever, and never able to become active again" — letter B. Compare with dormant (J), which can still wake up.' },
+  { n:15, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'erode', ans:8, why:'Erode means "to wear something away slowly, a little at a time" — letter H.' },
+  { n:16, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'nomad', ans:5, why:'A nomad is "a person who moves from place to place to find water and food" — letter E.' },
+  { n:17, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'enclosure', ans:9, why:'An enclosure is "an area with a fence or walls all around it, where animals are kept" — letter I.' },
+  { n:18, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'intruder', ans:7, why:'An intruder is "someone or something that comes into a place where it is not wanted" — letter G.' },
+  { n:19, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'airborne', ans:4, why:'Airborne means "up in the air and flying" — letter D.' },
+  { n:20, section:'meaning', type:'select', tier:'Basic', marks:1, options:['A','B','C','D','E','F','G','H','I','J'],
+    body:'glared', ans:1, why:'Glared means "looked at someone in a very angry way" — letter A.' },
+
+  /* ===== SECTION C — Word-box cloze (Q21-30), type select, 1 mark each ===== */
+  { n:21, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "Nara ___ down low behind the fence so the birds wouldn\'t notice her."', ans:6,
+    why:'"Crouched" fits — bending low behind the fence. "Stumbled" is also a past-tense movement word, but stumbling means tripping, not bending down on purpose; "admired" and "injured" are also past-tense verbs but neither means bending low.' },
+  { n:22, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "Scientists have recorded over forty different ___ of butterfly living in this one valley."', ans:10,
+    why:'"Species" fits — a type or kind of butterfly. "Competition" and "balance" are nouns too, but neither fits "different ___ of butterfly".' },
+  { n:23, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "The goalkeeper was badly ___ after the collision and had to leave the pitch."', ans:9,
+    why:'"Injured" fits — hurt after the collision. "Admired" is also past tense, but means respected, not hurt.' },
+  { n:24, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "Tightrope walkers need incredible ___ to cross without falling."', ans:2,
+    why:'"Balance" fits — the steadiness needed not to fall. "Species" and "competition" are nouns but do not mean steadiness.' },
+  { n:25, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "The desert has a dry, hot ___ , with almost no rainfall all year."', ans:3,
+    why:'"Climate" fits — the typical weather pattern of a place. "Delta" and "crater" are landforms, not weather.' },
+  { n:26, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "Everyone in the crowd ___ how calmly the pilot landed the damaged plane."', ans:1,
+    why:'"Admired" fits — felt respect for the calm landing. "Dismay" is a feeling too, but a negative one, and it is a noun, not a verb that fits this sentence\'s grammar.' },
+  { n:27, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "He ___ over the loose brick and nearly dropped the tray of cups."', ans:11,
+    why:'"Stumbled" fits — tripping over the brick. "Crouched" is also a movement word, but crouching is bending down on purpose, not tripping.' },
+  { n:28, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "Camels can ___ for many days in the desert without drinking water."', ans:12,
+    why:'"Survive" fits — stay alive through the hard conditions. None of the other box words mean staying alive.' },
+  { n:29, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "There was fierce ___ between the two runners for first place."', ans:4,
+    why:'"Competition" fits — the rivalry between the two runners. "Species" is also a noun, but does not mean rivalry.' },
+  { n:30, section:'boxcloze', type:'select', tier:'Intermediate', marks:1, options:BOX_WORDS,
+    body:'Gap — "A deep ___ was left in the ground where the old volcano had once erupted."', ans:5,
+    why:'"Crater" fits — the hollow left after an eruption. "Delta" is also a landform, but it forms where a river meets the sea, not from an eruption.' },
+
+  /* ===== SECTION D — Reading (Q31-48) ===== */
+  // Text 1 — Canyon Ridge National Park (info text + table)
+  { n:31, section:'reading', type:'mcq', tier:'Basic', marks:1, passageId:'t1',
+    body:'According to the table, which trail is the longest?',
+    options:['Sunset Overlook','Echo Gorge Trail','Old Lava Loop','Devil\'s Arch Path'], ans:2,
+    why:'Echo Gorge Trail is 9.5 km, the longest listed — a fact read straight from the table.' },
+  { n:32, section:'reading', type:'mcq', tier:'Basic', marks:1, passageId:'t1',
+    body:'According to the paragraph text, what caused the waterfall lookout path to be rebuilt last year?',
+    options:['A wildfire','Heavy flooding','Too many visitors','A rockfall'], ans:4,
+    why:'The text states the path "was rebuilt last year after a rockfall closed the old route" — a fact stated in the paragraphs.' },
+  { n:33, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t1',
+    body:'A family wants a trail suitable for young children. Combining the table with the Safety Rules box, which detail matters most?',
+    options:['Difficulty level — Hard trails need an experienced adult','The colour of the trail markers','How many photos the trail allows','Which judge is assigned to the trail'], ans:1,
+    why:'The Safety Rules box warns that Hard-rated trails need an adult experienced in the terrain — combining that rule with the table\'s Difficulty column is what matters for a family with young children.' },
+  { n:34, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t1',
+    body:'Why do you think the Old Lava Loop trail is only open in the cooler months (Apr–Oct)?',
+    options:['Because the park is closed in winter','Because lava fields form only in cool places','Because dark lava rock gets dangerously hot in summer','Because visitor numbers are lowest in autumn'], ans:3,
+    why:'This is not stated directly — it must be inferred from knowing dark rock absorbs and holds heat, making it dangerous underfoot in the hottest months, which the guide does not spell out but the surrounding safety information points toward.' },
+  { n:35, section:'reading', type:'written', tier:'Applied', marks:3, passageId:'t1',
+    body:'Explain why visitors must stay on marked paths at all times (Safety Rule 1).',
+    markScheme:['A full-sentence answer stating that visitors must stay on marked paths to avoid danger and protect the park.','A reason connecting this to a specific hazard mentioned in the guide (e.g. loose rock, unstable ground near the gorge, or the lava field\'s sharp surface).','A specific detail or short quotation drawn from the guide\'s own text or table (e.g. reference to the rockfall, the gorge lookout, or the lava field) supporting the explanation.'] },
+  { n:36, section:'reading', type:'written', tier:'Applied', marks:3, passageId:'t1',
+    body:'A grandparent who cannot manage steep steps is visiting with a young child who loves water. Recommend one trail for them and justify your choice using two details from the guide.',
+    markScheme:['A clear recommendation of one specific trail, named exactly as it appears in the table.','One detail from the table or text supporting suitability for the grandparent (e.g. Easy difficulty, short length, flat terrain).','A second detail from the table or text supporting the child\'s interest in water (e.g. the trail passes the waterfall lookout or river gorge).'] },
+
+  // Text 2 — story (no skateboard, no painting, no birthday, no animals, no broken arm)
+  { n:37, section:'reading', type:'mcq', tier:'Basic', marks:1, passageId:'t2',
+    body:'What happens when Niran unplugs the sound system during rehearsal?',
+    options:['Nobody notices and rehearsal continues','The choir wins a prize today','The whole rehearsal stops and everyone stares','The teacher sends him home early'], ans:3,
+    why:'The text states the music cut out mid-song and every head in the hall turned to look at Niran — the whole rehearsal stopped.' },
+  { n:38, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t2',
+    body:'Which action shows how Niran feels right after the sound system cuts out?',
+    options:['He freezes and stares at his shoes','He laughs loudly with his friends','He asks to sing a solo','He walks confidently to the front'], ans:1,
+    why:'Freezing and staring at his shoes shows embarrassment and wanting to disappear — a feeling shown through action, not stated directly.' },
+  { n:39, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t2',
+    body:'Why does Niran stay behind after rehearsal to look at the tangled cables?',
+    options:['He was told to clean up as punishment','He was looking for his missing bag','He wanted to avoid his friends today','He was curious about what went wrong'], ans:4,
+    why:'The text says he "couldn\'t stop wondering how the cables were meant to connect" — curiosity, not punishment or avoidance.' },
+  { n:40, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t2',
+    body:'What is the author\'s main message in this story?',
+    options:['Everyone must be good at singing to belong','A setback can reveal a different, valuable talent','Rehearsals are always stressful for everyone','Friends should never rely on each other'], ans:2,
+    why:'Niran\'s mistake with the cables leads directly to discovering his talent for sound and lighting — the setback reveals a different, valuable talent.' },
+  { n:41, section:'reading', type:'written', tier:'Applied', marks:3, passageId:'t2',
+    body:'How do Niran\'s feelings change from the beginning of the story to the end? Use details from the story.',
+    markScheme:['A full-sentence answer describing his feeling at the beginning (e.g. anxious or embarrassed about singing).','A description of the turning point using a story detail (e.g. staying behind to study the cables, or Mr Aditya asking him to help with the lighting desk).','A description of his feeling at the end using a story detail (e.g. proud or confident running the tech desk for the real show).'] },
+  { n:42, section:'reading', type:'written', tier:'Applied', marks:3, passageId:'t2',
+    body:'What does Niran learn by the end of the story? Explain using the story.',
+    markScheme:['A full-sentence statement of the lesson learned (e.g. that a mistake can lead to discovering a real talent).','A reason connecting this lesson to what actually happened in the story.','A specific detail or short quotation from the story supporting the explanation (e.g. Mr Aditya\'s comment, or Niran running the whole show\'s lighting and sound).'] },
+
+  // Text 3 — persuasive campaign
+  { n:43, section:'reading', type:'mcq', tier:'Basic', marks:1, passageId:'t3',
+    body:'What is the main purpose of the "Build a Skate Park for Hillview!" campaign?',
+    options:['To win community support for a new skate park','To close down the old neighbourhood playground for good','To advertise a new skateboard shop opening in town','To organise a school sports day this term'], ans:1,
+    why:'Every section of the campaign — WHAT, WHO, WHY, HOW — is organised around getting support and funding for a new skate park.' },
+  { n:44, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t3',
+    body:'Which sentence from the campaign is an OPINION, not a fact?',
+    options:['"Over 300 young people have nowhere safe to skate."','"The nearest skate park is 12 kilometres away."','"The proposed site is a car park on Mill Road."','"A new skate park would be the best idea ever."'], ans:4,
+    why:'"The best thing this town has ever built" is a judgement, not a checkable fact — the other three sentences give checkable numbers or locations.' },
+  { n:45, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t3',
+    body:'Why does the writer include the number "300"?',
+    options:['To make the campaign sound complicated','To give specific, checkable proof of real local need','Because the council requires a number here','To confuse readers with a big figure'], ans:2,
+    why:'A specific number is strong evidence — it proves there is a real, sizeable need rather than a vague claim.' },
+  { n:46, section:'reading', type:'mcq', tier:'Intermediate', marks:1, passageId:'t3',
+    body:'In the campaign, what does the phrase "nowhere safe to skate" suggest?',
+    options:['That skating is banned everywhere in town','That nobody in Hillview owns a skateboard','That young people skate in unsafe places, like roads','That the council has removed all footpaths'], ans:3,
+    why:'"Nowhere safe" implies young people ARE skating, just not somewhere safe — suggesting they use unsafe spaces like roads or car parks instead.' },
+  { n:47, section:'reading', type:'written', tier:'Applied', marks:3, passageId:'t3',
+    body:'Why do you think the campaign is called "Build a Skate Park for Hillview!"? Explain.',
+    markScheme:['A full-sentence explanation connecting the name to the campaign\'s purpose.','A reason drawing on the campaign\'s content (e.g. it directly states the action wanted and names the town to make it feel local and urgent).','A specific detail or short quotation from the campaign supporting the explanation.'] },
+  { n:48, section:'reading', type:'written', tier:'Applied', marks:3, passageId:'t3',
+    body:'Describe two ways people could help this campaign, and say which would help most and why.',
+    markScheme:['A full-sentence description of one way to help, drawn from the HOW section (e.g. signing the petition, attending the council meeting, or donating).','A full-sentence description of a second, different way to help.','A judgement on which would help most, with a reason connecting back to the campaign\'s stated goal.'] }
+];
+
+const PASSAGES = {
+  t1: `<h4>Canyon Ridge National Park — Visitor Guide</h4>
+  Canyon Ridge is home to some of the region's most dramatic scenery, from a thundering waterfall to a field of ancient lava rock. Four marked trails let visitors explore safely, each suited to a different level of fitness and experience. The waterfall lookout path was rebuilt last year after a rockfall closed the old route, and the new path now includes a viewing platform with a clear view down into the gorge.
+  <table class="mtable">
+    <tr><th>Trail</th><th>Length</th><th>Difficulty</th><th>What you will see</th><th>Open</th></tr>
+    <tr><td>Sunset Overlook</td><td>2.1 km</td><td>Easy</td><td>Waterfall lookout platform</td><td>All year</td></tr>
+    <tr><td>Echo Gorge Trail</td><td>9.5 km</td><td>Hard</td><td>River gorge lookout, rope bridge</td><td>All year</td></tr>
+    <tr><td>Old Lava Loop</td><td>4.3 km</td><td>Moderate</td><td>Ancient lava field, dark rock formations</td><td>Apr–Oct only</td></tr>
+    <tr><td>Devil's Arch Path</td><td>3.6 km</td><td>Moderate</td><td>Natural rock arch</td><td>All year</td></tr>
+  </table>
+  <div class="safety"><strong>Safety Rules:</strong> (1) Stay on marked paths at all times. (2) Hard-rated trails require an adult experienced in the terrain. (3) Carry water on every trail, even short ones.</div>`,
+  t2: `<h4>The Sound Desk</h4>
+  Niran had been dreading choir rehearsal all week. The whole class was preparing a song for the end-of-term show, and every time his solo line came around, he could feel his voice wobble and crack. His friends never said anything unkind, but he noticed how quickly they looked away whenever he sang alone.
+  On Thursday, during the final run-through, Niran was sent to fetch a music stand from behind the stage curtain. As he stepped back, his foot caught one of the long cables snaking across the floor, and the whole hall fell silent — the backing track had cut out completely. Every head in the room turned to look at him. Niran froze, staring hard at his own shoes, wishing the stage floor would simply open up and swallow him.
+  Mr Aditya, the music teacher, jogged over to the sound desk at the back of the hall. It took him almost five minutes to work out which cable Niran had pulled loose, plugging and unplugging wires until the music finally crackled back to life. Rehearsal picked back up, but Niran barely sang another note for the rest of the afternoon.
+  He stayed behind after everyone else had left, telling his friends he'd catch up with them later. He couldn't stop wondering how the tangle of cables was actually meant to connect — which lead ran to which speaker, and why pulling just one of them had silenced the whole hall. Mr Aditya, packing away microphone stands, noticed him staring and asked if he wanted to see how the desk worked. For the next half hour, Niran learned how each fader controlled a different microphone, and how the lighting board above it could bring a spotlight up slowly instead of snapping it on.
+  By the night of the real show, Niran wasn't standing in the choir line at all. He was sitting at the sound desk at the back of the hall, bringing up each singer's microphone at exactly the right moment and fading the stage lights from blue to gold for the final song. Afterwards, Mr Aditya told the whole choir that the show wouldn't have sounded half as good without Niran's ears at that desk. For the first time all term, nobody looked away when his name was mentioned — they turned to grin at him instead.`,
+  t3: `<h4>BUILD A SKATE PARK FOR HILLVIEW!</h4>
+  <strong>WHAT is it?</strong> A campaign to build Hillview's first proper skate park on the disused car park on Mill Road.<br>
+  <strong>WHO can help?</strong> Everyone! Over 300 young people in Hillview currently have nowhere safe to skate, and this campaign needs support from families, local shops, and the town council.<br>
+  <strong>WHY join in?</strong> The nearest skate park is 12 kilometres away, meaning most young people in Hillview currently skate on roads and in car parks — nowhere safe to skate at all. A new skate park would be the best thing this town has ever built.<br>
+  <strong>HOW does it work?</strong> Sign the petition at the library, come to the council meeting on the 14th, or donate through the campaign's collection box at the community centre.`
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${Q.length} to submit`;
+
+const chosen = {};   // qn -> value (index for mcq/select 1-based, string for spell/written)
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint">${SECTION_HINT[q.section] || ''}</div>`;
+      if (q.section === 'meaning'){
+        html += `<div class="defpanel"><table>`;
+        DEFINITIONS.forEach((d,i)=>{ html += `<tr><td class="letter">${String.fromCharCode(65+i)}</td><td>${d}</td></tr>`; });
+        html += `</table></div>`;
+      }
+      if (q.section === 'boxcloze'){
+        html += `<div class="boxpanel">BOX: ${BOX_WORDS.slice().sort().join(' · ')}</div>`;
+      }
+      lastSection = q.section;
+    }
+    if (q.section === 'reading' && (!lastPassage || lastPassage !== q.passageId)){
+      html += `<div class="passage">${PASSAGES[q.passageId]}</div>`;
+      lastPassage = q.passageId;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="tier-tag">${q.tier}</span>
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+        <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+      </p>`;
+    if (q.type === 'mcq'){
+      html += `<div>`;
+      q.options.forEach((opt, idx) => {
+        html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${idx+1}. ${opt}</button>`;
+      });
+      html += `</div>`;
+    } else if (q.type === 'spell'){
+      html += `<input type="text" class="spellin" id="in-${q.n}" autocomplete="off" autocapitalize="off" oninput="typeAnswer(${q.n}, this.value)">`;
+    } else if (q.type === 'select'){
+      html += `<select class="selin" id="in-${q.n}" onchange="choose(${q.n}, this.selectedIndex)"><option value="">— choose —</option>`;
+      q.options.forEach((opt, idx) => { html += `<option value="${idx+1}">${opt}</option>`; });
+      html += `</select>`;
+    } else if (q.type === 'written'){
+      html += `<textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>`;
+    }
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+    if (q.type === 'written'){
+      html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+    }
+    html += `</div>`;
+  });
+  quiz.innerHTML = html;
+}
+let lastPassage = null;
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  if (q.type === 'mcq'){
+    q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+    document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  }
+  updateProgress();
+}
+function typeAnswer(qn, val){
+  if (submitted) return;
+  chosen[qn] = val;
+  updateProgress();
+}
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'spell') return v !== undefined && v.trim().length > 0;
+  // Written short-answer items (Applied tier, 3 marks, hand-marked by Naomi) must not be gated on
+  // word count — a correct answer can legitimately be short (e.g. "From nervous to confident" is a
+  // complete, correct 4-word answer to a feelings-change question). Only Task W (Paper 2) has a real
+  // minimum-length requirement, because that IS the writing task being assessed. Fixed 29 Sep 2026
+  // after this exact bug stuck Prem at "47/48 answered" with no way to find the blocking question.
+  if (q.type === 'written') return v !== undefined && v.trim().length > 0;
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === Q.length){
+    btn.disabled = false;
+    btn.textContent = 'Submit Paper 1';
+  } else {
+    btn.disabled = false;
+    btn.textContent = `Answer all ${Q.length} to submit (${Q.length-n} left) — tap to jump there`;
+  }
+}
+
+function firstUnanswered(){
+  return Q.find(q => !isAnswered(q));
+}
+
+function askConfirmSubmit(){
+  const missing = firstUnanswered();
+  if (missing){
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('select.selin').forEach(s => s.disabled = true);
+  document.querySelectorAll('input.spellin').forEach(i => i.disabled = true);
+  document.querySelectorAll('textarea.writtenin').forEach(t => t.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      written.push({ q:q.n, marks:q.marks, markScheme:q.markScheme, response: given||'' });
+      document.getElementById(`ms-${q.n}`).classList.add('show');
+      document.getElementById(`tag-pending-${q.n}`).classList.add('show');
+      sectionTally[q.section].t++;
+      return { q:q.n, section:q.section, type:q.type, given, isCorrect:null };
+    }
+    let isCorrect;
+    if (q.type === 'spell'){
+      isCorrect = (given||'').trim().toLowerCase() === q.ans;
+      const el = document.getElementById(`in-${q.n}`);
+      el.classList.add(isCorrect?'correct':'wrong');
+      if (!isCorrect){ el.insertAdjacentHTML('afterend', `<div style="font-size:.82rem;color:#c62828;margin-top:4px">Correct: <b>${q.ans}</b></div>`); }
+    } else {
+      isCorrect = given === q.ans;
+      if (q.type === 'mcq'){
+        document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+        if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+      } else if (q.type === 'select'){
+        document.getElementById(`in-${q.n}`).classList.add(isCorrect?'correct':'wrong');
+      }
+    }
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, given, correct:q.ans, isCorrect };
+  });
+
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show','pass');
+  document.getElementById('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  document.getElementById('score-msg').textContent = `The ${WRITTEN_MARKS} written marks aren't auto-scored — check your answers against the mark scheme shown under each written question below. Pass bar for the full paper is ${PASS_BAR}/${TOTAL_MARKS} (80%).`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => `<div class="sec-chip">${SECTION_LABEL[s].split('—')[1].trim()}: ${sectionTally[s].c}/${sectionTally[s].t - (s==='reading'?6:0)}${s==='reading'?' auto (+6 written)':''}</div>`).join('') +
+    `<div class="sec-chip">Basic: ${tierTally.Basic.c}/${tierTally.Basic.t}</div><div class="sec-chip">Intermediate: ${tierTally.Intermediate.c}/${tierTally.Intermediate.t}</div><div class="sec-chip">Applied (auto n/a): ${tierTally.Applied.t} written</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+}
+
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+render();
+updateProgress();
+</script>
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spelling &amp; Vocabulary — Three Readers Word Bank — Unit 38 Lesson 1</title>
+<!-- Built from BUILD_PLAN_ENG_U038_SchoolTest34_Prep.md §7. Theme follows the U34 spelling lesson (amber/brown).
+     COVERAGE NOTE: the plan's §7 item counts (R1 12, R2 12, R3 "2 rounds x5") total 40 slots against the coverage
+     gate's requirement that all 45 bank words appear as a drill target across s4/s6/s8/s9. That is short by 5.
+     Resolved by partitioning the 45 words into three disjoint sets of 15 (R1=production, R2=meaning, R3=cloze),
+     so R1 and R2 run 15 items each and R3 runs 3 rounds of 5 (was 2) -- item counts are not in the plan's list of
+     pinned fields (§0.4: word/definition/misspelling/answer-position/filename/banned-word/rule-wording), so this
+     widens rather than overrides anything pinned. Flagged here and in the build report to Lui. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#FFF8E1;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#8A5A00;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(138,90,0,0.10);margin-bottom:18px}
+h2{color:#8A5A00;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.school-tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.rule-box{background:linear-gradient(135deg,#8A5A00,#C08A1E);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#FFF3D6;border:2px solid #C08A1E;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#8A5A00;margin-bottom:6px}
+.bws-title{font-weight:700;color:#8A5A00;margin-bottom:6px;font-size:15px}
+.book-tag{display:inline-block;font-size:11px;font-weight:800;padding:2px 9px;border-radius:10px;margin-bottom:6px}
+.book-tag.nrb{background:#E3F2FD;color:#0d47a1}
+.book-tag.ds{background:#F3E5F5;color:#4a148c}
+.book-tag.fr{background:#E8F5E9;color:#1b5e20}
+.word-card{background:#fff;border:2px solid #FEEBC8;border-radius:10px;padding:12px 16px;margin:10px 0}
+.word-card .w{font-weight:800;font-size:15px;color:#8A5A00}
+.word-card .m{font-size:13.5px;margin-top:4px;color:#3d3d3d}
+.word-card .e{font-size:12.5px;margin-top:4px;color:#8a6a00;font-style:italic}
+.tree{margin:14px 0;display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;text-align:center;max-width:660px;line-height:1.4}
+.node.start{background:#8A5A00;color:#fff}
+.node.q{background:#FFF3D6;border:2px solid #C08A1E;color:#8A5A00}
+.node.a{background:#C08A1E;color:#fff}
+.arrow{font-size:18px;color:#8A5A00;line-height:1}
+.di{background:#fff;border:2px solid #FEEBC8;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#FFF3D6;border:2px solid #C08A1E;color:#8A5A00;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#FFF3D6;border:2px dashed #F9A825;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#8a6a00;margin-bottom:6px;letter-spacing:.3px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #F9A825;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#5b4a00}
+.walk b{color:#8a6a00}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.beat{display:inline-flex;gap:4px;margin:10px 0;flex-wrap:wrap}
+.beat-block{background:#8A5A00;color:#fff;font-weight:800;font-size:15px;padding:8px 12px;border-radius:8px}
+.beat-block.drop{background:#fff;color:#c62828;border:2px dashed #c62828}
+.txt-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.txt-in{border:2px solid #C08A1E;border-radius:8px;padding:8px 12px;font-size:14px;font-family:inherit;flex:1;min-width:180px}
+.txt-btn{background:linear-gradient(135deg,#8A5A00,#C08A1E);border:none;color:#fff;padding:9px 16px;border-radius:8px;font-size:13.5px;font-weight:700;cursor:pointer}
+.txt-btn:disabled{opacity:.4;cursor:default}
+.drill-score{background:linear-gradient(135deg,#8A5A00,#C08A1E);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.box-panel{background:#FFF3D6;border:2px dashed #C08A1E;border-radius:10px;padding:12px 16px;margin:10px 0;font-size:14px;font-weight:700;color:#8A5A00;text-align:center}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #FEEBC8;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#8A5A00,#C08A1E);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #FEEBC8;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Spelling &amp; Vocabulary — Three Readers Word Bank</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 38 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0 -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="school-tag">🏫 SCHOOL CURRICULUM — Unit Test 3-4, 1–2 Oct 2026</div>
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">Your real school test next week covers Spelling and Vocabulary from three readers — <strong>Natural Record Breakers</strong>, <strong>The Dragon Skateboard</strong> and <strong>Freedom</strong> — plus Reading Comprehension and a Writing task. This lesson is built just for that test. Today we lock in 45 words from all three books: what they mean, and exactly how to spell them, in the three question types your school actually uses.</p>
+    </div>
+    <div class="bws-title">Before We Start — quick warm-up 🔍</div>
+    <div class="di" id="wu1">
+      <div class="di-sent">"The desert stretched out, flat and empty, for hundreds of kilometres." Which word best describes a landscape like that?</div>
+      <div class="di-btns">
+        <button class="di-opt" onclick="doWu(1,'a','a','A landscape is the whole view of the land you can see — hills, deserts, rivers and all. &quot;Landscape&quot; is the word for it.')">A) landscape</button>
+        <button class="di-opt" onclick="doWu(1,'b','a','A landscape is the whole view of the land you can see — hills, deserts, rivers and all. &quot;Landscape&quot; is the word for it.')">B) collision</button>
+      </div>
+      <div class="di-fb" id="wu1f"></div>
+    </div>
+    <p style="margin-top:10px"><strong>Today we study 45 words from three readers — meanings, spellings, and how to use them in a box-cloze sentence. →</strong></p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: the three books and three formats -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Three books, three question types 📚</h2>
+    <p><span class="book-tag nrb">📖 NATURAL RECORD BREAKERS</span> — non-fiction, one natural world record per page (highest waterfall, biggest desert, longest river...). Full of science words like <em>erode</em>, <em>dormant</em>, <em>plateau</em>.</p>
+    <p><span class="book-tag ds">📖 THE DRAGON SKATEBOARD</span> — a story about Tate, who is bad at skateboarding but turns a mistake into something brilliant. Full of action and feeling words like <em>whispered</em>, <em>glared</em>, <em>stumbled</em>.</p>
+    <p><span class="book-tag fr">📖 FREEDOM</span> — a story about Austin, an injured eagle, and a hard choice between safety and freedom. Full of words like <em>enclosure</em>, <em>desperately</em>, <em>injured</em>.</p>
+    <div class="why-box">
+      <div class="why-title">The three question types your school test will use</div>
+      <p style="margin:0;font-size:14px"><strong>1. Fix the spelling</strong> — a sentence prints a misspelled word underlined; you write it correctly.<br>
+      <strong>2. Match the meaning</strong> — ten words, ten definitions lettered A–J; you match each word to its letter.<br>
+      <strong>3. Fill from the box</strong> — a box of words above ten sentences; you pick the one word from the box that fits each gap.</p>
+    </div>
+    <p>We will practise all three, on all 45 words, before you meet the real test.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Spelling route A concrete -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Spelling — Route A: beat blocks 🧱</h2>
+    <p>Every long word is made of smaller beats (syllables). Say each beat out loud, and picture each one as its own block. Losing a beat is the single most common way words get misspelled — and it is exactly what has happened on your last two school papers:</p>
+    <div class="why-box">
+      <div class="why-title">🔑 Your own misses — the dropped beat</div>
+      <p style="margin:0;font-size:14px"><strong>difference</strong> → you wrote <em>diffrence</em> (dropped the middle "e" beat: dif·fer·ence)<br>
+      <strong>different</strong> → you wrote <em>diffrent</em> (dropped the middle "e" beat: dif·fer·ent)<br>
+      <strong>uniforms</strong> → you wrote <em>unifors</em> (dropped the "m" beat: u·ni·forms)</p>
+    </div>
+    <p>Watch the beats for three words from this week's books:</p>
+    <div class="beat"><div class="beat-block">spec</div><div class="beat-block">tac</div><div class="beat-block">u</div><div class="beat-block">lar</div></div>
+    <p style="font-size:13.5px;color:#555">spectacular — say each beat: spec-TAC-u-lar. Miss the "u" beat and you get "spectaclar" — wrong.</p>
+    <div class="beat"><div class="beat-block">des</div><div class="beat-block">per</div><div class="beat-block">ate</div><div class="beat-block">ly</div></div>
+    <p style="font-size:13.5px;color:#555">desperately — des-PER-ate-ly. Miss the "ate" beat and you get "desperly" — wrong, and this is your exact fault shape.</p>
+    <div class="beat"><div class="beat-block">grad</div><div class="beat-block">u</div><div class="beat-block">al</div><div class="beat-block">ly</div></div>
+    <p style="font-size:13.5px;color:#555">gradually — GRAD-u-al-ly. Two "l"s at the end, and the "u" and "al" beats both matter.</p>
+    <div class="rule-box"><span class="rule-big">Say every beat. Write every beat.</span> If a word sounds long when you say it slowly, it needs that many pieces on paper too.</div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Spelling route B procedural -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Spelling — Route B: Look · Say · Cover · Write · Check 📋</h2>
+    <div class="tree">
+      <div class="node start">See a new word to learn</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>LOOK</strong> — study every letter carefully.</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>SAY</strong> — say it out loud, beat by beat.</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>COVER</strong> — cover the word so you can't see it.</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>WRITE</strong> — write it from memory.</div>
+      <div class="arrow">↓</div>
+      <div class="node a"><strong>CHECK</strong> — uncover and compare, letter by letter. Wrong? Go back to LOOK.</div>
+    </div>
+    <div class="why-box">
+      <div class="why-title">🔑 Three traps to watch for in these readers</div>
+      <p style="margin:0;font-size:14px"><strong>1. The dropped beat</strong> — your own pattern. Say every beat before you write.<br>
+      <strong>2. British spelling</strong> — <em>neighbourhood</em> keeps its "-our" (not the American "-orhood"); this book's spelling is always British.<br>
+      <strong>3. Sounds spelled by other letters</strong> — <em>examined</em> has an "x" that sounds like "gz"; <em>imagination</em> has a "g" that sounds like "j", and ends "-tion" which sounds like "shun".</p>
+    </div>
+    <p><strong>Bridge:</strong> if beat blocks helped more, you can always go back to Route A — just say the beats to yourself before you Look-Say-Cover-Write-Check.</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Drill R1 -->
+<div class="screen" id="s4"><div class="card"><h2>Drill R1 — type the word ✍️</h2><p style="font-size:14px">Read the clue, type the word correctly. Get it wrong and you'll see the beats, then you must type it again correctly before moving on.</p><div id="w1"></div>
+<div class="bottom-nav"><button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button><button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button></div></div></div>
+
+<!-- S5: meanings two routes -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Meanings — two routes 🧠</h2>
+    <p><strong>Route A (picture the scene):</strong></p>
+    <div class="word-card"><div class="w">plateau</div><div class="m">picture a mountain with its top sliced flat, like a table</div></div>
+    <div class="word-card"><div class="w">porous rock</div><div class="m">picture rock like a sponge, letting water soak straight through</div></div>
+    <div class="word-card"><div class="w">dormant volcano vs extinct volcano</div><div class="m">picture one volcano asleep, able to wake up (dormant) — and a different one gone forever, never able to erupt again (extinct)</div></div>
+    <div class="word-card"><div class="w">an enclosure</div><div class="m">picture a fenced area at a zoo, walls or fencing all the way round</div></div>
+    <div class="word-card"><div class="w">an intruder</div><div class="m">picture a bird swooping in where it is not wanted, uninvited</div></div>
+    <p style="margin-top:14px"><strong>Route B (find the clue in the sentence):</strong> what else in the sentence tells you the meaning? A word never sits alone — the sentence around it almost always gives you a clue, an example, or an opposite.</p>
+    <div class="why-box"><div class="why-title">Worked example</div><p style="margin:0;font-size:14px">"The nomad's family never stayed in one place for more than a season, following the water and the grazing land." <strong>Clue:</strong> "never stayed in one place" tells you a nomad is someone who moves from place to place.</p></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: Drill R2 -->
+<div class="screen" id="s6"><div class="card"><h2>Drill R2 — what does it mean? ✍️</h2><p style="font-size:14px">Pick the meaning. Get it wrong and a fresh one appears — every question ends on a correct answer.</p><div id="w2"></div>
+<div class="bottom-nav"><button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button><button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button></div></div></div>
+
+<!-- S7: word-box cloze routine -->
+<div class="screen" id="s7">
+  <div class="card">
+    <h2>Fill from the box — the routine 📦</h2>
+    <div class="tree">
+      <div class="node start">A sentence with a gap, and a box of words above it</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>Step 1 —</strong> read the WHOLE sentence first, gap and all.</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>Step 2 —</strong> what KIND of word fits? A doing word, a describing word, a naming word?</div>
+      <div class="arrow">↓</div>
+      <div class="node q"><strong>Step 3 —</strong> which ONE word from the box makes the sentence make sense?</div>
+      <div class="arrow">↓</div>
+      <div class="node a">Tick it off in your head. Don't reuse a word you've already spent.</div>
+    </div>
+    <div class="rule-box"><span class="rule-big">Warning: the box has extra words.</span> Not every box word is used. Elimination alone won't save you — you must know what each word means.</div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S8: Drill R3 -->
+<div class="screen" id="s8"><div class="card"><h2>Drill R3 — fill from the box ✍️</h2><p style="font-size:14px">Three rounds, five gaps each, each with its own box. Every box has two extra words that don't get used.</p><div id="w3"></div>
+<div class="bottom-nav"><button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button><button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button></div></div></div>
+
+<!-- S9: self-check -->
+<div class="screen" id="s9">
+  <div class="card">
+    <h2>Self-check 🎯</h2>
+    <p style="font-size:14px">Six questions, one attempt each, across all three formats. Answer honestly — this tells you (and Naomi) whether you're ready.</p>
+    <div id="w4"></div>
+    <div id="gateResult" class="gate-result"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S10: report + nav -->
+<div class="screen" id="s10">
+  <div class="card">
+    <h2>45 words locked in! 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">Say every beat when you spell. Find the clue when you check a meaning. Read the whole sentence before you pick a box word.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">← Hub</a>
+    <a href="ReadingComprehension_Lesson_ThreeMarkAnswers.html" class="btn-lesson">Next Lesson →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10'];var cur=0;
+var SCREEN_ROUNDS={s4:[1],s6:[2],s8:[3],s9:[4]};
+var built={};
+function onScreen(sid){
+  if(sid==='s4'&&!built[1]){built[1]=1;buildTextDrill(1,'w1',R1);}
+  if(sid==='s6'&&!built[2]){built[2]=1;buildDrill(2,'w2',R2);}
+  if(sid==='s8'&&!built[3]){built[3]=1;buildBoxDrill(3,'w3',R3);}
+  if(sid==='s9'&&!built[4]){built[4]=1;buildDrill(4,'w4',R4,true);}
+  if(sid==='s10'){buildReport();}
+}
+function buildReport(){
+  var names={1:'R1 · spelling',2:'R2 · meanings',3:'R3 · box-cloze',4:'Self-check'};
+  var t='',tot=0,out=0;
+  [1,2,3,4].forEach(function(r){
+    var R=RD[r];
+    if(R){tot+=R.score;out+=R.items.length;}
+    t+='<p style="margin:4px 0"><strong>'+names[r]+':</strong> '+(R?R.score+'/'+R.items.length+' right first time':'not attempted')+'</p>';
+  });
+  t+='<p style="margin:10px 0 0;font-size:15px"><strong>All four rounds: '+tot+'/'+out+' right first time</strong> — and every single question you met ended on a correct answer.</p>';
+  document.getElementById('reportWrap').innerHTML=t;
+}
+
+/* ---- warm-up ---- */
+var wuDone={};
+function doWu(n,c,key,why){
+  if(wuDone[n])return; wuDone[n]=true;
+  var it=document.getElementById('wu'+n), fb=document.getElementById('wu'+n+'f');
+  var bs=it.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=true;}
+  fb.className='di-fb '+(c===key?'ok':'no');
+  fb.innerHTML=(c===key?'✅ ':'❌ ')+why;
+}
+
+/* ================= R1 — type the word (15 items, forced retry w/ beat blocks) ================= */
+var R1=[
+ {clue:'A science word: a smaller rocket-shaped word describing something amazing to watch, like a waterfall 979m high.', ans:'spectacular', beats:['spec','tac','u','lar'], book:'NRB'},
+ {clue:'The power that lights homes and runs machines.', ans:'electricity', beats:['e','lec','tric','i','ty'], book:'NRB'},
+ {clue:'Happening slowly, a little bit at a time — not all at once.', ans:'gradually', beats:['grad','u','al','ly'], book:'NRB'},
+ {clue:'A flat, high area of land, like the top of a mountain sliced off.', ans:'plateau', beats:['pla','teau'], book:'NRB'},
+ {clue:'Full of tiny holes that let water pass through, like a sponge.', ans:'porous', beats:['por','ous'], book:'NRB'},
+ {clue:'The area of houses and streets around where you live.', ans:'neighbourhood', beats:['neigh','bour','hood'], book:'DS'},
+ {clue:'Spoke very quietly, so almost no one else could hear.', ans:'whispered', beats:['whis','pered'], book:'DS'},
+ {clue:'Looked at something closely and carefully to check it.', ans:'examined', beats:['ex','am','ined'], book:'DS'},
+ {clue:'Looked at someone in a very angry way.', ans:'glared', beats:['glared'], book:'DS'},
+ {clue:'Tripped and nearly fell while walking or running.', ans:'stumbled', beats:['stum','bled'], book:'DS'},
+ {clue:'A pair of glasses you hold up to see far away, like watching a bird on a mountain.', ans:'binoculars', beats:['bin','oc','u','lars'], book:'FR'},
+ {clue:'Making pictures in your mind of things that are not really there.', ans:'imagination', beats:['im','ag','i','na','tion'], book:'FR'},
+ {clue:'A crash — two things hitting into each other.', ans:'collision', beats:['col','li','sion'], book:'FR'},
+ {clue:'Trying very hard, with a feeling of urgency, because things feel serious.', ans:'desperately', beats:['des','per','ate','ly'], book:'FR'},
+ {clue:'An area with a fence or wall all around it, where an animal is kept.', ans:'enclosure', beats:['en','clo','sure'], book:'FR'}
+];
+
+/* ================= R2 — what does it mean? (15 items, MCQ forced retry) ================= */
+var R2=[
+ {sent:'What does "dormant" mean, as in "the volcano has been dormant for fifty years"?',
+  opts:['Gone forever, never able to erupt again','Sleeping, but able to wake up and become active again','Erupting right now','Too small to ever erupt'], ans:1,
+  why:'Dormant means asleep, not active right now, but still able to wake up.',
+  alt:{sent:'What does "extinct" mean, as in "the volcano is extinct — it can never erupt again"?',
+       opts:['Sleeping, but able to wake up again','Gone forever, never able to become active again','Erupting slowly','About to erupt any day'], ans:1,
+       why:'Extinct means gone forever — the exact opposite of dormant, which can still wake up.'},
+  walk:'Dormant and extinct look similar but are opposites in one important way. <b>Dormant</b> = asleep now, but CAN wake up later. <b>Extinct</b> = gone forever, CANNOT ever become active again. Always check which one the sentence is describing before you choose.'},
+ {sent:'What does "erode" mean, as in "the river slowly erodes the rock of the canyon"?',
+  opts:['To build something up, bit by bit','To wear something away slowly, a little at a time','To freeze something solid','To make something bigger suddenly'], ans:1,
+  why:'Erode means to wear something away slowly.',
+  alt:{sent:'What does "erosion" mean, as in "wind erosion carved these strange rock shapes"?',
+       opts:['Wearing away slowly over time','Sudden growth','Freezing solid','Rapid melting'], ans:0,
+       why:'Erosion is the wearing-away process — the noun form of erode.'},
+  walk:'Erode/erosion always means something being worn away gradually — think of water or wind slowly rubbing rock smoother and smoother over years.'},
+ {sent:'What does "nomad" mean, as in "the nomad family followed the water across the desert"?',
+  opts:['A person who never leaves their home town','A person who moves from place to place to find water and food','A person who studies rocks','A person who sells things in a market'], ans:1,
+  why:'A nomad moves from place to place, rather than staying in one home.',
+  alt:{sent:'What does "nomadic" mean, as in "the tribe lives a nomadic life, always moving with their herds"?',
+       opts:['Living in one place forever','Moving from place to place regularly','Living only in cities','Never owning animals'], ans:1,
+       why:'Nomadic describes a moving, travelling way of life.'},
+  walk:'A nomad is defined by movement — they do not settle in one home, but travel to follow resources like water, food, or grazing land for animals.'},
+ {sent:'What does "species" mean, as in "the fennec fox is a species that lives in burrows to escape the desert heat"?',
+  opts:['A single animal, on its own','A type or kind of living thing that shares the same features','A place where animals live','A group of unrelated animals'], ans:1,
+  why:'A species is a type of living thing — all fennec foxes together are one species.',
+  alt:{sent:'What does "species" mean, as in "scientists have found a new species of fish in the deepest part of the ocean"?',
+       opts:['A single fish that was found once','A type of living thing that shares the same features','A place fish live','A group of different kinds of fish mixed together'], ans:1,
+       why:'A species is one particular type of living thing.'},
+  walk:'Species = a category of living thing. Every fennec fox belongs to the same species; a different kind of fox would be a different species.'},
+ {sent:'What does "extinct" mean, as in "the dodo is extinct — none are left alive anywhere"?',
+  opts:['Sleeping, but able to wake up again','Gone forever, with none left alive at all','Extremely rare, but still alive somewhere','Living only in zoos'], ans:1,
+  why:'Extinct means gone forever, with none left alive — a permanent, total end.',
+  alt:{sent:'What does "extinct" mean, as in "that volcano is extinct — geologists agree it will never erupt again"?',
+       opts:['Gone forever, unable to become active again','Sleeping, but able to wake up later','Erupting slowly right now','About to erupt very soon'], ans:0,
+       why:'Extinct means permanently gone or inactive — the opposite of dormant, which can still wake up.'},
+  walk:'Extinct is a total, permanent end — nothing "extinct" ever comes back. Compare it with "dormant", which is only a temporary sleep. If the sentence says "never again" or "none left", that points to extinct; if it says "for now" or "could still happen", that points to dormant.'},
+ {sent:'What does "balance" mean, as in "Tate could not keep his balance on the skateboard"?',
+  opts:['Being steady, not falling over','Being extremely fast','Being very loud','Being confused'], ans:0,
+  why:'Balance means staying steady, not falling over.',
+  alt:{sent:'What does "balance" mean, as in "the tightrope walker kept her balance high above the crowd"?',
+       opts:['Being steady, not falling','Being nervous','Being tired','Being brave'], ans:0,
+       why:'Balance is steadiness — not tipping over or falling.'},
+  walk:'Balance is a physical steadiness — think of standing on one foot, or riding a skateboard without tipping over.'},
+ {sent:'What does "crouched" mean, as in "Jesse crouched down to look at the broken wheel"?',
+  opts:['Stood up very tall','Bent low, close to the ground','Ran very fast','Jumped up high'], ans:1,
+  why:'Crouched means bent low, close to the ground.',
+  alt:{sent:'What does "crouched" mean, as in "the cat crouched low, ready to pounce"?',
+       opts:['Bent low, close to the ground','Stood on its back legs','Lay flat asleep','Jumped over a fence'], ans:0,
+       why:'Crouched is a low, bent position, close to the ground.'},
+  walk:'Crouched = bent down low, knees bent, close to the ground — picture someone examining something small on the floor.'},
+ {sent:'What does "pretended" mean, as in "Tate pretended he wasn\'t scared of falling"?',
+  opts:['Actually felt that way, truly','Acted as if something were true, when it wasn\'t','Told everyone loudly','Forgot completely'], ans:1,
+  why:'Pretended means acting as if something is true when it isn\'t.',
+  alt:{sent:'What does "pretended" mean, as in "she pretended to be asleep so her brother would leave the room"?',
+       opts:['Acted as if something were true, when it wasn\'t','Was actually asleep','Shouted for her brother','Fell asleep by accident'], ans:0,
+       why:'Pretended = putting on an act, not genuinely doing/feeling the thing.'},
+  walk:'Pretended means putting on a show of something that isn\'t real or true — an act, not a genuine state.'},
+ {sent:'What does "frowned" mean, as in "Jesse frowned at the mess of green paint on his board"?',
+  opts:['Smiled with delight','Made an unhappy, disapproving face','Laughed loudly','Looked away completely'], ans:1,
+  why:'Frowned means made an unhappy or disapproving face.',
+  alt:{sent:'What does "frowned" mean, as in "the teacher frowned when she saw the torn page"?',
+       opts:['Made an unhappy, disapproving face','Smiled warmly','Clapped her hands','Walked out of the room'], ans:0,
+       why:'Frowned = an unhappy or disapproving facial expression.'},
+  walk:'Frowned is a facial expression showing displeasure or worry — the opposite of smiling.'},
+ {sent:'What does "demanded" mean, as in "Jesse demanded to know what happened to his board"?',
+  opts:['Asked gently and politely','Asked firmly and forcefully, expecting an answer','Whispered quietly','Forgot to ask at all'], ans:1,
+  why:'Demanded means asked firmly and forcefully.',
+  alt:{sent:'What does "demanded" mean, as in "the coach demanded an explanation for the missed practice"?',
+       opts:['Asked firmly, expecting an answer','Asked shyly','Never asked','Guessed the answer'], ans:0,
+       why:'Demanded = a firm, forceful request for an answer.'},
+  walk:'Demanded is a strong, forceful way of asking — much stronger than a polite request.'},
+ {sent:'What does "intruder" mean, as in "an intruder bird attacked Skyrider in the sky"?',
+  opts:['A friendly visitor who was invited','Someone or something that comes in where it is not wanted','A type of cage','A kind of weather'], ans:1,
+  why:'An intruder is something that comes in where it is not wanted.',
+  alt:{sent:'What does "intruder" mean, as in "the zoo keeper chased the intruder fox away from the enclosure"?',
+       opts:['Something that comes in where it is not wanted','A zoo employee','A type of enclosure','A friendly animal that lives there'], ans:0,
+       why:'An intruder is unwanted — it comes into a place it doesn\'t belong.'},
+  walk:'Intruder = an unwanted arrival — something or someone that comes into a place where it doesn\'t belong.'},
+ {sent:'What does "airborne" mean, as in "the eagle was airborne within seconds of being released"?',
+  opts:['Up in the air, flying','Standing still on the ground','Swimming underwater','Asleep in a nest'], ans:0,
+  why:'Airborne means up in the air, flying.',
+  alt:{sent:'What does "airborne" mean, as in "the kite became airborne as soon as the wind picked up"?',
+       opts:['Up in the air, flying','Stuck on the ground','Torn apart','Wrapped around a tree'], ans:0,
+       why:'Airborne = in flight, up in the air.'},
+  walk:'Airborne describes something that is up in the air and flying, not on the ground.'},
+ {sent:'What does "injured" mean, as in "the vet treated the eagle\'s injured wing"?',
+  opts:['Perfectly healthy','Hurt or damaged in some way','Extremely strong','Freshly cleaned'], ans:1,
+  why:'Injured means hurt or damaged.',
+  alt:{sent:'What does "injured" mean, as in "he sat out of the match because of an injured ankle"?',
+       opts:['Hurt or damaged','Completely fine','Very fast','Newly grown'], ans:0,
+       why:'Injured = hurt, not in a healthy or normal state.'},
+  walk:'Injured means hurt or damaged — the opposite of healthy or uninjured.'},
+ {sent:'What does "competition" mean, as in "there was fierce competition among the birds for the best nesting spot"?',
+  opts:['Cooperation and sharing','A struggle between rivals trying to win the same thing','A type of enclosure','A kind of weather pattern'], ans:1,
+  why:'Competition is a struggle between rivals trying to win or get the same thing.',
+  alt:{sent:'What does "competitor" mean, as in "each competitor wanted the trophy for themselves"?',
+       opts:['Someone taking part in a contest, trying to win','Someone watching from the sidelines','A type of prize','A referee'], ans:0,
+       why:'A competitor is someone competing to win — taking part in the competition.'},
+  walk:'Competition/competitor is about rivalry — trying to win against others for the same prize or spot.'},
+ {sent:'What does "admired" mean, as in "the crowd admired the eagle\'s powerful flight"?',
+  opts:['Felt disgusted by something','Felt respect and approval for something','Felt bored by something','Felt confused by something'], ans:1,
+  why:'Admired means felt respect and approval for something.',
+  alt:{sent:'What does "admired" mean, as in "everyone admired how bravely she handled the accident"?',
+       opts:['Felt respect and approval for something','Felt annoyed by something','Ignored it completely','Felt jealous and angry'], ans:0,
+       why:'Admired = a feeling of respect and approval.'},
+  walk:'Admired is a positive feeling of respect — you look up to or approve of what someone did.'}
+];
+
+/* ================= R3 — fill from the box (3 rounds x 5 gaps, forced retry, select) ================= */
+var R3=[
+ { box:['climate','crater','delta','erupt','continent','smeared','drooped'],
+   items:[
+    {sent:'The volcano did not just smoke — it began to ___ ___, sending lava high into the sky.', gap:'erupt', why:'The volcano "erupt[s]" — the action of exploding and sending out lava.'},
+    {sent:'After the explosion, a deep ___ was left where the top of the mountain used to be.', gap:'crater', why:'A crater is the bowl-shaped hollow left after an eruption or impact.'},
+    {sent:'A river\'s ___ is the fan-shaped area where it splits into smaller streams before reaching the sea.', gap:'delta', why:'A delta is the landform where a river spreads out near the sea.'},
+    {sent:'Africa is a huge ___ made up of many different countries.', gap:'continent', why:'A continent is one of the world\'s large landmasses, like Africa or Asia.'},
+    {sent:'The desert has a hot, dry ___, with almost no rain all year.', gap:'climate', why:'Climate is the typical weather pattern of a place over a long time.'}
+   ],
+   dist:['smeared','drooped'] },
+ { box:['dismay','variety','glumly','recognised','talons','overgrown','smeared'],
+   items:[
+    {sent:'The eagle caught the fish easily, its sharp ___ closing around it in an instant.', gap:'talons', why:'Talons are the sharp claws of a bird of prey.'},
+    {sent:'Austin looked at his cast ___, knowing summer was slipping away.', gap:'glumly', why:'Glumly means in a sad, gloomy way.'},
+    {sent:'To his ___, the truck had already arrived to collect the cage before he was ready.', gap:'dismay', why:'Dismay is a feeling of shock and disappointment.'},
+    {sent:'The garden path was so ___ that they could barely see where it led.', gap:'overgrown', why:'Overgrown means covered with plants that have grown wild, out of control.'},
+    {sent:'Austin ___ the bird at once — it was the same eagle he had watched for weeks.', gap:'recognised', why:'Recognised means identified someone or something already known.'}
+   ],
+   dist:['variety','smeared'] },
+ { box:['smeared','drooped','variety','landscape','survive','nomad','porous'],
+   items:[
+    {sent:'Jesse\'s hands were ___ with green paint after the accident in the garage.', gap:'smeared', why:'Smeared means spread or rubbed across a surface messily.'},
+    {sent:'By the end of the long walk, the flowers had wilted and ___ in the heat.', gap:'drooped', why:'Drooped means hung down weakly.'},
+    {sent:'The market sold a huge ___ of fruit, from mangoes to dragon fruit.', gap:'variety', why:'Variety means many different kinds of something.'},
+    {sent:'From the top of the plateau, the whole rocky ___ stretched out for miles below them.', gap:'landscape', why:'A landscape is the whole view of the land you can see.'},
+    {sent:'Even in the driest season, the camels were able to ___ for over a week without water.', gap:'survive', why:'Survive means to stay alive, especially through something difficult.'}
+   ],
+   dist:['nomad','porous'] }
+];
+
+/* ================= R4 — self-check (6 items, one attempt each, mixed formats) ================= */
+var R4=[
+ {sent:'Which spelling is correct?', opts:['nieghbourhood','neighbourhood','neighborhood','neighbourhod'], ans:1,
+  why:'"neighbourhood" — British spelling keeps the "-our", and no letters are dropped.'},
+ {sent:'What does "porous" mean?', opts:['Solid and waterproof','Full of tiny holes that let water pass through','Extremely heavy','Brightly coloured'], ans:1,
+  why:'Porous means full of tiny holes that let water or air pass through.'},
+ {sent:'Which word fits: "The two cars were both badly damaged after the ___."', opts:['collision','enclosure','competition','plateau'], ans:0,
+  why:'A collision is a crash — exactly what damages two cars.'},
+ {sent:'Which spelling is correct?', opts:['dessperately','desperatly','desperately','desperetly'], ans:2,
+  why:'"desperately" — des-per-ate-ly, four beats, none dropped.'},
+ {sent:'What does "dormant" mean?', opts:['Gone forever','Asleep but able to wake up again','Erupting right now','Underwater'], ans:1,
+  why:'Dormant means asleep but able to become active again — the opposite of extinct, which is gone forever.'},
+ {sent:'Which word fits: "The old fence was so ___ with ivy that the gate was hidden."', opts:['glumly','overgrown','airborne','admired'], ans:1,
+  why:'Overgrown describes something covered in wild plant growth, like ivy over a fence.'}
+];
+
+/* ---- text-input forced-retry engine (spelling) ---- */
+function buildTextDrill(rid,containerId,items){
+  RD[rid]={items:items,resolved:0,score:0};
+  RSTATE[rid]={};
+  var h='<div class="paper-note" style="font-size:13px;background:#FFF3D6;border:1px dashed #C08A1E;border-radius:8px;padding:8px 10px;margin-bottom:10px;color:#8A5A00;font-weight:600">✍️ Type the word, then tap Check.</div>';
+  for(var i=0;i<items.length;i++){
+    var it=items[i], n=i+1;
+    RSTATE[rid][n]=1;
+    h+='<div class="di" id="d'+rid+'-'+n+'">';
+    h+='<div class="di-sent">'+n+'. '+it.clue+'</div>';
+    h+='<div class="txt-row"><input type="text" class="txt-in" id="t'+rid+'-'+n+'" autocomplete="off" autocapitalize="off"><button class="txt-btn" id="cb'+rid+'-'+n+'" onclick="doTextAns('+rid+','+n+')">Check</button></div>';
+    h+='<div class="di-fb" id="f'+rid+'-'+n+'"></div>';
+    h+='<div id="s2'+rid+'-'+n+'" style="display:none"><div class="retry-box"><div class="retry-title">🔁 Look at the beats, then type it again</div>';
+    h+='<div class="beat" id="beat'+rid+'-'+n+'"></div>';
+    h+='<div class="txt-row"><input type="text" class="txt-in" id="t2'+rid+'-'+n+'" autocomplete="off" autocapitalize="off"><button class="txt-btn" id="cb2'+rid+'-'+n+'" onclick="doTextRetry('+rid+','+n+')">Check</button></div>';
+    h+='<div class="di-fb" id="f2'+rid+'-'+n+'"></div></div></div>';
+    h+='</div>';
+  }
+  h+='<div class="drill-score" id="sc'+rid+'"></div>';
+  h+='<div class="lock-note" id="lk'+rid+'">Finish every question on this page before you move on — including the retries.</div>';
+  document.getElementById(containerId).innerHTML=h;
+}
+function normWord(s){ return (s||'').trim().toLowerCase(); }
+function doTextAns(rid,n){
+  var R=RD[rid], it=R.items[n-1];
+  if(RSTATE[rid][n]!==1) return;
+  var given=document.getElementById('t'+rid+'-'+n).value;
+  document.getElementById('t'+rid+'-'+n).disabled=true;
+  document.getElementById('cb'+rid+'-'+n).disabled=true;
+  var fb=document.getElementById('f'+rid+'-'+n);
+  if(normWord(given)===it.ans){
+    fb.className='di-fb ok'; fb.innerHTML='✅ Correct — '+it.ans+'.';
+    RSTATE[rid][n]=0; R.score++; markResolved(rid);
+  } else {
+    fb.className='di-fb no'; fb.innerHTML='❌ Not quite. The correct spelling is <strong>'+it.ans+'</strong>. Look at the beats below, then type it again.';
+    var bh=''; for(var i=0;i<it.beats.length;i++){ bh+='<div class="beat-block">'+it.beats[i]+'</div>'; }
+    document.getElementById('beat'+rid+'-'+n).innerHTML=bh;
+    document.getElementById('s2'+rid+'-'+n).style.display='block';
+    RSTATE[rid][n]=2;
+  }
+}
+function doTextRetry(rid,n){
+  var R=RD[rid], it=R.items[n-1];
+  if(RSTATE[rid][n]!==2) return;
+  var given=document.getElementById('t2'+rid+'-'+n).value;
+  var fb=document.getElementById('f2'+rid+'-'+n);
+  if(normWord(given)===it.ans){
+    document.getElementById('t2'+rid+'-'+n).disabled=true;
+    document.getElementById('cb2'+rid+'-'+n).disabled=true;
+    fb.className='di-fb ok'; fb.innerHTML='✅ Correct — '+it.ans+'. <strong>That is the one that counts — you finished it right.</strong>';
+    RSTATE[rid][n]=0; markResolved(rid);
+  } else {
+    fb.className='di-fb no'; fb.innerHTML='❌ Still not quite — look at every beat above, then try once more.';
+  }
+}
+
+/* ---- box-cloze forced-retry engine (select) ---- */
+function buildBoxDrill(rid,containerId,rounds){
+  var items=[];
+  rounds.forEach(function(r){ r.items.forEach(function(it){ items.push({sent:it.sent, gap:it.gap, why:it.why, box:r.box}); }); });
+  RD[rid]={items:items,resolved:0,score:0};
+  RSTATE[rid]={};
+  var h='';
+  var idx=0;
+  rounds.forEach(function(r,ri){
+    h+='<div class="round-head" style="font-size:12px;font-weight:800;letter-spacing:.4px;color:#8A5A00;margin:14px 0 6px;text-transform:uppercase">Round '+(ri+1)+'</div>';
+    h+='<div class="box-panel">BOX: '+r.box.slice().sort().join(' · ')+'</div>';
+    r.items.forEach(function(it){
+      idx++; var n=idx;
+      RSTATE[rid][n]=1;
+      h+='<div class="di" id="d'+rid+'-'+n+'">';
+      h+='<div class="di-sent">'+n+'. '+it.sent+'</div>';
+      h+='<div id="b'+rid+'-'+n+'-1">'+selectBox(rid,n,1,r.box)+'</div>';
+      h+='<div class="di-fb" id="f'+rid+'-'+n+'-1"></div>';
+      h+='<div id="s2'+rid+'-'+n+'" style="display:none"><div class="retry-box"><div class="retry-title">🔁 Try again</div>';
+      h+='<div id="b'+rid+'-'+n+'-2">'+selectBox(rid,n,2,r.box)+'</div>';
+      h+='<div class="di-fb" id="f'+rid+'-'+n+'-2"></div></div></div>';
+      h+='</div>';
+    });
+  });
+  h+='<div class="drill-score" id="sc'+rid+'"></div>';
+  h+='<div class="lock-note" id="lk'+rid+'">Finish every question on this page before you move on — including the retries.</div>';
+  document.getElementById(containerId).innerHTML=h;
+}
+function selectBox(rid,n,stage,box){
+  var sorted=box.slice().sort();
+  var h='<select class="txt-in" id="sel'+rid+'-'+n+'-'+stage+'" onchange="doBoxAns('+rid+','+n+','+stage+')"><option value="">— choose —</option>';
+  sorted.forEach(function(w){ h+='<option value="'+w+'">'+w+'</option>'; });
+  h+='</select>';
+  return h;
+}
+function doBoxAns(rid,n,stage){
+  var R=RD[rid], it=R.items[n-1];
+  var st=RSTATE[rid][n];
+  var sel=document.getElementById('sel'+rid+'-'+n+'-'+stage);
+  var given=sel.value;
+  if(!given) return;
+  if(stage===1){
+    if(st!==1) return;
+    sel.disabled=true;
+    var fb=document.getElementById('f'+rid+'-'+n+'-1');
+    if(given===it.gap){
+      fb.className='di-fb ok'; fb.innerHTML='✅ '+it.why;
+      RSTATE[rid][n]=0; R.score++; markResolved(rid);
+    } else {
+      fb.className='di-fb no'; fb.innerHTML='❌ Not that one. '+it.why+' Try again below.';
+      RSTATE[rid][n]=2;
+      document.getElementById('s2'+rid+'-'+n).style.display='block';
+    }
+    return;
+  }
+  if(stage===2){
+    if(st!==2) return;
+    var f2=document.getElementById('f'+rid+'-'+n+'-2');
+    if(given===it.gap){
+      sel.disabled=true;
+      f2.className='di-fb ok'; f2.innerHTML='✅ '+it.why+' <strong>That is the one that counts.</strong>';
+      RSTATE[rid][n]=0; markResolved(rid);
+    } else {
+      f2.className='di-fb no'; f2.innerHTML='❌ Still not it. '+it.why+' Choose again.';
+    }
+  }
+}
+
+/* ---- MCQ forced-retry engine (shared, used by R2 and R4) ---- */
+var RD={}; var RSTATE={};
+function optBtns(rid,n,stage,opts){
+  var h='';
+  for(var i=0;i<opts.length;i++){
+    h+='<button class="di-opt" id="o'+rid+'-'+n+'-'+stage+'-'+i+'" onclick="doAns('+rid+','+n+','+stage+','+i+')">'+opts[i]+'</button>';
+  }
+  return h;
+}
+function buildDrill(rid,containerId,items,singleAttempt){
+  RD[rid]={items:items,resolved:0,score:0};
+  RSTATE[rid]={};
+  var h='';
+  for(var i=0;i<items.length;i++){
+    var it=items[i], n=i+1;
+    RSTATE[rid][n]=1;
+    h+='<div class="di" id="d'+rid+'-'+n+'">';
+    h+='<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    h+='<div class="di-btns" id="b'+rid+'-'+n+'-1">'+optBtns(rid,n,1,it.opts)+'</div>';
+    h+='<div class="di-fb" id="f'+rid+'-'+n+'-1"></div>';
+    if(!singleAttempt && it.alt){
+      h+='<div id="s2'+rid+'-'+n+'" style="display:none"><div class="retry-box">';
+      h+='<div class="retry-title">🔁 Have another go — a fresh one</div>';
+      h+='<div class="di-sent">'+it.alt.sent+'</div>';
+      h+='<div class="di-btns" id="b'+rid+'-'+n+'-2">'+optBtns(rid,n,2,it.alt.opts)+'</div>';
+      h+='<div class="di-fb" id="f'+rid+'-'+n+'-2"></div>';
+      h+='<div id="w'+rid+'-'+n+'"></div>';
+      h+='</div></div>';
+    }
+    h+='</div>';
+  }
+  h+='<div class="drill-score" id="sc'+rid+'"></div>';
+  h+='<div class="lock-note" id="lk'+rid+'">Finish every question on this page before you move on'+(singleAttempt?'.':' — including the fresh ones.')+'</div>';
+  document.getElementById(containerId).innerHTML=h;
+}
+function lockRow(rid,n,stage){
+  var b=document.getElementById('b'+rid+'-'+n+'-'+stage);
+  if(!b)return;
+  var bs=b.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=true;bs[i].className='di-opt';}
+}
+function unlockRow(rid,n,stage){
+  var b=document.getElementById('b'+rid+'-'+n+'-'+stage);
+  if(!b)return;
+  var bs=b.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=false;bs[i].className='di-opt';}
+}
+function markResolved(rid){
+  var R=RD[rid];
+  R.resolved++;
+  if(R.resolved===R.items.length){
+    var s=document.getElementById('sc'+rid);
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round done — '+R.score+'/'+R.items.length+' right first time.</strong>';
+    var lk=document.getElementById('lk'+rid); if(lk) lk.className='lock-note';
+    if(rid===4){ gateCheck(); }
+  }
+}
+function doAns(rid,n,stage,idx){
+  var R=RD[rid], it=R.items[n-1];
+  var st=RSTATE[rid][n];
+  if(stage===1){
+    if(st!==1) return;
+    lockRow(rid,n,1);
+    var fb=document.getElementById('f'+rid+'-'+n+'-1');
+    if(idx===it.ans){
+      fb.className='di-fb ok'; fb.innerHTML='✅ '+it.why;
+      RSTATE[rid][n]=0; R.score++; markResolved(rid);
+    }else{
+      fb.className='di-fb no'; fb.innerHTML='❌ '+it.why;
+      if(it.alt){
+        RSTATE[rid][n]=2;
+        document.getElementById('s2'+rid+'-'+n).style.display='block';
+      } else {
+        RSTATE[rid][n]=0; markResolved(rid);
+      }
+    }
+    return;
+  }
+  if(stage===2){
+    if(st===2){
+      lockRow(rid,n,2);
+      var f2=document.getElementById('f'+rid+'-'+n+'-2');
+      if(idx===it.alt.ans){
+        f2.className='di-fb ok'; f2.innerHTML='✅ '+it.alt.why+' <strong>That is the one that counts.</strong>';
+        RSTATE[rid][n]=0; markResolved(rid);
+      }else{
+        f2.className='di-fb no'; f2.innerHTML='❌ Not that one either. Read this through slowly:';
+        document.getElementById('w'+rid+'-'+n).innerHTML='<div class="walk">'+it.walk+'<br><br><b>Now tap the right answer above to carry on.</b></div>';
+        RSTATE[rid][n]=3;
+        unlockRow(rid,n,2);
+      }
+      return;
+    }
+    if(st===3){
+      var f3=document.getElementById('f'+rid+'-'+n+'-2');
+      if(idx===it.alt.ans){
+        lockRow(rid,n,2);
+        f3.className='di-fb ok'; f3.innerHTML='✅ '+it.alt.why+' <strong>Good — that is how it should look.</strong>';
+        RSTATE[rid][n]=0; markResolved(rid);
+      }else{
+        f3.className='di-fb no'; f3.innerHTML='❌ Still not it — read the yellow box once more, then tap the answer it points to.';
+      }
+    }
+  }
+}
+
+function gateCheck(){
+  var R=RD[4];
+  var pct=Math.round(R.score/R.items.length*100);
+  var g=document.getElementById('gateResult');
+  if(R.score>=5){
+    g.className='gate-result ready';
+    g.innerHTML='🎉 Ready! '+R.score+'/6 first-time correct. You know these words well enough for the real test.';
+  } else {
+    var spellWrong=false, meanWrong=false;
+    // items 1,4 are spelling; 2,5 are meaning; 3,6 are box-cloze — check which type failed most
+    g.className='gate-result retry';
+    g.innerHTML='📚 '+R.score+'/6 first-time correct — not quite ready yet. Go back to <strong>Route A on screen 3</strong> (beat blocks) for spelling, or <strong>Route A on screen 6</strong> (picture the scene) for meanings, then try the self-check again in your head.';
+  }
+}
+
+/* ---- screen navigation with round locking ---- */
+function roundsOnScreen(sid){ return (SCREEN_ROUNDS[sid]||[]); }
+function screenLocked(sid){
+  var rs=roundsOnScreen(sid);
+  for(var i=0;i<rs.length;i++){
+    var R=RD[rs[i]];
+    if(!R || R.resolved<R.items.length) return rs[i];
+  }
+  return 0;
+}
+function goScreen(d){
+  var sid=SCREENS[cur];
+  if(d>0){
+    var locked=screenLocked(sid);
+    if(locked){
+      var lk=document.getElementById('lk'+locked);
+      if(lk){ lk.className='lock-note show'; lk.scrollIntoView({behavior:'smooth',block:'center'}); }
+      return;
+    }
+  }
+  var n=cur+d; if(n<0||n>=SCREENS.length)return;
+  document.getElementById(SCREENS[cur]).className='screen';
+  cur=n;
+  document.getElementById(SCREENS[cur]).className='screen active';
+  document.getElementById('prevBtn').disabled=(cur===0);
+  document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);
+  window.scrollTo(0,0);
+  onScreen(SCREENS[cur]);
+}
+</script>
+</body>
+</html>
