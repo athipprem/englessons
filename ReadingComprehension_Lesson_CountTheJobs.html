@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Comprehension — Count the Jobs — Unit 39</title>
+<!-- Built from BUILD_PLAN_ENG_U039_SchoolTest34_FinalPrep.md §5. Theme matches U38 Lesson 2 (blue).
+     Lesson scenes (the "Page by Page" library book drive) deliberately share no setting, character or
+     object with the Unit 39 test's two texts ("Every Drop Counts", "The Money Tin") per §8 and Acceptance
+     Gate 10/11. Screen s0 quotes Prem's own U38 answers by design (documented exception, §8). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav a.hub-btn:hover{background:rgba(255,255,255,0.28)}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:hover:not(:disabled){background:rgba(255,255,255,0.28)}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.school-tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:18px;text-align:center;margin:14px 0}
+.rule-big{font-size:1.04rem;font-weight:700;margin-bottom:6px;line-height:1.5}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13.5px;line-height:1.8}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:10px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:10px;font-weight:600}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di button:disabled{opacity:.4;cursor:default}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px;letter-spacing:.3px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.walk b{color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.job-row{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap}
+.job-card{flex:1;min-width:170px;border-radius:10px;padding:10px 12px;font-size:12.5px;background:#F5F9FF;border:2px solid #BBDEFB}
+.job-card b{display:block;margin-bottom:6px;color:#0d47a1}
+.jb-boxes{display:flex;gap:4px;margin-bottom:6px}
+.jb-box{width:20px;height:20px;border-radius:4px;border:2px solid #90CAF9;background:#fff}
+.jb-box.fill{background:#43A047;border-color:#2E7D32}
+.answer-row{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}
+.ans-card{flex:1;min-width:180px;border-radius:10px;padding:10px 12px;font-size:12.5px}
+.ans-card.m1{background:#FFEBEE;border:2px solid #E57373}
+.ans-card.m2{background:#FFF3D6;border:2px solid #DAA520}
+.ans-card.m3{background:#E8F5E9;border:2px solid #43A047}
+.ans-card b{display:block;margin-bottom:4px}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+textarea.myans{width:100%;min-height:70px;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:13.5px;margin-top:6px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13px}
+input.spellbox{width:100%;padding:9px 12px;border:1.5px solid #1e88e5;border-radius:8px;font-size:14px;font-family:inherit}
+input.spellbox.ok{border-color:#2e7d32;background:#E8F5E9}
+input.spellbox.no{border-color:#c62828;background:#FFEBEE}
+.spell-check-btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px}
+.bottom-nav-btn{background:linear-gradient(135deg,#0d47a1,#1e88e5);border:none;color:#fff;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;line-height:1}
+.bottom-nav-btn:disabled{opacity:0.28;cursor:default;background:#718096}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-lesson{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.tip-line{background:#FFF3D6;border:2px dashed #C08A1E;border-radius:10px;padding:10px 14px;font-size:13.5px;margin:12px 0}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading Comprehension — Count the Jobs</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 39 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<!-- S0: Why -->
+<div class="screen active" id="s0">
+  <div class="card">
+    <div class="school-tag">🏫 SCHOOL CURRICULUM — Unit Test 3-4, 1–2 Oct 2026</div>
+    <div class="why-box">
+      <div class="why-title">Why this matters 🌍</div>
+      <p style="margin:0;font-size:14px">You got <strong>12 out of 12</strong> on the reading multiple choice at Unit 38. You understood every single text — that part is not the problem. The marks you lost were on the written answers. Not because your answer was wrong, but because you did <strong>one job when the question actually asked for three.</strong></p>
+    </div>
+    <p><strong>Look at your own answer:</strong></p>
+    <div class="job-row">
+      <div class="job-card">
+        <b>What you wrote</b>
+        "From nervous to confident"
+      </div>
+      <div class="job-card" style="background:#E8F5E9;border-color:#43A047">
+        <b>What earns all 3 marks</b>
+        "Niran started the show feeling <u>nervous, worrying his voice would wobble</u>. That changed when he stayed behind to figure out the cables and Mr Aditya showed him the sound desk. By the real show, he was <u>running the lighting and sound with confidence</u>, and nobody looked away when his name was mentioned."
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:#555">Same idea, same story — but the second one does <strong>three jobs</strong> (start feeling + detail, what changed, end feeling + detail) instead of one.</p>
+    <p style="margin-top:14px"><strong>And your "Describe two ways" answer:</strong></p>
+    <div class="job-row">
+      <div class="job-card">
+        <b>What you wrote</b>
+        "Sign a petition or donate"
+      </div>
+      <div class="job-card" style="background:#E8F5E9;border-color:#43A047">
+        <b>What earns all 4 marks</b>
+        "One way to help is to <u>sign the petition at the library</u>, which shows the council that lots of people support the skate park. Another way is to <u>donate through the collection box at the community centre</u>, which helps pay for building it."
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:#555">Two names is 2 jobs. Two names <em>plus</em> what each one does is 4 jobs — and 4 jobs is what the question actually asked for.</p>
+    <div class="rule-box"><span class="rule-big">You don't need to understand more. You need to do every job the question asks for.</span></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)" disabled>← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S1: Route A concrete - the job boxes -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2>Route A — The job boxes 📦</h2>
+    <p>Elm Village School's library has stood almost empty for two years — the campaign to fill it again is called <strong>Page by Page</strong>. Question: <strong>"Why is the campaign called Page by Page? Explain your answer."</strong> (3 marks)</p>
+    <p style="font-size:13.5px;color:#555">Every job the question asks for is an empty box. A box only turns green when the answer actually does that job. One filled box = one mark.</p>
+    <div class="answer-row">
+      <div class="ans-card m1">
+        <div class="jb-boxes"><div class="jb-box fill"></div><div class="jb-box"></div><div class="jb-box"></div></div>
+        <b>1 mark</b>"Because of the pages."
+      </div>
+      <div class="ans-card m2">
+        <div class="jb-boxes"><div class="jb-box fill"></div><div class="jb-box fill"></div><div class="jb-box"></div></div>
+        <b>2 marks</b>"It is called Page by Page because every book donated helps fill the library one page at a time."
+      </div>
+      <div class="ans-card m3">
+        <div class="jb-boxes"><div class="jb-box fill"></div><div class="jb-box fill"></div><div class="jb-box fill"></div></div>
+        <b>3 marks</b>"It is called Page by Page because every book donated helps fill the library one small step at a time, the way a book is read one page at a time. The text says for every ten books donated, one stamped page is pasted onto the giant paper book in the hall."
+      </div>
+    </div>
+    <div class="why-box"><div class="why-title">See the three boxes</div><p style="margin:0;font-size:14px"><strong>Box 1</strong> = says what the name means. <strong>Box 2</strong> = connects it to what the campaign is actually doing. <strong>Box 3</strong> = a real detail pulled from the text. All three boxes green = all three marks.</p></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Route B procedural - COUNT DO TICK -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2>Route B — COUNT · DO · TICK 🔢</h2>
+    <p style="font-size:13.5px;color:#555">Same idea as the job boxes — but as three steps you can actually use in the exam.</p>
+    <p><strong>Question:</strong> "Describe two ways that you can help support the Page by Page campaign." (4 marks)</p>
+    <div class="routine-box">
+      <div class="routine-step">
+        <div class="routine-num">1</div>
+        <div class="routine-text"><strong>COUNT</strong> — circle every job word in the question: <em>why · how · explain · describe · two · use details · change · learn.</em> Here: "describe" + "two ways" = <strong>4 jobs</strong> (name way 1, describe way 1, name way 2, describe way 2). Write the number: "4 jobs".</div>
+      </div>
+      <div class="routine-step">
+        <div class="routine-num">2</div>
+        <div class="routine-text"><strong>DO</strong> — one sentence for each job. Start with the question's own words: "One way to help is... Another way is..."</div>
+      </div>
+      <div class="routine-step">
+        <div class="routine-num">3</div>
+        <div class="routine-text"><strong>TICK</strong> — tick each job off as you write it. No detail from the text yet? Add one: "The text says..."</div>
+      </div>
+    </div>
+    <div class="rule-box"><span class="rule-big">One job = one mark. Count first, write second.</span></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Shape 1 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2>Shape 1 — "Why is it called ___?" 🏷️</h2>
+    <p>This shape always has <strong>3 jobs:</strong></p>
+    <div class="job-row">
+      <div class="job-card"><b>Job 1</b>What the name itself says — the picture in the words.</div>
+      <div class="job-card"><b>Job 2</b>What that means for the campaign or story — connect it.</div>
+      <div class="job-card"><b>Job 3</b>A detail from the text that proves it.</div>
+    </div>
+    <p><strong>Worked example:</strong> "Why is the campaign called Page by Page?" → "Page by Page means the library gets rebuilt gradually, one small piece at a time <em>(Job 1)</em>, the same way books are read one page at a time and the campaign fills the library book by book <em>(Job 2)</em>. The text says every ten donated books earns one stamped page on the giant paper book in the hall <em>(Job 3)</em>."</p>
+    <div class="why-box"><div class="why-title">Watch the trap that cost you Q47</div><p style="margin:0;font-size:14px">Don't explain why the campaign is a <em>good idea</em>. Explain the <strong>name</strong>. "It's a great cause because the library needs books" answers a completely different question and earns 0.</p></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Shape 2 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2>Shape 2 — "Describe two ways…" ✌️</h2>
+    <p>This shape always has <strong>4 jobs:</strong></p>
+    <div class="job-row">
+      <div class="job-card"><b>Job 1</b>Name way 1.</div>
+      <div class="job-card"><b>Job 2</b>Describe way 1 — what you actually do, or how it helps.</div>
+      <div class="job-card"><b>Job 3</b>Name way 2 — different from way 1.</div>
+      <div class="job-card"><b>Job 4</b>Describe way 2.</div>
+    </div>
+    <p><strong>Worked example:</strong> "One way to help is to bring a book from home and post it through the Book Box in the hall, which adds straight to the library's shelves <em>(Jobs 1-2)</em>. Another way is to ask a family member to buy a book from the village bookshop, since it donates one new book for every five brought in <em>(Jobs 3-4)</em>."</p>
+    <div class="why-box"><div class="why-title">The trap</div><p style="margin:0;font-size:14px">"Bring a book or ask the bookshop" is <strong>2 jobs, not 4</strong> — two names joined with "or", with nothing described. That caps you at 2 marks out of 4.</p></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S5: Shapes 3 and 4 -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2>Shapes 3 and 4 — stories 📖</h2>
+    <div class="passage">
+      <strong>The New Desk</strong><br>
+      When Tum started at his new school, he ate lunch alone every day, headphones on, eyes down at his tray. In week three, a teacher asked him to help sort the returned library books instead of sitting outside at break. Tum almost said no. By the end of that week, he knew exactly which shelf every subject belonged on, and two other pupils had started coming to ask him where to find things. By half term, Tum ran the whole returns desk himself, and he had started eating lunch at the table nearest the library, surrounded by the pupils who now knew his name.
+    </div>
+    <p><strong>Shape 3 — "How do feelings change? Use details."</strong> always has <strong>3 jobs:</strong> start feeling + detail (lonely — ate alone, headphones on) · what changed it (asked to sort library books) · end feeling + detail (settled — ran the desk, sat with others who knew his name).</p>
+    <p><strong>Shape 4 — "What does ___ learn? Explain using the story."</strong> always has <strong>3 jobs:</strong> the lesson, in a full sentence (a task he didn't want can turn into something that connects him to people) · what happened that taught it (sorting the books led to being noticed and needed) · a story detail or quoted words (two pupils came to ask him where to find things).</p>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S6: Drill D1 -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2>Drill D1 — Count the jobs 🔢</h2>
+    <p style="font-size:14px">For each question, work out how many jobs it is really asking for.</p>
+    <div id="w1"></div>
+    <div class="bottom-nav"><button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button><button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button></div>
+  </div>
+</div>
+
+<!-- S7: Drill D2 -->
+<div class="screen" id="s7">
+  <div class="card">
+    <h2>Drill D2 — Which answer gets every mark? ✍️</h2>
+    <p style="font-size:14px">Four answers to the same question — pick the one that earns every mark.</p>
+    <div id="w2"></div>
+    <div class="bottom-nav"><button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button><button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button></div>
+  </div>
+</div>
+
+<!-- S8: Drill D3 -->
+<div class="screen" id="s8">
+  <div class="card">
+    <h2>Drill D3 — Add the missing job ➕</h2>
+    <p style="font-size:14px">Each answer below is missing exactly one job. Pick the sentence that adds it.</p>
+    <div id="w3"></div>
+    <div class="bottom-nav"><button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button><button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button></div>
+  </div>
+</div>
+
+<!-- S9: Write your own -->
+<div class="screen" id="s9">
+  <div class="card">
+    <h2>Write your own ✍️</h2>
+    <p style="font-size:13.5px;color:#555">Ungraded — just practice. Use COUNT · DO · TICK, and write it the way you write at school: full sentences.</p>
+    <p><strong>1.</strong> "Why is the campaign called Page by Page? Explain your answer." (3 marks)</p>
+    <textarea class="myans" id="wq1"></textarea>
+    <div class="checkbox-row"><label><input type="checkbox"> Did I say what the name means?</label><label><input type="checkbox"> Did I connect it to the campaign?</label><label><input type="checkbox"> Did I use a detail from the text?</label></div>
+    <p style="margin-top:16px"><strong>2.</strong> "Describe two ways that you can help support the Page by Page campaign." (4 marks)</p>
+    <textarea class="myans" id="wq2"></textarea>
+    <div class="checkbox-row"><label><input type="checkbox"> Did I name way 1?</label><label><input type="checkbox"> Did I describe way 1?</label><label><input type="checkbox"> Did I name a different way 2?</label><label><input type="checkbox"> Did I describe way 2?</label></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S10: Spelling guard -->
+<div class="screen" id="s10">
+  <div class="card">
+    <h2>Spelling guard — keep the ending, keep it British 🔤</h2>
+    <p>After you fix a misspelled word, put it back into the sentence and read it. Does the sentence need <em>-ed</em>, <em>-s</em>, or <em>-ing</em> on the end? A fixed root with the wrong ending is still wrong.</p>
+    <div class="tip-line">Your school spells the British way: <strong>colour, centre, metre, honour</strong>. Watch out for autocorrect changing these on a device.</div>
+    <p style="font-size:14px">Fix each word below, then check.</p>
+    <div id="w4"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S11: self-check -->
+<div class="screen" id="s11">
+  <div class="card">
+    <h2>Self-check 🎯</h2>
+    <p style="font-size:14px">Six questions, one attempt each. Score 5 or 6 and you're ready for the test.</p>
+    <div id="w5"></div>
+    <div id="gateResult" class="gate-result"></div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="goScreen(-1)">← Prev</button>
+      <button class="bottom-nav-btn" onclick="goScreen(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- S12: report + nav -->
+<div class="screen" id="s12">
+  <div class="card">
+    <h2>Count the jobs — locked in 🎉</h2>
+    <div id="reportWrap"></div>
+    <div class="rule-box"><div class="rule-big">COUNT the jobs · DO one sentence per job · TICK each job off. Every written answer, every time.</div></div>
+  </div>
+  <div class="lesson-nav">
+    <a href="index.html" class="btn-hub">Back to Hub</a>
+    <a href="Tests/ENG_Unit_039_Test_SchoolReady.html" class="btn-lesson">Take the Test →</a>
+  </div>
+</div>
+
+<script>
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12'];var cur=0;
+var SCREEN_ROUNDS={s6:[1],s7:[2],s8:[3],s10:[4],s11:[5]};
+var built={};
+function onScreen(sid){
+  if(sid==='s6'&&!built[1]){built[1]=1;buildDrill(1,'w1',D1);}
+  if(sid==='s7'&&!built[2]){built[2]=1;buildDrill(2,'w2',D2);}
+  if(sid==='s8'&&!built[3]){built[3]=1;buildDrill(3,'w3',D3);}
+  if(sid==='s10'&&!built[4]){built[4]=1;buildSpellDrill(4,'w4',D4);}
+  if(sid==='s11'&&!built[5]){built[5]=1;buildDrill(5,'w5',D5,true);}
+  if(sid==='s12'){buildReport();}
+}
+function buildReport(){
+  var names={1:'D1 · Count the jobs',2:'D2 · Which answer gets every mark',3:'D3 · Add the missing job',4:'D4 · Spelling guard',5:'Self-check'};
+  var t='',tot=0,out=0;
+  [1,2,3,4,5].forEach(function(r){
+    var R=RD[r];
+    if(R){tot+=R.score;out+=R.items.length;}
+    t+='<p style="margin:4px 0"><strong>'+names[r]+':</strong> '+(R?R.score+'/'+R.items.length+' right first time':'not attempted')+'</p>';
+  });
+  t+='<p style="margin:10px 0 0;font-size:15px"><strong>All rounds: '+tot+'/'+out+' right first time</strong> — and every question ended on a correct answer.</p>';
+  document.getElementById('reportWrap').innerHTML=t;
+}
+
+/* ---- D1: Count the jobs (6 MCQ, options 1-4) ---- */
+var D1=[
+ {sent:'"Why is the campaign called Page by Page? Explain your answer." How many jobs?', opts:['1','2','3','4'], ans:2,
+  why:'3 jobs: what the name means · how it connects to the campaign · a detail from the text.',
+  alt:{sent:'"Why is it called the Page by Page campaign?" How many jobs — even though it sounds shorter?', opts:['1','2','3','4'], ans:2,
+       why:'Still 3 jobs. A shorter question does not mean fewer jobs — "why is it called" always needs the name explained, connected, and proven with a detail.'},
+  walk:'Look past the wording and find the shape. "Why is it called ___?" is always Shape 1: name meaning + connection + text detail = 3 jobs, no matter how the sentence is phrased.'},
+ {sent:'"Describe two ways that you can help support the Page by Page campaign." How many jobs?', opts:['1','2','3','4'], ans:3,
+  why:'4 jobs: name way 1 · describe way 1 · name way 2 · describe way 2.',
+  alt:{sent:'"Describe two ways the school is trying to fill the library." How many jobs?', opts:['1','2','3','4'], ans:3,
+       why:'Still 4 jobs — naming two ways is only half the task; each way also needs describing.'},
+  walk:'"Describe two ways" is Shape 2. Two ways, each needing a name AND a description, is 2×2 = 4 jobs — not 2.'},
+ {sent:'"How do Tum\'s feelings change from the beginning of the story to the end? Use details." How many jobs?', opts:['1','2','3','4'], ans:2,
+  why:'3 jobs: feeling at the start + detail · what changed it · feeling at the end + detail.',
+  alt:{sent:'"How do the main character\'s feelings change across the story? Use details." How many jobs?', opts:['1','2','3','4'], ans:2,
+       why:'Still 3 jobs — start feeling, the turning point, end feeling — every time this shape appears.'},
+  walk:'"How do feelings change? Use details" is Shape 3: a before-feeling, a turning point, and an after-feeling — 3 separate jobs, each needing its own detail.'},
+ {sent:'"What does Tum learn by the end of the story? Explain using the story." How many jobs?', opts:['1','2','3','4'], ans:2,
+  why:'3 jobs: the lesson in a full sentence · what happened that taught it · a story detail or quote.',
+  alt:{sent:'"What does the character learn by the end? Explain using the story." How many jobs?', opts:['1','2','3','4'], ans:2,
+       why:'Still 3 jobs — the lesson, the cause, and the proof.'},
+  walk:'"What does ___ learn? Explain using the story" is Shape 4: state the lesson, show what caused it, and prove it with a detail — 3 jobs.'},
+ {sent:'"Why is it called Page by Page?" (no "explain your answer" this time) — how many jobs?', opts:['1','2','3','4'], ans:2,
+  why:'Still 3 jobs. Shorter wording is a trap — the shape decides the job count, not the length of the sentence.',
+  alt:{sent:'"Why is the campaign named this way?" How many jobs?', opts:['1','2','3','4'], ans:2,
+       why:'Still 3 jobs — same Shape 1 routine every time, however it is worded.'},
+  walk:'Don\'t count words in the question — count the shape. Any "why is it called / named ___?" question is Shape 1: 3 jobs, always.'},
+ {sent:'"Describe two ways to help, and say briefly how each one works." How many jobs?', opts:['1','2','3','4'], ans:3,
+  why:'4 jobs — "how each one works" is just asking you to describe each way, which you already had to do.',
+  alt:{sent:'"Give two ways to help the campaign, explaining each one." How many jobs?', opts:['1','2','3','4'], ans:3,
+       why:'4 jobs — "explaining each one" is the description job for both ways, already counted.'},
+  walk:'Don\'t double-count. "Describe" and "how it works" / "explaining" are asking for the SAME job — the description. Two ways × (name + describe) is still 4 jobs, not 6.'}
+];
+
+/* ---- D2: Which answer gets every mark? (4 MCQ) ---- */
+var D2=[
+ {sent:'Which of these four earns all 3 marks for "Why is the campaign called Page by Page?"',
+  opts:['"Because of the pages."','"It is called Page by Page because every book fills the library gradually."','"It is called Page by Page because every book donated helps fill the shelves gradually, one small step at a time. The text says every ten books earns a stamped page on the giant paper book in the hall."','"The library needs more books."'], ans:2,
+  why:'Only this one has all three jobs: the name explained, connected to the campaign, and proven with a real text detail (the giant paper book, one page per ten books).',
+  alt:{sent:'Which of these four earns all 3 marks for "How do Tum\'s feelings change?"',
+       opts:['"He was sad, then happy."','"Tum felt lonely, then he felt better."','"Tum started off eating alone with his headphones on. After he was asked to help sort library books, other pupils began coming to him for help. By half term he was running the desk and sitting with people who knew his name."','"Tum liked his new school."'], ans:2,
+       why:'This is the only answer with a start feeling + detail, the turning point, and an end feeling + detail — all three jobs of Shape 3.'},
+  walk:'Check each answer against the job list for its shape. A single phrase fails "explain/describe". A sentence with no text detail fails "prove it". Only one answer here has every job.'},
+ {sent:'Which of these is missing the "text detail" job needed for "Why is it called Page by Page?"',
+  opts:['"It is called Page by Page because every book fills the library gradually, one small step at a time. The giant paper book in the hall gets a new page for every ten books donated."','"It is called Page by Page because every book donated helps the library grow bit by bit."','"The library used to have almost no books, but now it does."','"Page by Page is a good name for a book campaign."'], ans:1,
+  why:'This has the name explained and connected to the campaign, but no specific detail pulled from the text (no mention of the giant paper book or the ten-books rule) — missing the third job.',
+  alt:{sent:'Which of these is missing the "connect it to the campaign" job for the same question?',
+       opts:['"Page by Page means filling the library one small piece at a time — the campaign fills it book by book, and the text says one page is stamped for every ten books donated."','"Page by Page just means turning pages when you read a book."','"The name uses the word \'page\' because books have pages."','"Page by Page sounds like a nice name."'], ans:1,
+       why:'This explains what "page by page" literally means (turning pages) but never connects that to how the campaign itself works — missing the connection job.'},
+  walk:'Read the answer and tick off each job separately: name explained? connected to the campaign? proven with a text detail? Find the one answer missing exactly one tick.'},
+ {sent:'Which of these answers a DIFFERENT question instead of "Why is it called Page by Page?"',
+  opts:['"Page by Page means the library fills gradually, one book at a time — matching how a book is read page by page."','"This campaign is a great idea because every school needs a good library."','"The name refers to the way the giant paper book gets a new page for every ten books donated."','"The campaign is called this because books are made of pages."'], ans:1,
+  why:'"This campaign is a great idea because every school needs a good library" explains why the campaign is GOOD, not why it is NAMED that — the exact trap that cost Q47 at Unit 38.',
+  alt:{sent:'Which of these answers a DIFFERENT question instead of "Describe two ways to help the campaign"?',
+       opts:['"You can bring a book from home and post it through the Book Box, which adds straight to the shelves."','"The campaign is a really good idea and everyone should support it."','"You can also ask a family member to buy from the village bookshop, which donates one new book for every five brought in."','"Both ways help fill the library faster."'], ans:1,
+       why:'"The campaign is a really good idea and everyone should support it" is an opinion about the campaign, not a description of a way to help — it answers a different question entirely.'},
+  walk:'Read the question again before judging any answer. An answer can be well-written and still score 0 if it responds to a question that was never asked. Find the one that has drifted off-topic.'},
+ {sent:'Which of these earns only 2 marks out of 4 for "Describe two ways to help the campaign"?',
+  opts:['"Bring a book from home, or ask the bookshop."','"Bring a book from home and post it in the Book Box, which adds it straight to the shelves. You could also ask a family member to buy from the village bookshop, which donates one new book for every five brought in."','"One way is to donate a book at the Book Box, which adds it to the shelves directly. Another way is to buy from the village bookshop, since it gives one free book for every five sold."','"Post a book through the Book Box, which goes straight onto the shelves. Buy from the bookshop too, since it gives a free book for every five sold."'], ans:0,
+  why:'"Bring a book from home, or ask the bookshop" only names two ways with "or" — neither is described. That caps it at 2 marks (the two names), missing both description jobs.',
+  alt:{sent:'Which of these earns only 2 marks out of 3 for "Why is it called Page by Page?"',
+       opts:['"Because it\'s about pages, and the library needs help."','"It is called Page by Page because every book fills the library gradually, one small step at a time. The text says the giant paper book gets a new page for every ten books donated."','"Page by Page means the library grows bit by bit — the same way a book is read one page at a time, matching how the campaign works."','"It is called Page by Page because that name uses the word page, and pages are found in books."'], ans:0,
+       why:'"Because it\'s about pages, and the library needs help" never explains what the name actually means or proves it with a text detail — it stays vague on every job, so it caps well below full marks.'},
+  walk:'A 2-mark answer usually has SOME of the jobs done but not all. Look for the one with names but no descriptions, or a connection but no proof — the "almost there" answer.'}
+];
+
+/* ---- D3: Add the missing job (4 MCQ) ---- */
+var D3=[
+ {sent:'This answer is missing its text detail: <em>"It is called Page by Page because every book fills the library gradually, one small step at a time."</em> Which sentence adds exactly that missing job?',
+  opts:['"That is a good name for the campaign."','"The text says the giant paper book in the hall gets a new page for every ten books donated."','"The library needs many more books than it has now."','"Page by Page is easy to remember."'], ans:1,
+  why:'This pulls a specific fact straight from the text (the giant paper book, one page per ten books) — exactly the missing "proof" job.',
+  alt:{sent:'This answer is missing its text detail: <em>"Tum felt lonely at first, then he felt like he belonged."</em> Which sentence adds exactly that missing job?',
+       opts:['"That is a nice ending for a story."','"At first he ate lunch alone with his headphones on, and by half term two pupils were coming to ask him where to find things on the returns desk."','"Tum is a Year 5 pupil."','"The story takes place at a school."'], ans:1,
+       why:'This gives specific actions from the story (eating alone, headphones, pupils asking him for help) — exactly the missing detail job.'},
+  walk:'The missing job here is a text detail. Look for the option that quotes or closely describes a specific fact from the passage, not a general comment about the topic.'},
+ {sent:'This answer is missing "describe way 2": <em>"One way to help is to bring a book from home and post it through the Book Box, which adds it straight to the shelves. Another way is to ask a family member to buy from the village bookshop."</em> Which sentence completes it?',
+  opts:['"...which is also a very kind thing to do."','"...since the bookshop donates one new book for every five second-hand books brought in."','"...because books are important for learning."','"...and that is the second way to help."'], ans:1,
+  why:'This explains HOW buying from the bookshop actually helps (one new book per five donated) — the missing description for way 2.',
+  alt:{sent:'This answer is missing "describe way 1": <em>"One way to help is to bring a book from home. Another way is to ask a family member to buy from the village bookshop, since it donates one new book for every five brought in."</em> Which sentence completes it?',
+       opts:['"...because everyone likes reading."','"...and post it through the Book Box in the hall, which adds it straight to the library\'s shelves."','"...which is a way of helping."','"...since books are useful."'], ans:1,
+       why:'This explains what actually happens to the donated book (posted through the Book Box, straight to the shelves) — the missing description for way 1.'},
+  walk:'Naming a way is not the same as describing it. Look for the option that explains what actually happens, or how the action helps — not a vague comment.'},
+ {sent:'This answer is missing "connect it to the campaign": <em>"Page by Page means going through something bit by bit, like turning pages in a book."</em> Which sentence adds the missing job?',
+  opts:['"That is why it is a clever name."','"The campaign fills the library the same way — one book donated at a time, gradually rebuilding the shelves."','"Books have many pages in them."','"The library is in Elm Village."'], ans:1,
+  why:'This links the literal meaning of "page by page" to what the campaign is actually doing — filling the library gradually — the missing connection job.',
+  alt:{sent:'This answer is missing "what changed" for Shape 3: <em>"Tum felt lonely at first. By half term he felt like he belonged and sat with people who knew his name."</em> Which sentence adds the missing job?',
+       opts:['"That shows a big change in how he felt."','"A teacher asked him to help sort the returned library books instead of sitting outside, and other pupils soon started coming to him for help."','"Tum is a quiet person."','"Schools can be difficult places to start at."'], ans:1,
+       why:'This names the actual event that caused the change — being asked to sort books — the missing "turning point" job.'},
+  walk:'The missing job here is the connection between two ideas. Look for the option that explicitly links the literal meaning to what is really happening in the campaign or story.'},
+ {sent:'This answer is missing "name way 2, a different way": <em>"One way to help is to bring a book from home and post it through the Book Box, which adds it straight to the shelves. Another way is..."</em> which ending correctly names a genuinely different second way?',
+  opts:['"...to bring another book from home too."','"...to ask a family member to buy a book from the village bookshop."','"...to post it through the Book Box again."','"...to tell your friends the Book Box exists."'], ans:1,
+  why:'Buying from the bookshop is a genuinely different method from bringing a book from home — it names a real second way, not a repeat of the first.',
+  alt:{sent:'This answer is missing "name way 2, a different way" for the school library: <em>"One way is to donate a book at the Book Box. Another way is..."</em> which ending correctly names a genuinely different second way?',
+       opts:['"...to donate two books at the Book Box instead of one."','"...to ask a family member to buy from the village bookshop, since it gives a free book for every five sold."','"...to bring the same book back again next term."','"...to put a book in the Book Box a second time."'], ans:1,
+       why:'Buying from the bookshop is a different method entirely, not a repeat of donating at the Book Box.'},
+  walk:'"A different way" must be a genuinely separate method, not the same action repeated or scaled up. Look for the option that introduces something new.'}
+];
+
+/* ---- D4: Spelling guard (4 spell items, exact match, forced retry) ---- */
+var D4=[
+ {sent:'"Last summer, our family <u>traveled</u> to the coast for a week." Fix the spelling — remember, British spelling doubles the "l".', ans:'travelled', why:'"Travelled" — British spelling doubles the "l" before "-ed".'},
+ {sent:'"Ice cream is my <u>favorit</u> treat on a hot day." Fix the spelling — remember the missing letters and the British "-our".', ans:'favourite', why:'"Favourite" — British spelling keeps the "-our", and don\'t forget the final "e".'},
+ {sent:'"She <u>grabed</u> her bag and ran to catch the bus." Fix the spelling — remember to keep the ending.', ans:'grabbed', why:'"Grabbed" — double the "b" before adding "-ed" on a short vowel word like "grab".'},
+ {sent:'"He goes <u>joging</u> every morning before school." Fix the spelling — remember to keep the ending.', ans:'jogging', why:'"Jogging" — double the "g" before adding "-ing" on a short vowel word like "jog".'}
+];
+function buildSpellDrill(rid,containerId,items){
+  RD[rid]={items:items,resolved:0,score:0};
+  var h='';
+  for(var i=0;i<items.length;i++){
+    var n=i+1;
+    h+='<div class="di" id="sp'+n+'">';
+    h+='<div class="di-sent">'+n+'. '+items[i].sent+'</div>';
+    h+='<input type="text" class="spellbox" id="spin'+n+'" autocomplete="off" autocapitalize="off">';
+    h+='<br><button class="spell-check-btn" onclick="checkSpell('+n+')" id="spbtn'+n+'">Check</button>';
+    h+='<div class="di-fb" id="spf'+n+'"></div>';
+    h+='</div>';
+  }
+  h+='<div class="drill-score" id="sc'+rid+'"></div>';
+  h+='<div class="lock-note" id="lk'+rid+'">Fix every word on this page before you move on.</div>';
+  document.getElementById(containerId).innerHTML=h;
+}
+var spellFirstTry={};
+function checkSpell(n){
+  var it=D4[n-1], v=document.getElementById('spin'+n).value.trim().toLowerCase();
+  var box=document.getElementById('spin'+n), fb=document.getElementById('spf'+n);
+  if(spellFirstTry[n]===undefined) spellFirstTry[n]=true;
+  if(v===it.ans){
+    box.className='spellbox ok'; box.disabled=true;
+    document.getElementById('spbtn'+n).disabled=true;
+    fb.className='di-fb ok'; fb.innerHTML='✅ '+it.why;
+    var R=RD[4];
+    if(spellFirstTry[n]){R.score++;}
+    R.resolved++;
+    if(R.resolved===D4.length){
+      var s=document.getElementById('sc4');
+      s.className='drill-score show';
+      s.innerHTML='<strong>Round done — '+R.score+'/'+D4.length+' right first time.</strong>';
+      var lk=document.getElementById('lk4'); if(lk) lk.className='lock-note';
+    }
+  } else {
+    box.className='spellbox no';
+    spellFirstTry[n]=false;
+    fb.className='di-fb no'; fb.innerHTML='❌ Not quite — put it back in the sentence and read it aloud. Try again.';
+  }
+}
+
+/* ---- D5: self-check (6 items, one attempt) ---- */
+var D5=[
+ {sent:'"Describe two ways to help the library." How many jobs?', opts:['1','2','3','4'], ans:3,
+  why:'4 jobs: name way 1, describe way 1, name way 2, describe way 2.'},
+ {sent:'"Why is it called Page by Page?" How many jobs?', opts:['1','2','3','4'], ans:2,
+  why:'3 jobs: what the name means, how it connects, a text detail.'},
+ {sent:'"How do the pupils\' feelings change? Use details." How many jobs?', opts:['1','2','3','4'], ans:2,
+  why:'3 jobs: start feeling + detail, the turning point, end feeling + detail.'},
+ {sent:'Which answer earns full marks for "Why is it called Page by Page?"',
+  opts:['"Because of the pages."','"It means filling the library gradually, one small step at a time — the same way a campaign fills it book by book. The text says one stamped page is added for every ten books donated."','"The library needs help."','"That is a nice name."'], ans:1,
+  why:'The only answer with the name explained, connected to the campaign, AND a real text detail.'},
+ {sent:'Which of these answers a DIFFERENT question than the one asked?',
+  opts:['"One way is to bring a book from home and post it through the Book Box, adding it straight to the shelves."','"This is a wonderful campaign and everyone should join in."','"Another way is to ask a family member to buy from the village bookshop, since it gives one free book for every five sold."','"Bringing a book helps the library grow."'], ans:1,
+  why:'"This is a wonderful campaign..." is an opinion about the campaign, not a description of a way to help — off-topic.'},
+ {sent:'What is the fix for "She wisspered the secret to her friend"?', opts:['whispered','wispered','whispred','wisperred'], ans:0,
+  why:'"Whispered" — don\'t drop the silent "h", and keep the "-ed" ending.'}
+];
+
+/* ---- shared MCQ forced-retry engine ---- */
+var RD={}; var RSTATE={};
+function optBtns(rid,n,stage,opts){
+  var h='';
+  for(var i=0;i<opts.length;i++){
+    h+='<button class="di-opt" id="o'+rid+'-'+n+'-'+stage+'-'+i+'" onclick="doAns('+rid+','+n+','+stage+','+i+')">'+opts[i]+'</button>';
+  }
+  return h;
+}
+function buildDrill(rid,containerId,items,singleAttempt){
+  RD[rid]={items:items,resolved:0,score:0};
+  RSTATE[rid]={};
+  var h='';
+  for(var i=0;i<items.length;i++){
+    var it=items[i], n=i+1;
+    RSTATE[rid][n]=1;
+    h+='<div class="di" id="d'+rid+'-'+n+'">';
+    h+='<div class="di-sent">'+n+'. '+it.sent+'</div>';
+    h+='<div class="di-btns" id="b'+rid+'-'+n+'-1">'+optBtns(rid,n,1,it.opts)+'</div>';
+    h+='<div class="di-fb" id="f'+rid+'-'+n+'-1"></div>';
+    if(!singleAttempt && it.alt){
+      h+='<div id="s2'+rid+'-'+n+'" style="display:none"><div class="retry-box">';
+      h+='<div class="retry-title">🔁 Have another go — a fresh one</div>';
+      h+='<div class="di-sent">'+it.alt.sent+'</div>';
+      h+='<div class="di-btns" id="b'+rid+'-'+n+'-2">'+optBtns(rid,n,2,it.alt.opts)+'</div>';
+      h+='<div class="di-fb" id="f'+rid+'-'+n+'-2"></div>';
+      h+='<div id="w'+rid+'-'+n+'"></div>';
+      h+='</div></div>';
+    }
+    h+='</div>';
+  }
+  h+='<div class="drill-score" id="sc'+rid+'"></div>';
+  h+='<div class="lock-note" id="lk'+rid+'">Finish every question on this page before you move on'+(singleAttempt?'.':' — including the fresh ones.')+'</div>';
+  document.getElementById(containerId).innerHTML=h;
+}
+function lockRow(rid,n,stage){
+  var b=document.getElementById('b'+rid+'-'+n+'-'+stage);
+  if(!b)return;
+  var bs=b.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=true;bs[i].className='di-opt';}
+}
+function unlockRow(rid,n,stage){
+  var b=document.getElementById('b'+rid+'-'+n+'-'+stage);
+  if(!b)return;
+  var bs=b.querySelectorAll('button');
+  for(var i=0;i<bs.length;i++){bs[i].disabled=false;bs[i].className='di-opt';}
+}
+function markResolved(rid){
+  var R=RD[rid];
+  R.resolved++;
+  if(R.resolved===R.items.length){
+    var s=document.getElementById('sc'+rid);
+    s.className='drill-score show';
+    s.innerHTML='<strong>Round done — '+R.score+'/'+R.items.length+' right first time.</strong>';
+    var lk=document.getElementById('lk'+rid); if(lk) lk.className='lock-note';
+    if(rid===5){ gateCheck(); }
+  }
+}
+function doAns(rid,n,stage,idx){
+  var R=RD[rid], it=R.items[n-1];
+  var st=RSTATE[rid][n];
+  if(stage===1){
+    if(st!==1) return;
+    lockRow(rid,n,1);
+    var fb=document.getElementById('f'+rid+'-'+n+'-1');
+    if(idx===it.ans){
+      fb.className='di-fb ok'; fb.innerHTML='✅ '+it.why;
+      RSTATE[rid][n]=0; R.score++; markResolved(rid);
+    }else{
+      fb.className='di-fb no'; fb.innerHTML='❌ '+it.why;
+      if(it.alt){
+        RSTATE[rid][n]=2;
+        document.getElementById('s2'+rid+'-'+n).style.display='block';
+      } else {
+        RSTATE[rid][n]=0; markResolved(rid);
+      }
+    }
+    return;
+  }
+  if(stage===2){
+    if(st===2){
+      lockRow(rid,n,2);
+      var f2=document.getElementById('f'+rid+'-'+n+'-2');
+      if(idx===it.alt.ans){
+        f2.className='di-fb ok'; f2.innerHTML='✅ '+it.alt.why+' <strong>That is the one that counts.</strong>';
+        RSTATE[rid][n]=0; markResolved(rid);
+      }else{
+        f2.className='di-fb no'; f2.innerHTML='❌ Not that one either. Read this through slowly:';
+        document.getElementById('w'+rid+'-'+n).innerHTML='<div class="walk">'+it.walk+'<br><br><b>Now tap the right answer above to carry on.</b></div>';
+        RSTATE[rid][n]=3;
+        unlockRow(rid,n,2);
+      }
+      return;
+    }
+    if(st===3){
+      var f3=document.getElementById('f'+rid+'-'+n+'-2');
+      if(idx===it.alt.ans){
+        lockRow(rid,n,2);
+        f3.className='di-fb ok'; f3.innerHTML='✅ '+it.alt.why+' <strong>Good — that is how it should look.</strong>';
+        RSTATE[rid][n]=0; markResolved(rid);
+      }else{
+        f3.className='di-fb no'; f3.innerHTML='❌ Still not it — read the blue box once more, then tap the answer it points to.';
+      }
+    }
+  }
+}
+
+function gateCheck(){
+  var R=RD[5];
+  var g=document.getElementById('gateResult');
+  if(R.score>=5){
+    g.className='gate-result ready';
+    g.innerHTML='🎉 Ready! '+R.score+'/6 first-time correct.';
+  } else {
+    g.className='gate-result retry';
+    g.innerHTML='📚 '+R.score+'/6 first-time correct — not quite ready. Go back to <a onclick="jumpToScreen(\'s1\')">The job boxes</a> (screen 2) and look at it once more, then try again.';
+  }
+}
+function jumpToScreen(sid){
+  var idx=SCREENS.indexOf(sid);
+  if(idx<0)return;
+  document.getElementById(SCREENS[cur]).className='screen';
+  cur=idx;
+  document.getElementById(SCREENS[cur]).className='screen active';
+  document.getElementById('prevBtn').disabled=(cur===0);
+  document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);
+  window.scrollTo(0,0);
+  onScreen(SCREENS[cur]);
+}
+
+/* ---- screen navigation with round locking ---- */
+function roundsOnScreen(sid){ return (SCREEN_ROUNDS[sid]||[]); }
+function screenLocked(sid){
+  var rs=roundsOnScreen(sid);
+  for(var i=0;i<rs.length;i++){
+    var R=RD[rs[i]];
+    if(!R || R.resolved<R.items.length) return rs[i];
+  }
+  return 0;
+}
+function goScreen(d){
+  var sid=SCREENS[cur];
+  if(d>0){
+    var locked=screenLocked(sid);
+    if(locked){
+      var lk=document.getElementById('lk'+locked);
+      if(lk){ lk.className='lock-note show'; lk.scrollIntoView({behavior:'smooth',block:'center'}); }
+      return;
+    }
+  }
+  var n=cur+d; if(n<0||n>=SCREENS.length)return;
+  document.getElementById(SCREENS[cur]).className='screen';
+  cur=n;
+  document.getElementById(SCREENS[cur]).className='screen active';
+  document.getElementById('prevBtn').disabled=(cur===0);
+  document.getElementById('nextBtn').disabled=(cur===SCREENS.length-1);
+  window.scrollTo(0,0);
+  onScreen(SCREENS[cur]);
+}
+</script>
+</body>
+</html>

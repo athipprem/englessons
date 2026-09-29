@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 39 Test — School Test 3-4 Ready</title>
+<!-- Built from BUILD_PLAN_ENG_U039_SchoolTest34_FinalPrep.md §6. Copies the U38 Paper 1 engine as fixed
+     29 Sep 2026 (no word-count gate on written; submit scrolls to first unanswered). Item types used:
+     spell / mcq / written only. 16 items, 25 marks, pass bar 20/25. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --spell:#8A5A00; --spell-fill:#FEEBC8; --spell-text:#8A5A00;
+    --campaign:#00695c; --campaign-fill:#B2DFDB; --campaign-text:#00695c;
+    --story:#0d47a1; --story-fill:#BBDEFB; --story-text:#0d47a1;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:840px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.spell{background:var(--spell-fill);color:var(--spell-text)}
+  .band.campaign{background:var(--campaign-fill);color:var(--campaign-text)}
+  .band.story{background:var(--story-fill);color:var(--story-text)}
+  .hint{font-size:.82rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.75}
+  .passage h4{margin:0 0 6px;color:var(--story-text);font-size:.95rem}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.spell{border-left-color:var(--spell)}
+  .q.campaign{border-left-color:var(--campaign)}
+  .q.story{border-left-color:var(--story)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .tier-tag{font-size:.68rem;font-weight:800;background:#eee;color:#666;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  input.spellin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem}
+  input.spellin.correct{border-color:var(--ok);background:var(--ok-l)}
+  input.spellin.wrong{border-color:var(--bad);background:var(--bad-l)}
+  textarea.writtenin{width:100%;min-height:90px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.82rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 39 Test — School Test 3-4 Ready</b>
+      <span class="sub" id="hdr-sub">Every Drop Counts · The Money Tin</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 16 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div class="readfirst">For the written questions, answer the questions completely using full, proper sentences.</div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 16 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit the test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 39;
+const UNIT_TITLE = "School Test 3-4 Ready";
+const UNIT_SUB   = "Final Prep 🏫 — Count the jobs";
+const PASS_BAR   = 20;                 // out of 25
+const TOTAL_MARKS = 25;
+const AUTO_OUT_OF = 12;
+const WRITTEN_MARKS = 13;
+
+const SECTION_ORDER = ['spell','campaign','story'];
+const SECTION_LABEL = {
+  spell:   "SECTION A — Fix the Spelling",
+  campaign:"SECTION B — Every Drop Counts",
+  story:   "SECTION C — The Money Tin"
+};
+const SECTION_HINT = {
+  spell:   "Read the sentence. The underlined word is misspelled — type it correctly.",
+  campaign:"Read the whole campaign before answering. Answer the written questions completely using full, proper sentences.",
+  story:   "Read the whole story before answering. Answer the written questions completely using full, proper sentences."
+};
+
+const Q = [
+  /* ===== SECTION A — Spelling correction (Q1-6), type spell, 1 mark each ===== */
+  { n:1, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The old dog <u>pritended</u> not to hear its name until a treat appeared."', ans:'pretended',
+    why:'The correct spelling is "pretended" — keep the "-ed" ending.' },
+  { n:2, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The market stalls sold a huge <u>varity</u> of fresh fruit from nearby farms."', ans:'variety',
+    why:'The correct spelling is "variety" — va-ri-e-ty, don\'t drop the middle beat.' },
+  { n:3, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"Paint <u>smeerd</u> across the canvas the moment his sleeve brushed against it."', ans:'smeared',
+    why:'The correct spelling is "smeared" — keep the "-ed" ending.' },
+  { n:4, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"Africa is the second-largest <u>continant</u> on Earth by both area and population."', ans:'continent',
+    why:'The correct spelling is "continent" — ends "-ent", not "-ant".' },
+  { n:5, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The tired sunflower <u>drouped</u> lower in its pot after a week without water."', ans:'drooped',
+    why:'The correct spelling is "drooped" — keep the "-ed" ending.' },
+  { n:6, section:'spell', type:'spell', tier:'Intermediate', marks:1,
+    body:'"The old garden path had become completely <u>overgrone</u> with weeds and brambles."', ans:'overgrown',
+    why:'The correct spelling is "overgrown" — ends "-grown", like "grown", not "-grone".' },
+
+  /* ===== SECTION B — Every Drop Counts (Q7-11) ===== */
+  { n:7, section:'campaign', type:'mcq', tier:'Basic', marks:1, passageId:'camp',
+    body:'Who can help the campaign?',
+    options:['Only the Year 5 Eco Team','Every pupil, teacher, and family at home','Only the school\'s caretaker on duty','Only pupils who own a water bottle'], ans:2,
+    why:'The WHO section says "Every pupil, every teacher, and families at home can all take part."' },
+  { n:8, section:'campaign', type:'mcq', tier:'Intermediate', marks:1, passageId:'camp',
+    body:'Why does the writer say that 9 of the school\'s 48 taps were found dripping?',
+    options:['To criticise the caretaker for not fixing taps','To explain how showers should be timed each day','To describe how the poster in each classroom works','To show the problem is real at school'], ans:4,
+    why:'A specific number about their own school is strong evidence — it shows the problem is real and local, not just a general claim.' },
+  { n:9, section:'campaign', type:'mcq', tier:'Intermediate', marks:1, passageId:'camp',
+    body:'Which sentence is an OPINION, not a fact?',
+    options:['"Saving water is the most important job anyone at Riverside can do."','"One dripping tap can waste over five thousand litres in a year."','"Last term, 9 of our own school\'s 48 taps were found dripping."','"Every classroom has a poster of a water tank on the wall."'], ans:1,
+    why:'The other three sentences give checkable numbers and details. This one is a judgement — "the most important job" — that cannot be checked.' },
+  { n:10, section:'campaign', type:'written', tier:'Applied', marks:3, passageId:'camp',
+    body:'Why is the campaign called "Every Drop Counts"? Explain your answer.',
+    markScheme:['Says what the name means: every small bit of water saved matters / small amounts together make a lot.','Connects it to what the campaign is doing: saving water at school, colouring the poster drop by drop, paying for the real tank.','Uses a detail from the text: one drop coloured for every 100 litres saved · one dripping tap wastes more than 5,000 litres a year · 9 of 48 taps dripping.'] },
+  { n:11, section:'campaign', type:'written', tier:'Applied', marks:4, passageId:'camp',
+    body:'Describe two ways that you can help support this campaign.',
+    markScheme:['Way 1 named (Tap Patrol · Drip Report · shower timer at home · saving water so the class colours drops).','Way 1 described — what you actually do, or how it helps.','Way 2 named — different from way 1.','Way 2 described.'] },
+
+  /* ===== SECTION C — The Money Tin (Q12-16) ===== */
+  { n:12, section:'story', type:'mcq', tier:'Basic', marks:1, passageId:'story',
+    body:'Why does Ploy have to help at the stall?',
+    options:['Yai\'s stall is closing down','Ploy asked to help this week','Yai\'s helper, Lek, is sick','Mum wanted Ploy to earn some money'], ans:3,
+    why:'The text says Yai\'s helper at the noodle stall, Lek, had come down with a fever.' },
+  { n:13, section:'story', type:'mcq', tier:'Intermediate', marks:1, passageId:'story',
+    body:'Why does Yai give Ploy the money tin?',
+    options:['She sees Ploy is quick and careful with the orders','She wants Ploy to buy herself a snack','She needs Ploy to hold it while she serves customers','She wants to test whether Ploy can count'], ans:1,
+    why:'Yai says "You count faster than me, and you don\'t forget" — right after watching Ploy write down every order accurately.' },
+  { n:14, section:'story', type:'mcq', tier:'Intermediate', marks:1, passageId:'story',
+    body:'What does "the queue snaked past the next stall" tell us?',
+    options:['The stall\'s line had taken on a snake-like shape','So many customers were waiting that the queue was very long','Customers were leaving because the stall was too busy','The next stall had run out of its own customers'], ans:2,
+    why:'"Snaked past the next stall" is a way of describing a line so long it curves along past the neighbouring stall — it shows how many customers were waiting.' },
+  { n:15, section:'story', type:'written', tier:'Applied', marks:3, passageId:'story',
+    body:'How do Ploy\'s feelings change from the beginning of the story to the end? Use details from the story.',
+    markScheme:['Feeling at the start + a detail (e.g. stomping up the stairs, throwing herself onto the bed, pulling her headphones on, wanting to be at Nam\'s movie night instead).','The turning point — what happened (the rush of orders, writing them all down on the paper menu, Yai handing her the money tin).','Feeling at the end + a detail (e.g. grinning, wanting to be in charge of the money tin again next Saturday).'] },
+  { n:16, section:'story', type:'written', tier:'Applied', marks:3, passageId:'story',
+    body:'What does Ploy learn by the end of the story? Explain using the story.',
+    markScheme:['A lesson in a full sentence — accept any sensible one: helping out can turn into something you enjoy · being trusted with a real job feels good · a job you dread can surprise you.','What happened that taught her this (getting the orders right, being handed the money tin).','A story detail or a few quoted words (e.g. "You count faster than me, and you don\'t forget" or "Only if I\'m in charge of the money tin again.").'] }
+];
+
+const PASSAGES = {
+  camp: `<h4>EVERY DROP COUNTS</h4>
+  <strong>WHAT is it?</strong> A campaign run by the Year 5 Eco Team at Riverside Primary School to stop water being wasted around the school. Every pound saved on the water bill is being set aside to pay for a brand new rainwater tank for the school garden.<br>
+  <strong>WHO can help?</strong> Every pupil, every teacher, and families at home can all take part.<br>
+  <strong>WHY join in?</strong> One dripping tap can waste over five thousand litres in a year. Last term, 9 of our own school's 48 taps were found dripping during a lunchtime check. Saving water is the most important job anyone at Riverside can do.<br>
+  <strong>HOW does it work?</strong> Tap Patrol — each class sends two pupils at lunchtime to check that every tap in their corridor is turned off tightly. Drip Report — if you find a dripping tap, fill in a Drip Report slip at the office so the caretaker can fix it that same day. At home, take a free sand timer from the Eco Team and try to keep showers under four minutes. Every classroom also has a big poster of a water tank on the wall — for every 100 litres the class saves, it gets to colour in one drop on the poster. Once a class's poster tank is completely full of coloured drops, the school will order the real tank.`,
+  story: `<h4>The Money Tin</h4>
+  Ploy had been looking forward to Saturday for weeks. Her friend Nam was finally having her movie night, and Ploy had already picked out exactly which snacks to bring. Then, just after breakfast, Mum said something that changed everything: Yai's helper at the noodle stall, Lek, had come down with a fever, and someone needed to step in at the night market.
+  Ploy stomped up the stairs, threw herself onto her bed, and pulled her headphones on without saying a single word. She could already picture Nam's living room full of laughing friends while she stood behind a hot cart of noodles instead.
+  By the time she and Yai had set up the stall, the night market was busier than Ploy had ever seen it. Within minutes the queue snaked past the next stall, and orders came flying at her from every direction — noodles with extra chilli, no bean sprouts, double broth, one without egg. Ploy mixed up two orders in a row, and a customer standing at the front sighed loudly and crossed her arms.
+  Without really deciding to, Ploy grabbed the back of a paper menu and started scribbling down every order the second it was called out — table by table, exactly what each person wanted. The mix-ups stopped completely. Yai glanced over the cart, watched her working for a moment, and then held out the old metal money tin. "You count faster than me, and you don't forget," she said, dropping it into Ploy's hands.
+  For the rest of the night, Ploy kept the tin close, calling out change before customers had even finished counting their coins. When the last customer had gone and Yai was folding up the stools, she turned to Ploy. "Same time next Saturday?" she asked. Ploy grinned. "Only if I'm in charge of the money tin again."`
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${Q.length} to submit`;
+
+const chosen = {};   // qn -> value (index for mcq 1-based, string for spell/written)
+let submitted = false;
+let lastPassage = null;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  let lastSection = null;
+  Q.forEach(q => {
+    if (q.section !== lastSection){
+      html += `<div class="band ${q.section}">${SECTION_LABEL[q.section]}</div>`;
+      html += `<div class="hint">${SECTION_HINT[q.section] || ''}</div>`;
+      lastSection = q.section;
+      lastPassage = null;
+    }
+    if (q.passageId && (!lastPassage || lastPassage !== q.passageId)){
+      html += `<div class="passage">${PASSAGES[q.passageId]}</div>`;
+      lastPassage = q.passageId;
+    }
+    html += `<div class="q ${q.section}" id="q-${q.n}">
+      <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+        <span class="tier-tag">${q.tier}</span>
+        ${q.type==='written' ? `<span class="marks-tag">(${q.marks} mks)</span>` : ''}
+        <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+        <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+        <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+      </p>`;
+    if (q.type === 'mcq'){
+      html += `<div>`;
+      q.options.forEach((opt, idx) => {
+        html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${idx+1}. ${opt}</button>`;
+      });
+      html += `</div>`;
+    } else if (q.type === 'spell'){
+      html += `<input type="text" class="spellin" id="in-${q.n}" autocomplete="off" autocapitalize="off" oninput="typeAnswer(${q.n}, this.value)">`;
+    } else if (q.type === 'written'){
+      html += `<textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>`;
+    }
+    html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+    if (q.type === 'written'){
+      html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+    }
+    html += `</div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  if (q.type === 'mcq'){
+    q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+    document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  }
+  updateProgress();
+}
+function typeAnswer(qn, val){
+  if (submitted) return;
+  chosen[qn] = val;
+  updateProgress();
+}
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'spell') return v !== undefined && v.trim().length > 0;
+  // Written short-answer items are hand-marked by Naomi and must not be gated on word count —
+  // a correct answer can legitimately be short. See U38 Paper 1's isAnswered() fix, 29 Sep 2026.
+  if (q.type === 'written') return v !== undefined && v.trim().length > 0;
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  if (n === Q.length){
+    btn.disabled = false;
+    btn.textContent = 'Submit the test';
+  } else {
+    btn.disabled = false;
+    btn.textContent = `Answer all ${Q.length} to submit (${Q.length-n} left) — tap to jump there`;
+  }
+}
+
+function firstUnanswered(){
+  return Q.find(q => !isAnswered(q));
+}
+
+function askConfirmSubmit(){
+  const missing = firstUnanswered();
+  if (missing){
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('input.spellin').forEach(i => i.disabled = true);
+  document.querySelectorAll('textarea.writtenin').forEach(t => t.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      written.push({ q:q.n, marks:q.marks, markScheme:q.markScheme, response: given||'', wordCount: (given||'').trim().split(/\s+/).filter(Boolean).length });
+      document.getElementById(`ms-${q.n}`).classList.add('show');
+      document.getElementById(`tag-pending-${q.n}`).classList.add('show');
+      sectionTally[q.section].t++;
+      return { q:q.n, section:q.section, type:q.type, given, isCorrect:null };
+    }
+    let isCorrect;
+    if (q.type === 'spell'){
+      isCorrect = (given||'').trim().toLowerCase() === q.ans;
+      const el = document.getElementById(`in-${q.n}`);
+      el.classList.add(isCorrect?'correct':'wrong');
+      if (!isCorrect){ el.insertAdjacentHTML('afterend', `<div style="font-size:.82rem;color:#c62828;margin-top:4px">Correct: <b>${q.ans}</b></div>`); }
+    } else {
+      isCorrect = given === q.ans;
+      if (q.type === 'mcq'){
+        document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+        if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+      }
+    }
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, given, correct:q.ans, isCorrect };
+  });
+
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show','pass');
+  document.getElementById('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  document.getElementById('score-msg').textContent = `The ${WRITTEN_MARKS} written marks are waiting for Naomi. Pass bar for the full test is ${PASS_BAR}/${TOTAL_MARKS} (80%).`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => {
+      const autoT = Q.filter(q=>q.section===s && q.type!=='written').length;
+      const wrT = Q.filter(q=>q.section===s && q.type==='written').length;
+      return `<div class="sec-chip">${SECTION_LABEL[s].split('—')[1].trim()}: ${sectionTally[s].c}/${autoT}${wrT?` auto (+${wrT} written)`:''}</div>`;
+    }).join('') +
+    `<div class="sec-chip">Basic: ${tierTally.Basic.c}/${tierTally.Basic.t}</div><div class="sec-chip">Intermediate: ${tierTally.Intermediate.c}/${tierTally.Intermediate.t}</div><div class="sec-chip">Applied (auto n/a): ${tierTally.Applied.t} written</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    openedAt: openedAt,
+    minutesSpent: Math.round((Date.now()-openedAtMs)/60000),
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    writtenMarks: WRITTEN_MARKS, writtenScore: null,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed: null,
+    tiers: tierTally,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers,
+    written
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_U039_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.textContent = `Saved as ${filename}.`;
+      return;
+    } catch(e){ if (e.name === 'AbortError'){ statusEl.textContent = 'Save cancelled — click the button again when ready.'; return; } }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+render();
+updateProgress();
+</script>
+</body>
+</html>

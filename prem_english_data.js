@@ -21,8 +21,9 @@ var PREM_ENGLISH = {
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           38,
-    status:      '&#127979; SCHOOL TEST 3-4 PREP &mdash; three lessons (Spelling/Vocab word bank across 3 readers, Reading Comprehension three-mark-answers method, Opinion Essay two-reason framework) plus two test papers (Paper 1: Vocab/Reading, 48 items/60 marks; Paper 2: Task W opinion essay, "Should wild animals be kept in zoos?"), built directly from Prem&rsquo;s real school Unit Test 3-4 on 1&ndash;2 Oct 2026. Built after Unit 37 held 18/20 (90%) &mdash; the Type-1 conditional repair worked and is now closed. Session boundary: Unit 39 is NOT started until both papers and the real school result exist.',
+    n:           39,
+    heroLabel:   '&#127979; Final Prep &mdash; Count the Jobs',
+    status:      '&#127979; SCHOOL TEST 3-4 FINAL PREP &mdash; one lesson ("Count the jobs": COUNT&middot;DO&middot;TICK on the four written-answer question shapes) plus one 25-mark test (6 ending-sensitive spelling items, a persuasive campaign &ldquo;Every Drop Counts&rdquo;, a story &ldquo;The Money Tin&rdquo;; 13 of 25 marks on written answers). Built 29 Sep 2026 directly from Unit 38 Paper 1&rsquo;s written-answer misses (47/60, 78% FAIL by 1) and confirmed as a two-strike target against Prem&rsquo;s real school Assessment #1. Lui overrode the original U38 plan&rsquo;s session boundary so U39 could close the gap before the school test rather than after. Scheduled together with U38 Paper 2 the evening of 30 Sep 2026, ahead of the real school Unit Test 3-4 (1&ndash;2 Oct 2026); both will be analysed together once sat.',
     testPending: true
   },
 
@@ -32,39 +33,39 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 37 — updated after each test)
+  // Last completed assessment (Unit 38 Paper 1 — updated after each test; Paper 2 still pending)
   lastUnit: {
-    n: 37, label: 'Unit 37', score: 18, outOf: 20, pct: 90, delta: 8, prevScore: 10,
+    n: '38P1', label: 'Unit 38 Paper 1', score: 47, outOf: 60, pct: 78, delta: -12, prevScore: 18, prevOutOf: 20,
 
-    patternLabel:   'Unit 37 &mdash; 21 Sep 2026 &middot; 18/20 (90%) &mdash; PASS, the strongest result since Unit 34, and the single-target repair method is confirmed working',
-    patternInsight: '<strong>The Type-1 conditional repair held across every format tested.</strong> Unit 37 was built to fix exactly ONE rule &mdash; the Type-1 conditional, missed at Units 33, 35 and 36 &mdash; with a whole lesson, 15 reps across four formats, and a forced retry on every miss. Of the six scored Type-1 items (Q8&ndash;Q14, minus the connector filler), <strong>five landed clean</strong>: gap-fill in both directions (Q8, Q9, Q12), identify-the-correct-sentence (Q10), and identify-the-error on the would-in-result-clause fault (Q13, the same fault Q14 later missed). Cloze 6/7, Grammar 6/7, Vocab 6/6 (PERFECT).',
+    patternLabel:   'Unit 38 Paper 1 &mdash; 28 Sep 2026 &middot; 47/60 (78%) &mdash; FAIL by 1 mark, entirely on the written answers',
+    patternInsight: '<strong>Everything auto-scored is strong; every mark that decided the fail sits in the six hand-marked written answers.</strong> Auto-scored total 39/42 (93%): Definitions 10/10 PERFECT, Reading MCQ 12/12 PERFECT, Box-cloze 9/10, Spelling 8/10. Written answers 8/18 (44%). 12/12 on reading MCQ rules out comprehension as the problem &mdash; every written miss shares one shape: he did one job (e.g. named the right idea) when the question asked for two or three (explain it, connect it, prove it with a text detail). Graded from 17 screenshots after a genuine test-engine bug (word-count gate on short written answers) blocked submission; Lui confirmed the screenshots as Prem&rsquo;s complete, final attempt on 29 Sep 2026 &mdash; no resubmission needed. The bug is now fixed in the shipped file and written into the standing engine template.',
 
-    analysisLabel:   'Unit 37 Result Analysis &mdash; 21 Sep 2026 (one rule, one lesson, overload fixed &mdash; two narrow misses remain)',
-    analysisInsight: '<strong>Two isolated misses, both previously-flagged watch items, not new gaps.</strong> Q5 missed the Instead-vs-Moreover connector pair (chose the addition-sense word where the sentence needed the substitution-sense one) &mdash; the same pair he answered correctly in the opposite direction at Q6, and the identical connector was already missed once before at Unit 35. Q14 missed the Type-1 conditional in the &ldquo;identify the correctly-written sentence&rdquo; format &mdash; choosing a present-tense if-clause paired with &ldquo;would&rdquo; in the result clause &mdash; the exact fault Q13 asked him to spot in error-scan format and got right; the gap is format-specific (recognise-the-flaw vs. recognise-the-fix), not a fresh clause-pairing error. Vocab held two near-opposite reversal-trap distractors (Q17 versatile, Q19 gracious) cleanly. No leaked answers or paper defects found; all four Type-1 error-spotting items used distinct surface scenes. <strong>Decision: the single-target repair method (one rule, one lesson, forced retry) is validated &mdash; Type-1 conditional is now closed as a repair target.</strong> Unit 38 pivots to a school-test-prep unit (real school Unit Test 3-4, 1&ndash;2 Oct 2026) rather than continuing the U38/U39 repair sequence, since the school date takes priority; Instead-vs-Moreover gets a light confirming touch in Unit 38 Lesson 3.',
+    analysisLabel:   'Unit 38 Paper 1 Result Analysis &mdash; 29 Sep 2026 (a precise, nameable gap: two question shapes now confirmed two-strike targets)',
+    analysisInsight: '<strong>Two of the six written misses are now two-strike targets against Prem&rsquo;s real school Assessment #1</strong> &mdash; the persuasive-campaign shapes &ldquo;Why is it called ___?&rdquo; (school Q13: 2/3; here Q47: 0/3, answered a different question entirely) and &ldquo;Describe two ways you can help&rdquo; (school Q14: 3/4; here Q48: 1/3, named two actions with &ldquo;or&rdquo; but never described either). The other two misses (Q35, Q41) share the same root cause in a lighter form &mdash; a correct core answer with a missing text detail or missing job, not a comprehension failure. A school-style remark (one tick per idea, any wording) would land this paper around 82&ndash;85%; the 78/60 stands as the official grade regardless. Two single, unrelated spelling misses (Q2 US &ldquo;Neighborhood&rdquo;, likely device autocorrect; Q8 &ldquo;Examine&rdquo; for &ldquo;examined&rdquo;, dropped ending) and one box-cloze miss (Q25 &ldquo;delta&rdquo; for &ldquo;climate&rdquo;) are not targets. No leaked answers or content-isolation violations found in the auto-scored sections. <strong>Decision: Unit 39 built as a same-day repair &mdash; COUNT&middot;DO&middot;TICK, one routine applied to all four written-answer shapes, ahead of the real school test.</strong> Streak resets to 0 of 4 (U37&rsquo;s 90% was #1).',
 
-    qSummary: '<strong>18/20 (90%) PASS &mdash; strongest result since Unit 34 (29/30), and a clean break from the 5-test sub-80% run (U31 79 &rarr; U32 65 &rarr; U33 70 &rarr; U35 60 &rarr; U36 50). Cloze 6/7, Grammar 6/7, Vocab 6/6 PERFECT. Both misses (Q5 connector, Q14 Type-1 format-specific) are narrow and previously flagged, not new gaps. Next: UNIT 38 &mdash; real school Unit Test 3-4 prep (1&ndash;2 Oct 2026).</strong>',
+    qSummary: '<strong>47/60 (78%) FAIL by 1 &mdash; auto-scored sections strong (39/42, 93%), written answers the whole story (8/18, 44%). Two shapes (&ldquo;why is it called&rdquo;, &ldquo;describe two ways&rdquo;) now confirmed two-strike targets against the school&rsquo;s own paper. Next: UNIT 39 &mdash; same-day COUNT&middot;DO&middot;TICK repair, then U38 Paper 2, then the real school Unit Test 3-4 (1&ndash;2 Oct 2026).</strong>',
 
     qBreakdown: [
-      { q:'Q1',  topic:'Cloze', pass:true,  note:'&#10003; Gerund after preposition ("for ___ing") &mdash; "emptying", correct.' },
-      { q:'Q2',  topic:'Cloze', pass:true,  note:'&#10003; Gerund after preposition ("for ___ing") &mdash; "taking", correct.' },
-      { q:'Q3',  topic:'Cloze', pass:true,  note:'&#10003; Superlative, long adjective &mdash; "most colourful", correct.' },
-      { q:'Q4',  topic:'Cloze', pass:true,  note:'&#10003; Comparative with "than" &mdash; "longest", correct.' },
-      { q:'Q5',  topic:'Cloze', pass:false, note:'&#10007; Instead vs Moreover &mdash; chose "Moreover" (addition sense) where the sentence described a substitution ("planned to sell cupcakes&hellip; Instead, they sold banana bread"). Same connector pair missed once before at Unit 35.' },
-      { q:'Q6',  topic:'Cloze', pass:true,  note:'&#10003; Instead vs Moreover, opposite direction &mdash; "Moreover" (addition sense), correct.' },
-      { q:'Q7',  topic:'Cloze', pass:true,  note:'&#10003; Parallel structure in a verb list &mdash; "collects", correct.' },
-      { q:'Q8',  topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional gap-fill (if-clause = present) &mdash; "arrives", correct. Repair target held.' },
-      { q:'Q9',  topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional gap-fill (result clause = will+base) &mdash; "will play", correct. Repair target held.' },
-      { q:'Q10', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional, identify correctly-written sentence &mdash; sentence D, correct. Repair target held.' },
-      { q:'Q11', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional, identify the error ("will" inside if-clause) &mdash; sentence B, correct. Repair target held.' },
-      { q:'Q12', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional gap-fill (if-clause = present) &mdash; "rains", correct. Repair target held.' },
-      { q:'Q13', topic:'Grammar', pass:true, note:'&#10003; Type-1 conditional, identify the error ("would" in result clause after present if-clause) &mdash; sentence A, correct. Same fault type as Q14, spotted correctly here in error-scan format.' },
-      { q:'Q14', topic:'Grammar', pass:false, note:'&#10007; Type-1 conditional, identify correctly-written sentence &mdash; chose sentence A ("If Dara finds her ticket, she would join the trip"), a present if-clause paired with "would". Correct answer C pairs it with "will join". Same fault as Q13, but here he selected the flawed sentence rather than flagging it &mdash; format-specific gap.' },
-      { q:'Q15', topic:'Vocab', pass:true,  note:'&#10003; "timid" &mdash; shy and easily scared, correct.' },
-      { q:'Q16', topic:'Vocab', pass:true,  note:'&#10003; "methodical" &mdash; orderly and step-by-step, correct.' },
-      { q:'Q17', topic:'Vocab', pass:true,  note:'&#10003; "versatile" &mdash; able to do many different jobs, correct; did not fall for the near-opposite distractor.' },
-      { q:'Q18', topic:'Vocab', pass:true,  note:'&#10003; "nonchalant" &mdash; casually unconcerned, correct.' },
-      { q:'Q19', topic:'Vocab', pass:true,  note:'&#10003; "gracious" &mdash; kind and well-mannered, correct; did not fall for the near-opposite distractor.' },
-      { q:'Q20', topic:'Vocab', pass:true,  note:'&#10003; "relentless" &mdash; refusing to give up, correct.' }
+      { q:'Q1',  topic:'Spelling', pass:true,  note:'&#10003; "spectacular", correct.' },
+      { q:'Q2',  topic:'Spelling', pass:false, note:'&#10007; "Neighborhood" (US) instead of "neighbourhood" (British) &mdash; likely device autocorrect, not a knowledge gap.' },
+      { q:'Q3',  topic:'Spelling', pass:true,  note:'&#10003; "binoculars", correct.' },
+      { q:'Q4',  topic:'Spelling', pass:true,  note:'&#10003; "electricity", correct.' },
+      { q:'Q5',  topic:'Spelling', pass:true,  note:'&#10003; "whispered", correct.' },
+      { q:'Q6',  topic:'Spelling', pass:true,  note:'&#10003; "imagination", correct.' },
+      { q:'Q7',  topic:'Spelling', pass:true,  note:'&#10003; "gradually", correct.' },
+      { q:'Q8',  topic:'Spelling', pass:false, note:'&#10007; "Examine" for "examined" &mdash; correct root, dropped the past-tense ending the sentence needed.' },
+      { q:'Q9',  topic:'Spelling', pass:true,  note:'&#10003; "collision", correct.' },
+      { q:'Q10', topic:'Spelling', pass:true,  note:'&#10003; "desperately", correct.' },
+      { q:'Q11-Q20', topic:'Definitions', pass:true, note:'&#10003; 10/10 PERFECT &mdash; every word matched to its letter correctly.' },
+      { q:'Q21-Q24,Q26-Q30', topic:'Box-cloze', pass:true, note:'&#10003; 9/10 &mdash; crouched, species, injured, balance, admired, stumbled, survive, competition, crater all correct.' },
+      { q:'Q25', topic:'Box-cloze', pass:false, note:'&#10007; Chose "delta" (a landform distractor) instead of "climate" for "the desert has a dry, hot ___".' },
+      { q:'Q31-Q34,Q37-Q40,Q43-Q46', topic:'Reading MCQ', pass:true, note:'&#10003; 12/12 PERFECT across all three texts (Canyon Ridge, The Sound Desk, Hillview campaign) &mdash; comprehension is not the gap.' },
+      { q:'Q35', topic:'Reading Written', pass:false, note:'&#10007; 1/3 &mdash; "Because if they don\'t, they might get injured or die." States the general danger but names no specific park hazard or guide detail.' },
+      { q:'Q36', topic:'Reading Written', pass:true,  note:'&#10003; 3/3 PERFECT &mdash; named the correct trail (Sunset Overlook) with both required details (water, Easy difficulty).' },
+      { q:'Q41', topic:'Reading Written', pass:false, note:'&#10007; 1/3 &mdash; "From nervous to confident." Correct start/end feeling, but no story detail (the sound desk / Mr Aditya turning point) as the question asked.' },
+      { q:'Q42', topic:'Reading Written', pass:false, note:'&#9650; 2/3 &mdash; states the lesson well but no specific story detail cited. Partly contaminated: Q40\'s MCQ option echoed this exact idea, a leak closed in the U39 test build.' },
+      { q:'Q47', topic:'Reading Written', pass:false, note:'&#10007; 0/3 &mdash; answered "why the campaign is a good idea" instead of "why it is named that" &mdash; a different question. Two-strike target (school Q13: 2/3).' },
+      { q:'Q48', topic:'Reading Written', pass:false, note:'&#10007; 1/3 &mdash; "Sign a petition or donate." Two valid actions named as alternatives with "or", neither described, no judgement given. Two-strike target (school Q14: 3/4).' }
     ]
   },
 
@@ -145,11 +146,27 @@ var PREM_ENGLISH = {
     { n:34, score:29, outOf:30, delta:null, color:'#89F336', star:true, label:'U34 🏫' },
     { n:35, score:12, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U35 🔁' },
     { n:36, score:10, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U36' },
-    { n:37, score:18, outOf:20, delta:8,  color:'#89F336', star:true,  label:'U37' }
+    { n:37, score:18, outOf:20, delta:8,  color:'#89F336', star:true,  label:'U37' },
+    { n:'38P1', score:47, outOf:60, delta:null, color:'#f6993f', star:false, label:'U38 P1 🏫' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: '38P1',
+      title: 'Unit 38 Paper 1 &mdash; &#127979; School Test 3-4 Prep: Vocabulary &amp; Reading',
+      badge: '#f6993f',
+      status: 'done',
+      note: '47/60 (78%) &mdash; <strong>FAIL by 1 mark, entirely on the written answers.</strong> Auto-scored 39/42 (93%): <strong>Definitions 10/10 PERFECT, Reading MCQ 12/12 PERFECT</strong>, Box-cloze 9/10, Spelling 8/10 &mdash; comprehension is clearly not the gap. <strong>Written answers 8/18 (44%)</strong> &mdash; every miss shares one shape: one job done when the question asked for two or three. Two of the six misses are now <strong>confirmed two-strike targets</strong> against Prem&rsquo;s real school Assessment #1: &ldquo;Why is it called ___?&rdquo; (school 2/3, here Q47 0/3 &mdash; answered a different question) and &ldquo;Describe two ways&rdquo; (school 3/4, here Q48 1/3 &mdash; named two actions with &ldquo;or&rdquo;, described neither). Graded from 17 screenshots after a genuine engine bug (word-count gate on short written answers) blocked submission; Lui confirmed the screenshots as Prem&rsquo;s complete, final attempt. Bug fixed in the shipped file and in the standing test-engine template. Two single spelling misses (US &ldquo;Neighborhood&rdquo;, dropped &ldquo;-ed&rdquo; on &ldquo;examined&rdquo;) and one box-cloze miss (&ldquo;delta&rdquo; for &ldquo;climate&rdquo;) are not targets. Streak resets to 0 of 4. &middot; Next: <strong>UNIT 39</strong> &mdash; a same-evening repair unit (COUNT&middot;DO&middot;TICK) built directly on these two targets, ahead of Prem&rsquo;s real school Unit Test 3-4 (1&ndash;2 Oct 2026).',
+      tags: [
+        { t:'47/60 (78%) FAIL by 1', s:'background:#fff0f0;color:#c53030' },
+        { t:'Reading MCQ 12/12 &#9733; PERFECT', s:'background:#f0fff4;color:#276749' },
+        { t:'Definitions 10/10 &#9733; PERFECT', s:'background:#f0fff4;color:#276749' },
+        { t:'Written 8/18 &#9888;&#9888;', s:'background:#fff0f0;color:#c53030' },
+        { t:'2 two-strike targets found', s:'background:#fff8e1;color:#744210' },
+        { t:'&rarr; U39 same-day repair', s:'background:#ebf8ff;color:#2c5282' }
+      ]
+    },
     {
       n: 37,
       title: 'Unit 37 &mdash; Repair Unit: Type-1 Conditional (single-target)',

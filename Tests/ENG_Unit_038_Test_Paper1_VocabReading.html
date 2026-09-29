@@ -48,7 +48,8 @@
   .mtable th,.mtable td{border:1px solid #90CAF9;padding:5px 7px;text-align:left}
   .mtable th{background:#BBDEFB;color:#0d47a1}
   .safety{background:#FFF3D6;border:1.5px dashed #C08A1E;border-radius:8px;padding:8px 12px;font-size:.85rem;margin:8px 0}
-  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line)}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
   .q.spell{border-left-color:var(--spell)}
   .q.meaning{border-left-color:var(--meaning)}
   .q.boxcloze{border-left-color:var(--boxcloze)}
@@ -450,7 +451,12 @@ function typeAnswer(qn, val){
 function isAnswered(q){
   const v = chosen[q.n];
   if (q.type === 'spell') return v !== undefined && v.trim().length > 0;
-  if (q.type === 'written') return v !== undefined && v.trim().split(/\s+/).filter(Boolean).length >= 5;
+  // Written short-answer items (Applied tier, 3 marks, hand-marked by Naomi) must not be gated on
+  // word count — a correct answer can legitimately be short (e.g. "From nervous to confident" is a
+  // complete, correct 4-word answer to a feelings-change question). Only Task W (Paper 2) has a real
+  // minimum-length requirement, because that IS the writing task being assessed. Fixed 29 Sep 2026
+  // after this exact bug stuck Prem at "47/48 answered" with no way to find the blocking question.
+  if (q.type === 'written') return v !== undefined && v.trim().length > 0;
   return v !== undefined && v !== '';
 }
 function updateProgress(){
@@ -462,13 +468,26 @@ function updateProgress(){
     btn.disabled = false;
     btn.textContent = 'Submit Paper 1';
   } else {
-    btn.disabled = true;
-    btn.textContent = `Answer all ${Q.length} to submit (${Q.length-n} left)`;
+    btn.disabled = false;
+    btn.textContent = `Answer all ${Q.length} to submit (${Q.length-n} left) — tap to jump there`;
   }
 }
 
+function firstUnanswered(){
+  return Q.find(q => !isAnswered(q));
+}
+
 function askConfirmSubmit(){
-  if (Q.filter(isAnswered).length < Q.length) return;
+  const missing = firstUnanswered();
+  if (missing){
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
   document.getElementById('confirm-overlay').classList.add('show');
 }
 function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
