@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 40 Test — Prove It</title>
+<!-- Built from BUILD_PLAN_ENG_U040_ProveItReading.md v1.1 §6. Engine copied from the Unit 39 test as built
+     (no word-count gate on written; submit scrolls to the first unanswered item), with the two-box proof
+     entry added. 12 items, 20 marks, pass bar 16/20. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --t1:#00695c; --t1-fill:#B2DFDB; --t1-text:#00695c;
+    --t2:#0d47a1; --t2-fill:#BBDEFB; --t2-text:#0d47a1;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:1120px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.t1{background:var(--t1-fill);color:var(--t1-text)}
+  .band.t2{background:var(--t2-fill);color:var(--t2-text)}
+  .hint{font-size:.85rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .grp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:16px;align-items:start}
+  .grp .passage{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;margin-bottom:14px}
+  @media (max-width:900px){.grp{grid-template-columns:1fr}.grp .passage{position:static;max-height:none}}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;line-height:1.75}
+  .passage h4{margin:0 0 6px;color:var(--t2-text);font-size:.95rem}
+  .passage p{margin:0 0 10px}
+  .passage table{border-collapse:collapse;width:100%;font-size:.82rem;margin:6px 0}
+  .passage th,.passage td{border:1.5px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+  .passage th{background:#e0f2f1}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.t1{border-left-color:var(--t1)}
+  .q.t2{border-left-color:var(--t2)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .tier-tag{font-size:.68rem;font-weight:800;background:#eee;color:#666;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  label.fld{display:block;font-size:.82rem;font-weight:800;color:#4A148C;margin:10px 0 4px}
+  input.proofin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  input.proofin.good{border-color:var(--ok);background:var(--ok-l)}
+  input.proofin.badp{border-color:var(--bad);background:var(--bad-l)}
+  .proofmsg{font-size:.82rem;font-weight:700;margin-top:4px;min-height:1em;color:var(--bad)}
+  .proofmsg.good{color:var(--ok)}
+  .btn.chk{background:#eceff1;color:#4A148C;padding:6px 14px;font-size:.8rem;margin-top:6px}
+  textarea.writtenin{width:100%;min-height:100px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.88rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #save-status.reminder{color:#b71c1c;font-weight:800}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 40 Test — Prove It</b>
+      <span class="sub" id="hdr-sub">How Honeybees Choose a New Home · Edge Pieces</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 12 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div class="readfirst">Type it yourself — microphone off.</div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 12 to submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit the test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 40;
+const UNIT_TITLE = "Prove It";
+const UNIT_SUB   = "How Honeybees Choose a New Home · Edge Pieces";
+const PASS_BAR   = 16;                 // out of 20
+const TOTAL_MARKS = 20;
+const AUTO_OUT_OF = 8;
+const WRITTEN_MARKS = 12;
+
+const SECTION_ORDER = ['t1','t2'];
+const SECTION_LABEL = {
+  t1: "SECTION A — How Honeybees Choose a New Home",
+  t2: "SECTION B — Edge Pieces"
+};
+const SECTION_HINT = {
+  t1: "Read the text and the table first. For the written questions, first copy the words from the text that prove your answer, then write your answer in full sentences.",
+  t2: "Read the whole story first. For the written questions, first copy the words from the text that prove your answer, then write your answer in full sentences."
+};
+
+const Q = [
+ {
+  "n": 1,
+  "section": "t1",
+  "type": "mcq",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "Why does the old queen leave with half of the bees?",
+  "options": [
+   "She has already found a better home",
+   "The scouts have asked her to go",
+   "The colony has become too crowded",
+   "The weather has turned cold and wet"
+  ],
+  "ans": 3,
+  "why": "The text says a busy colony becomes crowded: there are too many bees and not enough room, so the old queen leaves with about half of them."
+ },
+ {
+  "n": 2,
+  "section": "t1",
+  "type": "mcq",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "According to the table, which site is highest above the ground?",
+  "options": [
+   "The gap behind a chimney",
+   "The hollow in an old oak tree",
+   "The wooden box on a garden shed",
+   "They are all at the same height"
+  ],
+  "ans": 1,
+  "why": "Look down the \"Height above the ground\" column: 8 metres is the greatest number, and it is in the row for the gap behind a chimney."
+ },
+ {
+  "n": 3,
+  "section": "t1",
+  "type": "mcq",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "“The swarm hangs like a beard from a branch.” This tells us the bees…",
+  "options": [
+   "are hiding from the rain",
+   "are resting after a long flight",
+   "have started to build a nest",
+   "cling together in one thick bunch"
+  ],
+  "ans": 4,
+  "why": "A beard is thick and hangs in one clump. The comparison shows the bees pressed together in a single bunch."
+ },
+ {
+  "n": 4,
+  "section": "t1",
+  "type": "mcq",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "What happens when about twenty or thirty scouts are waiting at the same site?",
+  "options": [
+   "The queen flies there alone",
+   "The whole swarm flies to that site",
+   "The scouts start a new dance",
+   "The swarm waits another week"
+  ],
+  "ans": 2,
+  "why": "The text says that when about twenty or thirty scouts are waiting at the same site, the whole swarm lifts off and flies there together."
+ },
+ {
+  "n": 5,
+  "section": "t1",
+  "type": "written",
+  "tier": "Applied",
+  "marks": 3,
+  "passageId": "t1",
+  "proof": true,
+  "anchors": [
+   "size of a big bucket",
+   "at least three metres",
+   "small entrance",
+   "old oak tree",
+   "garden shed",
+   "behind a chimney"
+  ],
+  "body": "Which site do you think the swarm will move to? Use two details from the text and the table to explain.",
+  "markScheme": [
+   "Names the hollow in the old oak tree, in a full sentence. (Choosing the chimney gap or the shed box earns nothing for this line.)",
+   "One accurate detail that matches the oak hollow to a need: about 40 litres (bucket-sized) · 5 metres (more than three metres) · small hole (easy to guard). A proof-box quote that supports a detail counts as that detail.",
+   "A second, different accurate detail from the text or the table."
+  ]
+ },
+ {
+  "n": 6,
+  "section": "t1",
+  "type": "written",
+  "tier": "Applied",
+  "marks": 3,
+  "passageId": "t1",
+  "proof": true,
+  "anchors": [
+   "dances for a long time",
+   "danced for",
+   "twenty or thirty scouts",
+   "only briefly"
+  ],
+  "body": "Why do some scouts dance for longer than others, and why does that matter? Explain using the text.",
+  "markScheme": [
+   "Longer, repeated dances mean the scout found a better (good) site.",
+   "Why it matters: more scouts go to check that site, so more of them gather there and the swarm moves to the best one.",
+   "A relevant quote or detail from the text (the proof box can supply it). Not a full sentence: 2 marks at most."
+  ]
+ },
+ {
+  "n": 7,
+  "section": "t2",
+  "type": "mcq",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Where does Kai spend lunch at the start of the story?",
+  "options": [
+   "In the school hall",
+   "On the field with a football",
+   "In the classroom with his book",
+   "On the bench under the stairs"
+  ],
+  "ans": 4,
+  "why": "The story says he always sat by himself on the bench under the stairs."
+ },
+ {
+  "n": 8,
+  "section": "t2",
+  "type": "mcq",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Why does Kai stand up, sit down, and stand up again?",
+  "options": [
+   "He is looking for a teacher to tell",
+   "He cannot decide whether to go and help",
+   "He is cold and cannot get comfortable",
+   "He wants to leave before the bell rings"
+  ],
+  "ans": 2,
+  "why": "He wants to help Ben, but the bench feels safe and the floor does not. His standing and sitting show he is deciding."
+ },
+ {
+  "n": 9,
+  "section": "t2",
+  "type": "mcq",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "“The pieces skittered across the floor like spilled rice.” This means the pieces…",
+  "options": [
+   "spread out quickly in every direction",
+   "fell down in one neat pile",
+   "became small, hard and white",
+   "bounced slowly on the spot"
+  ],
+  "ans": 1,
+  "why": "Spilled rice scatters everywhere at once. \"Skittered\" means to run or slide quickly, so the pieces shot off in all directions."
+ },
+ {
+  "n": 10,
+  "section": "t2",
+  "type": "mcq",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Why does Kai say to start with the edges?",
+  "options": [
+   "The corner pieces are brightest, so they are easy to spot",
+   "The sky pieces are the hardest, so they should go last",
+   "The straight pieces are easiest to find and make the frame first",
+   "The teacher had asked the class to sort the box that way"
+  ],
+  "ans": 3,
+  "why": "Edge pieces have a flat side, so they are easy to spot. Joined together they make the frame, and the rest of the picture fits inside it."
+ },
+ {
+  "n": 11,
+  "section": "t2",
+  "type": "written",
+  "tier": "Applied",
+  "marks": 3,
+  "passageId": "t2",
+  "proof": true,
+  "anchors": [
+   "upside down",
+   "by himself",
+   "stood up",
+   "knelt",
+   "Start with the edges",
+   "Edge expert sits here",
+   "grinned"
+  ],
+  "body": "How do Kai's feelings change from the beginning of the story to the end? Use details from the story.",
+  "markScheme": [
+   "Feeling at the start plus a detail: alone / left out / unsure (sits by himself, the book is upside down).",
+   "The turning point, what happened: Ben drops the jigsaw and Kai kneels and helps with the edges. Not a full sentence: 2 marks at most.",
+   "Feeling at the end plus a detail: happy / welcome / included (the sign \"Edge expert sits here\", he grins). A feeling the story does not support earns no tick for that part."
+  ]
+ },
+ {
+  "n": 12,
+  "section": "t2",
+  "type": "written",
+  "tier": "Applied",
+  "marks": 3,
+  "passageId": "t2",
+  "proof": true,
+  "anchors": [
+   "knelt",
+   "Start with the edges",
+   "Ben stared",
+   "copied",
+   "Edge expert sits here",
+   "grinned"
+  ],
+  "body": "What does the story suggest about making new friends? Use the story to explain.",
+  "markScheme": [
+   "An idea in a full sentence. Accept any the story supports: helping someone can start a friendship · taking the first step matters · sharing something you are good at helps people get to know you.",
+   "What happened in the story that shows it (Kai kneels and helps; Ben copies him; the sign on the seat).",
+   "A relevant quote or detail from the text (the proof box can supply it)."
+  ]
+ }
+];
+
+const PASSAGES = {
+ "t1": "<h4>How Honeybees Choose a New Home</h4>\n<p>In late spring, a busy honeybee colony can become crowded. There are too many bees and not enough room for them all. So the old queen leaves the hive with about half of the bees. The rest stay behind with a new queen. Together, the bees that leave form a swarm. The swarm hangs like a beard from a branch while a few hundred scouts go searching for a new home.</p>\n<p>A scout cannot settle for just any hole. She is looking for a dry space about the size of a big bucket, which is about 40 litres. If it is any smaller, there will not be enough room to store the honey the bees need to get through winter. The space should also be high off the ground, at least three metres, so that hungry animals cannot reach it. Finally, it needs a small entrance. A small entrance is easy for the bees to guard, and it also keeps out wind and rain.</p>\n<p>When a scout returns, she tells the others what she found by dancing on the surface of the swarm. A scout that has found a good site dances for a long time and repeats her dance many times. A scout that found a poor site dances only briefly, or not at all. The more a site is danced for, the more scouts fly out to inspect it, and some of those scouts return and dance for it too.</p>\n<p>Slowly, the scouts begin to agree. When about twenty or thirty scouts are waiting at the same site, they fly back to the swarm and signal that it is time. Then the whole swarm lifts off and flies there together. The whole decision usually takes between one and three days.</p>\n<p>Here are three sites that scouts found one spring, and what they measured at each:</p>\n<table>\n<tr><th>Site the scouts found</th><th>Space inside</th><th>Height above the ground</th><th>Entrance</th></tr>\n<tr><td>Hollow in an old oak tree</td><td>about 40 litres</td><td>5 metres</td><td>small hole, easy to guard</td></tr>\n<tr><td>Wooden box on a garden shed</td><td>about 15 litres</td><td>2 metres</td><td>wide crack along one side</td></tr>\n<tr><td>Gap behind a chimney</td><td>about 45 litres</td><td>8 metres</td><td>large, open to wind and rain</td></tr>\n</table>",
+ "t2": "<h4>Edge Pieces</h4>\n<p>Kai had been at his new school for three weeks. At lunch, he always sat by himself on the bench under the stairs with a book open on his knees. The book was upside down, but nobody looked close enough to notice. Other pupils streamed past him towards the field, shouting and swinging their lunch bags.</p>\n<p>On Thursday, a boy called Ben came out of the hall carrying a wide, flat box. It held the class's 500-piece jigsaw of the night sky, which was going up on the wall for Open Day. Ben was peering over the top of the box instead of watching his feet. His shoe caught the bottom step, and he tripped.</p>\n<p>The lid flew off. The pieces skittered across the floor like spilled rice. Two boys by the doors laughed and walked on. A dinner lady looked at the mess, then was called away by a shout from the playground.</p>\n<p>Kai stood up. He sat down. He stood up again and shoved his hands into his pockets. The bench was a safe place, and the floor was not. Then he walked over and knelt beside Ben.</p>\n<p>“Start with the edges,” he said. “The straight ones.”</p>\n<p>Ben stared at him. Then he copied him. Kai pressed a piece with one flat side into his palm and dropped it onto the pile, and Ben did the same. Soon there was a ragged heap of straight pieces between them, then a little row of corners, then a long line of blue sky running along the top. For a while neither of them spoke. The only sounds were the soft click of cardboard and the thump of a football on the far side of the playground.</p>\n<p>The bell rang, but neither of them moved. A teacher put her head round the door, saw the frame finished on the floor and the rest of the picture waiting inside it, and said nothing. She simply held the door open until they had slid the whole thing onto the board.</p>\n<p>The next day, Kai carried his tray towards the bench under the stairs out of habit. Then he stopped. The long table in the hall had two trays on it. One was Ben's. Beside it, on the empty seat, a paper sign stood folded in half, written in Ben's handwriting: “Edge expert sits here.” Kai read it twice. He grinned, and sat down.</p>"
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+function proofOK(proof, passageHtml, anchors){
+  var norm=function(s){return (s||'').replace(/<[^>]+>/g,' ').toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim();};
+  var p=norm(proof).split(' ').filter(Boolean);
+  if(p.length<4) return false;
+  var chunks=(passageHtml||'').replace(/<\/(p|tr|li|h\d)>|<br\s*\/?>/gi,' ||| ').replace(/<[^>]+>/g,' ').split(/\|\|\||[.!?]+["”']?\s/);
+  for(var c=0;c<chunks.length;c++){
+    var t=' '+norm(chunks[c])+' ';
+    for(var i=0;i+4<=p.length;i++){
+      if(t.indexOf(' '+p.slice(i,i+4).join(' ')+' ')>=0){
+        if(!anchors||!anchors.length) return true;
+        for(var a=0;a<anchors.length;a++){ if(t.indexOf(norm(anchors[a]))>=0) return true; }
+      }
+    }
+  }
+  return false;
+}
+
+
+document.getElementById('hdr-title').textContent = `Unit ${UNIT_NUM} Test — ${UNIT_TITLE}`;
+document.getElementById('hdr-sub').textContent = UNIT_SUB;
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+document.getElementById('btn-submit').textContent = `Answer all ${Q.length} to submit`;
+
+const chosen = {};      // qn -> mcq index (1-based) or written answer text
+const proofs = {};      // qn -> proof text
+const proofTries = {};  // qn -> number of rejected proofs
+const lastRej = {};     // qn -> last rejected proof text
+let submitted = false;
+
+function render(){
+  const quiz = document.getElementById('quiz');
+  let html = '';
+  SECTION_ORDER.forEach(sec => {
+    html += `<div class="band ${sec}">${SECTION_LABEL[sec]}</div>`;
+    html += `<div class="hint">${SECTION_HINT[sec]}</div>`;
+    html += `<div class="grp"><div class="passage">${PASSAGES[sec]}</div><div class="qs">`;
+    Q.filter(q => q.section === sec).forEach(q => {
+      html += `<div class="q ${q.section}" id="q-${q.n}">
+        <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+          <span class="tier-tag">${q.tier}</span>
+          ${q.type==='written' ? `<span class="marks-tag">(${q.marks} mks)</span>` : ''}
+          <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+          <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+          <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+        </p>`;
+      if (q.type === 'mcq'){
+        html += `<div>`;
+        q.options.forEach((opt, idx) => {
+          html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${idx+1}. ${opt}</button>`;
+        });
+        html += `</div>`;
+      } else {
+        html += `<label class="fld">Proof — copy at least 4 words from the text</label>
+          <input type="text" class="proofin" id="pr-${q.n}" autocomplete="off" oninput="typeProof(${q.n}, this.value)" onblur="checkProof(${q.n})">
+          <div class="proofmsg" id="pm-${q.n}"></div>
+          <button class="btn chk" id="pc-${q.n}" onclick="checkProof(${q.n})">Check my proof</button>
+          <label class="fld">Your answer — full sentences</label>
+          <textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>`;
+      }
+      html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+      if (q.type === 'written'){
+        html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  quiz.innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+function typeAnswer(qn, val){
+  if (submitted) return;
+  chosen[qn] = val;
+  updateProgress();
+}
+function typeProof(qn, val){
+  if (submitted) return;
+  proofs[qn] = val;
+  const el = document.getElementById(`pr-${qn}`);
+  el.classList.remove('good','badp');
+  const m = document.getElementById(`pm-${qn}`); m.textContent = ''; m.classList.remove('good');
+  updateProgress();
+}
+function proofIsGood(q){
+  return proofOK(proofs[q.n] || '', PASSAGES[q.passageId], q.anchors);
+}
+// Called when he leaves the proof box, presses "Check my proof", or presses Submit.
+// A rejection counts once per different text (re-checking the same text does not add a try).
+function checkProof(qn){
+  if (submitted) return;
+  const q = Q.find(x => x.n === qn);
+  const v = (proofs[qn] || '');
+  const el = document.getElementById(`pr-${qn}`), m = document.getElementById(`pm-${qn}`);
+  if (!v.trim()){ m.textContent = ''; return; }
+  if (proofIsGood(q)){
+    el.classList.remove('badp'); el.classList.add('good');
+    m.classList.add('good'); m.textContent = '✓ Those words are in the text and they prove your answer.';
+    return;
+  }
+  const inText = proofOK(v, PASSAGES[q.passageId], null);
+  m.classList.remove('good'); el.classList.remove('good'); el.classList.add('badp');
+  m.textContent = inText
+    ? "Those words are in the text, but they don't prove this answer. Find the sentence that does."
+    : "Those words aren't in the text yet — find them and copy them exactly.";
+  if (lastRej[qn] !== v){
+    proofTries[qn] = (proofTries[qn] || 0) + 1;
+    lastRej[qn] = v;
+  }
+}
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'written'){
+    // Hand-marked: no word-count gate (a correct answer can be short). Needs a proof the checker accepts + a non-empty answer.
+    return v !== undefined && v.trim().length > 0 && proofIsGood(q);
+  }
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = false;
+  btn.textContent = (n === Q.length) ? 'Submit the test' : `Answer all ${Q.length} to submit (${Q.length-n} left) — tap to jump there`;
+}
+function firstUnanswered(){ return Q.find(q => !isAnswered(q)); }
+
+function askConfirmSubmit(){
+  Q.filter(q => q.type === 'written').forEach(q => { if ((proofs[q.n]||'').trim()) checkProof(q.n); });
+  const missing = firstUnanswered();
+  if (missing){
+    if (missing.type === 'written' && !(proofs[missing.n]||'').trim()){
+      const m = document.getElementById(`pm-${missing.n}`); m.classList.remove('good');
+      m.textContent = 'Copy the words from the text that prove your answer into this box first.';
+    }
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('input.proofin').forEach(i => i.disabled = true);
+  document.querySelectorAll('button.chk').forEach(b => b.style.display = 'none');
+  document.querySelectorAll('textarea.writtenin').forEach(t => t.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      const tries = proofTries[q.n] || 0;
+      written.push({ q:q.n, marks:q.marks, markScheme:q.markScheme, proof: proofs[q.n]||'', proofTries: tries, proofFirstTryOK: tries === 0,
+                     response: given||'', wordCount: (given||'').trim().split(/\s+/).filter(Boolean).length });
+      document.getElementById(`ms-${q.n}`).classList.add('show');
+      document.getElementById(`tag-pending-${q.n}`).classList.add('show');
+      tierTally.Applied.t++;
+      return { q:q.n, section:q.section, type:q.type, given, proof: proofs[q.n]||'', isCorrect:null };
+    }
+    const isCorrect = given === q.ans;
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;   // auto-scored items only
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, given, correct:q.ans, isCorrect };
+  });
+
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show','pass');
+  document.getElementById('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  document.getElementById('score-msg').textContent = `The ${WRITTEN_MARKS} written marks are waiting for Naomi. Pass bar for the full test is ${PASS_BAR}/${TOTAL_MARKS} (80%).`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => {
+      const wrT = Q.filter(q=>q.section===s && q.type==='written').length;
+      return `<div class="sec-chip">${SECTION_LABEL[s].split('—')[1].trim()}: ${sectionTally[s].c}/${sectionTally[s].t} auto (+${wrT} written)</div>`;
+    }).join('') +
+    `<div class="sec-chip">Basic: ${tierTally.Basic.c}/${tierTally.Basic.t}</div><div class="sec-chip">Intermediate: ${tierTally.Intermediate.c}/${tierTally.Intermediate.t}</div><div class="sec-chip">Applied: ${tierTally.Applied.t} written (hand-marked)</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Press the blue Save button — your results are NOT saved yet.';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    openedAt: openedAt,
+    minutesSpent: Math.round((Date.now()-openedAtMs)/60000),
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    writtenMarks: WRITTEN_MARKS, writtenScore: null,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed: null,
+    tiers: tierTally,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers,
+    written
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_U040_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.className = ''; statusEl.textContent = `Saved as ${filename}.`;
+      return;
+    } catch(e){ if (e.name === 'AbortError'){ statusEl.className = 'reminder'; statusEl.textContent = 'Save cancelled — your results are NOT saved yet. Click the blue button again.'; return; } }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.className = ''; statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+render();
+updateProgress();
+</script>
+</body>
+</html>

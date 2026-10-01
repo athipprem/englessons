@@ -1,0 +1,23 @@
+{
+  "student": "Prem",
+  "unit": 38,
+  "paper": 2,
+  "dateTaken": "2026-10-01",
+  "submittedAt": "2026-10-01T09:08:18.433Z",
+  "openedAt": "2026-10-01T09:06:28.912Z",
+  "minutesSpent": 2,
+  "plan": {
+    "position": "",
+    "reason1": "",
+    "reason2": "",
+    "otherSide": "",
+    "conclusion": ""
+  },
+  "writingTask": {
+    "prompt": "Should wild animals be kept in zoos? Give your opinion and strong reasons for what you believe.",
+    "response": "I do not think wild animals should be kept in zoos because them being kept, and they can’t live in their habit and then not being able to live in their natural habitat isn’t gonna be a nightmare, but they might not survive for people every day cameras, and they might like die because of sadness and then and then they don’t get enough food to eat and not have stuff to do and bigger animals might eat the smaller ones so then it is it is very scary for wild animals to be kept zoos I think animals kept in zoos.",
+    "wordCount": 102,
+    "rubricScore": null,
+    "rubricBreakdown": null
+  }
+}

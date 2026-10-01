@@ -1,0 +1,220 @@
+{
+  "student": "Prem",
+  "unit": 39,
+  "unitTitle": "School Test 3-4 Ready",
+  "dateTaken": "2026-10-01",
+  "submittedAt": "2026-10-01T06:50:04.242Z",
+  "openedAt": "2026-10-01T06:41:39.380Z",
+  "minutesSpent": 8,
+  "autoScore": 12,
+  "autoOutOf": 12,
+  "writtenMarks": 13,
+  "writtenScore": null,
+  "total": 25,
+  "passBar": 20,
+  "passed": null,
+  "tiers": {
+    "Basic": {
+      "c": 2,
+      "t": 2
+    },
+    "Intermediate": {
+      "c": 10,
+      "t": 10
+    },
+    "Applied": {
+      "c": 0,
+      "t": 0
+    }
+  },
+  "sections": [
+    {
+      "name": "spell",
+      "score": 6,
+      "outOf": 6
+    },
+    {
+      "name": "campaign",
+      "score": 3,
+      "outOf": 5
+    },
+    {
+      "name": "story",
+      "score": 3,
+      "outOf": 5
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "spell",
+      "type": "spell",
+      "given": "pretended",
+      "correct": "pretended",
+      "isCorrect": true
+    },
+    {
+      "q": 2,
+      "section": "spell",
+      "type": "spell",
+      "given": "Variety",
+      "correct": "variety",
+      "isCorrect": true
+    },
+    {
+      "q": 3,
+      "section": "spell",
+      "type": "spell",
+      "given": "Smeared",
+      "correct": "smeared",
+      "isCorrect": true
+    },
+    {
+      "q": 4,
+      "section": "spell",
+      "type": "spell",
+      "given": "continent",
+      "correct": "continent",
+      "isCorrect": true
+    },
+    {
+      "q": 5,
+      "section": "spell",
+      "type": "spell",
+      "given": "Drooped",
+      "correct": "drooped",
+      "isCorrect": true
+    },
+    {
+      "q": 6,
+      "section": "spell",
+      "type": "spell",
+      "given": "Overgrown",
+      "correct": "overgrown",
+      "isCorrect": true
+    },
+    {
+      "q": 7,
+      "section": "campaign",
+      "type": "mcq",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 8,
+      "section": "campaign",
+      "type": "mcq",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 9,
+      "section": "campaign",
+      "type": "mcq",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 10,
+      "section": "campaign",
+      "type": "written",
+      "given": "It is called every drop count because literally every job counts. Also make it more specific. Every job comes because one drop every year. It can waste a lot of water.",
+      "isCorrect": null
+    },
+    {
+      "q": 11,
+      "section": "campaign",
+      "type": "written",
+      "given": "I can help the campaign by being a helper from each class to check if the types are dripping and if I see a dripping one, I report it!?!",
+      "isCorrect": null
+    },
+    {
+      "q": 12,
+      "section": "story",
+      "type": "mcq",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 13,
+      "section": "story",
+      "type": "mcq",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 14,
+      "section": "story",
+      "type": "mcq",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 15,
+      "section": "story",
+      "type": "written",
+      "given": "It changes from nervous because it she thought her friends would bully her because she was working at a noodle store, but then she got really good and now she is good so she’s happy.",
+      "isCorrect": null
+    },
+    {
+      "q": 16,
+      "section": "story",
+      "type": "written",
+      "given": "She learnt that if you are nervous and not want to do it, and you still do it, you might end up being good. Who knows .",
+      "isCorrect": null
+    }
+  ],
+  "written": [
+    {
+      "q": 10,
+      "marks": 3,
+      "markScheme": [
+        "Says what the name means: every small bit of water saved matters / small amounts together make a lot.",
+        "Connects it to what the campaign is doing: saving water at school, colouring the poster drop by drop, paying for the real tank.",
+        "Uses a detail from the text: one drop coloured for every 100 litres saved · one dripping tap wastes more than 5,000 litres a year · 9 of 48 taps dripping."
+      ],
+      "response": "It is called every drop count because literally every job counts. Also make it more specific. Every job comes because one drop every year. It can waste a lot of water.",
+      "wordCount": 31
+    },
+    {
+      "q": 11,
+      "marks": 4,
+      "markScheme": [
+        "Way 1 named (Tap Patrol · Drip Report · shower timer at home · saving water so the class colours drops).",
+        "Way 1 described — what you actually do, or how it helps.",
+        "Way 2 named — different from way 1.",
+        "Way 2 described."
+      ],
+      "response": "I can help the campaign by being a helper from each class to check if the types are dripping and if I see a dripping one, I report it!?!",
+      "wordCount": 29
+    },
+    {
+      "q": 15,
+      "marks": 3,
+      "markScheme": [
+        "Feeling at the start + a detail (e.g. stomping up the stairs, throwing herself onto the bed, pulling her headphones on, wanting to be at Nam's movie night instead).",
+        "The turning point — what happened (the rush of orders, writing them all down on the paper menu, Yai handing her the money tin).",
+        "Feeling at the end + a detail (e.g. grinning, wanting to be in charge of the money tin again next Saturday)."
+      ],
+      "response": "It changes from nervous because it she thought her friends would bully her because she was working at a noodle store, but then she got really good and now she is good so she’s happy.",
+      "wordCount": 35
+    },
+    {
+      "q": 16,
+      "marks": 3,
+      "markScheme": [
+        "A lesson in a full sentence — accept any sensible one: helping out can turn into something you enjoy · being trusted with a real job feels good · a job you dread can surprise you.",
+        "What happened that taught her this (getting the orders right, being handed the money tin).",
+        "A story detail or a few quoted words (e.g. \"You count faster than me, and you don't forget\" or \"Only if I'm in charge of the money tin again.\")."
+      ],
+      "response": "She learnt that if you are nervous and not want to do it, and you still do it, you might end up being good. Who knows .",
+      "wordCount": 27
+    }
+  ]
+}

@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '23 Sep 2026',
+  updated:        '1 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           39,
-    heroLabel:   '&#127979; Final Prep &mdash; Count the Jobs',
-    status:      '&#127979; SCHOOL TEST 3-4 FINAL PREP &mdash; one lesson ("Count the jobs": COUNT&middot;DO&middot;TICK on the four written-answer question shapes) plus one 25-mark test (6 ending-sensitive spelling items, a persuasive campaign &ldquo;Every Drop Counts&rdquo;, a story &ldquo;The Money Tin&rdquo;; 13 of 25 marks on written answers). Built 29 Sep 2026 directly from Unit 38 Paper 1&rsquo;s written-answer misses (47/60, 78% FAIL by 1) and confirmed as a two-strike target against Prem&rsquo;s real school Assessment #1. Lui overrode the original U38 plan&rsquo;s session boundary so U39 could close the gap before the school test rather than after. Scheduled together with U38 Paper 2 the evening of 30 Sep 2026, ahead of the real school Unit Test 3-4 (1&ndash;2 Oct 2026); both will be analysed together once sat.',
+    n:           40,
+    heroLabel:   "&#128270; Prove It &mdash; Find it &middot; Copy it &middot; Say it",
+    status:      "&#128270; BACK ON ISA 2027 &mdash; one target: reading written answers proved with words copied from the text. One lesson (\"Find it &middot; Copy it &middot; Say it\", Sat 3 Oct) plus one 20-mark test (Sun 4 Oct): an information text with a table (&ldquo;How Honeybees Choose a New Home&rdquo;) and a story (&ldquo;Edge Pieces&rdquo;), 8 marks auto-scored and 12 marks on four written answers. Every written answer has two boxes &mdash; a Proof box the page checks against the text, then the answer. Built 1 Oct 2026 from Unit 39&rsquo;s result: the written answers carry no detail from the text, and two words from our own lesson (&ldquo;job&rdquo;, &ldquo;nervous&rdquo;) leaked into them. Microphone off. Streak 0 of 4.",
     testPending: true
   },
 
@@ -33,39 +33,26 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 38 Paper 1 — updated after each test; Paper 2 still pending)
+  // Last completed assessment (Unit 39 -- updated after each test)
   lastUnit: {
-    n: '38P1', label: 'Unit 38 Paper 1', score: 47, outOf: 60, pct: 78, delta: -12, prevScore: 18, prevOutOf: 20,
+    n: 39, label: 'Unit 39', score: 18, outOf: 25, pct: 72, delta: -6, prevScore: 47, prevOutOf: 60,
 
-    patternLabel:   'Unit 38 Paper 1 &mdash; 28 Sep 2026 &middot; 47/60 (78%) &mdash; FAIL by 1 mark, entirely on the written answers',
-    patternInsight: '<strong>Everything auto-scored is strong; every mark that decided the fail sits in the six hand-marked written answers.</strong> Auto-scored total 39/42 (93%): Definitions 10/10 PERFECT, Reading MCQ 12/12 PERFECT, Box-cloze 9/10, Spelling 8/10. Written answers 8/18 (44%). 12/12 on reading MCQ rules out comprehension as the problem &mdash; every written miss shares one shape: he did one job (e.g. named the right idea) when the question asked for two or three (explain it, connect it, prove it with a text detail). Graded from 17 screenshots after a genuine test-engine bug (word-count gate on short written answers) blocked submission; Lui confirmed the screenshots as Prem&rsquo;s complete, final attempt on 29 Sep 2026 &mdash; no resubmission needed. The bug is now fixed in the shipped file and written into the standing engine template.',
+    patternLabel:   "Unit 39 &mdash; 1 Oct 2026 &middot; 18/25 (72%) &mdash; FAIL by 2 marks, on the written answers again",
+    patternInsight: "<strong>Every auto-scored mark was right (12/12); every mark lost sits in the four hand-marked written answers (6/13, 46%).</strong> Spelling 6/6, all six MCQs correct. Marked school-style (confirmed by Lui). The same signature as Unit 38 Paper 1: understanding is intact, but the answers carry no detail from the text.",
 
-    analysisLabel:   'Unit 38 Paper 1 Result Analysis &mdash; 29 Sep 2026 (a precise, nameable gap: two question shapes now confirmed two-strike targets)',
-    analysisInsight: '<strong>Two of the six written misses are now two-strike targets against Prem&rsquo;s real school Assessment #1</strong> &mdash; the persuasive-campaign shapes &ldquo;Why is it called ___?&rdquo; (school Q13: 2/3; here Q47: 0/3, answered a different question entirely) and &ldquo;Describe two ways you can help&rdquo; (school Q14: 3/4; here Q48: 1/3, named two actions with &ldquo;or&rdquo; but never described either). The other two misses (Q35, Q41) share the same root cause in a lighter form &mdash; a correct core answer with a missing text detail or missing job, not a comprehension failure. A school-style remark (one tick per idea, any wording) would land this paper around 82&ndash;85%; the 78/60 stands as the official grade regardless. Two single, unrelated spelling misses (Q2 US &ldquo;Neighborhood&rdquo;, likely device autocorrect; Q8 &ldquo;Examine&rdquo; for &ldquo;examined&rdquo;, dropped ending) and one box-cloze miss (Q25 &ldquo;delta&rdquo; for &ldquo;climate&rdquo;) are not targets. No leaked answers or content-isolation violations found in the auto-scored sections. <strong>Decision: Unit 39 built as a same-day repair &mdash; COUNT&middot;DO&middot;TICK, one routine applied to all four written-answer shapes, ahead of the real school test.</strong> Streak resets to 0 of 4 (U37&rsquo;s 90% was #1).',
+    analysisLabel:   "Unit 39 Result Analysis &mdash; 1 Oct 2026 (two teaching attempts spent; new root cause: he does not go back to the text)",
+    analysisInsight: "<strong>Two structure-based lessons (A&middot;B&middot;T at Unit 38, Count&middot;Do&middot;Tick at Unit 39) have not moved the written marks.</strong> All four answers contain no quoted or paraphrased detail from the passage, and two words from our own lesson leaked in: &ldquo;job&rdquo; (Q10) and &ldquo;nervous&rdquo; (Q15, Q16). Unit 40 therefore tries a different cause &mdash; location: copy the proof from the text first, in a box the page checks, then answer. Unit 38 Paper 2 was written by voice typing and its score is void.",
 
-    qSummary: '<strong>47/60 (78%) FAIL by 1 &mdash; auto-scored sections strong (39/42, 93%), written answers the whole story (8/18, 44%). Two shapes (&ldquo;why is it called&rdquo;, &ldquo;describe two ways&rdquo;) now confirmed two-strike targets against the school&rsquo;s own paper. Next: UNIT 39 &mdash; same-day COUNT&middot;DO&middot;TICK repair, then U38 Paper 2, then the real school Unit Test 3-4 (1&ndash;2 Oct 2026).</strong>',
+    qSummary: "<strong>18/25 (72%) FAIL by 2 &mdash; auto-scored 12/12, written 6/13 (46%).</strong> The pattern is the same as Unit 38 Paper 1, so the next test targets proof from the text rather than answer structure.",
 
     qBreakdown: [
-      { q:'Q1',  topic:'Spelling', pass:true,  note:'&#10003; "spectacular", correct.' },
-      { q:'Q2',  topic:'Spelling', pass:false, note:'&#10007; "Neighborhood" (US) instead of "neighbourhood" (British) &mdash; likely device autocorrect, not a knowledge gap.' },
-      { q:'Q3',  topic:'Spelling', pass:true,  note:'&#10003; "binoculars", correct.' },
-      { q:'Q4',  topic:'Spelling', pass:true,  note:'&#10003; "electricity", correct.' },
-      { q:'Q5',  topic:'Spelling', pass:true,  note:'&#10003; "whispered", correct.' },
-      { q:'Q6',  topic:'Spelling', pass:true,  note:'&#10003; "imagination", correct.' },
-      { q:'Q7',  topic:'Spelling', pass:true,  note:'&#10003; "gradually", correct.' },
-      { q:'Q8',  topic:'Spelling', pass:false, note:'&#10007; "Examine" for "examined" &mdash; correct root, dropped the past-tense ending the sentence needed.' },
-      { q:'Q9',  topic:'Spelling', pass:true,  note:'&#10003; "collision", correct.' },
-      { q:'Q10', topic:'Spelling', pass:true,  note:'&#10003; "desperately", correct.' },
-      { q:'Q11-Q20', topic:'Definitions', pass:true, note:'&#10003; 10/10 PERFECT &mdash; every word matched to its letter correctly.' },
-      { q:'Q21-Q24,Q26-Q30', topic:'Box-cloze', pass:true, note:'&#10003; 9/10 &mdash; crouched, species, injured, balance, admired, stumbled, survive, competition, crater all correct.' },
-      { q:'Q25', topic:'Box-cloze', pass:false, note:'&#10007; Chose "delta" (a landform distractor) instead of "climate" for "the desert has a dry, hot ___".' },
-      { q:'Q31-Q34,Q37-Q40,Q43-Q46', topic:'Reading MCQ', pass:true, note:'&#10003; 12/12 PERFECT across all three texts (Canyon Ridge, The Sound Desk, Hillview campaign) &mdash; comprehension is not the gap.' },
-      { q:'Q35', topic:'Reading Written', pass:false, note:'&#10007; 1/3 &mdash; "Because if they don\'t, they might get injured or die." States the general danger but names no specific park hazard or guide detail.' },
-      { q:'Q36', topic:'Reading Written', pass:true,  note:'&#10003; 3/3 PERFECT &mdash; named the correct trail (Sunset Overlook) with both required details (water, Easy difficulty).' },
-      { q:'Q41', topic:'Reading Written', pass:false, note:'&#10007; 1/3 &mdash; "From nervous to confident." Correct start/end feeling, but no story detail (the sound desk / Mr Aditya turning point) as the question asked.' },
-      { q:'Q42', topic:'Reading Written', pass:false, note:'&#9650; 2/3 &mdash; states the lesson well but no specific story detail cited. Partly contaminated: Q40\'s MCQ option echoed this exact idea, a leak closed in the U39 test build.' },
-      { q:'Q47', topic:'Reading Written', pass:false, note:'&#10007; 0/3 &mdash; answered "why the campaign is a good idea" instead of "why it is named that" &mdash; a different question. Two-strike target (school Q13: 2/3).' },
-      { q:'Q48', topic:'Reading Written', pass:false, note:'&#10007; 1/3 &mdash; "Sign a petition or donate." Two valid actions named as alternatives with "or", neither described, no judgement given. Two-strike target (school Q14: 3/4).' }
+      { q:"Q1-Q6", topic:"Spelling", pass:true, note:"&#10003; 6/6 &mdash; pretended, variety, smeared, continent, drooped, overgrown. Every dropped-ending trap held." },
+      { q:"Q7-Q9", topic:"Campaign MCQ", pass:true, note:"&#10003; 3/3 &mdash; who can help, why 9 of 48 taps, opinion vs fact." },
+      { q:"Q10", topic:"Campaign Written", pass:false, note:"&#10007; 1/3 &mdash; \"It is called every drop count because literally every job counts.\" Wrote \"job\" where the title says \"drop\" (the word came from our own U39 lesson); no figure, poster or tank from the text. \"Why is it called ___?\" is now a three-time miss." },
+      { q:"Q11", topic:"Campaign Written", pass:false, note:"&#9650; 3/4 &mdash; checking taps and reporting a dripping one. Content is right and from the text; both actions sit in one sentence instead of two named ways." },
+      { q:"Q12-Q14", topic:"Story MCQ", pass:true, note:"&#10003; 3/3 &mdash; why Ploy helps, why Yai gives the tin, \"the queue snaked\"." },
+      { q:"Q15", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; \"nervous\" to \"happy\". Start feeling and its reason are not in the story; no story detail anywhere (Nam, headphones, orders, money tin)." },
+      { q:"Q16", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; a lesson in a full sentence, but no event or quote from the story, and \"nervous\" again." }
     ]
   },
 
@@ -147,11 +134,35 @@ var PREM_ENGLISH = {
     { n:35, score:12, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U35 🔁' },
     { n:36, score:10, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U36' },
     { n:37, score:18, outOf:20, delta:8,  color:'#89F336', star:true,  label:'U37' },
-    { n:'38P1', score:47, outOf:60, delta:null, color:'#f6993f', star:false, label:'U38 P1 🏫' }
+    { n:'38P1', score:47, outOf:60, delta:null, color:'#f6993f', star:false, label:'U38 P1 🏫' },
+    { n:39, score:18, outOf:25, delta:null, color:'#f6993f', star:false, label:'U39 🏫' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 39,
+      title: "Unit 39 &mdash; &#127979; School Test 3-4 Ready &mdash; Count the Jobs",
+      badge: '#f6993f',
+      status: 'done',
+      note: "18/25 (72%) &mdash; <strong>FAIL by 2, on the written answers.</strong> Auto-scored 12/12 (spelling 6/6, six MCQs all correct). Written 6/13 (46%): Q10 1/3, Q11 3/4, Q15 1/3, Q16 1/3, marked school-style. No answer quotes a detail from the text; &ldquo;job&rdquo; and &ldquo;nervous&rdquo; from our own lesson leaked into three of them. <strong>Next: Unit 40 &mdash; proof copied from the text, in a checked Proof box.</strong>",
+      tags: [
+        { t:"18/25 (72%) FAIL by 2", s:"background:#fff0f0;color:#c53030" },
+        { t:"Auto 12/12 &#9733;", s:"background:#f0fff4;color:#276749" },
+        { t:"Written 6/13 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"&rarr; U40 Prove It", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
+    {
+      n: '38P2',
+      title: "Unit 38 Paper 2 &mdash; Task W (writing) &mdash; VOID",
+      badge: '#a0aec0',
+      status: 'done',
+      note: "<strong>Score void &mdash; written by voice typing (Lui confirmed 1 Oct 2026).</strong> It was a re-do; the first attempt left no file. Not counted and not a writing measure. The writing baseline stays at the school essay, 18/25. Microphone is now off on every paper.",
+      tags: [
+        { t:"Void &mdash; voice-typed", s:"background:#edf2f7;color:#4a5568" }
+      ]
+    },
     {
       n: '38P1',
       title: 'Unit 38 Paper 1 &mdash; &#127979; School Test 3-4 Prep: Vocabulary &amp; Reading',

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading — Find it, Copy it, Say it — Unit 40</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:14px 0;font-weight:700;line-height:1.5}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.passage.small{font-size:12.5px;line-height:1.7;padding:10px 12px}
+.sn{cursor:pointer;padding:1px 2px;border-radius:4px}
+.tapzone .sn:hover{background:#E3F2FD}
+.sn.proof{background:#FFF176}
+.sn.wrongtap{background:#FFCDD2}
+.sn.keyw{background:#FFE0B2}
+.locked{pointer-events:none}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:12px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:8px;font-weight:600}
+.tapnote{font-size:12.5px;color:#5a6b8c;margin-bottom:4px}
+.jq{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.6;margin:6px 0}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di-opt.right{background:#C8E6C9;border-color:#2E7D32}
+.di-opt.wrong{background:#FFCDD2;border-color:#C62828}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none;line-height:1.5}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:14px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+.routine-final{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0}
+.fbox{background:#F5F9FF;border:2px solid #1e88e5;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;color:#0d47a1}
+.fbox.go{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.fbox.stop{background:#FFEBEE;border-color:#C62828;color:#B71C1C}
+.arrow{font-size:18px;color:#0d47a1}
+.tree{margin:14px 0;border:2px solid #BBDEFB;border-radius:12px;padding:12px;background:#fff}
+.tree .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.parts span{display:inline-block;padding:3px 8px;border-radius:6px;margin:2px;font-size:14px}
+.pa{background:#BBDEFB}.pb{background:#FFE0B2}.pc{background:#C8E6C9}
+.hidden{display:none}
+.ansrow{border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff;font-size:13.5px;line-height:1.6}
+.ansrow .di-btns{margin-top:6px}
+input.pf,textarea.myans{width:100%;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:14px;margin-top:4px}
+textarea.myans{min-height:80px}
+.pfmsg{font-size:13px;font-weight:600;margin-top:4px;min-height:18px}
+.pfmsg.ok{color:#1B5E20}.pfmsg.no{color:#B71C1C}
+label.fld{display:block;font-size:13px;font-weight:700;color:#0d47a1;margin-top:10px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13.5px}
+.btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-go{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.quote-mark{background:#FFF176;border-radius:3px;padding:0 2px}
+.stay{color:#B71C1C;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading — Find it · Copy it · Say it</span>
+  <div class="nav-right">
+    <span class="nav-pill">Unit 40 · Lesson</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+<!-- S0 -->
+<div class="screen active" id="s0"><div class="card">
+<div class="tag">🏫 SCHOOL READING — Unit 40</div>
+<div class="why-box"><div class="why-title">Why this matters 🌍</div>
+<p style="margin:0">In a reading test, a teacher cannot see inside your head. She can only see what you wrote. When you can <b>point to the exact words in the text</b>, she can see you really read it, and you get the marks. This works in every subject, and any time you need to prove you are right.</p></div>
+<p>Here is a line you wrote in Unit 39:</p>
+<div class="ansrow" style="background:#FFF8E1">“she thought her friends would bully her because she was working at a noodle store”</div>
+<p>Here is how that story began:</p>
+<div class="passage" id="storyU39"></div>
+<p><b>Try it.</b> Type a word you think is in the story and press Search. Type <b>bully</b> first.</p>
+<input class="pf" id="srchBox" placeholder="type a word here" onkeydown="if(event.key==='Enter')doSearch()">
+<button class="btn" onclick="doSearch()">🔍 Search the story</button>
+<div class="pfmsg" id="srchMsg"></div>
+<div class="rule-box">If you can't point to it in the text, don't write it.</div>
+<p>You understood the story. You got every multiple-choice question right. The marks went because the proof stayed in your head. Today you learn to put it on the page.</p>
+</div></div>
+
+<!-- S1 -->
+<div class="screen" id="s1"><div class="card">
+<h2>The highlighter 🖍️</h2>
+<p>Here is a short text. Read the question, then <b>tap the one sentence that proves the answer</b>.</p>
+<div class="passage tapzone" id="demoText"></div>
+<div class="di-sent">Question: Why does the pilot let out only a little hot air at a time?</div>
+<div class="pfmsg" id="demoMsg"></div>
+<div id="demoBuild" class="hidden">
+<p>That sentence turned yellow, so it is your proof. Now build the answer in three parts:</p>
+<div class="flow"><div class="fbox">question</div><div class="arrow">→</div><div class="fbox" style="background:#FFF176">yellow sentence</div><div class="arrow">→</div><div class="fbox go">answer</div></div>
+<div class="parts" id="demoParts"></div>
+<button class="btn" id="demoBtn" onclick="demoNext()">Show part 1</button>
+</div>
+</div></div>
+
+<!-- S2 -->
+<div class="screen" id="s2"><div class="card">
+<h2>Now the same thing as three steps ✅</h2>
+<p>The highlighter works. Here it is as three steps you can use in <b>any</b> test, even when you cannot colour the page.</p>
+<div class="routine-box">
+<div class="routine-step"><div class="routine-num">1</div><div class="routine-text"><b>1 · FIND it</b> — take the key word from the question and find it in the text.</div></div>
+<div class="routine-step"><div class="routine-num">2</div><div class="routine-text"><b>2 · COPY it</b> — copy at least 4 words from that sentence, exactly, inside “quotation marks”.</div></div>
+<div class="routine-step"><div class="routine-num">3</div><div class="routine-text"><b>3 · SAY it</b> — answer the question in a full sentence, say <i>because</i>, then add your quote.</div></div>
+<div class="routine-final">If you can't point to it in the text, don't write it.</div>
+</div>
+<p><b>Watch it work.</b> Question: <i>Which two directions can a pilot steer in?</i></p>
+<div class="passage" id="routText"></div>
+<div id="routSteps"></div>
+<button class="btn" id="routBtn" onclick="routNext()">1 · FIND it</button>
+</div></div>
+
+<!-- S3 -->
+<div class="screen" id="s3"><div class="card">
+<h2>The point test 👉</h2>
+<p>Before you write a quote, ask two questions:</p>
+<div class="tree">
+<div class="row"><div class="fbox">Can I point to these words in the text?</div></div>
+<div class="row"><span class="arrow">↳ No →</span><div class="fbox stop">Don't write it.</div></div>
+<div class="row"><span class="arrow">↳ Yes →</span><div class="fbox">Do the words answer the question?</div></div>
+<div class="row" style="margin-left:46px"><span class="arrow">↳ No →</span><div class="fbox stop">Find a different sentence.</div></div>
+<div class="row" style="margin-left:46px"><span class="arrow">↳ Yes →</span><div class="fbox go">Write it! It is proof.</div></div>
+</div>
+<p>Here is the story again, and one question: <b>Where did Mali's first boat sink?</b> Three students answered. Tap <b>Passes</b> or <b>Doesn't pass</b> for each.</p>
+<div class="passage small" id="ptText"></div>
+<div id="ptList"></div>
+</div></div>
+<!-- S4 -->
+<div class="screen" id="s4"><div class="card">
+<h2>Drill 1 — Tap the proof 🖍️</h2>
+<p>Read the question. Tap the <b>one sentence</b> that proves the answer. If you miss, you get a fresh one.</p>
+<div id="w1"></div>
+</div></div>
+<!-- S5 -->
+<div class="screen" id="s5"><div class="card">
+<h2>Drill 2 — Does this quote prove it? 🔎</h2>
+<p>Each question shows an answer and a quote. Choose one of the three.</p>
+<div id="w2"></div>
+</div></div>
+<!-- S6 -->
+<div class="screen" id="s6"><div class="card">
+<h2>Drill 3 — Copy the proof ✍️</h2>
+<p>Copy <b>at least 4 words</b> from the text that prove the answer. Type them exactly as they are written.</p>
+<div id="w3"></div>
+</div></div>
+<!-- S7 -->
+<div class="screen" id="s7"><div class="card">
+<span class="tag">Practice — not scored</span>
+<h2>Two boxes — just like the test 📦</h2>
+<p>In tomorrow's test, every written question has two boxes. The first box is for your <b>proof</b>. The second is for your <b>answer</b>. The proof box checks itself while you type.</p>
+<div class="passage small" id="twoText"></div>
+<div class="di-sent">Question: What was carried down the gutter by the water?</div>
+<label class="fld">Proof — copy at least 4 words from the text</label>
+<input class="pf" id="twoProof" oninput="liveCheck()" placeholder="copy the words here">
+<div class="pfmsg" id="twoMsg"></div>
+<label class="fld">Your answer — full sentences</label>
+<textarea class="myans" id="twoAns" placeholder="write your answer here"></textarea>
+<p style="margin-top:12px"><b>Tick when it is true:</b></p>
+<div class="checkbox-row">
+<label><input type="checkbox"> I copied real words from the text.</label>
+<label><input type="checkbox"> My words prove my answer.</label>
+<label><input type="checkbox"> I said <i>because</i>.</label>
+</div>
+</div></div>
+<!-- S8 -->
+<div class="screen" id="s8"><div class="card">
+<span class="tag">Practice — not scored</span>
+<h2>One box — like Monday 🏫</h2>
+<p>At school there is only one box. Put your quote <b>inside</b> your answer.</p>
+<div class="passage small" id="oneText"></div>
+<div class="di-sent">Question: What happens to the balloon when the pilot opens the vent?</div>
+<textarea class="myans" id="oneAns" placeholder="Answer + because + “your quote”"></textarea>
+<p style="margin-top:12px"><b>Tick when it is true:</b></p>
+<div class="checkbox-row">
+<label><input type="checkbox"> My quote is in “quotation marks”.</label>
+<label><input type="checkbox"> I copied at least 4 words exactly.</label>
+<label><input type="checkbox"> I used a full sentence and said <i>because</i>.</label>
+</div>
+</div></div>
+<!-- S9 -->
+<div class="screen" id="s9"><div class="card">
+<h2>Self-check ✅</h2>
+<p>Six questions. One try each. You need <b>5 out of 6</b>.</p>
+<div id="w4"></div>
+<div class="gate-result" id="gateResult"></div>
+</div></div>
+<!-- S10 -->
+<div class="screen" id="s10"><div class="card">
+<h2>Report 📋</h2>
+<div id="reportWrap"></div>
+<div class="rule-box">1 · FIND it &nbsp; 2 · COPY it &nbsp; 3 · SAY it<br>If you can't point to it in the text, don't write it.</div>
+<p>Tomorrow's test has two boxes for every written question. Type it yourself — microphone off.</p>
+<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" href="Tests/ENG_Unit_040_Test_ProveItReading.html">Test tomorrow →</a></div>
+</div></div>
+
+<script>
+var SENT={A:["A hot-air balloon is a giant bag of air with a basket hanging underneath.", "Near the basket, a burner shoots out a roaring flame.", "The flame heats the air inside the bag.", "Hot air is lighter than the cool air around it, so the balloon rises.", "When the pilot wants to go higher, she fires the burner again.", "To come down, she pulls a rope that opens a vent at the top of the bag.", "Some of the hot air escapes, and the balloon sinks gently.", "The pilot lets out only a little at a time, so the landing stays soft.", "Balloons usually take off at dawn.", "At that time of day the wind is calm, so the flight is smooth and safe.", "By midday the ground warms up, and the wind often gets strong and bumpy.", "A pilot can steer up and down, but not left or right.", "To go sideways, she must find a wind that blows the right way."],B:["Mali folded her paper boat three times to get the corners sharp.", "The rain-gutter race began at four o'clock.", "Her cousin Dev set his boat on the water first.", "Water gurgled down the gutter, carrying leaves and a few early raindrops.", "Mali's boat slid down the gutter, turned slowly in a circle, and sank before the first bend.", "Mali pressed her lips together and stared at the soggy lump in her hand.", "Rain tapped on the roof above them.", "Dev held out a stub of orange crayon without a word.", "She rubbed the wax over every fold of a fresh sheet, even the tiny corners.", "The second boat looked the same, only shinier.", "She set it down at the top of the gutter and let go.", "This time it bobbed over the first bend and kept going.", "It finished second, one boat-length behind Dev's.", "Mali's shoulders dropped, then she laughed and bumped Dev with her elbow.", "“Same time tomorrow?” she asked, already folding another sheet."]};
+var PH={A:"<p>A hot-air balloon is a giant bag of air with a basket hanging underneath. Near the basket, a burner shoots out a roaring flame. The flame heats the air inside the bag. Hot air is lighter than the cool air around it, so the balloon rises. When the pilot wants to go higher, she fires the burner again. To come down, she pulls a rope that opens a vent at the top of the bag. Some of the hot air escapes, and the balloon sinks gently. The pilot lets out only a little at a time, so the landing stays soft. Balloons usually take off at dawn. At that time of day the wind is calm, so the flight is smooth and safe. By midday the ground warms up, and the wind often gets strong and bumpy. A pilot can steer up and down, but not left or right. To go sideways, she must find a wind that blows the right way.</p>",B:"<p>Mali folded her paper boat three times to get the corners sharp. The rain-gutter race began at four o'clock. Her cousin Dev set his boat on the water first. Water gurgled down the gutter, carrying leaves and a few early raindrops. Mali's boat slid down the gutter, turned slowly in a circle, and sank before the first bend. Mali pressed her lips together and stared at the soggy lump in her hand. Rain tapped on the roof above them. Dev held out a stub of orange crayon without a word. She rubbed the wax over every fold of a fresh sheet, even the tiny corners. The second boat looked the same, only shinier. She set it down at the top of the gutter and let go. This time it bobbed over the first bend and kept going. It finished second, one boat-length behind Dev's. Mali's shoulders dropped, then she laughed and bumped Dev with her elbow. “Same time tomorrow?” she asked, already folding another sheet.</p>"};
+var JUDGE=["It proves the answer", "It is in the text, but it doesn’t prove this answer", "It is not in the text"];
+var U39_OPEN="Ploy had been looking forward to Saturday for weeks. Her friend Nam was finally having her movie night, and Ploy had already picked out exactly which snacks to bring. Then, just after breakfast, Mum said something that changed everything: Yai's helper at the noodle stall, Lek, had come down with a fever, and someone needed to step in at the night market.";
+var D1=[{"kind": "tap", "t": "A", "q": "Why does the balloon rise?", "ans": [3], "why": "This sentence says hot air is lighter than the cool air around it, so the balloon rises. Pointing to it is the proof.", "alt": {"kind": "tap", "t": "A", "q": "What does the flame heat?", "ans": [2], "why": "The flame heats the air inside the bag. That sentence answers the question word for word."}, "walk": "Find the key word from the question (flame, heat) and look for it in the text. The sentence with those words is the proof."}, {"kind": "tap", "t": "A", "q": "How does the pilot bring the balloon down?", "ans": [5], "why": "Opening the vent with the rope is how she comes down, and this sentence says so.", "alt": {"kind": "tap", "t": "A", "q": "What happens to the balloon when some hot air escapes?", "ans": [6], "why": "The sentence about the hot air escaping also says the balloon sinks gently."}, "walk": "Look for the key word in the question: 'down' leads to the sentence with 'To come down'."}, {"kind": "tap", "t": "A", "q": "Why do balloons usually take off at dawn?", "ans": [9], "why": "The reason is in the next sentence after 'dawn': the wind is calm, so the flight is smooth and safe.", "alt": {"kind": "tap", "t": "A", "q": "Why can midday be a bumpy time to fly?", "ans": [10], "why": "By midday the wind often gets strong and bumpy. That sentence holds the reason."}, "walk": "The sentence with the key word is not always the one with the reason. Read the sentence just after it too."}, {"kind": "tap", "t": "B", "q": "What did Mali do to a fresh sheet of paper so that her second boat floated?", "ans": [8], "why": "She rubbed the wax over every fold. That is what she did to the paper.", "alt": {"kind": "tap", "t": "B", "q": "What did Dev give Mali?", "ans": [7], "why": "Dev held out a stub of orange crayon. That sentence names it."}, "walk": "Look for the action word in the question (did, give) and the thing it happened to."}, {"kind": "tap", "t": "B", "q": "How can you tell Mali was upset when her boat sank?", "ans": [5], "why": "Pressing her lips together and staring at the soggy lump shows how she felt without saying it.", "alt": {"kind": "tap", "t": "B", "q": "How can you tell Mali felt better by the end?", "ans": [13], "why": "She laughed and bumped Dev with her elbow. Those actions show she felt better."}, "walk": "When a question asks how you can tell something, look for the sentence that shows what a person did."}, {"kind": "tap", "t": "B", "q": "How can you tell Mali wanted to race again?", "ans": [14], "why": "She asked 'Same time tomorrow?' and was already folding another sheet.", "alt": {"kind": "tap", "t": "B", "q": "How can you tell Dev’s boat beat Mali’s?", "ans": [12], "why": "Her boat finished second, one boat-length behind Dev's, so his was ahead."}, "walk": "Look for the sentence that shows what she said or did next."}];
+var D2=[{"kind": "judge", "t": "A", "q": "How does the pilot make the balloon go lower?", "answer": "She opens a vent at the top of the bag.", "quote": "she pulls a rope that opens a vent at the top of the bag", "ans": 0, "why": "These are real words from the text, and they say how she goes lower. They prove the answer.", "alt": {"kind": "judge", "t": "A", "q": "Why does the balloon rise?", "answer": "Because hot air is lighter than cool air.", "quote": "Balloons usually take off at dawn", "ans": 1, "why": "Those words are in the text, but they say when balloons take off, not why one rises."}, "walk": "Ask two questions. Is it in the text? Does it say the answer? If both are yes, it proves it."}, {"kind": "judge", "t": "B", "q": "What did Mali do to make her second boat float?", "answer": "She rubbed wax over the paper.", "quote": "The second boat looked the same, only shinier", "ans": 1, "why": "Those words are in the text, but they only describe how the boat looked. They don't say what she did.", "alt": {"kind": "judge", "t": "B", "q": "Whose boat finished first?", "answer": "Dev's boat finished first.", "quote": "It finished second, one boat-length behind Dev's", "ans": 0, "why": "Mali's boat finished second, behind Dev's. The words are real and they prove it."}, "walk": "A quote can be real and still not prove the answer. Check what the quote actually says."}, {"kind": "judge", "t": "A", "q": "Why can midday be a bad time to fly?", "answer": "The wind often gets strong and bumpy.", "quote": "The wind is very strong and bumpy at midday", "ans": 2, "why": "Those exact words are not in the text. The text says 'By midday the ground warms up, and the wind often gets strong and bumpy.'", "alt": {"kind": "judge", "t": "B", "q": "How can you tell Mali was upset?", "answer": "She burst into tears.", "quote": "Mali burst into tears and threw her boat", "ans": 2, "why": "Those words are not in the text. The text says she pressed her lips together and stared at the soggy lump."}, "walk": "Copy words you can find in the text. If you cannot find them, they are not a quote."}, {"kind": "judge", "t": "B", "q": "How can you tell Mali felt better at the end?", "answer": "She laughed and bumped Dev.", "quote": "Mali's shoulders dropped, then she laughed and bumped Dev with her elbow", "ans": 0, "why": "Laughing and bumping Dev shows she felt better. The words are real and they prove it.", "alt": {"kind": "judge", "t": "A", "q": "What does the burner do?", "answer": "It heats the air in the bag.", "quote": "A hot-air balloon is a giant bag of air with a basket hanging underneath", "ans": 1, "why": "Those words are in the text, but they describe the balloon. They don't say what the burner does."}, "walk": "Is it in the text? Does it say the answer? Both must be yes."}];
+var D3=[{"kind": "type", "t": "B", "q": "What was making a sound on the roof?", "anchors": ["Rain tapped on the roof"], "why": "Rain tapped on the roof above them."}, {"kind": "type", "t": "A", "q": "How can a pilot go sideways?", "anchors": ["find a wind that blows the right way"], "why": "She must find a wind that blows the right way."}, {"kind": "type", "t": "B", "q": "What did the second boat do at the first bend?", "anchors": ["bobbed over the first bend"], "why": "It bobbed over the first bend and kept going."}, {"kind": "type", "t": "B", "q": "When did the race begin?", "anchors": ["began at four"], "why": "The rain-gutter race began at four o'clock."}];
+var D5=[{"kind": "tap", "t": "A", "q": "What does the burner shoot out?", "ans": [1], "why": "A roaring flame."}, {"kind": "tap", "t": "B", "q": "How many times did Mali fold her first boat?", "ans": [0], "why": "She folded it three times."}, {"kind": "tap", "t": "B", "q": "Who set a boat on the water first?", "ans": [2], "why": "Her cousin Dev did."}, {"kind": "judge", "t": "A", "q": "Why is the flight smooth at dawn?", "answer": "The wind is calm.", "quote": "At that time of day the wind is calm", "ans": 0, "why": "Real words, and they give the reason."}, {"kind": "judge", "t": "B", "q": "What did Mali do after her first boat sank?", "answer": "She made a new boat with wax.", "quote": "Mali folded her paper boat three times to get the corners sharp", "ans": 1, "why": "Real words, but they describe the first boat being folded, not what she did next."}, {"kind": "judge", "t": "A", "q": "How does a pilot go higher?", "answer": "She fires the burner again.", "quote": "She presses the red button to go up faster", "ans": 2, "why": "Those words are not in the text."}];
+var DEMO={"ans": 7, "a": "The pilot lets out only a little hot air at a time", "q": "so the landing stays soft"};
+var ROUT={"ans": 11, "a": "A pilot can steer up and down", "q": "steer up and down, but not left or right"};
+var PT=[{"text": "Mali's first boat sank before the first bend <b>because</b> “turned slowly in a circle, and sank before the first bend”.", "pass": true, "why": "These are real words from the text, and they say where the boat sank. Both questions pass."}, {"text": "Mali's first boat sank before the first bend <b>because</b> “The rain-gutter race began at four o'clock.”", "pass": false, "why": "Those words are in the text, so the first question passes. But they say when the race began, not where the boat sank. The second question fails."}, {"text": "Mali's first boat sank under a bridge <b>because</b> “the boat hit a big rock in the middle of the gutter”.", "pass": false, "why": "You cannot point to those words in the text, so it fails the first question. Don't write it."}];
+var TWO_ANCH=["carrying leaves"];
+function proofOK(proof, passageHtml, anchors){
+  var norm=function(s){return (s||'').replace(/<[^>]+>/g,' ').toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim();};
+  var p=norm(proof).split(' ').filter(Boolean);
+  if(p.length<4) return false;
+  var chunks=(passageHtml||'').replace(/<\/(p|tr|li|h\d)>|<br\s*\/?>/gi,' ||| ').replace(/<[^>]+>/g,' ').split(/\|\|\||[.!?]+["”']?\s/);
+  for(var c=0;c<chunks.length;c++){
+    var t=' '+norm(chunks[c])+' ';
+    for(var i=0;i+4<=p.length;i++){
+      if(t.indexOf(' '+p.slice(i,i+4).join(' ')+' ')>=0){
+        if(!anchors||!anchors.length) return true;
+        for(var a=0;a<anchors.length;a++){ if(t.indexOf(norm(anchors[a]))>=0) return true; }
+      }
+    }
+  }
+  return false;
+}
+
+var SCREENS=['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10'];var cur=0;
+var SCREEN_ROUNDS={s4:[1],s5:[2],s6:[3],s9:[4]};
+var RD={},RSTATE={},built={},TRIES={};
+var DATA={1:D1,2:D2,3:D3,4:D5};
+var HOST={1:'w1',2:'w2',3:'w3',4:'w4'};
+var NAMES={1:'Drill 1 · Tap the proof',2:'Drill 2 · Does this quote prove it?',3:'Drill 3 · Copy the proof',4:'Self-check'};
+function $(id){return document.getElementById(id);}
+function onScreen(sid){
+  if(sid==='s4'&&!built[1]){built[1]=1;build(1);}
+  if(sid==='s5'&&!built[2]){built[2]=1;build(2);}
+  if(sid==='s6'&&!built[3]){built[3]=1;build(3);}
+  if(sid==='s9'&&!built[4]){built[4]=1;build(4);}
+  if(sid==='s10'){buildReport();}
+}
+function passageTap(rid,n,stage,t){
+  var h='<div class="passage tapzone" id="p'+rid+'-'+n+'-'+stage+'">';
+  for(var i=0;i<SENT[t].length;i++){h+='<span class="sn" onclick="doTap('+rid+','+n+','+stage+','+i+')">'+SENT[t][i]+'</span> ';}
+  return h+'</div>';
+}
+function passageRead(t){return '<div class="passage small">'+SENT[t].join(' ')+'</div>';}
+function bodyHTML(rid,n,stage,it){
+  var h='<div class="di-sent">'+(stage===1?n+'. ':'')+it.q+'</div>';
+  if(it.kind==='tap'){
+    h+='<div class="tapnote">Tap the one sentence that proves the answer.</div>'+passageTap(rid,n,stage,it.t);
+  }else if(it.kind==='judge'){
+    h+='<div class="jq"><div><b>Answer:</b> '+it.answer+'</div><div><b>Quote:</b> “'+it.quote+'”</div></div>'+passageRead(it.t)+'<div class="di-btns">';
+    for(var i=0;i<JUDGE.length;i++){h+='<button class="di-opt" onclick="doPick('+rid+','+n+','+stage+','+i+')">'+JUDGE[i]+'</button>';}
+    h+='</div>';
+  }else{
+    h+=passageRead(it.t)+'<label class="fld">Proof — copy at least 4 words from the text</label><input class="pf" id="ty'+rid+'-'+n+'" placeholder="copy the words here" onkeydown="if(event.key===\'Enter\')doType('+rid+','+n+')"><button class="btn" id="tb'+rid+'-'+n+'" onclick="doType('+rid+','+n+')">Check</button><div class="pfmsg" id="tm'+rid+'-'+n+'"></div>';
+  }
+  return h;
+}
+function build(rid){
+  var items=DATA[rid];RD[rid]={items:items,resolved:0,score:0};RSTATE[rid]={};var h='';
+  for(var i=0;i<items.length;i++){
+    var it=items[i],n=i+1;RSTATE[rid][n]=1;
+    h+='<div class="di" id="d'+rid+'-'+n+'"><div id="a'+rid+'-'+n+'-1">'+bodyHTML(rid,n,1,it)+'</div><div class="di-fb" id="f'+rid+'-'+n+'-1"></div>';
+    if(it.alt){
+      h+='<div id="s2'+rid+'-'+n+'" style="display:none"><div class="retry-box"><div class="retry-title">🔁 Have another go — a fresh one</div>';
+      h+='<div id="a'+rid+'-'+n+'-2">'+bodyHTML(rid,n,2,it.alt)+'</div><div class="di-fb" id="f'+rid+'-'+n+'-2"></div><div id="w'+rid+'-'+n+'"></div></div></div>';
+    }
+    h+='</div>';
+  }
+  h+='<div class="drill-score" id="sc'+rid+'"></div><div class="lock-note" id="lk'+rid+'">Finish every question on this page before you move on'+(rid===4?'.':' — including the fresh ones.')+'</div>';
+  $(HOST[rid]).innerHTML=h;
+}
+function getItem(rid,n,stage){var it=RD[rid].items[n-1];return stage===1?it:it.alt;}
+function lockArea(rid,n,stage){$('a'+rid+'-'+n+'-'+stage).className='locked';}
+function unlockArea(rid,n,stage){
+  var a=$('a'+rid+'-'+n+'-'+stage);a.className='';
+  var s=a.querySelectorAll('.sn');for(var i=0;i<s.length;i++){s[i].className='sn';}
+  var b=a.querySelectorAll('.di-opt');for(var j=0;j<b.length;j++){b[j].className='di-opt';}
+}
+function showProof(rid,n,stage,it){
+  var p=$('p'+rid+'-'+n+'-'+stage);if(!p||!it.ans)return;
+  var s=p.querySelectorAll('.sn');for(var i=0;i<it.ans.length;i++){s[it.ans[i]].className='sn proof';}
+}
+function markResolved(rid){
+  var R=RD[rid];R.resolved++;
+  if(R.resolved===R.items.length){
+    var s=$('sc'+rid);s.className='drill-score show';
+    s.innerHTML='<strong>Round done — '+R.score+'/'+R.items.length+' right first time.</strong>';
+    $('lk'+rid).className='lock-note';
+    if(rid===4)gateCheck();
+  }
+}
+function result(rid,n,stage,ok){
+  var R=RD[rid],it=R.items[n-1],st=RSTATE[rid][n];
+  var ci=getItem(rid,n,stage);
+  if(stage===1){
+    if(st!==1)return;lockArea(rid,n,1);
+    var fb=$('f'+rid+'-'+n+'-1');
+    if(ok){fb.className='di-fb ok';fb.innerHTML='✅ '+it.why;RSTATE[rid][n]=0;R.score++;markResolved(rid);}
+    else{
+      fb.className='di-fb no';fb.innerHTML='❌ '+it.why;showProof(rid,n,1,it);
+      if(it.alt){RSTATE[rid][n]=2;$('s2'+rid+'-'+n).style.display='block';}
+      else{RSTATE[rid][n]=0;markResolved(rid);}
+    }
+    return;
+  }
+  var f2=$('f'+rid+'-'+n+'-2');
+  if(st===2){
+    lockArea(rid,n,2);
+    if(ok){f2.className='di-fb ok';f2.innerHTML='✅ '+it.alt.why+' <strong>That is the one that counts.</strong>';RSTATE[rid][n]=0;markResolved(rid);}
+    else{
+      f2.className='di-fb no';f2.innerHTML='❌ Not that one either. Read this through slowly:';
+      $('w'+rid+'-'+n).innerHTML='<div class="walk">'+it.walk+'<br><br><b>Now try again above.</b></div>';
+      RSTATE[rid][n]=3;unlockArea(rid,n,2);
+    }
+    return;
+  }
+  if(st===3){
+    if(ok){lockArea(rid,n,2);f2.className='di-fb ok';f2.innerHTML='✅ '+it.alt.why+' <strong>Good — that is how it should look.</strong>';RSTATE[rid][n]=0;markResolved(rid);}
+    else{f2.className='di-fb no';f2.innerHTML='❌ Still not it — read the blue box once more, then try again.';unlockArea(rid,n,2);}
+  }
+}
+function doTap(rid,n,stage,i){
+  var it=getItem(rid,n,stage);var ok=it.ans.indexOf(i)>=0;
+  var p=$('p'+rid+'-'+n+'-'+stage).querySelectorAll('.sn');p[i].className='sn '+(ok?'proof':'wrongtap');
+  result(rid,n,stage,ok);
+}
+function doPick(rid,n,stage,i){
+  var it=getItem(rid,n,stage);var ok=(i===it.ans);
+  var b=$('a'+rid+'-'+n+'-'+stage).querySelectorAll('.di-opt');
+  b[i].className='di-opt '+(ok?'right':'wrong');
+  if(!ok&&RSTATE[rid][n]===1)b[it.ans].className='di-opt right';
+  result(rid,n,stage,ok);
+}
+function proofMsg(v,t,anchors){
+  if(!proofOK(v,PH[t],null))return "Those words aren't in the text yet — find them and copy them exactly.";
+  if(!proofOK(v,PH[t],anchors))return "Those words are in the text, but they don't prove this answer. Find the sentence that does.";
+  return '';
+}
+function doType(rid,n){
+  var key=rid+'-'+n;if(RSTATE[rid][n]!==1)return;
+  var it=RD[rid].items[n-1];var v=$('ty'+key).value;var m=$('tm'+key);var fb=$('f'+key+'-1');
+  var msg=proofMsg(v,it.t,it.anchors);
+  if(!msg){
+    var first=!TRIES[key];
+    $('ty'+key).disabled=true;$('tb'+key).disabled=true;m.innerHTML='';
+    fb.className='di-fb ok';fb.innerHTML='✅ '+it.why;
+    RSTATE[rid][n]=0;if(first)RD[rid].score++;markResolved(rid);
+  }else{
+    TRIES[key]=(TRIES[key]||0)+1;m.className='pfmsg no';m.innerHTML=msg;
+    if(TRIES[key]>=3){fb.className='di-fb no';fb.innerHTML='Here is the sentence to look for: '+it.why;}
+  }
+}
+function gateCheck(){
+  var R=RD[4],g=$('gateResult');
+  if(R.score>=5){g.className='gate-result ready';g.innerHTML='🎉 Ready for tomorrow’s test. '+R.score+'/6 first-time correct.';}
+  else{g.className='gate-result retry';g.innerHTML='📚 '+R.score+'/6 first-time correct — not quite ready. Go back to <a onclick="jumpToScreen(\'s1\')">The highlighter</a> (screen 2), then try again.';}
+}
+function buildReport(){
+  var t='',tot=0,out=0;
+  for(var r=1;r<=4;r++){var R=RD[r];if(R){tot+=R.score;out+=R.items.length;}
+    t+='<p style="margin:4px 0"><b>'+NAMES[r]+':</b> '+(R?R.score+'/'+R.items.length+' right first time':'not attempted')+'</p>';}
+  t+='<p style="margin:10px 0"><b>All rounds: '+tot+'/'+out+' right first time</b></p>';
+  $('reportWrap').innerHTML=t;
+}
+
+function roundsOnScreen(sid){return SCREEN_ROUNDS[sid]||[];}
+function screenLocked(sid){var rs=roundsOnScreen(sid);for(var i=0;i<rs.length;i++){var R=RD[rs[i]];if(!R||R.resolved<R.items.length)return rs[i];}return 0;}
+function show(n){
+  $(SCREENS[cur]).className='screen';cur=n;$(SCREENS[cur]).className='screen active';
+  $('prevBtn').disabled=(cur===0);$('nextBtn').disabled=(cur===SCREENS.length-1);
+  window.scrollTo(0,0);onScreen(SCREENS[cur]);
+}
+function goScreen(d){
+  var sid=SCREENS[cur];
+  if(d>0){var lk=screenLocked(sid);if(lk){var el=$('lk'+lk);if(el){el.className='lock-note show';el.scrollIntoView({behavior:'smooth',block:'center'});}return;}}
+  var n=cur+d;if(n<0||n>=SCREENS.length)return;show(n);
+}
+function jumpToScreen(sid){var i=SCREENS.indexOf(sid);if(i>=0)show(i);}
+
+/* s0: search the story */
+function renderU39(hl){
+  var h=U39_OPEN;
+  if(hl){h=h.replace(new RegExp('\\b('+hl.replace(/[^a-z0-9]/gi,'')+')\\b','ig'),'<span class="quote-mark">$1</span>');}
+  $('storyU39').innerHTML=h;
+}
+function doSearch(){
+  var w=$('srchBox').value.trim().replace(/[^a-zA-Z0-9']/g,'');var m=$('srchMsg');
+  if(!w){m.className='pfmsg no';m.innerHTML='Type a word first.';return;}
+  var re=new RegExp('\\b'+w+'\\b','i');
+  if(re.test(U39_OPEN)){renderU39(w);m.className='pfmsg ok';m.innerHTML='Found it. That word is in the story.';}
+  else{renderU39('');m.className='pfmsg no';m.innerHTML='Not in the story.'+(w.toLowerCase()==='bully'?' You can only write what you can point to.':'');}
+}
+
+/* s1: highlighter demo */
+var demoStep=0;
+function demoTap(i){
+  var s=$('demoText').querySelectorAll('.sn'),m=$('demoMsg');
+  if(i===DEMO.ans){
+    s[i].className='sn proof';$('demoText').className='passage locked';m.className='pfmsg ok';m.innerHTML='Yes. That sentence answers the question.';
+    $('demoBuild').className='';
+  }else{
+    s[i].className='sn wrongtap';m.className='pfmsg no';m.innerHTML='That sentence is in the text, but it does not answer this question. Try another.';
+    setTimeout(function(){s[i].className='sn';},900);
+  }
+}
+function demoNext(){
+  var p=$('demoParts');
+  if(demoStep===0){p.innerHTML='<span class="pa">'+DEMO.a+'</span>';$('demoBtn').innerHTML='Show part 2';}
+  else if(demoStep===1){p.innerHTML+=' <span class="pb">because</span>';$('demoBtn').innerHTML='Show part 3';}
+  else if(demoStep===2){p.innerHTML+=' <span class="pc">“'+DEMO.q+'”</span>';$('demoBtn').className='hidden';}
+  demoStep++;
+}
+
+/* s2: FIND COPY SAY demo */
+var routStep=0;
+function routNext(){
+  var h=$('routSteps'),b=$('routBtn');
+  if(routStep===0){
+    var t='';for(var i=0;i<SENT.A.length;i++){t+='<span class="sn'+(i===ROUT.ans?' keyw':'')+'">'+SENT.A[i]+'</span> ';}
+    $('routText').innerHTML=t;
+    h.innerHTML+='<div class="ansrow"><b>1 · FIND it.</b> The key word in the question is <b>steer</b>. It is in the orange sentence.</div>';b.innerHTML='2 · COPY it';
+  }else if(routStep===1){
+    h.innerHTML+='<div class="ansrow"><b>2 · COPY it.</b> Copy at least 4 words, exactly: <span class="quote-mark">“'+ROUT.q+'”</span></div>';b.innerHTML='3 · SAY it';
+  }else if(routStep===2){
+    h.innerHTML+='<div class="ansrow"><b>3 · SAY it.</b> <div class="parts"><span class="pa">'+ROUT.a+'</span> <span class="pb">because</span> <span class="pc">“'+ROUT.q+'”</span></div></div>';b.className='hidden';
+  }
+  routStep++;
+}
+
+/* s3: point test */
+function buildPT(){
+  $('ptText').innerHTML=SENT.B.join(' ');
+  var h='';
+  for(var i=0;i<PT.length;i++){
+    h+='<div class="ansrow" id="pt'+i+'"><div>'+PT[i].text+'</div><div class="di-btns"><button class="di-opt" onclick="ptPick('+i+',true)">Passes</button><button class="di-opt" onclick="ptPick('+i+',false)">Doesn’t pass</button></div><div class="di-fb" id="ptf'+i+'"></div></div>';
+  }
+  $('ptList').innerHTML=h;
+}
+function ptPick(i,says){
+  var f=$('ptf'+i),ok=(says===PT[i].pass);
+  f.className='di-fb '+(ok?'ok':'no');f.innerHTML=(ok?'✅ ':'❌ ')+PT[i].why;
+}
+
+/* s7: live proof check */
+function liveCheck(){
+  var v=$('twoProof').value,m=$('twoMsg');
+  if(!v.trim()){m.className='pfmsg';m.innerHTML='';return;}
+  var msg=proofMsg(v,'B',TWO_ANCH);
+  if(msg){m.className='pfmsg no';m.innerHTML=msg;}
+  else{m.className='pfmsg ok';m.innerHTML='Those words are in the text and they prove the answer.';}
+}
+
+function initAll(){
+  renderU39('');
+  var d='';for(var i=0;i<SENT.A.length;i++){d+='<span class="sn" onclick="demoTap('+i+')">'+SENT.A[i]+'</span> ';}
+  $('demoText').innerHTML=d;
+  $('routText').innerHTML=SENT.A.join(' ');
+  $('twoText').innerHTML=SENT.B.join(' ');
+  $('oneText').innerHTML=SENT.A.join(' ');
+  buildPT();
+}
+window.onload=initAll;
+
+</script>
+</body>
+</html>
