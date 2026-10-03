@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milestone 4 — Paper R Reading</title>
+<!-- Built from BUILD_PLAN_ENG_M04_ISA_Checkpoint.md v1 section 5. Engine copied from the Unit 40 test as fixed on 3 Oct 2026,
+     with the proof box switched off, a count-up timer (never blocks), and every item tagged by ISA strand.
+     24 items, 32 marks, pass bar 26/32. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --t1:#00695c; --t1-fill:#B2DFDB; --t1-text:#00695c;
+    --t2:#0d47a1; --t2-fill:#BBDEFB; --t2-text:#0d47a1;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:1120px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.t1{background:var(--t1-fill);color:var(--t1-text)}
+  .band.t2{background:var(--t2-fill);color:var(--t2-text)}
+  .hint{font-size:.85rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .grp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:16px;align-items:start}
+  .grp .passage{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;margin-bottom:14px}
+  @media (max-width:900px){.grp{grid-template-columns:1fr}.grp .passage{position:static;max-height:none}}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;line-height:1.75}
+  .passage h4{margin:0 0 6px;color:var(--t2-text);font-size:.95rem}
+  .passage p{margin:0 0 10px}
+  .passage table{border-collapse:collapse;width:100%;font-size:.82rem;margin:6px 0}
+  .passage th,.passage td{border:1.5px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+  .passage th{background:#e0f2f1}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.t1{border-left-color:var(--t1)}
+  .q.t2{border-left-color:var(--t2)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .tier-tag{font-size:.68rem;font-weight:800;background:#eee;color:#666;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  textarea.writtenin{width:100%;min-height:100px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.88rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #save-status.reminder{color:#b71c1c;font-weight:800}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+
+  .band.t3{background:#FFE0B2;color:#bf360c}
+  .band.t4{background:#E1BEE7;color:#4a148c}
+  .q.t3{border-left-color:#e65100}
+  .q.t4{border-left-color:#7b1fa2}
+  .passage h4{font-size:1.02rem}
+  .passage .note{font-weight:700;color:#00695c;margin:4px 0}
+  .passage .tip{background:#fff8e1;border:1.5px solid #f6993f;border-radius:8px;padding:8px 12px;margin:10px 0;font-weight:600}
+  .passage ol,.passage ul{margin:4px 0 10px 20px;padding:0}
+  .passage li{margin-bottom:4px}
+  .passage .addr,.passage .sign{margin:0 0 10px}
+  .passage table td{white-space:nowrap}
+  .passage th{background:#e0f2f1}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  .readfirst.two{background:#fff3e0;border-color:#f6993f;color:#7a4a00;font-weight:600}
+  textarea.writtenin{min-height:110px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Milestone 4 — Paper R: Reading</b>
+      <span class="sub" id="hdr-sub">Timetable · Story · Letter · Instructions</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 24 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div class="readfirst">Type it yourself — microphone off.</div>
+  <div class="readfirst two">This is a timed check, like the real ISA. Work on your own, in one sitting. A clock shows how long you have taken — it will not stop you.</div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" onclick="askConfirmSubmit()">Submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit the test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = "M4";
+const UNIT_TITLE = "Paper R — Reading";
+const PASS_BAR   = 26;                 // out of 32
+const TOTAL_MARKS = 32;
+const AUTO_OUT_OF = 16;
+const WRITTEN_MARKS = 16;
+
+const SECTION_ORDER = ['t1','t2','t3','t4'];
+const SECTION_LABEL = {
+  t1: "TEXT 1 — Sky Valley Railway: Timetable",
+  t2: "TEXT 2 — The Wobbly Wheel (story)",
+  t3: "TEXT 3 — Switch Off the Street Lights at Midnight (letter)",
+  t4: "TEXT 4 — Make Your Own Rain Gauge (instructions)"
+};
+const SECTION_SHORT = { t1:"Timetable", t2:"Story", t3:"Letter", t4:"Instructions" };
+const SECTION_HINT = {
+  t1: "Read the text first. For written answers, use words from the text to show how you know.", t2: "Read the text first. For written answers, use words from the text to show how you know.", t3: "Read the text first. For written answers, use words from the text to show how you know.", t4: "Read the text first. For written answers, use words from the text to show how you know."
+};
+
+const Q = [
+ {
+  "n": 1,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "What time does Train C arrive at Pine Lake?",
+  "options": [
+   "09:10",
+   "10:00",
+   "10:55",
+   "10:35"
+  ],
+  "ans": 2,
+  "why": "Find Train C in the table, then read across to the “Arrives Pine Lake” column: 10:00. The 09:10 is when it leaves Riverside, and 10:55 is when it reaches the Summit."
+ },
+ {
+  "n": 2,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "Which train does not go to the Summit?",
+  "options": [
+   "Train A",
+   "Train B",
+   "Train C",
+   "Train E"
+  ],
+  "ans": 4,
+  "why": "Train E has a dash (—) in the “Arrives Summit” column, and the note under the table says Train E does not go to the Summit."
+ },
+ {
+  "n": 3,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "On a Saturday, which train is the earliest to reach the Summit?",
+  "options": [
+   "Train B",
+   "Train A",
+   "Train D",
+   "Train E"
+  ],
+  "ans": 1,
+  "why": "Only trains that run on a Saturday count: B (Sat–Sun), D and E (every day). Train E never reaches the Summit. B arrives at 10:35 and D at 11:50, so B is the earliest."
+ },
+ {
+  "n": 4,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "“Bicycles must be booked one day before.” What does this mean for a rider?",
+  "options": [
+   "They must bring the bicycle to the station a day early",
+   "They must pay for the bicycle one day after they travel",
+   "They must reserve a place for the bicycle the day before travelling",
+   "They can only book a bicycle on the day they travel"
+  ],
+  "ans": 3,
+  "why": "“Booked” means reserved, and “one day before” means the day before the journey. So the rider has to reserve a place for the bicycle the day before travelling."
+ },
+ {
+  "n": 5,
+  "section": "t1",
+  "type": "written",
+  "strand": "L",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Mina must reach the Summit by 11:00 on a Tuesday, and she is taking her bicycle. Which train should she catch? Use two details from the timetable to explain.",
+  "markScheme": [
+   "The answer, Train A, written in a full sentence (e.g. “Mina should catch Train A.”).",
+   "Two matching details from the timetable: it runs Mon–Fri (so it runs on a Tuesday) · bicycles are allowed (“Yes”) · it arrives at the Summit at 09:20, before 11:00. (Train B runs only at weekends, C has no bicycles, D arrives 11:50, E does not go to the Summit.)"
+  ]
+ },
+ {
+  "n": 6,
+  "section": "t1",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "The railway wants more families to visit the Summit at weekends. Suggest one change to the timetable and explain why it would help. Use the timetable.",
+  "markScheme": [
+   "A sensible change, in a full sentence: add another weekend train to the Summit · make Train E continue to the Summit · add an earlier weekend train.",
+   "A reason tied to a timetable fact: only Trains B and D reach the Summit at weekends (and D arrives as late as 11:50) · Train E stops at Pine Lake, so its passengers cannot go on."
+  ]
+ },
+ {
+  "n": 7,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "What happened to the car when it hit the drain?",
+  "options": [
+   "The car ran out of battery",
+   "The car rolled into the pond",
+   "A front wheel snapped off",
+   "The car flew into the flowerpots"
+  ],
+  "ans": 3,
+  "why": "Paragraph 3 says the car clipped the edge of the drain, there was a sharp crack, “and a front wheel snapped off”."
+ },
+ {
+  "n": 8,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "“She pushed her rice around her plate without eating.” This shows that Dao…",
+  "options": [
+   "could not stop thinking about what she had done",
+   "did not like the food Mum had made",
+   "was too full after eating a big lunch",
+   "wanted to leave the table to play outside"
+  ],
+  "ans": 1,
+  "why": "Someone who pushes food around a plate without eating it is not thinking about the food. Dao’s mind is still on the broken car."
+ },
+ {
+  "n": 9,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "“Dao opened her mouth, then closed it.” This tells us that Dao…",
+  "options": [
+   "had forgotten what she wanted to say",
+   "was too tired to answer her brother",
+   "did not hear what Ton had asked",
+   "nearly told Ton, but stopped herself"
+  ],
+  "ans": 4,
+  "why": "Opening your mouth is how speaking begins. Closing it again shows she started to speak and then held back."
+ },
+ {
+  "n": 10,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Why did Dao glue the wheel back on?",
+  "options": [
+   "To make the car go faster along the path",
+   "To repair the car before giving it back",
+   "To stop Mum finding out what had happened",
+   "To use the car again before Ton came home"
+  ],
+  "ans": 2,
+  "why": "She glued the wheel in the morning, and straight afterwards she held the car out to Ton. She mended it so that she could give it back."
+ },
+ {
+  "n": 11,
+  "section": "t2",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "How does Dao feel at the end of the story? Use a detail from the story to show how you know.",
+  "markScheme": [
+   "A supported feeling for the end of the story, in a full sentence (relieved · light · happy · forgiven · better). The story never names it, so any sensible feeling that fits the ending is accepted.",
+   "A detail that shows it: she laughs out loud for the first time in two days · they chase the car together · Ton says “It’s funnier like this”."
+  ]
+ },
+ {
+  "n": 12,
+  "section": "t2",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "What does the story suggest about owning up to a mistake? Use the story to explain.",
+  "markScheme": [
+   "An idea, in a full sentence: telling the truth makes things better · owning up can be hard, but it is worth it · a mistake feels smaller once you say it.",
+   "An event that shows it: she tells Ton and he forgives her, and they play with the car together; before she told him she could not eat or sleep."
+  ]
+ },
+ {
+  "n": 13,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "What is the main purpose of Arun’s letter?",
+  "options": [
+   "to persuade the council to switch off street lights after midnight",
+   "to explain how the council chooses where to put lights",
+   "to ask readers to give money to the town library",
+   "to describe a trip to look at the stars at night"
+  ],
+  "ans": 1,
+  "why": "The whole letter asks the council to do one thing: switch off the street lights between midnight and 5 a.m. He gives reasons to persuade them."
+ },
+ {
+  "n": 14,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "E",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "Which sentence from the letter is an opinion?",
+  "options": [
+   "Every year the council spends 2 million baht on street lights.",
+   "The town would save about a third of that money.",
+   "Nothing is more beautiful than a sky full of stars.",
+   "Most children in our town have never seen the Milky Way."
+  ],
+  "ans": 3,
+  "why": "An opinion tells us what someone thinks or feels, and nobody can check it. “Nothing is more beautiful…” is a feeling about stars. The other three could be checked with numbers or a survey."
+ },
+ {
+  "n": 15,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "How much does the council spend on street lights each year?",
+  "options": [
+   "1 million baht",
+   "2 million baht",
+   "3 million baht",
+   "5 million baht"
+  ],
+  "ans": 2,
+  "why": "Paragraph 2 says: “Every year the council spends 2 million baht on street lights.”"
+ },
+ {
+  "n": 16,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "E",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "Why does Arun mention moths and bats?",
+  "options": [
+   "to show that he likes animals more than people",
+   "to explain why street lights cost so much money",
+   "to prove that the Milky Way is full of insects",
+   "to add a reason about harm to night animals"
+  ],
+  "ans": 4,
+  "why": "Moths and bats are his examples for the third reason: bright lights confuse animals that live at night."
+ },
+ {
+  "n": 17,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Which reason in Arun’s letter do you think is the most convincing? Explain why, using the letter.",
+  "markScheme": [
+   "Names one of the three reasons (money · stars · wildlife), in a full sentence.",
+   "Says why it convinces, tied to the letter: e.g. the money is a number the council can check · the moths and bats are facts, not just a wish · many children have never seen the Milky Way."
+  ]
+ },
+ {
+  "n": 18,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Arun says dark streets are not a problem because most people are asleep after midnight. Do you agree? Give one reason from the letter and one from your own experience or knowledge.",
+  "markScheme": [
+   "A position (agree, disagree or partly) with a reason that uses the letter, e.g. he only says “most” people are asleep, not everyone.",
+   "A reason from his own experience or knowledge: people who work at night · an emergency or a walk home · what his own street is like. Own knowledge is allowed and needed here."
+  ]
+ },
+ {
+  "n": 19,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "What goes in the bottom of the bottle?",
+  "options": [
+   "dry sand",
+   "the ruler",
+   "the top piece",
+   "small stones"
+  ],
+  "ans": 4,
+  "why": "Step 2 says: put the small stones in the bottom of the bottle."
+ },
+ {
+  "n": 20,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "What do you do straight after putting the stones in?",
+  "options": [
+   "turn the top piece upside down and push it in",
+   "pour in water to cover them and mark the start line",
+   "cut the top third off the bottle with scissors",
+   "check the gauge and write a reading in the table"
+  ],
+  "ans": 2,
+  "why": "The stones are step 2. Step 3 comes straight after it: pour in water until it just covers the stones, then mark the start line."
+ },
+ {
+  "n": 21,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "Why should you check the gauge at the same time every day?",
+  "options": [
+   "so the water does not freeze in the bottle",
+   "so the funnel does not fill up with leaves",
+   "so each reading measures the same length of time",
+   "so the ruler can be taped on straight"
+  ],
+  "ans": 3,
+  "why": "If you check at the same time each day, every reading covers one whole day. That makes the days fair to compare. The text never says this, so you had to work it out."
+ },
+ {
+  "n": 22,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "In the diagram, where is the start line?",
+  "options": [
+   "level with the top of the stones",
+   "at the very top of the bottle",
+   "level with the bottom of the funnel",
+   "halfway up the side of the bottle"
+  ],
+  "ans": 1,
+  "why": "Look at the dashed red line in the picture. It is drawn level with the top of the stones."
+ },
+ {
+  "n": 23,
+  "section": "t4",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t4",
+  "body": "Why must the rain gauge be placed away from trees and buildings? Use the instructions to explain.",
+  "markScheme": [
+   "A reason in a full sentence: trees and roofs would block some of the rain, or drip extra water into the gauge, so the reading would be wrong. (The instructions never give this reason — he must work it out.)",
+   "A detail from the instructions that supports it: step 6 says “in an open space” · the gauge is meant to catch the rain as it falls · the funnel is there to collect rain."
+  ]
+ },
+ {
+  "n": 24,
+  "section": "t4",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t4",
+  "body": "Sam kept his rain gauge on the kitchen windowsill so it would be safe. Will his readings be accurate? Explain using the instructions.",
+  "markScheme": [
+   "“No” (or “not accurate”), in a full sentence.",
+   "The instructions say the gauge must be placed outside in an open space, so rain cannot fall into it indoors."
+  ]
+ }
+];
+
+const PASSAGES = {
+ "t1": "<h4>Sky Valley Railway — Timetable</h4>\n<p>Trains from Riverside to Pine Lake and the Summit</p>\n<table>\n<tr><th>Train</th><th>Leaves Riverside</th><th>Arrives Pine Lake</th><th>Arrives Summit</th><th>Runs</th><th>Bicycles</th></tr>\n<tr><td>A</td><td>07:15</td><td>08:05</td><td>09:20</td><td>Mon–Fri</td><td>Yes</td></tr>\n<tr><td>B</td><td>08:30</td><td>09:20</td><td>10:35</td><td>Sat–Sun</td><td>Yes</td></tr>\n<tr><td>C</td><td>09:10</td><td>10:00</td><td>10:55</td><td>Mon–Fri</td><td>No</td></tr>\n<tr><td>D</td><td>09:45</td><td>10:35</td><td>11:50</td><td>Every day</td><td>Yes</td></tr>\n<tr><td>E</td><td>10:20</td><td>11:10</td><td>—</td><td>Every day</td><td>Yes</td></tr>\n</table>\n<p class=\"note\">Train E does not go to the Summit.</p>\n<p class=\"note\">Bicycles must be booked one day before.</p>\n",
+ "t2": "<h4>The Wobbly Wheel</h4>\n<p>Dao's little brother, Ton, had a new remote-control car. It was red with silver stripes, and he had owned it for only a week. On Saturday afternoon, Ton left for football practice with his boots banging against his bag. The car sat on the shelf in the hall.</p>\n<p>Dao looked at it for a long time. She was not allowed to touch it, and Ton had said so three times. Then she picked it up, carried it into the garden, and set it down at the top of the path.</p>\n<p>The car shot forward. It whizzed past the tomato plants and the watering can, faster than Dao had expected. At the bottom of the path it clipped the edge of the drain. There was a sharp crack, and a front wheel snapped off. The car spun twice and stopped.</p>\n<p>Dao's hands were shaking as she gathered up the pieces. She pushed the car and the wheel behind the flowerpots, then went inside and washed her hands twice.</p>\n<p>At dinner, she sat very still. She pushed her rice around her plate without eating. Mum asked whether she was ill, and Dao shook her head. Then Ton looked up from his noodles. “Has anyone seen my car?” he asked. Dao opened her mouth, then closed it. She stared at the table until Dad changed the subject.</p>\n<p>That night she lay awake, staring at the ceiling. Every time the house creaked, she turned her head towards the hall.</p>\n<p>Before breakfast the next morning, Dao crept out to the flowerpots. She squeezed glue onto the broken wheel and held it in place until her arms ached. When she let go, it stayed. It still wobbled when she spun it, but it stayed.</p>\n<p>She found Ton in the kitchen and held out the car with both hands. “I took it,” she said. “I broke it. I'm sorry.”</p>\n<p>Ton said nothing for a long moment. Then he took the car, set it on the floor, and pressed the button. The car swerved off in wobbly circles, round and round the table leg.</p>\n<p>“It's funnier like this,” he said.</p>\n<p>They chased it out into the garden, tripping over each other and the watering can. Halfway down the path, Dao laughed out loud for the first time in two days.</p>",
+ "t3": "<h4>Switch Off the Street Lights at Midnight</h4>\n<p class=\"addr\">Dear Editor,</p>\n<p>My name is Arun Chai and I am in Year 6. I have lived in this town all my life, and I love it. I am writing to ask our town council to switch off the street lights between midnight and 5 a.m. I believe this small change would help our town in three ways.</p>\n<p>First, it would save money. Every year the council spends 2 million baht on street lights. Switching the lights off for those five hours is easy. The town would save about a third of that money. The council could use that money to mend the swimming pool, to plant trees in the park, or to buy new books for the library.</p>\n<p>Second, it would let us see the stars. Most children in our town have never seen the Milky Way. Our street lights glow so brightly that the night sky looks grey and empty. Nothing is more beautiful than a sky full of stars.</p>\n<p>Third, it would help wildlife. Bright lights confuse the animals that live at night. Moths circle the lamps until they are exhausted, and bats lose their hunting grounds.</p>\n<p>Some people say dark streets are unsafe, but most people are asleep after midnight anyway.</p>\n<p>I know that a change like this can seem strange at first, and some neighbours may not like it. However, I hope the council will try it for one month and see what happens. If the town does not like it, the lights can easily be switched on again.</p>\n<p>Please give the children of our town a chance to look up. Switch off the lights at midnight.</p>\n<p class=\"sign\">Yours faithfully,<br>Arun Chai</p>",
+ "t4": "<h4>Make Your Own Rain Gauge</h4>\n<p>A rain gauge tells you how much rain has fallen. You can make one in about twenty minutes from things you probably have at home, and then keep a record of the weather for a whole month.</p>\n<p><b>You will need:</b></p>\n<ul><li>a clear plastic bottle</li><li>scissors (ask an adult)</li><li>a ruler</li><li>sticky tape</li><li>a handful of small stones</li></ul>\n<p><b>What to do:</b></p>\n<ol><li>Ask an adult to help you cut the top third off the bottle. Keep this top piece, because you will use it later.</li><li>Put the small stones in the bottom of the bottle so that it will not blow over.</li><li>Pour water in until it just covers the stones. Mark the level of the water on the bottle with a pen and call this the start line.</li><li>Turn the top piece upside down and push it into the bottle, like a funnel.</li><li>Tape the ruler to the side of the bottle, with 0 at the start line.</li><li>Place it outside in an open space, away from trees and buildings.</li><li>Check it at the same time every day. Write the reading in a table, then pour water out down to the start line, ready for the next day.</li></ol>\n<div class=\"tip\"><b>Tip:</b> The funnel stops leaves falling in and slows the water from drying up.</div>\n<svg viewBox=\"0 0 300 250\" width=\"100%\" role=\"img\" aria-label=\"Diagram of a rain gauge\" xmlns=\"http://www.w3.org/2000/svg\" style=\"max-width:320px;display:block;margin:8px auto\">\n<rect x=\"0\" y=\"0\" width=\"300\" height=\"250\" fill=\"#f7fbff\" rx=\"8\"/>\n<path d=\"M95 70 L205 70 L205 220 Q205 232 193 232 L107 232 Q95 232 95 220 Z\" fill=\"#e3f2fd\" stroke=\"#1565c0\" stroke-width=\"3\"/>\n<path d=\"M85 22 L215 22 L172 78 L128 78 Z\" fill=\"#bbdefb\" stroke=\"#1565c0\" stroke-width=\"3\"/>\n<rect x=\"212\" y=\"78\" width=\"16\" height=\"150\" fill=\"#fff59d\" stroke=\"#8a6d00\" stroke-width=\"2\"/>\n<g stroke=\"#8a6d00\" stroke-width=\"1.5\"><line x1=\"212\" y1=\"88\" x2=\"220\" y2=\"88\"/><line x1=\"212\" y1=\"100\" x2=\"220\" y2=\"100\"/><line x1=\"212\" y1=\"112\" x2=\"220\" y2=\"112\"/><line x1=\"212\" y1=\"124\" x2=\"220\" y2=\"124\"/><line x1=\"212\" y1=\"136\" x2=\"220\" y2=\"136\"/><line x1=\"212\" y1=\"148\" x2=\"220\" y2=\"148\"/><line x1=\"212\" y1=\"160\" x2=\"220\" y2=\"160\"/><line x1=\"212\" y1=\"172\" x2=\"220\" y2=\"172\"/><line x1=\"212\" y1=\"184\" x2=\"220\" y2=\"184\"/><line x1=\"212\" y1=\"196\" x2=\"220\" y2=\"196\"/></g>\n<g fill=\"#9e9e9e\" stroke=\"#616161\" stroke-width=\"1.5\"><circle cx=\"112\" cy=\"218\" r=\"9\"/><circle cx=\"132\" cy=\"220\" r=\"8\"/><circle cx=\"152\" cy=\"217\" r=\"9\"/><circle cx=\"172\" cy=\"220\" r=\"8\"/><circle cx=\"190\" cy=\"218\" r=\"9\"/><circle cx=\"122\" cy=\"205\" r=\"8\"/><circle cx=\"145\" cy=\"204\" r=\"9\"/><circle cx=\"168\" cy=\"205\" r=\"8\"/></g>\n<line x1=\"96\" y1=\"196\" x2=\"204\" y2=\"196\" stroke=\"#d32f2f\" stroke-width=\"3\" stroke-dasharray=\"6 3\"/>\n<text x=\"10\" y=\"40\" font-size=\"14\" fill=\"#0d47a1\" font-family=\"Arial\" font-weight=\"bold\">funnel</text>\n<line x1=\"58\" y1=\"36\" x2=\"110\" y2=\"40\" stroke=\"#0d47a1\" stroke-width=\"1.5\"/>\n<text x=\"236\" y=\"150\" font-size=\"14\" fill=\"#0d47a1\" font-family=\"Arial\" font-weight=\"bold\">ruler</text>\n<text x=\"8\" y=\"180\" font-size=\"14\" fill=\"#d32f2f\" font-family=\"Arial\" font-weight=\"bold\">start line</text>\n<line x1=\"70\" y1=\"184\" x2=\"96\" y2=\"195\" stroke=\"#d32f2f\" stroke-width=\"1.5\"/>\n<text x=\"10\" y=\"236\" font-size=\"14\" fill=\"#424242\" font-family=\"Arial\" font-weight=\"bold\">stones</text>\n<line x1=\"58\" y1=\"232\" x2=\"104\" y2=\"222\" stroke=\"#424242\" stroke-width=\"1.5\"/>\n</svg>\n<p>After a month, look at your table. Which day had the most rain? Were there any days with no rain at all? Write the date next to every reading so that you can see how the weather changes from week to week. Compare your table with a friend's and see whose garden was wetter.</p>"
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+const chosen = {};      // qn -> mcq index (1-based) or written answer text
+let submitted = false;
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+let frozenSecs = null;
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-openedAtMs)/1000); }
+function tick(){ document.getElementById('timer').textContent = fmtClock(elapsedSecs()); }
+setInterval(tick, 1000); tick();
+
+function render(){
+  let html = '';
+  SECTION_ORDER.forEach(sec => {
+    html += `<div class="band ${sec}">${SECTION_LABEL[sec]}</div>`;
+    html += `<div class="hint">${SECTION_HINT[sec]}</div>`;
+    html += `<div class="grp"><div class="passage">${PASSAGES[sec]}</div><div class="qs">`;
+    Q.filter(q => q.section === sec).forEach(q => {
+      html += `<div class="q ${q.section}" id="q-${q.n}">
+        <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+          ${q.type==='written' ? `<span class="marks-tag">(${q.marks} mks)</span>` : ''}
+          <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+          <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+          <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+        </p>`;
+      if (q.type === 'mcq'){
+        html += `<div>`;
+        q.options.forEach((opt, idx) => {
+          html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${'ABCD'[idx]}. ${opt}</button>`;
+        });
+        html += `</div>`;
+      } else {
+        html += `<textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>`;
+      }
+      if (q.type === 'mcq') html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+      if (q.type === 'written'){
+        html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById('quiz').innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+function typeAnswer(qn, val){ if (submitted) return; chosen[qn] = val; updateProgress(); }
+// Any non-empty answer counts. A correct written answer can be short, and nothing blocks him.
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'written') return v !== undefined && v.trim().length > 0;
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = false;
+  btn.textContent = (n === Q.length) ? 'Submit the test' : `Submit (${Q.length-n} not answered yet) — tap to jump there`;
+}
+function firstUnanswered(){ return Q.find(q => !isAnswered(q)); }
+
+function askConfirmSubmit(){
+  const missing = firstUnanswered();
+  if (missing){
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+
+function doSubmit(){
+  closeConfirm();
+  submitted = true;
+  frozenSecs = Math.round((Date.now()-openedAtMs)/1000); tick();
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('textarea.writtenin').forEach(t => t.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const strandTally = {L:{c:0,t:0,w:0}, U:{c:0,t:0,w:0}, E:{c:0,t:0,w:0}};
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      written.push({ q:q.n, strand:q.strand, marks:q.marks, markScheme:q.markScheme,
+                     response: given||'', wordCount: (given||'').trim().split(/\s+/).filter(Boolean).length });
+      document.getElementById(`ms-${q.n}`).classList.add('show');
+      document.getElementById(`tag-pending-${q.n}`).classList.add('show');
+      tierTally.Applied.t++;
+      strandTally[q.strand].w += q.marks;
+      return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given, isCorrect:null };
+    }
+    const isCorrect = given === q.ans;
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    strandTally[q.strand].t++; if (isCorrect) strandTally[q.strand].c++;
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given, correct:q.ans, isCorrect };
+  });
+
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show','pass');
+  document.getElementById('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  document.getElementById('score-msg').textContent = `The ${WRITTEN_MARKS} written marks are waiting for Naomi. Pass bar for the full paper is ${PASS_BAR}/${TOTAL_MARKS}.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => {
+      const wrT = Q.filter(q=>q.section===s && q.type==='written').length;
+      return `<div class="sec-chip">${SECTION_SHORT[s]}: ${sectionTally[s].c}/${sectionTally[s].t} auto (+${wrT} written)</div>`;
+    }).join('') +
+    `<div class="sec-chip">Time: ${fmtClock(frozenSecs)}</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Press the blue Save button — your results are NOT saved yet.';
+
+  const strands = {};
+  ['L','U','E'].forEach(k => strands[k] = { score:strandTally[k].c, outOf:strandTally[k].t, writtenMarks:strandTally[k].w });
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    paper: "R",
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    openedAt: openedAt,
+    minutesSpent: Math.round(frozenSecs/60),
+    secondsSpent: frozenSecs,
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    writtenMarks: WRITTEN_MARKS, writtenScore: null,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed: null,
+    strands,
+    tiers: tierTally,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers,
+    written
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_M04R_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.className = ''; statusEl.textContent = `Saved as ${filename}.`;
+      return;
+    } catch(e){ if (e.name === 'AbortError'){ statusEl.className = 'reminder'; statusEl.textContent = 'Save cancelled — your results are NOT saved yet. Click the blue button again.'; return; } }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.className = ''; statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>

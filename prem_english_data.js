@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '1 Oct 2026',
+  updated:        '3 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           40,
-    heroLabel:   "&#128270; Prove It &mdash; Find it &middot; Copy it &middot; Say it",
-    status:      "&#128270; BACK ON ISA 2027 &mdash; one target: reading written answers proved with words copied from the text. One lesson (\"Find it &middot; Copy it &middot; Say it\", Sat 3 Oct) plus one 20-mark test (Sun 4 Oct): an information text with a table (&ldquo;How Honeybees Choose a New Home&rdquo;) and a story (&ldquo;Edge Pieces&rdquo;), 8 marks auto-scored and 12 marks on four written answers. Every written answer has two boxes &mdash; a Proof box the page checks against the text, then the answer. Built 1 Oct 2026 from Unit 39&rsquo;s result: the written answers carry no detail from the text, and two words from our own lesson (&ldquo;job&rdquo;, &ldquo;nervous&rdquo;) leaked into them. Microphone off. Streak 0 of 4.",
+    n:           'M4',
+    heroLabel:   "Milestone 4 - Paper R Tue 6 Oct, Paper W Wed 7 Oct",
+    status:      "&#127937; MILESTONE 4 &mdash; built 3 Oct. Paper R (timed reading, Tue 6 Oct, pass bar 26/32) and Paper W (handwritten narrative, Wed 7 Oct, baseline). Microphone off.",
     testPending: true
   },
 
@@ -33,26 +33,25 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 39 -- updated after each test)
+  // Last completed assessment (Unit 40 -- updated after each test)
   lastUnit: {
-    n: 39, label: 'Unit 39', score: 18, outOf: 25, pct: 72, delta: -6, prevScore: 47, prevOutOf: 60,
+    n: 40, label: 'Unit 40', score: 14, outOf: 20, pct: 70, delta: -2, prevScore: 18, prevOutOf: 25,
 
-    patternLabel:   "Unit 39 &mdash; 1 Oct 2026 &middot; 18/25 (72%) &mdash; FAIL by 2 marks, on the written answers again",
-    patternInsight: "<strong>Every auto-scored mark was right (12/12); every mark lost sits in the four hand-marked written answers (6/13, 46%).</strong> Spelling 6/6, all six MCQs correct. Marked school-style (confirmed by Lui). The same signature as Unit 38 Paper 1: understanding is intact, but the answers carry no detail from the text.",
+    patternLabel:   "Unit 40 &mdash; 3 Oct 2026 &middot; 14/20 (70%) &mdash; short of the 16 pass bar by 2, from screenshots",
+    patternInsight: "<strong>Auto-scored 8/8 again; written 6/12 (50%).</strong> Prem could not submit: the proof gate blocked him on Q11 and Q12, where the story names no feelings. No results file, so the marks come from iPad screenshots. The two proofs the page accepted start with copied words and continue in his own.",
 
-    analysisLabel:   "Unit 39 Result Analysis &mdash; 1 Oct 2026 (two teaching attempts spent; new root cause: he does not go back to the text)",
-    analysisInsight: "<strong>Two structure-based lessons (A&middot;B&middot;T at Unit 38, Count&middot;Do&middot;Tick at Unit 39) have not moved the written marks.</strong> All four answers contain no quoted or paraphrased detail from the passage, and two words from our own lesson leaked in: &ldquo;job&rdquo; (Q10) and &ldquo;nervous&rdquo; (Q15, Q16). Unit 40 therefore tries a different cause &mdash; location: copy the proof from the text first, in a box the page checks, then answer. Unit 38 Paper 2 was written by voice typing and its score is void.",
+    analysisLabel:   "Unit 40 Result Analysis &mdash; 3 Oct 2026 (result not clean: the paper locked him out)",
+    analysisInsight: "<strong>Understanding is intact (MCQ 8/8); the written marks are still low.</strong> On the two items where the feeling and theme are not stated, the Proof boxes held &ldquo;I cant find any proof&rdquo; and &ldquo;Idk&rdquo;. The lock-out was fixed on 3 Oct (an &ldquo;I can&rsquo;t find it&rdquo; button). Q6 may have been voice-typed. Next assessment: Milestone 4.",
 
-    qSummary: "<strong>18/25 (72%) FAIL by 2 &mdash; auto-scored 12/12, written 6/13 (46%).</strong> The pattern is the same as Unit 38 Paper 1, so the next test targets proof from the text rather than answer structure.",
+    qSummary: "<strong>14/20 (70%) provisional &mdash; auto 8/8, written 6/12.</strong> Q11/Q12 marks confirmed by Lui. Not a clean measure.",
 
     qBreakdown: [
-      { q:"Q1-Q6", topic:"Spelling", pass:true, note:"&#10003; 6/6 &mdash; pretended, variety, smeared, continent, drooped, overgrown. Every dropped-ending trap held." },
-      { q:"Q7-Q9", topic:"Campaign MCQ", pass:true, note:"&#10003; 3/3 &mdash; who can help, why 9 of 48 taps, opinion vs fact." },
-      { q:"Q10", topic:"Campaign Written", pass:false, note:"&#10007; 1/3 &mdash; \"It is called every drop count because literally every job counts.\" Wrote \"job\" where the title says \"drop\" (the word came from our own U39 lesson); no figure, poster or tank from the text. \"Why is it called ___?\" is now a three-time miss." },
-      { q:"Q11", topic:"Campaign Written", pass:false, note:"&#9650; 3/4 &mdash; checking taps and reporting a dripping one. Content is right and from the text; both actions sit in one sentence instead of two named ways." },
-      { q:"Q12-Q14", topic:"Story MCQ", pass:true, note:"&#10003; 3/3 &mdash; why Ploy helps, why Yai gives the tin, \"the queue snaked\"." },
-      { q:"Q15", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; \"nervous\" to \"happy\". Start feeling and its reason are not in the story; no story detail anywhere (Nam, headphones, orders, money tin)." },
-      { q:"Q16", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; a lesson in a full sentence, but no event or quote from the story, and \"nervous\" again." }
+      { q:"Q1-Q4", topic:"Honeybees MCQ", pass:true, note:"&#10003; 4/4 &mdash; queen leaves, table lookup, \"beard\" comparison, 20&ndash;30 scouts." },
+      { q:"Q7-Q10", topic:"Edge Pieces MCQ", pass:true, note:"&#10003; 4/4 &mdash; bench under the stairs, stand/sit/stand, \"skittered like spilled rice\", why start with the edges." },
+      { q:"Q5", topic:"Honeybees Written", pass:false, note:"&#9650; 2/3 &mdash; proof box names the oak hollow (small, easy to guard) but in his own words; the answer box names no site. Marked from screenshots." },
+      { q:"Q6", topic:"Honeybees Written", pass:false, note:"&#9650; 2/3 &mdash; longer dance = better site, relevant quote; does not say why it matters. Answer reads like dictation (\"sidewalk\")." },
+      { q:"Q11", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; proof \"I cant find any proof\"; answer \"Lonely to confident and was happy in the end\". No story detail." },
+      { q:"Q12", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; proof \"Idk\"; answer a fragment about mistakes and friends. No event, no quote." }
     ]
   },
 
@@ -135,11 +134,26 @@ var PREM_ENGLISH = {
     { n:36, score:10, outOf:20, delta:-2, color:'#fc4e4e', star:false, label:'U36' },
     { n:37, score:18, outOf:20, delta:8,  color:'#89F336', star:true,  label:'U37' },
     { n:'38P1', score:47, outOf:60, delta:null, color:'#f6993f', star:false, label:'U38 P1 🏫' },
-    { n:39, score:18, outOf:25, delta:null, color:'#f6993f', star:false, label:'U39 🏫' }
+    { n:39, score:18, outOf:25, delta:null, color:'#f6993f', star:false, label:'U39 🏫' },
+    { n:40, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U40' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 40,
+      title: "Unit 40 &mdash; &#128270; Prove It: Find it &middot; Copy it &middot; Say it",
+      badge: '#f6993f',
+      status: 'done',
+      note: "14/20 (70%) &mdash; <strong>short of the 16 pass bar by 2, marked from screenshots.</strong> Auto 8/8. Written 6/12: Q5 2, Q6 2, Q11 1, Q12 1. Prem could not submit &mdash; the proof gate locked him out on Q11/Q12, where he typed &ldquo;I cant find any proof&rdquo; and &ldquo;Idk&rdquo;. Lock-out fixed 3 Oct. <strong>Next: Milestone 4.</strong>",
+      tags: [
+        { t:"14/20 (70%) provisional", s:"background:#fff0f0;color:#c53030" },
+        { t:"Auto 8/8 &#9733;", s:"background:#f0fff4;color:#276749" },
+        { t:"Written 6/12 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"Not submitted", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Milestone 4", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 39,
       title: "Unit 39 &mdash; &#127979; School Test 3-4 Ready &mdash; Count the Jobs",

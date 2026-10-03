@@ -62,6 +62,7 @@
   .proofmsg{font-size:.82rem;font-weight:700;margin-top:4px;min-height:1em;color:var(--bad)}
   .proofmsg.good{color:var(--ok)}
   .btn.chk{background:#eceff1;color:#4A148C;padding:6px 14px;font-size:.8rem;margin-top:6px}
+  .btn.chk.skip{background:#fff3e0;color:#8a5a00;margin-left:8px}
   textarea.writtenin{width:100%;min-height:100px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
   .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
   .markscheme.show{display:block}
@@ -421,6 +422,7 @@ const chosen = {};      // qn -> mcq index (1-based) or written answer text
 const proofs = {};      // qn -> proof text
 const proofTries = {};  // qn -> number of rejected proofs
 const lastRej = {};     // qn -> last rejected proof text
+const gaveUp = {};      // qn -> true when he pressed "I can't find it" (no lock-out: he can always submit)
 let submitted = false;
 
 function render(){
@@ -449,7 +451,7 @@ function render(){
         html += `<label class="fld">Proof — copy at least 4 words from the text</label>
           <input type="text" class="proofin" id="pr-${q.n}" autocomplete="off" oninput="typeProof(${q.n}, this.value)" onblur="checkProof(${q.n})">
           <div class="proofmsg" id="pm-${q.n}"></div>
-          <button class="btn chk" id="pc-${q.n}" onclick="checkProof(${q.n})">Check my proof</button>
+          <button class="btn chk" id="pc-${q.n}" onclick="checkProof(${q.n})">Check my proof</button><button class="btn chk skip" id="sk-${q.n}" style="display:none" onclick="giveUp(${q.n})">I can't find it — move on</button>
           <label class="fld">Your answer — full sentences</label>
           <textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>`;
       }
@@ -479,7 +481,7 @@ function typeAnswer(qn, val){
 }
 function typeProof(qn, val){
   if (submitted) return;
-  proofs[qn] = val;
+  proofs[qn] = val; gaveUp[qn] = false;
   const el = document.getElementById(`pr-${qn}`);
   el.classList.remove('good','badp');
   const m = document.getElementById(`pm-${qn}`); m.textContent = ''; m.classList.remove('good');
@@ -510,12 +512,22 @@ function checkProof(qn){
     proofTries[qn] = (proofTries[qn] || 0) + 1;
     lastRej[qn] = v;
   }
+  showSkip(qn);
+}
+function showSkip(qn){ const b = document.getElementById(`sk-${qn}`); if (b) b.style.display = 'inline-block'; }
+// Never lock a child out: if he cannot find the proof he can say so, write his best answer, and submit.
+function giveUp(qn){
+  if (submitted) return;
+  gaveUp[qn] = true;
+  const m = document.getElementById(`pm-${qn}`); m.classList.add('good');
+  m.textContent = "That's OK. Now write your best answer in the box below.";
+  updateProgress();
 }
 function isAnswered(q){
   const v = chosen[q.n];
   if (q.type === 'written'){
     // Hand-marked: no word-count gate (a correct answer can be short). Needs a proof the checker accepts + a non-empty answer.
-    return v !== undefined && v.trim().length > 0 && proofIsGood(q);
+    return v !== undefined && v.trim().length > 0 && (proofIsGood(q) || gaveUp[q.n] === true);
   }
   return v !== undefined && v !== '';
 }
@@ -535,7 +547,8 @@ function askConfirmSubmit(){
   if (missing){
     if (missing.type === 'written' && !(proofs[missing.n]||'').trim()){
       const m = document.getElementById(`pm-${missing.n}`); m.classList.remove('good');
-      m.textContent = 'Copy the words from the text that prove your answer into this box first.';
+      m.textContent = 'Copy the words from the text that prove your answer into this box. Stuck? Press "I can\'t find it".';
+      showSkip(missing.n);
     }
     const el = document.getElementById(`q-${missing.n}`);
     if (el){
@@ -568,7 +581,7 @@ function doSubmit(){
     const given = chosen[q.n];
     if (q.type === 'written'){
       const tries = proofTries[q.n] || 0;
-      written.push({ q:q.n, marks:q.marks, markScheme:q.markScheme, proof: proofs[q.n]||'', proofTries: tries, proofFirstTryOK: tries === 0,
+      written.push({ q:q.n, marks:q.marks, markScheme:q.markScheme, proof: proofs[q.n]||'', proofTries: tries, proofFirstTryOK: tries === 0, proofAccepted: proofIsGood(q), proofGaveUp: (gaveUp[q.n] === true && !proofIsGood(q)),
                      response: given||'', wordCount: (given||'').trim().split(/\s+/).filter(Boolean).length });
       document.getElementById(`ms-${q.n}`).classList.add('show');
       document.getElementById(`tag-pending-${q.n}`).classList.add('show');

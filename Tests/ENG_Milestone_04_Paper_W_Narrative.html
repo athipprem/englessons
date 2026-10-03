@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milestone 4 — Paper W Narrative</title>
+<!-- Built from BUILD_PLAN_ENG_M04_ISA_Checkpoint.md v1 section 6. Handwritten paper: the story is written on lined paper
+     and photographed. This page only shows the picture and prompt, keeps a count-up clock, and saves the page count. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{--ink:#2d3748;--grey:#718096;--line:#e2e8f0;--ok:#2e7d32}
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.95rem;font-weight:700;margin-bottom:14px;text-align:center}
+  .pic{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px;margin-bottom:14px}
+  .pic svg{display:block;width:100%;height:auto;border-radius:10px}
+  .prompt{background:#fff8e1;border:2px solid #f6993f;border-radius:12px;padding:16px 18px;font-size:1.15rem;font-weight:800;color:#5d4037;margin-bottom:14px;text-align:center}
+  .how{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:14px;font-size:.98rem}
+  .how ul{margin:6px 0 0 20px;padding:0}
+  .how li{margin-bottom:6px}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.finish{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff}
+  .btn.save:disabled{background:#cfd8dc;color:#78909c;cursor:not-allowed}
+  .btn.pg{background:#eceff1;color:#4A148C;padding:12px 22px;font-size:1.1rem;margin:0 4px}
+  .btn.pg.sel{background:#4A148C;color:#fff}
+  #finish-panel{display:none;background:#fff;border:2px solid #4A148C;border-radius:14px;padding:18px;text-align:center;margin-top:14px}
+  #finish-panel.show{display:block}
+  #save-status{font-size:.95rem;text-align:center;margin-top:12px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}
+  #save-status.done{color:var(--ok)}
+  .lui{font-size:.82rem;color:var(--grey);background:#f1f5f9;border-radius:10px;padding:10px 14px;margin-top:18px}
+  .center{text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b>Milestone 4 — Paper W: Narrative</b>
+      <span class="sub">Your story, written by hand</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+
+  <div class="readfirst">Microphone off. Write by hand on lined paper.</div>
+
+  <div class="pic">
+<svg viewBox="0 0 600 400" role="img" aria-label="An old wooden door in a high stone wall, slightly open, with bright light and green leaves in the gap and a small brass key on the path in front" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9dcff"/><stop offset="1" stop-color="#e8f4ff"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="55%" r="65%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#fff7c2"/><stop offset="1" stop-color="#ffe680"/></radialGradient>
+    <pattern id="stones" width="80" height="40" patternUnits="userSpaceOnUse">
+      <rect width="80" height="40" fill="#9a9087"/>
+      <rect x="1" y="1" width="38" height="18" rx="3" fill="#a79d93" stroke="#6f665e" stroke-width="2"/>
+      <rect x="41" y="1" width="38" height="18" rx="3" fill="#928880" stroke="#6f665e" stroke-width="2"/>
+      <rect x="-19" y="21" width="38" height="18" rx="3" fill="#928880" stroke="#6f665e" stroke-width="2"/>
+      <rect x="21" y="21" width="38" height="18" rx="3" fill="#a79d93" stroke="#6f665e" stroke-width="2"/>
+      <rect x="61" y="21" width="38" height="18" rx="3" fill="#928880" stroke="#6f665e" stroke-width="2"/>
+    </pattern>
+    <clipPath id="arch"><path d="M232 330 V160 A68 68 0 0 1 368 160 V330 Z"/></clipPath>
+  </defs>
+  <rect width="600" height="400" fill="url(#sky)"/>
+  <rect x="0" y="40" width="600" height="300" fill="url(#stones)"/>
+  <rect x="0" y="30" width="600" height="14" fill="#7d746c"/>
+  <g fill="#43a047" opacity=".95"><circle cx="40" cy="30" r="20"/><circle cx="75" cy="24" r="16"/><circle cx="520" cy="28" r="22"/><circle cx="560" cy="34" r="16"/><circle cx="470" cy="22" r="13"/></g>
+  <path d="M214 336 V160 A86 86 0 0 1 386 160 V336 Z" fill="#6d4c41"/>
+  <path d="M232 330 V160 A68 68 0 0 1 368 160 V330 Z" fill="url(#glow)"/>
+  <g clip-path="url(#arch)">
+    <g fill="#2e7d32"><ellipse cx="300" cy="150" rx="26" ry="14" transform="rotate(-20 300 150)"/><ellipse cx="335" cy="200" rx="30" ry="14" transform="rotate(25 335 200)"/><ellipse cx="290" cy="240" rx="28" ry="13" transform="rotate(-10 290 240)"/><ellipse cx="345" cy="285" rx="26" ry="12" transform="rotate(30 345 285)"/></g>
+    <g fill="#66bb6a"><ellipse cx="315" cy="120" rx="20" ry="10" transform="rotate(15 315 120)"/><ellipse cx="278" cy="195" rx="22" ry="10" transform="rotate(-30 278 195)"/><ellipse cx="318" cy="260" rx="22" ry="10" transform="rotate(10 318 260)"/></g>
+    <g fill="#a5d6a7"><circle cx="352" cy="150" r="9"/><circle cx="270" cy="285" r="10"/><circle cx="300" cy="190" r="8"/></g>
+  </g>
+  <path d="M232 330 L232 160 A68 68 0 0 1 262 104 L284 118 Q268 146 268 176 L268 318 Z" fill="#8d6e63" stroke="#3e2723" stroke-width="3"/>
+  <g stroke="#4e342e" stroke-width="2.5"><line x1="246" y1="130" x2="246" y2="328"/><line x1="258" y1="118" x2="258" y2="322"/></g>
+  <circle cx="262" cy="230" r="5" fill="#d4a017" stroke="#6b4e00" stroke-width="1.5"/>
+  <path d="M232 330 V160 A68 68 0 0 1 368 160 V330" fill="none" stroke="#4e342e" stroke-width="6"/>
+  <rect x="196" y="330" width="208" height="12" fill="#6f665e"/>
+  <polygon points="236,342 364,342 540,400 60,400" fill="#c9b58a"/>
+  <polygon points="248,342 352,342 420,400 180,400" fill="#fff59d" opacity=".55"/>
+  <g stroke="#a89466" stroke-width="2" fill="none"><path d="M120 390 q30 -8 60 0"/><path d="M430 388 q30 -8 60 0"/></g>
+  <g transform="translate(300 372)">
+    <circle cx="-26" cy="0" r="9" fill="none" stroke="#c9961a" stroke-width="5"/>
+    <rect x="-18" y="-3" width="46" height="6" rx="2" fill="#d4a017" stroke="#8a6410" stroke-width="1.2"/>
+    <rect x="18" y="3" width="5" height="9" fill="#d4a017" stroke="#8a6410" stroke-width="1.2"/>
+    <rect x="26" y="3" width="5" height="7" fill="#d4a017" stroke="#8a6410" stroke-width="1.2"/>
+  </g>
+</svg>
+  </div>
+
+  <div class="prompt">Look at the picture. Write a story about what happens when someone finds this door and goes through it.</div>
+
+  <div class="how">
+    <b>How to do it</b>
+    <ul>
+      <li>Plan for 5 minutes on the back of your page.</li>
+      <li>Write for 25 minutes.</li>
+      <li>Leave 5 minutes to read it through and fix mistakes.</li>
+      <li>Give your story a title.</li>
+    </ul>
+    <p style="margin:10px 0 0">The clock above counts up. It will not stop you. When you have finished writing, press the button below.</p>
+  </div>
+
+  <div class="center"><button class="btn finish" id="btn-finish" onclick="showFinish()">I have finished</button></div>
+
+  <div id="finish-panel">
+    <p style="margin:0 0 10px;font-weight:800">How many pages did you write?</p>
+    <div id="pg-btns">
+      <button class="btn pg" onclick="pickPages(1)" id="pg1">1</button><button class="btn pg" onclick="pickPages(2)" id="pg2">2</button><button class="btn pg" onclick="pickPages(3)" id="pg3">3</button><button class="btn pg" onclick="pickPages(4)" id="pg4">4</button>
+    </div>
+    <p style="margin:14px 0 10px;font-size:.9rem;color:var(--grey)">Then press the blue button to save a small file about your sitting.</p>
+    <button class="btn save" id="btn-save" disabled onclick="saveResults()">💾 Save for Naomi</button>
+    <div id="save-status"></div>
+    <a class="btn" id="btn-hub" href="../index.html" style="display:none;background:#546e7a;color:#fff;text-decoration:none;margin-top:12px;display:none">🏠 Back to Hub</a>
+  </div>
+
+  <div class="lui"><b>For Lui:</b> photograph each page flat and in good light, and save the photos in <b>Lessons\Tests\Results</b> as <b>ENG_M04W_&lt;date&gt;_p1.jpg</b>, <b>_p2.jpg</b>, and so on (for example ENG_M04W_2026-10-07_p1.jpg). Naomi marks the story from the photos.</div>
+</div>
+
+<script>
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+let frozenSecs = null;
+let pages = null;
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-openedAtMs)/1000); }
+function tick(){ document.getElementById('timer').textContent = fmtClock(elapsedSecs()); }
+setInterval(tick, 1000); tick();
+
+function showFinish(){
+  if (frozenSecs === null) frozenSecs = Math.round((Date.now()-openedAtMs)/1000);
+  tick();
+  document.getElementById('btn-finish').style.display = 'none';
+  document.getElementById('finish-panel').classList.add('show');
+  document.getElementById('finish-panel').scrollIntoView({behavior:'smooth', block:'center'});
+}
+function pickPages(n){
+  pages = n;
+  [1,2,3,4].forEach(i => document.getElementById('pg'+i).classList.toggle('sel', i === n));
+  document.getElementById('btn-save').disabled = false;
+}
+let lastResults = null;
+async function saveResults(){
+  if (pages === null) return;
+  const dateTaken = new Date().toISOString().slice(0,10);
+  lastResults = {
+    student: "Prem", unit: "M4", unitTitle: "Paper W — Narrative", paper: "W",
+    dateTaken, openedAt, finishedAt: new Date().toISOString(),
+    minutesSpent: Math.round(frozenSecs/60), secondsSpent: frozenSecs, pages
+  };
+  const filename = `ENG_M04W_Results_${dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = document.getElementById('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      done(st, `Saved as ${filename}.`);
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ st.className = 'reminder'; st.textContent = 'Save cancelled — NOT saved yet. Press the blue button again.'; return; }
+    }
+  }
+  try {
+    const blob = new Blob([json], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    done(st, `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`);
+  } catch(e2){ st.className = 'reminder'; st.textContent = 'Could not save. Tell Dad.'; }
+}
+function done(st, msg){
+  st.className = 'done'; st.textContent = msg + ' Well done! Now give your pages to Dad to photograph.';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+}
+</script>
+</body>
+</html>
