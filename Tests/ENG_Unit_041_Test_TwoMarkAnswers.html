@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 41 Test — The Second Mark</title>
+<!-- Built from BUILD_PLAN_ENG_U041_TwoMarkAnswers.md v1 section 6. Engine copied from the Milestone 4 Paper R test as built
+     (no proof box, count-up timer that never blocks, strand tags), with the non-blocking "Check your answers" screen and
+     longestRun / editedOnReview / reviewTicks / reviewSeconds telemetry added. 14 items, 20 marks, pass bar 16/20. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --t1:#00695c; --t1-fill:#B2DFDB; --t1-text:#00695c;
+    --t2:#0d47a1; --t2-fill:#BBDEFB; --t2-text:#0d47a1;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .wrap{max-width:1120px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:16px;text-align:center}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 6px;text-align:center}
+  .band.t1{background:var(--t1-fill);color:var(--t1-text)}
+  .band.t2{background:var(--t2-fill);color:var(--t2-text)}
+  .hint{font-size:.85rem;font-weight:600;border-radius:8px;padding:8px 14px;margin-bottom:12px;background:#f3e8ff;color:#4a235a;border-left:4px solid #9b59b6}
+  .grp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:16px;align-items:start}
+  .grp .passage{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;margin-bottom:14px}
+  @media (max-width:900px){.grp{grid-template-columns:1fr}.grp .passage{position:static;max-height:none}}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;line-height:1.75}
+  .passage h4{margin:0 0 6px;color:var(--t2-text);font-size:.95rem}
+  .passage p{margin:0 0 10px}
+  .passage table{border-collapse:collapse;width:100%;font-size:.82rem;margin:6px 0}
+  .passage th,.passage td{border:1.5px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+  .passage th{background:#e0f2f1}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.t1{border-left-color:var(--t1)}
+  .q.t2{border-left-color:var(--t2)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .tier-tag{font-size:.68rem;font-weight:800;background:#eee;color:#666;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  textarea.writtenin{width:100%;min-height:100px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{position:sticky;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px 12px 0 0;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.88rem;text-align:center;margin-top:8px;color:var(--grey)}
+  #save-status.reminder{color:#b71c1c;font-weight:800}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+
+  .band.t3{background:#FFE0B2;color:#bf360c}
+  .band.t4{background:#E1BEE7;color:#4a148c}
+  .q.t3{border-left-color:#e65100}
+  .q.t4{border-left-color:#7b1fa2}
+  .passage h4{font-size:1.02rem}
+  .passage .note{font-weight:700;color:#00695c;margin:4px 0}
+  .passage .tip{background:#fff8e1;border:1.5px solid #f6993f;border-radius:8px;padding:8px 12px;margin:10px 0;font-weight:600}
+  .passage ol,.passage ul{margin:4px 0 10px 20px;padding:0}
+  .passage li{margin-bottom:4px}
+  .passage .addr,.passage .sign{margin:0 0 10px}
+  .passage table td{white-space:nowrap}
+  .passage th{background:#e0f2f1}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  .readfirst.two{background:#fff3e0;border-color:#f6993f;color:#7a4a00;font-weight:600}
+  textarea.writtenin{min-height:110px}
+
+  .band.t3{background:#FFE0B2;color:#bf360c}
+  #review{display:none;position:fixed;inset:0;background:#f7f7fb;z-index:120;overflow:auto;padding:18px}
+  #review.show{display:block}
+  .rv-wrap{max-width:820px;margin:0 auto}
+  .rv-wrap h2{color:#4A148C;margin:6px 0 4px}
+  .rv-line{font-size:.95rem;margin-bottom:14px}
+  .rv-item{background:#fff;border:1.5px solid var(--line);border-left:6px solid #7B1FA2;border-radius:12px;padding:14px;margin-bottom:12px}
+  .rv-q{font-size:.95rem;margin-bottom:8px}
+  .rv-ans{background:#f5f0fa;border-radius:8px;padding:10px 12px;font-size:.93rem;min-height:40px;white-space:pre-wrap}
+  .rv-tick{display:block;font-size:.93rem;margin:8px 0 0}
+  .rv-tick input{width:20px;height:20px;vertical-align:middle;margin-right:8px}
+  .btn.chk{background:#eceff1;color:#4A148C;padding:7px 14px;font-size:.82rem;margin-top:8px}
+  .passage ul,.passage ol{margin:4px 0 10px 20px;padding:0}
+  .passage li{margin-bottom:4px}
+  .passage .poster{background:#e0f2f1;border:2px solid #00695c;border-radius:10px;padding:8px 12px;margin-bottom:10px;font-weight:800;text-align:center;color:#00695c}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 41 Test — The Second Mark</b>
+      <span class="sub" id="hdr-sub">Poster · Story · Article</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 14 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div class="readfirst">Type it yourself — microphone off.</div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" onclick="askConfirmSubmit()">Submit</button>
+      <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
+    </div>
+  </div>
+</div>
+<div id="review">
+  <div class="rv-wrap">
+    <h2>Check your answers</h2>
+    <p class="rv-line">Before you submit, read each written answer again. Tick the boxes that are true. You can still change any answer.</p>
+    <div id="review-items"></div>
+    <div style="text-align:center;margin:18px 0 40px"><button class="btn submit" onclick="doSubmit()">Submit my answers</button></div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 41;
+const UNIT_TITLE = "The Second Mark";
+const PASS_BAR   = 16;                 // out of 20
+const TOTAL_MARKS = 20;
+const AUTO_OUT_OF = 8;
+const WRITTEN_MARKS = 12;
+
+const SECTION_ORDER = ['t1','t2','t3'];
+const SECTION_LABEL = {
+  t1: "TEXT 1 — Summer Reading Challenge (poster)",
+  t2: "TEXT 2 — The Spelling Mistake (story)",
+  t3: "TEXT 3 — Give Us a Longer Lunch Break! (article)"
+};
+const SECTION_SHORT = { t1:"Poster", t2:"Story", t3:"Article" };
+const SECTION_HINT = { t1: "For written answers, use words from the text to show how you know.", t2: "For written answers, use words from the text to show how you know.", t3: "For written answers, use words from the text to show how you know." };
+
+const Q = [
+ {
+  "n": 1,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "What is the last day you can read books for the challenge?",
+  "options": [
+   "1 June",
+   "15 September",
+   "31 August",
+   "30 August"
+  ],
+  "ans": 3,
+  "why": "The first rule says to read “between 1 June and 31 August”. The 15 September date is for collecting the prize, not for reading."
+ },
+ {
+  "n": 2,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "How many books do you need to read to get a certificate?",
+  "options": [
+   "10 books",
+   "6 books",
+   "15 books",
+   "3 books"
+  ],
+  "ans": 1,
+  "why": "Find “Certificate” in the Prize column, then read across to the Books read column: 10."
+ },
+ {
+  "n": 3,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "Why do you think readers must collect their prize by 15 September?",
+  "options": [
+   "so readers have extra time to finish reading all of their books",
+   "so the front desk can stay closed for the rest of September",
+   "so every child gets the same prize whether they read or not",
+   "so the library can close the challenge and give out the prizes in time"
+  ],
+  "ans": 4,
+  "why": "A deadline for collecting prizes lets the library finish the challenge and give out the prizes. The reading dates have already ended by then, so readers do not get extra reading time."
+ },
+ {
+  "n": 4,
+  "section": "t1",
+  "type": "written",
+  "strand": "L",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Nong is 11. This summer he read 11 library books, but 2 of them were picture books with 30 pages each. He went to the front desk on 10 September. What prize does he get? Use the poster to explain.",
+  "markScheme": [
+   "The prize, bookmark + badge, written in a full sentence (e.g. “Nong gets a bookmark and a badge.”).",
+   "Why: only 9 books count, because the poster says books need “at least 50 pages” and “picture books don't count”. 9 books is at least 6 but fewer than 10. (He is 11, so he is in the age range, and 10 September is before 15 September.)"
+  ]
+ },
+ {
+  "n": 5,
+  "section": "t1",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Why do you think picture books don't count in the challenge? Use the poster to explain.",
+  "markScheme": [
+   "A sensible reason in a full sentence: so children read longer books · so the challenge is harder · so readers stretch themselves. (The poster never says why, so he has to work it out.)",
+   "Words from the poster that link to it: “at least 50 pages” or “picture books don't count”."
+  ]
+ },
+ {
+  "n": 6,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "What mistake did Mai find on Lin’s poster?",
+  "options": [
+   "the title was in the wrong colour",
+   "the word “library” was spelt as “libary”",
+   "two words were joined together by mistake",
+   "a full stop was missing at the end"
+  ],
+  "ans": 2,
+  "why": "Paragraph 6 says: “Lin had spelt library with only one R: libary.”"
+ },
+ {
+  "n": 7,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "“Lin stared at the floor and twisted her sleeve.” This shows that Lin…",
+  "options": [
+   "felt shy about asking for help with her spelling",
+   "was bored while she waited for lunch",
+   "was cross with Mai for being late",
+   "was trying to hide that she had won"
+  ],
+  "ans": 1,
+  "why": "Someone who will not look up and fiddles with her sleeve is nervous about what she is about to ask. She goes on to ask for help with her spelling."
+ },
+ {
+  "n": 8,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Why did Mai pin her own poster on her bedroom wall at the end?",
+  "options": [
+   "she wanted Lin to see it when she visited",
+   "her teacher had told her to put it up",
+   "she planned to enter it in another contest",
+   "she felt good about her own work again"
+  ],
+  "ans": 4,
+  "why": "At the end Mai smooths out the fold, presses each corner flat, pins the poster up and looks at it for a long time. Those actions show she values her own work again."
+ },
+ {
+  "n": 9,
+  "section": "t2",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "How does Mai feel when Lin wins the competition? Use a detail from the story to show how you know.",
+  "markScheme": [
+   "A feeling that fits, in a full sentence: disappointed · jealous · upset · sad · let down. (The story never names it.)",
+   "An action that shows it: her hands stay in her lap · she slides her poster into her bag and folds it · she does not clap."
+  ]
+ },
+ {
+  "n": 10,
+  "section": "t2",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "Why does Mai fix the mistake on Lin’s poster? Use the story to explain.",
+  "markScheme": [
+   "A reason in a full sentence: she cares about Lin · she wants Lin's poster to be right, even though she wanted to win · she is kind even when she is upset.",
+   "A story detail: Lin asked her for help · she “quietly” fixed it with a pencil · Lin hugged her afterwards."
+  ]
+ },
+ {
+  "n": 11,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "What is the main purpose of the article?",
+  "options": [
+   "to describe what pupils eat at lunch",
+   "to persuade the school to make lunch break longer",
+   "to explain how teachers plan the school day",
+   "to tell a story about making new friends"
+  ],
+  "ans": 2,
+  "why": "The writer's whole article asks for one change: a lunch break of one hour. He gives reasons to persuade the school."
+ },
+ {
+  "n": 12,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "E",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "Which sentence from the article is an opinion?",
+  "options": [
+   "We only ever play with the people who sit next to us.",
+   "Many pupils leave food on their plates because they are in a hurry.",
+   "Lunch break is the best part of the whole school day.",
+   "Most of us are on the playground for fifteen minutes at best."
+  ],
+  "ans": 3,
+  "why": "An opinion tells us what someone thinks, and nobody can check it. “The best part of the whole school day” is the writer's own feeling. The other three can be checked."
+ },
+ {
+  "n": 13,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Which reason in the article do you think is the most convincing? Explain why, using the article.",
+  "markScheme": [
+   "Names one of the three reasons (exercise · eating too quickly · making friends), in a full sentence.",
+   "Says why it convinces, tied to the article: e.g. the doctors' 60 minutes is a fact you can check · many pupils really do leave food · the break is too short to talk."
+  ]
+ },
+ {
+  "n": 14,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Do you agree that lunch break should be longer? Give one reason from the article and one from your own life.",
+  "markScheme": [
+   "A position (agree, disagree or partly) with a reason from the article: its words or a precise detail.",
+   "A reason from his own life: his own school day, his own friends, his own lunch. Own experience is allowed and needed here."
+  ]
+ }
+];
+
+const PASSAGES = {
+ "t1": "<div class=\"poster\">Brookfield Library — Summer Reading Challenge</div>\n<p>Join in this summer and win prizes for reading. Here is how it works.</p>\n<ul><li>Read library books between 1 June and 31 August.</li><li>Books must have at least 50 pages — picture books don't count.</li><li>You must be aged 7 to 12.</li><li>Collect your prize at the front desk by 15 September.</li></ul>\n<table>\n<tr><th>Books read</th><th>Prize</th></tr>\n<tr><td>3</td><td>Bookmark</td></tr>\n<tr><td>6</td><td>Bookmark + badge</td></tr>\n<tr><td>10</td><td>Certificate + free book</td></tr>\n<tr><td>15 or more</td><td>All of the above + your name on the Reading Wall</td></tr>\n</table>\n<p style=\"margin-top:10px\">Ask at the front desk for your reading card. A librarian will stamp it every time you return a book.</p>",
+ "t2": "<h4>The Spelling Mistake</h4>\n<p>Mai had been working on her poster for two weeks. It showed a green planet with a face made of leaves, and across the top she had painted TAKE CARE OF OUR WORLD in letters as tall as her hand. Every night she had added one more tiny detail: a bee on a flower, a drop of dew, a snail on a leaf.</p>\n<p>She and her best friend, Lin, had both entered the class poster competition. They had sat side by side all week, colouring in silence.</p>\n<p>On Friday morning, Mr Reed stood at the front of the class holding a sheet of gold stars. “The winner,” he said, “is Lin.”</p>\n<p>The whole class clapped. Chairs scraped as people turned to look at Lin. Mai’s hands stayed in her lap. Slowly, she slid her own poster off her desk, folded it in half, and pushed it deep into her bag, behind her lunch box.</p>\n<p>At lunch, Lin came over to the bench where Mai was sitting. She was staring at the floor and twisting her sleeve round one finger. “Could you check my spelling before it goes up in the hall?” she asked. “I’m not very good at it.”</p>\n<p>Mai took the poster. Her eyes moved slowly along the words, and then they stopped. Lin had spelt library with only one R: libary. For a moment, Mai said nothing. She looked at the poster, and then at Lin, who was still staring at the floor. Then she took a pencil from the table and quietly fixed it.</p>\n<p>“Thank you,” Lin whispered.</p>\n<p>When the poster went up in the hall that afternoon, Lin threw her arms round Mai and hugged her so tightly that Mai nearly dropped her bag.</p>\n<p>That evening, Mai took her own poster out of her bag. She smoothed out the fold with the flat of her hand, pressed each corner flat, and pinned it above her bed. Then she stood back and looked at the little bee for a long time.</p>",
+ "t3": "<h4>Give Us a Longer Lunch Break!</h4>\n<p><i>By a Year 6 student</i></p>\n<p>Every school day, the lunch bell rings at ten past twelve and, forty minutes later, it rings again. I am in Year 6, and I think forty minutes is far too short. That is not enough time to eat, play and talk. Our lunch break should be one hour long.</p>\n<p>First, we need time to move. Doctors say children our age need at least 60 minutes of exercise every day. Most of us are on the playground for fifteen minutes at best, and then we sit down again for the whole afternoon.</p>\n<p>Second, we have to eat too quickly. By the time we have queued for our food, there is hardly any time left to play, so we gulp down our meals. Many pupils leave food on their plates because they are in a hurry.</p>\n<p>Third, a longer break gives us time to make friends with children from other classes. We only ever play with the people who sit next to us. A real conversation needs more than a few minutes squeezed in between two mouthfuls.</p>\n<p>Some teachers say we would lose lesson time, but we would learn better after a proper rest.</p>\n<p>Lunch break is the best part of the whole school day. I hope our headteacher will try an hour-long break for one month and ask the pupils what they think. If it does not work, the bell can always go back to forty minutes.</p>"
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+const chosen = {};      // qn -> mcq index (1-based) or written answer text
+let submitted = false;
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+let frozenSecs = null;
+let reviewOpenedMs = null, reviewMsTotal = 0;
+let snapshot = null;     // written answers as they were when the review screen first opened
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-openedAtMs)/1000); }
+function tick(){ document.getElementById('timer').textContent = fmtClock(elapsedSecs()); }
+setInterval(tick, 1000); tick();
+
+function render(){
+  let html = '';
+  SECTION_ORDER.forEach(sec => {
+    html += `<div class="band ${sec}">${SECTION_LABEL[sec]}</div>`;
+    html += `<div class="hint">${SECTION_HINT[sec]}</div>`;
+    html += `<div class="grp"><div class="passage">${PASSAGES[sec]}</div><div class="qs">`;
+    Q.filter(q => q.section === sec).forEach(q => {
+      html += `<div class="q ${q.section}" id="q-${q.n}">
+        <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+          ${q.type==='written' ? `<span class="marks-tag">(${q.marks} mks)</span>` : ''}
+          <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+          <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+          <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+        </p>`;
+      if (q.type === 'mcq'){
+        html += `<div>`;
+        q.options.forEach((opt, idx) => {
+          html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${'ABCD'[idx]}. ${opt}</button>`;
+        });
+        html += `</div>`;
+      } else {
+        html += `<textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>`;
+      }
+      if (q.type === 'mcq') html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+      if (q.type === 'written'){
+        html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById('quiz').innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+function typeAnswer(qn, val){ if (submitted) return; chosen[qn] = val; updateProgress(); }
+// Any non-empty answer counts. A correct written answer can be short, and nothing blocks him.
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'written') return v !== undefined && v.trim().length > 0;
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = false;
+  btn.textContent = (n === Q.length) ? 'Submit the test' : `Submit (${Q.length-n} not answered yet) — tap to jump there`;
+}
+function firstUnanswered(){ return Q.find(q => !isAnswered(q)); }
+
+// ---- the "Check your answers" screen (plan section 6.4): asks, never blocks ----
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function askConfirmSubmit(){
+  const missing = firstUnanswered();
+  if (missing){
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  openReview();
+}
+function openReview(){
+  if (snapshot === null){
+    snapshot = {};
+    Q.filter(q => q.type === 'written').forEach(q => snapshot[q.n] = chosen[q.n] || '');
+  }
+  reviewOpenedMs = Date.now();
+  let h = '';
+  Q.filter(q => q.type === 'written').forEach(q => {
+    h += `<div class="rv-item" id="rv-${q.n}">
+      <div class="rv-q"><b>Q${q.n}.</b> ${q.body}</div>
+      <div class="rv-ans" id="rv-ans-${q.n}">${esc(chosen[q.n]||'')}</div>
+      <textarea class="writtenin rv-edit" id="rv-in-${q.n}" style="display:none" oninput="typeAnswer(${q.n}, this.value)">${esc(chosen[q.n]||'')}</textarea>
+      <button class="btn chk" id="rv-eb-${q.n}" onclick="editAnswer(${q.n})">Edit this answer</button>
+      <label class="rv-tick"><input type="checkbox" id="rv-t1-${q.n}"> I answered the question that was asked.</label>
+      <label class="rv-tick"><input type="checkbox" id="rv-t2-${q.n}"> I used words from the text to show how I know.</label>
+    </div>`;
+  });
+  document.getElementById('review-items').innerHTML = h;
+  document.getElementById('review').classList.add('show');
+  window.scrollTo(0,0);
+}
+function editAnswer(qn){
+  document.getElementById(`rv-ans-${qn}`).style.display = 'none';
+  const t = document.getElementById(`rv-in-${qn}`);
+  t.style.display = 'block'; t.focus();
+  document.getElementById(`rv-eb-${qn}`).style.display = 'none';
+  const main = document.getElementById(`in-${qn}`); if (main) main.value = chosen[qn] || '';
+}
+// ---- longestRun: longest run of consecutive words in the answer that also appear consecutively in the passage ----
+function normWords(s){
+  return String(s||'').replace(/<[^>]+>/g,' ').toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]+/g,' ').split(/\s+/).filter(Boolean);
+}
+function longestRun(answer, passageHtml){
+  const a = normWords(answer), p = normWords(passageHtml);
+  let best = 0;
+  for (let i = 0; i < a.length; i++){
+    for (let j = 0; j < p.length; j++){
+      let k = 0;
+      while (i+k < a.length && j+k < p.length && a[i+k] === p[j+k]) k++;
+      if (k > best) best = k;
+    }
+  }
+  return best;
+}
+
+let lastResults = null;
+
+function doSubmit(){
+  if (submitted) return;
+  let reviewSeconds = Math.round(reviewMsTotal/1000);
+  if (reviewOpenedMs !== null) reviewSeconds = Math.round((reviewMsTotal + (Date.now()-reviewOpenedMs))/1000);
+  submitted = true;
+  const ticks = {};
+  Q.filter(q => q.type === 'written').forEach(q => {
+    const a = document.getElementById(`rv-t1-${q.n}`), b = document.getElementById(`rv-t2-${q.n}`);
+    ticks[q.n] = { answered: !!(a && a.checked), proof: !!(b && b.checked) };
+  });
+  document.getElementById('review').classList.remove('show');
+  frozenSecs = Math.round((Date.now()-openedAtMs)/1000); tick();
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('textarea.writtenin').forEach(t => { if (t.id.indexOf('in-') === 0) { t.value = chosen[parseInt(t.id.slice(3),10)] || ''; } t.disabled = true; });
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const strandTally = {L:{c:0,t:0,w:0}, U:{c:0,t:0,w:0}, E:{c:0,t:0,w:0}};
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      const resp = given || '';
+      written.push({ q:q.n, strand:q.strand, marks:q.marks, markScheme:q.markScheme,
+                     response: resp, responseBeforeReview: snapshot[q.n] || '',
+                     wordCount: resp.trim().split(/\s+/).filter(Boolean).length,
+                     longestRun: longestRun(resp, PASSAGES[q.passageId]),
+                     reviewTicks: ticks[q.n],
+                     editedOnReview: resp !== (snapshot[q.n] || '') });
+      document.getElementById(`ms-${q.n}`).classList.add('show');
+      document.getElementById(`tag-pending-${q.n}`).classList.add('show');
+      tierTally.Applied.t++;
+      strandTally[q.strand].w += q.marks;
+      return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given, isCorrect:null };
+    }
+    const isCorrect = given === q.ans;
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    strandTally[q.strand].t++; if (isCorrect) strandTally[q.strand].c++;
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given, correct:q.ans, isCorrect };
+  });
+
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show','pass');
+  document.getElementById('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  document.getElementById('score-msg').textContent = `The ${WRITTEN_MARKS} written marks are waiting for Naomi. Pass bar for the full test is ${PASS_BAR}/${TOTAL_MARKS}.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => {
+      const wrT = Q.filter(q=>q.section===s && q.type==='written').length;
+      return `<div class="sec-chip">${SECTION_SHORT[s]}: ${sectionTally[s].c}/${sectionTally[s].t} auto (+${wrT} written)</div>`;
+    }).join('') +
+    `<div class="sec-chip">Time: ${fmtClock(frozenSecs)}</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-save').style.display = 'inline-block';
+  document.getElementById('btn-hub').style.display = 'inline-block';
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Press the blue Save button — your results are NOT saved yet.';
+
+  const strands = {};
+  ['L','U','E'].forEach(k => strands[k] = { score:strandTally[k].c, outOf:strandTally[k].t, writtenMarks:strandTally[k].w });
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    submittedAt: new Date().toISOString(),
+    openedAt: openedAt,
+    minutesSpent: Math.round(frozenSecs/60),
+    secondsSpent: frozenSecs,
+    reviewSeconds: reviewSeconds,
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    writtenMarks: WRITTEN_MARKS, writtenScore: null,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed: null,
+    strands,
+    tiers: tierTally,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers,
+    written
+  };
+}
+
+async function saveResults(){
+  const filename = `ENG_U041_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const statusEl = document.getElementById('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      statusEl.className = ''; statusEl.textContent = `Saved as ${filename}.`;
+      return;
+    } catch(e){ if (e.name === 'AbortError'){ statusEl.className = 'reminder'; statusEl.textContent = 'Save cancelled — your results are NOT saved yet. Click the blue button again.'; return; } }
+  }
+  const blob = new Blob([json], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  statusEl.className = ''; statusEl.textContent = `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`;
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>

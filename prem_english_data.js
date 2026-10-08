@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '3 Oct 2026',
+  updated:        '8 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           'M4',
-    heroLabel:   "Milestone 4 - Paper R Tue 6 Oct, Paper W Wed 7 Oct",
-    status:      "&#127937; MILESTONE 4 &mdash; built 3 Oct. Paper R (timed reading, Tue 6 Oct, pass bar 26/32) and Paper W (handwritten narrative, Wed 7 Oct, baseline). Microphone off.",
+    n:           41,
+    heroLabel:   "Unit 41 - Lesson 1 Fri 9 Oct, Lesson 2 Sat 10 Oct, Test Sun 11 Oct",
+    status:      "&#9997;&#65039; UNIT 41 &mdash; Two-Mark Answers, built 8 Oct. Two lessons (Fri, Sat) and a test (Sun, pass bar 16/20). Microphone off.",
     testPending: true
   },
 
@@ -35,23 +35,20 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 40 -- updated after each test)
   lastUnit: {
-    n: 40, label: 'Unit 40', score: 14, outOf: 20, pct: 70, delta: -2, prevScore: 18, prevOutOf: 25,
+    n: 'M4', label: 'Milestone 4 · Paper R', score: 23, outOf: 32, pct: 72, delta: null, prevScore: 14, prevOutOf: 20,
 
-    patternLabel:   "Unit 40 &mdash; 3 Oct 2026 &middot; 14/20 (70%) &mdash; short of the 16 pass bar by 2, from screenshots",
-    patternInsight: "<strong>Auto-scored 8/8 again; written 6/12 (50%).</strong> Prem could not submit: the proof gate blocked him on Q11 and Q12, where the story names no feelings. No results file, so the marks come from iPad screenshots. The two proofs the page accepted start with copied words and continue in his own.",
+    patternLabel:   "Milestone 4 Paper R &mdash; 6 Oct 2026 &middot; 23/32 (72%) &mdash; short of the 26 pass bar by 3",
+    patternInsight: "<strong>Auto-scored 16/16; written 7/16 (provisional).</strong> Reading is secure when he picks an answer; the marks leak when he has to write one. By strand: Locating 8/9, Understanding 10/13, Evaluating &amp; Reflecting 5/10. Paper W (narrative) 13/25 provisional is the first handwritten baseline, typed by Lui from the paper. Written marks are Coach's marking and need Lui's confirmation.",
 
-    analysisLabel:   "Unit 40 Result Analysis &mdash; 3 Oct 2026 (result not clean: the paper locked him out)",
-    analysisInsight: "<strong>Understanding is intact (MCQ 8/8); the written marks are still low.</strong> On the two items where the feeling and theme are not stated, the Proof boxes held &ldquo;I cant find any proof&rdquo; and &ldquo;Idk&rdquo;. The lock-out was fixed on 3 Oct (an &ldquo;I can&rsquo;t find it&rdquo; button). Q6 may have been voice-typed. Next assessment: Milestone 4.",
+    analysisLabel:   "Milestone 4 Paper R Result Analysis &mdash; 8 Oct 2026",
+    analysisInsight: "<strong>The gap is two-mark answers, not understanding.</strong> Answers usually name the right idea (tick 1) but leave out copied words from the text (tick 2). Unit 41 targets exactly that. See TEST_RECORD_M04R.md for provenance.",
 
-    qSummary: "<strong>14/20 (70%) provisional &mdash; auto 8/8, written 6/12.</strong> Q11/Q12 marks confirmed by Lui. Not a clean measure.",
+    qSummary: "<strong>23/32 (72%) provisional &mdash; auto 16/16, written 7/16.</strong> Written marks need Lui's confirmation.",
 
     qBreakdown: [
-      { q:"Q1-Q4", topic:"Honeybees MCQ", pass:true, note:"&#10003; 4/4 &mdash; queen leaves, table lookup, \"beard\" comparison, 20&ndash;30 scouts." },
-      { q:"Q7-Q10", topic:"Edge Pieces MCQ", pass:true, note:"&#10003; 4/4 &mdash; bench under the stairs, stand/sit/stand, \"skittered like spilled rice\", why start with the edges." },
-      { q:"Q5", topic:"Honeybees Written", pass:false, note:"&#9650; 2/3 &mdash; proof box names the oak hollow (small, easy to guard) but in his own words; the answer box names no site. Marked from screenshots." },
-      { q:"Q6", topic:"Honeybees Written", pass:false, note:"&#9650; 2/3 &mdash; longer dance = better site, relevant quote; does not say why it matters. Answer reads like dictation (\"sidewalk\")." },
-      { q:"Q11", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; proof \"I cant find any proof\"; answer \"Lonely to confident and was happy in the end\". No story detail." },
-      { q:"Q12", topic:"Story Written", pass:false, note:"&#10007; 1/3 &mdash; proof \"Idk\"; answer a fragment about mistakes and friends. No event, no quote." }
+      { q:"Auto", topic:"Paper R MCQ", pass:true, note:"&#10003; 16/16 &mdash; every multiple-choice item correct." },
+      { q:"Written", topic:"Paper R written", pass:false, note:"&#9650; 7/16 &mdash; provisional; answers short of the second tick." },
+      { q:"Paper W", topic:"Narrative baseline", pass:false, note:"&#9650; 13/25 provisional &mdash; first handwritten narrative, typed by Lui." }
     ]
   },
 
@@ -135,11 +132,26 @@ var PREM_ENGLISH = {
     { n:37, score:18, outOf:20, delta:8,  color:'#89F336', star:true,  label:'U37' },
     { n:'38P1', score:47, outOf:60, delta:null, color:'#f6993f', star:false, label:'U38 P1 🏫' },
     { n:39, score:18, outOf:25, delta:null, color:'#f6993f', star:false, label:'U39 🏫' },
-    { n:40, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U40' }
+    { n:40, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U40' },
+    { n:'M4', score:23, outOf:32, delta:null, color:'#f6993f', star:false, label:'M4 R', milestone:true }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 'M4',
+      title: "Milestone 4 &mdash; First ISA Checkpoint (Paper R reading &middot; Paper W narrative)",
+      badge: '#f6993f',
+      status: 'done',
+      note: "Paper R <strong>23/32 (72%)</strong>, short of the 26 bar by 3. Auto 16/16; written 7/16 (provisional, Coach-marked). Locating 8/9, Understanding 10/13, Evaluating 5/10. Paper W 13/25 provisional &mdash; first handwritten narrative, typed by Lui. Paper R about 13 minutes.",
+      tags: [
+        { t:"R 23/32 (72%) provisional", s:"background:#fff0f0;color:#c53030" },
+        { t:"Auto 16/16 &#9733;", s:"background:#f0fff4;color:#276749" },
+        { t:"Written 7/16 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"W 13/25 baseline", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Unit 41 Two-Mark Answers", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 40,
       title: "Unit 40 &mdash; &#128270; Prove It: Find it &middot; Copy it &middot; Say it",

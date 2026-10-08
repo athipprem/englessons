@@ -1,0 +1,395 @@
+{
+  "student": "Prem",
+  "unit": "M4",
+  "unitTitle": "Paper R — Reading",
+  "paper": "R",
+  "dateTaken": "2026-10-07",
+  "submittedAt": "2026-10-07T11:43:42.323Z",
+  "openedAt": "2026-10-07T11:30:13.082Z",
+  "minutesSpent": 13,
+  "secondsSpent": 809,
+  "autoScore": 16,
+  "autoOutOf": 16,
+  "writtenMarks": 16,
+  "writtenScore": null,
+  "total": 32,
+  "passBar": 26,
+  "passed": null,
+  "strands": {
+    "L": {
+      "score": 7,
+      "outOf": 7,
+      "writtenMarks": 2
+    },
+    "U": {
+      "score": 7,
+      "outOf": 7,
+      "writtenMarks": 6
+    },
+    "E": {
+      "score": 2,
+      "outOf": 2,
+      "writtenMarks": 8
+    }
+  },
+  "tiers": {
+    "Basic": {
+      "c": 5,
+      "t": 5
+    },
+    "Intermediate": {
+      "c": 11,
+      "t": 11
+    },
+    "Applied": {
+      "c": 0,
+      "t": 8
+    }
+  },
+  "sections": [
+    {
+      "name": "t1",
+      "score": 4,
+      "outOf": 4
+    },
+    {
+      "name": "t2",
+      "score": 4,
+      "outOf": 4
+    },
+    {
+      "name": "t3",
+      "score": 4,
+      "outOf": 4
+    },
+    {
+      "name": "t4",
+      "score": 4,
+      "outOf": 4
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 2,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 3,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 4,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 5,
+      "section": "t1",
+      "type": "written",
+      "strand": "L",
+      "tier": "Applied",
+      "given": "A or c because they reach the summit before 11pm and she needs to book a bike 2 days before i think she should take a because it arrives earlier than a.",
+      "isCorrect": null
+    },
+    {
+      "q": 6,
+      "section": "t1",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "Make e go to summit",
+      "isCorrect": null
+    },
+    {
+      "q": 7,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 8,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 9,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 10,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 11,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "She felt happy because she and dao’s lil brother was happy.",
+      "isCorrect": null
+    },
+    {
+      "q": 12,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "If u don't own up to a mistake you might get in trouble for not being honest.",
+      "isCorrect": null
+    },
+    {
+      "q": 13,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 14,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "E",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 15,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 16,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "E",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 17,
+      "section": "t3",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "To see if the town would like it because if they don’t and the city still opens it they can get mad.",
+      "isCorrect": null
+    },
+    {
+      "q": 18,
+      "section": "t3",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "Yes because most people are asleep after midnight and I am also not asleep after midnight.",
+      "isCorrect": null
+    },
+    {
+      "q": 19,
+      "section": "t4",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 20,
+      "section": "t4",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 21,
+      "section": "t4",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 22,
+      "section": "t4",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 23,
+      "section": "t4",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "Because the trees and building can block the rain",
+      "isCorrect": null
+    },
+    {
+      "q": 24,
+      "section": "t4",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "No, because his house can block the rain.",
+      "isCorrect": null
+    }
+  ],
+  "written": [
+    {
+      "q": 5,
+      "strand": "L",
+      "marks": 2,
+      "markScheme": [
+        "The answer, Train A, written in a full sentence (e.g. “Mina should catch Train A.”).",
+        "Two matching details from the timetable: it runs Mon–Fri (so it runs on a Tuesday) · bicycles are allowed (“Yes”) · it arrives at the Summit at 09:20, before 11:00. (Train B runs only at weekends, C has no bicycles, D arrives 11:50, E does not go to the Summit.)"
+      ],
+      "response": "A or c because they reach the summit before 11pm and she needs to book a bike 2 days before i think she should take a because it arrives earlier than a.",
+      "wordCount": 32
+    },
+    {
+      "q": 6,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "A sensible change, in a full sentence: add another weekend train to the Summit · make Train E continue to the Summit · add an earlier weekend train.",
+        "A reason tied to a timetable fact: only Trains B and D reach the Summit at weekends (and D arrives as late as 11:50) · Train E stops at Pine Lake, so its passengers cannot go on."
+      ],
+      "response": "Make e go to summit",
+      "wordCount": 5
+    },
+    {
+      "q": 11,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "A supported feeling for the end of the story, in a full sentence (relieved · light · happy · forgiven · better). The story never names it, so any sensible feeling that fits the ending is accepted.",
+        "A detail that shows it: she laughs out loud for the first time in two days · they chase the car together · Ton says “It’s funnier like this”."
+      ],
+      "response": "She felt happy because she and dao’s lil brother was happy.",
+      "wordCount": 11
+    },
+    {
+      "q": 12,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "An idea, in a full sentence: telling the truth makes things better · owning up can be hard, but it is worth it · a mistake feels smaller once you say it.",
+        "An event that shows it: she tells Ton and he forgives her, and they play with the car together; before she told him she could not eat or sleep."
+      ],
+      "response": "If u don't own up to a mistake you might get in trouble for not being honest.",
+      "wordCount": 17
+    },
+    {
+      "q": 17,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "Names one of the three reasons (money · stars · wildlife), in a full sentence.",
+        "Says why it convinces, tied to the letter: e.g. the money is a number the council can check · the moths and bats are facts, not just a wish · many children have never seen the Milky Way."
+      ],
+      "response": "To see if the town would like it because if they don’t and the city still opens it they can get mad.",
+      "wordCount": 22
+    },
+    {
+      "q": 18,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "A position (agree, disagree or partly) with a reason that uses the letter, e.g. he only says “most” people are asleep, not everyone.",
+        "A reason from his own experience or knowledge: people who work at night · an emergency or a walk home · what his own street is like. Own knowledge is allowed and needed here."
+      ],
+      "response": "Yes because most people are asleep after midnight and I am also not asleep after midnight.",
+      "wordCount": 16
+    },
+    {
+      "q": 23,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "A reason in a full sentence: trees and roofs would block some of the rain, or drip extra water into the gauge, so the reading would be wrong. (The instructions never give this reason — he must work it out.)",
+        "A detail from the instructions that supports it: step 6 says “in an open space” · the gauge is meant to catch the rain as it falls · the funnel is there to collect rain."
+      ],
+      "response": "Because the trees and building can block the rain",
+      "wordCount": 9
+    },
+    {
+      "q": 24,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "“No” (or “not accurate”), in a full sentence.",
+        "The instructions say the gauge must be placed outside in an open space, so rain cannot fall into it indoors."
+      ],
+      "response": "No, because his house can block the rain.",
+      "wordCount": 8
+    }
+  ]
+}

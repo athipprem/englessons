@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading — Be the Marker — Unit 41</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:14px 0;font-weight:700;line-height:1.5}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.passage.small{font-size:12.5px;line-height:1.7;padding:10px 12px}
+.sn{cursor:pointer;padding:1px 2px;border-radius:4px}
+.tapzone .sn:hover{background:#E3F2FD}
+.sn.proof{background:#FFF176}
+.sn.wrongtap{background:#FFCDD2}
+.sn.keyw{background:#FFE0B2}
+.locked{pointer-events:none}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:12px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:8px;font-weight:600}
+.tapnote{font-size:12.5px;color:#5a6b8c;margin-bottom:4px}
+.jq{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.6;margin:6px 0}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di-opt.right{background:#C8E6C9;border-color:#2E7D32}
+.di-opt.wrong{background:#FFCDD2;border-color:#C62828}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none;line-height:1.5}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:14px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+.routine-final{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0}
+.fbox{background:#F5F9FF;border:2px solid #1e88e5;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;color:#0d47a1}
+.fbox.go{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.fbox.stop{background:#FFEBEE;border-color:#C62828;color:#B71C1C}
+.arrow{font-size:18px;color:#0d47a1}
+.tree{margin:14px 0;border:2px solid #BBDEFB;border-radius:12px;padding:12px;background:#fff}
+.tree .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.parts span{display:inline-block;padding:3px 8px;border-radius:6px;margin:2px;font-size:14px}
+.pa{background:#BBDEFB}.pb{background:#FFE0B2}.pc{background:#C8E6C9}
+.hidden{display:none}
+.ansrow{border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff;font-size:13.5px;line-height:1.6}
+.ansrow .di-btns{margin-top:6px}
+input.pf,textarea.myans{width:100%;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:14px;margin-top:4px}
+textarea.myans{min-height:80px}
+.pfmsg{font-size:13px;font-weight:600;margin-top:4px;min-height:18px}
+.pfmsg.ok{color:#1B5E20}.pfmsg.no{color:#B71C1C}
+label.fld{display:block;font-size:13px;font-weight:700;color:#0d47a1;margin-top:10px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13.5px}
+.btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-go{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.quote-mark{background:#FFF176;border-radius:3px;padding:0 2px}
+.stay{color:#B71C1C;font-weight:700}
+
+.di-btns.col{flex-direction:column}
+.di-btns.col .di-opt{width:100%;font-weight:600;line-height:1.5}
+.di-num{font-size:11px;font-weight:800;color:#5a6b8c;margin-bottom:6px;letter-spacing:.4px}
+.ansq{font-size:14px;margin:6px 0 8px;line-height:1.6}
+.tickline{font-size:13px;font-weight:700;color:#0d47a1;margin:8px 0 4px}
+.tk{letter-spacing:2px}
+.drill-head{font-size:13px;font-weight:800;color:#8A5A00;background:#FEEBC8;display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:6px}
+.drill-score.ready{background:linear-gradient(135deg,#2E7D32,#66BB6A)}
+.drill-score.retry{background:linear-gradient(135deg,#B71C1C,#E57373)}
+.drill-score a{color:#fff;text-decoration:underline}
+.drill-score .btn{background:#fff;color:#0d47a1}
+.btn.ghost{background:#E3F2FD;color:#0d47a1;border:1.5px solid #1e88e5}
+label.chk{display:block;font-size:13.5px;margin:6px 0}
+label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
+.mcard{border:3px solid #0d47a1;border-radius:14px;background:#fff;padding:14px;margin:12px 0;max-width:420px}
+.mcard .mc-t{font-weight:800;color:#0d47a1;text-align:center;margin-bottom:8px}
+.mrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.mbox{width:30px;height:30px;border:3px solid #0d47a1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#2E7D32;font-weight:900;flex-shrink:0;background:#fff}
+.mbox.red{border-color:#C62828}
+.mbox.on::after{content:"✔"}
+.mbox.off::after{content:""}
+.demo{border:2px solid #BBDEFB;border-radius:12px;padding:12px;margin:10px 0;background:#fff}
+.demo .ans{font-size:14.5px;line-height:1.6;margin-bottom:8px}
+.demo .mrow .mbox{border-color:#BBDEFB}
+.demo.on .mrow .mbox{border-color:#0d47a1}
+.demo .mbox::after{content:""}
+.demo.on .mbox.t1y::after,.demo.on .mbox.t2y::after{content:"✔"}
+.demo .verdict{display:none;font-size:13px;font-weight:700;margin-top:6px}
+.demo.on .verdict{display:block}
+.layers{margin:14px 0;max-width:460px}
+.layer{border-radius:10px;padding:12px 14px;font-weight:800;font-size:14.5px;margin-bottom:6px}
+.layer.l1{background:#BBDEFB;color:#0d47a1}
+.layer.l2{background:#FFE0B2;color:#8A5A00}
+.layer.l3{background:#C8E6C9;color:#1B5E20}
+.bars{margin:14px 0}
+.barrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13.5px}
+.barrow .bl{width:170px;font-weight:700;line-height:1.3}
+.bartrack{flex:1;height:24px;background:#ECEFF1;border-radius:12px;overflow:hidden;position:relative}
+.barfill{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:800;font-size:12px}
+.blocks{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:10px 0}
+.blk{border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5;font-weight:600}
+.blk small{display:block;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:3px}
+.blk.b1{background:#BBDEFB;color:#0d47a1}
+.blk.b2{background:#FFE0B2;color:#8A5A00}
+.blk.b3{background:#C8E6C9;color:#1B5E20}
+.frame{border:3px solid #0d47a1;border-radius:14px;padding:14px 16px;margin:14px 0;background:#F5F9FF}
+.frame .fl{margin:7px 0;font-size:14.5px;line-height:1.6}
+.frame .fn{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:24px;height:24px;text-align:center;line-height:24px;font-weight:800;font-size:13px;margin-right:6px}
+.frame .rb{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.report-grid{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.rep{flex:1 1 140px;background:#F5F9FF;border:2px solid #BBDEFB;border-radius:10px;padding:10px;text-align:center}
+.rep-t{font-size:12px;font-weight:800;color:#0d47a1}.rep-n{font-size:22px;font-weight:900;color:#0d47a1}.rep-s{font-size:11.5px;color:#5a6b8c}
+.boardbox{border:3px solid #00695c;border-radius:12px;background:#E0F2F1;padding:12px 16px;margin:10px 0}
+.boardbox h4{color:#00695c;margin-bottom:6px}
+.boardbox li{margin:3px 0 3px 18px;font-size:13.5px}
+.nav-title{font-size:14px}
+@media (max-width:560px){.barrow .bl{width:110px;font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Reading — Be the Marker</span>
+  <div class="nav-right">
+    <span class="nav-pill" id="navPill">Unit 41</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+<div class="screen" id="s0"><div class="card"><span class="tag">UNIT 41 · LESSON 1 · FRIDAY</span>
+<h2>Why this lesson matters 🎯</h2>
+<p><b>Type it yourself — microphone off.</b></p>
+<p>On Milestone 4 you got <b>every</b> multiple-choice question right — <b>16 out of 16</b>. That is brilliant. Now look at the written answers:</p>
+<div class="bars">
+ <div class="barrow"><div class="bl">Multiple choice</div><div class="bartrack"><div class="barfill" style="width:100%;background:#2E7D32">16 / 16</div></div></div>
+ <div class="barrow"><div class="bl">First tick on written answers</div><div class="bartrack"><div class="barfill" style="width:88%;background:#1e88e5">7 of 8</div></div></div>
+ <div class="barrow"><div class="bl">Second tick on written answers</div><div class="bartrack"><div class="barfill" style="width:8%;background:#C62828;min-width:60px">0 of 8</div></div></div>
+</div>
+<p>You got the <b>first</b> tick on 7 of 8 written answers, and the <b>second</b> tick <b>0</b> times. So the thinking is already there. One small thing is missing — and it is easy to learn.</p>
+<div class="layers"><div class="layer l1">Layer 1 · Answer the question that was asked</div><div class="layer l2">Layer 2 · Show the proof from the text</div></div>
+<div class="why-box"><div class="why-title">Every good answer has two layers — in reading and in stories.</div>
+Today you become the <b>marker</b>. Markers give ticks, so if you learn to see what a marker looks for, you can write answers that get every tick. (Stories work the same way: say what happened, then <i>show</i> it. That comes in the next unit.)</div><div class="lock-note" id="lockNote-s0"></div></div></div>
+<div class="screen" id="s1"><div class="card"><span class="tag">ROUTE A · THE PICTURE</span>
+<h2>The marker’s card 📋</h2>
+<p>A marker has a card with <b>two boxes</b>. Each box is one tick.</p>
+<div class="mcard"><div class="mc-t">MARKER’S CARD</div>
+<div class="mrow"><div class="mbox"></div><div><b>Tick 1</b> — did it answer the question?</div></div>
+<div class="mrow"><div class="mbox"></div><div><b>Tick 2</b> — did it show the proof from the text?</div></div></div>
+<p>Here is a tiny text and a question. Press <b>Mark it</b> under each answer to see what the marker does.</p>
+<div class="passage small"><b>The text:</b> The ice-cream van only comes on Fridays, after school. It parks beside the gate for twenty minutes.</div>
+<div class="di-sent"><b>Question:</b> When does the ice-cream van come?</div>
+<div class="demo" id="dm1"><div class="ans"><b>Answer 1:</b> “On Fridays.”</div>
+ <div class="mrow"><div class="mbox t1y"></div><div>Tick 1 — answers the question</div></div>
+ <div class="mrow"><div class="mbox"></div><div>Tick 2 — no words from the text</div></div>
+ <button class="btn" onclick="demoMark(1)">Mark it</button><div class="verdict" style="color:#8A5A00">One tick. Right answer, but no proof.</div></div>
+<div class="demo" id="dm2"><div class="ans"><b>Answer 2:</b> “Whenever the sun is out.”</div>
+ <div class="mrow"><div class="mbox"></div><div>Tick 1 — does not answer the question</div></div>
+ <div class="mrow"><div class="mbox"></div><div>Tick 2 — no words from the text</div></div>
+ <button class="btn" onclick="demoMark(2)">Mark it</button><div class="verdict" style="color:#B71C1C">No ticks.</div></div>
+<div class="demo" id="dm3"><div class="ans"><b>Answer 3:</b> “The van comes on Fridays, because the text says it ‘only comes on Fridays, after school’.”</div>
+ <div class="mrow"><div class="mbox t1y"></div><div>Tick 1 — answers the question</div></div>
+ <div class="mrow"><div class="mbox t2y"></div><div>Tick 2 — copies words that prove it</div></div>
+ <button class="btn" onclick="demoMark(3)">Mark it</button><div class="verdict" style="color:#1B5E20">Two ticks. Answer plus proof.</div></div>
+<p><b>Remember:</b> one answer can fill both boxes, only one box, or neither.</p><div class="lock-note" id="lockNote-s1"></div></div></div>
+<div class="screen" id="s2"><div class="card"><span class="tag">ROUTE B · THE STEPS</span>
+<h2>How a marker marks 🔎</h2>
+<p>On the last screen you saw the card. Now here is how a marker fills it in — one move at a time.</p>
+<div class="routine-box">
+ <div class="routine-step"><div class="routine-num">1</div><div class="routine-text"><b>Read the question.</b> What exactly does it ask?</div></div>
+ <div class="routine-step"><div class="routine-num">2</div><div class="routine-text"><b>Read the answer.</b> Does it answer <i>that</i>? If yes — <b>tick 1</b>.</div></div>
+ <div class="routine-step"><div class="routine-num">3</div><div class="routine-text"><b>Look for words from the text</b> that prove it (or for “your own life” when the question asks about you). Do they really show the answer? If yes — <b>tick 2</b>.</div></div>
+</div>
+<p><b>The decision tree</b> — follow it for any answer:</p>
+<div class="tree">
+ <div class="row"><div class="fbox">Does it answer the question that was asked?</div></div>
+ <div class="row"><div class="fbox stop">No → 0 ticks</div><span style="font-size:12px;color:#5a6b8c">(it answers something else)</span></div>
+ <div class="row"><div class="fbox go">Yes → tick 1</div><span class="arrow">↓</span><div class="fbox">Are there words from the text that really prove it?</div></div>
+ <div class="row"><div class="fbox stop">No → stop at 1 tick</div><div class="fbox go">Yes → tick 2 (2 ticks)</div></div>
+</div>
+<div class="why-box"><div class="why-title">Words that earn nothing</div>
+Words that are in the text but prove nothing · a detail you made up · the answer said again with “because”. A marker gives no tick for any of these.</div><div class="lock-note" id="lockNote-s2"></div></div></div>
+<div class="screen" id="s3"><div class="card"><span class="tag">DRILL 1</span>
+<h2>Mark it ✏️</h2>
+<p>Six answers from Year 5 pupils. <b>You</b> are the marker: choose 0, 1 or 2 ticks. If you pick wrong, try again.</p>
+<div id="drill-D1"></div><div class="lock-note" id="lockNote-s3"></div></div></div>
+<div class="screen" id="s4"><div class="card"><span class="tag">DRILL 2</span>
+<h2>What did tick 2 need? 🧩</h2>
+<p>Each answer below earned one tick. Choose the words that earn the <b>second</b> tick.</p>
+<div id="drill-D2"></div><div class="lock-note" id="lockNote-s4"></div></div></div>
+<div class="screen" id="s5"><div class="card"><span class="tag">TRY IT · NOT MARKED</span>
+<h2>Fix two ✍️</h2>
+<p>Two of those 1-tick answers are yours from Milestone 4. Rewrite each one so it earns <b>both</b> ticks. Type it yourself — microphone off.</p>
+<p>When you press <b>Show the model answer</b>, you can compare, then tick your own card.</p>
+<div id="write-W1"></div><div class="lock-note" id="lockNote-s5"></div></div></div>
+<div class="screen" id="s6"><div class="card"><span class="tag">SELF-CHECK</span>
+<h2>Self-check ✅</h2>
+<p>Six questions. One try each. You need <b>5 out of 6</b>.</p>
+<div id="drill-SC"></div><div class="lock-note" id="lockNote-s6"></div></div></div>
+<div class="screen" id="s7"><div class="card"><h2>Report 📋</h2>
+<div id="reportWrap"></div>
+<div class="rule-box">TICK 1 — answer the question that was asked<br>TICK 2 — show the proof from the text</div>
+<p>Tomorrow’s lesson gives you one sentence pattern that gets both ticks every time. Type it yourself — microphone off.</p>
+<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" href="Reading_Lesson_TheTextSays.html">Lesson 2 tomorrow →</a></div><div class="lock-note" id="lockNote-s7"></div></div></div>
+<script>
+var DRILLS={"D1": {"kind": "mark", "forced": true, "title": "Drill 1 · Mark it", "nudge": "Ask yourself two things: (1) Does it answer the question that was asked? (2) Does it copy words from the text that really prove it? Then count the ticks again.", "items": [{"ex": "<b>From the instructions “Make Your Own Rain Gauge”:</b><br>6. Place it outside in an open space, away from trees and buildings.", "q": "Why must the rain gauge be placed away from trees and buildings?", "a": "The gauge must be away from trees and buildings because they could block the rain. The text says to put it “outside in an open space, away from trees and buildings”.", "ans": 2, "why": "It answers the question (tick 1) and copies the instructions’ own words — “outside in an open space, away from trees and buildings” (tick 2)."}, {"ex": "<b>From the instructions “Make Your Own Rain Gauge”:</b><br>6. Place it outside in an open space, away from trees and buildings.", "q": "Why must the rain gauge be placed away from trees and buildings?", "a": "Because the trees and building can block the rain", "ans": 1, "why": "It answers the question (tick 1). But it copies no words from the instructions, so nothing shows where the text says so (no tick 2)."}, {"ex": "<b>From Arun’s letter:</b><br>First, it would save money. Every year the council spends 2 million baht on street lights. Switching the lights off for those five hours is easy. The town would save about a third of that money. The council could use that money to mend the swimming pool, to plant trees in the park, or to buy new books for the library. Second, it would let us see the stars. Most children in our town have never seen the Milky Way. Our street lights glow so brightly that the night sky looks grey and empty. Nothing is more beautiful than a sky full of stars. Third, it would help wildlife. Bright lights confuse the animals that live at night. Moths circle the lamps until they are exhausted, and bats lose their hunting grounds.", "q": "Which reason in Arun’s letter is the most convincing? Explain why, using the letter.", "a": "To see if the town would like it because if they don’t and the city still opens it they can get mad.", "ans": 0, "why": "The question asks which reason is the most convincing. This answer names no reason from the letter, and “the city still opens it” is not in the letter. It answers a different question, so it earns no ticks."}, {"ex": "<b>From the end of the story “The Wobbly Wheel”:</b><br>She found Ton in the kitchen and held out the car with both hands. “I took it,” she said. “I broke it. I'm sorry.” Ton said nothing for a long moment. Then he took the car, set it on the floor, and pressed the button. The car swerved off in wobbly circles, round and round the table leg. “It's funnier like this,” he said. They chased it out into the garden, tripping over each other and the watering can. Halfway down the path, Dao laughed out loud for the first time in two days.", "q": "How does Dao feel at the end of the story? Use a detail from the story to show how you know.", "a": "Dao feels relieved at the end, because the text says she “laughed out loud for the first time in two days”.", "ans": 2, "why": "It names a feeling (tick 1) and copies the action that shows it — she “laughed out loud for the first time in two days” (tick 2)."}, {"ex": "<b>From the end of the story “The Wobbly Wheel”:</b><br>She found Ton in the kitchen and held out the car with both hands. “I took it,” she said. “I broke it. I'm sorry.” Ton said nothing for a long moment. Then he took the car, set it on the floor, and pressed the button. The car swerved off in wobbly circles, round and round the table leg. “It's funnier like this,” he said. They chased it out into the garden, tripping over each other and the watering can. Halfway down the path, Dao laughed out loud for the first time in two days.", "q": "How does Dao feel at the end of the story? Use a detail from the story to show how you know.", "a": "She felt happy because she and dao’s lil brother was happy.", "ans": 1, "why": "“Happy” answers the question (tick 1). But the “because” only says the feeling again. No event from the story is shown, so there is no proof (no tick 2)."}, {"ex": "<b>From the “Sky Valley Railway” timetable:</b>\n<p>Trains from Riverside to Pine Lake and the Summit</p>\n<table>\n<tr><th>Train</th><th>Leaves Riverside</th><th>Arrives Pine Lake</th><th>Arrives Summit</th><th>Runs</th><th>Bicycles</th></tr>\n<tr><td>A</td><td>07:15</td><td>08:05</td><td>09:20</td><td>Mon–Fri</td><td>Yes</td></tr>\n<tr><td>B</td><td>08:30</td><td>09:20</td><td>10:35</td><td>Sat–Sun</td><td>Yes</td></tr>\n<tr><td>C</td><td>09:10</td><td>10:00</td><td>10:55</td><td>Mon–Fri</td><td>No</td></tr>\n<tr><td>D</td><td>09:45</td><td>10:35</td><td>11:50</td><td>Every day</td><td>Yes</td></tr>\n<tr><td>E</td><td>10:20</td><td>11:10</td><td>—</td><td>Every day</td><td>Yes</td></tr>\n</table>\n<p class=\"note\">Train E does not go to the Summit.</p>\n<p class=\"note\">Bicycles must be booked one day before.</p>\n", "q": "Suggest one change to the timetable to help families visit the Summit at weekends. Explain why, using the timetable.", "a": "Make e go to summit", "ans": 1, "why": "A weekend train to the Summit is a good change (tick 1). But no fact from the timetable is given to show why it would help (no tick 2)."}]}, "D2": {"kind": "mcq", "forced": true, "title": "Drill 2 · What did tick 2 need?", "nudge": "Which add-on uses words that are really in the text AND really show the answer?", "items": [{"ex": "<b>From the instructions “Make Your Own Rain Gauge”:</b><br>4. Turn the top piece upside down and push it into the bottle, like a funnel.<br><i>Tip: The funnel stops leaves falling in and slows the water from drying up.</i>", "q": "What does the funnel do?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“The funnel keeps leaves out of the bottle.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the text says “the funnel stops leaves falling in”.", "because the text says “turn the top piece upside down”.", "because the text says “the funnel stops birds landing in the bottle”.", "because that is what the funnel does."], "ans": 0, "why": "The proof has to be words that are really in the text AND show the answer. “Stops leaves falling in” does both. “Turn the top piece upside down” is in the text but says nothing about leaves; the bird sentence is made up; and saying the answer again adds nothing."}, {"ex": "<b>From “The Wobbly Wheel”:</b><br>At dinner, she sat very still. She pushed her rice around her plate without eating. Mum asked whether she was ill, and Dao shook her head. Then Ton looked up from his noodles. “Has anyone seen my car?” he asked. Dao opened her mouth, then closed it. She stared at the table until Dad changed the subject. That night she lay awake, staring at the ceiling. Every time the house creaked, she turned her head towards the hall.", "q": "How does Dao feel on the night after she breaks the car?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“Dao feels worried.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the text says “that night she lay awake, staring at the ceiling”.", "because the text says “then Ton looked up from his noodles”.", "because the text says “she cried into her pillow until morning”.", "because Dao is worried about the car."], "ans": 0, "why": "“Lay awake, staring at the ceiling” is an action in the story that shows worry. Ton looking up from his noodles is in the text but is about Ton; the pillow sentence is made up; and the last add-on only says the feeling again."}, {"ex": "<b>From Arun’s letter:</b><br>My name is Arun Chai and I am in Year 6. I have lived in this town all my life, and I love it. I am writing to ask our town council to switch off the street lights between midnight and 5 a.m. I believe this small change would help our town in three ways.", "q": "What does Arun want the council to do?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“He wants the council to turn off the lights.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the text says “switch off the street lights between midnight and 5 a.m.”.", "because the text says “I am in Year 6”.", "because the text says “the council must switch off the lights for a whole year”.", "because that is what Arun wants."], "ans": 0, "why": "Arun’s own request is “switch off the street lights between midnight and 5 a.m.” — real words that show the answer. “I am in Year 6” is real but proves nothing about what he wants; the “whole year” sentence is made up."}, {"ex": "<b>Notes under the “Sky Valley Railway” timetable:</b><br>Train E does not go to the Summit.<br>Bicycles must be booked one day before.", "q": "When must a rider book a bicycle?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“A rider must book before the day of the journey.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the notice says “bicycles must be booked one day before”.", "because the notice says “Train E does not go to the Summit”.", "because the notice says “bicycles must be booked one week before”.", "because that is when a rider books."], "ans": 0, "why": "The notice itself says “bicycles must be booked one day before”. The Train E note is real but is about something else; “one week before” is not what the notice says."}]}, "SC": {"kind": "mix", "forced": false, "title": "Self-check", "items": [{"ex": "<b>From the instructions “Make Your Own Rain Gauge”:</b><br>6. Place it outside in an open space, away from trees and buildings.", "q": "Where should the rain gauge go?", "a": "It should go outside, because the text says “place it outside in an open space”.", "ans": 2, "why": "It answers the question (tick 1) and copies the instruction’s own words (tick 2)."}, {"ex": "<b>From Arun’s letter:</b><br>Every year the council spends 2 million baht on street lights.", "q": "How much does the council spend on street lights each year?", "a": "A lot of money.", "ans": 0, "why": "“A lot of money” does not answer how much. It earns no ticks."}, {"ex": "<b>From “The Wobbly Wheel”:</b><br>Dao's hands were shaking as she gathered up the pieces. She pushed the car and the wheel behind the flowerpots, then went inside and washed her hands twice.", "q": "How does Dao feel as she hides the car behind the flowerpots?", "a": "Dao feels scared.", "ans": 1, "why": "A feeling that fits answers the question (tick 1). No words from the story are copied to show how we know (no tick 2)."}, {"ex": "<b>Notes under the “Sky Valley Railway” timetable:</b><br>Train E does not go to the Summit.<br>Bicycles must be booked one day before.", "q": "Does Train E go to the Summit?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“No, Train E does not go to the Summit.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the note says “Train E does not go to the Summit”.", "because the note says “bicycles must be booked one day before”.", "because the note says “Train E is cancelled at weekends”.", "because it does not go there."], "ans": 0, "why": "The note itself says Train E does not go to the Summit. The bicycle note is real but is about bicycles; the weekend sentence is made up."}, {"ex": "<b>From Arun’s letter:</b><br>Third, it would help wildlife. Bright lights confuse the animals that live at night. Moths circle the lamps until they are exhausted, and bats lose their hunting grounds.", "q": "What does Arun say happens to moths?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“Moths get confused by the lights.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the letter says “moths circle the lamps until they are exhausted”.", "because the letter says “bats lose their hunting grounds”.", "because the letter says “moths cannot fly after midnight”.", "because that is what happens to moths."], "ans": 0, "why": "The letter says moths “circle the lamps until they are exhausted”. The bat sentence is real but is about bats; the midnight sentence is made up."}, {"ex": "<b>From “The Wobbly Wheel”:</b><br>Before breakfast the next morning, Dao crept out to the flowerpots. She squeezed glue onto the broken wheel and held it in place until her arms ached. When she let go, it stayed. It still wobbled when she spun it, but it stayed.", "q": "What did Dao do to the wheel the next morning?<br><span class=\"ansq\">Here is a 1-tick answer: <span class=\"quote-mark\">“She mended the wheel.”</span><br>Which words, added to the end, earn the second tick?</span>", "opts": ["because the story says “she squeezed glue onto the broken wheel”.", "because the story says “it still wobbled when she spun it”.", "because the story says “she bought a new wheel at the shop”.", "because that is what she did."], "ans": 0, "why": "“She squeezed glue onto the broken wheel” is the action that shows she mended it. The wobble sentence is real but only says how the repair turned out; the shop sentence is made up."}]}};
+var WRITES={"W1": {"placeholder": "Write your answer here. Aim for both ticks.", "t1": "Tick 1 — did it answer the question?", "t2": "Tick 2 — did it show the proof from the text?", "items": [{"ex": "<b>From the instructions “Make Your Own Rain Gauge”:</b><br>6. Place it outside in an open space, away from trees and buildings.", "q": "Why must the rain gauge be placed away from trees and buildings?", "orig": "Because the trees and building can block the rain", "model": "The gauge must be away from trees and buildings because they could block the rain. The text says to put it “outside in an open space, away from trees and buildings”."}, {"ex": "<b>From the end of the story “The Wobbly Wheel”:</b><br>She found Ton in the kitchen and held out the car with both hands. “I took it,” she said. “I broke it. I'm sorry.” Ton said nothing for a long moment. Then he took the car, set it on the floor, and pressed the button. The car swerved off in wobbly circles, round and round the table leg. “It's funnier like this,” he said. They chased it out into the garden, tripping over each other and the watering can. Halfway down the path, Dao laughed out loud for the first time in two days.", "q": "How does Dao feel at the end of the story?", "orig": "She felt happy because she and dao’s lil brother was happy.", "model": "Dao feels relieved at the end, because the text says she “laughed out loud for the first time in two days”."}]}};
+var SCREENS=["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7"];
+var SCREEN_DRILLS={"s3": ["D1"], "s4": ["D2"], "s6": ["SC"]};
+var LESSON_TAG="Unit 41 · Lesson 1", REPORT_ID="s7";
+var BACK_ID="s1", BACK_NAME="the marker’s card (screen 2)";
+var READY_MSG="Ready for Lesson 2 ✅";
+var REPORT_ROWS=[{id:"D1",label:"Drill 1",sub:"Mark it — right first go"},{id:"D2",label:"Drill 2",sub:"What did tick 2 need?"},{id:"SC",label:"Self-check",sub:"need 5 of 6"}];
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var cur=0, DS={}, WS={};
+function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+/* ---------- drills ---------- */
+function buildDrill(id){
+  var D=DRILLS[id], box=$('drill-'+id); if(!box) return;
+  DS[id]={res:[],first:[],tries:[],order:[],given:[]};
+  var h='<div class="drill-head">'+D.title+'</div>';
+  D.items.forEach(function(it,i){
+    DS[id].res.push(false);DS[id].first.push(false);DS[id].tries.push(0);DS[id].given.push(null);
+    var kind=it.opts?'mcq':'mark';var ord=(kind==='mcq')?shuffled(it.opts.length):[0,1,2];DS[id].order.push(ord);
+    h+='<div class="di" id="'+id+'-'+i+'"><div class="di-num">'+(D.forced?'':'Question ')+(i+1)+' of '+D.items.length+'</div>';
+    if(it.ex) h+='<div class="passage small">'+it.ex+'</div>';
+    h+='<div class="di-sent"><b>Question:</b> '+it.q+'</div>';
+    if(kind==='mark'){
+      h+='<div class="ansq">A Year 5 answer: <span class="quote-mark">“'+it.a+'”</span></div>';
+      h+='<div class="tickline">How many ticks does this answer earn?</div><div class="di-btns">';
+      [0,1,2].forEach(function(v){h+='<button class="di-opt" id="'+id+'-'+i+'-'+v+'" onclick="pick(\''+id+'\','+i+','+v+')"><span class="tk">'+(v===0?'☐ ☐':v===1?'☑ ☐':'☑ ☑')+'</span> '+v+' tick'+(v===1?'':'s')+'</button>';});
+      h+='</div>';
+    } else {
+      h+='<div class="di-btns col">';
+      ord.forEach(function(k,pos){h+='<button class="di-opt" id="'+id+'-'+i+'-'+k+'" onclick="pick(\''+id+'\','+i+','+k+')"><b>'+'ABCD'[pos]+'.</b> '+it.opts[k]+'</button>';});
+      h+='</div>';
+    }
+    h+='<div class="di-fb" id="'+id+'-'+i+'-fb"></div></div>';
+  });
+  h+='<div class="drill-score" id="'+id+'-score"></div>';
+  box.innerHTML=h;
+}
+function pick(id,i,v){
+  var D=DRILLS[id], S=DS[id], it=D.items[i]; if(S.res[i]) return;
+  var ok=(v===it.ans), fb=$(id+'-'+i+'-fb'), btn=$(id+'-'+i+'-'+v);
+  S.given[i]=v;
+  if(D.forced){
+    if(ok){S.res[i]=true;S.first[i]=(S.tries[i]===0);btn.classList.add('right');fb.className='di-fb ok';fb.innerHTML='Yes — '+it.why;lockItem(id,i);}
+    else{S.tries[i]++;btn.classList.add('wrong');btn.disabled=true;fb.className='di-fb no';
+      fb.innerHTML='Try again — '+D.nudge+(S.tries[i]>=2?'<div class="walk">'+it.why+'</div>':'');}
+  } else {
+    S.res[i]=true;S.first[i]=ok;btn.classList.add(ok?'right':'wrong');
+    var rb=$(id+'-'+i+'-'+it.ans); if(rb) rb.classList.add('right');
+    fb.className='di-fb '+(ok?'ok':'no');fb.innerHTML=(ok?'Yes — ':'Look again — ')+it.why;lockItem(id,i);
+  }
+  checkDrillDone(id);updateNav();
+}
+function lockItem(id,i){var el=$(id+'-'+i);var bs=el.getElementsByTagName('button');for(var k=0;k<bs.length;k++)bs[k].disabled=true;}
+function checkDrillDone(id){
+  var D=DRILLS[id], S=DS[id]; for(var k=0;k<S.res.length;k++) if(!S.res[k]) return;
+  var n=0;S.first.forEach(function(f){if(f)n++;});var sc=$(id+'-score');sc.classList.add('show');
+  if(D.forced){sc.innerHTML='Drill complete ✅ — '+n+' of '+S.res.length+' right on the first go.';}
+  else{
+    var ready=n>=5;
+    sc.innerHTML='<b>'+n+' out of '+S.res.length+'</b><br>'+(ready?READY_MSG:'Not quite there yet. Go back to <a href="#" onclick="jumpTo(\''+BACK_ID+'\');return false">'+BACK_NAME+'</a>, then try this check again.<br><button class="btn" onclick="buildDrill(\''+id+'\');updateNav()">Try the self-check again</button>');
+    sc.className='drill-score show '+(ready?'ready':'retry');
+  }
+}
+/* ---------- write boxes (ungraded) ---------- */
+function buildWrite(id){
+  var W=WRITES[id], box=$('write-'+id); if(!box) return; WS[id]={};
+  var h='';
+  W.items.forEach(function(it,i){
+    h+='<div class="di" id="'+id+'-'+i+'">';
+    if(it.ex) h+='<div class="passage small">'+it.ex+'</div>';
+    h+='<div class="di-sent"><b>Question:</b> '+it.q+'</div>';
+    if(it.orig) h+='<div class="ansq">The 1-tick answer: <span class="quote-mark">“'+it.orig+'”</span></div>';
+    h+='<textarea class="myans" id="'+id+'-'+i+'-ta" placeholder="'+esc(W.placeholder)+'"></textarea>';
+    h+='<button class="btn" onclick="revealModel(\''+id+'\','+i+',false)">Show the model answer</button> <button class="btn ghost" onclick="revealModel(\''+id+'\','+i+',true)">I\'m stuck — show me</button>';
+    h+='<div class="walk hidden" id="'+id+'-'+i+'-m"><b>A model answer:</b><br>'+it.model+'</div>';
+    h+='<div class="hidden" id="'+id+'-'+i+'-t"><div class="tickline">Now tick your own card:</div><label class="chk"><input type="checkbox"> '+W.t1+'</label><label class="chk"><input type="checkbox"> '+W.t2+'</label></div>';
+    h+='</div>';
+  });
+  box.innerHTML=h;
+}
+function revealModel(id,i,stuck){
+  var ta=$(id+'-'+i+'-ta');
+  if(!stuck && ta.value.trim().length<5){ta.placeholder='Write something first — even one line. Stuck? Press “I\'m stuck — show me”.';ta.focus();return;}
+  WS[id][i]=true;$(id+'-'+i+'-m').classList.remove('hidden');
+  if(!stuck) $(id+'-'+i+'-t').classList.remove('hidden');
+  updateNav();
+}
+/* ---------- little interactive demos ---------- */
+function demoMark(n){var el=$('dm'+n);if(el) el.classList.add('on');}
+/* ---------- navigation ---------- */
+function drillsOn(sid){return (SCREEN_DRILLS[sid]||[]);}
+function screenLocked(sid){
+  var d=drillsOn(sid);
+  for(var k=0;k<d.length;k++){var id=d[k];if(DRILLS[id].forced){var S=DS[id];for(var j=0;j<S.res.length;j++) if(!S.res[j]) return 'Finish every question in the drill to go on.';}else{var S2=DS[id];for(var j2=0;j2<S2.res.length;j2++) if(!S2.res[j2]) return 'Answer all six to go on.';}}
+  return '';
+}
+function show(i){
+  cur=i;SCREENS.forEach(function(s,k){$(s).classList.toggle('active',k===i);});
+  $('navPill').textContent=LESSON_TAG+' · '+(i+1)+'/'+SCREENS.length;window.scrollTo(0,0);
+  if(SCREENS[i]===REPORT_ID) buildReport();
+  updateNav();
+}
+function updateNav(){
+  var sid=SCREENS[cur],lock=screenLocked(sid);
+  $('prevBtn').disabled=(cur===0);
+  $('nextBtn').disabled=(cur===SCREENS.length-1)||!!lock;
+  var ln=$('lockNote-'+sid);if(ln){ln.textContent=lock;ln.className='lock-note'+(lock?' show':'');}
+}
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;if(d>0&&screenLocked(SCREENS[cur]))return;show(n);}
+function jumpTo(sid){var i=SCREENS.indexOf(sid);if(i>=0)show(i);}
+function buildReport(){
+  var h='<div class="report-grid">';
+  REPORT_ROWS.forEach(function(r){
+    var S=DS[r.id];if(!S){return;}var n=0;S.first.forEach(function(f){if(f)n++;});
+    h+='<div class="rep"><div class="rep-t">'+r.label+'</div><div class="rep-n">'+n+' / '+S.res.length+'</div><div class="rep-s">'+r.sub+'</div></div>';
+  });
+  $('reportWrap').innerHTML=h+'</div>';
+}
+function initAll(){
+  Object.keys(DRILLS).forEach(buildDrill);Object.keys(WRITES).forEach(buildWrite);
+  show(0);
+}
+
+initAll();
+
+</script>
+</body>
+</html>
