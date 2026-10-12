@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '8 Oct 2026',
+  updated:        '12 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           41,
-    heroLabel:   "Unit 41 - Lesson 1 Fri 9 Oct, Lesson 2 Sat 10 Oct, Test Sun 11 Oct",
-    status:      "&#9997;&#65039; UNIT 41 &mdash; Two-Mark Answers, built 8 Oct. Two lessons (Fri, Sat) and a test (Sun, pass bar 16/20). Microphone off.",
+    n:           42,
+    heroLabel:   "Unit 42 - Lesson 1 Tue 13 Oct, Lesson 2 Wed 14 Oct, Test Thu 15 Oct",
+    status:      "&#127916; UNIT 42 &mdash; Slow-Motion Scene (writing), built 12 Oct. Two lessons (Tue, Wed) and a handwritten story test (Thu, 35 min, photographed in). Microphone off.",
     testPending: true
   },
 
@@ -35,20 +35,20 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 40 -- updated after each test)
   lastUnit: {
-    n: 'M4', label: 'Milestone 4 · Paper R', score: 23, outOf: 32, pct: 72, delta: null, prevScore: 14, prevOutOf: 20,
+    n: 41, label: 'Unit 41', score: 16, outOf: 20, pct: 80, delta: null, prevScore: 23, prevOutOf: 32,
 
-    patternLabel:   "Milestone 4 Paper R &mdash; 6 Oct 2026 &middot; 23/32 (72%) &mdash; short of the 26 pass bar by 3",
-    patternInsight: "<strong>Auto-scored 16/16; written 7/16 (provisional).</strong> Reading is secure when he picks an answer; the marks leak when he has to write one. By strand: Locating 8/9, Understanding 10/13, Evaluating &amp; Reflecting 5/10. Paper W (narrative) 13/25 provisional is the first handwritten baseline, typed by Lui from the paper. Written marks are Coach's marking and need Lui's confirmation.",
+    patternLabel:   "Unit 41 &mdash; 12 Oct 2026 &middot; 16/20 (80%) provisional &mdash; exactly on the 16 bar",
+    patternInsight: "<strong>Auto-scored 8/8; written 8/12 (provisional, Coach-marked).</strong> The second tick appeared on 1&ndash;2 of 6 written answers (M4: 0 of 8): Q14 clearly (his own life), Q4 borderline. Every answer had a first-tick idea. 7 minutes for 14 items; the review screen was open 6 seconds, nothing ticked or edited. No answer used the &ldquo;the text says&rdquo; frame. Lesson completion was not recorded (lessons saved no file until U42). Needs Lui's confirmation: Q4, Q13 and Q14 are judgement calls (range 14&ndash;17).",
 
-    analysisLabel:   "Milestone 4 Paper R Result Analysis &mdash; 8 Oct 2026",
-    analysisInsight: "<strong>The gap is two-mark answers, not understanding.</strong> Answers usually name the right idea (tick 1) but leave out copied words from the text (tick 2). Unit 41 targets exactly that. See TEST_RECORD_M04R.md for provenance.",
+    analysisLabel:   "Unit 41 Result Analysis &mdash; 12 Oct 2026",
+    analysisInsight: "<strong>On the bar, on judgement marks.</strong> MCQ is 50/50 since U38. The copied-words measure (<code>longestRun</code>) never reached 4. See TEST_RECORD_U041.md for provenance.",
 
-    qSummary: "<strong>23/32 (72%) provisional &mdash; auto 16/16, written 7/16.</strong> Written marks need Lui's confirmation.",
+    qSummary: "<strong>16/20 (80%) provisional &mdash; auto 8/8, written 8/12.</strong> Needs Lui's confirmation.",
 
     qBreakdown: [
-      { q:"Auto", topic:"Paper R MCQ", pass:true, note:"&#10003; 16/16 &mdash; every multiple-choice item correct." },
-      { q:"Written", topic:"Paper R written", pass:false, note:"&#9650; 7/16 &mdash; provisional; answers short of the second tick." },
-      { q:"Paper W", topic:"Narrative baseline", pass:false, note:"&#9650; 13/25 provisional &mdash; first handwritten narrative, typed by Lui." }
+      { q:"Auto", topic:"MCQ", pass:true, note:"&#10003; 8/8 &mdash; every multiple-choice item correct." },
+      { q:"Q4 Q14", topic:"Written", pass:true, note:"&#10003; 2/2 each &mdash; borderline on the second tick." },
+      { q:"Q5 Q9 Q10 Q13", topic:"Written", pass:false, note:"&#9650; 1/2 each &mdash; first idea given, no words from the text." }
     ]
   },
 
@@ -133,11 +133,26 @@ var PREM_ENGLISH = {
     { n:'38P1', score:47, outOf:60, delta:null, color:'#f6993f', star:false, label:'U38 P1 🏫' },
     { n:39, score:18, outOf:25, delta:null, color:'#f6993f', star:false, label:'U39 🏫' },
     { n:40, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U40' },
-    { n:'M4', score:23, outOf:32, delta:null, color:'#f6993f', star:false, label:'M4 R', milestone:true }
+    { n:'M4', score:23, outOf:32, delta:null, color:'#f6993f', star:false, label:'M4 R', milestone:true },
+    { n:41, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U41' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 41,
+      title: "Unit 41 &mdash; &#9997;&#65039; Two-Mark Answers: Be the Marker &middot; The Text Says",
+      badge: '#89F336',
+      status: 'done',
+      note: "16/20 (80%) provisional &mdash; <strong>exactly on the 16 bar.</strong> Auto 8/8; written 8/12 (Q4 2, Q5 1, Q9 1, Q10 1, Q13 1, Q14 2), Coach-marked, awaiting Lui. Second tick on 1&ndash;2 of 6 (M4: 0 of 8). 7 minutes; review screen 6 seconds, nothing ticked or edited. Q4, Q13, Q14 are judgement calls (14&ndash;17).",
+      tags: [
+        { t:"16/20 (80%) provisional", s:"background:#f0fff4;color:#276749" },
+        { t:"Auto 8/8 &#9733;", s:"background:#f0fff4;color:#276749" },
+        { t:"Written 8/12", s:"background:#fff8e1;color:#744210" },
+        { t:"2nd tick 1&ndash;2 of 6", s:"background:#fff8e1;color:#744210" },
+        { t:"&rarr; Unit 42 Slow-Motion Scene", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 'M4',
       title: "Milestone 4 &mdash; First ISA Checkpoint (Paper R reading &middot; Paper W narrative)",

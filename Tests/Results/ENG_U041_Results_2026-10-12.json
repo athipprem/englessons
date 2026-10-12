@@ -1,0 +1,312 @@
+{
+  "student": "Prem",
+  "unit": 41,
+  "unitTitle": "The Second Mark",
+  "dateTaken": "2026-10-12",
+  "submittedAt": "2026-10-12T10:28:12.688Z",
+  "openedAt": "2026-10-12T10:21:09.472Z",
+  "minutesSpent": 7,
+  "secondsSpent": 423,
+  "reviewSeconds": 6,
+  "autoScore": 8,
+  "autoOutOf": 8,
+  "writtenMarks": 12,
+  "writtenScore": null,
+  "total": 20,
+  "passBar": 16,
+  "passed": null,
+  "strands": {
+    "L": {
+      "score": 3,
+      "outOf": 3,
+      "writtenMarks": 2
+    },
+    "U": {
+      "score": 4,
+      "outOf": 4,
+      "writtenMarks": 6
+    },
+    "E": {
+      "score": 1,
+      "outOf": 1,
+      "writtenMarks": 4
+    }
+  },
+  "tiers": {
+    "Basic": {
+      "c": 4,
+      "t": 4
+    },
+    "Intermediate": {
+      "c": 4,
+      "t": 4
+    },
+    "Applied": {
+      "c": 0,
+      "t": 6
+    }
+  },
+  "sections": [
+    {
+      "name": "t1",
+      "score": 3,
+      "outOf": 3
+    },
+    {
+      "name": "t2",
+      "score": 3,
+      "outOf": 3
+    },
+    {
+      "name": "t3",
+      "score": 2,
+      "outOf": 2
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 2,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 3,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 4,
+      "section": "t1",
+      "type": "written",
+      "strand": "L",
+      "tier": "Applied",
+      "given": "He gets a bookmark and a badge books that were 50 pages and was not a picture. I used the information from the text.",
+      "isCorrect": null
+    },
+    {
+      "q": 5,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "Because some picture books, the pictures cover like half the book",
+      "isCorrect": null
+    },
+    {
+      "q": 6,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 7,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 8,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 9,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "Mai might’ve felt sad because she didn’t want it, but I think she was happy for lin because she wants,",
+      "isCorrect": null
+    },
+    {
+      "q": 10,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "MAI do mistake on LIN because they were friends and friends would help each other.",
+      "isCorrect": null
+    },
+    {
+      "q": 11,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 12,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "E",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 13,
+      "section": "t3",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "The part where she /he says that we eat two mouthfuls and then go because then the headteacher or something we know that we’re not eating a lot.",
+      "isCorrect": null
+    },
+    {
+      "q": 14,
+      "section": "t3",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "Yes, I agreed at the last break should be longer because at my school we have one hour and that is enough if it was 40 minutes, we would only get to play for 10 minutes.",
+      "isCorrect": null
+    }
+  ],
+  "written": [
+    {
+      "q": 4,
+      "strand": "L",
+      "marks": 2,
+      "markScheme": [
+        "The prize, bookmark + badge, written in a full sentence (e.g. “Nong gets a bookmark and a badge.”).",
+        "Why: only 9 books count, because the poster says books need “at least 50 pages” and “picture books don't count”. 9 books is at least 6 but fewer than 10. (He is 11, so he is in the age range, and 10 September is before 15 September.)"
+      ],
+      "response": "He gets a bookmark and a badge books that were 50 pages and was not a picture. I used the information from the text.",
+      "responseBeforeReview": "He gets a bookmark and a badge books that were 50 pages and was not a picture. I used the information from the text.",
+      "wordCount": 24,
+      "longestRun": 2,
+      "reviewTicks": {
+        "answered": false,
+        "proof": false
+      },
+      "editedOnReview": false
+    },
+    {
+      "q": 5,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "A sensible reason in a full sentence: so children read longer books · so the challenge is harder · so readers stretch themselves. (The poster never says why, so he has to work it out.)",
+        "Words from the poster that link to it: “at least 50 pages” or “picture books don't count”."
+      ],
+      "response": "Because some picture books, the pictures cover like half the book",
+      "responseBeforeReview": "Because some picture books, the pictures cover like half the book",
+      "wordCount": 11,
+      "longestRun": 2,
+      "reviewTicks": {
+        "answered": false,
+        "proof": false
+      },
+      "editedOnReview": false
+    },
+    {
+      "q": 9,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "A feeling that fits, in a full sentence: disappointed · jealous · upset · sad · let down. (The story never names it.)",
+        "An action that shows it: her hands stay in her lap · she slides her poster into her bag and folds it · she does not clap."
+      ],
+      "response": "Mai might’ve felt sad because she didn’t want it, but I think she was happy for lin because she wants,",
+      "responseBeforeReview": "Mai might’ve felt sad because she didn’t want it, but I think she was happy for lin because she wants,",
+      "wordCount": 20,
+      "longestRun": 2,
+      "reviewTicks": {
+        "answered": false,
+        "proof": false
+      },
+      "editedOnReview": false
+    },
+    {
+      "q": 10,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "A reason in a full sentence: she cares about Lin · she wants Lin's poster to be right, even though she wanted to win · she is kind even when she is upset.",
+        "A story detail: Lin asked her for help · she “quietly” fixed it with a pencil · Lin hugged her afterwards."
+      ],
+      "response": "MAI do mistake on LIN because they were friends and friends would help each other.",
+      "responseBeforeReview": "MAI do mistake on LIN because they were friends and friends would help each other.",
+      "wordCount": 15,
+      "longestRun": 1,
+      "reviewTicks": {
+        "answered": false,
+        "proof": false
+      },
+      "editedOnReview": false
+    },
+    {
+      "q": 13,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "Names one of the three reasons (exercise · eating too quickly · making friends), in a full sentence.",
+        "Says why it convinces, tied to the article: e.g. the doctors' 60 minutes is a fact you can check · many pupils really do leave food · the break is too short to talk."
+      ],
+      "response": "The part where she /he says that we eat two mouthfuls and then go because then the headteacher or something we know that we’re not eating a lot.",
+      "responseBeforeReview": "The part where she /he says that we eat two mouthfuls and then go because then the headteacher or something we know that we’re not eating a lot.",
+      "wordCount": 28,
+      "longestRun": 2,
+      "reviewTicks": {
+        "answered": false,
+        "proof": false
+      },
+      "editedOnReview": false
+    },
+    {
+      "q": 14,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "A position (agree, disagree or partly) with a reason from the article: its words or a precise detail.",
+        "A reason from his own life: his own school day, his own friends, his own lunch. Own experience is allowed and needed here."
+      ],
+      "response": "Yes, I agreed at the last break should be longer because at my school we have one hour and that is enough if it was 40 minutes, we would only get to play for 10 minutes.",
+      "responseBeforeReview": "Yes, I agreed at the last break should be longer because at my school we have one hour and that is enough if it was 40 minutes, we would only get to play for 10 minutes.",
+      "wordCount": 36,
+      "longestRun": 3,
+      "reviewTicks": {
+        "answered": false,
+        "proof": false
+      },
+      "editedOnReview": false
+    }
+  ]
+}
