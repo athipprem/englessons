@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Story Builder — Unit 43</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:14px 0;font-weight:700;line-height:1.5}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.passage.small{font-size:12.5px;line-height:1.7;padding:10px 12px}
+.sn{cursor:pointer;padding:1px 2px;border-radius:4px}
+.tapzone .sn:hover{background:#E3F2FD}
+.sn.proof{background:#FFF176}
+.sn.wrongtap{background:#FFCDD2}
+.sn.keyw{background:#FFE0B2}
+.locked{pointer-events:none}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:12px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:8px;font-weight:600}
+.tapnote{font-size:12.5px;color:#5a6b8c;margin-bottom:4px}
+.jq{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.6;margin:6px 0}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di-opt.right{background:#C8E6C9;border-color:#2E7D32}
+.di-opt.wrong{background:#FFCDD2;border-color:#C62828}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none;line-height:1.5}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:14px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+.routine-final{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0}
+.fbox{background:#F5F9FF;border:2px solid #1e88e5;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;color:#0d47a1}
+.fbox.go{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.fbox.stop{background:#FFEBEE;border-color:#C62828;color:#B71C1C}
+.arrow{font-size:18px;color:#0d47a1}
+.tree{margin:14px 0;border:2px solid #BBDEFB;border-radius:12px;padding:12px;background:#fff}
+.tree .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.parts span{display:inline-block;padding:3px 8px;border-radius:6px;margin:2px;font-size:14px}
+.pa{background:#BBDEFB}.pb{background:#FFE0B2}.pc{background:#C8E6C9}
+.hidden{display:none}
+.ansrow{border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff;font-size:13.5px;line-height:1.6}
+.ansrow .di-btns{margin-top:6px}
+input.pf,textarea.myans{width:100%;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:14px;margin-top:4px}
+textarea.myans{min-height:80px}
+.pfmsg{font-size:13px;font-weight:600;margin-top:4px;min-height:18px}
+.pfmsg.ok{color:#1B5E20}.pfmsg.no{color:#B71C1C}
+label.fld{display:block;font-size:13px;font-weight:700;color:#0d47a1;margin-top:10px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13.5px}
+.btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-go{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.quote-mark{background:#FFF176;border-radius:3px;padding:0 2px}
+.stay{color:#B71C1C;font-weight:700}
+
+.di-btns.col{flex-direction:column}
+.di-btns.col .di-opt{width:100%;font-weight:600;line-height:1.5}
+.di-num{font-size:11px;font-weight:800;color:#5a6b8c;margin-bottom:6px;letter-spacing:.4px}
+.ansq{font-size:14px;margin:6px 0 8px;line-height:1.6}
+.tickline{font-size:13px;font-weight:700;color:#0d47a1;margin:8px 0 4px}
+.tk{letter-spacing:2px}
+.drill-head{font-size:13px;font-weight:800;color:#8A5A00;background:#FEEBC8;display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:6px}
+.drill-score.ready{background:linear-gradient(135deg,#2E7D32,#66BB6A)}
+.drill-score.retry{background:linear-gradient(135deg,#B71C1C,#E57373)}
+.drill-score a{color:#fff;text-decoration:underline}
+.drill-score .btn{background:#fff;color:#0d47a1}
+.btn.ghost{background:#E3F2FD;color:#0d47a1;border:1.5px solid #1e88e5}
+label.chk{display:block;font-size:13.5px;margin:6px 0}
+label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
+.mcard{border:3px solid #0d47a1;border-radius:14px;background:#fff;padding:14px;margin:12px 0;max-width:420px}
+.mcard .mc-t{font-weight:800;color:#0d47a1;text-align:center;margin-bottom:8px}
+.mrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.mbox{width:30px;height:30px;border:3px solid #0d47a1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#2E7D32;font-weight:900;flex-shrink:0;background:#fff}
+.mbox.red{border-color:#C62828}
+.mbox.on::after{content:"✔"}
+.mbox.off::after{content:""}
+.demo{border:2px solid #BBDEFB;border-radius:12px;padding:12px;margin:10px 0;background:#fff}
+.demo .ans{font-size:14.5px;line-height:1.6;margin-bottom:8px}
+.demo .mrow .mbox{border-color:#BBDEFB}
+.demo.on .mrow .mbox{border-color:#0d47a1}
+.demo .mbox::after{content:""}
+.demo.on .mbox.t1y::after,.demo.on .mbox.t2y::after{content:"✔"}
+.demo .verdict{display:none;font-size:13px;font-weight:700;margin-top:6px}
+.demo.on .verdict{display:block}
+.layers{margin:14px 0;max-width:460px}
+.layer{border-radius:10px;padding:12px 14px;font-weight:800;font-size:14.5px;margin-bottom:6px}
+.layer.l1{background:#BBDEFB;color:#0d47a1}
+.layer.l2{background:#FFE0B2;color:#8A5A00}
+.layer.l3{background:#C8E6C9;color:#1B5E20}
+.bars{margin:14px 0}
+.barrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13.5px}
+.barrow .bl{width:170px;font-weight:700;line-height:1.3}
+.bartrack{flex:1;height:24px;background:#ECEFF1;border-radius:12px;overflow:hidden;position:relative}
+.barfill{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:800;font-size:12px}
+.blocks{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:10px 0}
+.blk{border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5;font-weight:600}
+.blk small{display:block;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:3px}
+.blk.b1{background:#BBDEFB;color:#0d47a1}
+.blk.b2{background:#FFE0B2;color:#8A5A00}
+.blk.b3{background:#C8E6C9;color:#1B5E20}
+.frame{border:3px solid #0d47a1;border-radius:14px;padding:14px 16px;margin:14px 0;background:#F5F9FF}
+.frame .fl{margin:7px 0;font-size:14.5px;line-height:1.6}
+.frame .fn{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:24px;height:24px;text-align:center;line-height:24px;font-weight:800;font-size:13px;margin-right:6px}
+.frame .rb{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.report-grid{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.rep{flex:1 1 140px;background:#F5F9FF;border:2px solid #BBDEFB;border-radius:10px;padding:10px;text-align:center}
+.rep-t{font-size:12px;font-weight:800;color:#0d47a1}.rep-n{font-size:22px;font-weight:900;color:#0d47a1}.rep-s{font-size:11.5px;color:#5a6b8c}
+.boardbox{border:3px solid #00695c;border-radius:12px;background:#E0F2F1;padding:12px 16px;margin:10px 0}
+.boardbox h4{color:#00695c;margin-bottom:6px}
+.boardbox li{margin:3px 0 3px 18px;font-size:13.5px}
+.nav-title{font-size:14px}
+@media (max-width:560px){.barrow .bl{width:110px;font-size:12px}}
+
+.ck{display:flex;gap:10px;align-items:flex-start;margin:7px 0;font-size:14.5px;line-height:1.55}
+.ck .cn{background:#0d47a1;color:#fff;border-radius:50%;width:26px;height:26px;flex:0 0 26px;text-align:center;line-height:26px;font-weight:800;font-size:13px}
+.cams{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.cam{flex:1 1 250px;border:2.5px solid #BBDEFB;border-radius:12px;padding:10px;background:#fff;cursor:pointer;text-align:center}
+.cam svg{width:100%;height:auto;border-radius:8px;background:#F5F9FF}
+.cam .ct{font-weight:800;color:#0d47a1;margin:6px 0 2px;font-size:14px}
+.cam .cs{display:none;font-size:13.5px;line-height:1.55;margin-top:6px;text-align:left}
+.cam.on{border-color:#0d47a1}.cam.on .cs{display:block}
+.lite{background:#FFF176;border-radius:4px;padding:0 2px}
+.lbtns{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.lbtn{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;border-radius:8px;padding:6px 11px;font-weight:800;font-size:13px;cursor:pointer}
+.lbtn.on{background:#0d47a1;color:#fff}
+.lnote{font-size:13.5px;line-height:1.55;min-height:40px;background:#F5F9FF;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;margin:6px 0}
+.assembled{background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14.5px;line-height:1.8;min-height:50px}
+.assembled .ph{color:#5a6b8c;font-size:13px}
+.cardhd{display:inline-block;background:#0d47a1;color:#fff;font-weight:800;border-radius:6px;padding:2px 10px;font-size:13px;margin-bottom:6px}
+.sc{font-size:12.5px;color:#5a6b8c;margin:4px 0}
+.ticks5{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.savebox{text-align:center;margin:14px 0}
+.unlock-code{display:none;text-align:center;font-size:20px;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
+.unlock-code.unlocked{display:block}
+.codebox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:14px 16px;margin:12px 0}
+.codemsg{font-size:13px;font-weight:700;color:#B71C1C;margin-top:8px}
+
+#saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
+#saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
+
+.small{font-size:12.5px;color:#5a6b8c}
+ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
+.lights{margin:8px 0}
+.light{display:inline-block;background:#ECEFF1;color:#455A64;border-radius:14px;padding:3px 12px;font-size:13px;font-weight:800;margin-right:8px}
+.light.g{background:#C8E6C9;color:#1B5E20}
+.note-y{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:6px;padding:6px 10px;margin-top:8px;font-size:13px;font-weight:600}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Writing — Story Builder</span>
+  <div class="nav-right">
+    <span class="nav-pill" id="navPill">Unit 43 · Lesson 3</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+<div class="screen" id="s0"><div class="card"><span class="tag">UNIT 43 · LESSON 3 · SATURDAY</span>
+<p><b>Type it or say it — voice typing is fine.</b> Speech marks: type them with the keyboard.</p>
+<p class="small">Shift + the key next to Enter on most keyboards.</p>
+<div id="codeGate" class="codebox"><p><b>Enter your code from Lesson 2.</b></p><input class="pf" id="codeIn" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')checkCode()" style="max-width:240px"> <button class="btn" onclick="checkCode()">Go</button><div class="codemsg" id="codeMsg"></div></div>
+<div id="s0body" style="display:none">
+<h2>Why this lesson matters 🎯</h2>
+<p>Every story you will ever write — at school, in the ISA, or one you tell a friend at lunch — gets better when you know where the exciting part is and you stay right there. Today you get a tool for that, and you use it on <b>your own story</b>.</p>
+<p>Your boat story had great ideas — a boat lost in the Bermuda Triangle and a mystery map! Here it is, exactly as you wrote it:</p>
+<div class="passage"><span class="quote-mark">When some one found that boat they were surprised to see a boat so far from shore because it was in the Bermuda Triangle. Even though the surprise they knew and saw a map a and some kind of box. They investigated and saw a sick person on the boat so they quickly rushed him to the hospital then found out that he was dead.That map was also a way to go to Antarctica so they were very confused</span></div>
+<p>Count what happens:</p>
+<ol class="events"><li>They find a boat far from shore.</li><li>They see a map and a box.</li><li>They find a sick person.</li><li>They rush him to hospital.</li><li>He is dead.</li><li>The map leads to Antarctica.</li></ol>
+<div class="why-box"><div class="why-title">What this tells us</div>Six things in four sentences. The reader never gets to stand on that boat. Today you build a story the way high-scoring writers do: four parts, and one big moment you stay on.</div>
+</div>
+<div class="lock-note" id="lockNote-s0"></div></div></div>
+
+<div class="screen" id="s1"><div class="card"><span class="tag">ROUTE A · SEE IT</span>
+<h2>The story mountain ⛰️</h2>
+<p>A good story is like climbing a mountain. You start at the bottom, climb up, stop at the very top — and then come down. Tap each stop to see where <b>your</b> boat story lands.</p>
+<svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A story mountain with four stops" style="width:100%;height:auto;background:#F5F9FF;border-radius:12px;border:2px solid #BBDEFB">
+<polygon points="20,250 330,52 680,250" fill="#C5E1A5" stroke="#558B2F" stroke-width="3"/>
+<polygon points="296,74 330,52 364,74 345,84 330,76 312,86" fill="#fff"/>
+<line x1="12" y1="250" x2="688" y2="250" stroke="#795548" stroke-width="4"/>
+<g id="stop1"><circle cx="70" cy="222" r="15" fill="#0d47a1"/><text x="70" y="228" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">1</text></g>
+<g id="stop2"><circle cx="200" cy="140" r="15" fill="#0d47a1"/><text x="200" y="146" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">2</text></g>
+<g id="stop3"><circle cx="330" cy="38" r="15" fill="#C62828"/><text x="330" y="44" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">3</text></g>
+<g id="stop4"><circle cx="560" cy="170" r="15" fill="#0d47a1"/><text x="560" y="176" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">4</text></g>
+<text x="30" y="284" font-size="13" font-weight="700" fill="#0d47a1">Beginning — who and where</text>
+<text x="40" y="112" font-size="13" font-weight="700" fill="#0d47a1">Build-up — what goes wrong</text>
+<text x="352" y="30" font-size="13" font-weight="800" fill="#B71C1C">The big moment — slow right down</text>
+<text x="470" y="284" font-size="13" font-weight="700" fill="#0d47a1">Ending — solve it with something</text>
+<text x="470" y="302" font-size="13" font-weight="700" fill="#0d47a1">already in the story</text>
+</svg>
+<div class="lbtns"><button class="lbtn" onclick="mt(1,this)">1 Beginning</button><button class="lbtn" onclick="mt(2,this)">2 Build-up</button><button class="lbtn" onclick="mt(3,this)">3 Big moment</button><button class="lbtn" onclick="mt(4,this)">4 Ending</button></div>
+<div class="lnote" id="mnote">Tap a stop to see your story on the mountain.</div>
+<div class="rule-box">The summit is where the story slows down.<br>Your summit had 10 words.</div>
+<div class="lock-note" id="lockNote-s1"></div></div></div>
+
+<div class="screen" id="s2"><div class="card"><span class="tag">ROUTE B · THE RULES</span>
+<h2>The four parts, as rules 📏</h2>
+<p>Same mountain, written as rules.</p>
+<div class="routine-box">
+<div class="ck"><div class="cn">1</div><div><b>Beginning</b> — 40+ words. Who is in the story, and where are they?</div></div>
+<div class="ck"><div class="cn">2</div><div><b>Build-up</b> — 50+ words. What goes wrong?</div></div>
+<div class="ck"><div class="cn">3</div><div><b>The big moment</b> — 80+ words and 5+ sentences, all on one moment.</div></div>
+<div class="ck"><div class="cn">4</div><div><b>Ending</b> — 30+ words. Solve the problem with something already in your story.</div></div>
+</div>
+<p>On your story page, the computer counts the words for you. A part can't finish short.</p>
+<h2 style="margin-top:18px">Ending check 🌳</h2>
+<p>Before you write an ending, ask one question:</p>
+<div class="tree">
+<div class="row"><div class="fbox">Does my ending use something that is <b>already in my story</b>?</div></div>
+<div class="row"><span class="arrow">↳ YES</span><div class="fbox go">Keep it. The reader thinks: “Of course!”</div></div>
+<div class="row"><span class="arrow">↳ NO</span><div class="fbox stop">Go back. Plant that thing earlier, in the beginning or build-up — or choose a different ending.</div></div>
+</div>
+<div class="lock-note" id="lockNote-s2"></div></div></div>
+
+<div class="screen" id="s3"><div class="card"><span class="tag">DRILL 4</span>
+<h2>Which ending? 🎬</h2>
+<p>Each story has a problem and something planted earlier. Pick the ending that uses what is <b>already in the story</b>. Three questions; you can try again until each is right.</p>
+<div id="drill-D4"></div>
+<div class="lock-note" id="lockNote-s3"></div></div></div>
+
+<div class="screen" id="s4"><div class="card"><span class="tag">BUILD IT · YOUR BOAT STORY</span>
+<h2>Your big moment 🔍</h2>
+<p>Your big moment: the moment they find the person lying on the boat.</p>
+<p>Fill the five boxes — one sentence in each. Press <b>Check</b> on each box.</p>
+<div id="boxes"></div>
+<button class="btn ghost" onclick="openStuck('s4')">Stuck?</button>
+<div id="stuck-s4"></div>
+<div style="margin-top:12px"><button class="btn" id="joinBtn" onclick="joinUp()" disabled>Join it up ✨</button></div>
+<div id="joined"></div>
+<div id="ov-s4"></div>
+<div class="lock-note" id="lockNote-s4"></div></div></div>
+
+<div class="screen" id="s5"><div class="card"><span class="tag">WRITE IT · NEW MOMENT</span>
+<h2>Now one on your own 🚌</h2>
+<p>The school bus pulls away — without you.</p>
+<p>Write one box about this moment. Stay on it. Use the lights to help you.</p>
+<textarea class="myans" id="busTa" style="min-height:150px" oninput="busTyped()" placeholder="Write here. Type it or say it."></textarea>
+<div class="lights" id="lights"></div>
+<div class="tickline">When you have finished, tick what you used:</div>
+<div class="ticks5">
+<label class="chk"><input type="checkbox" onchange="bTick('see',this.checked)"> I wrote something you can SEE</label>
+<label class="chk"><input type="checkbox" onchange="bTick('hear',this.checked)"> I wrote something you can HEAR, smell or touch</label>
+<label class="chk"><input type="checkbox" onchange="bTick('show',this.checked)"> I wrote a body SHOWING a feeling</label>
+</div>
+<button class="btn ghost" onclick="openStuck('s5')">I'm stuck — help</button>
+<div id="stuck-s5"></div>
+<div style="margin-top:10px"><button class="btn" onclick="busDone()">Done ✔</button></div>
+<div class="pfmsg" id="busMsg"></div>
+<div id="ov-s5"></div>
+<div class="lock-note" id="lockNote-s5"></div></div></div>
+
+<div class="screen" id="s6"><div class="card"><span class="tag">SELF-CHECK</span>
+<h2>Are you ready? ✅</h2>
+<p>Four questions. You need <b>3 out of 4</b>.</p>
+<div id="drill-SC"></div><div class="lock-note" id="lockNote-s6"></div></div></div>
+
+<div class="screen" id="s7"><div class="card"><h2>Report 📋</h2>
+<div id="reportWrap"></div>
+<div class="rule-box">BEGINNING · BUILD-UP · BIG MOMENT (slow down!) · ENDING<br>Five boxes: SEE · HEAR · SAY · SHOW · MORE</div>
+<div class="savebox"><button class="btn" onclick="saveDone()">💾 Save for Naomi</button><div id="saveStatus"></div></div>
+<p>Next: your story. You get a picture, four plan boxes, and four parts to write. Type it or say it — voice typing is fine.</p>
+<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_043_Test_Narrative_StoryBuilder.html">Your story →</a></div><div id="unlockCode" class="unlock-code"></div><div class="lock-note" id="lockNote-s7"></div></div></div>
+<script>
+var DRILLS={
+"D4":{"title":"Drill 4 · Which ending?","forced":true,"fixed":true,"letters":true,"col":true,"nudge":"Look back at the story. Which ending uses something that is ALREADY in it? The others bring in something new.","items":[
+{"q":"<b>Mia's kite is stuck at the top of a tall tree. Grandpa is sitting on a bench nearby, holding his long fishing rod.</b><br>Which ending uses something already in the story?","opts":["Grandpa hooks the kite's string with his fishing rod and gently pulls it down.","A helicopter flies low over the park and its wind blows the kite free.","Mia wakes up in her bed and finds out it was all a dream.","A girl from Japan walks past and gives Mia a brand-new kite."],"ans":0,"why":"Only A uses something already in the story — Grandpa's fishing rod. The helicopter and the girl appear from nowhere, and 'it was all a dream' throws the whole story away."},
+{"q":"<b>Sam can't find his library book anywhere. That morning, his dog Biscuit was seen dragging something under the sofa.</b><br>Which ending uses something already in the story?","opts":["Sam's teacher says the book doesn't matter and gives him another one.","A wizard taps on the window and magics up a shiny new book.","Sam lifts the sofa cushion and finds the book, a bit chewed, under Biscuit.","Sam's whole family moves to a new town, so nobody asks about the book."],"ans":2,"why":"Biscuit and the sofa were planted earlier — C pays them off. The others bring in something new or just make the problem disappear."},
+{"q":"<b>Leo's bike is stuck at the bottom of a muddy hill. At the start of the story, his sister packed a long rope \"just in case\".</b><br>Which ending uses something already in the story?","opts":["It starts to snow, so Leo slides home on his coat instead.","A famous racing driver stops his big truck and carries the bike up.","Leo finds a secret tunnel that leads straight to his house.","Leo's sister throws down the rope and helps pull him up the hill."],"ans":3,"why":"The rope was packed 'just in case' — this is the case. The snow, the racing driver and the tunnel are all new."}
+]},
+"SC":{"title":"Self-check","forced":false,"need":3,"items":[
+{"q":"Which sentence SHOWS a feeling?","opts":["Ana was very nervous as she held the paper.","Ana's hands were shaking as she held the paper.","Ana felt very, very nervous about reading her poem.","Ana was nervous and scared when it was her turn."],"ans":1,"why":"Shaking hands are something you can see. The others just name the feeling."},
+{"q":"Jay's football flies over the fence. Earlier, his neighbour waved at him from her yard. Which ending uses something already in the story?","opts":["The neighbour throws the ball back over the fence with a smile.","Jay buys a brand-new ball at a big shop in town.","A big storm comes and blows the ball back over the fence.","Jay gives up football and starts going swimming every weekend instead."],"ans":0,"why":"The neighbour was already there, so the ending grows out of the story. The shop, the storm and the swimming are all new."},
+{"q":"At least how many sentences should your big moment have?","opts":["1","2","5","20"],"ans":2,"why":"Five or more — the big moment is where you slow right down."},
+{"q":"Which one belongs in the SAY box?","opts":["He was very surprised by it.","“Is anyone there?” she called.","The water was cold and deep.","Then they all went home."],"ans":1,"why":"Only B is something a person says out loud, inside speech marks."}
+]}
+};
+var SCREENS=["s0","s1","s2","s3","s4","s5","s6","s7"];
+var SCREEN_DRILLS={"s3":["D4"],"s6":["SC"]};
+var LESSON_TAG="Unit 43 · Lesson 3", LESSON_ID="L3", REPORT_ID="s7";
+var BACK_ID="s1", BACK_NAME="The story mountain (screen 2)";
+var READY_MSG="Ready for your story ✅";
+var REPORT_ROWS=[{id:"D4",label:"Drill 4",sub:"Which ending?"},{id:"SC",label:"Self-check",sub:"need 3 of 4"}];
+
+/* ---------- U43 WRITING HELPERS (verbatim) ---------- */
+function countWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function countSentences(t){var s=(t||'').replace(/[“”]/g,'"').replace(/[‘’]/g,"'").trim();if(!s)return 0;return s.split(/(?<=[.!?])["']?\s+(?=["']?[A-Z])/).filter(function(p){return countWords(p)>=3;}).length;}
+function hasSpeech(t){return /["“][^"“”]{2,}["”]/.test(t||'');}
+function repeatedSentence(t){var seen={},hit=null;(t||'').toLowerCase().split(/[.!?]+/).map(function(p){return p.replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();}).forEach(function(p){if(p.split(' ').length>=4){if(seen[p])hit=p;seen[p]=1;}});return hit;}
+/* ---------- END HELPERS ---------- */
+/* ---------- U43 FEELING CHECK (Lesson 3 only) ---------- */
+var FEELING_WORDS=['happy','sad','scared','afraid','frightened','angry','surprised','shocked','confused','worried','nervous','excited','upset','glad','proud','jealous','bored','lonely','terrified','furious','amazed','embarrassed','relieved','anxious','unhappy'];
+function namedFeeling(t){var m=(t||'').toLowerCase().match(/[a-z]+/g)||[];for(var i=0;i<m.length;i++){if(FEELING_WORDS.indexOf(m[i])>=0)return m[i];}return null;}
+/* ---------- END FEELING CHECK ---------- */
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var cur=0, DS={}, OPENED_MS=Date.now(), OPENED_ISO=new Date().toISOString(), FIN_SECS=null;
+var CODE_NEED="MANGO", CODE_OK=false;
+function checkCode(){var v=$('codeIn').value.replace(/\s+/g,'').toUpperCase();if(v===CODE_NEED){CODE_OK=true;OPENED_MS=Date.now();OPENED_ISO=new Date().toISOString();$('codeGate').style.display='none';$('s0body').style.display='block';updateNav();}else{$('codeMsg').textContent="That code isn't right. You get it at the end of Lesson 2, after you save.";}}
+function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
+/* ---------- drills ---------- */
+function buildDrill(id){
+  var D=DRILLS[id], box=$('drill-'+id); if(!box) return;
+  DS[id]={res:[],first:[],tries:[],order:[],given:[]};
+  var h='<div class="drill-head">'+D.title+'</div>';
+  D.items.forEach(function(it,i){
+    DS[id].res.push(false);DS[id].first.push(false);DS[id].tries.push(0);DS[id].given.push(null);
+    var ord=[];if(D.fixed){for(var q=0;q<it.opts.length;q++)ord.push(q);}else{ord=shuffled(it.opts.length);}DS[id].order.push(ord);
+    h+='<div class="di" id="'+id+'-'+i+'"><div class="di-num">'+(i+1)+' of '+D.items.length+'</div>';
+    if(it.ex) h+='<div class="passage small">'+it.ex+'</div>';
+    if(it.s) h+='<div class="ansq"><span class="quote-mark">“'+it.s+'”</span></div>';
+    if(it.q) h+='<div class="di-sent">'+it.q+'</div>';
+    h+='<div class="di-btns'+(D.col?' col':'')+'">';
+    ord.forEach(function(k,pos){h+='<button class="di-opt" id="'+id+'-'+i+'-'+k+'" onclick="pick(\''+id+'\','+i+','+k+')">'+(D.letters?'<b>'+'ABCD'[pos]+'.</b> ':'')+it.opts[k]+'</button>';});
+    h+='</div><div class="di-fb" id="'+id+'-'+i+'-fb"></div></div>';
+  });
+  h+='<div class="drill-score" id="'+id+'-score"></div>';
+  box.innerHTML=h;
+  if(typeof onDrillBuilt==='function') onDrillBuilt(id);
+}
+function pick(id,i,v){
+  var D=DRILLS[id], S=DS[id], it=D.items[i]; if(S.res[i]) return;
+  var ok=(v===it.ans), fb=$(id+'-'+i+'-fb'), btn=$(id+'-'+i+'-'+v);
+  S.given[i]=v;
+  if(D.forced){
+    if(ok){S.res[i]=true;S.first[i]=(S.tries[i]===0);btn.classList.add('right');fb.className='di-fb ok';fb.innerHTML='Right — '+it.why;lockItem(id,i);if(typeof onRight==='function') onRight(id,i,it);}
+    else{S.tries[i]++;btn.classList.add('wrong');btn.disabled=true;fb.className='di-fb no';
+      fb.innerHTML='Try again — '+D.nudge+(S.tries[i]>=2?'<div class="walk">'+it.why+'</div>':'');}
+  } else {
+    S.res[i]=true;S.first[i]=ok;btn.classList.add(ok?'right':'wrong');
+    var rb=$(id+'-'+i+'-'+it.ans); if(rb) rb.classList.add('right');
+    fb.className='di-fb '+(ok?'ok':'no');fb.innerHTML=(ok?'Right — ':'Look again — ')+it.why;lockItem(id,i);
+  }
+  checkDrillDone(id);updateNav();
+}
+function lockItem(id,i){var el=$(id+'-'+i);var bs=el.getElementsByTagName('button');for(var k=0;k<bs.length;k++)bs[k].disabled=true;}
+function checkDrillDone(id){
+  var D=DRILLS[id], S=DS[id]; for(var k=0;k<S.res.length;k++) if(!S.res[k]) return;
+  var n=0;S.first.forEach(function(f){if(f)n++;});var sc=$(id+'-score');sc.classList.add('show');
+  if(D.forced){sc.innerHTML='Drill complete ✅ — '+n+' of '+S.res.length+' right on the first go.';}
+  else{
+    var ready=n>=(D.need||5);
+    sc.innerHTML='<b>'+n+' out of '+S.res.length+'</b><br>'+(ready?READY_MSG:'Not quite there yet. Go back to <a href="#" onclick="jumpTo(\''+BACK_ID+'\');return false">'+BACK_NAME+'</a>, then try this check again.<br><button class="btn" onclick="buildDrill(\''+id+'\');updateNav();">Try the self-check again</button>');
+    sc.className='drill-score show '+(ready?'ready':'retry');
+  }
+}
+/* ---------- mountain ---------- */
+var MNOTE={1:"<b>Beginning ✓</b> — “…found that boat… Bermuda Triangle”. We know who (the people who found it) and where (a boat far from shore). Good.",
+2:"<b>Build-up ✓</b> — “saw a map and some kind of box”. Something strange appears. Good.",
+3:"<b>The big moment</b> — “They investigated and saw a sick person on the boat”. That is <b>10 words</b> at the very top of the mountain. This is the moment the reader wants to stand inside — and the story rushes past it.",
+4:"<b>Ending</b> — “Antarctica” is new. The reader has never heard of it, so the ending doesn't solve anything."};
+function mt(n,b){var bs=document.getElementsByClassName('lbtn');for(var i=0;i<bs.length;i++)bs[i].classList.remove('on');b.classList.add('on');$('mnote').innerHTML=MNOTE[n];
+  for(var k=1;k<=4;k++){var g=$('stop'+k).getElementsByTagName('circle')[0];g.setAttribute('r',k===n?'22':'15');}}
+/* ---------- counters ---------- */
+var RF={s4:0,s5:0}, OVR=[], feelingBounces=0, speechBounces=0, sentenceBounces=0, stuckOpened=0;
+function refuse(sc){RF[sc]++;if(RF[sc]>=5&&!$('ov-'+sc).innerHTML){$('ov-'+sc).innerHTML='<div class="walk">Still not working? You can carry on — Dad will see it in your report.<br><button class="btn ghost" onclick="override(\''+sc+'\')">Go on anyway</button></div>';}}
+function override(sc){OVR.push(sc);$('ov-'+sc).innerHTML='<div class="walk">OK — carrying on.</div>';updateNav();}
+/* ---------- stuck card ---------- */
+function openStuck(sc){
+  var box=$('stuck-'+sc);if(box.innerHTML)return;stuckOpened++;
+  box.innerHTML='<div class="walk"><b>Close your eyes. You are standing right there. What is the first thing you notice?</b><br><input class="pf" id="sk-'+sc+'" type="text" style="max-width:420px" oninput="stuckAns(\''+sc+'\')" placeholder="Type or say it…"><div id="skrest-'+sc+'" class="hidden">'+
+  '<p style="margin-top:10px">Here is a worked example on a different moment — <i>your name is called out in assembly</i>:</p>'+
+  '<div class="frame"><div class="fl"><b>SEE</b> — The whole hall turned round to look at me.</div><div class="fl"><b>HEAR</b> — My chair scraped loudly on the floor as I stood up.</div><div class="fl"><b>SAY</b> — “Go on, Prem!” whispered my best friend.</div><div class="fl"><b>SHOW</b> — My cheeks went hot and my legs felt like jelly.</div><div class="fl"><b>MORE</b> — I walked to the front one slow step at a time.</div></div>'+
+  '<p>Still stuck? Ask Dad to read your boxes with you.</p></div></div>';
+}
+function stuckAns(sc){if($('sk-'+sc).value.trim().length>=2)$('skrest-'+sc).classList.remove('hidden');}
+/* ---------- s4: five boxes ---------- */
+var BOXDEF=[['see','SEE — one thing you can see.'],['hear','HEAR — one thing you can hear, smell or touch.'],['say','SAY — one thing someone says.'],['show','SHOW — a feeling shown by what a body does.'],['more','MORE — one more sentence about the same moment.']];
+var BOXOK={}, JOINED=false, JOINTEXT='';
+function buildBoxes(){
+  var h='';
+  BOXDEF.forEach(function(d){h+='<div class="di"><label class="fld" for="bx-'+d[0]+'"><b>'+d[1]+'</b></label><textarea class="myans" id="bx-'+d[0]+'" style="min-height:56px" oninput="boxEdit(\''+d[0]+'\')" placeholder="One sentence. Type it or say it."></textarea><button class="btn ghost" onclick="boxCheck(\''+d[0]+'\')">Check</button><div class="pfmsg" id="bx-'+d[0]+'-m"></div></div>';});
+  $('boxes').innerHTML=h;
+}
+function boxEdit(k){BOXOK[k]=false;JOINED=false;$('bx-'+k+'-m').textContent='';$('bx-'+k+'-m').className='pfmsg';$('joined').innerHTML='';refreshJoin();updateNav();}
+function boxFail(k,msg){var m=$('bx-'+k+'-m');m.className='pfmsg no';m.textContent=msg;BOXOK[k]=false;refuse('s4');refreshJoin();}
+function boxCheck(k){
+  var v=$('bx-'+k).value.trim();
+  if(countWords(v)<6||!/[.!?]["”’']?$/.test(v)){sentenceBounces++;boxFail(k,'Make it a full sentence — at least 6 words, ending with . ! or ?');return;}
+  if(k==='say'&&!hasSpeech(v)){speechBounces++;boxFail(k,'Put the words someone says inside speech marks.');return;}
+  if(k==='show'){var f=namedFeeling(v);if(f){feelingBounces++;boxFail(k,'“'+f+'” names the feeling. Show what the body does instead — hands, face, legs, voice.');return;}}
+  BOXOK[k]=true;var m=$('bx-'+k+'-m');m.className='pfmsg ok';m.textContent='Good ✓';refreshJoin();
+}
+function refreshJoin(){var all=true;BOXDEF.forEach(function(d){if(!BOXOK[d[0]])all=false;});$('joinBtn').disabled=!all;}
+function joinUp(){
+  var parts=[];BOXDEF.forEach(function(d){parts.push($('bx-'+d[0]).value.trim());});
+  JOINTEXT=parts.join(' ');JOINED=true;var n=countWords(JOINTEXT);
+  $('joined').innerHTML='<div class="passage"><span class="quote-mark">'+esc(JOINTEXT)+'</span></div><div class="why-box">In your story this moment got 10 words. Now it has <b>'+n+' words</b> and 5 sentences. The reader is standing on the boat.</div>';
+  updateNav();
+}
+/* ---------- s5: bus scene ---------- */
+var BUS={text:'',done:false,ticks:{see:false,hear:false,show:false}};
+function bTick(k,v){BUS.ticks[k]=v;}
+function busTyped(){
+  var v=$('busTa').value;BUS.text=v;BUS.done=false;
+  var s=countSentences(v),sp=hasSpeech(v),f=namedFeeling(v);
+  var h='<span class="light '+(s>=5?'g':'')+'">Sentences '+s+' / 5</span> <span class="light '+(sp?'g':'')+'">Speech marks '+(sp?'✓':'–')+'</span>';
+  if(f) h+='<div class="note-y">“'+esc(f)+'” names a feeling. Can you show it instead?</div>';
+  $('lights').innerHTML=h;$('busMsg').textContent='';updateNav();
+}
+function busDone(){
+  var v=$('busTa').value,w=countWords(v),s=countSentences(v),m=$('busMsg'),f,r;
+  m.className='pfmsg no';
+  if(w<60||s<5){sentenceBounces++;m.textContent='Not yet — you need at least 60 words and 5 full sentences. You have '+w+' words and '+s+' sentences. Very short sentences like “He ran.” don\'t count — each one needs at least 3 words.';refuse('s5');return;}
+  if(!hasSpeech(v)){speechBounces++;m.textContent='Not yet — put the words someone says inside speech marks.';refuse('s5');return;}
+  f=namedFeeling(v);if(f){feelingBounces++;m.textContent='Not yet — “'+f+'” names a feeling. Show what a body does instead — hands, face, legs, voice.';refuse('s5');return;}
+  r=repeatedSentence(v);if(r){m.textContent='Not yet — you wrote the same sentence twice: “'+r+'”. Change one of them.';refuse('s5');return;}
+  BUS.done=true;m.className='pfmsg ok';m.textContent='Done ✓ — '+w+' words, '+s+' sentences. The reader is at the bus stop with you.';updateNav();
+}
+/* ---------- navigation ---------- */
+function screenLocked(sid){
+  if(sid==='s0'&&!CODE_OK) return 'Enter your code from Lesson 2 to go on.';
+  var d=SCREEN_DRILLS[sid]||[];
+  for(var k=0;k<d.length;k++){var id=d[k],S=DS[id];if(!S) continue;for(var j=0;j<S.res.length;j++) if(!S.res[j]) return DRILLS[id].forced?'Finish every question to go on.':'Answer all the questions to go on.';}
+  if(sid==='s4'&&!JOINED&&OVR.indexOf('s4')<0) return 'Check all five boxes, then press “Join it up”.';
+  if(sid==='s5'&&!BUS.done&&OVR.indexOf('s5')<0) return 'Press “Done” when your scene passes.';
+  return '';
+}
+function show(i){
+  cur=i;SCREENS.forEach(function(s,k){$(s).classList.toggle('active',k===i);});
+  $('navPill').textContent=LESSON_TAG+' · '+(i+1)+'/'+SCREENS.length;window.scrollTo(0,0);
+  if(SCREENS[i]===REPORT_ID) buildReport();
+  updateNav();
+}
+function updateNav(){
+  var sid=SCREENS[cur],lock=screenLocked(sid);
+  $('prevBtn').disabled=(cur===0);
+  $('nextBtn').disabled=(cur===SCREENS.length-1)||!!lock;
+  var ln=$('lockNote-'+sid);if(ln){ln.textContent=lock;ln.className='lock-note'+(lock?' show':'');}
+}
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;if(d>0&&screenLocked(SCREENS[cur]))return;show(n);}
+function jumpTo(sid){var i=SCREENS.indexOf(sid);if(i>=0)show(i);}
+/* ---------- report + save ---------- */
+function firstTry(id){var S=DS[id];if(!S)return 0;var n=0;S.first.forEach(function(f){if(f)n++;});return n;}
+function buildReport(){
+  if(FIN_SECS===null) FIN_SECS=Math.round((Date.now()-OPENED_MS)/1000);
+  var h='<div class="report-grid">';
+  REPORT_ROWS.forEach(function(r){var S=DS[r.id];if(!S)return;h+='<div class="rep"><div class="rep-t">'+r.label+'</div><div class="rep-n">'+firstTry(r.id)+' / '+S.res.length+'</div><div class="rep-s">'+r.sub+'</div></div>';});
+  h+='<div class="rep"><div class="rep-t">Boat moment</div><div class="rep-n">'+countWords(JOINTEXT)+'</div><div class="rep-s">words (was 10)</div></div>';
+  h+='<div class="rep"><div class="rep-t">Bus scene</div><div class="rep-n">'+countWords(BUS.text)+'</div><div class="rep-s">words</div></div>';
+  $('reportWrap').innerHTML=h+'</div>';
+}
+function buildRecord(){
+  var drills={};REPORT_ROWS.forEach(function(r){var S=DS[r.id];if(S&&r.id==='D4') drills[r.id]=firstTry(r.id)+'/'+S.res.length;});
+  var sc=firstTry('SC'), boxes={};BOXDEF.forEach(function(d){boxes[d[0]]=$('bx-'+d[0]).value.trim();});
+  var rec={student:'Prem',unit:43,lesson:LESSON_ID,lessonDone:true,dateDone:new Date().toISOString().slice(0,10),
+    openedAt:OPENED_ISO,finishedAt:new Date().toISOString(),minutesSpent:Math.round((FIN_SECS===null?(Date.now()-OPENED_MS)/1000:FIN_SECS)/60),
+    secondsSpent:(FIN_SECS===null?Math.round((Date.now()-OPENED_MS)/1000):FIN_SECS),drills:drills,selfCheck:sc,selfCheckOutOf:4,ready:sc>=3,
+    scenes:[{id:"boat",boxes:boxes,text:JOINTEXT},
+            {id:"bus",text:BUS.text,words:countWords(BUS.text),sentences:countSentences(BUS.text),ticks:BUS.ticks}],
+    feelingBounces:feelingBounces,speechBounces:speechBounces,sentenceBounces:sentenceBounces,stuckOpened:stuckOpened,overrides:OVR};
+  return rec;
+}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';var u=$('unlockCode');if(u){u.textContent='Your code for the story: ROCKET';u.className='unlock-code unlocked';}}
+async function saveDone(){
+  var rec=buildRecord(), filename='ENG_U043_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
+  if(window.showSaveFilePicker){
+    try{
+      var handle=await window.showSaveFilePicker({suggestedName:filename,types:[{description:'Lesson done JSON',accept:{'application/json':['.json']}}]});
+      var w=await handle.createWritable();await w.write(json);await w.close();
+      st.className='done';st.textContent='Saved as '+filename+'. Well done!';unlockNext();return;
+    }catch(e){
+      if(e&&e.name==='AbortError'){st.className='reminder';st.textContent='Save cancelled — NOT saved yet. Press the blue button again.';return;}
+    }
+  }
+  try{
+    var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();
+    st.className='done';st.textContent='Downloaded '+filename+' — please move it into Lessons\\Tests\\Results.';unlockNext();
+  }catch(e2){st.className='reminder';st.textContent='Could not save. Tell Dad.';}
+}
+function initAll(){Object.keys(DRILLS).forEach(buildDrill);buildBoxes();show(0);}
+initAll();
+
+</script>
+</body>
+</html>

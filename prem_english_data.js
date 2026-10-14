@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '12 Oct 2026',
+  updated:        '14 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           42,
-    heroLabel:   "Unit 42 - Lesson 1 Tue 13 Oct, Lesson 2 Wed 14 Oct, Test Thu 15 Oct",
-    status:      "&#127916; UNIT 42 &mdash; Slow-Motion Scene (writing), built 12 Oct. Two lessons (Tue, Wed) and a handwritten story test (Thu, 35 min, photographed in). Microphone off.",
+    n:           43,
+    heroLabel:   "Unit 43 - Lesson 1 Thu 15 Oct, Lesson 2 Fri 16 Oct, Lesson 3 Sat 17 Oct, Test Mon 19 Oct",
+    status:      "&#9968; UNIT 43 &mdash; Story Builder (writing, on screen), built 14 Oct. Three lessons (Thu, Fri, Sat) linked by save-and-code, then a four-part story on screen (Mon, 35 min). Type it or say it.",
     testPending: true
   },
 
@@ -35,20 +35,19 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 40 -- updated after each test)
   lastUnit: {
-    n: 41, label: 'Unit 41', score: 16, outOf: 20, pct: 80, delta: null, prevScore: 23, prevOutOf: 32,
+    n: 42, label: 'Unit 42', score: 11, outOf: 25, pct: 44, delta: null, prevScore: 16, prevOutOf: 20,
 
-    patternLabel:   "Unit 41 &mdash; 12 Oct 2026 &middot; 16/20 (80%) provisional &mdash; exactly on the 16 bar",
-    patternInsight: "<strong>Auto-scored 8/8; written 8/12 (provisional, Coach-marked).</strong> The second tick appeared on 1&ndash;2 of 6 written answers (M4: 0 of 8): Q14 clearly (his own life), Q4 borderline. Every answer had a first-tick idea. 7 minutes for 14 items; the review screen was open 6 seconds, nothing ticked or edited. No answer used the &ldquo;the text says&rdquo; frame. Lesson completion was not recorded (lessons saved no file until U42). Needs Lui's confirmation: Q4, Q13 and Q14 are judgement calls (range 14&ndash;17).",
+    patternLabel:   "Unit 42 &mdash; 14 Oct 2026 &middot; 11/25 provisional &middot; Scene score 1/5",
+    patternInsight: "<strong>Narrative rubric 11/25 provisional (range 10&ndash;13; M4 W baseline 13/25). Scene score 1/5.</strong> Handwritten story typed in by Lui: 79 words, 4 sentences, six events with nothing slowed down; two feelings named, none shown. Finished in 6 minutes. <strong>No lesson-done files exist, so the U42 lessons are treated as not taught &mdash; not a strike.</strong> Lui changed writing to on-screen on 14 Oct; Unit 43 re-sits Lessons 1&ndash;2 and adds Story Builder. Needs Lui's confirmation of the marks (Ideas, Organisation and Word Choice are judgement calls).",
 
-    analysisLabel:   "Unit 41 Result Analysis &mdash; 12 Oct 2026",
-    analysisInsight: "<strong>On the bar, on judgement marks.</strong> MCQ is 50/50 since U38. The copied-words measure (<code>longestRun</code>) never reached 4. See TEST_RECORD_U041.md for provenance.",
+    analysisLabel:   "Unit 42 Result Analysis &mdash; 14 Oct 2026",
+    analysisInsight: "<strong>Racing and a chain of events.</strong> Same shape as M4 W, shorter. See TEST_RECORD_U042.md for provenance and the six faults.",
 
-    qSummary: "<strong>16/20 (80%) provisional &mdash; auto 8/8, written 8/12.</strong> Needs Lui's confirmation.",
+    qSummary: "<strong>11/25 provisional &mdash; Scene 1/5.</strong> Needs Lui's confirmation.",
 
     qBreakdown: [
-      { q:"Auto", topic:"MCQ", pass:true, note:"&#10003; 8/8 &mdash; every multiple-choice item correct." },
-      { q:"Q4 Q14", topic:"Written", pass:true, note:"&#10003; 2/2 each &mdash; borderline on the second tick." },
-      { q:"Q5 Q9 Q10 Q13", topic:"Written", pass:false, note:"&#9650; 1/2 each &mdash; first idea given, no words from the text." }
+      { q:"Scene", topic:"Writing", pass:false, note:"&#9650; 1/5 &mdash; one moment never slowed down; no sight, sound, speech or body-shown feeling." },
+      { q:"Length", topic:"Writing", pass:false, note:"&#9650; 79 words in 6 minutes (M4 W 147). Unit 43 enforces minimums on screen." }
     ]
   },
 
@@ -134,11 +133,26 @@ var PREM_ENGLISH = {
     { n:39, score:18, outOf:25, delta:null, color:'#f6993f', star:false, label:'U39 🏫' },
     { n:40, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U40' },
     { n:'M4', score:23, outOf:32, delta:null, color:'#f6993f', star:false, label:'M4 R', milestone:true },
-    { n:41, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U41' }
+    { n:41, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U41' },
+    { n:42, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U42 W' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 42,
+      title: "Unit 42 &mdash; &#127916; Slow-Motion Scene: Zoom In &middot; The Slow-Motion Scene",
+      badge: '#f6993f',
+      status: 'done',
+      note: "11/25 provisional (range 10&ndash;13), <strong>Scene 1/5</strong>. Handwritten story typed by Lui: 79 words, 6 minutes. No lesson-done files, so the lessons count as <strong>not taught &mdash; not a strike</strong>. Re-sat in Unit 43, now on screen.",
+      tags: [
+        { t:"11/25 provisional", s:"background:#fff8e1;color:#744210" },
+        { t:"Scene 1/5 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"79 words", s:"background:#edf2f7;color:#4a5568" },
+        { t:"Lessons not recorded", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Unit 43 Story Builder", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 41,
       title: "Unit 41 &mdash; &#9997;&#65039; Two-Mark Answers: Be the Marker &middot; The Text Says",

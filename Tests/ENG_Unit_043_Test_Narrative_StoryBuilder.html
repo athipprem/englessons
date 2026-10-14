@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 43 — Narrative Test</title>
+<!-- Built from BUILD_PLAN_ENG_U043_StoryBuilder.md v1 section 6. On-screen story in four parts, saved as a results file. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{--ink:#2d3748;--grey:#718096;--line:#e2e8f0;--ok:#2e7d32}
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px;display:none}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.95rem;font-weight:700;margin-bottom:14px;text-align:center}
+  .pic{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px;margin-bottom:14px}
+  .pic svg{display:block;width:100%;height:auto;border-radius:10px}
+  .prompt{background:#fff8e1;border:2px solid #f6993f;border-radius:12px;padding:16px 18px;font-size:1.15rem;font-weight:800;color:#5d4037;margin-bottom:14px;text-align:center}
+  .how,.card{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:14px;font-size:.98rem}
+  .screen{display:none}.screen.active{display:block}
+  label.fld{display:block;font-weight:800;color:#4A148C;margin:12px 0 4px}
+  textarea{width:100%;border:2px solid #b39ddb;border-radius:10px;padding:10px;font-family:inherit;font-size:1rem;line-height:1.5;resize:vertical}
+  textarea.plan{min-height:60px}textarea.part{min-height:130px}textarea.big{min-height:230px}textarea.ttl{min-height:44px;resize:none}
+  .cnt{font-size:.85rem;color:var(--grey);margin-top:2px;font-weight:700}
+  .cnt.met{color:var(--ok)}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer;margin:6px 6px 0 0}
+  .btn.main{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff}
+  .btn.alt{background:#eceff1;color:#4A148C}
+  .msg{font-size:.95rem;font-weight:700;color:#b71c1c;margin-top:10px;min-height:20px}
+  .note{font-size:.85rem;color:var(--grey);font-weight:700;min-height:18px}
+  #save-status{font-size:.95rem;text-align:center;margin-top:12px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}#save-status.done{color:var(--ok)}
+  .story p{margin:0 0 12px}
+  .planrec{background:#f3e8ff;border-radius:10px;padding:8px 14px;margin-bottom:12px;font-size:.9rem}
+  .planrec summary{cursor:pointer;font-weight:800;color:#5c0f8b}
+  .lui{font-size:.82rem;color:var(--grey);background:#f1f5f9;border-radius:10px;padding:10px 14px;margin-top:18px}
+  .center{text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div><b>Unit 43 — Narrative Test</b><span class="sub">Your story, on screen</span></div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+
+  <div class="screen active" id="scr1">
+    <div class="card">
+      <p style="margin-top:0"><b>Enter your code from Lesson 3.</b></p>
+      <input type="text" id="codeIn" autocomplete="off" style="font-size:1.1rem;padding:8px 12px;border:2px solid #b39ddb;border-radius:10px;max-width:260px" onkeydown="if(event.key==='Enter')tryUnlock()">
+      <button class="btn main" onclick="tryUnlock()">Go</button>
+      <div class="msg" id="codeMsg"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr2">
+    <div class="readfirst">Type it or say it — voice typing is fine.<br>Pasting is turned off.</div>
+    <div class="pic">
+<svg viewBox="0 0 600 400" role="img" aria-label="A display table with a cloth. A brown model volcano is overflowing with pink and white foam that runs over the table edge into a puddle on the floor. A plastic bottle lies tipped over, a clipboard sits on the corner, and a blue prize ribbon lies in the foam. Coloured boards stand behind." xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#eef2f7"/>
+  <rect x="20" y="40" width="150" height="200" fill="#4db6ac" stroke="#00796b" stroke-width="4"/>
+  <rect x="215" y="55" width="170" height="185" fill="#ffb74d" stroke="#ef6c00" stroke-width="4"/>
+  <rect x="430" y="35" width="150" height="205" fill="#9575cd" stroke="#512da8" stroke-width="4"/>
+  <rect x="0" y="300" width="600" height="100" fill="#cfd8dc"/>
+  <line x1="0" y1="300" x2="600" y2="300" stroke="#90a4ae" stroke-width="3"/>
+  <!-- table -->
+  <rect x="130" y="228" width="400" height="14" fill="#a1887f" stroke="#4e342e" stroke-width="3"/>
+  <polygon points="140,242 520,242 535,340 125,340" fill="#fff" stroke="#c62828" stroke-width="3"/>
+  <g stroke="#e57373" stroke-width="6"><line x1="190" y1="246" x2="184" y2="338"/><line x1="260" y1="246" x2="256" y2="338"/><line x1="330" y1="246" x2="328" y2="338"/><line x1="400" y1="246" x2="400" y2="338"/><line x1="470" y1="246" x2="472" y2="338"/></g>
+  <!-- puddle on floor -->
+  <ellipse cx="108" cy="352" rx="92" ry="22" fill="#f8bbd0" stroke="#ec407a" stroke-width="3"/>
+  <circle cx="60" cy="348" r="9" fill="#fff"/><circle cx="150" cy="356" r="11" fill="#fff"/><circle cx="118" cy="342" r="7" fill="#fff"/>
+  <!-- foam running over the edge -->
+  <path d="M138 230 Q120 236 122 262 Q116 300 108 338 L96 338 Q100 300 104 262 Q106 240 138 228 Z" fill="#fce4ec" stroke="#f48fb1" stroke-width="3"/>
+  <!-- volcano -->
+  <polygon points="150,228 330,228 285,128 195,128" fill="#8d5a2b" stroke="#3e2723" stroke-width="4"/>
+  <polygon points="150,228 180,228 215,128 195,128" fill="#6d4c41"/>
+  <ellipse cx="240" cy="128" rx="46" ry="12" fill="#3e2723"/>
+  <!-- foam on the volcano and table -->
+  <path d="M196 128 Q190 100 214 96 Q222 76 244 90 Q266 74 276 98 Q296 104 284 128 Q270 140 252 130 Q240 142 224 132 Q204 142 196 128 Z" fill="#fff" stroke="#f48fb1" stroke-width="3"/>
+  <path d="M200 134 Q188 170 176 200 Q170 222 148 230 L182 232 Q196 200 214 160 Z" fill="#fce4ec" stroke="#f48fb1" stroke-width="3"/>
+  <path d="M276 134 Q292 176 304 206 Q310 222 330 226 L300 232 Q282 200 268 160 Z" fill="#fff" stroke="#f48fb1" stroke-width="3"/>
+  <circle cx="228" cy="112" r="9" fill="#f8bbd0"/><circle cx="256" cy="108" r="7" fill="#f8bbd0"/><circle cx="172" cy="218" r="8" fill="#fff"/>
+  <!-- tipped bottle -->
+  <g transform="translate(372 214) rotate(-84)">
+    <rect x="0" y="0" width="34" height="86" rx="10" fill="#bbdefb" fill-opacity=".8" stroke="#1976d2" stroke-width="3"/>
+    <rect x="8" y="-14" width="18" height="16" fill="#e53935" stroke="#b71c1c" stroke-width="2"/>
+    <rect x="3" y="44" width="28" height="34" rx="6" fill="#f8bbd0" fill-opacity=".8"/>
+  </g>
+  <circle cx="352" cy="236" r="5" fill="#f48fb1"/><circle cx="338" cy="238" r="4" fill="#f48fb1"/>
+  <!-- clipboard on the corner -->
+  <g transform="translate(470 178) rotate(8)">
+    <rect x="0" y="0" width="50" height="62" rx="5" fill="#8d6e63" stroke="#4e342e" stroke-width="3"/>
+    <rect x="6" y="10" width="38" height="46" fill="#fff"/>
+    <rect x="14" y="-4" width="22" height="12" rx="3" fill="#b0bec5" stroke="#546e7a" stroke-width="2"/>
+    <g stroke="#90a4ae" stroke-width="2"><line x1="11" y1="22" x2="39" y2="22"/><line x1="11" y1="32" x2="39" y2="32"/><line x1="11" y1="42" x2="30" y2="42"/></g>
+  </g>
+  <!-- prize ribbon in the puddle -->
+  <g transform="translate(86 348)">
+    <polygon points="-12,4 -24,30 -12,24 -4,32 0,6" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+    <polygon points="4,6 8,32 16,24 26,30 14,4" fill="#1976d2" stroke="#0d47a1" stroke-width="2"/>
+    <circle cx="0" cy="-6" r="20" fill="#1565c0" stroke="#0d47a1" stroke-width="3"/>
+    <circle cx="0" cy="-6" r="11" fill="#64b5f6" stroke="#0d47a1" stroke-width="2"/>
+  </g>
+</svg>
+    </div>
+    <div class="prompt">Look at the picture. Write a story about what happened at the science fair.</div>
+    <div class="how">
+      <b>How to do it</b>
+      <p style="margin:8px 0 0">You have 35 minutes: about 5 to plan, 25 to write and 5 to read it through.</p>
+      <p style="margin:8px 0 0">First, fill in the four plan boxes. Each needs at least 3 words.</p>
+    </div>
+    <div class="card">
+      <label class="fld" for="plan-who">Who is in your story, and where are they?</label>
+      <textarea class="plan" id="plan-who" spellcheck="false"></textarea>
+      <label class="fld" for="plan-problem">What goes wrong?</label>
+      <textarea class="plan" id="plan-problem" spellcheck="false"></textarea>
+      <label class="fld" for="plan-big">What is the big moment in your story?</label>
+      <textarea class="plan" id="plan-big" spellcheck="false"></textarea>
+      <label class="fld" for="plan-end">How does it end? Use something already in your story.</label>
+      <textarea class="plan" id="plan-end" spellcheck="false"></textarea>
+      <div class="note" id="pasteNote2"></div>
+      <button class="btn main" onclick="startWriting()">Start writing</button>
+      <div class="msg" id="planMsg"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr3">
+    <details class="planrec"><summary>My plan (tap to open)</summary><div id="planShow"></div></details>
+    <div class="prompt" style="font-size:1rem">Look at the picture. Write a story about what happened at the science fair.</div>
+    <div class="card">
+      <label class="fld" for="b-title">Title</label>
+      <textarea class="ttl" id="b-title" rows="1" spellcheck="false"></textarea>
+      <label class="fld" for="b-beginning">Beginning</label>
+      <textarea class="part" id="b-beginning" spellcheck="false"></textarea>
+      <div class="cnt" id="c-beginning"></div>
+      <label class="fld" for="b-buildUp">Build-up</label>
+      <textarea class="part" id="b-buildUp" spellcheck="false"></textarea>
+      <div class="cnt" id="c-buildUp"></div>
+      <label class="fld" for="b-bigMoment">The big moment</label>
+      <textarea class="big" id="b-bigMoment" spellcheck="false"></textarea>
+      <div class="cnt" id="c-bigMoment"></div>
+      <div class="cnt" id="s-bigMoment"></div>
+      <label class="fld" for="b-ending">Ending</label>
+      <textarea class="part" id="b-ending" spellcheck="false"></textarea>
+      <div class="cnt" id="c-ending"></div>
+      <div class="note" id="pasteNote3"></div>
+      <button class="btn main" onclick="toReview()">Next: read it through</button>
+      <button class="btn alt" id="stuckBtn" style="display:none" onclick="stuckOut()">I'm stuck — save what I have</button>
+      <div class="msg" id="writeMsg"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr4">
+    <div class="card">
+      <p style="margin-top:0"><b>Read your whole story once, slowly. Fix anything that doesn't sound right.</b></p>
+      <div class="story" id="storyShow"></div>
+      <button class="btn alt" onclick="backToWrite()">Change something</button>
+      <button class="btn main" onclick="finishStory()">My story is finished</button>
+    </div>
+  </div>
+
+  <div class="screen" id="scr5">
+    <div class="card center">
+      <p style="margin-top:0;font-weight:800">Press the blue button to save your story.</p>
+      <button class="btn save" id="btn-save" onclick="saveResults()">💾 Save for Naomi</button>
+      <div id="save-status"></div>
+      <a class="btn alt" id="btn-hub" href="../index.html" style="display:none;text-decoration:none;margin-top:12px">🏠 Back to Hub</a>
+    </div>
+    <div class="lui"><b>For Lui:</b> no photos are needed. The whole story is saved inside the results file in <b>Lessons\Tests\Results</b> as <b>ENG_U043_Results_&lt;date&gt;.json</b>. On Windows, Win + H starts voice typing.</div>
+  </div>
+</div>
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT = 43;
+const UNLOCK_CODE = 'ROCKET';
+const MIN_WORDS = {beginning:40, buildUp:50, bigMoment:80, ending:30};
+const MIN_SENTENCES = {bigMoment:5};
+const PLAN_MIN_WORDS = 3;
+const STUCK_EXIT_AFTER_SEC = 1200;
+/* ---------- END EDIT ---------- */
+
+/* ---------- U43 WRITING HELPERS (verbatim) ---------- */
+function countWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function countSentences(t){var s=(t||'').replace(/[“”]/g,'"').replace(/[‘’]/g,"'").trim();if(!s)return 0;return s.split(/(?<=[.!?])["']?\s+(?=["']?[A-Z])/).filter(function(p){return countWords(p)>=3;}).length;}
+function hasSpeech(t){return /["“][^"“”]{2,}["”]/.test(t||'');}
+function repeatedSentence(t){var seen={},hit=null;(t||'').toLowerCase().split(/[.!?]+/).map(function(p){return p.replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();}).forEach(function(p){if(p.split(' ').length>=4){if(seen[p])hit=p;seen[p]=1;}});return hit;}
+/* ---------- END HELPERS ---------- */
+
+const $ = id => document.getElementById(id);
+const PARTS = ['beginning','buildUp','bigMoment','ending'];
+const PART_NAMES = {beginning:'Beginning', buildUp:'Build-up', bigMoment:'The big moment', ending:'Ending'};
+const PLAN_IDS = {who:'plan-who', problem:'plan-problem', bigMoment:'plan-big', ending:'plan-end'};
+const PLAN_NAMES = {who:'Who is in your story, and where are they?', problem:'What goes wrong?', bigMoment:'What is the big moment in your story?', ending:'How does it end?'};
+const ALL_BOXES = ['plan-who','plan-problem','plan-big','plan-end','b-title','b-beginning','b-buildUp','b-bigMoment','b-ending'];
+const DRAFT_KEY = 'ENG_U043_draft';
+
+$('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const openedAt = new Date().toISOString();
+let unlockedMs = null, unlockedAt = null, frozenSecs = null, finishedAt = null;
+let typedChars = 0, addedChars = 0, pasteBlocked = 0, repeatBlocks = 0;
+let stuckExit = false, restored = false, reviewSeconds = 0, reviewStart = null, reachedReview = false, editedOnReview = false;
+let curScreen = 1, lastResults = null;
+const lastLen = {};
+const sectionSeconds = {beginning:0, buildUp:0, bigMoment:0, ending:0};
+let focusPart = null, focusStart = null;
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ if (unlockedMs === null) return 0; return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-unlockedMs)/1000); }
+function tick(){
+  $('timer').textContent = fmtClock(elapsedSecs());
+  if (unlockedMs !== null && frozenSecs === null && curScreen === 3 && elapsedSecs() >= STUCK_EXIT_AFTER_SEC) $('stuckBtn').style.display = 'inline-block';
+}
+setInterval(tick, 1000);
+
+function showScreen(n){
+  if (curScreen === 3) flushFocus();
+  if (curScreen === 4 && reviewStart !== null){ reviewSeconds += Math.round((Date.now()-reviewStart)/1000); reviewStart = null; }
+  curScreen = n;
+  for (let i = 1; i <= 5; i++) $('scr'+i).classList.toggle('active', i === n);
+  if (n === 4){ reviewStart = Date.now(); reachedReview = true; }
+  window.scrollTo(0,0); tick();
+}
+function tryUnlock(){
+  const v = $('codeIn').value.replace(/\s+/g,'').toUpperCase();
+  if (v === UNLOCK_CODE){
+    unlockedMs = Date.now(); unlockedAt = new Date().toISOString();
+    $('timer-chip').style.display = 'block'; showScreen(2);
+  } else {
+    $('codeMsg').textContent = "That code isn't right. You get it at the end of Lesson 3, after you save.";
+  }
+}
+
+/* ---------- draft safety ---------- */
+function saveDraft(){
+  try { const d = {}; ALL_BOXES.forEach(id => d[id] = $(id).value); localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); } catch(e){}
+}
+function loadDraft(){
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY); if (!raw) return;
+    const d = JSON.parse(raw); let any = false;
+    ALL_BOXES.forEach(id => { if (d[id]){ $(id).value = d[id]; any = true; } });
+    if (any) restored = true;
+  } catch(e){}
+}
+function clearDraft(){ try { localStorage.removeItem(DRAFT_KEY); } catch(e){} }
+
+/* ---------- counters and instrumentation ---------- */
+function partText(p){ return $('b-'+p).value; }
+function updateCounters(){
+  PARTS.forEach(p => {
+    const w = countWords(partText(p)), min = MIN_WORDS[p], el = $('c-'+p);
+    el.textContent = w + ' / ' + min + ' words'; el.classList.toggle('met', w >= min);
+  });
+  const s = countSentences(partText('bigMoment')), el2 = $('s-bigMoment');
+  el2.textContent = s + ' / ' + MIN_SENTENCES.bigMoment + ' sentences'; el2.classList.toggle('met', s >= MIN_SENTENCES.bigMoment);
+}
+function flushFocus(){
+  if (focusPart !== null && focusStart !== null){ sectionSeconds[focusPart] += (Date.now()-focusStart)/1000; }
+  focusPart = null; focusStart = null;
+}
+ALL_BOXES.forEach(id => {
+  const el = $(id); lastLen[id] = 0;
+  el.addEventListener('keydown', e => {
+    if (id === 'b-title' && e.key === 'Enter'){ e.preventDefault(); return; }
+    if (e.key && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) typedChars++;
+  });
+  el.addEventListener('input', () => {
+    const len = el.value.length;
+    if (len > lastLen[id]) addedChars += len - lastLen[id];
+    lastLen[id] = len;
+    if (reachedReview && curScreen === 3) editedOnReview = true;
+    saveDraft(); updateCounters();
+  });
+  el.addEventListener('paste', e => {
+    e.preventDefault(); pasteBlocked++;
+    const t = 'Pasting is turned off — type it or say it.';
+    $('pasteNote2').textContent = t; $('pasteNote3').textContent = t;
+  });
+  if (id.indexOf('b-') === 0 && PARTS.indexOf(id.slice(2)) >= 0){
+    el.addEventListener('focus', () => { flushFocus(); focusPart = id.slice(2); focusStart = Date.now(); });
+    el.addEventListener('blur', () => flushFocus());
+  }
+});
+loadDraft();
+ALL_BOXES.forEach(id => { lastLen[id] = $(id).value.length; });
+updateCounters();
+
+/* ---------- screen 2 -> 3 ---------- */
+function startWriting(){
+  for (const k of Object.keys(PLAN_IDS)){
+    if (countWords($(PLAN_IDS[k]).value) < PLAN_MIN_WORDS){
+      $('planMsg').textContent = 'Fill in this box first (at least ' + PLAN_MIN_WORDS + ' words): ' + PLAN_NAMES[k];
+      return;
+    }
+  }
+  $('planMsg').textContent = '';
+  let h = '';
+  for (const k of Object.keys(PLAN_IDS)){ h += '<p style="margin:4px 0"><b>' + PLAN_NAMES[k] + '</b><br>' + esc($(PLAN_IDS[k]).value.trim()) + '</p>'; }
+  $('planShow').innerHTML = h;
+  showScreen(3);
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* ---------- screen 3 -> 4 ---------- */
+function storyText(){
+  return $('b-title').value.trim() + '\n\n' + PARTS.map(p => partText(p).trim()).join('\n\n');
+}
+function allStoryBody(){ return PARTS.map(p => partText(p)).join(' '); }
+function toReview(){
+  const m = $('writeMsg');
+  if (!stuckExit){
+    if (countWords($('b-title').value) < 1){ m.textContent = 'Give your story a title first.'; return; }
+    for (const p of PARTS){
+      const w = countWords(partText(p));
+      if (w < MIN_WORDS[p]){ m.textContent = PART_NAMES[p] + ' needs at least ' + MIN_WORDS[p] + ' words. You have ' + w + '.'; return; }
+    }
+    const s = countSentences(partText('bigMoment'));
+    if (s < MIN_SENTENCES.bigMoment){
+      m.textContent = 'The big moment needs at least ' + MIN_SENTENCES.bigMoment + ' sentences. You have ' + s + '. Each sentence ends with . ! or ? — very short ones like \'He ran.\' don\'t count.';
+      return;
+    }
+    const rep = repeatedSentence(allStoryBody());
+    if (rep){ repeatBlocks++; m.textContent = 'You wrote the same sentence twice: \'' + rep + '\'. Change one of them.'; return; }
+  }
+  m.textContent = '';
+  buildReview(); showScreen(4);
+}
+function stuckOut(){ stuckExit = true; flushFocus(); buildReview(); showScreen(4); }
+function buildReview(){
+  let h = '<h3 style="margin:0 0 10px">' + esc($('b-title').value.trim()) + '</h3>';
+  PARTS.forEach(p => { const t = partText(p).trim(); if (t) h += '<p>' + esc(t).replace(/\n/g,'<br>') + '</p>'; });
+  $('storyShow').innerHTML = h;
+}
+function backToWrite(){ showScreen(3); }
+function finishStory(){
+  flushFocus();
+  if (curScreen === 4 && reviewStart !== null){ reviewSeconds += Math.round((Date.now()-reviewStart)/1000); reviewStart = null; }
+  frozenSecs = Math.round((Date.now()-unlockedMs)/1000); finishedAt = new Date().toISOString(); tick();
+  showScreen(5);
+}
+
+/* ---------- save ---------- */
+async function saveResults(){
+  const dateTaken = new Date().toISOString().slice(0,10);
+  const words = {}, sentences = {}, sections = {}, secs = {};
+  let total = 0;
+  PARTS.forEach(p => { sections[p] = partText(p).trim(); words[p] = countWords(sections[p]); sentences[p] = countSentences(sections[p]); total += words[p]; secs[p] = Math.round(sectionSeconds[p]); });
+  words.total = total;
+  const share = addedChars > 0 ? Math.max(0, Math.round((1 - typedChars/addedChars)*100)/100) : 0;
+  lastResults = {
+    student: "Prem", unit: UNIT, paper: "W", mode: "digital", dateTaken: dateTaken,
+    openedAt: openedAt, unlockedAt: unlockedAt, finishedAt: finishedAt,
+    secondsSpent: frozenSecs, minutesSpent: Math.round(frozenSecs/60),
+    title: $('b-title').value.trim(),
+    plan: {who: $('plan-who').value.trim(), problem: $('plan-problem').value.trim(), bigMoment: $('plan-big').value.trim(), ending: $('plan-end').value.trim()},
+    sections: sections, words: words, sentences: sentences, sectionSeconds: secs,
+    typedChars: typedChars, addedChars: addedChars, dictatedShare: share,
+    pasteBlocked: pasteBlocked, repeatBlocks: repeatBlocks, reviewSeconds: reviewSeconds,
+    editedOnReview: editedOnReview, stuckExit: stuckExit, restored: restored,
+    story: storyText()
+  };
+  const filename = `ENG_U043_Results_${dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = $('save-status');
+  if (window.showSaveFilePicker){
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: filename, types: [{ description:'Test results JSON', accept:{'application/json':['.json']} }] });
+      const writable = await handle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      done(st, `Saved as ${filename}.`);
+      return;
+    } catch(e){
+      if (e.name === 'AbortError'){ st.className = 'reminder'; st.textContent = 'Save cancelled — NOT saved yet. Press the blue button again.'; return; }
+    }
+  }
+  try {
+    const blob = new Blob([json], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    done(st, `Downloaded ${filename} — please move it into Lessons\\Tests\\Results.`);
+  } catch(e2){ st.className = 'reminder'; st.textContent = 'Could not save. Tell Dad.'; }
+}
+function done(st, msg){
+  st.className = 'done'; st.textContent = msg + ' Well done!';
+  clearDraft();
+  $('btn-hub').style.display = 'inline-block';
+}
+</script>
+</body>
+</html>
