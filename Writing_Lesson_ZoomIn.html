@@ -161,6 +161,10 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
 .sc{font-size:12.5px;color:#5a6b8c;margin:4px 0}
 .ticks5{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
 .savebox{text-align:center;margin:14px 0}
+.save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:16px;line-height:1.7}
+.save-steps ol{margin:8px 0 8px 22px}
+.save-steps p{font-size:14px;margin:4px 0 0}
+
 .unlock-code{display:none;text-align:center;font-size:20px;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
 .unlock-code.unlocked{display:block}
 .codebox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:14px 16px;margin:12px 0}
@@ -183,6 +187,7 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
 <div class="screen" id="s0"><div class="card"><span class="tag">UNIT 43 · LESSON 1 · THURSDAY</span>
 <h2>Why this lesson matters 🎯</h2>
 <p><b>Type it or say it — voice typing is fine.</b></p>
+<p><b>📁 This lesson ends by saving your work into the Results folder. Your code for the next part only appears after that.</b></p>
 <p>Your secret-garden story on Milestone 4 had a great twist — it was a prank! But the middle went past so fast that the reader never got to <i>be</i> there. Here are your own two lines:</p>
 <div class="passage"><span class="quote-mark">“So he went to France and then when he arrived, he found another clue it was in Paris. So he went to Paris and then he found it in the Eiffel Tower the key.”</span></div>
 <p>Look at how much happens: a trip, a second trip, a clue and a key — in two sentences. Nothing is stopped and looked at.</p>
@@ -257,7 +262,13 @@ In reading, an action proves a feeling. In writing it is the same idea from the 
 <div class="screen" id="s8"><div class="card"><h2>Report 📋</h2>
 <div id="reportWrap"></div>
 <div class="rule-box">TELLING = the far-away camera<br>SHOWING = the close-up: SEE · HEAR · SAY · SHOW · STAY</div>
-<div class="savebox"><button class="btn" onclick="saveDone()">💾 Save for Naomi</button><div id="saveStatus"></div></div>
+<div class="savebox"><div class="save-steps"><b>📁 Save your work for Naomi — you can't go on until it's saved.</b>
+<ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+<li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+<li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+<li>Wait for <b>✅ Saved in Results</b>. Your code appears under it.</li></ol>
+<p>After the first time, the window opens in Results by itself.</p></div>
+<button class="btn" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
 <p>Tomorrow you write your own close-ups. Type it or say it — voice typing is fine.</p>
 <div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Writing_Lesson_SlowMotionScene.html">Lesson 2 →</a></div><div id="unlockCode" class="unlock-code"></div><div class="lock-note" id="lockNote-s8"></div></div></div>
 <script>
@@ -356,7 +367,7 @@ function screenLocked(sid){
 function show(i){
   cur=i;SCREENS.forEach(function(s,k){$(s).classList.toggle('active',k===i);});
   $('navPill').textContent=LESSON_TAG+' · '+(i+1)+'/'+SCREENS.length;window.scrollTo(0,0);
-  if(SCREENS[i]===REPORT_ID) buildReport();
+  if(SCREENS[i]===REPORT_ID){ON_REPORT=true;buildReport();}
   updateNav();
 }
 function updateNav(){
@@ -385,21 +396,44 @@ function buildRecord(){
   return rec;
 }
 function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';var u=$('unlockCode');if(u){u.textContent='Your code for Lesson 2: TIGER';u.className='unlock-code unlocked';}}
+var ON_REPORT=false;
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
 async function saveDone(){
   var rec=buildRecord(), filename='ENG_U043_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
-  if(window.showSaveFilePicker){
-    try{
-      var handle=await window.showSaveFilePicker({suggestedName:filename,types:[{description:'Lesson done JSON',accept:{'application/json':['.json']}}]});
-      var w=await handle.createWritable();await w.write(json);await w.close();
-      st.className='done';st.textContent='Saved as '+filename+'. Well done!';unlockNext();return;
-    }catch(e){
-      if(e&&e.name==='AbortError'){st.className='reminder';st.textContent='Save cancelled — NOT saved yet. Press the blue button again.';return;}
-    }
+  st.className='reminder';st.textContent='Saving…';
+  if(!window.showDirectoryPicker){
+    try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+    st.textContent='This browser can\'t save into the Results folder. Ask Dad to move '+filename+' from Downloads into Results. Dad has your code.';return;
   }
   try{
-    var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();
-    st.className='done';st.textContent='Downloaded '+filename+' — please move it into Lessons\\Tests\\Results.';unlockNext();
-  }catch(e2){st.className='reminder';st.textContent='Could not save. Tell Dad.';}
+    await saveToResults(filename,json);
+    SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
+  }catch(e){
+    if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
+    else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
+    else{st.textContent='Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.';}
+  }
 }
 function initAll(){Object.keys(DRILLS).forEach(buildDrill);Object.keys(WRITES).forEach(buildWrite);show(0);}
 initAll();
