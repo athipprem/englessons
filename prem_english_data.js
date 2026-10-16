@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '14 Oct 2026',
+  updated:        '16 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           43,
-    heroLabel:   "Unit 43 - Lesson 1 Thu 15 Oct, Lesson 2 Fri 16 Oct, Lesson 3 Sat 17 Oct, Test Mon 19 Oct",
-    status:      "&#9968; UNIT 43 &mdash; Story Builder (writing, on screen), built 14 Oct. Three lessons (Thu, Fri, Sat) linked by save-and-code, then a four-part story on screen (Mon, 35 min). Type it or say it.",
+    n:           44,
+    heroLabel:   "Unit 44 - Lesson Sat 17 Oct, Test Sun 18 Oct",
+    status:      "&#129354; UNIT 44 &mdash; Freeze Frame (writing, on screen), built 16 Oct. One lesson (Sat) saved into Results gives the code for the story; then a camping-trip story on screen (Sun, 35 min) with four note lines and a tap-your-four read-through. Type it or say it.",
     testPending: true
   },
 
@@ -33,21 +33,21 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 40 -- updated after each test)
+  // Last completed assessment (Unit 43 -- updated after each test)
   lastUnit: {
-    n: 42, label: 'Unit 42', score: 11, outOf: 25, pct: 44, delta: null, prevScore: 16, prevOutOf: 20,
+    n: 43, label: 'Unit 43', score: 13, outOf: 25, pct: 52, delta: null, prevScore: 11, prevOutOf: 25,
 
-    patternLabel:   "Unit 42 &mdash; 14 Oct 2026 &middot; 11/25 provisional &middot; Scene score 1/5",
-    patternInsight: "<strong>Narrative rubric 11/25 provisional (range 10&ndash;13; M4 W baseline 13/25). Scene score 1/5.</strong> Handwritten story typed in by Lui: 79 words, 4 sentences, six events with nothing slowed down; two feelings named, none shown. Finished in 6 minutes. <strong>No lesson-done files exist, so the U42 lessons are treated as not taught &mdash; not a strike.</strong> Lui changed writing to on-screen on 14 Oct; Unit 43 re-sits Lessons 1&ndash;2 and adds Story Builder. Needs Lui's confirmation of the marks (Ideas, Organisation and Word Choice are judgement calls).",
+    patternLabel:   "Unit 43 &mdash; 15 Oct 2026 &middot; 13/25 provisional &middot; Scene score 0/5",
+    patternInsight: "<strong>Narrative rubric 13/25 provisional (range 11&ndash;15; M4 W baseline 13/25). Scene score 0/5.</strong> First on-screen story: 244 words in 10 min 12 s (43 / 58 / 100 / 43 against minimums of 40 / 50 / 80 / 30), 97% dictated, read-through 2 seconds. Every part finished just over its floor and the big moment was a chain of events, not one slowed-down second. <strong>Lessons 1&ndash;3 were re-sat Fri 16 Oct (second attempts, saved into Results):</strong> 89 s, 32 s and 7 min 21 s. In Lesson 3 the five-box boat moment had SEE, HEAR, SAY and SHOW; the unprompted bus scene had none, and the &ldquo;Go on anyway&rdquo; button was used. <strong>Strike 1 on the scene target; Unit 44 is the one revision.</strong> Needs Lui's confirmation of the marks.",
 
-    analysisLabel:   "Unit 42 Result Analysis &mdash; 14 Oct 2026",
-    analysisInsight: "<strong>Racing and a chain of events.</strong> Same shape as M4 W, shorter. See TEST_RECORD_U042.md for provenance and the six faults.",
+    analysisLabel:   "Unit 43 Result Analysis &mdash; 15 Oct 2026",
+    analysisInsight: "<strong>The skill appears one prompt at a time and disappears when the prompts go.</strong> See TEST_RECORD_U043.md for provenance, the faults and the lesson files.",
 
-    qSummary: "<strong>11/25 provisional &mdash; Scene 1/5.</strong> Needs Lui's confirmation.",
+    qSummary: "<strong>13/25 provisional &mdash; Scene 0/5.</strong> Needs Lui's confirmation.",
 
     qBreakdown: [
-      { q:"Scene", topic:"Writing", pass:false, note:"&#9650; 1/5 &mdash; one moment never slowed down; no sight, sound, speech or body-shown feeling." },
-      { q:"Length", topic:"Writing", pass:false, note:"&#9650; 79 words in 6 minutes (M4 W 147). Unit 43 enforces minimums on screen." }
+      { q:"Scene", topic:"Writing", pass:false, note:"&#9650; 0/5 &mdash; the big moment is a chain of events; no sight, sound, speech or body-shown feeling." },
+      { q:"Length", topic:"Writing", pass:true, note:"244 words in 10 min 12 s &mdash; every part just over its minimum; 97% dictated; read-through 2 seconds." }
     ]
   },
 
@@ -134,11 +134,27 @@ var PREM_ENGLISH = {
     { n:40, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U40' },
     { n:'M4', score:23, outOf:32, delta:null, color:'#f6993f', star:false, label:'M4 R', milestone:true },
     { n:41, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U41' },
-    { n:42, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U42 W' }
+    { n:42, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U42 W' },
+    { n:43, score:13, outOf:25, delta:null, color:'#f6993f', star:false, label:'U43 W' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 43,
+      title: "Unit 43 &mdash; &#9968; Story Builder: Zoom In &middot; The Slow-Motion Scene &middot; Story Builder",
+      badge: '#f6993f',
+      status: 'done',
+      note: "13/25 provisional (range 11&ndash;15), <strong>Scene 0/5</strong>. First on-screen story: 244 words in 10 minutes, 97% dictated, read-through 2 seconds. Lessons 1&ndash;3 re-sat Fri 16 Oct (second attempts): 89 s, 32 s, 7 min 21 s; the unprompted bus scene had no SEE, HEAR or body-shown feeling. <strong>Strike 1 on the scene target &mdash; Unit 44 is the one revision.</strong>",
+      tags: [
+        { t:"13/25 provisional", s:"background:#fff8e1;color:#744210" },
+        { t:"Scene 0/5 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"244 words", s:"background:#edf2f7;color:#4a5568" },
+        { t:"97% dictated", s:"background:#edf2f7;color:#4a5568" },
+        { t:"Lessons re-sat 16 Oct", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Unit 44 Freeze Frame", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 42,
       title: "Unit 42 &mdash; &#127916; Slow-Motion Scene: Zoom In &middot; The Slow-Motion Scene",

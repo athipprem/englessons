@@ -1,0 +1,48 @@
+{
+  "student": "Prem",
+  "unit": 43,
+  "lesson": "L3",
+  "lessonDone": true,
+  "dateDone": "2026-10-16",
+  "openedAt": "2026-10-16T01:33:20.534Z",
+  "finishedAt": "2026-10-16T01:40:42.903Z",
+  "minutesSpent": 7,
+  "secondsSpent": 441,
+  "drills": {
+    "D4": "2/3"
+  },
+  "selfCheck": 3,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "scenes": [
+    {
+      "id": "boat",
+      "boxes": {
+        "see": "I see a person on a boat.",
+        "hear": "I heard a small whistle in the air.",
+        "say": "I said “oh no let’s get out of here”.",
+        "show": "My legs were shaking , the wind wasn’t strong either.",
+        "more": "I quickly rushed home with my mate."
+      },
+      "text": "I see a person on a boat. I heard a small whistle in the air. I said “oh no let’s get out of here”. My legs were shaking , the wind wasn’t strong either. I quickly rushed home with my mate."
+    },
+    {
+      "id": "bus",
+      "text": "The school bus pass away without me. I am very sad. I go to my mom and dad. They say that I need to go to school myself, but it was 10 KM away. So they drove me there when we arrived. It was very hard because the rain is pouring. Then I said.”thank you I will tell the office”.",
+      "words": 60,
+      "sentences": 7,
+      "ticks": {
+        "see": false,
+        "hear": false,
+        "show": false
+      }
+    }
+  ],
+  "feelingBounces": 0,
+  "speechBounces": 6,
+  "sentenceBounces": 1,
+  "stuckOpened": 1,
+  "overrides": [
+    "s5"
+  ]
+}

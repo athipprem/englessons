@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Freeze Frame — Unit 44</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:5px 10px;border-radius:6px}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:14px 0;font-weight:700;line-height:1.5}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.passage.small{font-size:12.5px;line-height:1.7;padding:10px 12px}
+.sn{cursor:pointer;padding:1px 2px;border-radius:4px}
+.tapzone .sn:hover{background:#E3F2FD}
+.sn.proof{background:#FFF176}
+.sn.wrongtap{background:#FFCDD2}
+.sn.keyw{background:#FFE0B2}
+.locked{pointer-events:none}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:12px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:8px;font-weight:600}
+.tapnote{font-size:12.5px;color:#5a6b8c;margin-bottom:4px}
+.jq{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.6;margin:6px 0}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di-opt.right{background:#C8E6C9;border-color:#2E7D32}
+.di-opt.wrong{background:#FFCDD2;border-color:#C62828}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none;line-height:1.5}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:14px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+.routine-final{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0}
+.fbox{background:#F5F9FF;border:2px solid #1e88e5;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;color:#0d47a1}
+.fbox.go{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.fbox.stop{background:#FFEBEE;border-color:#C62828;color:#B71C1C}
+.arrow{font-size:18px;color:#0d47a1}
+.tree{margin:14px 0;border:2px solid #BBDEFB;border-radius:12px;padding:12px;background:#fff}
+.tree .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.parts span{display:inline-block;padding:3px 8px;border-radius:6px;margin:2px;font-size:14px}
+.pa{background:#BBDEFB}.pb{background:#FFE0B2}.pc{background:#C8E6C9}
+.hidden{display:none}
+.ansrow{border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff;font-size:13.5px;line-height:1.6}
+.ansrow .di-btns{margin-top:6px}
+input.pf,textarea.myans{width:100%;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:14px;margin-top:4px}
+textarea.myans{min-height:80px}
+.pfmsg{font-size:13px;font-weight:600;margin-top:4px;min-height:18px}
+.pfmsg.ok{color:#1B5E20}.pfmsg.no{color:#B71C1C}
+label.fld{display:block;font-size:13px;font-weight:700;color:#0d47a1;margin-top:10px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13.5px}
+.btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-go{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.quote-mark{background:#FFF176;border-radius:3px;padding:0 2px}
+.stay{color:#B71C1C;font-weight:700}
+
+.di-btns.col{flex-direction:column}
+.di-btns.col .di-opt{width:100%;font-weight:600;line-height:1.5}
+.di-num{font-size:11px;font-weight:800;color:#5a6b8c;margin-bottom:6px;letter-spacing:.4px}
+.ansq{font-size:14px;margin:6px 0 8px;line-height:1.6}
+.tickline{font-size:13px;font-weight:700;color:#0d47a1;margin:8px 0 4px}
+.tk{letter-spacing:2px}
+.drill-head{font-size:13px;font-weight:800;color:#8A5A00;background:#FEEBC8;display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:6px}
+.drill-score.ready{background:linear-gradient(135deg,#2E7D32,#66BB6A)}
+.drill-score.retry{background:linear-gradient(135deg,#B71C1C,#E57373)}
+.drill-score a{color:#fff;text-decoration:underline}
+.drill-score .btn{background:#fff;color:#0d47a1}
+.btn.ghost{background:#E3F2FD;color:#0d47a1;border:1.5px solid #1e88e5}
+label.chk{display:block;font-size:13.5px;margin:6px 0}
+label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
+.mcard{border:3px solid #0d47a1;border-radius:14px;background:#fff;padding:14px;margin:12px 0;max-width:420px}
+.mcard .mc-t{font-weight:800;color:#0d47a1;text-align:center;margin-bottom:8px}
+.mrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.mbox{width:30px;height:30px;border:3px solid #0d47a1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#2E7D32;font-weight:900;flex-shrink:0;background:#fff}
+.mbox.red{border-color:#C62828}
+.mbox.on::after{content:"✔"}
+.mbox.off::after{content:""}
+.demo{border:2px solid #BBDEFB;border-radius:12px;padding:12px;margin:10px 0;background:#fff}
+.demo .ans{font-size:14.5px;line-height:1.6;margin-bottom:8px}
+.demo .mrow .mbox{border-color:#BBDEFB}
+.demo.on .mrow .mbox{border-color:#0d47a1}
+.demo .mbox::after{content:""}
+.demo.on .mbox.t1y::after,.demo.on .mbox.t2y::after{content:"✔"}
+.demo .verdict{display:none;font-size:13px;font-weight:700;margin-top:6px}
+.demo.on .verdict{display:block}
+.layers{margin:14px 0;max-width:460px}
+.layer{border-radius:10px;padding:12px 14px;font-weight:800;font-size:14.5px;margin-bottom:6px}
+.layer.l1{background:#BBDEFB;color:#0d47a1}
+.layer.l2{background:#FFE0B2;color:#8A5A00}
+.layer.l3{background:#C8E6C9;color:#1B5E20}
+.bars{margin:14px 0}
+.barrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13.5px}
+.barrow .bl{width:170px;font-weight:700;line-height:1.3}
+.bartrack{flex:1;height:24px;background:#ECEFF1;border-radius:12px;overflow:hidden;position:relative}
+.barfill{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:800;font-size:12px}
+.blocks{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:10px 0}
+.blk{border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5;font-weight:600}
+.blk small{display:block;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:3px}
+.blk.b1{background:#BBDEFB;color:#0d47a1}
+.blk.b2{background:#FFE0B2;color:#8A5A00}
+.blk.b3{background:#C8E6C9;color:#1B5E20}
+.frame{border:3px solid #0d47a1;border-radius:14px;padding:14px 16px;margin:14px 0;background:#F5F9FF}
+.frame .fl{margin:7px 0;font-size:14.5px;line-height:1.6}
+.frame .fn{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:24px;height:24px;text-align:center;line-height:24px;font-weight:800;font-size:13px;margin-right:6px}
+.frame .rb{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.report-grid{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.rep{flex:1 1 140px;background:#F5F9FF;border:2px solid #BBDEFB;border-radius:10px;padding:10px;text-align:center}
+.rep-t{font-size:12px;font-weight:800;color:#0d47a1}.rep-n{font-size:22px;font-weight:900;color:#0d47a1}.rep-s{font-size:11.5px;color:#5a6b8c}
+.boardbox{border:3px solid #00695c;border-radius:12px;background:#E0F2F1;padding:12px 16px;margin:10px 0}
+.boardbox h4{color:#00695c;margin-bottom:6px}
+.boardbox li{margin:3px 0 3px 18px;font-size:13.5px}
+.nav-title{font-size:14px}
+@media (max-width:560px){.barrow .bl{width:110px;font-size:12px}}
+
+.ck{display:flex;gap:10px;align-items:flex-start;margin:7px 0;font-size:14.5px;line-height:1.55}
+.ck .cn{background:#0d47a1;color:#fff;border-radius:50%;width:26px;height:26px;flex:0 0 26px;text-align:center;line-height:26px;font-weight:800;font-size:13px}
+.cams{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.cam{flex:1 1 250px;border:2.5px solid #BBDEFB;border-radius:12px;padding:10px;background:#fff;cursor:pointer;text-align:center}
+.cam svg{width:100%;height:auto;border-radius:8px;background:#F5F9FF}
+.cam .ct{font-weight:800;color:#0d47a1;margin:6px 0 2px;font-size:14px}
+.cam .cs{display:none;font-size:13.5px;line-height:1.55;margin-top:6px;text-align:left}
+.cam.on{border-color:#0d47a1}.cam.on .cs{display:block}
+.lite{background:#FFF176;border-radius:4px;padding:0 2px}
+.lbtns{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.lbtn{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;border-radius:8px;padding:6px 11px;font-weight:800;font-size:13px;cursor:pointer}
+.lbtn.on{background:#0d47a1;color:#fff}
+.lnote{font-size:13.5px;line-height:1.55;min-height:40px;background:#F5F9FF;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;margin:6px 0}
+.assembled{background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14.5px;line-height:1.8;min-height:50px}
+.assembled .ph{color:#5a6b8c;font-size:13px}
+.cardhd{display:inline-block;background:#0d47a1;color:#fff;font-weight:800;border-radius:6px;padding:2px 10px;font-size:13px;margin-bottom:6px}
+.sc{font-size:12.5px;color:#5a6b8c;margin:4px 0}
+.ticks5{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.savebox{text-align:center;margin:14px 0}
+.save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:16px;line-height:1.7}
+.save-steps ol{margin:8px 0 8px 22px}
+.save-steps p{font-size:14px;margin:4px 0 0}
+
+.unlock-code{display:none;text-align:center;font-size:20px;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
+.unlock-code.unlocked{display:block}
+.codebox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:14px 16px;margin:12px 0}
+.codemsg{font-size:13px;font-weight:700;color:#B71C1C;margin-top:8px}
+
+#saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
+#saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
+
+.small{font-size:12.5px;color:#5a6b8c}
+ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
+.lights{margin:8px 0}
+.light{display:inline-block;background:#ECEFF1;color:#455A64;border-radius:14px;padding:3px 12px;font-size:13px;font-weight:800;margin-right:8px}
+.light.g{background:#C8E6C9;color:#1B5E20}
+.note-y{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:6px;padding:6px 10px;margin-top:8px;font-size:13px;font-weight:600}
+
+.strip{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.frm{flex:1 1 170px;max-width:200px;border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:8px;text-align:center}
+.frm svg{width:100%;height:auto;background:#F5F9FF;border-radius:8px}
+.frm .fnum{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:24px;height:24px;line-height:24px;font-weight:800;font-size:13px;margin:4px 0}
+.frm .fcap{font-size:13px;line-height:1.45;text-align:left}
+.twocol{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.twocol .side{flex:1 1 280px;border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:12px 14px}
+.twocol .side h3{font-size:14px;color:#0d47a1;margin-bottom:8px}
+.twocol .side .ln{font-size:14px;line-height:1.6;margin:4px 0}
+.timeline{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:14px 0}
+.tl{flex:1 1 150px;border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.5;font-weight:700;text-align:center}
+.tl.t1{background:#BBDEFB;color:#0d47a1}.tl.t2{background:#FFCDD2;color:#B71C1C;border:3px solid #C62828}.tl.t3{background:#C8E6C9;color:#1B5E20}
+.stepbox{border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:12px 14px;margin:12px 0}
+.stepbox.off{opacity:.45}
+.nrow{display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap}
+.nrow .nl{width:78px;font-weight:800;color:#0d47a1;font-size:13.5px}
+.nrow input{flex:1 1 220px;border:1.5px solid #1e88e5;border-radius:8px;padding:7px 9px;font-family:inherit;font-size:14px}
+.tapl{list-style:none;margin:8px 0}
+.tapl li{border:2px solid #BBDEFB;border-radius:8px;padding:7px 10px;margin:5px 0;font-size:14px;line-height:1.5;cursor:pointer;background:#fff}
+.tapl li:hover{background:#E3F2FD}
+.tapl li.got{background:#C8E6C9;border-color:#2E7D32;cursor:default}
+.tapl li.dim{opacity:.55;cursor:default}
+.tapq{font-weight:800;color:#0d47a1;margin:8px 0}
+.dadbox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:10px 12px;margin-top:10px}
+.dadbox input{border:1.5px solid #F9A825;border-radius:8px;padding:6px 9px;font-size:14px;max-width:160px}
+
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn">← Hub</a>
+  <span class="nav-title">Writing — Freeze Frame</span>
+  <div class="nav-right">
+    <span class="nav-pill" id="navPill">Unit 44 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<div class="screen" id="s0"><div class="card"><span class="tag">UNIT 44 · LESSON 1 · SATURDAY</span>
+<p><b>Type it or say it — voice typing is fine.</b></p>
+<p><b>📁 This lesson ends by saving your work into the Results folder. Your code for the next part only appears after that.</b></p>
+<h2>Why this lesson matters 🎯</h2>
+<p>Every good story has one second that everybody remembers — the second it goes wrong. Writers who find that second, and stay inside it, make readers feel they were there. That is how you turn a "fine" story into a story people talk about at lunch.</p>
+<p>Here are two pieces of your own writing, side by side.</p>
+<div class="twocol">
+<div class="side"><h3>Your science-fair story — the big moment box:</h3>
+<div class="passage"><span class="quote-mark">After that, they headed to the science room to build the actual. It took them about five hours, but the work paid off.</span></div></div>
+<div class="side"><h3>Your boat moment — five boxes:</h3>
+<div class="ln"><b>SEE</b> — <span class="quote-mark">I see a person on a boat.</span></div>
+<div class="ln"><b>HEAR</b> — <span class="quote-mark">I heard a small whistle in the air.</span></div>
+<div class="ln"><b>SAY</b> — <span class="quote-mark">I said “oh no let’s get out of here”.</span></div>
+<div class="ln"><b>SHOW</b> — <span class="quote-mark">My legs were shaking</span> …</div></div>
+</div>
+<div class="why-box"><div class="why-title">What this tells us</div>
+<p>When the page gave you a box for each check, you did all four. When you had one big box, they all disappeared.</p>
+<p>The science-fair picture showed the second it went wrong — foam over the edge, the ribbon on the floor. Your story never got there. Today you learn to find that second, and to make the boxes yourself.</p></div>
+<div class="lock-note" id="lockNote-s0"></div></div></div>
+
+<div class="screen" id="s1"><div class="card"><span class="tag">ROUTE A · SEE IT</span>
+<h2>The comic strip 🎞️</h2>
+<p>Here is a story in four frames. Read each one.</p>
+<div class="strip">
+<div class="frm"><svg viewBox="0 0 200 150" role="img" aria-label="A girl sits at a desk with a paper plane on it"><rect width="200" height="150" fill="#F5F9FF"/><rect x="20" y="96" width="160" height="12" fill="#8D6E63" stroke="#4E342E" stroke-width="2"/><rect x="30" y="108" width="8" height="34" fill="#6D4C41"/><rect x="162" y="108" width="8" height="34" fill="#6D4C41"/><circle cx="60" cy="50" r="15" fill="#FFCC80" stroke="#6D4C41" stroke-width="2"/><rect x="46" y="66" width="28" height="30" rx="6" fill="#EC407A"/><path d="M52 44 Q60 32 70 44" fill="#4E342E"/><polygon points="95,92 140,76 112,94" fill="#fff" stroke="#546E7A" stroke-width="2"/><line x1="112" y1="94" x2="140" y2="76" stroke="#90A4AE" stroke-width="2"/></svg><div class="fnum">1</div><div class="fcap">Mia folds her paper plane at her desk.</div></div>
+<div class="frm"><svg viewBox="0 0 200 150" role="img" aria-label="The girl stands at a line on the floor and throws the plane"><rect width="200" height="150" fill="#F5F9FF"/><rect y="120" width="200" height="30" fill="#CFD8DC"/><line x1="90" y1="122" x2="90" y2="148" stroke="#C62828" stroke-width="4" stroke-dasharray="6 4"/><circle cx="60" cy="50" r="15" fill="#FFCC80" stroke="#6D4C41" stroke-width="2"/><path d="M52 44 Q60 32 70 44" fill="#4E342E"/><rect x="46" y="66" width="28" height="40" rx="6" fill="#EC407A"/><line x1="74" y1="74" x2="104" y2="52" stroke="#FFCC80" stroke-width="7" stroke-linecap="round"/><rect x="50" y="106" width="8" height="18" fill="#37474F"/><rect x="62" y="106" width="8" height="18" fill="#37474F"/><polygon points="120,34 164,22 136,40" fill="#fff" stroke="#546E7A" stroke-width="2"/><path d="M110 46 L118 40 M106 56 L114 50" stroke="#90A4AE" stroke-width="2"/></svg><div class="fnum">2</div><div class="fcap">She stands at the line and throws it as hard as she can.</div></div>
+<div class="frm"><svg viewBox="0 0 200 150" role="img" aria-label="The plane dives into a cup of tea and splashes"><rect width="200" height="150" fill="#F5F9FF"/><rect x="40" y="112" width="130" height="10" fill="#8D6E63" stroke="#4E342E" stroke-width="2"/><path d="M78 74 L78 104 Q78 114 90 114 L122 114 Q134 114 134 104 L134 74 Z" fill="#fff" stroke="#546E7A" stroke-width="3"/><path d="M134 82 Q154 82 154 96 Q154 108 132 106" fill="none" stroke="#546E7A" stroke-width="3"/><ellipse cx="106" cy="76" rx="28" ry="6" fill="#8D5A2B"/><polygon points="96,20 120,60 108,62" fill="#fff" stroke="#546E7A" stroke-width="2"/><polygon points="106,58 124,66 110,74" fill="#fff" stroke="#546E7A" stroke-width="2"/><circle cx="76" cy="66" r="4" fill="#8D5A2B"/><circle cx="138" cy="64" r="5" fill="#8D5A2B"/><circle cx="90" cy="58" r="3" fill="#8D5A2B"/><text x="30" y="40" font-size="22" font-weight="900" fill="#C62828">plop!</text></svg><div class="fnum">3</div><div class="fcap">The plane loops round and lands — plop! — in Mr Lee's cup of tea.</div></div>
+<div class="frm"><svg viewBox="0 0 200 150" role="img" aria-label="Mr Lee holds the dripping plane"><rect width="200" height="150" fill="#F5F9FF"/><circle cx="80" cy="46" r="17" fill="#FFCC80" stroke="#6D4C41" stroke-width="2"/><rect x="62" y="64" width="36" height="52" rx="6" fill="#1565C0"/><circle cx="74" cy="44" r="5" fill="none" stroke="#37474F" stroke-width="2"/><circle cx="88" cy="44" r="5" fill="none" stroke="#37474F" stroke-width="2"/><path d="M72 56 Q80 62 90 56" fill="none" stroke="#6D4C41" stroke-width="2"/><line x1="98" y1="76" x2="130" y2="82" stroke="#FFCC80" stroke-width="7" stroke-linecap="round"/><polygon points="126,86 164,78 140,100" fill="#fff" stroke="#546E7A" stroke-width="2"/><circle cx="134" cy="108" r="4" fill="#8D5A2B"/><circle cx="148" cy="116" r="4" fill="#8D5A2B"/><circle cx="140" cy="128" r="4" fill="#8D5A2B"/></svg><div class="fnum">4</div><div class="fcap">Mr Lee fishes it out and hands it back, dripping.</div></div>
+</div>
+<p>Now pretend you are the film-maker.</p>
+<div id="drill-STRIP"></div>
+<div class="lock-note" id="lockNote-s1"></div></div></div>
+
+<div class="screen" id="s2"><div class="card"><span class="tag">ROUTE B · THE ROUTINE</span>
+<h2>Freeze Frame, in four steps 🧊</h2>
+<p>The comic strip, as four steps.</p>
+<div class="routine-box">
+<div class="ck"><div class="cn">1</div><div><b>FIND</b> the second. Ask: which one second goes wrong? That is your big moment.</div></div>
+<div class="ck"><div class="cn">2</div><div><b>NOTE</b> it. Four quick notes for that second: SEE · HEAR · SAY · SHOW.</div></div>
+<div class="ck"><div class="cn">3</div><div><b>WRITE</b> it. Turn every note into a sentence, add one more, and stay inside that second.</div></div>
+<div class="ck"><div class="cn">4</div><div><b>CHECK</b> it. Tap your four: can you find each one in what you wrote?</div></div>
+</div>
+<p>Where does the big moment sit? Look at the comic strip again:</p>
+<div class="timeline"><div class="tl t1">Getting ready<br><span class="small">frames 1 and 2</span></div><div class="tl t2">The second it goes wrong<br><span class="small">frame 3 — slow right down</span></div><div class="tl t3">After<br><span class="small">frame 4</span></div></div>
+<h2 style="margin-top:18px">Is this the big moment? 🌳</h2>
+<div class="tree">
+<div class="row"><div class="fbox">Does something go wrong <b>in this very second</b>?</div></div>
+<div class="row"><span class="arrow">↳ YES</span><div class="fbox go">That is your big moment. Freeze it.</div></div>
+<div class="row"><span class="arrow">↳ NO</span><div class="fbox stop">It is getting ready, or it is after. Look at the next one.</div></div>
+</div>
+<div class="lock-note" id="lockNote-s2"></div></div></div>
+
+<div class="screen" id="s3"><div class="card"><span class="tag">DRILL F1</span>
+<h2>Find the second 🔎</h2>
+<p>Four mini-stories. In each, pick the one sentence that is the big moment. You can try again until each is right.</p>
+<div id="drill-F1"></div>
+<div class="lock-note" id="lockNote-s3"></div></div></div>
+
+<div class="screen" id="s4"><div class="card"><span class="tag">DRILL F2</span>
+<h2>Stay or leave? 🚪</h2>
+<p>You have picked the big moment. Now every sentence you write must stay inside that second. For each sentence, choose <b>Stay</b> (still inside the second) or <b>Leave</b> (a later time or a new place).</p>
+<div id="drill-F2"></div>
+<div class="lock-note" id="lockNote-s4"></div></div></div>
+
+<div class="screen" id="s5"><div class="card"><span class="tag">FREEZE IT · YOUR SCIENCE-FAIR PICTURE</span>
+<h2>Freeze your own moment 🧊</h2>
+<p><b>Your big moment: the second the foam pours over the edge of the table.</b></p>
+<p class="small">Three steps: NOTE the four things, WRITE them in, CHECK by tapping your four.</p>
+<div id="scene-volcano"></div>
+<div class="lock-note" id="lockNote-s5"></div></div></div>
+
+<div class="screen" id="s6"><div class="card"><span class="tag">FREEZE IT · FEWER HELPS</span>
+<h2>Freeze a new moment 🐝</h2>
+<p><b>Your big moment: the second a wasp lands on your sandwich.</b></p>
+<p class="small">Same three steps. This time the note boxes only show letters.</p>
+<div id="scene-wasp"></div>
+<div class="lock-note" id="lockNote-s6"></div></div></div>
+
+<div class="screen" id="s7"><div class="card"><span class="tag">SELF-CHECK</span>
+<h2>Are you ready? ✅</h2>
+<p>Four questions. You need <b>3 out of 4</b>.</p>
+<div id="drill-SC"></div><div class="lock-note" id="lockNote-s7"></div></div></div>
+
+<div class="screen" id="s8"><div class="card"><h2>Report 📋</h2>
+<div id="reportWrap"></div>
+<div class="rule-box">FIND the second · NOTE four · WRITE them in · CHECK by tapping your four</div>
+<div class="savebox"><div class="save-steps"><b>📁 Save your work for Naomi — you can't go on until it's saved.</b>
+<ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+<li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+<li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+<li>Wait for <b>✅ Saved in Results</b>. Your code appears under it.</li></ol>
+<p>After the first time, the window opens in Results by itself.</p></div>
+<button class="btn" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
+<p>Next: your story. You get a picture, your plan boxes with four note lines, and four parts to write. Type it or say it — voice typing is fine.</p>
+<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_044_Test_Narrative_FreezeFrame.html">Your story →</a></div><div id="unlockCode" class="unlock-code"></div><div class="lock-note" id="lockNote-s8"></div></div></div>
+<script>
+var DRILLS={
+"STRIP":{"title":"The film-maker","forced":true,"fixed":true,"letters":false,"col":false,"nudge":"Look at the frames again. Which frame is the second it goes wrong? The others get it ready or come after.","items":[
+{"q":"<b>You are the film-maker. Which ONE frame would you slow right down?</b>","opts":["Frame 1","Frame 2","Frame 3","Frame 4"],"ans":2,"why":"Frame 3 is the second it goes wrong. Frames 1 and 2 get it ready; frame 4 is after. The big moment is always the second it goes wrong."}
+]},
+"F1":{"title":"Drill F1 · Find the second","forced":true,"fixed":true,"letters":true,"col":true,"nudge":"Which sentence is the second it goes wrong? Getting ready comes before it; fixing things comes after.","items":[
+{"q":"<b>Which one is the big moment — the second it goes wrong?</b>","opts":["Sam's boot flies off his foot and into the net.","The referee stares at the boot and scratches his head.","The coach says the goal does not count this time.","Sam laughs about it with his friends on the way home."],"ans":0,"why":"The boot flying into the net is the second it goes wrong. The referee, the coach and the walk home all come after it."},
+{"q":"<b>Which one is the big moment — the second it goes wrong?</b>","opts":["Lily and Grandma slide the bread into the hot oven.","The smoke alarm screams and the bread comes out black.","They open every window in the kitchen to let air in.","In the end they buy a loaf from the corner shop."],"ans":1,"why":"Sliding the bread in is getting ready. The alarm screaming is the second it goes wrong. Opening windows and buying a loaf come after."},
+{"q":"<b>Which one is the big moment — the second it goes wrong?</b>","opts":["Ben laces up his skates and steps onto the rink.","He glides slowly out to the middle of the ice.","His feet shoot out and he lands flat on his back.","His friend helps him up and they go for hot chocolate."],"ans":2,"why":"Lacing up and gliding are getting ready. The fall is the second it goes wrong. Being helped up and the hot chocolate come after."},
+{"q":"<b>Which one is the big moment — the second it goes wrong?</b>","opts":["Zoe's whole class lines up on the steps for the photo.","The photographer lifts his camera and counts to three.","Everyone smiles and holds very still for the camera.","A pigeon lands right on Zoe's head as the camera clicks."],"ans":3,"why":"Lining up, counting and smiling are all getting ready. The pigeon landing is the second it goes wrong."}
+]},
+"F2":{"title":"Drill F2 · Stay or leave?","forced":true,"fixed":true,"letters":false,"col":false,"nudge":"Ask: is this sentence still inside that one second? A later time or a new place means it has left.","items":[
+{"q":"<b>The moment: the second Ben's feet shoot out on the ice.</b><br>Sentence: “The cold went straight through his trousers.”","opts":["Stay","Leave"],"ans":0,"why":"The cold on his trousers is felt in that very second, so it stays."},
+{"q":"<b>The moment: the second Ben's feet shoot out on the ice.</b><br>Sentence: “Later that week he had a lesson with a coach.”","opts":["Stay","Leave"],"ans":1,"why":"Later that week is a different time, so it leaves the second."},
+{"q":"<b>The moment: the second the pigeon lands on Zoe's head.</b><br>Sentence: “Its tiny claws gripped her hair.”","opts":["Stay","Leave"],"ans":0,"why":"The claws gripping her hair happens right as it lands, so it stays."},
+{"q":"<b>The moment: the second the pigeon lands on Zoe's head.</b><br>Sentence: “After school, Zoe told Mum the whole story.”","opts":["Stay","Leave"],"ans":1,"why":"After school is a later time and a different place, so it leaves the second."},
+{"q":"<b>The moment: the second they find the person lying on the boat.</b><br>Sentence: “I quickly rushed home with my mate.”","opts":["Stay","Leave"],"ans":1,"why":"Rushing home is a new place and a later time — it leaves the second. Your boxes did all four checks, then this line walked out of the moment."},
+{"q":"<b>The moment: the second they find the person lying on the boat.</b><br>Sentence: “Water slapped against the side of the boat.”","opts":["Stay","Leave"],"ans":0,"why":"The water slapping the boat is what you would hear right then, so it stays."}
+]},
+"SC":{"title":"Self-check","forced":false,"need":3,"items":[
+{"q":"Kai builds a tower of blocks. His baby sister crawls over. Her hand knocks the bottom block and the tower crashes. Kai builds it again the next day. Which is the big moment?","opts":["Kai builds a tall tower out of his wooden blocks.","His baby sister crawls slowly across the carpet towards him.","Her hand knocks the bottom block and the tower crashes.","The next day Kai builds the tower all over again."],"ans":2,"why":"The crash is the second it goes wrong. Building, crawling and building again are before and after."},
+{"q":"The big moment is the second Kai's tower crashes. Which sentence LEAVES that second?","opts":["Blocks bounced and skidded across the wooden floor.","Kai's mouth fell open and he stared at the mess.","That evening Kai watched a film with his dad.","“My tower!” Kai shouted, grabbing at the falling blocks."],"ans":2,"why":"That evening is a later time. The other three all happen in the second the tower falls."},
+{"q":"Your four notes are: SEE blocks everywhere · HEAR crash · SAY “my tower!” · SHOW mouth open. What do you do with them?","opts":["Turn each note into a sentence in your big moment.","Leave them in the plan, because the reader can't see them.","Use just one note and skip the other three.","Copy all four of them into your ending instead."],"ans":0,"why":"The notes are your plan for the big moment. Each one becomes a sentence there."},
+{"q":"Which one is a good SHOW note?","opts":["he was really upset","fists clenched, chin wobbling","very very sad","it was bad"],"ans":1,"why":"Clenched fists and a wobbling chin are things a camera could film. The others only name a feeling."}
+]}
+};
+var SCREENS=["s0","s1","s2","s3","s4","s5","s6","s7","s8"];
+var SCREEN_DRILLS={"s1":["STRIP"],"s3":["F1"],"s4":["F2"],"s7":["SC"]};
+var LESSON_TAG="Unit 44 · Lesson 1", LESSON_ID="L1", REPORT_ID="s8";
+var BACK_ID="s1", BACK_NAME="The comic strip (screen 2)";
+var READY_MSG="Ready for your story ✅";
+var REPORT_ROWS=[{id:"STRIP",label:"Comic strip",sub:"which frame"},{id:"F1",label:"Drill F1",sub:"Find the second"},{id:"F2",label:"Drill F2",sub:"Stay or leave"},{id:"SC",label:"Self-check",sub:"need 3 of 4"}];
+
+/* ---------- U44 WRITING HELPERS (verbatim) ---------- */
+function countWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function splitSentences(t){var s=(t||'').replace(/[“”]/g,'"').replace(/[‘’]/g,"'").trim();if(!s)return [];return s.split(/(?<=[.!?])["']?\s+(?=["']?[A-Z])/).filter(function(p){return countWords(p)>=1;});}
+function countSentences(t){return splitSentences(t).filter(function(p){return countWords(p)>=3;}).length;}
+function hasSpeech(t){return /["“”][^"“”]{2,}["“”]/.test(t||'');}
+function repeatedSentence(t){var seen={},hit=null;(t||'').toLowerCase().split(/[.!?]+/).map(function(p){return p.replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();}).forEach(function(p){if(p.split(' ').length>=4){if(seen[p])hit=p;seen[p]=1;}});return hit;}
+var PLAN_STOP=['that','this','with','from','they','them','then','there','their','have','were','what','when','your','into','just','very','some','like','about','would','could','said','says'];
+function planStem(w){return w.replace(/(ing|ed|es|s)$/,'');}
+function planUsed(note,text){var tw=(text||'').toLowerCase().match(/[a-z]+/g)||[],ts={};tw.forEach(function(w){ts[planStem(w)]=1;});var nw=(note||'').toLowerCase().match(/[a-z]+/g)||[];var key=nw.filter(function(w){return w.length>=4&&PLAN_STOP.indexOf(w)<0;});if(!key.length)return nw.length>0&&(' '+tw.join(' ')+' ').indexOf(' '+nw.join(' ')+' ')>=0;return key.some(function(w){return ts[planStem(w)]===1;});}
+function noteHasKeyword(note){return ((note||'').toLowerCase().match(/[a-z]+/g)||[]).some(function(w){return w.length>=4&&PLAN_STOP.indexOf(w)<0;});}
+/* ---------- END HELPERS ---------- */
+/* ---------- U44 FEELING CHECK (lesson only) ---------- */
+var FEELING_WORDS=['happy','sad','scared','afraid','frightened','angry','surprised','shocked','confused','worried','nervous','excited','upset','glad','proud','jealous','bored','lonely','terrified','furious','amazed','embarrassed','relieved','anxious','unhappy'];
+function namedFeeling(t){var m=(t||'').toLowerCase().match(/[a-z]+/g)||[];for(var i=0;i<m.length;i++){if(FEELING_WORDS.indexOf(m[i])>=0)return m[i];}return null;}
+/* ---------- END FEELING CHECK ---------- */
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var cur=0, DS={}, OPENED_MS=Date.now(), OPENED_ISO=new Date().toISOString(), FIN_SECS=null;
+function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
+/* ---------- drills ---------- */
+function buildDrill(id){
+  var D=DRILLS[id], box=$('drill-'+id); if(!box) return;
+  DS[id]={res:[],first:[],tries:[],order:[],given:[]};
+  var h='<div class="drill-head">'+D.title+'</div>';
+  D.items.forEach(function(it,i){
+    DS[id].res.push(false);DS[id].first.push(false);DS[id].tries.push(0);DS[id].given.push(null);
+    var ord=[];if(D.fixed){for(var q=0;q<it.opts.length;q++)ord.push(q);}else{ord=shuffled(it.opts.length);}DS[id].order.push(ord);
+    h+='<div class="di" id="'+id+'-'+i+'"><div class="di-num">'+(i+1)+' of '+D.items.length+'</div>';
+    if(it.q) h+='<div class="di-sent">'+it.q+'</div>';
+    h+='<div class="di-btns'+(D.col?' col':'')+'">';
+    ord.forEach(function(k,pos){h+='<button class="di-opt" id="'+id+'-'+i+'-'+k+'" onclick="pick(\''+id+'\','+i+','+k+')">'+(D.letters?'<b>'+'ABCD'[pos]+'.</b> ':'')+it.opts[k]+'</button>';});
+    h+='</div><div class="di-fb" id="'+id+'-'+i+'-fb"></div></div>';
+  });
+  h+='<div class="drill-score" id="'+id+'-score"></div>';
+  box.innerHTML=h;
+}
+function pick(id,i,v){
+  var D=DRILLS[id], S=DS[id], it=D.items[i]; if(S.res[i]) return;
+  var ok=(v===it.ans), fb=$(id+'-'+i+'-fb'), btn=$(id+'-'+i+'-'+v);
+  S.given[i]=v;
+  if(D.forced){
+    if(ok){S.res[i]=true;S.first[i]=(S.tries[i]===0);btn.classList.add('right');fb.className='di-fb ok';fb.innerHTML='Right — '+it.why;lockItem(id,i);}
+    else{S.tries[i]++;btn.classList.add('wrong');btn.disabled=true;fb.className='di-fb no';
+      fb.innerHTML='Try again — '+D.nudge+(S.tries[i]>=2?'<div class="walk">'+it.why+'</div>':'');}
+  } else {
+    S.res[i]=true;S.first[i]=ok;btn.classList.add(ok?'right':'wrong');
+    var rb=$(id+'-'+i+'-'+it.ans); if(rb) rb.classList.add('right');
+    fb.className='di-fb '+(ok?'ok':'no');fb.innerHTML=(ok?'Right — ':'Look again — ')+it.why;lockItem(id,i);
+  }
+  checkDrillDone(id);updateNav();
+}
+function lockItem(id,i){var el=$(id+'-'+i);var bs=el.getElementsByTagName('button');for(var k=0;k<bs.length;k++)bs[k].disabled=true;}
+function checkDrillDone(id){
+  var D=DRILLS[id], S=DS[id]; for(var k=0;k<S.res.length;k++) if(!S.res[k]) return;
+  var n=0;S.first.forEach(function(f){if(f)n++;});var sc=$(id+'-score');sc.classList.add('show');
+  if(D.forced){sc.innerHTML='Drill complete ✅ — '+n+' of '+S.res.length+' right on the first go.';}
+  else{
+    var ready=n>=(D.need||5);
+    sc.innerHTML='<b>'+n+' out of '+S.res.length+'</b><br>'+(ready?READY_MSG:'Not quite there yet. Go back to <a href="#" onclick="jumpTo(\''+BACK_ID+'\');return false">'+BACK_NAME+'</a>, then try this check again.<br><button class="btn" onclick="buildDrill(\''+id+'\');updateNav();">Try the self-check again</button>');
+    sc.className='drill-score show '+(ready?'ready':'retry');
+  }
+}
+/* ---------- counters ---------- */
+var noteBlocks=0, planUsedBlocks=0, feelingBounces=0, speechBounces=0, sentenceBounces=0, stuckOpened=0, DAD=[];
+var KEYS=['see','hear','say','show'], LABELS={see:'SEE',hear:'HEAR',say:'SAY',show:'SHOW'};
+var PLACE={see:'e.g. smoke, a big crack…',hear:'e.g. a loud bang…',say:'e.g. “Oh no!”',show:'e.g. hands, face, legs, voice'};
+var SC_DEF={volcano:{sid:'s5',box:'scene-volcano',letters:false,title:'the second the foam pours over the edge of the table'},
+            wasp:{sid:'s6',box:'scene-wasp',letters:true,title:'the second a wasp lands on your sandwich'}};
+var SCN={};
+function newScene(id){return {id:id,def:SC_DEF[id],notesOk:false,momentOk:false,done:false,refusals:0,notes:{see:'',hear:'',say:'',show:''},text:'',taps:{see:null,hear:null,say:null,show:null},tapStep:0,letterHint:false,sents:[]};}
+function refuseScene(id){
+  var S=SCN[id];S.refusals++;
+  if(S.refusals>=5&&!S.done&&!$(id+'-dad').innerHTML){
+    $(id+'-dad').innerHTML='<div class="dadbox"><b>Ask Dad. He can type his code to let you go on.</b><br><input id="'+id+'-dadin" type="text" autocomplete="off" onkeydown="if(event.key===\'Enter\')dadCode(\''+id+'\')"> <button class="btn ghost" onclick="dadCode(\''+id+'\')">Go</button><div class="pfmsg no" id="'+id+'-dad-m"></div></div>';
+  }
+}
+function dadCode(id){
+  var S=SCN[id],v=($(id+'-dadin').value||'').replace(/\s+/g,'').toUpperCase();
+  if(v==='OWL'){DAD.push(S.def.sid);readNotes(id);S.text=$(id+'-ta').value;S.done=true;S.notesOk=true;S.momentOk=true;$(id+'-dad').innerHTML='<div class="walk">Thank you, Dad — carrying on.</div>';updateNav();}
+  else{$(id+'-dad-m').textContent="That isn't the code.";}
+}
+/* ---------- scene builder ---------- */
+function buildScene(id){
+  var S=SCN[id]=newScene(id),h='';
+  h+='<div class="stepbox" id="'+id+'-s1"><span class="cardhd">1 · NOTE</span><p>Four quick notes for that second. <b>Notes, not sentences — 2 to 6 words.</b></p>';
+  KEYS.forEach(function(k,i){
+    h+='<div class="nrow"><span class="nl" id="'+id+'-nl-'+k+'">'+(S.def.letters?'SHSS'.charAt(i):LABELS[k])+'</span><input type="text" id="'+id+'-n-'+k+'" autocomplete="off" placeholder="'+(S.def.letters?'':PLACE[k])+'" oninput="noteEdit(\''+id+'\')"></div>';
+  });
+  if(S.def.letters) h+='<button class="btn ghost" id="'+id+'-hintbtn" onclick="showLetters(\''+id+'\')">What do the letters stand for?</button> <span class="small" id="'+id+'-hint"></span>';
+  h+='<div><button class="btn" id="'+id+'-lock" onclick="lockNotes(\''+id+'\')">Lock my notes</button> <button class="btn ghost" id="'+id+'-unlock" style="display:none" onclick="unlockNotes(\''+id+'\')">Change my notes</button></div><div class="pfmsg" id="'+id+'-n-m"></div></div>';
+  h+='<div class="stepbox off" id="'+id+'-s2"><span class="cardhd">2 · WRITE</span><p>Turn every note into a sentence, add one more, and stay inside that second. At least 50 words and 5 sentences.</p><p class="small">Speech marks: type them with the keyboard (Shift + the key next to Enter).</p>';
+  h+='<textarea class="myans" id="'+id+'-ta" style="min-height:150px" disabled oninput="momentTyped(\''+id+'\')" placeholder="Write here. Type it or say it."></textarea><div class="lights" id="'+id+'-lights"></div>';
+  h+='<div><button class="btn" id="'+id+'-check" onclick="checkMoment(\''+id+'\')" disabled>Check my moment</button></div><div class="pfmsg" id="'+id+'-w-m"></div></div>';
+  h+='<div class="stepbox off" id="'+id+'-s3"><span class="cardhd">3 · CHECK</span><p>Read your moment once. Then tap your four.</p><div id="'+id+'-tap"></div></div>';
+  h+='<button class="btn ghost" onclick="openStuck(\''+id+'\')">I\'m stuck — help</button><div id="'+id+'-stuck"></div><div id="'+id+'-dad"></div>';
+  $(S.def.box).innerHTML=h;
+}
+function showLetters(id){var S=SCN[id];S.letterHint=true;$(id+'-hint').innerHTML='<b>S</b> = SEE · <b>H</b> = HEAR · <b>S</b> = SAY · <b>S</b> = SHOW';}
+function readNotes(id){var S=SCN[id];KEYS.forEach(function(k){S.notes[k]=$(id+'-n-'+k).value.trim();});}
+function noteEdit(id){var S=SCN[id];if(S.notesOk){return;}$(id+'-n-m').textContent='';}
+function lockNotes(id){
+  var S=SCN[id];readNotes(id);var m=$(id+'-n-m'),k,n,f;
+  for(var i=0;i<4;i++){
+    k=KEYS[i];n=S.notes[k];
+    if(countWords(n)<2){noteBlocks++;m.className='pfmsg no';m.textContent='Make your note at least 2 words.';refuseScene(id);return;}
+    if(k!=='say'&&!noteHasKeyword(n)){noteBlocks++;m.className='pfmsg no';m.textContent='Your note needs a real thing in it — like “smoke”, “alarm” or “fists”.';refuseScene(id);return;}
+    if(k==='show'){f=namedFeeling(n);if(f){noteBlocks++;m.className='pfmsg no';m.textContent='“'+f+'” names the feeling. Note what the body does instead — hands, face, legs, voice.';refuseScene(id);return;}}
+  }
+  S.notesOk=true;m.className='pfmsg ok';m.textContent='Notes locked ✓';
+  KEYS.forEach(function(k){$(id+'-n-'+k).readOnly=true;});
+  $(id+'-lock').style.display='none';$(id+'-unlock').style.display='inline-block';
+  $(id+'-s2').classList.remove('off');$(id+'-ta').disabled=false;$(id+'-check').disabled=false;
+}
+function unlockNotes(id){
+  var S=SCN[id];if(S.done)return;S.notesOk=false;S.momentOk=false;
+  KEYS.forEach(function(k){$(id+'-n-'+k).readOnly=false;});
+  $(id+'-lock').style.display='inline-block';$(id+'-unlock').style.display='none';
+  $(id+'-s2').classList.add('off');$(id+'-ta').disabled=true;$(id+'-check').disabled=true;
+  $(id+'-s3').classList.add('off');$(id+'-tap').innerHTML='';$(id+'-n-m').textContent='';
+}
+function momentTyped(id){
+  var S=SCN[id],v=$(id+'-ta').value,w=countWords(v),s=countSentences(v);
+  $(id+'-lights').innerHTML='<span class="light '+(w>=50?'g':'')+'">Words '+w+' / 50</span> <span class="light '+(s>=5?'g':'')+'">Sentences '+s+' / 5</span>';
+  $(id+'-w-m').textContent='';
+}
+function checkMoment(id){
+  var S=SCN[id],v=$(id+'-ta').value,w=countWords(v),s=countSentences(v),m=$(id+'-w-m'),f,r,i,k;
+  m.className='pfmsg no';
+  if(w<50){sentenceBounces++;m.textContent='Your moment needs 50 words — you have '+w+'.';refuseScene(id);return;}
+  if(s<5){sentenceBounces++;m.textContent="Your moment needs 5 sentences — you have "+s+". Very short ones like 'He ran.' don't count.";refuseScene(id);return;}
+  for(i=0;i<4;i++){k=KEYS[i];if(!planUsed(S.notes[k],v)){planUsedBlocks++;m.textContent='Your '+LABELS[k]+' note “'+S.notes[k]+'” isn\'t in your moment yet. Turn it into a sentence.';refuseScene(id);return;}}
+  if(!hasSpeech(v)){speechBounces++;m.textContent='Put the words someone says inside speech marks.';refuseScene(id);return;}
+  f=namedFeeling(v);if(f){feelingBounces++;m.textContent='“'+f+'” names a feeling. Show it with the body instead.';refuseScene(id);return;}
+  r=repeatedSentence(v);if(r){m.textContent="You wrote the same sentence twice: '"+r+"'. Change one of them.";refuseScene(id);return;}
+  S.text=v;S.momentOk=true;S.sents=splitSentences(v);S.taps={see:null,hear:null,say:null,show:null};S.tapStep=0;
+  m.className='pfmsg ok';m.textContent='Your moment passes ✓ — '+w+' words, '+s+' sentences.';
+  $(id+'-ta').readOnly=true;$(id+'-check').disabled=true;
+  KEYS.forEach(function(k){$(id+'-n-'+k).readOnly=true;});$(id+'-unlock').style.display='none';
+  $(id+'-s3').classList.remove('off');drawTaps(id);
+}
+/* ---------- tap your four ---------- */
+var TAPQ=[['see','Tap the sentence where we SEE something.'],['hear','Tap the sentence where we HEAR, smell or feel something.'],['say','Tap the sentence where someone SPEAKS.'],['show','Tap the sentence that SHOWS how someone feels by what their body does.']];
+function drawTaps(id){
+  var S=SCN[id],h='',i;
+  if(S.tapStep>=4){
+    h+='<div class="why-box"><b>Frozen ✅</b> You found all four in your own moment.</div>';
+    h+='<ol class="tapl">';S.sents.forEach(function(t,j){h+='<li class="dim">'+esc(t)+'</li>';});h+='</ol>';
+    $(id+'-tap').innerHTML=h;return;
+  }
+  h+='<div class="tapq">'+(S.tapStep+1)+' of 4 — '+TAPQ[S.tapStep][1]+'</div><ol class="tapl">';
+  S.sents.forEach(function(t,j){h+='<li onclick="tapSent(\''+id+'\','+j+')">'+esc(t)+'</li>';});
+  h+='</ol><button class="btn ghost" onclick="tapNone(\''+id+'\')">I don\'t have one</button><div class="pfmsg" id="'+id+'-t-m"></div>';
+  $(id+'-tap').innerHTML=h;
+}
+function tapSent(id,j){
+  var S=SCN[id],k=TAPQ[S.tapStep][0],t=S.sents[j],m=$(id+'-t-m'),ok=true;
+  if(k==='say'&&!hasSpeech(t)&&!/["“”]/.test(t)) ok=false; /* splitSentences cuts after !” and drops the closing mark, so the speech sentence can arrive as a fragment with one speech mark */
+  if(k==='show'&&namedFeeling(t)) ok=false;
+  if(!ok){m.className='pfmsg no';m.textContent="Look again — that one doesn't do it.";refuseScene(id);return;}
+  S.taps[k]={index:j+1,text:t};S.tapStep++;
+  if(S.tapStep>=4){S.done=true;}
+  drawTaps(id);updateNav();
+}
+function tapNone(id){
+  var S=SCN[id],m=$(id+'-t-m');
+  S.momentOk=false;S.tapStep=0;S.taps={see:null,hear:null,say:null,show:null};
+  $(id+'-ta').readOnly=false;$(id+'-check').disabled=false;
+  $(id+'-w-m').className='pfmsg no';$(id+'-w-m').textContent="Then it's missing — go back and add it. Press Check my moment again when you have.";
+  $(id+'-s3').classList.add('off');$(id+'-tap').innerHTML='';
+  $(id+'-unlock').style.display='inline-block';refuseScene(id);
+}
+/* ---------- stuck card (never unlocks anything) ---------- */
+function openStuck(id){
+  var box=$(id+'-stuck');if(box.innerHTML)return;stuckOpened++;
+  box.innerHTML='<div class="walk"><b>Close your eyes. Freeze the second. What is the first thing you notice?</b><br><input class="pf" id="'+id+'-sk" type="text" style="max-width:420px" oninput="stuckAns(\''+id+'\')" placeholder="Type or say it…"><div id="'+id+'-skrest" class="hidden">'+
+  '<p style="margin-top:10px">Here is a worked example on <i>the second the smoke alarm screams</i>:</p>'+
+  '<div class="frame"><div class="fl"><b>Notes</b> — SEE: black bread, smoke · HEAR: alarm beeping · SAY: “Open the window!” · SHOW: Grandma flapping a tea towel</div>'+
+  '<div class="fl">Black smoke curled out of the oven. The alarm beeped so loudly it hurt my ears. “Open the window!” Grandma shouted. She flapped a tea towel at the ceiling like a mad bird. The bread sat in its tin, black as coal.</div></div>'+
+  '<p>Each note became a sentence. The last one stays in the same second.</p>'+
+  '<p>Still stuck? Ask Dad to look at your notes with you.</p></div></div>';
+}
+function stuckAns(id){if($(id+'-sk').value.trim().length>=2)$(id+'-skrest').classList.remove('hidden');}
+/* ---------- navigation ---------- */
+function screenLocked(sid){
+  var d=SCREEN_DRILLS[sid]||[];
+  for(var k=0;k<d.length;k++){var id=d[k],S=DS[id];if(!S) continue;for(var j=0;j<S.res.length;j++) if(!S.res[j]) return DRILLS[id].forced?'Finish every question to go on.':'Answer all the questions to go on.';}
+  if(sid==='s5'&&!SCN.volcano.done) return 'Finish all three steps — NOTE, WRITE, CHECK — to go on.';
+  if(sid==='s6'&&!SCN.wasp.done) return 'Finish all three steps — NOTE, WRITE, CHECK — to go on.';
+  return '';
+}
+function show(i){
+  cur=i;SCREENS.forEach(function(s,k){$(s).classList.toggle('active',k===i);});
+  $('navPill').textContent=LESSON_TAG+' · '+(i+1)+'/'+SCREENS.length;window.scrollTo(0,0);
+  if(SCREENS[i]===REPORT_ID){ON_REPORT=true;buildReport();}
+  updateNav();
+}
+function updateNav(){
+  var sid=SCREENS[cur],lock=screenLocked(sid);
+  $('prevBtn').disabled=(cur===0);
+  $('nextBtn').disabled=(cur===SCREENS.length-1)||!!lock;
+  var ln=$('lockNote-'+sid);if(ln){ln.textContent=lock;ln.className='lock-note'+(lock?' show':'');}
+}
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;if(d>0&&screenLocked(SCREENS[cur]))return;show(n);}
+function jumpTo(sid){var i=SCREENS.indexOf(sid);if(i>=0)show(i);}
+/* ---------- report + save ---------- */
+function firstTry(id){var S=DS[id];if(!S)return 0;var n=0;S.first.forEach(function(f){if(f)n++;});return n;}
+function buildReport(){
+  if(FIN_SECS===null) FIN_SECS=Math.round((Date.now()-OPENED_MS)/1000);
+  var h='<div class="report-grid">';
+  REPORT_ROWS.forEach(function(r){var S=DS[r.id];if(!S)return;h+='<div class="rep"><div class="rep-t">'+r.label+'</div><div class="rep-n">'+firstTry(r.id)+' / '+S.res.length+'</div><div class="rep-s">'+r.sub+'</div></div>';});
+  h+='<div class="rep"><div class="rep-t">Science-fair moment</div><div class="rep-n">'+countWords(SCN.volcano.text)+'</div><div class="rep-s">words (was 24)</div></div>';
+  h+='<div class="rep"><div class="rep-t">Wasp moment</div><div class="rep-n">'+countWords(SCN.wasp.text)+'</div><div class="rep-s">words</div></div>';
+  $('reportWrap').innerHTML=h+'</div>';
+}
+function sceneRec(id){
+  var S=SCN[id],r={id:id,notes:S.notes,text:S.text,words:countWords(S.text),sentences:countSentences(S.text),taps:S.taps};
+  if(id==='wasp') r.letterHint=S.letterHint;
+  return r;
+}
+function buildRecord(){
+  var drills={};REPORT_ROWS.forEach(function(r){var S=DS[r.id];if(S&&r.id!=='SC') drills[r.id]=firstTry(r.id)+'/'+S.res.length;});
+  var sc=firstTry('SC');
+  var rec={student:'Prem',unit:44,lesson:LESSON_ID,lessonDone:true,dateDone:new Date().toISOString().slice(0,10),
+    openedAt:OPENED_ISO,finishedAt:new Date().toISOString(),minutesSpent:Math.round((FIN_SECS===null?(Date.now()-OPENED_MS)/1000:FIN_SECS)/60),
+    secondsSpent:(FIN_SECS===null?Math.round((Date.now()-OPENED_MS)/1000):FIN_SECS),drills:drills,selfCheck:sc,selfCheckOutOf:4,ready:sc>=3,
+    scenes:[sceneRec('volcano'),sceneRec('wasp')],
+    noteBlocks:noteBlocks,planUsedBlocks:planUsedBlocks,speechBounces:speechBounces,feelingBounces:feelingBounces,sentenceBounces:sentenceBounces,stuckOpened:stuckOpened,dadOverrides:DAD};
+  return rec;
+}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';var u=$('unlockCode');if(u){u.textContent='Your code for the story: COMET';u.className='unlock-code unlocked';}}
+var ON_REPORT=false;
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
+async function saveDone(){
+  var rec=buildRecord(), filename='ENG_U044_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
+  st.className='reminder';st.textContent='Saving…';
+  if(!window.showDirectoryPicker){
+    try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+    st.textContent='This browser can\'t save into the Results folder. Ask Dad to move '+filename+' from Downloads into Results. Dad has your code.';return;
+  }
+  try{
+    await saveToResults(filename,json);
+    SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
+  }catch(e){
+    if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
+    else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
+    else{st.textContent='Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.';}
+  }
+}
+function initAll(){Object.keys(DRILLS).forEach(buildDrill);buildScene('volcano');buildScene('wasp');show(0);}
+initAll();
+
+</script>
+</body>
+</html>

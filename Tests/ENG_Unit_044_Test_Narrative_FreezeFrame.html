@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 44 — Narrative Test</title>
+<!-- Built from BUILD_PLAN_ENG_U044_FreezeFrame.md v1 section 6. On-screen story in four parts, with a plan and a tap-your-four read-through, saved as a results file. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{--ink:#2d3748;--grey:#718096;--line:#e2e8f0;--ok:#2e7d32}
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px;display:none}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.95rem;font-weight:700;margin-bottom:14px;text-align:center}
+  .pic{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px;margin-bottom:14px}
+  .pic svg{display:block;width:100%;height:auto;border-radius:10px}
+  .prompt{background:#fff8e1;border:2px solid #f6993f;border-radius:12px;padding:16px 18px;font-size:1.15rem;font-weight:800;color:#5d4037;margin-bottom:14px;text-align:center}
+  .how,.card{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:14px;font-size:.98rem}
+  .screen{display:none}.screen.active{display:block}
+  label.fld{display:block;font-weight:800;color:#4A148C;margin:12px 0 4px}
+  textarea{width:100%;border:2px solid #b39ddb;border-radius:10px;padding:10px;font-family:inherit;font-size:1rem;line-height:1.5;resize:vertical}
+  textarea.plan{min-height:60px}textarea.part{min-height:130px}textarea.big{min-height:230px}textarea.ttl{min-height:44px;resize:none}textarea.nt{min-height:44px;resize:none}
+  .noterow{display:flex;gap:10px;align-items:center;margin:6px 0}
+  .noterow .nl{flex:0 0 34px;height:34px;border-radius:50%;background:#4A148C;color:#fff;font-weight:900;text-align:center;line-height:34px}
+  .noterow textarea{flex:1}
+  .cnt{font-size:.85rem;color:var(--grey);margin-top:2px;font-weight:700}
+  .cnt.met{color:var(--ok)}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer;margin:6px 6px 0 0}
+  .btn.main{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff}
+  .btn.alt{background:#eceff1;color:#4A148C}
+  .btn:disabled{opacity:.45;cursor:default}
+  .msg{font-size:.95rem;font-weight:700;color:#b71c1c;margin-top:10px;min-height:20px}
+  .note{font-size:.85rem;color:var(--grey);font-weight:700;min-height:18px}
+  #save-status{font-size:.95rem;text-align:center;margin-top:12px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}#save-status.done{color:var(--ok)}
+  .story p{margin:0 0 12px}
+  .planrec{background:#f3e8ff;border-radius:10px;padding:8px 14px;margin-bottom:12px;font-size:.9rem}
+  .planrec summary{cursor:pointer;font-weight:800;color:#5c0f8b}
+  .notechips{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 6px}
+  .notechips span{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:16px;padding:3px 12px;font-size:.88rem;font-weight:700}
+  .lui{font-size:.82rem;color:var(--grey);background:#f1f5f9;border-radius:10px;padding:10px 14px;margin-top:18px}
+  .center{text-align:center}
+  .tapq{font-weight:800;color:#4A148C;margin:12px 0 6px}
+  ol.tapl{list-style:decimal;margin:6px 0 6px 22px;padding:0}
+  ol.tapl li{border:2px solid #d1c4e9;border-radius:8px;padding:7px 10px;margin:5px 0;cursor:pointer;background:#fff}
+  ol.tapl li:hover{background:#f3e8ff}
+  ol.tapl li.got{background:#d1c4e9;border-color:#4A148C}
+  .got-line{font-size:.88rem;color:var(--grey);font-weight:700;margin:2px 0}
+  .save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:1rem;line-height:1.7}
+  .save-steps ol{margin:8px 0 8px 22px}
+  .save-steps p{font-size:.9rem;margin:4px 0 0}
+  .unlock-code{display:none;text-align:center;font-size:1.1rem;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div><b>Unit 44 — Narrative Test</b><span class="sub">Your story, on screen</span></div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+
+  <div class="screen active" id="scr1">
+    <div class="card">
+      <p style="margin-top:0"><b>Enter your code from the lesson.</b></p>
+      <input type="text" id="codeIn" autocomplete="off" style="font-size:1.1rem;padding:8px 12px;border:2px solid #b39ddb;border-radius:10px;max-width:260px" onkeydown="if(event.key==='Enter')tryUnlock()">
+      <button class="btn main" onclick="tryUnlock()">Go</button>
+      <div class="msg" id="codeMsg"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr2">
+    <div class="readfirst">Type it or say it — voice typing is fine.<br>Pasting is turned off.</div>
+    <div class="pic">
+<svg viewBox="0 0 600 400" role="img" aria-label="A night camping scene in a storm. A small orange tent is half collapsed with one pole snapped and its door flap blowing out sideways. A green sleeping bag lies outside in a brown puddle. A torch lies on the grass with its beam shining sideways along the ground. A ring of stones surrounds a campfire that has gone out, with a thin curl of grey smoke. Lightning flashes, rain slants down and the trees bend to one side." xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#10204a"/>
+  <ellipse cx="120" cy="40" rx="130" ry="34" fill="#1b2f66"/><ellipse cx="420" cy="30" rx="170" ry="38" fill="#1b2f66"/><ellipse cx="560" cy="70" rx="90" ry="26" fill="#1b2f66"/>
+  <polygon points="318,0 288,92 314,88 272,190 338,78 310,82 346,0" fill="#ffe94a" stroke="#fff59d" stroke-width="2"/>
+  <rect y="300" width="600" height="100" fill="#2e5e2e"/>
+  <!-- trees bending one way -->
+  <g><polygon points="36,300 52,300 84,120 70,118" fill="#4e342e"/><polygon points="40,190 150,120 96,214" fill="#2e7d32"/><polygon points="34,150 150,84 90,170" fill="#388e3c"/><polygon points="42,236 140,176 100,262" fill="#1b5e20"/></g>
+  <g><polygon points="528,300 544,300 580,130 566,128" fill="#4e342e"/><polygon points="534,200 596,146 596,236" fill="#2e7d32"/><polygon points="530,160 596,104 596,180" fill="#388e3c"/></g>
+  <!-- tent -->
+  <polygon points="168,300 244,206 330,300" fill="#ef6c00" stroke="#bf360c" stroke-width="3"/>
+  <polygon points="168,300 190,262 244,254 244,300" fill="#e65100" stroke="#bf360c" stroke-width="3"/>
+  <path d="M168 300 Q182 276 210 272 Q232 268 244 206" fill="none" stroke="#bf360c" stroke-width="2"/>
+  <polygon points="244,206 300,300 262,300" fill="#4e342e"/>
+  <polygon points="286,300 312,240 392,262 340,300" fill="#ff8f00" stroke="#bf360c" stroke-width="3"/>
+  <!-- snapped pole -->
+  <line x1="244" y1="206" x2="244" y2="226" stroke="#cfd8dc" stroke-width="5"/>
+  <line x1="214" y1="238" x2="170" y2="262" stroke="#cfd8dc" stroke-width="5"/>
+  <polyline points="238,226 244,232 238,238 246,243" fill="none" stroke="#fff" stroke-width="3"/>
+  <!-- sleeping bag in puddle -->
+  <ellipse cx="506" cy="354" rx="88" ry="26" fill="#6d4c41" stroke="#4e342e" stroke-width="3"/>
+  <rect x="450" y="328" width="116" height="40" rx="20" fill="#43a047" stroke="#1b5e20" stroke-width="4" transform="rotate(-8 508 348)"/>
+  <path d="M462 342 L548 332" stroke="#a5d6a7" stroke-width="3" fill="none"/>
+  <!-- torch with beam -->
+  <polygon points="66,338 0,312 0,350" fill="#fff59d" fill-opacity=".55"/>
+  <rect x="64" y="328" width="52" height="16" rx="5" fill="#37474F" stroke="#102027" stroke-width="2"/>
+  <rect x="58" y="326" width="12" height="20" rx="3" fill="#ffd54f" stroke="#f9a825" stroke-width="2"/>
+  <g transform="translate(-40 0)"><!-- campfire ring -->
+  <g fill="#9e9e9e" stroke="#616161" stroke-width="2"><circle cx="372" cy="356" r="9"/><circle cx="392" cy="364" r="9"/><circle cx="414" cy="364" r="9"/><circle cx="434" cy="356" r="9"/><circle cx="426" cy="342" r="9"/><circle cx="404" cy="338" r="9"/><circle cx="382" cy="342" r="9"/></g>
+  <line x1="388" y1="354" x2="420" y2="346" stroke="#212121" stroke-width="7" stroke-linecap="round"/><line x1="390" y1="346" x2="422" y2="356" stroke="#3e2723" stroke-width="7" stroke-linecap="round"/>
+  <path d="M404 340 Q388 316 408 298 Q426 280 410 258" fill="none" stroke="#b0bec5" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  </g>
+  <g stroke="#9fc5e8" stroke-width="2" opacity=".8"><line x1="10" y1="15" x2="-4" y2="49"/><line x1="10" y1="109" x2="-4" y2="143"/><line x1="10" y1="186" x2="-4" y2="220"/><line x1="10" y1="295" x2="-4" y2="329"/><line x1="48" y1="30" x2="34" y2="64"/><line x1="48" y1="99" x2="34" y2="133"/><line x1="48" y1="185" x2="34" y2="219"/><line x1="48" y1="274" x2="34" y2="308"/><line x1="86" y1="1" x2="72" y2="35"/><line x1="86" y1="115" x2="72" y2="149"/><line x1="86" y1="215" x2="72" y2="249"/><line x1="86" y1="288" x2="72" y2="322"/><line x1="124" y1="3" x2="110" y2="37"/><line x1="124" y1="104" x2="110" y2="138"/><line x1="124" y1="213" x2="110" y2="247"/><line x1="124" y1="304" x2="110" y2="338"/><line x1="162" y1="23" x2="148" y2="57"/><line x1="162" y1="107" x2="148" y2="141"/><line x1="162" y1="191" x2="148" y2="225"/><line x1="162" y1="276" x2="148" y2="310"/><line x1="200" y1="16" x2="186" y2="50"/><line x1="200" y1="103" x2="186" y2="137"/><line x1="200" y1="181" x2="186" y2="215"/><line x1="200" y1="286" x2="186" y2="320"/><line x1="238" y1="17" x2="224" y2="51"/><line x1="238" y1="102" x2="224" y2="136"/><line x1="238" y1="190" x2="224" y2="224"/><line x1="238" y1="289" x2="224" y2="323"/><line x1="276" y1="18" x2="262" y2="52"/><line x1="276" y1="130" x2="262" y2="164"/><line x1="276" y1="203" x2="262" y2="237"/><line x1="276" y1="275" x2="262" y2="309"/><line x1="314" y1="38" x2="300" y2="72"/><line x1="314" y1="111" x2="300" y2="145"/><line x1="314" y1="204" x2="300" y2="238"/><line x1="314" y1="302" x2="300" y2="336"/><line x1="352" y1="15" x2="338" y2="49"/><line x1="352" y1="101" x2="338" y2="135"/><line x1="352" y1="195" x2="338" y2="229"/><line x1="352" y1="300" x2="338" y2="334"/><line x1="390" y1="17" x2="376" y2="51"/><line x1="390" y1="95" x2="376" y2="129"/><line x1="390" y1="215" x2="376" y2="249"/><line x1="390" y1="289" x2="376" y2="323"/><line x1="428" y1="0" x2="414" y2="34"/><line x1="428" y1="108" x2="414" y2="142"/><line x1="428" y1="216" x2="414" y2="250"/><line x1="428" y1="289" x2="414" y2="323"/><line x1="466" y1="32" x2="452" y2="66"/><line x1="466" y1="102" x2="452" y2="136"/><line x1="466" y1="206" x2="452" y2="240"/><line x1="466" y1="297" x2="452" y2="331"/><line x1="504" y1="38" x2="490" y2="72"/><line x1="504" y1="108" x2="490" y2="142"/><line x1="504" y1="207" x2="490" y2="241"/><line x1="504" y1="298" x2="490" y2="332"/><line x1="542" y1="10" x2="528" y2="44"/><line x1="542" y1="104" x2="528" y2="138"/><line x1="542" y1="199" x2="528" y2="233"/><line x1="542" y1="286" x2="528" y2="320"/><line x1="580" y1="2" x2="566" y2="36"/><line x1="580" y1="95" x2="566" y2="129"/><line x1="580" y1="182" x2="566" y2="216"/><line x1="580" y1="299" x2="566" y2="333"/><line x1="618" y1="40" x2="604" y2="74"/><line x1="618" y1="107" x2="604" y2="141"/><line x1="618" y1="213" x2="604" y2="247"/><line x1="618" y1="304" x2="604" y2="338"/></g>
+</svg>
+    </div>
+    <div class="prompt">Look at the picture. Write a story about what happened on the camping trip.</div>
+    <div class="how">
+      <b>How to do it</b>
+      <p style="margin:8px 0 0">You have 35 minutes: about 5 to plan, 25 to write and 5 to read it through.</p>
+      <p style="margin:8px 0 0">First, fill in the plan boxes. Each plan box needs at least 3 words. Each note needs at least 2 words.</p>
+    </div>
+    <div class="card">
+      <label class="fld" for="plan-who">Who is in your story, and where are they?</label>
+      <textarea class="plan" id="plan-who" spellcheck="false"></textarea>
+      <label class="fld" for="plan-problem">What goes wrong?</label>
+      <textarea class="plan" id="plan-problem" spellcheck="false"></textarea>
+      <label class="fld" for="plan-moment">The big moment: which second does it go wrong?</label>
+      <textarea class="plan" id="plan-moment" spellcheck="false"></textarea>
+      <label class="fld">Your four notes for that second:</label>
+      <div class="noterow"><span class="nl">S</span><textarea class="nt" id="n-see" rows="1" spellcheck="false"></textarea></div>
+      <div class="noterow"><span class="nl">H</span><textarea class="nt" id="n-hear" rows="1" spellcheck="false"></textarea></div>
+      <div class="noterow"><span class="nl">S</span><textarea class="nt" id="n-say" rows="1" spellcheck="false"></textarea></div>
+      <div class="noterow"><span class="nl">S</span><textarea class="nt" id="n-show" rows="1" spellcheck="false"></textarea></div>
+      <label class="fld" for="plan-end">How does it end? Use something already in your story.</label>
+      <textarea class="plan" id="plan-end" spellcheck="false"></textarea>
+      <div class="note" id="pasteNote2"></div>
+      <button class="btn main" onclick="startWriting()">Start writing</button>
+      <div class="msg" id="planMsg"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr3">
+    <details class="planrec"><summary>My plan (tap to open)</summary><div id="planShow"></div></details>
+    <div class="prompt" style="font-size:1rem">Look at the picture. Write a story about what happened on the camping trip.</div>
+    <div class="card">
+      <label class="fld" for="b-title">Title</label>
+      <textarea class="ttl" id="b-title" rows="1" spellcheck="false"></textarea>
+      <label class="fld" for="b-beginning">Beginning</label>
+      <textarea class="part" id="b-beginning" spellcheck="false"></textarea>
+      <div class="cnt" id="c-beginning"></div>
+      <label class="fld" for="b-buildUp">Build-up</label>
+      <textarea class="part" id="b-buildUp" spellcheck="false"></textarea>
+      <div class="cnt" id="c-buildUp"></div>
+      <label class="fld" for="b-bigMoment">The big moment</label>
+      <div class="note" style="margin:0">Your four notes — every one must be in this part:</div>
+      <div class="notechips" id="noteChips"></div>
+      <textarea class="big" id="b-bigMoment" spellcheck="false"></textarea>
+      <div class="cnt" id="c-bigMoment"></div>
+      <div class="cnt" id="s-bigMoment"></div>
+      <label class="fld" for="b-ending">Ending</label>
+      <textarea class="part" id="b-ending" spellcheck="false"></textarea>
+      <div class="cnt" id="c-ending"></div>
+      <div class="note" id="pasteNote3"></div>
+      <button class="btn main" onclick="toReview()">Next: read it through</button>
+      <button class="btn alt" id="stuckBtn" style="display:none" onclick="stuckOut()">I'm stuck — save what I have</button>
+      <div class="msg" id="writeMsg"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr4">
+    <div class="card">
+      <p style="margin-top:0"><b>Read your big moment once, slowly. Then tap your four.</b></p>
+      <div id="tapDone"></div>
+      <div id="tapArea"></div>
+      <div id="tapButtons" style="display:none">
+        <button class="btn alt" onclick="backToWrite()">Change something</button>
+        <button class="btn main" onclick="finishStory()">My story is finished</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="scr5">
+    <div class="card center">
+      <div class="save-steps" style="text-align:left"><b>📁 Save your work for Naomi — you can't go on until it's saved.</b>
+      <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+      <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+      <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+      <li>Wait for <b>✅ Saved in Results</b>.</li></ol>
+      <p>After the first time, the window opens in Results by itself.</p></div>
+      <button class="btn save" id="btn-save" onclick="saveResults()">💾 Save to Results</button>
+      <div id="save-status"></div>
+      <a class="btn alt" id="btn-hub" href="../index.html" style="display:none;text-decoration:none;margin-top:12px">🏠 Back to Hub</a>
+    </div>
+    <div class="lui"><b>For Lui:</b> the whole story is saved inside the results file in <b>Lessons\Tests\Results</b> as <b>ENG_U044_Results_&lt;date&gt;.json</b>. On Windows, Win + H starts voice typing.</div>
+  </div>
+</div>
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT = 44;
+const UNLOCK_CODE = 'COMET';
+const MIN_WORDS = {beginning:40, buildUp:50, bigMoment:80, ending:30};
+const MIN_SENTENCES = {bigMoment:5};
+const PLAN_MIN_WORDS = 3;
+const NOTE_MIN_WORDS = 2;
+const STUCK_EXIT_AFTER_SEC = 1200;
+/* ---------- END EDIT ---------- */
+
+/* ---------- U44 WRITING HELPERS (verbatim) ---------- */
+function countWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function splitSentences(t){var s=(t||'').replace(/[“”]/g,'"').replace(/[‘’]/g,"'").trim();if(!s)return [];return s.split(/(?<=[.!?])["']?\s+(?=["']?[A-Z])/).filter(function(p){return countWords(p)>=1;});}
+function countSentences(t){return splitSentences(t).filter(function(p){return countWords(p)>=3;}).length;}
+function hasSpeech(t){return /["“”][^"“”]{2,}["“”]/.test(t||'');}
+function repeatedSentence(t){var seen={},hit=null;(t||'').toLowerCase().split(/[.!?]+/).map(function(p){return p.replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();}).forEach(function(p){if(p.split(' ').length>=4){if(seen[p])hit=p;seen[p]=1;}});return hit;}
+var PLAN_STOP=['that','this','with','from','they','them','then','there','their','have','were','what','when','your','into','just','very','some','like','about','would','could','said','says'];
+function planStem(w){return w.replace(/(ing|ed|es|s)$/,'');}
+function planUsed(note,text){var tw=(text||'').toLowerCase().match(/[a-z]+/g)||[],ts={};tw.forEach(function(w){ts[planStem(w)]=1;});var nw=(note||'').toLowerCase().match(/[a-z]+/g)||[];var key=nw.filter(function(w){return w.length>=4&&PLAN_STOP.indexOf(w)<0;});if(!key.length)return nw.length>0&&(' '+tw.join(' ')+' ').indexOf(' '+nw.join(' ')+' ')>=0;return key.some(function(w){return ts[planStem(w)]===1;});}
+function noteHasKeyword(note){return ((note||'').toLowerCase().match(/[a-z]+/g)||[]).some(function(w){return w.length>=4&&PLAN_STOP.indexOf(w)<0;});}
+/* ---------- END HELPERS ---------- */
+
+const $ = id => document.getElementById(id);
+const PARTS = ['beginning','buildUp','bigMoment','ending'];
+const PART_NAMES = {beginning:'Beginning', buildUp:'Build-up', bigMoment:'The big moment', ending:'Ending'};
+const PLAN_IDS = {who:'plan-who', problem:'plan-problem', moment:'plan-moment'};
+const PLAN_NAMES = {who:'Who is in your story, and where are they?', problem:'What goes wrong?', moment:'The big moment: which second does it go wrong?', ending:'How does it end?'};
+const NOTE_IDS = {see:'n-see', hear:'n-hear', say:'n-say', show:'n-show'};
+const NOTE_KEYS = ['see','hear','say','show'];
+const NOTE_LETTERS = {see:'S', hear:'H', say:'S', show:'S'};
+const ALL_BOXES = ['plan-who','plan-problem','plan-moment','n-see','n-hear','n-say','n-show','plan-end','b-title','b-beginning','b-buildUp','b-bigMoment','b-ending'];
+const SINGLE_LINE = ['b-title','n-see','n-hear','n-say','n-show'];
+const DRAFT_KEY = 'ENG_U044_draft';
+const TAPQ = [['see','Tap the sentence where we SEE something.'],['hear','Tap the sentence where we HEAR, smell or feel something.'],['say','Tap the sentence where someone SPEAKS.'],['show','Tap the sentence that SHOWS how someone feels by what their body does.']];
+
+$('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const openedAt = new Date().toISOString();
+let unlockedMs = null, unlockedAt = null, frozenSecs = null, finishedAt = null;
+let typedChars = 0, addedChars = 0, pasteBlocked = 0, repeatBlocks = 0, planUsedBlocks = 0;
+let stuckExit = false, restored = false, reviewSeconds = 0, reviewStart = null, reachedReview = false, editedOnReview = false;
+let curScreen = 1, lastResults = null, writingOpen = false;
+let tapStep = 0, tapSents = [];
+let taps = {see:null, hear:null, say:null, show:null};
+const lastLen = {};
+const sectionSeconds = {beginning:0, buildUp:0, bigMoment:0, ending:0};
+let focusPart = null, focusStart = null;
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ if (unlockedMs === null) return 0; return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-unlockedMs)/1000); }
+function tick(){
+  $('timer').textContent = fmtClock(elapsedSecs());
+  if (unlockedMs !== null && frozenSecs === null && curScreen === 3 && elapsedSecs() >= STUCK_EXIT_AFTER_SEC) $('stuckBtn').style.display = 'inline-block';
+}
+setInterval(tick, 1000);
+
+function showScreen(n){
+  if (curScreen === 3) flushFocus();
+  if (curScreen === 4 && reviewStart !== null){ reviewSeconds += Math.round((Date.now()-reviewStart)/1000); reviewStart = null; }
+  curScreen = n;
+  for (let i = 1; i <= 5; i++) $('scr'+i).classList.toggle('active', i === n);
+  if (n === 3) writingOpen = true;
+  if (n === 4){ reviewStart = Date.now(); reachedReview = true; }
+  window.scrollTo(0,0); tick();
+}
+function tryUnlock(){
+  const v = $('codeIn').value.replace(/\s+/g,'').toUpperCase();
+  if (v === UNLOCK_CODE){
+    unlockedMs = Date.now(); unlockedAt = new Date().toISOString();
+    $('timer-chip').style.display = 'block'; showScreen(2);
+  } else {
+    $('codeMsg').textContent = "That code isn't right. You get it at the end of the lesson, after you save.";
+  }
+}
+
+/* ---------- draft safety ---------- */
+function saveDraft(){
+  try { const d = {}; ALL_BOXES.forEach(id => d[id] = $(id).value); localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); } catch(e){}
+}
+function loadDraft(){
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY); if (!raw) return;
+    const d = JSON.parse(raw); let any = false;
+    ALL_BOXES.forEach(id => { if (d[id]){ $(id).value = d[id]; any = true; } });
+    if (any) restored = true;
+  } catch(e){}
+}
+function clearDraft(){ try { localStorage.removeItem(DRAFT_KEY); } catch(e){} }
+
+/* ---------- counters and instrumentation ---------- */
+function partText(p){ return $('b-'+p).value; }
+function updateCounters(){
+  PARTS.forEach(p => {
+    const w = countWords(partText(p)), min = MIN_WORDS[p], el = $('c-'+p);
+    el.textContent = w + ' / ' + min + ' words'; el.classList.toggle('met', w >= min);
+  });
+  const s = countSentences(partText('bigMoment')), el2 = $('s-bigMoment');
+  el2.textContent = s + ' / ' + MIN_SENTENCES.bigMoment + ' sentences'; el2.classList.toggle('met', s >= MIN_SENTENCES.bigMoment);
+}
+function flushFocus(){
+  if (focusPart !== null && focusStart !== null){ sectionSeconds[focusPart] += (Date.now()-focusStart)/1000; }
+  focusPart = null; focusStart = null;
+}
+ALL_BOXES.forEach(id => {
+  const el = $(id); lastLen[id] = 0;
+  el.addEventListener('keydown', e => {
+    if (SINGLE_LINE.indexOf(id) >= 0 && e.key === 'Enter'){ e.preventDefault(); return; }
+    if (e.key && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) typedChars++;
+  });
+  el.addEventListener('input', () => {
+    const len = el.value.length;
+    if (len > lastLen[id]) addedChars += len - lastLen[id];
+    lastLen[id] = len;
+    if (reachedReview && curScreen === 3) editedOnReview = true;
+    saveDraft(); updateCounters();
+  });
+  el.addEventListener('paste', e => {
+    e.preventDefault(); pasteBlocked++;
+    const t = 'Pasting is turned off — type it or say it.';
+    $('pasteNote2').textContent = t; $('pasteNote3').textContent = t;
+  });
+  if (id.indexOf('b-') === 0 && PARTS.indexOf(id.slice(2)) >= 0){
+    el.addEventListener('focus', () => { flushFocus(); focusPart = id.slice(2); focusStart = Date.now(); });
+    el.addEventListener('blur', () => flushFocus());
+  }
+});
+loadDraft();
+ALL_BOXES.forEach(id => { lastLen[id] = $(id).value.length; });
+updateCounters();
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function noteVal(k){ return $(NOTE_IDS[k]).value.trim(); }
+
+/* ---------- screen 2 -> 3 ---------- */
+function startWriting(){
+  const m = $('planMsg');
+  for (const k of Object.keys(PLAN_IDS)){
+    if (countWords($(PLAN_IDS[k]).value) < PLAN_MIN_WORDS){
+      m.textContent = 'Fill in this box first (at least ' + PLAN_MIN_WORDS + ' words): ' + PLAN_NAMES[k];
+      return;
+    }
+  }
+  for (const k of NOTE_KEYS){
+    const v = noteVal(k);
+    if (countWords(v) < NOTE_MIN_WORDS){ m.textContent = 'Fill in all four notes first (at least ' + NOTE_MIN_WORDS + ' words each).'; return; }
+    if (k !== 'say' && !noteHasKeyword(v)){ m.textContent = 'Your note needs a real thing in it.'; return; }
+  }
+  if (countWords($('plan-end').value) < PLAN_MIN_WORDS){
+    m.textContent = 'Fill in this box first (at least ' + PLAN_MIN_WORDS + ' words): ' + PLAN_NAMES.ending;
+    return;
+  }
+  m.textContent = '';
+  let h = '';
+  for (const k of Object.keys(PLAN_IDS)){ h += '<p style="margin:4px 0"><b>' + PLAN_NAMES[k] + '</b><br>' + esc($(PLAN_IDS[k]).value.trim()) + '</p>'; }
+  h += '<p style="margin:4px 0"><b>Your four notes</b><br>' + NOTE_KEYS.map(k => NOTE_LETTERS[k] + ': ' + esc(noteVal(k))).join('<br>') + '</p>';
+  h += '<p style="margin:4px 0"><b>' + PLAN_NAMES.ending + '</b><br>' + esc($('plan-end').value.trim()) + '</p>';
+  $('planShow').innerHTML = h;
+  $('noteChips').innerHTML = NOTE_KEYS.map(k => '<span>' + NOTE_LETTERS[k] + ': ' + esc(noteVal(k)) + '</span>').join('');
+  showScreen(3);
+}
+
+/* ---------- screen 3 -> 4 ---------- */
+function storyText(){
+  return $('b-title').value.trim() + '\n\n' + PARTS.map(p => partText(p).trim()).join('\n\n');
+}
+function allStoryBody(){ return PARTS.map(p => partText(p)).join(' '); }
+function toReview(){
+  const m = $('writeMsg');
+  if (!stuckExit){
+    if (countWords($('b-title').value) < 1){ m.textContent = 'Give your story a title first.'; return; }
+    for (const p of PARTS){
+      const w = countWords(partText(p));
+      if (w < MIN_WORDS[p]){ m.textContent = PART_NAMES[p] + ' needs at least ' + MIN_WORDS[p] + ' words. You have ' + w + '.'; return; }
+    }
+    const s = countSentences(partText('bigMoment'));
+    if (s < MIN_SENTENCES.bigMoment){
+      m.textContent = 'The big moment needs at least ' + MIN_SENTENCES.bigMoment + ' sentences. You have ' + s + '. Each sentence ends with . ! or ? — very short ones like \'He ran.\' don\'t count.';
+      return;
+    }
+    for (const k of NOTE_KEYS){
+      if (!planUsed(noteVal(k), partText('bigMoment'))){
+        planUsedBlocks++;
+        m.textContent = 'Your note “' + noteVal(k) + '” isn\'t in your big moment yet.';
+        return;
+      }
+    }
+    const rep = repeatedSentence(allStoryBody());
+    if (rep){ repeatBlocks++; m.textContent = 'You wrote the same sentence twice: \'' + rep + '\'. Change one of them.'; return; }
+  }
+  m.textContent = '';
+  startTaps(); showScreen(4);
+}
+function stuckOut(){ stuckExit = true; flushFocus(); startTaps(); showScreen(4); }
+
+/* ---------- screen 4: tap your four ---------- */
+function startTaps(){
+  tapSents = splitSentences(partText('bigMoment').trim());
+  tapStep = 0; taps = {see:null, hear:null, say:null, show:null};
+  drawTaps();
+}
+function drawTaps(){
+  let done = '';
+  for (let i = 0; i < tapStep; i++){
+    const k = TAPQ[i][0];
+    done += '<div class="got-line">' + (i+1) + ' of 4 — ' + (taps[k] ? 'sentence ' + taps[k].index + ' tapped' : 'no sentence') + '</div>';
+  }
+  $('tapDone').innerHTML = done;
+  if (tapStep >= 4){
+    $('tapArea').innerHTML = '<p style="font-weight:800">All four answered.</p>';
+    $('tapButtons').style.display = 'block';
+    return;
+  }
+  $('tapButtons').style.display = 'none';
+  let h = '<div class="tapq">' + (tapStep+1) + ' of 4 — ' + TAPQ[tapStep][1] + '</div><ol class="tapl">';
+  tapSents.forEach((t, j) => { h += '<li onclick="tapSent(' + j + ')">' + esc(t) + '</li>'; });
+  h += '</ol><button class="btn alt" onclick="tapNone()">I don\'t have one</button>';
+  $('tapArea').innerHTML = h;
+}
+function tapSent(j){ taps[TAPQ[tapStep][0]] = {index: j+1, text: tapSents[j]}; tapStep++; drawTaps(); }
+function tapNone(){ taps[TAPQ[tapStep][0]] = null; tapStep++; drawTaps(); }
+function backToWrite(){ tapStep = 0; taps = {see:null, hear:null, say:null, show:null}; showScreen(3); }
+function finishStory(){
+  if (tapStep < 4) return;
+  flushFocus();
+  if (curScreen === 4 && reviewStart !== null){ reviewSeconds += Math.round((Date.now()-reviewStart)/1000); reviewStart = null; }
+  frozenSecs = Math.round((Date.now()-unlockedMs)/1000); finishedAt = new Date().toISOString(); tick();
+  showScreen(5);
+}
+
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+window.addEventListener('beforeunload', e => { if (!SAVED && writingOpen){ e.preventDefault(); e.returnValue = ''; } });
+
+/* ---------- save ---------- */
+async function saveResults(){
+  const dateTaken = new Date().toISOString().slice(0,10);
+  const words = {}, sentences = {}, sections = {}, secs = {};
+  let total = 0;
+  PARTS.forEach(p => { sections[p] = partText(p).trim(); words[p] = countWords(sections[p]); sentences[p] = countSentences(sections[p]); total += words[p]; secs[p] = Math.round(sectionSeconds[p]); });
+  words.total = total;
+  const share = addedChars > 0 ? Math.max(0, Math.round((1 - typedChars/addedChars)*100)/100) : 0;
+  lastResults = {
+    student: "Prem", unit: UNIT, paper: "W", mode: "digital", dateTaken: dateTaken,
+    openedAt: openedAt, unlockedAt: unlockedAt, finishedAt: finishedAt,
+    secondsSpent: frozenSecs, minutesSpent: Math.round(frozenSecs/60),
+    title: $('b-title').value.trim(),
+    plan: {who: $('plan-who').value.trim(), problem: $('plan-problem').value.trim(), moment: $('plan-moment').value.trim(), ending: $('plan-end').value.trim()},
+    notes: {see: noteVal('see'), hear: noteVal('hear'), say: noteVal('say'), show: noteVal('show')},
+    sections: sections, words: words, sentences: sentences, sectionSeconds: secs,
+    typedChars: typedChars, addedChars: addedChars, dictatedShare: share,
+    pasteBlocked: pasteBlocked, repeatBlocks: repeatBlocks, planUsedBlocks: planUsedBlocks,
+    taps: taps, reviewSeconds: reviewSeconds,
+    editedOnReview: editedOnReview, stuckExit: stuckExit, restored: restored,
+    story: storyText()
+  };
+  const filename = `ENG_U044_Results_${dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = $('save-status');
+  st.className = 'reminder'; st.textContent = 'Saving…';
+  if (!window.showDirectoryPicker){
+    try {
+      const blob = new Blob([json], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = filename;
+      document.body.appendChild(a); a.click(); a.remove();
+    } catch(e0){}
+    st.textContent = 'This browser can\'t save into the Results folder. Ask Dad to move ' + filename + ' from Downloads into Results.';
+    return;
+  }
+  try {
+    await saveToResults(filename, json);
+    SAVED = true; st.className = 'done'; st.textContent = '✅ Saved in Results as ' + filename + '. Well done!';
+    clearDraft();
+    $('btn-hub').style.display = 'inline-block';
+  } catch(e){
+    if (e && e.name === 'AbortError'){ st.textContent = 'Not saved yet — you closed the window. Press the blue button again.'; }
+    else if (e && e.name === 'WrongFolder'){ st.textContent = 'That folder is called “' + e.picked + '”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.'; }
+    else { st.textContent = 'Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.'; }
+  }
+}
+</script>
+</body>
+</html>
