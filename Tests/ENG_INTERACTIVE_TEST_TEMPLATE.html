@@ -76,9 +76,11 @@
          first time the save dialog opens; supporting browsers remember
          it after). Falls back to a normal download if the browser
          doesn't support the native save-picker.
-       - "Back to Hub" link (#btn-hub, href="../index.html") appears
-         next to Save Results once submitted — do not remove. Path is
-         one level up because tests live in Lessons\Tests\.
+       - NO "Back to Hub" button near Save (Lui, 18 Oct 2026 — he might
+         press it instead of Save and lose the result). Save is the only
+         button at the end of the page. Back to Hub is only the small
+         "X" at the top-left (.hdr-x, href="../index.html" — tests live
+         in Lessons\Tests\, one level down).
        - On the hub (index.html), add a fourth card ("Take the Test")
          below the 3 lesson cards in the This Unit panel, linking
          straight to this file. On the LAST lesson's final screen, add
@@ -161,6 +163,7 @@
   .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
   .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
   .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .hdr-x{color:#fff;text-decoration:none;font-size:1.2rem;font-weight:800;background:#ffffff26;border-radius:8px;padding:4px 11px;margin-right:10px;align-self:flex-start}
   .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
 
   #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
@@ -188,6 +191,7 @@
 <div class="wrap">
 
   <div class="hdr">
+    <a class="hdr-x" href="../index.html" title="Back to Hub" aria-label="Back to Hub">&#10005;</a>
     <div>
       <b id="hdr-title">Unit 20 Test — Cloze · Grammar · Vocabulary</b>
       <span class="sub" id="hdr-sub">Phase 2 · Unit 10</span>
@@ -215,7 +219,6 @@
       <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all 20 to submit</button>
       <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
       <div id="save-status"></div>
-      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
     </div>
   </div>
 
@@ -463,7 +466,6 @@ function doSubmit(){
 
   document.getElementById('btn-submit').style.display = 'none';
   document.getElementById('btn-save').style.display = 'inline-block';
-  document.getElementById('btn-hub').style.display = 'inline-block';
 
   lastResults = {
     student: "Prem",

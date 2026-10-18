@@ -65,7 +65,7 @@
        - Results file naming: ENG_M{milestone#}_Results_{YYYY-MM-DD}.json
          (updated 10 Jul 2026 — ENG_ prefix; see interactive_test_template.md)
        - Save location: Lessons\Tests\Results\
-       - "Back to Hub" link appears after submit (one level up).
+       - NO "Back to Hub" button near Save (Lui, 18 Oct 2026). Save is the only end-of-page button; Back to Hub is only the "X" top-left (.hdr-x, one level up).
        - Test card on index.html, same move-to-Completed workflow as
          unit tests — but NO lesson cards alongside it (no lesson pack
          for milestones) and NO "Take the Test" button on any lesson
@@ -147,6 +147,7 @@
   .btn.submit:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
   .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
   .btn.save:disabled{background:#cfd8d2;color:#8a9a90;cursor:not-allowed}
+  .hdr-x{color:#fff;text-decoration:none;font-size:1.2rem;font-weight:800;background:#ffffff26;border-radius:8px;padding:4px 11px;margin-right:10px;align-self:flex-start}
   .btn.hub{background:#546e7a;color:#fff;text-decoration:none;display:inline-block;margin-top:10px;margin-left:8px}
 
   #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
@@ -175,6 +176,7 @@
 <div class="wrap">
 
   <div class="hdr">
+    <a class="hdr-x" href="../index.html" title="Back to Hub" aria-label="Back to Hub">&#10005;</a>
     <div>
       <b id="hdr-title">Milestone 2 — ASMOPSS-Style Review</b>
       <span class="sub" id="hdr-sub">Conversation &middot; Vocabulary &middot; Grammar &middot; Cloze &middot; Reading</span>
@@ -203,7 +205,6 @@
       <button class="btn submit" id="btn-submit" disabled onclick="askConfirmSubmit()">Answer all to submit</button>
       <button class="btn save" id="btn-save" style="display:none" onclick="saveResults()">💾 Save Results for Naomi</button>
       <div id="save-status"></div>
-      <a class="btn hub" id="btn-hub" href="../index.html" style="display:none">🏠 Back to Hub</a>
     </div>
   </div>
 
@@ -413,7 +414,6 @@ function doSubmit(){
 
   document.getElementById('btn-submit').style.display = 'none';
   document.getElementById('btn-save').style.display = 'inline-block';
-  document.getElementById('btn-hub').style.display = 'inline-block';
 
   lastResults = {
     student: "Prem",
