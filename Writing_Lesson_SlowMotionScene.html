@@ -165,10 +165,6 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
 .save-steps ol{margin:8px 0 8px 22px}
 .save-steps p{font-size:14px;margin:4px 0 0}
 
-.unlock-code{display:none;text-align:center;font-size:20px;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
-.unlock-code.unlocked{display:block}
-.codebox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:14px 16px;margin:12px 0}
-.codemsg{font-size:13px;font-weight:700;color:#B71C1C;margin-top:8px}
 
 #saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
 #saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
@@ -185,11 +181,10 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
   </div>
 </nav>
 <div class="screen" id="s0"><div class="card"><span class="tag">UNIT 43 · LESSON 2 · FRIDAY</span>
-<div id="codeGate" class="codebox"><p><b>Enter your code from Lesson 1.</b></p><input class="pf" id="codeIn" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')checkCode()" style="max-width:240px"> <button class="btn" onclick="checkCode()">Go</button><div class="codemsg" id="codeMsg"></div></div>
-<div id="s0body" style="display:none">
+<div id="s0body">
 <h2>Why this lesson matters 🎯</h2>
 <p><b>Type it or say it — voice typing is fine.</b></p>
-<p><b>📁 This lesson ends by saving your work into the Results folder. Your code for the next part only appears after that.</b></p>
+<p><b>📁 This lesson ends by saving your work into the Results folder.</b></p>
 <p>Yesterday you spotted close-ups. Today <b>you</b> write them. The reason it matters: after Lesson 3 you write a whole story on screen, and the best stories have one moment where the writer slows right down — so the reader can see, hear and feel it. That is also how you describe a real day to a friend so they feel they were there.</p>
 <p>Here are the five checks again:</p>
 <div class="routine-box">
@@ -261,11 +256,11 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
 <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
 <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
 <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
-<li>Wait for <b>✅ Saved in Results</b>. Your code appears under it.</li></ol>
+<li>Wait for <b>✅ Saved in Results</b>. Then the link to the next part appears.</li></ol>
 <p>After the first time, the window opens in Results by itself.</p></div>
 <button class="btn" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
 <p>Next: Lesson 3, the Story Builder. Then your story. Type it or say it — voice typing is fine.</p>
-<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Writing_Lesson_StoryBuilder.html">Lesson 3 →</a></div><div id="unlockCode" class="unlock-code"></div><div class="lock-note" id="lockNote-s7"></div></div></div>
+<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Writing_Lesson_StoryBuilder.html">Lesson 3 →</a></div><div class="lock-note" id="lockNote-s7"></div></div></div>
 <script>
 var DRILLS={"CARDS": {"title": "Build a scene from cards", "forced": true, "col": true, "letters": false, "nudge": "Read the card’s check again — does that phrase give you exactly that? Look at the other two: what is each one missing?", "items": [{"q": "<span class=\"cardhd\">SEE card</span><br>The moment: <i>the lights go out in the school hall</i>. Which phrase fits the <b>SEE</b> check?", "opts": ["A thin torch beam swung across the stage curtain.", "It was a bad moment.", "Everyone was in the hall."], "ans": 0, "why": "SEE needs something you can look at: a thin torch beam on a curtain. “A bad moment” is a label."}, {"q": "<span class=\"cardhd\">HEAR card</span><br>The moment: <i>the lights go out in the school hall</i>. Which phrase fits the <b>HEAR</b> check?", "opts": ["Chairs scraped and someone gasped.", "It was a school day.", "It happened on a Friday."], "ans": 0, "why": "HEAR needs a sound, smell or touch. Chairs scraping and a gasp are sounds."}, {"q": "<span class=\"cardhd\">SAY card</span><br>The moment: <i>the lights go out in the school hall</i>. Which phrase fits the <b>SAY</b> check?", "opts": ["“Stay in your seats!” called Mr Hill.", "Mr Hill told everyone to stay.", "Mr Hill was the teacher."], "ans": 0, "why": "SAY needs words someone actually speaks, in quotation marks. “Mr Hill told everyone” only reports it."}, {"q": "<span class=\"cardhd\">SHOW card</span><br>The moment: <i>the lights go out in the school hall</i>. Which phrase fits the <b>SHOW</b> check?", "opts": ["Her hands gripped the edge of her seat.", "She felt very scared.", "She was nervous and upset."], "ans": 0, "why": "SHOW is a feeling shown by what a body does. Gripping hands do it. “Felt very scared” names the feeling."}, {"q": "<span class=\"cardhd\">STAY card</span><br>The moment: <i>the lights go out in the school hall</i>. Which phrase fits the <b>STAY</b> check?", "opts": ["Then the torch clicked on, and she held her breath.", "The next day they went to the zoo.", "After the show, they all went home and had dinner."], "ans": 0, "why": "STAY means the same moment, still in the hall. The zoo and dinner jump to a different time and place."}]}, "SC": {"title": "Self-check", "forced": false, "col": true, "letters": true, "items": [{"q": "Which check does this sentence use? <b>“The kettle whistled in the next room.”</b>", "opts": ["SEE", "HEAR", "SAY", "SHOW"], "ans": 1, "why": "A whistle is a sound: HEAR."}, {"q": "Which check does this sentence use? <b>“Hurry up!” shouted Dad from the door.</b>", "opts": ["SEE", "HEAR", "SAY", "SHOW"], "ans": 2, "why": "Words someone speaks, in quotation marks: SAY."}, {"q": "Which check does this sentence use? <b>Her cheeks burned and she hid behind her book.</b>", "opts": ["SEE", "HEAR", "SAY", "SHOW"], "ans": 3, "why": "Burning cheeks and hiding are what a body does when embarrassed: SHOW."}, {"q": "The moment: <i>Sam takes the penalty</i>. Which version stays on that one moment?", "opts": ["Sam kicked the ball. Then they went to the cafe and had pizza.", "Sam placed the ball and stepped back. The crowd went silent. He ran up, swung his foot, and the ball flew into the corner.", "Sam kicked the ball. On Saturday his team played again and won.", "Sam kicked the ball. He is good at football."], "ans": 1, "why": "The good version never leaves the pitch: place, step back, silence, run, kick. The others jump to a cafe, a later game or a general fact."}, {"q": "The moment: <i>Mia opens the present</i>. Which version stays on that one moment?", "opts": ["Mia got a present. Next month she wore it to school and her friends liked it.", "Mia peeled back the paper, one corner at a time. Inside lay a red scarf. “Oh!” she gasped, and her fingers curled round it.", "Mia got a present. She said thank you and then she went to bed.", "Mia got a present. It was nice."], "ans": 1, "why": "The good version stays on the opening: paper, scarf, a gasp, fingers. The others skip ahead or only say “nice”."}, {"q": "The moment: <i>the school bell rings at home time</i>. Which version stays on that one moment?", "opts": ["The bell rang. After that everyone went home. On Tuesday there was a test.", "The bell rang, and chairs scraped back all over the room. “Finally!” someone whooped. Bags thumped onto shoulders as the whole class surged for the door.", "The bell rang and it was the end of the day.", "The bell rang. Mum picked them up and they drove to the shops."], "ans": 1, "why": "The good version stays inside the minute the bell rings. The others leave the classroom."}]}};
 var WRITES={"W1": {"moment": "the winning goal goes in", "prompt": "<b>Write it — scene 1.</b> The moment: <i>the winning goal goes in.</i> Zoom in on it and use as many checks as you can.", "placeholder": "Type your close-up here. Any length. There is no minimum.", "model": "The ball flew off Ravi's boot and the whole pitch seemed to hold its breath. It spun past the keeper's gloves and rippled the net. “GOAL!” roared the crowd. Ravi's knees gave way and he slid across the wet grass with both arms in the air. Mud splashed his shorts."}, "W2": {"moment": "you open your school bag and your homework is gone", "prompt": "<b>Write it — scene 2.</b> The moment: <i>you open your school bag and your homework is gone.</i>", "placeholder": "Type your close-up here. Any length.", "model": "Hana unzipped her school bag and reached for the blue folder. Her fingers found a squashed banana, two pencils and a tangle of headphones — nothing else. “It was here,” she whispered. The zip rasped as she turned the bag upside down, and out tumbled crumbs and a single sock. Her stomach dropped like a stone in a pond."}, "W3": {"moment": "upgrade a chain: pick one moment from the zoo trip", "prompt": "<b>Upgrade a chain.</b> Here is a chain of events: <span class=\"quote-mark\">“So we went to the zoo and then we saw the lions and then we went home.”</span> Pick <b>one</b> moment from it and write it as a close-up.", "placeholder": "Pick one moment and zoom in on it.", "model": "We pressed up against the glass. The lion yawned, showing teeth as long as my fingers, and the whole crowd went quiet. “He's enormous,” whispered Jo. My heart was thumping so hard I could hear it."}};
@@ -285,8 +280,7 @@ function onDrillBuilt(id){if(id==='CARDS'){CARDPH=[];$('assembled').innerHTML='<
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 var cur=0, DS={}, WS={}, OPENED_MS=Date.now(), OPENED_ISO=new Date().toISOString(), FIN_SECS=null;
-var CODE_NEED="TIGER", CODE_OK=false;
-function checkCode(){var v=$('codeIn').value.replace(/\s+/g,'').toUpperCase();if(v===CODE_NEED){CODE_OK=true;OPENED_MS=Date.now();OPENED_ISO=new Date().toISOString();$('codeGate').style.display='none';$('s0body').style.display='block';updateNav();}else{$('codeMsg').textContent="That code isn't right. You get it at the end of Lesson 1, after you save.";}}
+var CODE_NEED="", CODE_OK=true;
 function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
 /* ---------- drills ---------- */
 function buildDrill(id){
@@ -355,7 +349,6 @@ function stuck(id){WS[id].stuck=true;$(id+'-m').classList.remove('hidden');updat
 function tickc(id,k,v){WS[id].ticks[k]=v;}
 /* ---------- navigation ---------- */
 function screenLocked(sid){
-  if(sid==='s0'&&!CODE_OK) return 'Enter your code from Lesson 1 to go on.';
   var d=SCREEN_DRILLS[sid]||[];
   for(var k=0;k<d.length;k++){var id=d[k],S=DS[id];if(!S) continue;for(var j=0;j<S.res.length;j++) if(!S.res[j]) return DRILLS[id].forced?'Finish every question to go on.':'Answer all the questions to go on.';}
   var w=SCREEN_WRITES[sid]||[];
@@ -393,7 +386,7 @@ function buildRecord(){
   if(typeof SCENE_IDS!=='undefined'){rec.scenes=[];SCENE_IDS.forEach(function(id){rec.scenes.push({id:id,moment:WRITES[id].moment,text:WS[id].text,sentences:sentCount(WS[id].text),stuckPressed:WS[id].stuck,checksTicked:WS[id].ticks});});}
   return rec;
 }
-function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';var u=$('unlockCode');if(u){u.textContent='Your code for Lesson 3: MANGO';u.className='unlock-code unlocked';}}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';}
 var ON_REPORT=false;
 /* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
 var RESULTS_DIR_NAME='Results', SAVED=false;
@@ -417,20 +410,22 @@ async function saveToResults(filename,json){
 }
 /* ---------- END SAVE TO RESULTS ---------- */
 window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
 async function saveDone(){
   var rec=buildRecord(), filename='ENG_U043_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
   st.className='reminder';st.textContent='Saving…';
-  if(!window.showDirectoryPicker){
-    try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
-    st.textContent='This browser can\'t save into the Results folder. Ask Dad to move '+filename+' from Downloads into Results. Dad has your code.';return;
-  }
+  if(!window.showDirectoryPicker){downloadInstead(filename,json,st);SAVED=true;unlockNext();return;}
   try{
     await saveToResults(filename,json);
     SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
   }catch(e){
     if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
     else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
-    else{st.textContent='Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.';}
+    else{SAVE_FAILS++;if(SAVE_FAILS>=2){downloadInstead(filename,json,st);SAVED=true;unlockNext();}else{st.textContent='Something went wrong while saving. Press the blue button again.';}}
   }
 }
 function initAll(){Object.keys(DRILLS).forEach(buildDrill);Object.keys(WRITES).forEach(buildWrite);show(0);}

@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unit 44 — Narrative Test</title>
-<!-- Built from BUILD_PLAN_ENG_U044_FreezeFrame.md v1 section 6. On-screen story in four parts, with a plan and a tap-your-four read-through, saved as a results file. -->
+<!-- Built from BUILD_PLAN_ENG_U044_FreezeFrame.md v1.2 section 6, 15 and 16. On-screen story in four parts, with a plan and a tap-your-four read-through, saved as a results file. -->
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <style>
   :root{--ink:#2d3748;--grey:#718096;--line:#e2e8f0;--ok:#2e7d32}
   *{box-sizing:border-box}
   body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.55;padding-bottom:40px}
-  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .wrap{max-width:820px;margin:0 auto;padding:40px 16px 16px}
   .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:10px;flex-wrap:wrap;gap:8px}
   .hdr b{font-size:1.15rem;display:block}
   .hdr .sub{font-size:.8rem;opacity:.9}
@@ -55,10 +55,12 @@
   .save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:1rem;line-height:1.7}
   .save-steps ol{margin:8px 0 8px 22px}
   .save-steps p{font-size:.9rem;margin:4px 0 0}
-  .unlock-code{display:none;text-align:center;font-size:1.1rem;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
+  .xclose{position:fixed;top:8px;left:10px;z-index:5;font-size:.9rem;line-height:1;color:var(--grey);text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:50%;width:26px;height:26px;text-align:center;padding-top:5px}
+  .xclose:hover{background:#f3e8ff;color:#4A148C}
 </style>
 </head>
 <body>
+<a class="xclose" href="../index.html" title="Back to Hub" aria-label="Back to Hub">✕</a>
 <div class="wrap">
   <div class="hdr">
     <div><b>Unit 44 — Narrative Test</b><span class="sub">Your story, on screen</span></div>
@@ -67,11 +69,9 @@
   </div>
 
   <div class="screen active" id="scr1">
-    <div class="card">
-      <p style="margin-top:0"><b>Enter your code from the lesson.</b></p>
-      <input type="text" id="codeIn" autocomplete="off" style="font-size:1.1rem;padding:8px 12px;border:2px solid #b39ddb;border-radius:10px;max-width:260px" onkeydown="if(event.key==='Enter')tryUnlock()">
-      <button class="btn main" onclick="tryUnlock()">Go</button>
-      <div class="msg" id="codeMsg"></div>
+    <div class="card center">
+      <p style="margin-top:0"><b>When you're ready, press Start. The clock starts when you press it.</b></p>
+      <button class="btn main" id="btn-start" onclick="startTest()">Start</button>
     </div>
   </div>
 
@@ -188,7 +188,6 @@
       <p>After the first time, the window opens in Results by itself.</p></div>
       <button class="btn save" id="btn-save" onclick="saveResults()">💾 Save to Results</button>
       <div id="save-status"></div>
-      <a class="btn alt" id="btn-hub" href="../index.html" style="display:none;text-decoration:none;margin-top:12px">🏠 Back to Hub</a>
     </div>
     <div class="lui"><b>For Lui:</b> the whole story is saved inside the results file in <b>Lessons\Tests\Results</b> as <b>ENG_U044_Results_&lt;date&gt;.json</b>. On Windows, Win + H starts voice typing.</div>
   </div>
@@ -196,7 +195,6 @@
 <script>
 /* ---------- EDIT PER UNIT ---------- */
 const UNIT = 44;
-const UNLOCK_CODE = 'COMET';
 const MIN_WORDS = {beginning:40, buildUp:50, bigMoment:80, ending:30};
 const MIN_SENTENCES = {bigMoment:5};
 const PLAN_MIN_WORDS = 3;
@@ -258,14 +256,9 @@ function showScreen(n){
   if (n === 4){ reviewStart = Date.now(); reachedReview = true; }
   window.scrollTo(0,0); tick();
 }
-function tryUnlock(){
-  const v = $('codeIn').value.replace(/\s+/g,'').toUpperCase();
-  if (v === UNLOCK_CODE){
-    unlockedMs = Date.now(); unlockedAt = new Date().toISOString();
-    $('timer-chip').style.display = 'block'; showScreen(2);
-  } else {
-    $('codeMsg').textContent = "That code isn't right. You get it at the end of the lesson, after you save.";
-  }
+function startTest(){
+  unlockedMs = Date.now(); unlockedAt = new Date().toISOString();
+  $('timer-chip').style.display = 'block'; showScreen(2);
 }
 
 /* ---------- draft safety ---------- */
@@ -442,6 +435,11 @@ async function saveToResults(filename,json){
   return true;
 }
 /* ---------- END SAVE TO RESULTS ---------- */
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
 window.addEventListener('beforeunload', e => { if (!SAVED && writingOpen){ e.preventDefault(); e.returnValue = ''; } });
 
 /* ---------- save ---------- */
@@ -470,25 +468,15 @@ async function saveResults(){
   const json = JSON.stringify(lastResults, null, 2);
   const st = $('save-status');
   st.className = 'reminder'; st.textContent = 'Saving…';
-  if (!window.showDirectoryPicker){
-    try {
-      const blob = new Blob([json], {type:'application/json'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob); a.download = filename;
-      document.body.appendChild(a); a.click(); a.remove();
-    } catch(e0){}
-    st.textContent = 'This browser can\'t save into the Results folder. Ask Dad to move ' + filename + ' from Downloads into Results.';
-    return;
-  }
+  if (!window.showDirectoryPicker){ downloadInstead(filename,json,st); SAVED = true; clearDraft(); return; }
   try {
     await saveToResults(filename, json);
     SAVED = true; st.className = 'done'; st.textContent = '✅ Saved in Results as ' + filename + '. Well done!';
     clearDraft();
-    $('btn-hub').style.display = 'inline-block';
   } catch(e){
     if (e && e.name === 'AbortError'){ st.textContent = 'Not saved yet — you closed the window. Press the blue button again.'; }
     else if (e && e.name === 'WrongFolder'){ st.textContent = 'That folder is called “' + e.picked + '”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.'; }
-    else { st.textContent = 'Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.'; }
+    else { SAVE_FAILS++; if (SAVE_FAILS>=2){ downloadInstead(filename,json,st); SAVED = true; clearDraft(); } else { st.textContent = 'Something went wrong while saving. Press the blue button again.'; } }
   }
 }
 </script>

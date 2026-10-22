@@ -1,0 +1,79 @@
+{
+  "student": "Prem",
+  "unit": 44,
+  "paper": "W",
+  "mode": "digital",
+  "dateTaken": "2026-10-22",
+  "openedAt": "2026-10-22T13:31:45.377Z",
+  "unlockedAt": "2026-10-22T13:31:50.046Z",
+  "finishedAt": "2026-10-22T13:32:03.978Z",
+  "secondsSpent": 14,
+  "minutesSpent": 0,
+  "title": "The night",
+  "plan": {
+    "who": "Jill terry andy treehouse",
+    "problem": "It jeeps raining",
+    "moment": "Thunder hits them",
+    "ending": "They escaped ( barely )"
+  },
+  "notes": {
+    "see": "A a big cloud",
+    "hear": "A person yell",
+    "say": "A thunderstorm",
+    "show": "Andy says \"oh no\""
+  },
+  "sections": {
+    "beginning": "Andy, Terry and Jill were in the treehouse about to go camping. And I realized that it was about to rain, but they said it was OK. So I did go camping in the woods, not far from where they lived.",
+    "buildUp": "Then disaster hit because they were in the middle of nowhere. And they did not know where everything was. So they have to quickly build a campsite and then sleep. So they did Dad and then went to sleep once they woke up they realize that it was about to rain so they had to quickly go home.",
+    "bigMoment": "Then a big cloud came, and then they realized that it was actually about to rain so they had to run. Then someone yelled because it was frustrating and they we're not really happy. Then there was a thunderstorm because the rains were so much and then they had to go into the truck and then stay in there for the rest of the day.Then andy said \"oh no\"because they were about to be stuck in the truck for one day. That they had to quickly drive home and then go back to the treehouse. After that, they agreed that they should not go camping ever after.",
+    "ending": "So they went camping and then there was a storm and then they had to escape, and I was stuck in the truck for one day, but in the end they came out and then back to their house."
+  },
+  "words": {
+    "beginning": 41,
+    "buildUp": 58,
+    "bigMoment": 107,
+    "ending": 39,
+    "total": 245
+  },
+  "sentences": {
+    "beginning": 3,
+    "buildUp": 4,
+    "bigMoment": 5,
+    "ending": 1
+  },
+  "sectionSeconds": {
+    "beginning": 0,
+    "buildUp": 0,
+    "bigMoment": 0,
+    "ending": 0
+  },
+  "typedChars": 0,
+  "addedChars": 0,
+  "dictatedShare": 0,
+  "pasteBlocked": 0,
+  "repeatBlocks": 0,
+  "planUsedBlocks": 0,
+  "taps": {
+    "see": {
+      "index": 1,
+      "text": "Then a big cloud came, and then they realized that it was actually about to rain so they had to run."
+    },
+    "hear": {
+      "index": 2,
+      "text": "Then someone yelled because it was frustrating and they we're not really happy."
+    },
+    "say": {
+      "index": 3,
+      "text": "Then there was a thunderstorm because the rains were so much and then they had to go into the truck and then stay in there for the rest of the day.Then andy said \"oh no\"because they were about to be stuck in the truck for one day."
+    },
+    "show": {
+      "index": 4,
+      "text": "That they had to quickly drive home and then go back to the treehouse."
+    }
+  },
+  "reviewSeconds": 8,
+  "editedOnReview": false,
+  "stuckExit": false,
+  "restored": true,
+  "story": "The night\n\nAndy, Terry and Jill were in the treehouse about to go camping. And I realized that it was about to rain, but they said it was OK. So I did go camping in the woods, not far from where they lived.\n\nThen disaster hit because they were in the middle of nowhere. And they did not know where everything was. So they have to quickly build a campsite and then sleep. So they did Dad and then went to sleep once they woke up they realize that it was about to rain so they had to quickly go home.\n\nThen a big cloud came, and then they realized that it was actually about to rain so they had to run. Then someone yelled because it was frustrating and they we're not really happy. Then there was a thunderstorm because the rains were so much and then they had to go into the truck and then stay in there for the rest of the day.Then andy said \"oh no\"because they were about to be stuck in the truck for one day. That they had to quickly drive home and then go back to the treehouse. After that, they agreed that they should not go camping ever after.\n\nSo they went camping and then there was a storm and then they had to escape, and I was stuck in the truck for one day, but in the end they came out and then back to their house."
+}

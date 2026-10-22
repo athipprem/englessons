@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '16 Oct 2026',
+  updated:        '22 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           44,
-    heroLabel:   "Unit 44 - Lesson Sat 17 Oct, Test Sun 18 Oct",
-    status:      "&#129354; UNIT 44 &mdash; Freeze Frame (writing, on screen), built 16 Oct. One lesson (Sat) saved into Results gives the code for the story; then a camping-trip story on screen (Sun, 35 min) with four note lines and a tap-your-four read-through. Type it or say it.",
+    n:           45,
+    heroLabel:   "Unit 45 - Lesson day 1, Test day 2",
+    status:      "&#128269; UNIT 45 &mdash; Feelings Hide in Actions (reading), built 22 Oct. Day 1: a ~20-minute lesson that starts with his own Unit 41 answer and ends with him fixing it; the save reveals the test link. Day 2: a story, a timetable and a letter (14 questions, 20 marks, pass 16) with a proof box on every written question. Type it yourself, microphone off.",
     testPending: true
   },
 
@@ -33,21 +33,21 @@ var PREM_ENGLISH = {
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
   },
 
-  // Last completed assessment (Unit 43 -- updated after each test)
+  // Last completed assessment (Unit 44 -- updated after each test)
   lastUnit: {
-    n: 43, label: 'Unit 43', score: 13, outOf: 25, pct: 52, delta: null, prevScore: 11, prevOutOf: 25,
+    n: 44, label: 'Unit 44', score: 11, outOf: 25, pct: 44, delta: null, prevScore: 13, prevOutOf: 25,
 
-    patternLabel:   "Unit 43 &mdash; 15 Oct 2026 &middot; 13/25 provisional &middot; Scene score 0/5",
-    patternInsight: "<strong>Narrative rubric 13/25 provisional (range 11&ndash;15; M4 W baseline 13/25). Scene score 0/5.</strong> First on-screen story: 244 words in 10 min 12 s (43 / 58 / 100 / 43 against minimums of 40 / 50 / 80 / 30), 97% dictated, read-through 2 seconds. Every part finished just over its floor and the big moment was a chain of events, not one slowed-down second. <strong>Lessons 1&ndash;3 were re-sat Fri 16 Oct (second attempts, saved into Results):</strong> 89 s, 32 s and 7 min 21 s. In Lesson 3 the five-box boat moment had SEE, HEAR, SAY and SHOW; the unprompted bus scene had none, and the &ldquo;Go on anyway&rdquo; button was used. <strong>Strike 1 on the scene target; Unit 44 is the one revision.</strong> Needs Lui's confirmation of the marks.",
+    patternLabel:   "Unit 44 &mdash; 22 Oct 2026 &middot; 11/25 &middot; Scene score 3/5 &middot; confirmed by Lui",
+    patternInsight: "<strong>Narrative rubric 11/25 (range 10&ndash;13; U43 13/25). Scene score 3/5.</strong> The scene points came from notes he wrote himself (a cloud, someone yelling, &ldquo;oh no&rdquo;); nothing showed a body action, and the big moment ran on as a chain of events. Notes quality 1/4, tap accuracy 3/4, big moment stays on the chosen second: no. Lesson scenes 3/5 and 2/5. Marks confirmed by Lui 22 Oct.",
 
-    analysisLabel:   "Unit 43 Result Analysis &mdash; 15 Oct 2026",
-    analysisInsight: "<strong>The skill appears one prompt at a time and disappears when the prompts go.</strong> See TEST_RECORD_U043.md for provenance, the faults and the lesson files.",
+    analysisLabel:   "Unit 44 Result Analysis &mdash; 22 Oct 2026",
+    analysisInsight: "<strong>The scene target moved from 0/5 to 3/5 but the moment still runs on.</strong> See TEST_RECORD_U044.md for provenance and the faults.",
 
-    qSummary: "<strong>13/25 provisional &mdash; Scene 0/5.</strong> Needs Lui's confirmation.",
+    qSummary: "<strong>11/25 &mdash; Scene 3/5.</strong> Confirmed by Lui 22 Oct.",
 
     qBreakdown: [
-      { q:"Scene", topic:"Writing", pass:false, note:"&#9650; 0/5 &mdash; the big moment is a chain of events; no sight, sound, speech or body-shown feeling." },
-      { q:"Length", topic:"Writing", pass:true, note:"244 words in 10 min 12 s &mdash; every part just over its minimum; 97% dictated; read-through 2 seconds." }
+      { q:"Scene", topic:"Writing", pass:true, note:"&#9650; 3/5 &mdash; SEE, HEAR and SAY points from his own notes; no SHOW; the big moment is a chain." },
+      { q:"Notes", topic:"Writing", pass:false, note:"&#9650; 1/4 &mdash; two notes carry each other's content; no body action in SHOW." }
     ]
   },
 
@@ -135,11 +135,26 @@ var PREM_ENGLISH = {
     { n:'M4', score:23, outOf:32, delta:null, color:'#f6993f', star:false, label:'M4 R', milestone:true },
     { n:41, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U41' },
     { n:42, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U42 W' },
-    { n:43, score:13, outOf:25, delta:null, color:'#f6993f', star:false, label:'U43 W' }
+    { n:43, score:13, outOf:25, delta:null, color:'#f6993f', star:false, label:'U43 W' },
+    { n:44, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U44 W' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 44,
+      title: "Unit 44 &mdash; &#129354; Freeze Frame: find the second it goes wrong, four notes, tap your four",
+      badge: '#f6993f',
+      status: 'done',
+      note: "11/25 (range 10&ndash;13), <strong>Scene 3/5</strong>, confirmed by Lui 22 Oct. Scene points came from his own notes; no body action; the big moment ran on as a chain. Notes 1/4, taps 3/4. Lesson scenes 3/5 and 2/5 (22 min 41 s). <strong>Writing is typed from Unit 46; Unit 45 is reading.</strong>",
+      tags: [
+        { t:"11/25", s:"background:#fff8e1;color:#744210" },
+        { t:"Scene 3/5", s:"background:#fff8e1;color:#744210" },
+        { t:"Notes 1/4 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"Taps 3/4", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Unit 45 Feelings Hide in Actions", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 43,
       title: "Unit 43 &mdash; &#9968; Story Builder: Zoom In &middot; The Slow-Motion Scene &middot; Story Builder",

@@ -165,10 +165,6 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
 .save-steps ol{margin:8px 0 8px 22px}
 .save-steps p{font-size:14px;margin:4px 0 0}
 
-.unlock-code{display:none;text-align:center;font-size:20px;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
-.unlock-code.unlocked{display:block}
-.codebox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:14px 16px;margin:12px 0}
-.codemsg{font-size:13px;font-weight:700;color:#B71C1C;margin-top:8px}
 
 #saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
 #saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
@@ -203,8 +199,6 @@ ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
 .tapl li.got{background:#C8E6C9;border-color:#2E7D32;cursor:default}
 .tapl li.dim{opacity:.55;cursor:default}
 .tapq{font-weight:800;color:#0d47a1;margin:8px 0}
-.dadbox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:10px 12px;margin-top:10px}
-.dadbox input{border:1.5px solid #F9A825;border-radius:8px;padding:6px 9px;font-size:14px;max-width:160px}
 
 </style>
 </head>
@@ -221,7 +215,7 @@ ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
 
 <div class="screen" id="s0"><div class="card"><span class="tag">UNIT 44 · LESSON 1 · SATURDAY</span>
 <p><b>Type it or say it — voice typing is fine.</b></p>
-<p><b>📁 This lesson ends by saving your work into the Results folder. Your code for the next part only appears after that.</b></p>
+<p><b>📁 This lesson ends by saving your work into the Results folder.</b></p>
 <h2>Why this lesson matters 🎯</h2>
 <p>Every good story has one second that everybody remembers — the second it goes wrong. Writers who find that second, and stay inside it, make readers feel they were there. That is how you turn a "fine" story into a story people talk about at lunch.</p>
 <p>Here are two pieces of your own writing, side by side.</p>
@@ -309,11 +303,11 @@ ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
 <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
 <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
 <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
-<li>Wait for <b>✅ Saved in Results</b>. Your code appears under it.</li></ol>
+<li>Wait for <b>✅ Saved in Results</b>. Then the link to the next part appears.</li></ol>
 <p>After the first time, the window opens in Results by itself.</p></div>
 <button class="btn" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
 <p>Next: your story. You get a picture, your plan boxes with four note lines, and four parts to write. Type it or say it — voice typing is fine.</p>
-<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_044_Test_Narrative_FreezeFrame.html">Your story →</a></div><div id="unlockCode" class="unlock-code"></div><div class="lock-note" id="lockNote-s8"></div></div></div>
+<div class="lesson-nav"><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_044_Test_Narrative_FreezeFrame.html">Your story →</a></div><div class="lock-note" id="lockNote-s8"></div></div></div>
 <script>
 var DRILLS={
 "STRIP":{"title":"The film-maker","forced":true,"fixed":true,"letters":false,"col":false,"nudge":"Look at the frames again. Which frame is the second it goes wrong? The others get it ready or come after.","items":[
@@ -411,7 +405,7 @@ function checkDrillDone(id){
   }
 }
 /* ---------- counters ---------- */
-var noteBlocks=0, planUsedBlocks=0, feelingBounces=0, speechBounces=0, sentenceBounces=0, stuckOpened=0, DAD=[];
+var noteBlocks=0, planUsedBlocks=0, feelingBounces=0, speechBounces=0, sentenceBounces=0, stuckOpened=0, MOVED=[];
 var KEYS=['see','hear','say','show'], LABELS={see:'SEE',hear:'HEAR',say:'SAY',show:'SHOW'};
 var PLACE={see:'e.g. smoke, a big crack…',hear:'e.g. a loud bang…',say:'e.g. “Oh no!”',show:'e.g. hands, face, legs, voice'};
 var SC_DEF={volcano:{sid:'s5',box:'scene-volcano',letters:false,title:'the second the foam pours over the edge of the table'},
@@ -420,16 +414,14 @@ var SCN={};
 function newScene(id){return {id:id,def:SC_DEF[id],notesOk:false,momentOk:false,done:false,refusals:0,notes:{see:'',hear:'',say:'',show:''},text:'',taps:{see:null,hear:null,say:null,show:null},tapStep:0,letterHint:false,sents:[]};}
 function refuseScene(id){
   var S=SCN[id];S.refusals++;
-  if(S.refusals>=5&&!S.done&&!$(id+'-dad').innerHTML){
-    $(id+'-dad').innerHTML='<div class="dadbox"><b>Ask Dad. He can type his code to let you go on.</b><br><input id="'+id+'-dadin" type="text" autocomplete="off" onkeydown="if(event.key===\'Enter\')dadCode(\''+id+'\')"> <button class="btn ghost" onclick="dadCode(\''+id+'\')">Go</button><div class="pfmsg no" id="'+id+'-dad-m"></div></div>';
+  if(S.refusals>=3&&!S.done&&!$(id+'-move').innerHTML){
+    $(id+'-move').innerHTML='<div class="walk"><b>This one is tricky. Read the stuck card and have one more go — or move on. Naomi will see what you tried.</b><br><button class="btn ghost" onclick="moveOn(\''+id+'\')">Move on</button></div>';
   }
 }
-function dadCode(id){
-  var S=SCN[id],v=($(id+'-dadin').value||'').replace(/\s+/g,'').toUpperCase();
-  if(v==='OWL'){DAD.push(S.def.sid);readNotes(id);S.text=$(id+'-ta').value;S.done=true;S.notesOk=true;S.momentOk=true;$(id+'-dad').innerHTML='<div class="walk">Thank you, Dad — carrying on.</div>';updateNav();}
-  else{$(id+'-dad-m').textContent="That isn't the code.";}
+function moveOn(id){
+  var S=SCN[id];MOVED.push(S.def.sid);readNotes(id);S.text=$(id+'-ta').value;S.done=true;S.notesOk=true;S.momentOk=true;
+  $(id+'-move').innerHTML='<div class="walk">OK — moving on. What you wrote is kept in your report.</div>';updateNav();
 }
-/* ---------- scene builder ---------- */
 function buildScene(id){
   var S=SCN[id]=newScene(id),h='';
   h+='<div class="stepbox" id="'+id+'-s1"><span class="cardhd">1 · NOTE</span><p>Four quick notes for that second. <b>Notes, not sentences — 2 to 6 words.</b></p>';
@@ -442,7 +434,7 @@ function buildScene(id){
   h+='<textarea class="myans" id="'+id+'-ta" style="min-height:150px" disabled oninput="momentTyped(\''+id+'\')" placeholder="Write here. Type it or say it."></textarea><div class="lights" id="'+id+'-lights"></div>';
   h+='<div><button class="btn" id="'+id+'-check" onclick="checkMoment(\''+id+'\')" disabled>Check my moment</button></div><div class="pfmsg" id="'+id+'-w-m"></div></div>';
   h+='<div class="stepbox off" id="'+id+'-s3"><span class="cardhd">3 · CHECK</span><p>Read your moment once. Then tap your four.</p><div id="'+id+'-tap"></div></div>';
-  h+='<button class="btn ghost" onclick="openStuck(\''+id+'\')">I\'m stuck — help</button><div id="'+id+'-stuck"></div><div id="'+id+'-dad"></div>';
+  h+='<button class="btn ghost" onclick="openStuck(\''+id+'\')">I\'m stuck — help</button><div id="'+id+'-stuck"></div><div id="'+id+'-move"></div>';
   $(S.def.box).innerHTML=h;
 }
 function showLetters(id){var S=SCN[id];S.letterHint=true;$(id+'-hint').innerHTML='<b>S</b> = SEE · <b>H</b> = HEAR · <b>S</b> = SAY · <b>S</b> = SHOW';}
@@ -527,7 +519,7 @@ function openStuck(id){
   '<div class="frame"><div class="fl"><b>Notes</b> — SEE: black bread, smoke · HEAR: alarm beeping · SAY: “Open the window!” · SHOW: Grandma flapping a tea towel</div>'+
   '<div class="fl">Black smoke curled out of the oven. The alarm beeped so loudly it hurt my ears. “Open the window!” Grandma shouted. She flapped a tea towel at the ceiling like a mad bird. The bread sat in its tin, black as coal.</div></div>'+
   '<p>Each note became a sentence. The last one stays in the same second.</p>'+
-  '<p>Still stuck? Ask Dad to look at your notes with you.</p></div></div>';
+  '<p>Still stuck? Write just your SEE note first, then the next one.</p></div></div>';
 }
 function stuckAns(id){if($(id+'-sk').value.trim().length>=2)$(id+'-skrest').classList.remove('hidden');}
 /* ---------- navigation ---------- */
@@ -574,10 +566,10 @@ function buildRecord(){
     openedAt:OPENED_ISO,finishedAt:new Date().toISOString(),minutesSpent:Math.round((FIN_SECS===null?(Date.now()-OPENED_MS)/1000:FIN_SECS)/60),
     secondsSpent:(FIN_SECS===null?Math.round((Date.now()-OPENED_MS)/1000):FIN_SECS),drills:drills,selfCheck:sc,selfCheckOutOf:4,ready:sc>=3,
     scenes:[sceneRec('volcano'),sceneRec('wasp')],
-    noteBlocks:noteBlocks,planUsedBlocks:planUsedBlocks,speechBounces:speechBounces,feelingBounces:feelingBounces,sentenceBounces:sentenceBounces,stuckOpened:stuckOpened,dadOverrides:DAD};
+    noteBlocks:noteBlocks,planUsedBlocks:planUsedBlocks,speechBounces:speechBounces,feelingBounces:feelingBounces,sentenceBounces:sentenceBounces,stuckOpened:stuckOpened,movedOn:MOVED};
   return rec;
 }
-function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';var u=$('unlockCode');if(u){u.textContent='Your code for the story: COMET';u.className='unlock-code unlocked';}}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';}
 var ON_REPORT=false;
 /* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
 var RESULTS_DIR_NAME='Results', SAVED=false;
@@ -601,20 +593,22 @@ async function saveToResults(filename,json){
 }
 /* ---------- END SAVE TO RESULTS ---------- */
 window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
 async function saveDone(){
   var rec=buildRecord(), filename='ENG_U044_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
   st.className='reminder';st.textContent='Saving…';
-  if(!window.showDirectoryPicker){
-    try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
-    st.textContent='This browser can\'t save into the Results folder. Ask Dad to move '+filename+' from Downloads into Results. Dad has your code.';return;
-  }
+  if(!window.showDirectoryPicker){downloadInstead(filename,json,st);SAVED=true;unlockNext();return;}
   try{
     await saveToResults(filename,json);
     SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
   }catch(e){
     if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
     else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
-    else{st.textContent='Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.';}
+    else{SAVE_FAILS++;if(SAVE_FAILS>=2){downloadInstead(filename,json,st);SAVED=true;unlockNext();}else{st.textContent='Something went wrong while saving. Press the blue button again.';}}
   }
 }
 function initAll(){Object.keys(DRILLS).forEach(buildDrill);buildScene('volcano');buildScene('wasp');show(0);}

@@ -165,10 +165,6 @@ label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
 .save-steps ol{margin:8px 0 8px 22px}
 .save-steps p{font-size:14px;margin:4px 0 0}
 
-.unlock-code{display:none;text-align:center;font-size:20px;font-weight:800;color:#1B5E20;background:#E8F5E9;border:2px solid #43A047;border-radius:10px;padding:10px;margin:10px 0}
-.unlock-code.unlocked{display:block}
-.codebox{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:14px 16px;margin:12px 0}
-.codemsg{font-size:13px;font-weight:700;color:#B71C1C;margin-top:8px}
 
 #saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
 #saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
@@ -194,9 +190,8 @@ ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
 <div class="screen" id="s0"><div class="card"><span class="tag">UNIT 43 · LESSON 3 · SATURDAY</span>
 <p><b>Type it or say it — voice typing is fine.</b> Speech marks: type them with the keyboard.</p>
 <p class="small">Shift + the key next to Enter on most keyboards.</p>
-<p><b>📁 This lesson ends by saving your work into the Results folder. Your code for the next part only appears after that.</b></p>
-<div id="codeGate" class="codebox"><p><b>Enter your code from Lesson 2.</b></p><input class="pf" id="codeIn" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')checkCode()" style="max-width:240px"> <button class="btn" onclick="checkCode()">Go</button><div class="codemsg" id="codeMsg"></div></div>
-<div id="s0body" style="display:none">
+<p><b>📁 This lesson ends by saving your work into the Results folder.</b></p>
+<div id="s0body">
 <h2>Why this lesson matters 🎯</h2>
 <p>Every story you will ever write — at school, in the ISA, or one you tell a friend at lunch — gets better when you know where the exciting part is and you stay right there. Today you get a tool for that, and you use it on <b>your own story</b>.</p>
 <p>Your boat story had great ideas — a boat lost in the Bermuda Triangle and a mystery map! Here it is, exactly as you wrote it:</p>
@@ -297,11 +292,11 @@ ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
 <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
 <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
 <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
-<li>Wait for <b>✅ Saved in Results</b>. Your code appears under it.</li></ol>
+<li>Wait for <b>✅ Saved in Results</b>. Then the link to the next part appears.</li></ol>
 <p>After the first time, the window opens in Results by itself.</p></div>
 <button class="btn" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
 <p>Next: your story. You get a picture, four plan boxes, and four parts to write. Type it or say it — voice typing is fine.</p>
-<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_043_Test_Narrative_StoryBuilder.html">Your story →</a></div><div id="unlockCode" class="unlock-code"></div><div class="lock-note" id="lockNote-s7"></div></div></div>
+<div class="lesson-nav"><a class="btn-hub" href="index.html">← Hub</a><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_043_Test_Narrative_StoryBuilder.html">Your story →</a></div><div class="lock-note" id="lockNote-s7"></div></div></div>
 <script>
 var DRILLS={
 "D4":{"title":"Drill 4 · Which ending?","forced":true,"fixed":true,"letters":true,"col":true,"nudge":"Look back at the story. Which ending uses something that is ALREADY in it? The others bring in something new.","items":[
@@ -337,8 +332,7 @@ function namedFeeling(t){var m=(t||'').toLowerCase().match(/[a-z]+/g)||[];for(va
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 var cur=0, DS={}, OPENED_MS=Date.now(), OPENED_ISO=new Date().toISOString(), FIN_SECS=null;
-var CODE_NEED="MANGO", CODE_OK=false;
-function checkCode(){var v=$('codeIn').value.replace(/\s+/g,'').toUpperCase();if(v===CODE_NEED){CODE_OK=true;OPENED_MS=Date.now();OPENED_ISO=new Date().toISOString();$('codeGate').style.display='none';$('s0body').style.display='block';updateNav();}else{$('codeMsg').textContent="That code isn't right. You get it at the end of Lesson 2, after you save.";}}
+var CODE_NEED="", CODE_OK=true;
 function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
 /* ---------- drills ---------- */
 function buildDrill(id){
@@ -395,7 +389,7 @@ function mt(n,b){var bs=document.getElementsByClassName('lbtn');for(var i=0;i<bs
   for(var k=1;k<=4;k++){var g=$('stop'+k).getElementsByTagName('circle')[0];g.setAttribute('r',k===n?'22':'15');}}
 /* ---------- counters ---------- */
 var RF={s4:0,s5:0}, OVR=[], feelingBounces=0, speechBounces=0, sentenceBounces=0, stuckOpened=0;
-function refuse(sc){RF[sc]++;if(RF[sc]>=5&&!$('ov-'+sc).innerHTML){$('ov-'+sc).innerHTML='<div class="walk">Still not working? You can carry on — Dad will see it in your report.<br><button class="btn ghost" onclick="override(\''+sc+'\')">Go on anyway</button></div>';}}
+function refuse(sc){RF[sc]++;if(RF[sc]>=5&&!$('ov-'+sc).innerHTML){$('ov-'+sc).innerHTML='<div class="walk">Still not working? You can carry on — Naomi will see what you tried.<br><button class="btn ghost" onclick="override(\''+sc+'\')">Go on anyway</button></div>';}}
 function override(sc){OVR.push(sc);$('ov-'+sc).innerHTML='<div class="walk">OK — carrying on.</div>';updateNav();}
 /* ---------- stuck card ---------- */
 function openStuck(sc){
@@ -403,7 +397,7 @@ function openStuck(sc){
   box.innerHTML='<div class="walk"><b>Close your eyes. You are standing right there. What is the first thing you notice?</b><br><input class="pf" id="sk-'+sc+'" type="text" style="max-width:420px" oninput="stuckAns(\''+sc+'\')" placeholder="Type or say it…"><div id="skrest-'+sc+'" class="hidden">'+
   '<p style="margin-top:10px">Here is a worked example on a different moment — <i>your name is called out in assembly</i>:</p>'+
   '<div class="frame"><div class="fl"><b>SEE</b> — The whole hall turned round to look at me.</div><div class="fl"><b>HEAR</b> — My chair scraped loudly on the floor as I stood up.</div><div class="fl"><b>SAY</b> — “Go on, Prem!” whispered my best friend.</div><div class="fl"><b>SHOW</b> — My cheeks went hot and my legs felt like jelly.</div><div class="fl"><b>MORE</b> — I walked to the front one slow step at a time.</div></div>'+
-  '<p>Still stuck? Ask Dad to read your boxes with you.</p></div></div>';
+  '<p>Still stuck? Write just one box first, then the next one.</p></div></div>';
 }
 function stuckAns(sc){if($('sk-'+sc).value.trim().length>=2)$('skrest-'+sc).classList.remove('hidden');}
 /* ---------- s4: five boxes ---------- */
@@ -451,7 +445,6 @@ function busDone(){
 }
 /* ---------- navigation ---------- */
 function screenLocked(sid){
-  if(sid==='s0'&&!CODE_OK) return 'Enter your code from Lesson 2 to go on.';
   var d=SCREEN_DRILLS[sid]||[];
   for(var k=0;k<d.length;k++){var id=d[k],S=DS[id];if(!S) continue;for(var j=0;j<S.res.length;j++) if(!S.res[j]) return DRILLS[id].forced?'Finish every question to go on.':'Answer all the questions to go on.';}
   if(sid==='s4'&&!JOINED&&OVR.indexOf('s4')<0) return 'Check all five boxes, then press “Join it up”.';
@@ -493,7 +486,7 @@ function buildRecord(){
     feelingBounces:feelingBounces,speechBounces:speechBounces,sentenceBounces:sentenceBounces,stuckOpened:stuckOpened,overrides:OVR};
   return rec;
 }
-function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';var u=$('unlockCode');if(u){u.textContent='Your code for the story: ROCKET';u.className='unlock-code unlocked';}}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';}
 var ON_REPORT=false;
 /* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
 var RESULTS_DIR_NAME='Results', SAVED=false;
@@ -517,20 +510,22 @@ async function saveToResults(filename,json){
 }
 /* ---------- END SAVE TO RESULTS ---------- */
 window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
 async function saveDone(){
   var rec=buildRecord(), filename='ENG_U043_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
   st.className='reminder';st.textContent='Saving…';
-  if(!window.showDirectoryPicker){
-    try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
-    st.textContent='This browser can\'t save into the Results folder. Ask Dad to move '+filename+' from Downloads into Results. Dad has your code.';return;
-  }
+  if(!window.showDirectoryPicker){downloadInstead(filename,json,st);SAVED=true;unlockNext();return;}
   try{
     await saveToResults(filename,json);
     SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
   }catch(e){
     if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
     else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
-    else{st.textContent='Something went wrong while saving. Press the blue button again. If it happens twice, ask Dad.';}
+    else{SAVE_FAILS++;if(SAVE_FAILS>=2){downloadInstead(filename,json,st);SAVED=true;unlockNext();}else{st.textContent='Something went wrong while saving. Press the blue button again.';}}
   }
 }
 function initAll(){Object.keys(DRILLS).forEach(buildDrill);buildBoxes();show(0);}
