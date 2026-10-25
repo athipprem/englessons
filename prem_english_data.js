@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '22 Oct 2026',
+  updated:        '25 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           45,
-    heroLabel:   "Unit 45 - Lesson day 1, Test day 2",
-    status:      "&#128269; UNIT 45 &mdash; Feelings Hide in Actions (reading), built 22 Oct. Day 1: a ~20-minute lesson that starts with his own Unit 41 answer and ends with him fixing it; the save reveals the test link. Day 2: a story, a timetable and a letter (14 questions, 20 marks, pass 16) with a proof box on every written question. Type it yourself, microphone off.",
+    n:           46,
+    heroLabel:   "Unit 46 - Lesson day 1, Story day 2",
+    status:      "&#9999;&#65039; UNIT 46 &mdash; Full Stops, Not &ldquo;And Then&rdquo; (writing, typed), built 25 Oct. Day 1: a ~20-minute lesson that starts with his own Unit 44 ending (one 39-word sentence with three &ldquo;and then&rdquo;s) and ends with him fixing it; the save reveals the story link. Day 2: a story from a picture, typed (microphone off), 35 minutes, with a Fix-it round that flags &ldquo;and then&rdquo; and long sentences. One goal: one idea, one sentence.",
     testPending: true
   },
 
@@ -35,21 +35,23 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 44 -- updated after each test)
   lastUnit: {
-    n: 44, label: 'Unit 44', score: 11, outOf: 25, pct: 44, delta: null, prevScore: 13, prevOutOf: 25,
+    n: 45, label: 'Unit 45', score: 16, outOf: 20, pct: 80, delta: null, prevScore: 11, prevOutOf: 25,
 
-    patternLabel:   "Unit 44 &mdash; 22 Oct 2026 &middot; 11/25 &middot; Scene score 3/5 &middot; confirmed by Lui",
-    patternInsight: "<strong>Narrative rubric 11/25 (range 10&ndash;13; U43 13/25). Scene score 3/5.</strong> The scene points came from notes he wrote himself (a cloud, someone yelling, &ldquo;oh no&rdquo;); nothing showed a body action, and the big moment ran on as a chain of events. Notes quality 1/4, tap accuracy 3/4, big moment stays on the chosen second: no. Lesson scenes 3/5 and 2/5. Marks confirmed by Lui 22 Oct.",
+    patternLabel:   "Unit 45 &mdash; 24 Oct 2026 &middot; 16/20 &middot; on the bar",
+    patternInsight: "<strong>16/20 (80%) &mdash; exactly on the pass bar (16); streak 2 of 4.</strong> Auto 8/8; written 8/12 (range 7&ndash;10), marked by Naomi. The proof box works on feelings: accepted on 5 of 6 written items within two tries. The one miss is Q9, a timetable fact: 6 rejected tries, then &ldquo;I can't find it&rdquo;. The idea in a full sentence landed on 3 of 6. Lesson (8 min 25 s) and test (12 min 55 s) were sat 15 seconds apart on Sat 24 Oct.",
 
-    analysisLabel:   "Unit 44 Result Analysis &mdash; 22 Oct 2026",
-    analysisInsight: "<strong>The scene target moved from 0/5 to 3/5 but the moment still runs on.</strong> See TEST_RECORD_U044.md for provenance and the faults.",
+    analysisLabel:   "Unit 45 Result Analysis &mdash; 24 Oct 2026",
+    analysisInsight: "<strong>The proofs are in his hand; the answer sentence is not yet.</strong> See TEST_RECORD_U045.md for provenance and the flags (same-sitting score; the Q9 proof box wants 4 words and a timetable row name is 2&ndash;3).",
 
-    qSummary: "<strong>11/25 &mdash; Scene 3/5.</strong> Confirmed by Lui 22 Oct.",
+    qSummary: "<strong>16/20 &mdash; on the bar.</strong> Auto 8/8 &middot; written 8/12.",
 
     qBreakdown: [
-      { q:"Scene", topic:"Writing", pass:true, note:"&#9650; 3/5 &mdash; SEE, HEAR and SAY points from his own notes; no SHOW; the big moment is a chain." },
-      { q:"Notes", topic:"Writing", pass:false, note:"&#9650; 1/4 &mdash; two notes carry each other's content; no body action in SHOW." }
+      { q:"Multiple choice", topic:"Reading", pass:true, note:"&#9650; 8/8 &mdash; every strand and tier clean." },
+      { q:"Proof ticks", topic:"Reading", pass:true, note:"&#9650; 5/6 accepted within two tries &mdash; only the timetable fact (Q9) missed." },
+      { q:"Idea in a sentence", topic:"Reading", pass:false, note:"3/6 &mdash; several answers were fragments or named a feeling without the reason." }
     ]
   },
+
 
   // ── Skills ───────────────────────────────────────────────────────
   // achievement % = sum(c) / sum(t) × 100
@@ -136,11 +138,27 @@ var PREM_ENGLISH = {
     { n:41, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U41' },
     { n:42, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U42 W' },
     { n:43, score:13, outOf:25, delta:null, color:'#f6993f', star:false, label:'U43 W' },
-    { n:44, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U44 W' }
+    { n:44, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U44 W' },
+    { n:45, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U45' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 45,
+      title: "Unit 45 &mdash; &#128269; Feelings Hide in Actions: find the proof in what a person does",
+      badge: '#89F336',
+      status: 'done',
+      note: "16/20 (80%), exactly on the pass bar; streak 2 of 4. Auto 8/8, written 8/12 (range 7&ndash;10), marked by Naomi. Proof accepted on 5 of 6 written items; Q9 (a timetable fact) took 6 rejected tries and was given up. The idea in a full sentence: 3 of 6. Lesson 8 min 25 s and test 12 min 55 s, sat 15 seconds apart on Sat 24 Oct. <strong>Unit 46 is writing, typed.</strong>",
+      tags: [
+        { t:"16/20", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Auto 8/8", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Proof 5/6", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Idea in a sentence 3/6 &#9888;", s:"background:#fff0f0;color:#c53030" },
+        { t:"Same sitting", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Unit 46 Full Stops", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 44,
       title: "Unit 44 &mdash; &#129354; Freeze Frame: find the second it goes wrong, four notes, tap your four",

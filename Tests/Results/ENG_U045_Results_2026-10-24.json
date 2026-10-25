@@ -1,0 +1,305 @@
+{
+  "student": "Prem",
+  "unit": 45,
+  "unitTitle": "Feelings Hide in Actions",
+  "dateTaken": "2026-10-24",
+  "openedAt": "2026-10-24T11:13:20.748Z",
+  "finishedAt": "2026-10-24T11:26:15.464Z",
+  "minutesSpent": 13,
+  "secondsSpent": 775,
+  "autoScore": 8,
+  "autoOutOf": 8,
+  "writtenMarks": 12,
+  "writtenScore": null,
+  "total": 20,
+  "passBar": 16,
+  "passed": null,
+  "strands": {
+    "L": {
+      "score": 5,
+      "outOf": 5,
+      "writtenMarks": 2
+    },
+    "U": {
+      "score": 2,
+      "outOf": 2,
+      "writtenMarks": 8
+    },
+    "E": {
+      "score": 1,
+      "outOf": 1,
+      "writtenMarks": 2
+    }
+  },
+  "tiers": {
+    "Basic": {
+      "c": 4,
+      "t": 4
+    },
+    "Intermediate": {
+      "c": 4,
+      "t": 4
+    },
+    "Applied": {
+      "c": 0,
+      "t": 6
+    }
+  },
+  "sections": [
+    {
+      "name": "t1",
+      "score": 3,
+      "outOf": 3
+    },
+    {
+      "name": "t2",
+      "score": 2,
+      "outOf": 2
+    },
+    {
+      "name": "t3",
+      "score": 3,
+      "outOf": 3
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 2,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 3,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 4,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "He felt embarrassed .",
+      "proof": "His ears felt hot",
+      "isCorrect": null
+    },
+    {
+      "q": 5,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "To make ravi show it",
+      "proof": "Grace looked at him for the first time ",
+      "isCorrect": null
+    },
+    {
+      "q": 6,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "She changed from awkward to friendly.",
+      "proof": "She patted the seat beside her and put her rucksack on the floor ",
+      "isCorrect": null
+    },
+    {
+      "q": 7,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 8,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 9,
+      "section": "t2",
+      "type": "written",
+      "strand": "L",
+      "tier": "Applied",
+      "given": "Build a skeleton",
+      "proof": "",
+      "isCorrect": null
+    },
+    {
+      "q": 10,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 11,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "E",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 12,
+      "section": "t3",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "She felt amazed.",
+      "proof": "I pressed my nose against the glass for so long that a guard tapped my shoulder and asked me to step back.",
+      "isCorrect": null
+    },
+    {
+      "q": 13,
+      "section": "t3",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": " Young kids get bored and then they want to leave",
+      "proof": "He got bored after 10 minutes because he could not hold anything",
+      "isCorrect": null
+    },
+    {
+      "q": 14,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    }
+  ],
+  "written": [
+    {
+      "q": 4,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) A feeling at the start that the story supports — nervous / uneasy / uncomfortable / awkward / not welcome / shy — in a full sentence (e.g. “Ravi feels nervous when he sits down.”).",
+        "(2) The proof: a quote accepted within two tries (proofTries ≤ 1) that shows it — sat on the very edge of the seat · lunch box squeezed against his chest · his ears felt hot · neither of them spoke."
+      ],
+      "proof": "His ears felt hot",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "He felt embarrassed .",
+      "wordCount": 4,
+      "longestRun": 1
+    },
+    {
+      "q": 5,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) A reason in a full sentence: Ravi showed he knew how the leg should go / she had been getting the leg wrong and wanted his help / she wanted to see if he was right.",
+        "(2) The proof: accepted within two tries — “The back leg bends the other way” · “Grace looked at him for the first time” · “she slid the sketchbook across” · “Grace kept rubbing out the same leg”."
+      ],
+      "proof": "Grace looked at him for the first time ",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "To make ravi show it",
+      "wordCount": 5,
+      "longestRun": 1
+    },
+    {
+      "q": 6,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) The change, both ends, in a full sentence: at first she ignores Ravi / doesn't want him there → by the end she wants him to sit with her (either end alone = no tick).",
+        "(2) The proof: accepted within two tries, from either end — “kept her eyes on the window” · “without a word” · “patted the seat beside her” · “put her rucksack on the floor” · “she laughed”."
+      ],
+      "proof": "She patted the seat beside her and put her rucksack on the floor ",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "She changed from awkward to friendly.",
+      "wordCount": 6,
+      "longestRun": 1
+    },
+    {
+      "q": 9,
+      "strand": "L",
+      "marks": 2,
+      "markScheme": [
+        "(1) Build a Skeleton, in a full sentence.",
+        "(2) The proof: a timetable row accepted within two tries plus one reason it fits (ages 9–12 include 10 · 28 places is enough for 25 · it ends at 12:30, before 2:00) or why another fails (Fossil Hunters is for ages 7–9 · Dinosaur Drawing has only 20 places · Space Rocks Lab ends at 2:30)."
+      ],
+      "proof": "",
+      "proofTries": 6,
+      "proofAccepted": false,
+      "proofGaveUp": true,
+      "response": "Build a skeleton",
+      "wordCount": 3,
+      "longestRun": 3
+    },
+    {
+      "q": 12,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) A feeling the letter supports — amazed / fascinated / excited / couldn't stop looking — in a full sentence.",
+        "(2) The proof: accepted within two tries — “I pressed my nose against the glass for so long” · “a guard … asked me to step back”."
+      ],
+      "proof": "I pressed my nose against the glass for so long that a guard tapped my shoulder and asked me to step back.",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "She felt amazed.",
+      "wordCount": 3,
+      "longestRun": 0
+    },
+    {
+      "q": 13,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "(1) Why she includes it, in a full sentence: to show the museum that young children get bored when they can't touch anything — so a touch table would help / to make her argument stronger.",
+        "(2) The proof: accepted within two tries — “He got bored after ten minutes” · “he couldn’t hold anything” · “a touch table would help younger visitors”."
+      ],
+      "proof": "He got bored after 10 minutes because he could not hold anything",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": " Young kids get bored and then they want to leave",
+      "wordCount": 10,
+      "longestRun": 2
+    }
+  ]
+}

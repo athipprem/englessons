@@ -1,0 +1,49 @@
+{
+  "student": "Prem",
+  "unit": 45,
+  "lesson": "L1",
+  "lessonDone": true,
+  "dateDone": "2026-10-24",
+  "openedAt": "2026-10-24T11:04:38.991Z",
+  "finishedAt": "2026-10-24T11:13:05.873Z",
+  "minutesSpent": 8,
+  "secondsSpent": 505,
+  "drills": {
+    "PHOTO": "1/1",
+    "H1": "0/6"
+  },
+  "h2": [
+    {
+      "item": 1,
+      "proof": "Looked at the ground",
+      "proofTries": 1,
+      "proofAccepted": true,
+      "answer": "He feels nervous"
+    },
+    {
+      "item": 2,
+      "proof": "Stood up straight, lifted her chin and searched the crowd for her parents.",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "answer": "She feels proud."
+    },
+    {
+      "item": 3,
+      "proof": "Noah pulled the blanket over his head.",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "answer": "He feels scared."
+    }
+  ],
+  "fix": {
+    "proof": "Ma's hands stayed in her lap",
+    "proofTries": 1,
+    "proofAccepted": true,
+    "answer": "She felt sad"
+  },
+  "selfCheck": 3,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "stuckOpened": 1,
+  "movedOn": []
+}
