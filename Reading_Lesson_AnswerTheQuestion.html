@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading — Answer the Question It Asks — Unit 47</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:15px;line-height:1;background:rgba(255,255,255,0.15);padding:6px 10px;border-radius:6px;flex:0 0 auto}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:14px 0;font-weight:700;line-height:1.5}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.passage.small{font-size:12.5px;line-height:1.7;padding:10px 12px}
+.sn{cursor:pointer;padding:1px 2px;border-radius:4px}
+.tapzone .sn:hover{background:#E3F2FD}
+.sn.proof{background:#FFF176}
+.sn.wrongtap{background:#FFCDD2}
+.sn.keyw{background:#FFE0B2}
+.locked{pointer-events:none}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:12px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:8px;font-weight:600}
+.tapnote{font-size:12.5px;color:#5a6b8c;margin-bottom:4px}
+.jq{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.6;margin:6px 0}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di-opt.right{background:#C8E6C9;border-color:#2E7D32}
+.di-opt.wrong{background:#FFCDD2;border-color:#C62828}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none;line-height:1.5}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:14px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+.routine-final{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0}
+.fbox{background:#F5F9FF;border:2px solid #1e88e5;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;color:#0d47a1}
+.fbox.go{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.fbox.stop{background:#FFEBEE;border-color:#C62828;color:#B71C1C}
+.arrow{font-size:18px;color:#0d47a1}
+.tree{margin:14px 0;border:2px solid #BBDEFB;border-radius:12px;padding:12px;background:#fff}
+.tree .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.parts span{display:inline-block;padding:3px 8px;border-radius:6px;margin:2px;font-size:14px}
+.pa{background:#BBDEFB}.pb{background:#FFE0B2}.pc{background:#C8E6C9}
+.hidden{display:none}
+.ansrow{border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff;font-size:13.5px;line-height:1.6}
+.ansrow .di-btns{margin-top:6px}
+input.pf,textarea.myans{width:100%;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:14px;margin-top:4px}
+textarea.myans{min-height:80px}
+.pfmsg{font-size:13px;font-weight:600;margin-top:4px;min-height:18px}
+.pfmsg.ok{color:#1B5E20}.pfmsg.no{color:#B71C1C}
+label.fld{display:block;font-size:13px;font-weight:700;color:#0d47a1;margin-top:10px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13.5px}
+.btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-go{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.quote-mark{background:#FFF176;border-radius:3px;padding:0 2px}
+.stay{color:#B71C1C;font-weight:700}
+
+.di-btns.col{flex-direction:column}
+.di-btns.col .di-opt{width:100%;font-weight:600;line-height:1.5}
+.di-num{font-size:11px;font-weight:800;color:#5a6b8c;margin-bottom:6px;letter-spacing:.4px}
+.ansq{font-size:14px;margin:6px 0 8px;line-height:1.6}
+.tickline{font-size:13px;font-weight:700;color:#0d47a1;margin:8px 0 4px}
+.tk{letter-spacing:2px}
+.drill-head{font-size:13px;font-weight:800;color:#8A5A00;background:#FEEBC8;display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:6px}
+.drill-score.ready{background:linear-gradient(135deg,#2E7D32,#66BB6A)}
+.drill-score.retry{background:linear-gradient(135deg,#B71C1C,#E57373)}
+.drill-score a{color:#fff;text-decoration:underline}
+.drill-score .btn{background:#fff;color:#0d47a1}
+.btn.ghost{background:#E3F2FD;color:#0d47a1;border:1.5px solid #1e88e5}
+label.chk{display:block;font-size:13.5px;margin:6px 0}
+label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
+.mcard{border:3px solid #0d47a1;border-radius:14px;background:#fff;padding:14px;margin:12px 0;max-width:420px}
+.mcard .mc-t{font-weight:800;color:#0d47a1;text-align:center;margin-bottom:8px}
+.mrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.mbox{width:30px;height:30px;border:3px solid #0d47a1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#2E7D32;font-weight:900;flex-shrink:0;background:#fff}
+.mbox.red{border-color:#C62828}
+.mbox.on::after{content:"✔"}
+.mbox.off::after{content:""}
+.demo{border:2px solid #BBDEFB;border-radius:12px;padding:12px;margin:10px 0;background:#fff}
+.demo .ans{font-size:14.5px;line-height:1.6;margin-bottom:8px}
+.demo .mrow .mbox{border-color:#BBDEFB}
+.demo.on .mrow .mbox{border-color:#0d47a1}
+.demo .mbox::after{content:""}
+.demo.on .mbox.t1y::after,.demo.on .mbox.t2y::after{content:"✔"}
+.demo .verdict{display:none;font-size:13px;font-weight:700;margin-top:6px}
+.demo.on .verdict{display:block}
+.layers{margin:14px 0;max-width:460px}
+.layer{border-radius:10px;padding:12px 14px;font-weight:800;font-size:14.5px;margin-bottom:6px}
+.layer.l1{background:#BBDEFB;color:#0d47a1}
+.layer.l2{background:#FFE0B2;color:#8A5A00}
+.layer.l3{background:#C8E6C9;color:#1B5E20}
+.bars{margin:14px 0}
+.barrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13.5px}
+.barrow .bl{width:170px;font-weight:700;line-height:1.3}
+.bartrack{flex:1;height:24px;background:#ECEFF1;border-radius:12px;overflow:hidden;position:relative}
+.barfill{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:800;font-size:12px}
+.blocks{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:10px 0}
+.blk{border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5;font-weight:600}
+.blk small{display:block;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:3px}
+.blk.b1{background:#BBDEFB;color:#0d47a1}
+.blk.b2{background:#FFE0B2;color:#8A5A00}
+.blk.b3{background:#C8E6C9;color:#1B5E20}
+.frame{border:3px solid #0d47a1;border-radius:14px;padding:14px 16px;margin:14px 0;background:#F5F9FF}
+.frame .fl{margin:7px 0;font-size:14.5px;line-height:1.6}
+.frame .fn{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:24px;height:24px;text-align:center;line-height:24px;font-weight:800;font-size:13px;margin-right:6px}
+.frame .rb{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.report-grid{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.rep{flex:1 1 140px;background:#F5F9FF;border:2px solid #BBDEFB;border-radius:10px;padding:10px;text-align:center}
+.rep-t{font-size:12px;font-weight:800;color:#0d47a1}.rep-n{font-size:22px;font-weight:900;color:#0d47a1}.rep-s{font-size:11.5px;color:#5a6b8c}
+.boardbox{border:3px solid #00695c;border-radius:12px;background:#E0F2F1;padding:12px 16px;margin:10px 0}
+.boardbox h4{color:#00695c;margin-bottom:6px}
+.boardbox li{margin:3px 0 3px 18px;font-size:13.5px}
+.nav-title{font-size:14px}
+@media (max-width:560px){.barrow .bl{width:110px;font-size:12px}}
+
+.ck{display:flex;gap:10px;align-items:flex-start;margin:7px 0;font-size:14.5px;line-height:1.55}
+.ck .cn{background:#0d47a1;color:#fff;border-radius:50%;width:26px;height:26px;flex:0 0 26px;text-align:center;line-height:26px;font-weight:800;font-size:13px}
+.cams{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.cam{flex:1 1 250px;border:2.5px solid #BBDEFB;border-radius:12px;padding:10px;background:#fff;cursor:pointer;text-align:center}
+.cam svg{width:100%;height:auto;border-radius:8px;background:#F5F9FF}
+.cam .ct{font-weight:800;color:#0d47a1;margin:6px 0 2px;font-size:14px}
+.cam .cs{display:none;font-size:13.5px;line-height:1.55;margin-top:6px;text-align:left}
+.cam.on{border-color:#0d47a1}.cam.on .cs{display:block}
+.lite{background:#FFF176;border-radius:4px;padding:0 2px}
+.lbtns{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.lbtn{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;border-radius:8px;padding:6px 11px;font-weight:800;font-size:13px;cursor:pointer}
+.lbtn.on{background:#0d47a1;color:#fff}
+.lnote{font-size:13.5px;line-height:1.55;min-height:40px;background:#F5F9FF;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;margin:6px 0}
+.assembled{background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14.5px;line-height:1.8;min-height:50px}
+.assembled .ph{color:#5a6b8c;font-size:13px}
+.cardhd{display:inline-block;background:#0d47a1;color:#fff;font-weight:800;border-radius:6px;padding:2px 10px;font-size:13px;margin-bottom:6px}
+.sc{font-size:12.5px;color:#5a6b8c;margin:4px 0}
+.ticks5{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.savebox{text-align:center;margin:14px 0}
+.save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:16px;line-height:1.7}
+.save-steps ol{margin:8px 0 8px 22px}
+.save-steps p{font-size:14px;margin:4px 0 0}
+
+
+#saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
+#saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
+
+.small{font-size:12.5px;color:#5a6b8c}
+ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
+.lights{margin:8px 0}
+.light{display:inline-block;background:#ECEFF1;color:#455A64;border-radius:14px;padding:3px 12px;font-size:13px;font-weight:800;margin-right:8px}
+.light.g{background:#C8E6C9;color:#1B5E20}
+.note-y{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:6px;padding:6px 10px;margin-top:8px;font-size:13px;font-weight:600}
+
+.fbk{border:3px solid #0d47a1;border-radius:14px;background:#F5F9FF;padding:14px 16px;margin:14px 0}
+.fbk .fb-q,.fbk .fb-a,.fbk .fb-mark{margin:8px 0;font-size:14.5px;line-height:1.6}
+.fbk .fb-lab{display:block;font-size:11px;font-weight:800;letter-spacing:.5px;color:#5a6b8c;text-transform:uppercase;margin-bottom:2px}
+.fbk .fb-a{background:#fff;border:2px dashed #90CAF9;border-radius:10px;padding:8px 12px}
+.fbk .fb-mark b{font-size:22px;color:#0d47a1}
+.fbk .fb-star{background:#E8F5E9;border-left:5px solid #2E7D32;border-radius:6px;padding:8px 12px;margin:8px 0;font-size:14.5px;font-weight:700;color:#1B5E20}
+.fbk .fb-pen{background:#FFF8E1;border-left:5px solid #F9A825;border-radius:6px;padding:8px 12px;margin:8px 0;font-size:14.5px;font-weight:700;color:#8A5A00}
+.photo{margin:12px 0;border:3px solid #BBDEFB;border-radius:14px;overflow:hidden;background:#BFE6FF;line-height:0}
+.photo svg{width:100%;height:auto;display:block}
+.hs{cursor:pointer}
+.hs .ring{fill:none;stroke:transparent;stroke-width:4;pointer-events:none}
+.hs.good .ring{stroke:#2E7D32}
+.hs.bad .ring{stroke:#C62828}
+.quote-line{font-size:16px;font-weight:700;line-height:1.6;background:#FFF9C4;border-left:5px solid #F9A825;border-radius:8px;padding:10px 14px;margin:12px 0}
+.mockbox{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:8px 0}
+.mockbox .mb-lab{font-size:11.5px;font-weight:800;color:#5a6b8c;margin:6px 0 2px}
+.mockbox .mb-in{border:1.5px solid #1e88e5;border-radius:8px;padding:7px 9px;font-size:14px;background:#F5F9FF}
+.mockbox .mb-ok{font-size:13px;font-weight:700;color:#1B5E20;margin:4px 0}
+.pbitem{border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:12px 14px;margin:14px 0}
+.pbitem.done{border-color:#2E7D32;background:#F1F8E9}
+.pbitem .old{color:#78909C;font-style:italic;background:#ECEFF1;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:14px;line-height:1.6}
+.pbitem input.pf{margin-top:2px}
+.pbitem input.bad{border-color:#C62828;background:#FFEBEE}
+.pbitem input.good{border-color:#2E7D32;background:#E8F5E9}
+.bigsave{font-size:17px;padding:14px 28px;background:#1565C0;border-radius:12px}
+.topnav .nav-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:560px){.topnav{padding:8px 10px;flex-wrap:wrap}.topnav .nav-title{order:3;flex:1 0 100%}.nav-right{margin-left:auto}.card{padding:18px 14px}}
+.stepbox{border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:12px 14px;margin:12px 0}
+.stepbox.off{opacity:.45}
+.tapq{font-weight:800;color:#0d47a1;margin:0 0 4px;font-size:15px}
+@media (max-width:560px){.flow{flex-direction:column;align-items:stretch}.flow .arrow{align-self:center;transform:rotate(90deg);line-height:1}.flow .fbox{text-align:center}}
+
+
+.shapes{margin:14px 0}
+.shape{display:flex;align-items:stretch;gap:0;margin:10px 0}
+.shape .key,.shape .lock{flex:1 1 0;min-width:0;padding:12px 14px 12px 40px;font-size:15px;font-weight:800;color:#0d47a1;position:relative;display:flex;align-items:center}
+.shape .key{background:#BBDEFB;border:2.5px solid #1e88e5;border-radius:12px 4px 4px 12px}
+.shape .key::before{content:"🔑";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:20px}
+.shape .lock{background:#FFE0B2;border:2.5px solid #F57C00;border-radius:4px 12px 12px 4px;color:#8A5A00}
+.shape .lock::before{content:"🔒";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:20px}
+.shape .shp-arr{flex:0 0 36px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#0d47a1;font-weight:900}
+@media (max-width:560px){.shape{flex-direction:column}.shape .key{border-radius:12px 12px 4px 4px}.shape .lock{border-radius:4px 4px 12px 12px}.shape .shp-arr{flex:0 0 28px;transform:rotate(90deg)}}
+.fbk .fb-a.old2{border-style:solid;border-color:#CFD8DC;background:#ECEFF1;color:#78909C}
+.tg{margin:10px 0}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="hub-btn" title="Back to Hub" aria-label="Back to Hub">✕</a>
+  <span class="nav-title">Reading — Answer the Question It Asks</span>
+  <div class="nav-right">
+    <span class="nav-pill" id="navPill">Unit 47 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<div class="screen" id="s0"><div class="card"><span class="tag">UNIT 47 · LESSON 1 · DAY 1</span>
+<p><b>Type it yourself — microphone off.</b></p>
+<p><b>📁 This lesson ends by saving your work into the Results folder.</b></p>
+<h2>Your last reading paper — Unit 45</h2>
+<div class="fbk">
+<div class="fb-q"><span class="fb-lab">The question</span>Why does Grace slide her sketchbook across to Ravi? Prove it with words from the story.</div>
+<div class="fb-a"><span class="fb-lab">Your answer</span>To make ravi show it</div>
+<div class="fb-a old2"><span class="fb-lab">Your proof (accepted first try)</span>Grace looked at him for the first time</div>
+<div class="fb-mark"><span class="fb-lab">Your mark</span><b>1 / 2</b></div>
+<div class="fb-star">⭐ Your proof was spot on — first try.</div>
+<div class="fb-pen">✏️ Your answer didn’t say WHY. Start with the question’s words and add “because”: “Grace slides her sketchbook to Ravi because…”</div>
+</div>
+<div class="fbk">
+<div class="fb-q"><span class="fb-lab">The question</span>Why do you think Priya writes about her little brother in her letter? Prove it with words from the letter.</div>
+<div class="fb-a"><span class="fb-lab">Your answer</span>Young kids get bored and then they want to leave</div>
+<div class="fb-a old2"><span class="fb-lab">Your proof (accepted first try)</span>He got bored after 10 minutes because he could not hold anything</div>
+<div class="fb-mark"><span class="fb-lab">Your mark</span><b>1 / 2</b></div>
+<div class="fb-star">⭐ Your proof was spot on — first try.</div>
+<div class="fb-pen">✏️ That’s what happened — but the question asks why PRIYA writes it. Try: “Priya writes about her brother to show…”</div>
+</div>
+<p>Your proofs are right. What is missing is an answer that fits the question. Today you learn how. At the end you fix both answers yourself.</p>
+<div class="why-box"><div class="why-title">Why this matters 🎯</div>
+<p>In a reading test, the first mark is for answering the exact question that was asked. Your proof box already earns the second mark. And in real life it works the same way: if a friend asks “Why were you late?” and you say “Bus.”, they still don’t know. An answer that fits the question is clear, quick and kind to the person reading it.</p></div>
+<div class="lock-note" id="lockNote-s0"></div></div></div>
+
+<div class="screen" id="s1"><div class="card"><span class="tag">ROUTE A · THE KEY AND THE LOCK</span>
+<h2>Every question has a shape</h2>
+<p class="quote-line">Every question has a shape. Your answer has to fit it.</p>
+<p>A question is like a lock. Only a key with the right shape opens it. Here are four locks and the keys that fit them.</p>
+<div class="shapes">
+<div class="shape"><div class="key"><span class="sq">Why…?</span></div><div class="shp-arr">→</div><div class="lock"><span class="sa">… because …</span></div></div>
+<div class="shape"><div class="key"><span class="sq">How did … change?</span></div><div class="shp-arr">→</div><div class="lock"><span class="sa">At first … but by the end …</span></div></div>
+<div class="shape"><div class="key"><span class="sq">Why does the writer …?</span></div><div class="shp-arr">→</div><div class="lock"><span class="sa">The writer … to show …</span></div></div>
+<div class="shape"><div class="key"><span class="sq">Which …?</span></div><div class="shp-arr">→</div><div class="lock"><span class="sa">…, because …</span></div></div>
+</div>
+<p class="small">Left: the shape of the question. Right: the shape of the answer that fits.</p>
+<div class="rule-box">Match the answer to the question.</div>
+<div class="stepbox"><div class="tapq">Now you try. Tap the shape that fits each question.</div>
+<div id="tapgame"></div><div class="pfmsg" id="tapMsg"></div></div>
+<div class="lock-note" id="lockNote-s1"></div></div></div>
+
+<div class="screen" id="s2"><div class="card"><span class="tag">ROUTE B · THREE STEPS</span>
+<h2>From the shapes to three steps</h2>
+<p>The shapes, as three steps.</p>
+<div class="routine-box">
+<div class="routine-step"><div class="routine-num">1</div><div class="routine-text"><b>FIND</b> the question word — why, how, which or what.</div></div>
+<div class="routine-step"><div class="routine-num">2</div><div class="routine-text"><b>START</b> with the question’s own words.</div></div>
+<div class="routine-step"><div class="routine-num">3</div><div class="routine-text"><b>FINISH</b> with the shape that fits — because… · At first… by the end… · to show…</div></div>
+</div>
+<div class="flow"><span class="fbox">Read the question</span><span class="arrow">→</span><span class="fbox">FIND the question word</span><span class="arrow">→</span><span class="fbox">START with its words</span><span class="arrow">→</span><span class="fbox go">FINISH with the shape</span></div>
+<h2>The steps on your own question</h2>
+<div class="frame">
+<div class="fl"><b>Question:</b> Why does Grace slide her sketchbook across to Ravi?</div>
+<div class="fl"><span class="fn">1</span><b>FIND</b> → the question word is <span class="lite">Why</span>, so the answer is a reason.</div>
+<div class="fl"><span class="fn">2</span><b>START</b> → <span class="lite">Grace slides her sketchbook to Ravi</span></div>
+<div class="fl"><span class="fn">3</span><b>FINISH</b> → add <span class="lite">because…</span> and your reason.</div>
+</div>
+<p class="small">Check your answer: a capital letter, a full stop, at least 8 words, and the question’s own words.</p>
+<div class="lock-note" id="lockNote-s2"></div></div></div>
+
+<div class="screen" id="s3"><div class="card"><span class="tag">DRILL A</span>
+<h2>Which answer answers the question?</h2>
+<p>Each little text has a question. Pick the answer that fits the question’s shape.</p>
+<div id="drill-A"></div>
+<div class="lock-note" id="lockNote-s3"></div></div></div>
+
+<div class="screen" id="s4"><div class="card"><span class="tag">DRILL B</span>
+<h2>Start it right</h2>
+<p>Only the start of the answer this time. Pick the start that fits the question.</p>
+<div id="drill-B"></div>
+<div class="lock-note" id="lockNote-s4"></div></div></div>
+
+<div class="screen" id="s5"><div class="card"><span class="tag">WRITE IT</span>
+<h2>Write it yourself</h2>
+<p>First copy the words that prove your answer. Then write your answer in a full sentence that fits the question. Press “Check my answer”.</p>
+<div id="pb-w-1"></div><div id="pb-w-2"></div>
+<div class="lock-note" id="lockNote-s5"></div></div></div>
+
+<div class="screen" id="s6"><div class="card"><span class="tag">FIX YOUR OWN ANSWERS</span>
+<h2>Fix your two Unit 45 answers</h2>
+<p>Here are your two old answers again. Write each one again so that it fits the question. Use what you saw on the first screen.</p>
+<div id="pb-fix-1"></div><div id="pb-fix-2"></div>
+<div class="lock-note" id="lockNote-s6"></div></div></div>
+
+<div class="screen" id="s7"><div class="card"><span class="tag">SELF-CHECK</span>
+<h2>Four quick questions</h2>
+<p>You need 3 out of 4 to be ready for the test.</p>
+<div id="drill-SC"></div>
+<div class="lock-note" id="lockNote-s7"></div></div></div>
+
+<div class="screen" id="s8"><div class="card"><span class="tag">YOUR REPORT</span>
+<h2>Your Unit 47 lesson report</h2>
+<div id="reportWrap"></div>
+<div class="savebox"><div class="save-steps"><b>📁 Save your work for Naomi — you can't go on until it's saved.</b>
+<ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+<li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+<li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+<li>Wait for <b>✅ Saved in Results</b>. Then the link to your test appears.</li></ol>
+<p>After the first time, the window opens in Results by itself.</p></div>
+<button class="btn bigsave" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
+<p>Next: your test. A story, a timetable and an information text, with a proof box and an answer check on every written question.</p>
+<div class="lesson-nav"><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_047_Test_AnswerTheQuestion.html">Your test →</a></div><div class="lock-note" id="lockNote-s8"></div></div></div>
+<script>
+/* Unit 47 · Lesson 1 — record file: ENG_U047_L1_Done_<date>.json */
+var DRILLS={"A": {"title": "Drill A · Which answer answers the question?", "forced": true, "fixed": true, "letters": true, "col": true, "nudge": "Does it answer exactly what the question asks, in a full sentence, in the shape that fits?", "items": [{"q": "<div class=\"passage small\">Tia had saved her pocket money for months. When her friend Rex broke his glasses, Tia emptied her money box onto the table and pushed the coins towards him.</div><b>Why does Tia push the coins towards Rex?</b>", "opts": ["Tia pushes the coins towards Rex because she wants to help him buy new glasses.", "Tia had saved up her pocket money for months and months before Rex broke them.", "Glasses.", "Tia pushes all of her coins across the table towards Rex."], "ans": 0, "nos": ["", "That is a true fact from the text, but it is off the question. The question asks WHY she pushes the coins.", "That is not a sentence, and it does not say why.", "That says WHAT she does. It repeats the question without answering it."], "why": "It uses the question’s words (Tia, pushes the coins towards Rex) and finishes with “because”. The others are off the question, not a sentence, or only repeat what Tia does."}, {"q": "<div class=\"passage small\">On Monday, Oli hid at the back of the swimming pool and would not put his face in the water. By Friday, he was jumping in from the side and shouting for his friends to watch.</div><b>How does Oli change during the week?</b>", "opts": ["Oli goes swimming at the pool every single day from Monday to Friday with his friends.", "At first Oli is too scared to put his face in the water, but by the end he jumps in.", "Oli likes swimming.", "By Friday, Oli was jumping in from the side of the pool and shouting for all his friends to watch."], "ans": 1, "nos": ["That is off the question. The question asks how Oli CHANGES, and this does not show a change.", "", "That is one end only, and it does not say how he changed.", "That is one end only. A change needs the start AND the end."], "why": "A change has two ends. “At first … but by the end …” shows both. The others are off the question or show only one end."}, {"q": "<div class=\"passage small\">Our park is full of litter. Last week, a duck got its head stuck in a plastic cup by the pond.</div><b>Why does the writer tell us about the duck?</b>", "opts": ["A duck got its head stuck in a plastic cup by the pond last week.", "Ducks live in our park.", "The writer tells us about the duck to show that litter can hurt animals.", "The writer likes ducks more than any other bird in the park."], "ans": 2, "nos": ["That repeats the text. The question asks why the WRITER tells us.", "That is a fact, but it is off the question.", "", "That is off the question. The text does not say the writer likes ducks."], "why": "The question is about the writer, so the answer starts “The writer…” and uses “to show”. The others repeat the text or are off the question."}, {"q": "<div class=\"passage small\">Nell needs a book about animals with fewer than 100 pages. Big Cats: 80 pages. Space Rocks: 60 pages. Ocean Giants: 150 pages.</div><b>Which book should Nell choose?</b>", "opts": ["Big Cats.", "Nell likes reading books about animals more than books about space.", "Ocean Giants is a long book about the big animals that live in the deep sea.", "Nell should choose Big Cats because it is about animals and has 80 pages."], "ans": 3, "nos": ["That names the book but it is not a full sentence and gives no reason.", "That is off the question. It does not choose a book.", "That is the wrong book. It has 150 pages, and it does not use “because”.", ""], "why": "It names the book, uses the question’s words, and gives a reason with “because”. The others have no reason, are off the question, or pick the wrong book."}, {"q": "<div class=\"passage small\">Ice melts when it gets warmer than 0 °C. Hugo left his ice lolly on a sunny wall, where it was 25 °C.</div><b>What will happen to Hugo’s ice lolly? Explain.</b>", "opts": ["It will melt because 25 °C is much warmer than 0 °C.", "Hugo left his ice lolly on a sunny wall in the garden.", "Melt.", "Ice lollies are cold and they taste nice in the summer."], "ans": 0, "nos": ["", "That repeats the text. It does not say what will happen.", "That is one word. It is not a sentence, and it does not explain.", "That is off the question. It does not say what will happen."], "why": "“Explain” means give the reason, so the answer needs “because”. The others repeat the text, are one word, or are off the question."}]}, "B": {"title": "Drill B · Start it right", "forced": true, "fixed": true, "letters": true, "col": true, "nudge": "Look at the question word. Which start fits it?", "items": [{"q": "<b>Why did Ama run home?</b> Which is the best START?", "opts": ["At first Ama was at home…", "Ama ran home because…", "The writer wants to show…", "Home is a place where…"], "ans": 1, "nos": ["That start is for a “How did … change?” question.", "", "That start is for a “Why does the writer …?” question. This question is about Ama.", "That does not use the question’s own words."], "why": "A “Why” question needs the question’s words and “because”: “Ama ran home because…”."}, {"q": "<b>How do Hugo’s feelings change?</b> Which is the best START?", "opts": ["Hugo feels sad and happy…", "Hugo ran because he wanted…", "At first Hugo…, but by the end…", "The writer of this story really wants to show…"], "ans": 2, "nos": ["That names two feelings but not the two ends. A change needs a start and an end.", "That start is for a “Why” question.", "", "That start is for a “Why does the writer …?” question."], "why": "A change has two ends, so use “At first … but by the end …”."}, {"q": "<b>Why does the writer include the photo?</b> Which is the best START?", "opts": ["The writer includes the photo to show…", "The photo is of a big wave…", "At first the photo was small…", "I like the photo because it is…"], "ans": 0, "nos": ["", "That describes the photo. The question asks why the WRITER included it.", "That start is for a “How did … change?” question.", "That is your opinion. The question is about the writer."], "why": "A question about the writer is answered with “The writer … to show …”."}, {"q": "<b>Which train should Nell catch?</b> Which is the best START?", "opts": ["The train is long and fast…", "At first Nell was late for the train…", "Trains are faster than buses…", "Nell should catch the … train because…"], "ans": 3, "nos": ["That describes a train. It does not choose one.", "That start is for a “How did … change?” question.", "That compares trains and buses. It does not choose a train.", ""], "why": "A “Which” question needs a choice and a reason: “Nell should catch the … train because…”."}]}, "SC": {"title": "Self-check", "forced": false, "need": 3, "items": [{"q": "Which is the best start for: “Why did the dog bark?”", "opts": ["The dog is big and brown…", "At first the dog…", "The dog barked because…", "Dogs bark…"], "ans": 2, "why": "A “Why” question needs the question’s words and “because”: “The dog barked because…”."}, {"q": "Which answer shows a change?", "opts": ["Lea was shy and quiet in the game.", "At first Lea was shy, but by the end she was leading the game.", "Lea played a game with her class.", "By the end of the game, Lea was leading the whole class in it."], "ans": 1, "why": "A change needs both ends: “At first … but by the end …”. The others show one end or no change."}, {"q": "Question: “Why does Max hide the letter?” Answer: “The letter.” What is wrong?", "opts": ["It is much too long for the question that was asked.", "It uses the question’s own words.", "Nothing — it is a good answer.", "It doesn’t say why, and it isn’t a full sentence."], "ans": 3, "why": "“The letter.” is two words. It is not a sentence, and it gives no reason."}, {"q": "Which answer is about the WRITER?", "opts": ["The writer adds the photo to show how big the wave was.", "The wave was very big and it crashed down hard on the beach.", "Waves can be dangerous when you go swimming.", "The photo shows a wave."], "ans": 0, "why": "Only the first answer talks about what the WRITER does: “The writer … to show …”."}]}};
+var SCREENS=["s0","s1","s2","s3","s4","s5","s6","s7","s8"];
+var SCREEN_DRILLS={"s3":["A"],"s4":["B"],"s7":["SC"]};
+var LESSON_TAG="Unit 47 · Lesson 1", LESSON_ID="L1", REPORT_ID="s8";
+var BACK_ID="s1", BACK_NAME="<b>Every question has a shape</b> (screen 2)";
+var READY_MSG="Ready for your test ✅";
+var REPORT_ROWS=[{id:"A",label:"Drill A",sub:"which answer fits"},{id:"B",label:"Drill B",sub:"start it right"},{id:"SC",label:"Self-check",sub:"need 3 of 4"}];
+var TAPQ=[["Why did Ama run home?", 0], ["How do Hugo’s feelings change?", 1], ["Why does the writer include the photo?", 2], ["Which train should Nell catch?", 3]], TAP_SHAPES=["… because …", "At first … but by the end …", "The writer … to show …", "…, because …"];
+var PBDEF={"C1": {"kind": "write", "label": "1 of 2", "item": 1, "box": "pb-w-1", "rec": "write-1", "anchors": ["Ama stood up at once", "leaving her seat for him"], "spec": {"keys": ["Ama", "stand"], "type": "why"}, "passage": "<p>The bus was full. An old man with a stick climbed on and looked around. Ama stood up at once and held on to the rail, leaving her seat for him.</p>", "q": "Why does Ama stand up?"}, "C2": {"kind": "write", "label": "2 of 2", "item": 2, "box": "pb-w-2", "rec": "write-2", "anchors": ["kept his door shut", "asleep on Hugo's bed", "reading to it"], "spec": {"keys": ["Hugo", "puppy"], "type": "change"}, "passage": "<p>When the new puppy arrived, Hugo kept his door shut and wouldn’t come downstairs. Two weeks later, the puppy was asleep on Hugo’s bed, and Hugo was reading to it.</p>", "q": "How do Hugo’s feelings about the puppy change?"}, "F5": {"kind": "fix", "label": "Your Unit 45 answer 1", "q5": 5, "box": "pb-fix-1", "rec": "fix-5", "spec": {"keys": ["Grace", "sketchbook"], "type": "why"}, "q": "Why does Grace slide her sketchbook across to Ravi?", "old": "To make ravi show it"}, "F13": {"kind": "fix", "label": "Your Unit 45 answer 2", "q5": 13, "box": "pb-fix-2", "rec": "fix-13", "spec": {"keys": ["Priya", "brother"], "type": "purpose"}, "q": "Why do you think Priya writes about her little brother in her letter?", "old": "Young kids get bored and then they want to leave"}};
+
+function proofOK(proof, passageHtml, anchors){
+  var norm=function(s){return (s||'').replace(/<[^>]+>/g,' ').toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim();};
+  var p=norm(proof).split(' ').filter(Boolean);
+  if(p.length<4) return false;
+  var chunks=(passageHtml||'').replace(/<\/(p|tr|li|h\d)>|<br\s*\/?>/gi,' ||| ').replace(/<[^>]+>/g,' ').split(/\|\|\||[.!?]+["”']?\s/);
+  for(var c=0;c<chunks.length;c++){
+    var t=' '+norm(chunks[c])+' ';
+    for(var i=0;i+4<=p.length;i++){
+      if(t.indexOf(' '+p.slice(i,i+4).join(' ')+' ')>=0){
+        if(!anchors||!anchors.length) return true;
+        for(var a=0;a<anchors.length;a++){ if(t.indexOf(norm(anchors[a]))>=0) return true; }
+      }
+    }
+  }
+  return false;
+}
+
+
+/* ---------- U47 ANSWER CHECK (verbatim) ---------- */
+function ansWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function ansStem(w){return w.toLowerCase().replace(/[^a-z]/g,'').replace(/(ing|ed|es|s)$/,'');}
+var ANSWER_SHAPES={
+  why:[/\b(because|so that|so)\b/i,'Say why — use “because”.'],
+  explain:[/\b(because|so that|so)\b/i,'Explain it — use “because”.'],
+  choose:[/\bbecause\b/i,'Say why you chose it — use “because”.'],
+  purpose:[/\b(to show|to make|to help|so that|because)\b/i,'Say what the writer wanted to do: “The writer includes this to show…”.'],
+  change:[/\b(at first|at the start|in the beginning|first)\b[\s\S]*\b(by the end|at the end|in the end|later|now|last day)\b/i,'Show both ends: “At first…” and “By the end…”.'],
+  opinion:[/\b(i think|i don't think|i do not think|yes|no)\b[\s\S]*\bbecause\b/i,'Say what you think and why: “I think… because…”.']
+};
+function answerCheck(text,spec){
+  var t=(text||'').trim();
+  if(ansWords(t)<8) return 'Write a full answer — at least 8 words.';
+  if(!/^["“]?[A-Z]/.test(t)||!/[.!?]["”']?$/.test(t)) return 'Start with a capital letter and end with a full stop.';
+  var have={};t.split(/\s+/).forEach(function(w){have[ansStem(w)]=1;});
+  if(!spec.keys.some(function(k){return have[ansStem(k)];})) return 'Use the question’s own words — say who or what you are writing about (for example “'+spec.keys[0]+'”).';
+  var shape=ANSWER_SHAPES[spec.type];
+  if(shape&&!shape[0].test(t)) return shape[1];
+  return null;
+}
+/* ---------- END ANSWER CHECK ---------- */
+
+var PB={}, MOVED=[], stuckOpened=0;
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var cur=0, DS={}, OPENED_MS=Date.now(), OPENED_ISO=new Date().toISOString(), FIN_SECS=null, ON_REPORT=false;
+function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
+/* ---------- drills ---------- */
+function buildDrill(id){
+  var D=DRILLS[id], box=$('drill-'+id); if(!box) return;
+  DS[id]={res:[],first:[],tries:[],order:[],given:[]};
+  var h=D.title?'<div class="drill-head">'+D.title+'</div>':'';
+  D.items.forEach(function(it,i){
+    DS[id].res.push(false);DS[id].first.push(false);DS[id].tries.push(0);DS[id].given.push(null);
+    var ord=[];if(D.fixed){for(var q=0;q<it.opts.length;q++)ord.push(q);}else{ord=shuffled(it.opts.length);}DS[id].order.push(ord);
+    h+='<div class="di" id="'+id+'-'+i+'"><div class="di-num">'+(i+1)+' of '+D.items.length+'</div>';
+    if(it.q) h+='<div class="di-sent">'+it.q+'</div>';
+    h+='<div class="di-btns'+(D.col?' col':'')+'">';
+    ord.forEach(function(k,pos){h+='<button class="di-opt" id="'+id+'-'+i+'-'+k+'" onclick="pick(\''+id+'\','+i+','+k+')">'+(D.letters?'<b>'+'ABCD'[pos]+'.</b> ':'')+it.opts[k]+'</button>';});
+    h+='</div><div class="di-fb" id="'+id+'-'+i+'-fb"></div></div>';
+  });
+  h+='<div class="drill-score" id="'+id+'-score"></div>';
+  box.innerHTML=h;
+}
+function pick(id,i,v){
+  var D=DRILLS[id], S=DS[id], it=D.items[i]; if(S.res[i]) return;
+  var ok=(v===it.ans), fb=$(id+'-'+i+'-fb'), btn=$(id+'-'+i+'-'+v);
+  S.given[i]=v;
+  if(D.forced){
+    if(ok){S.res[i]=true;S.first[i]=(S.tries[i]===0);btn.classList.add('right');fb.className='di-fb ok';fb.innerHTML='Right — '+it.why;lockItem(id,i);}
+    else{S.tries[i]++;btn.classList.add('wrong');btn.disabled=true;fb.className='di-fb no';
+      fb.innerHTML='Try again — '+((it.nos&&it.nos[v])?it.nos[v]:D.nudge)+(S.tries[i]>=2?'<div class="walk">'+it.why+'</div>':'');}
+  } else {
+    S.res[i]=true;S.first[i]=ok;btn.classList.add(ok?'right':'wrong');
+    var rb=$(id+'-'+i+'-'+it.ans); if(rb) rb.classList.add('right');
+    fb.className='di-fb '+(ok?'ok':'no');fb.innerHTML=(ok?'Right — ':'Look again — ')+it.why;lockItem(id,i);
+  }
+  checkDrillDone(id);
+  updateNav();
+}
+function lockItem(id,i){var el=$(id+'-'+i);var bs=el.getElementsByTagName('button');for(var k=0;k<bs.length;k++)bs[k].disabled=true;}
+function checkDrillDone(id){
+  var D=DRILLS[id], S=DS[id]; for(var k=0;k<S.res.length;k++) if(!S.res[k]) return;
+  var n=0;S.first.forEach(function(f){if(f)n++;});var sc=$(id+'-score');sc.classList.add('show');
+  if(D.forced){sc.innerHTML='Drill complete ✅ — '+n+' of '+S.res.length+' right on the first go.';}
+  else{
+    var ready=n>=(D.need||5);
+    sc.innerHTML='<b>'+n+' out of '+S.res.length+'</b><br>'+(ready?READY_MSG:'Not quite there yet. Go back to <a href="#" onclick="jumpTo(\''+BACK_ID+'\');return false">'+BACK_NAME+'</a>, then try this check again.<br><button class="btn" onclick="buildDrill(\''+id+'\');updateNav();">Try the self-check again</button>');
+    sc.className='drill-score show '+(ready?'ready':'retry');
+  }
+}
+
+/* ---------- the key and the lock: tap the shape (not scored) ---------- */
+var TG={done:[],count:0};
+function buildTap(){
+  var h='';
+  TAPQ.forEach(function(t,i){
+    TG.done.push(false);
+    h+='<div class="di tg" id="tg-'+i+'"><div class="di-num">'+(i+1)+' of '+TAPQ.length+'</div><div class="di-sent"><b>'+t[0]+'</b></div><div class="di-btns col">';
+    TAP_SHAPES.forEach(function(s,k){h+='<button class="di-opt" id="tg-'+i+'-'+k+'" onclick="tapShape('+i+','+k+')">'+esc(s)+'</button>';});
+    h+='</div><div class="di-fb" id="tg-'+i+'-fb"></div></div>';
+  });
+  $('tapgame').innerHTML=h;
+}
+function tapShape(i,k){
+  if(TG.done[i]) return;
+  var ok=(k===TAPQ[i][1]), fb=$('tg-'+i+'-fb'), b=$('tg-'+i+'-'+k);
+  if(ok){TG.done[i]=true;TG.count++;b.classList.add('right');fb.className='di-fb ok';fb.innerHTML='Yes — that shape fits.';
+    var bs=$('tg-'+i).getElementsByTagName('button');for(var q=0;q<bs.length;q++)bs[q].disabled=true;
+    if(TG.count===TAPQ.length){$('tapMsg').className='pfmsg ok';$('tapMsg').textContent='All four fit.';}}
+  else{b.classList.add('wrong');b.disabled=true;fb.className='di-fb no';fb.innerHTML='Not that one — look at the question word again.';}
+  updateNav();
+}
+
+/* ---------- proof + answer boxes ---------- */
+function buildPB(key){
+  var D=PBDEF[key], h='', w=(D.kind==='write');
+  PB[key]={tries:0,lastRej:null,atries:0,alastRej:null,accepted:!w,aok:false,done:false,moved:false,stuck:false};
+  h+='<div class="pbitem" id="'+key+'-item"><div class="di-num">'+D.label+'</div>';
+  if(D.passage) h+='<div class="passage">'+D.passage+'</div>';
+  h+='<div class="di-sent"><b>'+D.q+'</b></div>';
+  if(D.old) h+='<div class="old"><b>Your old answer:</b> '+esc(D.old)+'</div>';
+  if(w){
+    h+='<label class="fld" for="'+key+'-proof">Proof — copy at least 4 words from the text</label>';
+    h+='<input class="pf" id="'+key+'-proof" type="text" autocomplete="off" spellcheck="false" onkeydown="if(event.key===\'Enter\')checkPB(\''+key+'\')">';
+    h+='<div><button class="btn" id="'+key+'-chk" onclick="checkPB(\''+key+'\')">Check my proof</button></div>';
+    h+='<div class="pfmsg" id="'+key+'-pm"></div>';
+  }
+  h+='<div id="'+key+'-move"></div>';
+  h+='<label class="fld" for="'+key+'-ans">Your answer — full sentences</label>';
+  h+='<textarea class="myans" id="'+key+'-ans" '+(w?'disabled placeholder="Check your proof first, then write your answer here."':'placeholder="Write your answer in a full sentence."')+' oninput="ansTyped(\''+key+'\')"></textarea>';
+  h+='<div><button class="btn" id="'+key+'-achk" onclick="checkAns(\''+key+'\')"'+(w?' disabled':'')+'>Check my answer</button></div>';
+  h+='<div class="pfmsg" id="'+key+'-am"></div>';
+  h+='<button class="btn ghost" id="'+key+'-stk" onclick="openStuck(\''+key+'\')">I’m stuck — help</button><div id="'+key+'-stuck"></div></div>';
+  $(D.box).innerHTML=h;
+}
+function offerMove(key){
+  var S=PB[key];
+  if((S.tries>=3||S.atries>=3)&&!S.done&&!$(key+'-move').innerHTML){
+    $(key+'-move').innerHTML='<div class="walk"><b>This one is tricky. Read the stuck card and have one more go — or move on. Naomi will see what you tried.</b><br><button class="btn ghost" onclick="moveOn(\''+key+'\')">Move on</button></div>';
+  }
+}
+function checkPB(key){
+  var D=PBDEF[key], S=PB[key]; if(S.done||S.accepted) return;
+  var v=$(key+'-proof').value, m=$(key+'-pm'), inp=$(key+'-proof');
+  if(!v.trim()){m.className='pfmsg no';m.textContent='Type the words from the text that prove it.';return;}
+  if(proofOK(v,D.passage,D.anchors)){
+    S.accepted=true;inp.className='pf good';inp.readOnly=true;m.className='pfmsg ok';m.textContent='✓ Those words are in the text and they prove your answer.';
+    $(key+'-chk').style.display='none';
+    $(key+'-ans').disabled=false;$(key+'-ans').placeholder='Write your answer in a full sentence.';$(key+'-achk').disabled=false;
+    return;
+  }
+  var inText=proofOK(v,D.passage,null);
+  inp.className='pf bad';m.className='pfmsg no';
+  m.textContent=inText?"Those words are in the text, but they don't prove this answer. Find the sentence that does.":"Those words aren't in the text yet — find them and copy them exactly.";
+  if(S.lastRej!==v){S.tries++;S.lastRej=v;}
+  offerMove(key);
+}
+function ansTyped(key){var m=$(key+'-am');if(m){m.textContent='';m.className='pfmsg';}}
+function checkAns(key){
+  var D=PBDEF[key], S=PB[key]; if(S.done||!S.accepted) return;
+  var a=$(key+'-ans').value, m=$(key+'-am');
+  if(!a.trim()){m.className='pfmsg no';m.textContent='Write your answer in the box first.';return;}
+  var r=answerCheck(a,D.spec);
+  if(r===null){
+    S.aok=true;S.done=true;$(key+'-ans').readOnly=true;$(key+'-achk').style.display='none';$(key+'-stk').style.display='none';$(key+'-move').innerHTML='';
+    $(key+'-item').classList.add('done');m.className='pfmsg ok';m.textContent=(D.kind==='fix'?'✓ That answers the question — fixed.':'✓ That answers the question.');
+    updateNav();return;
+  }
+  m.className='pfmsg no';m.textContent=r;
+  if(S.alastRej!==a){S.atries++;S.alastRej=a;}
+  offerMove(key);
+}
+function moveOn(key){
+  var S=PB[key]; if(S.done) return;
+  S.moved=true;S.done=true;MOVED.push(PBDEF[key].rec);
+  $(key+'-move').innerHTML='<div class="walk">OK — moving on. What you typed is kept in your report. You can still write your best answer below.</div>';
+  if($(key+'-chk')) $(key+'-chk').style.display='none';
+  if($(key+'-proof')) $(key+'-proof').readOnly=true;
+  $(key+'-ans').disabled=false;$(key+'-ans').placeholder='Write your best answer here if you like. It is kept in your report.';$(key+'-achk').style.display='none';
+  $(key+'-item').classList.add('done');$(key+'-stk').style.display='none';
+  updateNav();
+}
+function openStuck(key){
+  var box=$(key+'-stuck'); if(box.innerHTML) return; stuckOpened++; PB[key].stuck=true;
+  box.innerHTML='<div class="walk"><b>What is the question word? Type it.</b><br><input class="pf" id="'+key+'-sk" type="text" style="max-width:320px" oninput="stuckAns(\''+key+'\')" placeholder="Type the question word…"><div id="'+key+'-skrest" class="hidden">'+
+  '<p style="margin-top:10px">Still stuck? Copy the first five words of the question, then finish the sentence.</p>'+
+  '<p>Here is a worked example (Drill A, question 1):</p>'+
+  '<div class="frame"><div class="fl"><b>Question:</b> Why does Tia push the coins towards Rex?</div>'+
+  '<div class="fl"><span class="fn">1</span><b>FIND</b> → <span class="lite">Why</span>, so the answer is a reason.</div>'+
+  '<div class="fl"><span class="fn">2</span><b>START</b> → <span class="lite">Tia pushes the coins towards Rex</span></div>'+
+  '<div class="fl"><span class="fn">3</span><b>FINISH</b> → <span class="lite">because she wants to help him buy new glasses.</span></div></div>'+
+  '</div></div>';
+}
+function stuckAns(key){if($(key+'-sk').value.trim().length>=2)$(key+'-skrest').classList.remove('hidden');}
+/* ---------- navigation ---------- */
+function pbDone(keys){for(var i=0;i<keys.length;i++){if(!PB[keys[i]]||!PB[keys[i]].done) return false;}return true;}
+function screenLocked(sid){
+  var d=SCREEN_DRILLS[sid]||[];
+  for(var k=0;k<d.length;k++){var id=d[k],S=DS[id];if(!S) continue;for(var j=0;j<S.res.length;j++) if(!S.res[j]) return DRILLS[id].forced?'Finish every question to go on.':'Answer all the questions to go on.';}
+  if(sid==='s1'&&TG.count<TAPQ.length) return 'Tap the right shape for all four questions to go on.';
+  if(sid==='s5'&&!pbDone(['C1','C2'])) return 'Finish both boxes to go on.';
+  if(sid==='s6'&&!pbDone(['F5','F13'])) return 'Fix both answers to go on.';
+  return '';
+}
+function show(i){
+  cur=i;SCREENS.forEach(function(s,k){$(s).classList.toggle('active',k===i);});
+  $('navPill').textContent=LESSON_TAG+' · '+(i+1)+'/'+SCREENS.length;window.scrollTo(0,0);
+  if(SCREENS[i]===REPORT_ID){ON_REPORT=true;buildReport();}
+  updateNav();
+}
+function updateNav(){
+  var sid=SCREENS[cur],lock=screenLocked(sid);
+  $('prevBtn').disabled=(cur===0);
+  $('nextBtn').disabled=(cur===SCREENS.length-1)||!!lock;
+  var ln=$('lockNote-'+sid);if(ln){ln.textContent=lock;ln.className='lock-note'+(lock?' show':'');}
+}
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;if(d>0&&screenLocked(SCREENS[cur]))return;show(n);}
+function jumpTo(sid){var i=SCREENS.indexOf(sid);if(i>=0)show(i);}
+/* ---------- report + save ---------- */
+function firstTry(id){var S=DS[id];if(!S)return 0;var n=0;S.first.forEach(function(f){if(f)n++;});return n;}
+function pbRec(key){
+  var S=PB[key], D=PBDEF[key];
+  if(D.kind==='fix') return {q:D.q5,answer:$(key+'-ans').value,answerTries:S.atries};
+  return {item:D.item,proof:$(key+'-proof').value,proofTries:S.tries,answer:$(key+'-ans').value,answerTries:S.atries};
+}
+function buildReport(){
+  if(FIN_SECS===null) FIN_SECS=Math.round((Date.now()-OPENED_MS)/1000);
+  var h='<div class="report-grid">';
+  REPORT_ROWS.forEach(function(r){var S=DS[r.id];if(!S)return;h+='<div class="rep"><div class="rep-t">'+r.label+'</div><div class="rep-n">'+firstTry(r.id)+' / '+S.res.length+'</div><div class="rep-s">'+r.sub+'</div></div>';});
+  var okw=0;['C1','C2'].forEach(function(k){if(PB[k].aok)okw++;});
+  h+='<div class="rep"><div class="rep-t">Write it</div><div class="rep-n">'+okw+' / 2</div><div class="rep-s">answers that fit</div></div>';
+  var okf=0;['F5','F13'].forEach(function(k){if(PB[k].aok)okf++;});
+  h+='<div class="rep"><div class="rep-t">Your fixed answers</div><div class="rep-n">'+okf+' / 2</div><div class="rep-s">answers that fit</div></div>';
+  $('reportWrap').innerHTML=h+'</div>';
+}
+function buildRecord(){
+  var drills={A:firstTry('A')+'/'+DS.A.res.length,B:firstTry('B')+'/'+DS.B.res.length};
+  var sc=firstTry('SC'), secs=(FIN_SECS===null?Math.round((Date.now()-OPENED_MS)/1000):FIN_SECS);
+  var wr=['C1','C2'].map(function(k){return pbRec(k);});
+  var fx=['F5','F13'].map(function(k){return pbRec(k);});
+  return {student:'Prem',unit:47,lesson:LESSON_ID,lessonDone:true,dateDone:new Date().toISOString().slice(0,10),
+    openedAt:OPENED_ISO,finishedAt:new Date().toISOString(),minutesSpent:Math.round(secs/60),secondsSpent:secs,
+    drills:drills,write:wr,fix:fx,selfCheck:sc,selfCheckOutOf:4,ready:sc>=3,stuckOpened:stuckOpened,movedOn:MOVED};
+}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';}
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
+async function saveDone(){
+  var rec=buildRecord(), filename='ENG_U047_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
+  st.className='reminder';st.textContent='Saving…';
+  if(!window.showDirectoryPicker){downloadInstead(filename,json,st);SAVED=true;unlockNext();return;}
+  try{
+    await saveToResults(filename,json);
+    SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
+  }catch(e){
+    if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
+    else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
+    else{SAVE_FAILS++;if(SAVE_FAILS>=2){downloadInstead(filename,json,st);SAVED=true;unlockNext();}else{st.textContent='Something went wrong while saving. Press the blue button again.';}}
+  }
+}
+function initAll(){Object.keys(DRILLS).forEach(buildDrill);Object.keys(PBDEF).forEach(buildPB);buildTap();show(0);}
+initAll();
+</script>
+</body>
+</html>

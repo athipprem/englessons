@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 47 Test — Answer the Question It Asks</title>
+<!-- Built from BUILD_PLAN_ENG_U047_AnswerTheQuestion.md v1, section 6. Engine: the Unit 45 test (proof box + "I can't find it — move on", strand tags, longestRun) plus the U47 ANSWER CHECK on every written item
+     ("Leave it as it is" after 2 refusals) and the whole-row message for the timetable proof. No review screen. 14 items, 20 marks, pass bar 16/20. No codes. Save stands alone; the X top-left is the only way back to the Hub. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --t1:#00695c; --t1-fill:#B2DFDB; --t1-text:#00695c;
+    --t2:#0d47a1; --t2-fill:#BBDEFB; --t2-text:#0d47a1;
+    --t3:#bf360c; --t3-fill:#FFE0B2; --t3-text:#bf360c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .xclose{position:absolute;top:8px;left:10px;z-index:30;font-size:.9rem;line-height:1;color:var(--grey);text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:50%;width:26px;height:26px;text-align:center;padding-top:5px}
+  .xclose:hover{background:#f3e8ff;color:#4A148C}
+  .wrap{max-width:1120px;margin:0 auto;padding:40px 16px 16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px 10px 44px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:10px;text-align:center}
+  .readfirst.two{background:#fff3e0;border-color:#f6993f;color:#7a4a00;font-weight:600}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 10px;text-align:center}
+  .band.t1{background:var(--t1-fill);color:var(--t1-text)}
+  .band.t2{background:var(--t2-fill);color:var(--t2-text)}
+  .band.t3{background:var(--t3-fill);color:var(--t3-text)}
+  .grp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:16px;align-items:start}
+  .grp .passage{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;margin-bottom:14px}
+  @media (max-width:900px){.grp{grid-template-columns:1fr}.grp .passage{position:static;max-height:none}}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.92rem;line-height:1.7}
+  .passage h4{margin:0 0 8px;font-size:1rem}
+  .t1 .passage h4,.passage.t1 h4{color:var(--t1-text)} .passage.t2 h4{color:var(--t2-text)} .passage.t3 h4{color:var(--t3-text)}
+  .passage p{margin:0 0 10px}
+  .passage h5{margin:12px 0 4px;font-size:.95rem;color:var(--t3-text)}
+  .passage table{border-collapse:collapse;width:100%;font-size:.84rem;margin:6px 0}
+  .passage th,.passage td{border:1.5px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+  .passage th{background:#e3f2fd}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.t1{border-left-color:var(--t1)} .q.t2{border-left-color:var(--t2)} .q.t3{border-left-color:var(--t3)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem;font-family:inherit}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  label.fld{display:block;font-size:.82rem;font-weight:800;color:#4A148C;margin:10px 0 4px}
+  input.proofin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  input.proofin.good{border-color:var(--ok);background:var(--ok-l)}
+  input.proofin.badp{border-color:var(--bad);background:var(--bad-l)}
+  .proofmsg{font-size:.82rem;font-weight:700;margin-top:4px;min-height:1em;color:var(--bad)}
+  .proofmsg.good{color:var(--ok)}
+  .btn.chk{background:#eceff1;color:#4A148C;padding:6px 14px;font-size:.8rem;margin-top:6px}
+  .btn.chk.skip{background:#fff3e0;color:#8a5a00;margin-left:8px}
+  textarea.writtenin{width:100%;min-height:110px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  #submit-bar.sticky{position:sticky;bottom:0;border-radius:12px 12px 0 0}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:1rem;line-height:1.7}
+  .save-steps ol{margin:8px 0 8px 22px}
+  .save-steps p{font-size:.9rem;margin:4px 0 0}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.95rem;text-align:center;margin-top:10px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}#save-status.done{color:var(--ok)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+</style>
+</head>
+<body>
+<a class="xclose" href="../index.html" title="Back to Hub" aria-label="Back to Hub">✕</a>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 47 Test — Answer the Question It Asks</b>
+      <span class="sub" id="hdr-sub">A story · a timetable · an information text</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 14 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div class="readfirst">Type it yourself — microphone off.</div>
+  <div class="readfirst two">For the written questions, first copy the words from the text that prove your answer, then write your answer in full sentences.</div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar" class="sticky">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" onclick="askConfirmSubmit()">Submit</button>
+      <div id="save-area" style="display:none">
+        <div class="save-steps"><b>📁 Save your work for Naomi — you can't finish until it's saved.</b>
+        <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+        <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+        <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+        <li>Wait for <b>✅ Saved in Results</b>.</li></ol>
+        <p>After the first time, the window opens in Results by itself.</p></div>
+        <button class="btn save" id="btn-save" onclick="saveResults()">💾 Save to Results</button>
+      </div>
+      <div id="save-status"></div>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit the test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 47;
+const UNIT_TITLE = "Answer the Question It Asks";
+const PASS_BAR   = 16;                 // out of 20
+const TOTAL_MARKS = 20;
+const AUTO_OUT_OF = 8;
+const WRITTEN_MARKS = 12;
+
+const SECTION_ORDER = ['t1','t2','t3'];
+const SECTION_LABEL = {
+  t1: "TEXT 1 — The Night Bake (story)",
+  t2: "TEXT 2 — Island Ferries — Summer Timetable (timetable)",
+  t3: "TEXT 3 — How Bread Rises (information)"
+};
+const SECTION_SHORT = { t1:"Story", t2:"Timetable", t3:"Information" };
+
+const Q = [
+ {
+  "n": 1,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "Where was Grandad’s bakery?",
+  "options": [
+   "next to the cinema on the hill",
+   "above the only shop on the island",
+   "at the end of the harbour road",
+   "beside the ferry office on the pier"
+  ],
+  "ans": 3,
+  "why": "The first paragraph says: “Her grandad’s bakery sat at the end of the harbour road.” The text also says there was no cinema and no shops."
+ },
+ {
+  "n": 2,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "What stopped the electric oven working?",
+  "options": [
+   "a storm knocked out the power",
+   "Esme switched it off at night",
+   "it ran out of wood to burn",
+   "Grandad broke the oven door"
+  ],
+  "ans": 1,
+  "why": "The text says: “a storm knocked out the power across the whole island. The big electric oven went dark and silent.”"
+ },
+ {
+  "n": 3,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "“Grandad showed her how to tap the bottom of a loaf to hear if it was ready.” This tells us that…",
+  "options": [
+   "Grandad wanted the loaves to make a nice tapping sound",
+   "the loaves were far too heavy to lift with one hand",
+   "tapping makes bread rise higher",
+   "the sound of a loaf tells you if it is baked"
+  ],
+  "ans": 4,
+  "why": "He taught her to tap the loaf “to hear if it was ready”. So the sound tells a baker whether the bread is baked. Nothing in the text says tapping makes bread rise or that the loaves were heavy."
+ },
+ {
+  "n": 4,
+  "section": "t1",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Why does Grandad hang the apron on the hook instead of making Esme wear it?",
+  "proof": true,
+  "anchors": [
+   "didn't argue",
+   "hung it on the hook",
+   "In case you change your mind"
+  ],
+  "answerSpec": {
+   "keys": [
+    "Grandad",
+    "apron"
+   ],
+   "type": "why"
+  },
+  "markScheme": [
+   "(1) He wants Esme to choose to help for herself / he hopes she will change her mind, without forcing her — in a full sentence.",
+   "(2) The proof: accepted within two tries — “didn’t argue” · “hung it on the hook” · “In case you change your mind”."
+  ]
+ },
+ {
+  "n": 5,
+  "section": "t1",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "How do Esme’s feelings about the island change from the start of the story to the end?",
+  "proof": true,
+  "anchors": [
+   "counted every house",
+   "arms folded",
+   "nothing to do here",
+   "kicked the flour sack",
+   "grinned",
+   "didn't wipe the flour",
+   "come back in the summer"
+  ],
+  "answerSpec": {
+   "keys": [
+    "Esme",
+    "island"
+   ],
+   "type": "change"
+  },
+  "markScheme": [
+   "(1) Both ends: at first she is bored / fed up with the island (arms folded, nothing to do); by the end she is proud / happy and wants to come back — in a full sentence.",
+   "(2) The proof: accepted within two tries — either end."
+  ]
+ },
+ {
+  "n": 6,
+  "section": "t1",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Why do you think the writer includes the girl who says “These are the best ever”?",
+  "proof": true,
+  "anchors": [
+   "best ever",
+   "grinned",
+   "didn't wipe the flour"
+  ],
+  "answerSpec": {
+   "keys": [
+    "writer",
+    "girl"
+   ],
+   "type": "purpose"
+  },
+  "markScheme": [
+   "(1) To show that Esme’s hard night’s work was worth it / to make Esme (and the reader) feel proud — the writer’s reason, not a retelling.",
+   "(2) The proof: accepted within two tries — “best ever” · “grinned” · “didn’t wipe the flour”."
+  ]
+ },
+ {
+  "n": 7,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Which ferry has the shortest journey?",
+  "options": [
+   "Seagull",
+   "Gannet Express",
+   "Kittiwake",
+   "Puffin"
+  ],
+  "ans": 2,
+  "why": "Subtract the leaving time from the arriving time. Gannet Express leaves at 2:45 and arrives at 3:20, which is 35 minutes. The others take 75 minutes."
+ },
+ {
+  "n": 8,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Which ferry runs every day?",
+  "options": [
+   "Kittiwake",
+   "Seagull",
+   "Gannet Express",
+   "Puffin"
+  ],
+  "ans": 1,
+  "why": "Look down the Days column. Only the Kittiwake row says “Every day”."
+ },
+ {
+  "n": 9,
+  "section": "t2",
+  "type": "written",
+  "strand": "L",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "Esme must reach the mainland by 4:00 on Saturday, and she has £5 to spend. Which ferry should she take? Use the timetable to explain.",
+  "proof": true,
+  "anchors": [
+   "Seagull",
+   "Puffin",
+   "Kittiwake",
+   "Gannet Express"
+  ],
+  "answerSpec": {
+   "keys": [
+    "ferry",
+    "take"
+   ],
+   "type": "choose"
+  },
+  "markScheme": [
+   "(1) The Puffin, in a full sentence, with a reason it fits (runs on Saturday · arrives 3:45, before 4:00 · £4, within £5) or why another fails (Seagull: weekdays only · Kittiwake: arrives 4:30 · Gannet Express: £7).",
+   "(2) The proof: accepted within two tries — a timetable row."
+  ],
+  "table": true
+ },
+ {
+  "n": 10,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "What does yeast feed on?",
+  "options": [
+   "the salt in the dough",
+   "the water in the bowl",
+   "the heat of the oven",
+   "the sugar in the flour"
+  ],
+  "ans": 4,
+  "why": "Under “Feeding time” the text says yeast “feeds on the sugar in the flour”."
+ },
+ {
+  "n": 11,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "“The gluten becomes stretchy, like a balloon.” This helps the dough to…",
+  "options": [
+   "dry out more quickly",
+   "turn a golden colour",
+   "hold the gas bubbles inside",
+   "make the yeast grow faster"
+  ],
+  "ans": 3,
+  "why": "The next sentence explains it: the stretchy gluten “traps the gas bubbles”, so the dough swells up. Nothing in the text says it dries the dough, changes its colour or feeds the yeast."
+ },
+ {
+  "n": 12,
+  "section": "t3",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "A baker leaves his rising dough right next to a hot oven, where it reaches 70 °C. Will the dough rise? Explain using two ideas from the text.",
+  "proof": true,
+  "anchors": [
+   "kills the yeast",
+   "above 60",
+   "never right next to a hot oven",
+   "gives off a gas",
+   "traps the gas"
+  ],
+  "answerSpec": {
+   "keys": [
+    "dough",
+    "rise"
+   ],
+   "type": "explain"
+  },
+  "markScheme": [
+   "(1) No — it will not rise, because above 60 °C the heat kills the yeast, and dead yeast cannot make the gas bubbles that make dough rise (two ideas linked).",
+   "(2) The proof: accepted within two tries — “kills the yeast” · “above 60” · “never right next to a hot oven” · gas sentences."
+  ]
+ },
+ {
+  "n": 13,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Does the writer explain bread-making well for someone your age? Give one reason from the text and one of your own.",
+  "proof": true,
+  "anchors": [
+   "like a balloon",
+   "little holes",
+   "microscope",
+   "billions"
+  ],
+  "answerSpec": {
+   "keys": [
+    "writer",
+    "explain"
+   ],
+   "type": "opinion"
+  },
+  "markScheme": [
+   "(1) A view (yes / no / partly) with one reason from the text (e.g. the balloon comparison, the holes in a slice, the microscope fact) and one of his own.",
+   "(2) The proof: accepted within two tries — any sentence carrying an anchor."
+  ]
+ },
+ {
+  "n": 14,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "At what temperature does yeast work fastest?",
+  "options": [
+   "about 80 °C",
+   "about 35 °C",
+   "about 100 °C",
+   "about 10 °C"
+  ],
+  "ans": 2,
+  "why": "The text says: “Yeast works fastest when it is warm, at about 35 °C.”"
+ }
+];
+
+const PASSAGES = {
+ "t1": "<h4>The Night Bake</h4>\n<p>Esme had been on the island for one day, and she had already counted every house on it. There were forty-one. Her grandad’s bakery sat at the end of the harbour road. There was no cinema, no shops and hardly any phone signal.</p>\n<p>On the first morning she sat on the back step with her arms folded. “There’s nothing to do here,” she said, and kicked the flour sack by the door.</p>\n<p>Grandad Walt didn’t argue. He took a small white apron from the drawer, shook out the creases and hung it on the hook by the door. “In case you change your mind,” he said, and went back to his dough.</p>\n<p>That night, a storm knocked out the power across the whole island. The big electric oven went dark and silent. On the table sat two hundred loaves’ worth of dough for the harbour fair the next morning.</p>\n<p>Grandad stood in the doorway for a long moment, rubbing his chin. Then he walked out to the yard, pulled the cover off the old brick oven that nobody had used for years, and started stacking wood inside it.</p>\n<p>Esme watched him from her bedroom window. After a while she came downstairs, took the apron off the hook and tied it twice round her waist.</p>\n<p>All night she carried trays between the table and the brick oven. Her arms ached. Flour got into her hair, her ears and her socks. Grandad showed her how to tap the bottom of a loaf to hear if it was ready.</p>\n<p>At sunrise, the first customer at the stall was a girl about her age. She bit into a roll, closed her eyes and said, “These are the best ever.”</p>\n<p>Esme grinned and didn’t wipe the flour off her face.</p>\n<p>On the last day of the week, as she packed her bag, she asked Grandad if she could come back in the summer.</p>",
+ "t2": "<h4>Island Ferries — Summer Timetable</h4>\n<p>All times are in the afternoon. Prices are for one child, one way.</p>\n<table>\n<tr><th>Ferry</th><th>Days</th><th>Leaves the island</th><th>Arrives at the mainland</th><th>Child ticket</th></tr>\n<tr><td>Seagull</td><td>Mon–Fri</td><td>1:00</td><td>2:15</td><td>£3</td></tr>\n<tr><td>Puffin</td><td>Sat and Sun</td><td>2:30</td><td>3:45</td><td>£4</td></tr>\n<tr><td>Kittiwake</td><td>Every day</td><td>3:15</td><td>4:30</td><td>£3</td></tr>\n<tr><td>Gannet Express</td><td>Sat and Sun</td><td>2:45</td><td>3:20</td><td>£7</td></tr>\n</table>",
+ "t3": "<h4>How Bread Rises</h4>\n<p>Bread is made from flour, water, salt and a tiny living thing called yeast. You cannot see a single yeast cell without a microscope, but a spoonful holds billions of them.</p>\n<h5>Feeding time</h5>\n<p>When yeast is mixed into dough, it feeds on the sugar in the flour. As it feeds, it gives off a gas called carbon dioxide. The gas forms thousands of tiny bubbles all through the dough.</p>\n<h5>The stretchy part</h5>\n<p>Flour contains gluten. When dough is kneaded, the gluten becomes stretchy, like a balloon. It traps the gas bubbles, so the dough swells up instead of letting the gas escape.</p>\n<h5>Just the right heat</h5>\n<p>Yeast works fastest when it is warm, at about 35 °C. In a cold kitchen, dough rises slowly. But too much heat is a problem: above 60 °C, the heat kills the yeast, and dead yeast cannot make any more gas. That is why bakers keep rising dough in a warm place, but never right next to a hot oven.</p>\n<h5>Into the oven</h5>\n<p>In the oven, the gas bubbles grow bigger one last time before the yeast dies. The dough around them sets hard, holding the shape of the bubbles. That is why a slice of bread is full of little holes.</p>"
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+function proofOK(proof, passageHtml, anchors){
+  var norm=function(s){return (s||'').replace(/<[^>]+>/g,' ').toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim();};
+  var p=norm(proof).split(' ').filter(Boolean);
+  if(p.length<4) return false;
+  var chunks=(passageHtml||'').replace(/<\/(p|tr|li|h\d)>|<br\s*\/?>/gi,' ||| ').replace(/<[^>]+>/g,' ').split(/\|\|\||[.!?]+["”']?\s/);
+  for(var c=0;c<chunks.length;c++){
+    var t=' '+norm(chunks[c])+' ';
+    for(var i=0;i+4<=p.length;i++){
+      if(t.indexOf(' '+p.slice(i,i+4).join(' ')+' ')>=0){
+        if(!anchors||!anchors.length) return true;
+        for(var a=0;a<anchors.length;a++){ if(t.indexOf(norm(anchors[a]))>=0) return true; }
+      }
+    }
+  }
+  return false;
+}
+
+/* ---------- U47 ANSWER CHECK (verbatim) ---------- */
+function ansWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function ansStem(w){return w.toLowerCase().replace(/[^a-z]/g,'').replace(/(ing|ed|es|s)$/,'');}
+var ANSWER_SHAPES={
+  why:[/\b(because|so that|so)\b/i,'Say why — use “because”.'],
+  explain:[/\b(because|so that|so)\b/i,'Explain it — use “because”.'],
+  choose:[/\bbecause\b/i,'Say why you chose it — use “because”.'],
+  purpose:[/\b(to show|to make|to help|so that|because)\b/i,'Say what the writer wanted to do: “The writer includes this to show…”.'],
+  change:[/\b(at first|at the start|in the beginning|first)\b[\s\S]*\b(by the end|at the end|in the end|later|now|last day)\b/i,'Show both ends: “At first…” and “By the end…”.'],
+  opinion:[/\b(i think|i don't think|i do not think|yes|no)\b[\s\S]*\bbecause\b/i,'Say what you think and why: “I think… because…”.']
+};
+function answerCheck(text,spec){
+  var t=(text||'').trim();
+  if(ansWords(t)<8) return 'Write a full answer — at least 8 words.';
+  if(!/^["“]?[A-Z]/.test(t)||!/[.!?]["”']?$/.test(t)) return 'Start with a capital letter and end with a full stop.';
+  var have={};t.split(/\s+/).forEach(function(w){have[ansStem(w)]=1;});
+  if(!spec.keys.some(function(k){return have[ansStem(k)];})) return 'Use the question’s own words — say who or what you are writing about (for example “'+spec.keys[0]+'”).';
+  var shape=ANSWER_SHAPES[spec.type];
+  if(shape&&!shape[0].test(t)) return shape[1];
+  return null;
+}
+/* ---------- END ANSWER CHECK ---------- */
+
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+const chosen = {};      // qn -> mcq index (1-based) or written answer text
+const proofs = {};      // qn -> proof text
+const proofTries = {};  // qn -> number of rejected proofs
+const lastRej = {};     // qn -> last rejected proof text
+const gaveUp = {};      // qn -> true when he pressed "I can't find it" (no lock-out: he can always submit)
+const ansTries = {};    // qn -> number of refused answers (answer check)
+const ansLastRej = {};  // qn -> last refused answer text
+const ansGaveUp = {};   // qn -> true when he pressed "Leave it as it is"
+let submitted = false;
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+let frozenSecs = null;
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-openedAtMs)/1000); }
+function tick(){ document.getElementById('timer').textContent = fmtClock(elapsedSecs()); }
+setInterval(tick, 1000); tick();
+
+function render(){
+  let html = '';
+  SECTION_ORDER.forEach(sec => {
+    html += `<div class="band ${sec}">${SECTION_LABEL[sec]}</div>`;
+    html += `<div class="grp"><div class="passage ${sec}">${PASSAGES[sec]}</div><div class="qs">`;
+    Q.filter(q => q.section === sec).forEach(q => {
+      html += `<div class="q ${q.section}" id="q-${q.n}">
+        <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+          ${q.type==='written' ? `<span class="marks-tag">(${q.marks} mks)</span>` : ''}
+          <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+          <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+          <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+        </p>`;
+      if (q.type === 'mcq'){
+        html += `<div>`;
+        q.options.forEach((opt, idx) => {
+          html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${'ABCD'[idx]}. ${opt}</button>`;
+        });
+        html += `</div>`;
+      } else {
+        html += `<label class="fld">Proof — copy at least 4 words from the text</label>
+          <input type="text" class="proofin" id="pr-${q.n}" autocomplete="off" oninput="typeProof(${q.n}, this.value)" onblur="checkProof(${q.n})">
+          <div class="proofmsg" id="pm-${q.n}"></div>
+          <button class="btn chk" id="pc-${q.n}" onclick="checkProof(${q.n})">Check my proof</button><button class="btn chk skip" id="sk-${q.n}" style="display:none" onclick="giveUp(${q.n})">I can't find it — move on</button>
+          <label class="fld">Your answer — full sentences</label>
+          <textarea class="writtenin" id="in-${q.n}" placeholder="Write your answer in full sentences..." oninput="typeAnswer(${q.n}, this.value)"></textarea>
+          <div class="proofmsg" id="am-${q.n}"></div>
+          <button class="btn chk" id="ac-${q.n}" onclick="checkAnswer(${q.n})">Check my answer</button><button class="btn chk skip" id="as-${q.n}" style="display:none" onclick="leaveAnswer(${q.n})">Leave it as it is</button>`;
+      }
+      if (q.type === 'mcq') html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+      if (q.type === 'written'){
+        html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById('quiz').innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+function typeAnswer(qn, val){
+  if (submitted) return;
+  chosen[qn] = val; ansGaveUp[qn] = false;
+  const m = document.getElementById(`am-${qn}`); if (m){ m.textContent = ''; m.classList.remove('good'); }
+  updateProgress();
+}
+function typeProof(qn, val){
+  if (submitted) return;
+  proofs[qn] = val; gaveUp[qn] = false;
+  const el = document.getElementById(`pr-${qn}`);
+  el.classList.remove('good','badp');
+  const m = document.getElementById(`pm-${qn}`); m.textContent = ''; m.classList.remove('good');
+  updateProgress();
+}
+function proofIsGood(q){
+  return proofOK(proofs[q.n] || '', PASSAGES[q.passageId], q.anchors);
+}
+// Called when he leaves the proof box, presses "Check my proof", or presses Submit.
+// A rejection counts once per different text (re-checking the same text does not add a try).
+function checkProof(qn){
+  if (submitted) return;
+  const q = Q.find(x => x.n === qn);
+  const v = (proofs[qn] || '');
+  const el = document.getElementById(`pr-${qn}`), m = document.getElementById(`pm-${qn}`);
+  if (!v.trim()){ m.textContent = ''; return; }
+  if (proofIsGood(q)){
+    el.classList.remove('badp'); el.classList.add('good');
+    m.classList.add('good'); m.textContent = '✓ Those words are in the text and they prove your answer.';
+    return;
+  }
+  const inText = proofOK(v, PASSAGES[q.passageId], null);
+  m.classList.remove('good'); el.classList.remove('good'); el.classList.add('badp');
+  m.textContent = inText
+    ? "Those words are in the text, but they don't prove this answer. Find the sentence that does."
+    : (q.table ? "Copy at least 4 words — take the whole row." : "Those words aren't in the text yet — find them and copy them exactly.");
+  if (lastRej[qn] !== v){
+    proofTries[qn] = (proofTries[qn] || 0) + 1;
+    lastRej[qn] = v;
+  }
+  if ((proofTries[qn] || 0) >= 2) showSkip(qn);
+}
+function showSkip(qn){ const b = document.getElementById(`sk-${qn}`); if (b) b.style.display = 'inline-block'; }
+// Never lock a child out: if he cannot find the proof he can say so, write his best answer, and submit.
+function giveUp(qn){
+  if (submitted) return;
+  gaveUp[qn] = true;
+  const m = document.getElementById(`pm-${qn}`); m.classList.add('good');
+  m.textContent = "That's OK. Now write your best answer in the box below.";
+  updateProgress();
+}
+function answerIsGood(q){ return answerCheck(chosen[q.n] || '', q.answerSpec) === null; }
+// The answer check looks only at the FORM (length, sentence, the question's words, the shape). Naomi judges the idea.
+// A refusal counts once per different text. After 2 refusals "Leave it as it is" appears, so he can always go on.
+function checkAnswer(qn){
+  if (submitted) return;
+  const q = Q.find(x => x.n === qn);
+  const v = (chosen[qn] || '');
+  const m = document.getElementById(`am-${qn}`);
+  if (!v.trim()){ m.classList.remove('good'); m.textContent = ''; return; }
+  if (!(proofIsGood(q) || gaveUp[qn] === true)){
+    m.classList.remove('good');
+    m.textContent = 'First copy your proof into the proof box. Then check your answer.';
+    return;
+  }
+  const r = answerCheck(v, q.answerSpec);
+  if (r === null){ m.classList.add('good'); m.textContent = '✓ That answers the question.'; updateProgress(); return; }
+  m.classList.remove('good'); m.textContent = r;
+  if (ansLastRej[qn] !== v){ ansTries[qn] = (ansTries[qn] || 0) + 1; ansLastRej[qn] = v; }
+  if ((ansTries[qn] || 0) >= 2){ const b = document.getElementById(`as-${qn}`); if (b) b.style.display = 'inline-block'; }
+  updateProgress();
+}
+function leaveAnswer(qn){
+  if (submitted) return;
+  ansGaveUp[qn] = true;
+  const m = document.getElementById(`am-${qn}`); m.classList.add('good');
+  m.textContent = "That's OK. Your answer stays as it is.";
+  updateProgress();
+}
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'written'){
+    // Hand-marked: no word-count gate here (the answer check handles form). Needs a proof the checker accepts (or "I can't find it"),
+    // a non-empty answer, and an answer the answer check accepts (or "Leave it as it is").
+    return v !== undefined && v.trim().length > 0 && (proofIsGood(q) || gaveUp[q.n] === true) && (answerIsGood(q) || ansGaveUp[q.n] === true);
+  }
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = false;
+  btn.textContent = (n === Q.length) ? 'Submit the test' : `Submit (${Q.length-n} not answered yet) — tap to jump there`;
+}
+function firstUnanswered(){ return Q.find(q => !isAnswered(q)); }
+
+function askConfirmSubmit(){
+  Q.filter(q => q.type === 'written').forEach(q => { if ((proofs[q.n]||'').trim()) checkProof(q.n); if ((chosen[q.n]||'').trim()) checkAnswer(q.n); });
+  const missing = firstUnanswered();
+  if (missing){
+    if (missing.type === 'written' && !(proofs[missing.n]||'').trim()){
+      const m = document.getElementById(`pm-${missing.n}`); m.classList.remove('good');
+      m.textContent = 'Copy the words from the text that prove your answer into this box. Stuck? Press "I can\'t find it".';
+      showSkip(missing.n);
+    } else if (missing.type === 'written' && !(chosen[missing.n]||'').trim()){
+      const am = document.getElementById(`am-${missing.n}`); am.classList.remove('good');
+      am.textContent = 'Write your answer in full sentences, then press "Check my answer".';
+    }
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+// ---- longestRun: longest run of consecutive words in the answer that also appear consecutively in the passage ----
+function normWords(s){
+  return String(s||'').replace(/<[^>]+>/g,' ').toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]+/g,' ').split(/\s+/).filter(Boolean);
+}
+function longestRun(answer, passageHtml){
+  const a = normWords(answer), p = normWords(passageHtml);
+  let best = 0;
+  for (let i = 0; i < a.length; i++){
+    for (let j = 0; j < p.length; j++){
+      let k = 0;
+      while (i+k < a.length && j+k < p.length && a[i+k] === p[j+k]) k++;
+      if (k > best) best = k;
+    }
+  }
+  return best;
+}
+
+let lastResults = null;
+
+function doSubmit(){
+  if (submitted) return;
+  closeConfirm();
+  submitted = true;
+  frozenSecs = Math.round((Date.now()-openedAtMs)/1000); tick();
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('input.proofin').forEach(i => i.disabled = true);
+  document.querySelectorAll('button.chk').forEach(b => b.style.display = 'none');
+  document.querySelectorAll('textarea.writtenin').forEach(t => t.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const strandTally = {L:{c:0,t:0,w:0}, U:{c:0,t:0,w:0}, E:{c:0,t:0,w:0}};
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      const tries = proofTries[q.n] || 0, resp = given || '';
+      written.push({ q:q.n, strand:q.strand, marks:q.marks, markScheme:q.markScheme,
+                     proof: proofs[q.n]||'', proofTries: tries, proofAccepted: proofIsGood(q), proofGaveUp: (gaveUp[q.n] === true && !proofIsGood(q)),
+                     response: resp, wordCount: resp.trim().split(/\s+/).filter(Boolean).length,
+                     answerTries: ansTries[q.n] || 0, answerGaveUp: (ansGaveUp[q.n] === true && !answerIsGood(q)),
+                     longestRun: longestRun(resp, PASSAGES[q.passageId]) });
+      document.getElementById(`ms-${q.n}`).classList.add('show');
+      document.getElementById(`tag-pending-${q.n}`).classList.add('show');
+      tierTally.Applied.t++;
+      strandTally[q.strand].w += q.marks;
+      return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given, proof: proofs[q.n]||'', isCorrect:null };
+    }
+    const isCorrect = given === q.ans;
+    document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+    if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    strandTally[q.strand].t++; if (isCorrect) strandTally[q.strand].c++;
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given, correct:q.ans, isCorrect };
+  });
+
+  const banner = document.getElementById('score-banner');
+  banner.classList.add('show','pass');
+  document.getElementById('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  document.getElementById('score-msg').textContent = `The ${WRITTEN_MARKS} written marks are waiting for Naomi. Pass bar for the full test is ${PASS_BAR}/${TOTAL_MARKS}.`;
+  document.getElementById('section-scores').innerHTML =
+    SECTION_ORDER.map(s => {
+      const wrT = Q.filter(q=>q.section===s && q.type==='written').length;
+      return `<div class="sec-chip">${SECTION_SHORT[s]}: ${sectionTally[s].c}/${sectionTally[s].t} auto (+${wrT} written)</div>`;
+    }).join('') +
+    `<div class="sec-chip">Time: ${fmtClock(frozenSecs)}</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('submit-bar').classList.remove('sticky');
+  document.getElementById('save-area').style.display = 'block';
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Press the blue Save button — your results are NOT saved yet.';
+
+  const strands = {};
+  ['L','U','E'].forEach(k => strands[k] = { score:strandTally[k].c, outOf:strandTally[k].t, writtenMarks:strandTally[k].w });
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    openedAt: openedAt,
+    finishedAt: new Date().toISOString(),
+    minutesSpent: Math.round(frozenSecs/60),
+    secondsSpent: frozenSecs,
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    writtenMarks: WRITTEN_MARKS, writtenScore: null,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed: null,
+    strands,
+    tiers: tierTally,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers,
+    written
+  };
+}
+
+window.addEventListener('beforeunload', function(e){ if (submitted && !SAVED){ e.preventDefault(); e.returnValue = ''; } });
+
+async function saveResults(){
+  const filename = `ENG_U047_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Saving…';
+  if (!window.showDirectoryPicker){ downloadInstead(filename, json, st); SAVED = true; return; }
+  try {
+    await saveToResults(filename, json);
+    SAVED = true; st.className = 'done'; st.textContent = '✅ Saved in Results as ' + filename + '. Well done!';
+  } catch(e){
+    if (e && e.name === 'AbortError'){ st.textContent = 'Not saved yet — you closed the window. Press the blue button again.'; }
+    else if (e && e.name === 'WrongFolder'){ st.textContent = 'That folder is called “' + e.picked + '”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.'; }
+    else { SAVE_FAILS++; if (SAVE_FAILS>=2){ downloadInstead(filename, json, st); SAVED = true; } else { st.textContent = 'Something went wrong while saving. Press the blue button again.'; } }
+  }
+}
+
+render();
+updateProgress();
+</script>
+</body>
+</html>

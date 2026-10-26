@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '25 Oct 2026',
+  updated:        '26 Oct 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           46,
-    heroLabel:   "Unit 46 - Lesson day 1, Story day 2",
-    status:      "&#9999;&#65039; UNIT 46 &mdash; Full Stops, Not &ldquo;And Then&rdquo; (writing, typed), built 25 Oct. Day 1: a ~20-minute lesson that starts with his own Unit 44 ending (one 39-word sentence with three &ldquo;and then&rdquo;s) and ends with him fixing it; the save reveals the story link. Day 2: a story from a picture, typed (microphone off), 35 minutes, with a Fix-it round that flags &ldquo;and then&rdquo; and long sentences. One goal: one idea, one sentence.",
+    n:           47,
+    heroLabel:   "Unit 47 - Lesson day 1, Test day 2",
+    status:      "&#128214; UNIT 47 &mdash; Answer the Question It Asks (reading), built 26 Oct. Day 1: a ~20-minute lesson that starts with two of his own Unit 45 answers (&ldquo;To make ravi show it&rdquo;) and ends with him fixing them; the save reveals the test link. Day 2: a story, a ferry timetable and an information text &mdash; 14 questions, 20 marks, pass bar 16 &mdash; with the proof box and a new answer check on every written question. One goal: answer exactly what the question asks, in a full sentence that fits it.",
     testPending: true
   },
 
@@ -35,20 +35,20 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 44 -- updated after each test)
   lastUnit: {
-    n: 45, label: 'Unit 45', score: 16, outOf: 20, pct: 80, delta: null, prevScore: 11, prevOutOf: 25,
+    n: 46, label: 'Unit 46', score: 11, outOf: 25, pct: 44, delta: null, prevScore: 16, prevOutOf: 20,
 
-    patternLabel:   "Unit 45 &mdash; 24 Oct 2026 &middot; 16/20 &middot; on the bar",
-    patternInsight: "<strong>16/20 (80%) &mdash; exactly on the pass bar (16); streak 2 of 4.</strong> Auto 8/8; written 8/12 (range 7&ndash;10), marked by Naomi. The proof box works on feelings: accepted on 5 of 6 written items within two tries. The one miss is Q9, a timetable fact: 6 rejected tries, then &ldquo;I can't find it&rdquo;. The idea in a full sentence landed on 3 of 6. Lesson (8 min 25 s) and test (12 min 55 s) were sat 15 seconds apart on Sat 24 Oct.",
+    patternLabel:   "Unit 46 &mdash; 25 Oct 2026 &middot; 11/25 &middot; Scene 3/5",
+    patternInsight: "<strong>11/25 on the school rubric (Ideas 2 &middot; Organisation 3 &middot; Style 2 &middot; Word Choice 2 &middot; Conventions 2), range 10&ndash;13; Scene 3/5; moment chosen: no.</strong> Marked by Naomi. Draft 1 had 0 &ldquo;and then&rdquo; and the longest sentence was 25 words &mdash; the unit&rsquo;s bar, as the page counts it. The Fix-it round had nothing to flag. Typed: 1% dictated; the page refused 4 attempts to dictate on the story and 4 on the lesson. Story 14 min 30 s, lesson 9 min 52 s, sat 15 seconds apart.",
 
-    analysisLabel:   "Unit 45 Result Analysis &mdash; 24 Oct 2026",
-    analysisInsight: "<strong>The proofs are in his hand; the answer sentence is not yet.</strong> See TEST_RECORD_U045.md for provenance and the flags (same-sitting score; the Q9 proof box wants 4 words and a timetable row name is 2&ndash;3).",
+    analysisLabel:   "Unit 46 Result Analysis &mdash; 25 Oct 2026",
+    analysisInsight: "<strong>The sentence rule is followed literally; the rubric did not move.</strong> Five sentences now open with &ldquo;Then&rdquo;. None of the picture&rsquo;s objects appears in the story. See TEST_RECORD_U046.md for provenance and the flags.",
 
-    qSummary: "<strong>16/20 &mdash; on the bar.</strong> Auto 8/8 &middot; written 8/12.",
+    qSummary: "<strong>11/25 &mdash; equal to Unit 44.</strong> Scene 3/5 &middot; taps 0&ndash;1/4.",
 
     qBreakdown: [
-      { q:"Multiple choice", topic:"Reading", pass:true, note:"&#9650; 8/8 &mdash; every strand and tier clean." },
-      { q:"Proof ticks", topic:"Reading", pass:true, note:"&#9650; 5/6 accepted within two tries &mdash; only the timetable fact (Q9) missed." },
-      { q:"Idea in a sentence", topic:"Reading", pass:false, note:"3/6 &mdash; several answers were fragments or named a feeling without the reason." }
+      { q:"Draft-1 sentence control", topic:"Writing", pass:true, note:"&#9650; 0 &ldquo;and then&rdquo;, longest sentence 25 words (the bar)." },
+      { q:"School rubric", topic:"Writing", pass:false, note:"11/25 &mdash; the same trait pattern as Unit 44 (2&middot;3&middot;2&middot;2&middot;2)." },
+      { q:"Scene score", topic:"Writing", pass:false, note:"3/5; the big moment ran on as a chain; SHOW note copied the SEE note." }
     ]
   },
 
@@ -139,11 +139,27 @@ var PREM_ENGLISH = {
     { n:42, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U42 W' },
     { n:43, score:13, outOf:25, delta:null, color:'#f6993f', star:false, label:'U43 W' },
     { n:44, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U44 W' },
-    { n:45, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U45' }
+    { n:45, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U45' },
+    { n:46, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U46 W' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 46,
+      title: "Unit 46 &mdash; &#9999;&#65039; Full Stops: one idea, one sentence (writing, typed)",
+      badge: '#f6993f',
+      status: 'done',
+      note: "11/25 on the school rubric (range 10&ndash;13), Scene 3/5, moment chosen no &mdash; marked by Naomi. Draft 1: 0 &ldquo;and then&rdquo;, longest sentence 25 words. Typed, 1% dictated; the page refused 4 attempts to dictate on the story and 4 on the lesson. Lesson 9 min 52 s and story 14 min 30 s, sat 15 seconds apart on Sun 25 Oct. <strong>Unit 47 is reading.</strong>",
+      tags: [
+        { t:"11/25", s:"background:#fff8e1;color:#744210" },
+        { t:"Draft 1: 0 &ldquo;and then&rdquo;", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Scene 3/5", s:"background:#fff8e1;color:#744210" },
+        { t:"Typed", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Same sitting", s:"background:#edf2f7;color:#4a5568" },
+        { t:"&rarr; Unit 47 Answer the Question", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 45,
       title: "Unit 45 &mdash; &#128269; Feelings Hide in Actions: find the proof in what a person does",

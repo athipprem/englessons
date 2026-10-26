@@ -1,0 +1,39 @@
+{
+  "student": "Prem",
+  "unit": 46,
+  "lesson": "L1",
+  "lessonDone": true,
+  "dateDone": "2026-10-25",
+  "openedAt": "2026-10-25T10:44:04.664Z",
+  "finishedAt": "2026-10-25T10:53:58.113Z",
+  "minutesSpent": 10,
+  "secondsSpent": 592,
+  "drills": {
+    "W": "1/2",
+    "S1": "2/5",
+    "S2": "3/3"
+  },
+  "fix": {
+    "text": "So they went camping. Then there was a storm.they had to escape. I was stuck in the truck for one day. But in the end I came out and back to my house.",
+    "tries": 3
+  },
+  "imitate": {
+    "notes": {
+      "see": "Glass, a crack",
+      "hear": "A loud crash, bang",
+      "say": "\"Oh No\"!",
+      "show": "A glass ,a crack"
+    },
+    "text": "The ball smashed into the window. The glass cracked.I panicked and said \"oh no\"!. Then I heard a loud crack! Bang! Itold my dad about it and he went to inspect it. \nThen he went to the store to find some stuff. He found the stuff he needed and came back home. Then he fixed the window.  ",
+    "words": 57,
+    "sentences": 7,
+    "longest": 11
+  },
+  "selfCheck": 3,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "dictationBlocked": 4,
+  "pasteBlocked": 0,
+  "stuckOpened": 0,
+  "movedOn": []
+}

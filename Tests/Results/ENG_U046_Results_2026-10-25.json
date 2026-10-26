@@ -1,0 +1,95 @@
+{
+  "student": "Prem",
+  "unit": 46,
+  "paper": "W",
+  "mode": "digital",
+  "dateTaken": "2026-10-25",
+  "openedAt": "2026-10-25T10:54:12.954Z",
+  "startedAt": "2026-10-25T10:54:13.785Z",
+  "finishedAt": "2026-10-25T11:08:43.367Z",
+  "secondsSpent": 870,
+  "minutesSpent": 15,
+  "title": "The movie",
+  "plan": {
+    "who": "Jill Andy Terry",
+    "problem": "A bad guy breaks in",
+    "moment": "The police comes",
+    "ending": "The bad guy gets caught."
+  },
+  "notes": {
+    "see": "A movie, treehouse",
+    "hear": "Crash, bang",
+    "say": "\"Oh No\"!",
+    "show": "A movie, treehouse"
+  },
+  "sections": {
+    "beginning": "Andy Terry and Jill are watching a movie in their treehouse peacefully. It was a movie about a cat who transformed in to a spider. After 30 minutes they went to the toilet. When they came back everything went bad.",
+    "buildUp": "A thief broke into the movie theater and stole some lights. It was so chaotic that the museum staff had to came in. Then the thief went on to smash everybody's popcorn into pieces. Then he kept running back and forth. Then one guy in the movie theater called the police.",
+    "bigMoment": "The police came to the movie theater to see what happend. Then everyone shouted \"Oh No\"! The police and thief went on a wild chase. And they crashed in to the movie set and fake treehouse. Crash Bang. They knocked everything over. Then the cops succesfully caught the thief. They took him to the station and asked him to\"WHY?\" The thief said i don't know so the cop send the thief to 4 years in prison then they came back to the movie theater.",
+    "ending": "They wayched the mivie untill the end and everyone was proud about the people in the movie. Jill went to her house and Andy and Terry went to their's. THE END"
+  },
+  "words": {
+    "beginning": 40,
+    "buildUp": 51,
+    "bigMoment": 84,
+    "ending": 31,
+    "total": 206
+  },
+  "sentences": {
+    "beginning": 4,
+    "buildUp": 5,
+    "bigMoment": 8,
+    "ending": 2
+  },
+  "sectionSeconds": {
+    "beginning": 144,
+    "buildUp": 195,
+    "bigMoment": 256,
+    "ending": 76
+  },
+  "draft1": {
+    "beginning": "Andy Terry and Jill are watching a movie in their treehouse peacefully. It was a movie about a cat who transformed in to a spider. After 30 minutes they went to the toilet. When they came back everything went bad.",
+    "buildUp": "A thief broke into the movie theater and stole some lights. It was so chaotic that the museum staff had to came in. Then the thief went on to smash everybody's popcorn into pieces. Then he kept running back and forth. Then one guy in the movie theater called the police.",
+    "bigMoment": "The police came to the movie theater to see what happend. Then everyone shouted \"Oh No\"! The police and thief went on a wild chase. And they crashed in to the movie set and fake treehouse. Crash Bang. They knocked everything over. Then the cops succesfully caught the thief. They took him to the station and asked him to\"WHY?\" The thief said i don't know so the cop send the thief to 4 years in prison then they came back to the movie theater.",
+    "ending": "They wayched the mivie untill the end and everyone was proud about the people in the movie. Jill went to her house and Andy and Terry went to their's. THE END"
+  },
+  "fixes": [],
+  "andThen": {
+    "before": 0,
+    "after": 0
+  },
+  "longSentences": {
+    "before": 0,
+    "after": 0
+  },
+  "typedChars": 1333,
+  "addedChars": 1342,
+  "dictatedShare": 0.01,
+  "dictationBlocked": 4,
+  "pasteBlocked": 0,
+  "repeatBlocks": 0,
+  "planUsedBlocks": 0,
+  "taps": {
+    "see": {
+      "index": 1,
+      "text": "The police came to the movie theater to see what happend."
+    },
+    "hear": {
+      "index": 2,
+      "text": "Then everyone shouted \"Oh No\"!"
+    },
+    "say": {
+      "index": 5,
+      "text": "Crash Bang."
+    },
+    "show": {
+      "index": 9,
+      "text": "The thief said i don't know so the cop send the thief to 4 years in prison then they came back to the movie theater."
+    }
+  },
+  "reviewSeconds": 25,
+  "editedOnReview": false,
+  "stuckExit": false,
+  "restored": false,
+  "story": "The movie\n\nAndy Terry and Jill are watching a movie in their treehouse peacefully. It was a movie about a cat who transformed in to a spider. After 30 minutes they went to the toilet. When they came back everything went bad.\n\nA thief broke into the movie theater and stole some lights. It was so chaotic that the museum staff had to came in. Then the thief went on to smash everybody's popcorn into pieces. Then he kept running back and forth. Then one guy in the movie theater called the police.\n\nThe police came to the movie theater to see what happend. Then everyone shouted \"Oh No\"! The police and thief went on a wild chase. And they crashed in to the movie set and fake treehouse. Crash Bang. They knocked everything over. Then the cops succesfully caught the thief. They took him to the station and asked him to\"WHY?\" The thief said i don't know so the cop send the thief to 4 years in prison then they came back to the movie theater.\n\nThey wayched the mivie untill the end and everyone was proud about the people in the movie. Jill went to her house and Andy and Terry went to their's. THE END"
+}
