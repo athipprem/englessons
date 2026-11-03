@@ -15,17 +15,18 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '26 Oct 2026',
+  updated:        '3 Nov 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           47,
-    heroLabel:   "Unit 47 - Lesson day 1, Test day 2",
-    status:      "&#128214; UNIT 47 &mdash; Answer the Question It Asks (reading), built 26 Oct. Day 1: a ~20-minute lesson that starts with two of his own Unit 45 answers (&ldquo;To make ravi show it&rdquo;) and ends with him fixing them; the save reveals the test link. Day 2: a story, a ferry timetable and an information text &mdash; 14 questions, 20 marks, pass bar 16 &mdash; with the proof box and a new answer check on every written question. One goal: answer exactly what the question asks, in a full sentence that fits it.",
+    n:           48,
+    heroLabel:   "Unit 48 - School Test 5-6 (Thu), Wednesday: Lesson + Paper",
+    status:      "&#127979; UNIT 48 &mdash; School Test 5-6 prep (Thursday paper), built 3 Nov. Wednesday: a ~20-minute spelling-and-vocabulary lesson on 40 words from <em>How Do You Hide a Crocodile?</em> and <em>Mountain Biking</em>, ending with a save that reveals the paper link; then the paper &mdash; spelling, definitions, a word-box cloze, a flyer and a story &mdash; 46 questions, 55 marks, pass bar 44, with the proof box on every written question. Unit 47 (Answer the Question It Asks) is built and still waiting &mdash; Prem does it later. Unit 49 (Friday half) is next.",
     testPending: true
   },
+
 
   // Baseline = ASMOPSS 2025 assessment (reference — scores hardcoded in renderHero)
   baseline: {

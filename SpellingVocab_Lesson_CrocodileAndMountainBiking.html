@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spelling and Vocabulary — Crocodile and Mountain Biking — Unit 48</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#E3F2FD;color:#1a1a2e;min-height:100vh}
+.topnav{display:flex;align-items:center;justify-content:space-between;background:#0d47a1;color:#fff;padding:10px 18px;gap:8px}
+.topnav a.hub-btn{color:#fff;text-decoration:none;font-size:15px;line-height:1;background:rgba(255,255,255,0.15);padding:6px 10px;border-radius:6px;flex:0 0 auto}
+.topnav .nav-title{font-size:14px;font-weight:700;text-align:center;flex:1}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-pill{font-size:11px;background:rgba(255,255,255,0.18);padding:3px 8px;border-radius:10px}
+.nav-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px}
+.nav-btn:disabled{opacity:0.35;cursor:default}
+.screen{display:none;max-width:820px;margin:0 auto;padding:24px 16px 40px}
+.screen.active{display:block}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(13,71,161,0.10);margin-bottom:18px}
+h2{color:#0d47a1;font-size:1.22rem;margin-bottom:14px}
+p{font-size:15px;line-height:1.7;margin-bottom:12px}
+.tag{display:inline-block;background:#FEEBC8;color:#8A5A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.3px}
+.why-box{background:#E3F2FD;border:2px solid #1e88e5;border-radius:10px;padding:14px 16px;margin:12px 0}
+.why-title{font-weight:700;color:#0d47a1;margin-bottom:6px}
+.rule-box{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:16px;text-align:center;margin:14px 0;font-weight:700;line-height:1.5}
+.passage{background:#F5F9FF;border:1.5px solid #90CAF9;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.passage.small{font-size:12.5px;line-height:1.7;padding:10px 12px}
+.sn{cursor:pointer;padding:1px 2px;border-radius:4px}
+.tapzone .sn:hover{background:#E3F2FD}
+.sn.proof{background:#FFF176}
+.sn.wrongtap{background:#FFCDD2}
+.sn.keyw{background:#FFE0B2}
+.locked{pointer-events:none}
+.di{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:12px 16px;margin:12px 0}
+.di-sent{font-size:14.5px;line-height:1.6;margin-bottom:8px;font-weight:600}
+.tapnote{font-size:12.5px;color:#5a6b8c;margin-bottom:4px}
+.jq{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.6;margin:6px 0}
+.di-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.di-opt{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.di-opt.right{background:#C8E6C9;border-color:#2E7D32}
+.di-opt.wrong{background:#FFCDD2;border-color:#C62828}
+.di-fb{font-size:13px;font-weight:600;margin-top:8px;padding:6px 10px;border-radius:6px;display:none;line-height:1.5}
+.di-fb.ok{background:#E8F5E9;color:#1B5E20;display:block}
+.di-fb.no{background:#FFEBEE;color:#B71C1C;display:block}
+.retry-box{margin-top:10px;background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:10px 12px}
+.retry-title{font-size:12px;font-weight:800;color:#0d47a1;margin-bottom:6px}
+.walk{margin-top:8px;background:#fff;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.55;color:#0d47a1}
+.lock-note{margin-top:12px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;background:#FFEBEE;color:#B71C1C;display:none}
+.lock-note.show{display:block}
+.drill-score{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;border-radius:12px;padding:14px;text-align:center;margin:16px 0;display:none}
+.drill-score.show{display:block}
+.routine-box{background:#fff;border:2.5px solid #0d47a1;border-radius:12px;padding:16px;margin:14px 0}
+.routine-step{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.routine-num{background:#0d47a1;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.routine-text{font-size:14px;line-height:1.6}
+.routine-final{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0}
+.fbox{background:#F5F9FF;border:2px solid #1e88e5;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;color:#0d47a1}
+.fbox.go{background:#E8F5E9;border-color:#2E7D32;color:#1B5E20}
+.fbox.stop{background:#FFEBEE;border-color:#C62828;color:#B71C1C}
+.arrow{font-size:18px;color:#0d47a1}
+.tree{margin:14px 0;border:2px solid #BBDEFB;border-radius:12px;padding:12px;background:#fff}
+.tree .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.parts span{display:inline-block;padding:3px 8px;border-radius:6px;margin:2px;font-size:14px}
+.pa{background:#BBDEFB}.pb{background:#FFE0B2}.pc{background:#C8E6C9}
+.hidden{display:none}
+.ansrow{border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff;font-size:13.5px;line-height:1.6}
+.ansrow .di-btns{margin-top:6px}
+input.pf,textarea.myans{width:100%;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:14px;margin-top:4px}
+textarea.myans{min-height:80px}
+.pfmsg{font-size:13px;font-weight:600;margin-top:4px;min-height:18px}
+.pfmsg.ok{color:#1B5E20}.pfmsg.no{color:#B71C1C}
+label.fld{display:block;font-size:13px;font-weight:700;color:#0d47a1;margin-top:10px}
+.checkbox-row{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-size:13.5px}
+.btn{background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.gate-result{border-radius:12px;padding:16px;margin-top:14px;text-align:center;font-weight:700;display:none}
+.gate-result.ready{background:#E8F5E9;color:#1B5E20;display:block}
+.gate-result.retry{background:#FFEBEE;color:#B71C1C;display:block}
+.gate-result a{color:#0d47a1;text-decoration:underline;cursor:pointer}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:2px solid #BBDEFB;gap:10px;flex-wrap:wrap}
+.btn-hub{display:inline-block;background:#718096;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.btn-go{display:inline-block;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700}
+.quote-mark{background:#FFF176;border-radius:3px;padding:0 2px}
+.stay{color:#B71C1C;font-weight:700}
+
+.di-btns.col{flex-direction:column}
+.di-btns.col .di-opt{width:100%;font-weight:600;line-height:1.5}
+.di-num{font-size:11px;font-weight:800;color:#5a6b8c;margin-bottom:6px;letter-spacing:.4px}
+.ansq{font-size:14px;margin:6px 0 8px;line-height:1.6}
+.tickline{font-size:13px;font-weight:700;color:#0d47a1;margin:8px 0 4px}
+.tk{letter-spacing:2px}
+.drill-head{font-size:13px;font-weight:800;color:#8A5A00;background:#FEEBC8;display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:6px}
+.drill-score.ready{background:linear-gradient(135deg,#2E7D32,#66BB6A)}
+.drill-score.retry{background:linear-gradient(135deg,#B71C1C,#E57373)}
+.drill-score a{color:#fff;text-decoration:underline}
+.drill-score .btn{background:#fff;color:#0d47a1}
+.btn.ghost{background:#E3F2FD;color:#0d47a1;border:1.5px solid #1e88e5}
+label.chk{display:block;font-size:13.5px;margin:6px 0}
+label.chk input{width:18px;height:18px;vertical-align:middle;margin-right:8px}
+.mcard{border:3px solid #0d47a1;border-radius:14px;background:#fff;padding:14px;margin:12px 0;max-width:420px}
+.mcard .mc-t{font-weight:800;color:#0d47a1;text-align:center;margin-bottom:8px}
+.mrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.mbox{width:30px;height:30px;border:3px solid #0d47a1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#2E7D32;font-weight:900;flex-shrink:0;background:#fff}
+.mbox.red{border-color:#C62828}
+.mbox.on::after{content:"✔"}
+.mbox.off::after{content:""}
+.demo{border:2px solid #BBDEFB;border-radius:12px;padding:12px;margin:10px 0;background:#fff}
+.demo .ans{font-size:14.5px;line-height:1.6;margin-bottom:8px}
+.demo .mrow .mbox{border-color:#BBDEFB}
+.demo.on .mrow .mbox{border-color:#0d47a1}
+.demo .mbox::after{content:""}
+.demo.on .mbox.t1y::after,.demo.on .mbox.t2y::after{content:"✔"}
+.demo .verdict{display:none;font-size:13px;font-weight:700;margin-top:6px}
+.demo.on .verdict{display:block}
+.layers{margin:14px 0;max-width:460px}
+.layer{border-radius:10px;padding:12px 14px;font-weight:800;font-size:14.5px;margin-bottom:6px}
+.layer.l1{background:#BBDEFB;color:#0d47a1}
+.layer.l2{background:#FFE0B2;color:#8A5A00}
+.layer.l3{background:#C8E6C9;color:#1B5E20}
+.bars{margin:14px 0}
+.barrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13.5px}
+.barrow .bl{width:170px;font-weight:700;line-height:1.3}
+.bartrack{flex:1;height:24px;background:#ECEFF1;border-radius:12px;overflow:hidden;position:relative}
+.barfill{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:800;font-size:12px}
+.blocks{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:10px 0}
+.blk{border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5;font-weight:600}
+.blk small{display:block;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:3px}
+.blk.b1{background:#BBDEFB;color:#0d47a1}
+.blk.b2{background:#FFE0B2;color:#8A5A00}
+.blk.b3{background:#C8E6C9;color:#1B5E20}
+.frame{border:3px solid #0d47a1;border-radius:14px;padding:14px 16px;margin:14px 0;background:#F5F9FF}
+.frame .fl{margin:7px 0;font-size:14.5px;line-height:1.6}
+.frame .fn{display:inline-block;background:#0d47a1;color:#fff;border-radius:50%;width:24px;height:24px;text-align:center;line-height:24px;font-weight:800;font-size:13px;margin-right:6px}
+.frame .rb{margin-top:10px;font-weight:800;color:#B71C1C;font-size:14px}
+.report-grid{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.rep{flex:1 1 140px;background:#F5F9FF;border:2px solid #BBDEFB;border-radius:10px;padding:10px;text-align:center}
+.rep-t{font-size:12px;font-weight:800;color:#0d47a1}.rep-n{font-size:22px;font-weight:900;color:#0d47a1}.rep-s{font-size:11.5px;color:#5a6b8c}
+.boardbox{border:3px solid #00695c;border-radius:12px;background:#E0F2F1;padding:12px 16px;margin:10px 0}
+.boardbox h4{color:#00695c;margin-bottom:6px}
+.boardbox li{margin:3px 0 3px 18px;font-size:13.5px}
+.nav-title{font-size:14px}
+@media (max-width:560px){.barrow .bl{width:110px;font-size:12px}}
+
+.ck{display:flex;gap:10px;align-items:flex-start;margin:7px 0;font-size:14.5px;line-height:1.55}
+.ck .cn{background:#0d47a1;color:#fff;border-radius:50%;width:26px;height:26px;flex:0 0 26px;text-align:center;line-height:26px;font-weight:800;font-size:13px}
+.cams{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.cam{flex:1 1 250px;border:2.5px solid #BBDEFB;border-radius:12px;padding:10px;background:#fff;cursor:pointer;text-align:center}
+.cam svg{width:100%;height:auto;border-radius:8px;background:#F5F9FF}
+.cam .ct{font-weight:800;color:#0d47a1;margin:6px 0 2px;font-size:14px}
+.cam .cs{display:none;font-size:13.5px;line-height:1.55;margin-top:6px;text-align:left}
+.cam.on{border-color:#0d47a1}.cam.on .cs{display:block}
+.lite{background:#FFF176;border-radius:4px;padding:0 2px}
+.lbtns{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.lbtn{background:#E3F2FD;border:2px solid #1e88e5;color:#0d47a1;border-radius:8px;padding:6px 11px;font-weight:800;font-size:13px;cursor:pointer}
+.lbtn.on{background:#0d47a1;color:#fff}
+.lnote{font-size:13.5px;line-height:1.55;min-height:40px;background:#F5F9FF;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;margin:6px 0}
+.assembled{background:#F5F9FF;border:2px dashed #1e88e5;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14.5px;line-height:1.8;min-height:50px}
+.assembled .ph{color:#5a6b8c;font-size:13px}
+.cardhd{display:inline-block;background:#0d47a1;color:#fff;font-weight:800;border-radius:6px;padding:2px 10px;font-size:13px;margin-bottom:6px}
+.sc{font-size:12.5px;color:#5a6b8c;margin:4px 0}
+.ticks5{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.savebox{text-align:center;margin:14px 0}
+.save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:16px;line-height:1.7}
+.save-steps ol{margin:8px 0 8px 22px}
+.save-steps p{font-size:14px;margin:4px 0 0}
+
+
+#saveStatus{font-size:14px;font-weight:700;margin-top:10px;color:#5a6b8c}
+#saveStatus.done{color:#1B5E20}#saveStatus.reminder{color:#B71C1C}
+
+.small{font-size:12.5px;color:#5a6b8c}
+ol.events{margin:8px 0 12px 24px;font-size:14.5px;line-height:1.8}
+.lights{margin:8px 0}
+.light{display:inline-block;background:#ECEFF1;color:#455A64;border-radius:14px;padding:3px 12px;font-size:13px;font-weight:800;margin-right:8px}
+.light.g{background:#C8E6C9;color:#1B5E20}
+.note-y{background:#FFF9C4;border-left:4px solid #F9A825;border-radius:6px;padding:6px 10px;margin-top:8px;font-size:13px;font-weight:600}
+
+.fbk{border:3px solid #0d47a1;border-radius:14px;background:#F5F9FF;padding:14px 16px;margin:14px 0}
+.fbk .fb-q,.fbk .fb-a,.fbk .fb-mark{margin:8px 0;font-size:14.5px;line-height:1.6}
+.fbk .fb-lab{display:block;font-size:11px;font-weight:800;letter-spacing:.5px;color:#5a6b8c;text-transform:uppercase;margin-bottom:2px}
+.fbk .fb-a{background:#fff;border:2px dashed #90CAF9;border-radius:10px;padding:8px 12px}
+.fbk .fb-mark b{font-size:22px;color:#0d47a1}
+.fbk .fb-star{background:#E8F5E9;border-left:5px solid #2E7D32;border-radius:6px;padding:8px 12px;margin:8px 0;font-size:14.5px;font-weight:700;color:#1B5E20}
+.fbk .fb-pen{background:#FFF8E1;border-left:5px solid #F9A825;border-radius:6px;padding:8px 12px;margin:8px 0;font-size:14.5px;font-weight:700;color:#8A5A00}
+.photo{margin:12px 0;border:3px solid #BBDEFB;border-radius:14px;overflow:hidden;background:#BFE6FF;line-height:0}
+.photo svg{width:100%;height:auto;display:block}
+.hs{cursor:pointer}
+.hs .ring{fill:none;stroke:transparent;stroke-width:4;pointer-events:none}
+.hs.good .ring{stroke:#2E7D32}
+.hs.bad .ring{stroke:#C62828}
+.quote-line{font-size:16px;font-weight:700;line-height:1.6;background:#FFF9C4;border-left:5px solid #F9A825;border-radius:8px;padding:10px 14px;margin:12px 0}
+.mockbox{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:8px 0}
+.mockbox .mb-lab{font-size:11.5px;font-weight:800;color:#5a6b8c;margin:6px 0 2px}
+.mockbox .mb-in{border:1.5px solid #1e88e5;border-radius:8px;padding:7px 9px;font-size:14px;background:#F5F9FF}
+.mockbox .mb-ok{font-size:13px;font-weight:700;color:#1B5E20;margin:4px 0}
+.pbitem{border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:12px 14px;margin:14px 0}
+.pbitem.done{border-color:#2E7D32;background:#F1F8E9}
+.pbitem .old{color:#78909C;font-style:italic;background:#ECEFF1;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:14px;line-height:1.6}
+.pbitem input.pf{margin-top:2px}
+.pbitem input.bad{border-color:#C62828;background:#FFEBEE}
+.pbitem input.good{border-color:#2E7D32;background:#E8F5E9}
+.bigsave{font-size:17px;padding:14px 28px;background:#1565C0;border-radius:12px}
+.topnav .nav-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:560px){.topnav{padding:8px 10px;flex-wrap:wrap}.topnav .nav-title{order:3;flex:1 0 100%}.nav-right{margin-left:auto}.card{padding:18px 14px}}
+.stepbox{border:2.5px solid #BBDEFB;border-radius:12px;background:#fff;padding:12px 14px;margin:12px 0}
+.stepbox.off{opacity:.45}
+.tapq{font-weight:800;color:#0d47a1;margin:0 0 4px;font-size:15px}
+@media (max-width:560px){.flow{flex-direction:column;align-items:stretch}.flow .arrow{align-self:center;transform:rotate(90deg);line-height:1}.flow .fbox{text-align:center}}
+
+
+.shapes{margin:14px 0}
+.shape{display:flex;align-items:stretch;gap:0;margin:10px 0}
+.shape .key,.shape .lock{flex:1 1 0;min-width:0;padding:12px 14px 12px 40px;font-size:15px;font-weight:800;color:#0d47a1;position:relative;display:flex;align-items:center}
+.shape .key{background:#BBDEFB;border:2.5px solid #1e88e5;border-radius:12px 4px 4px 12px}
+.shape .key::before{content:"🔑";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:20px}
+.shape .lock{background:#FFE0B2;border:2.5px solid #F57C00;border-radius:4px 12px 12px 4px;color:#8A5A00}
+.shape .lock::before{content:"🔒";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:20px}
+.shape .shp-arr{flex:0 0 36px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#0d47a1;font-weight:900}
+@media (max-width:560px){.shape{flex-direction:column}.shape .key{border-radius:12px 12px 4px 4px}.shape .lock{border-radius:4px 4px 12px 12px}.shape .shp-arr{flex:0 0 28px;transform:rotate(90deg)}}
+.fbk .fb-a.old2{border-style:solid;border-color:#CFD8DC;background:#ECEFF1;color:#78909C}
+.tg{margin:10px 0}
+
+/* ---- Unit 48 additions ---- */
+.bt{display:inline-block;border-radius:8px;padding:5px 9px;font-weight:800;font-size:15px;margin:2px 0}
+.bt.c0{background:#BBDEFB;color:#0d47a1}.bt.c1{background:#FFE0B2;color:#8A5A00}.bt.c2{background:#C8E6C9;color:#1B5E20}
+.bt.hl{outline:3px solid #C62828;outline-offset:1px}
+.dt{display:inline-block;margin:0 3px;font-weight:900;color:#5a6b8c}
+.fixrow{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:10px 12px;margin:10px 0;font-size:15px;line-height:2}
+.fixrow .wrongw{color:#B71C1C;font-weight:800;text-decoration:line-through;text-decoration-color:#B71C1C}
+.fixrow .cap{display:block;font-size:12.5px;color:#5a6b8c;line-height:1.4}
+.wl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:620px){.wl{grid-template-columns:1fr}}
+.wi{background:#fff;border:2px solid #BBDEFB;border-radius:10px;padding:8px 10px;line-height:1.55}
+.wi .wm{font-size:12.5px;color:#455A64;display:block}
+.booktag{font-size:13px;font-weight:800;color:#0d47a1;margin:16px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin:12px 0}
+.chip{background:#0d47a1;color:#fff;font-weight:800;border-radius:20px;padding:6px 10px;font-size:13px}
+.chips .dt{margin:0 1px}
+.tw{margin:6px 0}
+.trap{background:#FFF8E1;border:2px solid #FFD54F;border-radius:12px;padding:10px 14px;margin:10px 0}
+.trap b.t{color:#8A5A00}
+.mini{background:#fff;border:2px dashed #90CAF9;border-radius:12px;padding:12px 14px;margin:12px 0}
+.mini .big{font-size:26px;font-weight:900;letter-spacing:1px;color:#0d47a1;min-height:40px}
+input.tin,input.mt{width:100%;max-width:340px;border:1.5px solid #1e88e5;border-radius:8px;padding:8px;font-family:inherit;font-size:15px;margin-top:4px}
+input.tin.good{border-color:#2E7D32;background:#E8F5E9}input.tin.bad{border-color:#C62828;background:#FFEBEE}
+.stuck{background:#F5F9FF;border-left:4px solid #1e88e5;border-radius:6px;padding:8px 10px;margin:6px 0}
+.gap{display:inline-block;min-width:70px;border-bottom:3px solid #0d47a1;text-align:center;color:#0d47a1;font-weight:800}
+.boxbar{background:#E0F2F1;border:2px solid #00695c;border-radius:10px;padding:8px 10px;margin:8px 0;font-size:14px;font-weight:800;color:#00695c}
+.boxbar .bw{display:inline-block;margin:2px 6px 2px 0;padding:2px 8px;background:#fff;border-radius:6px}
+.boxbar .bw.used{text-decoration:line-through;opacity:.45}
+.di-opt.used{opacity:.4;text-decoration:line-through}
+.lock-note{margin-top:12px}
+.mockrow{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
+.mockrow .mockbox{flex:1 1 220px}
+.tree2{border:2px solid #BBDEFB;border-radius:12px;background:#fff;padding:10px 12px;margin:12px 0}
+.tree2 .br{border-left:5px solid #1e88e5;padding:6px 10px;margin:8px 0;background:#F5F9FF;border-radius:0 8px 8px 0;font-size:14px;line-height:1.55}
+.tree2 .br.n{border-color:#1e88e5}.tree2 .br.d{border-color:#F57C00}.tree2 .br.a{border-color:#2E7D32}.tree2 .br.h{border-color:#7B1FA2}
+.sayline{font-style:italic;background:#ECEFF1;border-radius:8px;padding:8px 12px;margin:6px 0}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="hub-btn" title="Back to Hub" aria-label="Back to Hub">✕</a>
+  <span class="nav-title">Spelling and Vocabulary — Crocodile and Mountain Biking</span>
+  <div class="nav-right">
+    <span class="nav-pill" id="navPill">Unit 48 · Lesson 1</span>
+    <button class="nav-btn" id="prevBtn" onclick="goScreen(-1)" disabled>← Prev</button>
+    <button class="nav-btn" id="nextBtn" onclick="goScreen(1)">Next →</button>
+  </div>
+</nav>
+
+<div class="screen" id="s0"><div class="card"><span class="tag">UNIT 48 · LESSON 1 · WEDNESDAY</span>
+<p><b>Type it yourself — microphone off.</b></p>
+<p><b>📁 This lesson ends by saving your work into the Results folder.</b></p>
+<h2>Your school test is on Thursday</h2>
+<p>Your school test is on Thursday. It picks words from <i>How Do You Hide a Crocodile?</i> and <i>Mountain Biking</i>. This lesson covers 40 of them.</p>
+<div class="why-box"><div class="why-title">Why this matters 🎯</div>
+<p>On the school test, one wrong letter loses the mark, and a word you cannot read loses the mark too. Words are also how you say exactly what you mean — in a story, in a message to a friend, or when you explain something. And you will meet three kinds of question on Thursday. Look at each one.</p></div>
+<div class="mockrow">
+<div class="mockbox"><div class="mb-lab">1 · SPELLING — fix the underlined word</div><div class="di-sent">My <u>freind</u> came to play.</div><div class="mb-in">friend</div><div class="mb-ok">✓ You type it correctly.</div></div>
+<div class="mockbox"><div class="mb-lab">2 · MEANING — match the letter</div><div class="di-sent">A = careful &nbsp; B = noisy &nbsp; C = tiny</div><div class="di-sent"><b>cautious</b></div><div class="mb-in">A</div><div class="mb-ok">✓ You choose the letter.</div></div>
+<div class="mockbox"><div class="mb-lab">3 · BOX — fill the gap</div><div class="di-sent">BOX: giant · swiftly · pale</div><div class="di-sent">The <span class="gap">______</span> elephant shook the ground.</div><div class="mb-ok">✓ You choose from the box.</div></div>
+</div>
+<p>Today: two ways to remember spellings, two ways to learn meanings, and a plan for the box.</p>
+<div class="lock-note" id="lockNote-s0"></div></div></div>
+
+<div class="screen" id="s1"><div class="card"><span class="tag">SPELLING · ROUTE A · BEAT BLOCKS</span>
+<h2>Say the beats, build the blocks</h2>
+<p>Every word is made of beats. Clap the word, and one clap is one block. If you can hear every beat, you can spell every beat. Here are some of <b>your own</b> spellings, with the beat that went wrong.</p>
+<div class="fixrow"><span class="wrongw">happend</span> → <span class="bt c0">hap</span><span class="dt">·</span><span class="bt c1 hl">pened</span><span class="cap">The “e” hides inside the second block.</span></div>
+<div class="fixrow"><span class="wrongw">succesfully</span> → <span class="bt c0">suc</span><span class="dt">·</span><span class="bt c1 hl">cess</span><span class="dt">·</span><span class="bt c2">ful</span><span class="dt">·</span><span class="bt c0">ly</span><span class="cap">Two “c”s and two “s”s: suc · cess.</span></div>
+<div class="fixrow"><span class="wrongw">untill</span> → <span class="bt c0">un</span><span class="dt">·</span><span class="bt c1 hl">til</span><span class="cap">Only one “l” on the end.</span></div>
+<div class="fixrow"><span class="wrongw">minature</span> → <span class="bt c0">min</span><span class="dt">·</span><span class="bt c1 hl">i</span><span class="dt">·</span><span class="bt c2 hl">a</span><span class="dt">·</span><span class="bt c0">ture</span><span class="cap">Four beats — two of them went missing.</span></div>
+<div class="rule-box">One beat = one block. Never skip a block.</div>
+<h2>All 40 words, in blocks</h2>
+<p>Look through them. Say each one out loud in beats (in your head if you are somewhere quiet) and notice the tricky blocks.</p>
+<div class="booktag">📖 From <i>How Do You Hide a Crocodile?</i></div>
+<div class="wl"><div class="wi"><b>nephew</b> <span class="wm">the son of your brother or sister</span><span class="bt c0">neph</span><span class="dt">·</span><span class="bt c1">ew</span></div><div class="wi"><b>observant</b> <span class="wm">quick to notice things that other people miss</span><span class="bt c0">ob</span><span class="dt">·</span><span class="bt c1">ser</span><span class="dt">·</span><span class="bt c2">vant</span></div><div class="wi"><b>muttered</b> <span class="wm">said something quietly and crossly, almost to yourself</span><span class="bt c0">mut</span><span class="dt">·</span><span class="bt c1">tered</span></div><div class="wi"><b>resemblance</b> <span class="wm">the way two people or things look alike</span><span class="bt c0">re</span><span class="dt">·</span><span class="bt c1">sem</span><span class="dt">·</span><span class="bt c2">blance</span></div><div class="wi"><b>hibernating</b> <span class="wm">sleeping through the winter to save energy</span><span class="bt c0">hi</span><span class="dt">·</span><span class="bt c1">ber</span><span class="dt">·</span><span class="bt c2">nat</span><span class="dt">·</span><span class="bt c0">ing</span></div><div class="wi"><b>shudder</b> <span class="wm">a quick shake of your body because you are scared or disgusted</span><span class="bt c0">shud</span><span class="dt">·</span><span class="bt c1">der</span></div><div class="wi"><b>catastrophe</b> <span class="wm">a terrible event where everything goes wrong</span><span class="bt c0">ca</span><span class="dt">·</span><span class="bt c1">tas</span><span class="dt">·</span><span class="bt c2">tro</span><span class="dt">·</span><span class="bt c0">phe</span></div><div class="wi"><b>licence</b> <span class="wm">an official paper that says you are allowed to do or keep something</span><span class="bt c0">li</span><span class="dt">·</span><span class="bt c1">cence</span></div><div class="wi"><b>chaos</b> <span class="wm">a complete mess where nothing is in order</span><span class="bt c0">cha</span><span class="dt">·</span><span class="bt c1">os</span></div><div class="wi"><b>overseas</b> <span class="wm">in or to another country across the sea</span><span class="bt c0">o</span><span class="dt">·</span><span class="bt c1">ver</span><span class="dt">·</span><span class="bt c2">seas</span></div><div class="wi"><b>appetite</b> <span class="wm">how hungry you are; how much you want to eat</span><span class="bt c0">ap</span><span class="dt">·</span><span class="bt c1">pe</span><span class="dt">·</span><span class="bt c2">tite</span></div><div class="wi"><b>absent-minded</b> <span class="wm">often forgetting things because you are thinking about something else</span><span class="bt c0">ab</span><span class="dt">·</span><span class="bt c1">sent-mind</span><span class="dt">·</span><span class="bt c2">ed</span></div><div class="wi"><b>champion</b> <span class="wm">the winner of a competition; the very best</span><span class="bt c0">cham</span><span class="dt">·</span><span class="bt c1">pi</span><span class="dt">·</span><span class="bt c2">on</span></div><div class="wi"><b>frantically</b> <span class="wm">in a wild, rushed and panicky way</span><span class="bt c0">fran</span><span class="dt">·</span><span class="bt c1">tic</span><span class="dt">·</span><span class="bt c2">al</span><span class="dt">·</span><span class="bt c0">ly</span></div><div class="wi"><b>irritable</b> <span class="wm">easily made cross</span><span class="bt c0">ir</span><span class="dt">·</span><span class="bt c1">ri</span><span class="dt">·</span><span class="bt c2">ta</span><span class="dt">·</span><span class="bt c0">ble</span></div><div class="wi"><b>innocent</b> <span class="wm">not guilty; did nothing wrong</span><span class="bt c0">in</span><span class="dt">·</span><span class="bt c1">no</span><span class="dt">·</span><span class="bt c2">cent</span></div><div class="wi"><b>sympathetic</b> <span class="wm">kind and understanding when someone has a problem</span><span class="bt c0">sym</span><span class="dt">·</span><span class="bt c1">pa</span><span class="dt">·</span><span class="bt c2">thet</span><span class="dt">·</span><span class="bt c0">ic</span></div><div class="wi"><b>ventured</b> <span class="wm">went somewhere even though it might be risky</span><span class="bt c0">ven</span><span class="dt">·</span><span class="bt c1">tured</span></div><div class="wi"><b>warily</b> <span class="wm">carefully, because something might be dangerous</span><span class="bt c0">war</span><span class="dt">·</span><span class="bt c1">i</span><span class="dt">·</span><span class="bt c2">ly</span></div><div class="wi"><b>feverishly</b> <span class="wm">very fast and excitedly, as if you cannot stop</span><span class="bt c0">fe</span><span class="dt">·</span><span class="bt c1">ver</span><span class="dt">·</span><span class="bt c2">ish</span><span class="dt">·</span><span class="bt c0">ly</span></div></div>
+<div class="booktag">🚵 From <i>Mountain Biking</i></div>
+<div class="wl"><div class="wi"><b>ascending</b> <span class="wm">going up; climbing</span><span class="bt c0">as</span><span class="dt">·</span><span class="bt c1">cend</span><span class="dt">·</span><span class="bt c2">ing</span></div><div class="wi"><b>descending</b> <span class="wm">going down</span><span class="bt c0">de</span><span class="dt">·</span><span class="bt c1">scend</span><span class="dt">·</span><span class="bt c2">ing</span></div><div class="wi"><b>terrain</b> <span class="wm">the kind of land you travel over, such as rocky, muddy or sandy ground</span><span class="bt c0">ter</span><span class="dt">·</span><span class="bt c1">rain</span></div><div class="wi"><b>rugged</b> <span class="wm">rough, rocky and uneven</span><span class="bt c0">rug</span><span class="dt">·</span><span class="bt c1">ged</span></div><div class="wi"><b>durable</b> <span class="wm">strong enough to last a long time</span><span class="bt c0">du</span><span class="dt">·</span><span class="bt c1">ra</span><span class="dt">·</span><span class="bt c2">ble</span></div><div class="wi"><b>suspension</b> <span class="wm">springs that soak up bumps so the ride is smoother</span><span class="bt c0">sus</span><span class="dt">·</span><span class="bt c1">pen</span><span class="dt">·</span><span class="bt c2">sion</span></div><div class="wi"><b>traction</b> <span class="wm">how well something holds on to the ground without slipping</span><span class="bt c0">trac</span><span class="dt">·</span><span class="bt c1">tion</span></div><div class="wi"><b>puncture</b> <span class="wm">a small hole in a tyre that lets the air out</span><span class="bt c0">punc</span><span class="dt">·</span><span class="bt c1">ture</span></div><div class="wi"><b>inaccessible</b> <span class="wm">impossible or very hard to reach</span><span class="bt c0">in</span><span class="dt">·</span><span class="bt c1">ac</span><span class="dt">·</span><span class="bt c2">ces</span><span class="dt">·</span><span class="bt c0">si</span><span class="dt">·</span><span class="bt c1">ble</span></div><div class="wi"><b>reflective</b> <span class="wm">shining light back, so you can be seen in the dark</span><span class="bt c0">re</span><span class="dt">·</span><span class="bt c1">flec</span><span class="dt">·</span><span class="bt c2">tive</span></div><div class="wi"><b>adjustment</b> <span class="wm">a small change to make something fit or work better</span><span class="bt c0">ad</span><span class="dt">·</span><span class="bt c1">just</span><span class="dt">·</span><span class="bt c2">ment</span></div><div class="wi"><b>lubricating</b> <span class="wm">oiling or greasing parts so they move smoothly</span><span class="bt c0">lu</span><span class="dt">·</span><span class="bt c1">bri</span><span class="dt">·</span><span class="bt c2">cat</span><span class="dt">·</span><span class="bt c0">ing</span></div><div class="wi"><b>roadworthy</b> <span class="wm">in a good enough state to be used safely on the road</span><span class="bt c0">road</span><span class="dt">·</span><span class="bt c1">wor</span><span class="dt">·</span><span class="bt c2">thy</span></div><div class="wi"><b>dehydrating</b> <span class="wm">losing too much water from your body</span><span class="bt c0">de</span><span class="dt">·</span><span class="bt c1">hy</span><span class="dt">·</span><span class="bt c2">drat</span><span class="dt">·</span><span class="bt c0">ing</span></div><div class="wi"><b>considerable</b> <span class="wm">large in amount; quite a lot</span><span class="bt c0">con</span><span class="dt">·</span><span class="bt c1">sid</span><span class="dt">·</span><span class="bt c2">er</span><span class="dt">·</span><span class="bt c0">a</span><span class="dt">·</span><span class="bt c1">ble</span></div><div class="wi"><b>protective</b> <span class="wm">keeping you safe from harm</span><span class="bt c0">pro</span><span class="dt">·</span><span class="bt c1">tec</span><span class="dt">·</span><span class="bt c2">tive</span></div><div class="wi"><b>reinforced</b> <span class="wm">made stronger by adding extra material</span><span class="bt c0">re</span><span class="dt">·</span><span class="bt c1">in</span><span class="dt">·</span><span class="bt c2">forced</span></div><div class="wi"><b>components</b> <span class="wm">the parts that something is made of</span><span class="bt c0">com</span><span class="dt">·</span><span class="bt c1">po</span><span class="dt">·</span><span class="bt c2">nents</span></div><div class="wi"><b>absorb</b> <span class="wm">to soak up</span><span class="bt c0">ab</span><span class="dt">·</span><span class="bt c1">sorb</span></div><div class="wi"><b>repellent</b> <span class="wm">a spray or cream that keeps insects away</span><span class="bt c0">re</span><span class="dt">·</span><span class="bt c1">pel</span><span class="dt">·</span><span class="bt c2">lent</span></div></div>
+<div class="lock-note" id="lockNote-s1"></div></div></div>
+
+<div class="screen" id="s2"><div class="card"><span class="tag">SPELLING · ROUTE B · A ROUTINE</span>
+<h2>Look · Say · Cover · Write · Check</h2>
+<p>If blocks are not your thing, use this routine. It works on any word.</p>
+<div class="chips"><span class="chip">Look</span><span class="dt">·</span><span class="chip">Say</span><span class="dt">·</span><span class="chip">Cover</span><span class="dt">·</span><span class="chip">Write</span><span class="dt">·</span><span class="chip">Check</span></div>
+<div class="mini"><b>Try it with one word.</b>
+<div class="big" id="lscw-word">considerable</div>
+<div id="lscw-btns"><button class="btn" onclick="lscwCover()">Cover it</button></div>
+<div id="lscw-box" class="hidden"><input class="mt" id="lscw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Write it from memory…"><div><button class="btn" onclick="lscwCheck()">Check</button></div></div>
+<div class="pfmsg" id="lscw-msg"></div></div>
+<h2>Three traps to watch for</h2>
+<div class="trap"><b class="t">Trap 1 · The dropped beat.</b> Your ear skips a beat, so your pencil does too. Count the blocks:
+<div class="tw"><span class="bt c0">fran</span><span class="dt">·</span><span class="bt c1">tic</span><span class="dt">·</span><span class="bt c2">al</span><span class="dt">·</span><span class="bt c0">ly</span></div>
+<div class="tw"><span class="bt c0">con</span><span class="dt">·</span><span class="bt c1">sid</span><span class="dt">·</span><span class="bt c2">er</span><span class="dt">·</span><span class="bt c0">a</span><span class="dt">·</span><span class="bt c1">ble</span></div>
+<div class="tw"><span class="bt c0">in</span><span class="dt">·</span><span class="bt c1">ac</span><span class="dt">·</span><span class="bt c2">ces</span><span class="dt">·</span><span class="bt c0">si</span><span class="dt">·</span><span class="bt c1">ble</span></div>
+<div class="tw"><span class="bt c0">re</span><span class="dt">·</span><span class="bt c1">pel</span><span class="dt">·</span><span class="bt c2">lent</span></div></div>
+<div class="trap"><b class="t">Trap 2 · British spelling.</b> Your school uses British spelling. A <b>licence</b> is the paper (a naming word), so keep the <b>-ce</b> at the end: <span class="bt c0">li</span><span class="dt">·</span><span class="bt c1">cence</span>.</div>
+<div class="trap"><b class="t">Trap 3 · Sounds spelled by other letters.</b>
+<div><b>ph</b> says “f”: <b>nephew</b>, <b>catastrophe</b>.</div>
+<div><b>c</b> can say “s”: <b>reinforced</b> ends in <b>-ced</b>.</div>
+<div><b>sc</b> can say “s”: <b>ascending</b>, <b>descending</b>.</div></div>
+<p>If the blocks helped, go back to them any time.</p>
+<div class="lock-note" id="lockNote-s2"></div></div></div>
+
+<div class="screen" id="s3"><div class="card"><span class="tag">DRILL 1</span>
+<h2>Type the word</h2>
+<p>Read the meaning and the sentence. Type the missing word. If you are wrong, the blocks will appear — then type it again.</p>
+<div id="drill-R1"></div>
+<div class="lock-note" id="lockNote-s3"></div></div></div>
+
+<div class="screen" id="s4"><div class="card"><span class="tag">MEANINGS · TWO ROUTES</span>
+<h2>Route A · Picture cards</h2>
+<p>Tap a card to see the word and its meaning.</p>
+<div class="cams"><div class="cam" onclick="this.classList.toggle('on')"><svg viewBox="0 0 260 150" role="img" aria-label="A hill with an arrow going up the left side and an arrow going down the right side"><defs><marker id="mkb" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#0d47a1"/></marker><marker id="mko" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#E65100"/></marker></defs>
+<rect width="260" height="150" fill="#E3F2FD"/><polygon points="20,125 130,38 240,125" fill="#66BB6A"/><polygon points="110,54 130,38 150,54 140,50 130,58 120,50" fill="#fff"/>
+<line x1="46" y1="108" x2="100" y2="64" stroke="#0d47a1" stroke-width="5" stroke-linecap="round" marker-end="url(#mkb)"/>
+<line x1="160" y1="64" x2="214" y2="108" stroke="#E65100" stroke-width="5" stroke-linecap="round" marker-end="url(#mko)"/>
+<text x="12" y="22" font-size="13" font-weight="800" fill="#0d47a1">ascending ↑ up</text><text x="248" y="144" text-anchor="end" font-size="13" font-weight="800" fill="#E65100">descending ↓ down</text></svg><div class="ct">ascending / descending</div><div class="cs"><b>Ascending</b> = going up; climbing. <b>Descending</b> = going down. Hint: <b>de-</b> means down.</div></div><div class="cam" onclick="this.classList.toggle('on')"><svg viewBox="0 0 260 150" role="img" aria-label="A brown bear asleep in a cave while snow falls"><rect width="260" height="150" fill="#37474F"/><circle cx="215" cy="30" r="14" fill="#ECEFF1"/><circle cx="222" cy="26" r="12" fill="#37474F"/>
+<g fill="#fff" font-size="14"><text x="30" y="30">❄</text><text x="70" y="52">❄</text><text x="150" y="24">❄</text><text x="190" y="64">❄</text></g>
+<path d="M0,150 L0,95 Q130,40 260,95 L260,150 z" fill="#5D4037"/><ellipse cx="130" cy="118" rx="62" ry="26" fill="#8D6E63"/><circle cx="82" cy="112" r="22" fill="#8D6E63"/><circle cx="68" cy="94" r="8" fill="#8D6E63"/><circle cx="96" cy="94" r="8" fill="#8D6E63"/><ellipse cx="74" cy="120" rx="10" ry="7" fill="#D7CCC8"/><circle cx="68" cy="123" r="2.5" fill="#3E2723"/>
+<path d="M70,108 q5,4 10,0 M90,108 q5,4 10,0" stroke="#3E2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<g fill="#FFEB3B" font-weight="800"><text x="108" y="84" font-size="16">Z</text><text x="124" y="70" font-size="20">Z</text><text x="144" y="52" font-size="24">Z</text></g></svg><div class="ct">hibernating</div><div class="cs"><b>Hibernating</b> = sleeping through the winter to save energy.</div></div><div class="cam" onclick="this.classList.toggle('on')"><svg viewBox="0 0 260 150" role="img" aria-label="A bike tyre with a nail in it and air hissing out"><rect width="260" height="150" fill="#F5F9FF"/><circle cx="100" cy="72" r="44" fill="none" stroke="#263238" stroke-width="16"/><circle cx="100" cy="72" r="29" fill="#ECEFF1" stroke="#90A4AE" stroke-width="3"/><g stroke="#90A4AE" stroke-width="2"><line x1="100" y1="72" x2="100" y2="44"/><line x1="100" y1="72" x2="100" y2="100"/><line x1="100" y1="72" x2="72" y2="72"/><line x1="100" y1="72" x2="128" y2="72"/></g>
+<rect x="96" y="6" width="8" height="18" rx="2" fill="#B0BEC5" stroke="#546E7A"/><rect x="92" y="2" width="16" height="5" rx="2" fill="#546E7A"/>
+<g stroke="#1e88e5" stroke-width="3" fill="none" stroke-linecap="round"><path d="M112,26 q14,-6 28,0"/><path d="M112,36 q16,-4 32,2"/><path d="M112,46 q12,-3 26,0"/></g><text x="150" y="40" font-size="15" font-weight="800" fill="#1e88e5">pssss…</text><text x="130" y="143" text-anchor="middle" font-size="12.5" font-weight="800" fill="#B71C1C">a small hole: the air escapes</text></svg><div class="ct">puncture</div><div class="cs">A <b>puncture</b> = a small hole in a tyre that lets the air out.</div></div><div class="cam" onclick="this.classList.toggle('on')"><svg viewBox="0 0 260 150" role="img" aria-label="A knobbly tyre gripping muddy ground"><rect width="260" height="150" fill="#E3F2FD"/><circle cx="130" cy="72" r="42" fill="#263238"/><circle cx="130" cy="72" r="24" fill="#ECEFF1" stroke="#90A4AE" stroke-width="3"/>
+<g fill="#263238"><rect x="124" y="22" width="12" height="12"/><rect x="156" y="34" width="12" height="12" transform="rotate(45 162 40)"/><rect x="170" y="66" width="12" height="12"/><rect x="92" y="34" width="12" height="12" transform="rotate(45 98 40)"/><rect x="78" y="66" width="12" height="12"/></g>
+<path d="M0,108 q16,-10 32,0 t32,0 t32,0 t32,0 t32,0 t32,0 t32,0 t32,0 t32,0 L270,150 L0,150 z" fill="#6D4C41"/><g fill="#263238"><rect x="106" y="106" width="12" height="12" transform="rotate(45 112 112)"/><rect x="142" y="106" width="12" height="12" transform="rotate(45 148 112)"/></g>
+<text x="130" y="138" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">grips the ground — no slipping</text></svg><div class="ct">traction</div><div class="cs"><b>Traction</b> = how well something holds on to the ground without slipping.</div></div><div class="cam" onclick="this.classList.toggle('on')"><svg viewBox="0 0 260 150" role="img" aria-label="A rough rocky path with sharp rocks and cracks"><rect width="260" height="150" fill="#E3F2FD"/><polygon points="0,150 0,86 30,70 52,92 84,62 112,90 140,66 170,94 204,60 232,88 260,72 260,150" fill="#8D6E63"/>
+<polygon points="40,150 70,112 98,150" fill="#78909C"/><polygon points="120,150 150,104 184,150" fill="#607D8B"/><polygon points="186,150 214,118 244,150" fill="#78909C"/>
+<path d="M18,150 q22,-26 40,-18 t38,-20 t46,-8" stroke="#D7CCC8" stroke-width="5" fill="none" stroke-dasharray="9 7"/><path d="M60,118 l10,12 l-8,8" stroke="#3E2723" stroke-width="2.5" fill="none"/><path d="M168,112 l8,12 l-6,10" stroke="#3E2723" stroke-width="2.5" fill="none"/>
+<text x="62" y="30" font-size="14" font-weight="800" fill="#4E342E">rough · rocky · uneven</text></svg><div class="ct">rugged</div><div class="cs"><b>Rugged</b> = rough, rocky and uneven.</div></div><div class="cam" onclick="this.classList.toggle('on')"><svg viewBox="0 0 260 150" role="img" aria-label="A tipped-over crate with animals tumbling out in every direction"><rect width="260" height="150" fill="#FFF8E1"/><polygon points="40,130 120,140 130,92 52,80" fill="#A1887F" stroke="#5D4037" stroke-width="3"/><line x1="64" y1="84" x2="74" y2="134" stroke="#5D4037" stroke-width="3"/><line x1="96" y1="88" x2="104" y2="138" stroke="#5D4037" stroke-width="3"/>
+<g stroke="#3E2723" stroke-width="2"><circle cx="70" cy="40" r="14" fill="#FFCC80"/><circle cx="130" cy="28" r="12" fill="#B0BEC5"/><circle cx="190" cy="52" r="15" fill="#F48FB1"/><circle cx="210" cy="108" r="13" fill="#A5D6A7"/><circle cx="160" cy="116" r="12" fill="#CE93D8"/></g>
+<g fill="#3E2723"><circle cx="65" cy="38" r="2"/><circle cx="76" cy="38" r="2"/><circle cx="125" cy="26" r="2"/><circle cx="135" cy="26" r="2"/><circle cx="184" cy="50" r="2"/><circle cx="195" cy="50" r="2"/><circle cx="205" cy="106" r="2"/><circle cx="215" cy="106" r="2"/><circle cx="155" cy="114" r="2"/><circle cx="165" cy="114" r="2"/></g>
+<g stroke="#3E2723" stroke-width="2" fill="none"><path d="M64,46 q6,5 12,0"/><path d="M124,34 q6,5 12,0"/><path d="M184,58 q6,5 12,0"/><path d="M204,114 q6,5 12,0"/><path d="M154,122 q6,5 12,0"/></g>
+<g font-size="16" font-weight="800" fill="#E65100"><text x="100" y="60">!</text><text x="160" y="40">?</text><text x="226" y="84">!</text><text x="20" y="100">?</text></g></svg><div class="ct">chaos</div><div class="cs"><b>Chaos</b> = a complete mess where nothing is in order.</div></div></div>
+<h2>Route B · Find the clue in the sentence</h2>
+<p>You cannot always draw a picture. When you meet a new word, <b>cover it</b> and look at the words around it.</p>
+<div class="routine-box">
+<div class="routine-step"><div class="routine-num">1</div><div class="routine-text"><b>COVER</b> the new word.</div></div>
+<div class="routine-step"><div class="routine-num">2</div><div class="routine-text"><b>FIND</b> the clue words next to it.</div></div>
+<div class="routine-step"><div class="routine-num">3</div><div class="routine-text"><b>GUESS</b> a word that fits, then <b>CHECK</b> it makes sense.</div></div>
+</div>
+<div class="demo"><div class="ans">Snow blocked the only road, so the mountain hut was <b>inaccessible</b> until spring.</div><div>Clue: <span class="lite">Snow blocked the only road</span> → nobody can get there → <b>inaccessible</b> = impossible or very hard to reach.</div></div>
+<div class="demo"><div class="ans">The librarian was so <b>absent-minded</b> that she wore two different shoes.</div><div>Clue: <span class="lite">wore two different shoes</span> → she forgot to check → <b>absent-minded</b> = often forgetting things because you are thinking about something else.</div></div>
+<div class="demo"><div class="ans">The toy was so <b>durable</b> that it survived being dropped, kicked and sat on.</div><div>Clue: <span class="lite">survived being dropped, kicked and sat on</span> → it did not break → <b>durable</b> = strong enough to last a long time.</div></div>
+<div class="lock-note" id="lockNote-s4"></div></div></div>
+
+<div class="screen" id="s5"><div class="card"><span class="tag">DRILL 2</span>
+<h2>What does it mean?</h2>
+<p>Use the picture cards or the clue method. Pick the meaning that fits the sentence.</p>
+<div id="drill-R2"></div>
+<div class="lock-note" id="lockNote-s5"></div></div></div>
+
+<div class="screen" id="s6"><div class="card"><span class="tag">THE WORD BOX · A PLAN</span>
+<h2>How to fill from the box</h2>
+<div class="routine-box">
+<div class="routine-step"><div class="routine-num">1</div><div class="routine-text"><b>READ</b> the whole sentence first, to the full stop.</div></div>
+<div class="routine-step"><div class="routine-num">2</div><div class="routine-text"><b>DECIDE</b> what kind of word fits the gap (use the tree below).</div></div>
+<div class="routine-step"><div class="routine-num">3</div><div class="routine-text"><b>TRY</b> a box word. Read the sentence again. Does it make sense?</div></div>
+<div class="routine-step"><div class="routine-num">4</div><div class="routine-text"><b>TICK</b> it off the box.</div></div>
+</div>
+<p class="routine-final">The box has extra words. You can’t win the last gap by crossing out — every gap must make sense.</p>
+<h2>What kind of word fits?</h2>
+<div class="tree2">
+<div class="br n"><b>A thing or an event?</b> (comes after “a”, “the” or “this”) → a <b>naming</b> word. e.g. <i>chaos, terrain, puncture, adjustment, champion</i></div>
+<div class="br d"><b>Something that is done?</b> (comes after “can”, “will” or a name) → a <b>doing</b> word. e.g. <i>muttered, ventured, absorb</i></div>
+<div class="br a"><b>Tells you about a thing?</b> (comes before a naming word, or after “was”) → a <b>describing</b> word. e.g. <i>rugged, durable, reflective, protective</i></div>
+<div class="br h"><b>Tells you how, or where?</b> → a <b>how</b> word. e.g. <i>warily, feverishly, frantically, overseas</i></div>
+</div>
+<div class="demo on"><div class="ans">Worked example. BOX: <b>warily · adjustment · reflective</b><br>The mouse crept <span class="gap">______</span> past the sleeping cat.</div>
+<div>Step 1: read it all. Step 2: “crept” is a doing word, so the gap says <i>how</i> the mouse crept → a how-word. Step 3: <b>warily</b> fits: the mouse crept carefully, because the cat could wake up. Step 4: tick off <b>warily</b>.</div></div>
+<div class="lock-note" id="lockNote-s6"></div></div></div>
+
+<div class="screen" id="s7"><div class="card"><span class="tag">DRILL 3</span>
+<h2>Fill from the box</h2>
+<p>Two rounds. Each round has its own box with 2 extra words. Words you use get crossed out.</p>
+<div id="drill-R3A"></div>
+<div id="drill-R3B"></div>
+<div class="lock-note" id="lockNote-s7"></div></div></div>
+
+<div class="screen" id="s8"><div class="card"><span class="tag">SELF-CHECK</span>
+<h2>Six quick questions</h2>
+<p>Two spellings, two meanings, two box gaps. You need 5 out of 6 to be ready for your paper. One try each — no hints.</p>
+<div id="drill-SC"></div>
+<div class="lock-note" id="lockNote-s8"></div></div></div>
+
+<div class="screen" id="s9"><div class="card"><span class="tag">BEFORE THURSDAY</span>
+<h2>Before Thursday — your school reading paper</h2>
+<p>Thursday’s test has a reading part too. On your school’s last reading test, Assessment #3, you scored 49 out of 50. Here are two answers from it, and what the school said.</p>
+<div class="fbk">
+<div class="fb-q"><span class="fb-lab">The question</span>Explain why Jack’s mother was an honest and just person.</div>
+<div class="fb-a"><span class="fb-lab">Your answer</span><i>Jack’s mother is honest because she took all the stuff that Jack stole back to Gavin and then later apologised and they became friends.</i></div>
+<div class="fb-mark"><span class="fb-lab">Your mark</span><b>School: 2/2.</b></div>
+<div class="fb-star">⭐ You proved “honest” with what she did.</div>
+<div class="fb-pen">✏️ The question asked for two things: honest and just. “Just” means fair. She was fair because she gave back what Jack took and made sure he was punished. When a question joins two words with “and”, answer both.</div>
+</div>
+<div class="fbk">
+<div class="fb-q"><span class="fb-lab">The question</span>Why was Jack’s mother angry with Jack?</div>
+<div class="fb-a"><span class="fb-lab">Your answer</span><i>Because, Jack kept stealing from Gavin and Jack’s mother had to clean up the mess.</i></div>
+<div class="fb-mark"><span class="fb-lab">Your mark</span><b>School: 2/2.</b></div>
+<div class="fb-pen">✏️ The story never says Jack kept stealing from Gavin. It says “another of your messes”. Say only what the text says.</div>
+</div>
+<p>Two habits for Thursday: <b>answer both halves</b> when a question says “and”, and <b>say only what the text says</b>.</p>
+<div class="savebox"><button class="btn bigsave" id="gotItBtn" onclick="gotIt()">Got it</button></div>
+<div class="lock-note" id="lockNote-s9"></div></div></div>
+
+<div class="screen" id="s10"><div class="card"><span class="tag">YOUR REPORT</span>
+<h2>Your Unit 48 lesson report</h2>
+<div id="reportWrap"></div>
+<div class="savebox"><div class="save-steps"><b>📁 Save your work for Naomi — you can't go on until it's saved.</b>
+<ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+<li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+<li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+<li>Wait for <b>✅ Saved in Results</b>. Then the link to your paper appears.</li></ol>
+<p>After the first time, the window opens in Results by itself.</p></div>
+<button class="btn bigsave" onclick="saveDone()">💾 Save to Results</button><div id="saveStatus"></div></div>
+<div class="lesson-nav"><a class="btn-go" id="btn-next" style="display:none" href="Tests/ENG_Unit_048_Test_SchoolTest56_VocabReading.html">Your paper →</a></div><div class="lock-note" id="lockNote-s10"></div></div></div>
+<script>
+/* Unit 48 · Lesson 1 — record file: ENG_U048_L1_Done_<date>.json */
+var DRILLS={"R1": {"title": "Drill 1 · Type the word", "kind": "type", "forced": true, "hint": true, "items": [{"word": "nephew", "sent": "Uncle Raj gave his ______ a ride on his shoulders at the fair."}, {"word": "resemblance", "sent": "Everyone noticed the ______ between the baby and her grandmother; they had the very same smile."}, {"word": "catastrophe", "sent": "When the dam broke and flooded the whole valley, it was a terrible ______ for the village."}, {"word": "licence", "sent": "A fisherman must buy a ______ before he is allowed to fish in the lake."}, {"word": "frantically", "sent": "The puppy dug ______ in the sand because it could smell a bone."}, {"word": "inaccessible", "sent": "After the landslide, the village was ______ by road for a week."}, {"word": "dehydrating", "sent": "Walking all day in the desert without a drink was ______ the explorers."}, {"word": "considerable", "sent": "It took a ______ amount of paint to cover the huge wall."}, {"word": "reinforced", "sent": "The tent poles were ______ with tape so the wind could not snap them."}, {"word": "repellent", "sent": "Dad rubbed cream on my arms; it is a ______ that keeps mosquitoes away."}, {"word": "absent-minded", "sent": "Grandpa is so ______ that he once put his keys in the fridge."}, {"word": "irritable", "sent": "I get ______ when I am hungry and tired, and I snap at my friends."}]}, "R2": {"title": "Drill 2 · What does it mean?", "kind": "mcq", "forced": true, "letters": true, "col": true, "nudge": "Read the sentence again. Which meaning fits what is happening?", "items": [{"kind": "mcq", "word": "observant", "q": "The <b>observant</b> girl noticed that one of the footprints was smaller than the rest.<br><b>What does “observant” mean here?</b>", "opts": ["often forgetting things because you are thinking about something else", "quick to notice things that other people miss", "easily made cross", "strong enough to last a long time"], "ans": 1, "why": "She noticed a small detail that others missed. The near-opposite is absent-minded, which means forgetting things, not noticing them."}, {"kind": "mcq", "word": "hibernating", "q": "The bears were <b>hibernating</b> in their cave all winter.<br><b>What does “hibernating” mean here?</b>", "opts": ["sleeping through the winter to save energy", "hunting for food in the snow", "building a new home", "moving to a warmer country"], "ans": 0, "why": "They stayed in the cave all winter, so they were sleeping through it to save energy."}, {"kind": "mcq", "word": "shudder", "q": "A cold <b>shudder</b> ran down my back when I heard the door creak in the dark.<br><b>What does “shudder” mean here?</b>", "opts": ["a loud shout of surprise", "a slow walk in the dark", "a quick shake of your body because you are scared or disgusted", "a deep sleep"], "ans": 2, "why": "A shudder is a quick shake of the body, the way you shake when you are scared."}, {"kind": "mcq", "word": "appetite", "q": "After the long swim, Mina had a huge <b>appetite</b>.<br><b>What does “appetite” mean here?</b>", "opts": ["how tired you feel after exercise", "how hungry you are; how much you want to eat", "how fast you can swim", "how cold the water feels"], "ans": 1, "why": "A huge appetite after swimming means she was very hungry."}, {"kind": "mcq", "word": "sympathetic", "q": "When Ben fell over, his teacher was <b>sympathetic</b> and helped him up.<br><b>What does “sympathetic” mean here?</b>", "opts": ["kind and understanding when someone has a problem", "angry and impatient", "very quick and excited", "not guilty"], "ans": 0, "why": "She helped him, so she was kind and understanding."}, {"kind": "mcq", "word": "ventured", "q": "The mouse <b>ventured</b> out of its hole even though the cat was nearby.<br><b>What does “ventured” mean here?</b>", "opts": ["stayed hidden inside", "went somewhere even though it might be risky", "said something quietly and crossly", "was forced to leave"], "ans": 1, "why": "“Even though the cat was nearby” shows the trip was risky, and the mouse went anyway."}, {"kind": "mcq", "word": "warily", "q": "She stepped <b>warily</b> onto the frozen pond.<br><b>What does “warily” mean here?</b>", "opts": ["in a wild, rushed and panicky way", "carefully, because something might be dangerous", "very fast and excitedly, as if you cannot stop", "in a bored, lazy way"], "ans": 1, "why": "Ice can crack, so she stepped carefully. Warily is a how-word: it tells you how she stepped."}, {"kind": "mcq", "word": "feverishly", "q": "He worked <b>feverishly</b> to finish before the bell.<br><b>What does “feverishly” mean here?</b>", "opts": ["very fast and excitedly, as if you cannot stop", "slowly and with great care", "quietly, without a sound", "sadly, with tears in his eyes"], "ans": 0, "why": "He was racing the bell, so he worked very fast and excitedly."}, {"kind": "mcq", "word": "ascending", "q": "The cyclists were <b>ascending</b> the steep road, pushing hard on their pedals.<br><b>What does “ascending” mean here?</b>", "opts": ["going down", "going up; climbing", "stopping to rest", "turning round"], "ans": 1, "why": "Pushing hard up a steep road is going up. Descending is its near-opposite."}, {"kind": "mcq", "word": "descending", "q": "Be careful! The path is <b>descending</b> towards the river, so you will gather speed.<br><b>What does “descending” mean here?</b>", "opts": ["going up; climbing", "going down", "getting wider", "getting muddier"], "ans": 1, "why": "Gathering speed towards a river means the path goes down. Ascending is its near-opposite."}, {"kind": "mcq", "word": "traction", "q": "Tyres with deep grooves give more <b>traction</b> in wet mud.<br><b>What does “traction” mean here?</b>", "opts": ["how well something holds on to the ground without slipping", "how heavy a bike is", "how fast a wheel spins", "the colour of the tread"], "ans": 0, "why": "Grooves help the tyre grip the mud. Traction is that grip."}, {"kind": "mcq", "word": "roadworthy", "q": "The mechanic said the old van was not <b>roadworthy</b>.<br><b>What does “roadworthy” mean here?</b>", "opts": ["too slow to win a race", "in a good enough state to be used safely on the road", "painted a bright colour", "too big to fit in the garage"], "ans": 1, "why": "A mechanic checks if a vehicle is safe to drive. Roadworthy means safe enough for the road."}, {"kind": "mcq", "word": "lubricating", "q": "Dad was <b>lubricating</b> the squeaky hinge with a few drops of oil.<br><b>What does “lubricating” mean here?</b>", "opts": ["breaking it into pieces", "oiling or greasing parts so they move smoothly", "painting it a new colour", "tightening it with a spanner"], "ans": 1, "why": "Oil stops a hinge squeaking, because it helps the parts move smoothly."}, {"kind": "mcq", "word": "innocent", "q": "The detective proved the boy was <b>innocent</b>; he had been at school all day.<br><b>What does “innocent” mean here?</b>", "opts": ["guilty of the crime", "not guilty; did nothing wrong", "too young to understand", "very clever"], "ans": 1, "why": "He was at school, so he did nothing wrong. Guilty is the opposite of innocent."}]}, "R3A": {"title": "Drill 3 · Round 1 — fill from the box", "kind": "cloze", "forced": true, "box": ["muttered", "chaos", "overseas", "terrain", "durable", "protective", "innocent"], "items": [{"kind": "cloze", "word": "muttered", "sent": "“I never get any luck,” Dan ______ as he kicked a stone along the path.", "ans": 0}, {"kind": "cloze", "word": "chaos", "sent": "The circus tent collapsed in the storm, and there was ______ everywhere as the animals ran loose.", "ans": 1}, {"kind": "cloze", "word": "overseas", "sent": "Sara’s pen friend lives ______, so her letters arrive by aeroplane.", "ans": 2}, {"kind": "cloze", "word": "terrain", "sent": "The hikers studied a map to learn about the ______ they would cross.", "ans": 3}, {"kind": "cloze", "word": "durable", "sent": "This backpack is so ______ that it has lasted through ten years of school.", "ans": 4}], "nudge": "Read the whole sentence. Which kind of word fits the gap, and does it make sense?"}, "R3B": {"title": "Drill 3 · Round 2 — fill from the box", "kind": "cloze", "forced": true, "box": ["puncture", "reflective", "adjustment", "components", "absorb", "feverishly", "sympathetic"], "items": [{"kind": "cloze", "word": "puncture", "sent": "I rode over a nail and got a ______ in my front tyre.", "ans": 0}, {"kind": "cloze", "word": "reflective", "sent": "Wear a ______ jacket at night so that drivers can see you.", "ans": 1}, {"kind": "cloze", "word": "adjustment", "sent": "The mechanic made a small ______ to the brakes, and now they work well.", "ans": 2}, {"kind": "cloze", "word": "components", "sent": "A bike is built from many ______, such as wheels, a chain and brakes.", "ans": 3}, {"kind": "cloze", "word": "absorb", "sent": "A thick towel can ______ spilled juice very quickly.", "ans": 4}], "nudge": "Read the whole sentence. Which kind of word fits the gap, and does it make sense?"}, "SC": {"title": "Self-check", "kind": "mixed", "forced": false, "need": 5, "letters": true, "col": true, "items": [{"kind": "type", "word": "resemblance", "sent": "The baby’s smile has a striking ______ to his father’s."}, {"kind": "type", "word": "catastrophe", "sent": "Losing every football before the final felt like a ______."}, {"kind": "mcq", "word": "suspension", "q": "A bike’s <b>suspension</b> helps the ride feel smoother. What is suspension?", "opts": ["a tyre that has lost its air", "springs that soak up bumps so the ride is smoother", "a tool for mending a chain", "a strap that holds a helmet on"], "ans": 1, "why": "Suspension is springs that soak up the bumps."}, {"kind": "mcq", "word": "champion", "q": "Everyone cheered for the <b>champion</b> as she lifted the cup. What is a champion?", "opts": ["the winner of a competition; the very best", "a person who watches the race", "the person who keeps the score", "someone who is always late"], "ans": 0, "why": "A champion is the winner, the very best."}, {"kind": "cloze", "word": "rugged", "sent": "The ______ coastline had sharp cliffs and jagged rocks.", "box": ["shudder", "rugged", "appetite", "overseas"], "ans": 1, "why": "Sharp cliffs and jagged rocks are rough and uneven, which is what rugged means."}, {"kind": "cloze", "word": "protective", "sent": "Always wear a ______ helmet when you ride.", "box": ["warily", "chaos", "protective", "adjustment"], "ans": 2, "why": "A helmet keeps you safe from harm: it is protective."}]}};
+var WORDS=["nephew", "observant", "muttered", "resemblance", "hibernating", "shudder", "catastrophe", "licence", "chaos", "overseas", "appetite", "absent-minded", "champion", "frantically", "irritable", "innocent", "sympathetic", "ventured", "warily", "feverishly", "ascending", "descending", "terrain", "rugged", "durable", "suspension", "traction", "puncture", "inaccessible", "reflective", "adjustment", "lubricating", "roadworthy", "dehydrating", "considerable", "protective", "reinforced", "components", "absorb", "repellent"];
+var BEATS={"nephew": "neph · ew", "observant": "ob · ser · vant", "muttered": "mut · tered", "resemblance": "re · sem · blance", "hibernating": "hi · ber · nat · ing", "shudder": "shud · der", "catastrophe": "ca · tas · tro · phe", "licence": "li · cence", "chaos": "cha · os", "overseas": "o · ver · seas", "appetite": "ap · pe · tite", "absent-minded": "ab · sent-mind · ed", "champion": "cham · pi · on", "frantically": "fran · tic · al · ly", "irritable": "ir · ri · ta · ble", "innocent": "in · no · cent", "sympathetic": "sym · pa · thet · ic", "ventured": "ven · tured", "warily": "war · i · ly", "feverishly": "fe · ver · ish · ly", "ascending": "as · cend · ing", "descending": "de · scend · ing", "terrain": "ter · rain", "rugged": "rug · ged", "durable": "du · ra · ble", "suspension": "sus · pen · sion", "traction": "trac · tion", "puncture": "punc · ture", "inaccessible": "in · ac · ces · si · ble", "reflective": "re · flec · tive", "adjustment": "ad · just · ment", "lubricating": "lu · bri · cat · ing", "roadworthy": "road · wor · thy", "dehydrating": "de · hy · drat · ing", "considerable": "con · sid · er · a · ble", "protective": "pro · tec · tive", "reinforced": "re · in · forced", "components": "com · po · nents", "absorb": "ab · sorb", "repellent": "re · pel · lent"};
+var MEAN={"nephew": "the son of your brother or sister", "observant": "quick to notice things that other people miss", "muttered": "said something quietly and crossly, almost to yourself", "resemblance": "the way two people or things look alike", "hibernating": "sleeping through the winter to save energy", "shudder": "a quick shake of your body because you are scared or disgusted", "catastrophe": "a terrible event where everything goes wrong", "licence": "an official paper that says you are allowed to do or keep something", "chaos": "a complete mess where nothing is in order", "overseas": "in or to another country across the sea", "appetite": "how hungry you are; how much you want to eat", "absent-minded": "often forgetting things because you are thinking about something else", "champion": "the winner of a competition; the very best", "frantically": "in a wild, rushed and panicky way", "irritable": "easily made cross", "innocent": "not guilty; did nothing wrong", "sympathetic": "kind and understanding when someone has a problem", "ventured": "went somewhere even though it might be risky", "warily": "carefully, because something might be dangerous", "feverishly": "very fast and excitedly, as if you cannot stop", "ascending": "going up; climbing", "descending": "going down", "terrain": "the kind of land you travel over, such as rocky, muddy or sandy ground", "rugged": "rough, rocky and uneven", "durable": "strong enough to last a long time", "suspension": "springs that soak up bumps so the ride is smoother", "traction": "how well something holds on to the ground without slipping", "puncture": "a small hole in a tyre that lets the air out", "inaccessible": "impossible or very hard to reach", "reflective": "shining light back, so you can be seen in the dark", "adjustment": "a small change to make something fit or work better", "lubricating": "oiling or greasing parts so they move smoothly", "roadworthy": "in a good enough state to be used safely on the road", "dehydrating": "losing too much water from your body", "considerable": "large in amount; quite a lot", "protective": "keeping you safe from harm", "reinforced": "made stronger by adding extra material", "components": "the parts that something is made of", "absorb": "to soak up", "repellent": "a spray or cream that keeps insects away"};
+var SCREENS=["s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10"];
+var SCREEN_DRILLS={"s3":["R1"],"s5":["R2"],"s7":["R3A","R3B"],"s8":["SC"]};
+var LESSON_TAG="Unit 48 · Lesson 1", LESSON_ID="L1", REPORT_ID="s10";
+var READY_MSG="Ready for your paper ✅";
+var MOVED=[], MISSES=[], ROUTE_SENT="", GOTIT=false, SC_TRIES=0;
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var cur=0, DS={}, OPENED_MS=Date.now(), OPENED_ISO=new Date().toISOString(), FIN_SECS=null, ON_REPORT=false;
+function shuffled(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function blocks(b){return b.split(' · ').map(function(p,i){return '<span class="bt c'+(i%3)+'">'+p+'</span>';}).join('<span class="dt">·</span>');}
+function missKey(id){return id.indexOf('R3')===0?'R3':id;}
+/* ---------- drills ---------- */
+function gapSent(s){return esc(s).replace('______','<span class="gap">______</span>');}
+function buildDrill(id){
+  var D=DRILLS[id], box=$('drill-'+id); if(!box) return;
+  DS[id]={res:[],first:[],tries:[],given:[],moved:[]};
+  var h=D.title?'<div class="drill-head">'+D.title+'</div>':'';
+  if(D.box){h+='<div class="boxbar"><b>BOX</b> ';D.box.forEach(function(w,k){h+='<span class="bw" id="'+id+'-bw-'+k+'">'+w+'</span>';});h+='</div>';}
+  D.items.forEach(function(it,i){
+    var kind=it.kind||D.kind;
+    DS[id].res.push(false);DS[id].first.push(false);DS[id].tries.push(0);DS[id].given.push(null);DS[id].moved.push(false);
+    h+='<div class="di" id="'+id+'-'+i+'"><div class="di-num">'+(i+1)+' of '+D.items.length+'</div>';
+    if(kind==='type'){
+      h+='<div class="jq"><b>Meaning:</b> '+MEAN[it.word]+'</div><div class="di-sent">'+gapSent(it.sent)+'</div>';
+      if(D.hint) h+='<div class="tapnote">It starts with “'+it.word.charAt(0)+'”.</div>';
+      h+='<input class="tin" id="'+id+'-'+i+'-in" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type the missing word" oninput="this.className=\'tin\'" onkeydown="if(event.key===\'Enter\')checkType(\''+id+'\','+i+')">';
+      h+='<div><button class="btn" id="'+id+'-'+i+'-go" onclick="checkType(\''+id+'\','+i+')">Check</button></div>';
+    } else if(kind==='cloze'){
+      var opts=it.box||D.box;
+      h+='<div class="di-sent">'+gapSent(it.sent)+'</div>';
+      if(it.box) h+='<div class="boxbar"><b>BOX</b> '+it.box.join(' · ')+'</div>';
+      h+='<div class="di-btns">';
+      opts.forEach(function(w,k){h+='<button class="di-opt" id="'+id+'-'+i+'-'+k+'" onclick="pick(\''+id+'\','+i+','+k+')">'+w+'</button>';});
+      h+='</div>';
+    } else {
+      var ord=shuffled(it.opts.length);
+      h+='<div class="di-sent">'+it.q+'</div><div class="di-btns col">';
+      ord.forEach(function(k,pos){h+='<button class="di-opt" id="'+id+'-'+i+'-'+k+'" onclick="pick(\''+id+'\','+i+','+k+')"><b>'+'ABCD'[pos]+'.</b> '+it.opts[k]+'</button>';});
+      h+='</div>';
+    }
+    h+='<div class="di-fb" id="'+id+'-'+i+'-fb"></div></div>';
+  });
+  h+='<div class="drill-score" id="'+id+'-score"></div>';
+  box.innerHTML=h;
+}
+function itemOpts(D,it){return it.box||it.opts||D.box;}
+function pick(id,i,v){
+  var D=DRILLS[id], S=DS[id], it=D.items[i]; if(S.res[i]) return;
+  var kind=it.kind||D.kind, opts=itemOpts(D,it), ok=(v===it.ans), fb=$(id+'-'+i+'-fb'), btn=$(id+'-'+i+'-'+v);
+  S.given[i]=v;
+  if(D.forced){
+    if(ok){S.res[i]=true;S.first[i]=(S.tries[i]===0);btn.classList.add('right');fb.className='di-fb ok';
+      fb.innerHTML='Right — '+(it.why?it.why:'“'+it.word+'” fits. Read the sentence again with it in the gap.');lockItem(id,i);
+      if(D.box){var bw=$(id+'-bw-'+v);if(bw)bw.classList.add('used');
+        D.items.forEach(function(x,j){if(!S.res[j]){var ob=$(id+'-'+j+'-'+v);if(ob){ob.classList.add('used');ob.disabled=true;}}});}}
+    else{S.tries[i]++;MISSES.push({drill:missKey(id),word:it.word,given:opts[v]});btn.classList.add('wrong');btn.disabled=true;fb.className='di-fb no';
+      fb.innerHTML='Try again — '+((it.nos&&it.nos[v])?it.nos[v]:D.nudge)+(S.tries[i]>=2&&it.why?'<div class="walk">'+it.why+'</div>':'');}
+  } else {
+    S.res[i]=true;S.first[i]=ok;btn.classList.add(ok?'right':'wrong');
+    if(!ok) MISSES.push({drill:missKey(id),word:it.word,given:opts[v]});
+    var rb=$(id+'-'+i+'-'+it.ans); if(rb) rb.classList.add('right');
+    fb.className='di-fb '+(ok?'ok':'no');fb.innerHTML=(ok?'Right — ':'Look again — ')+it.why;lockItem(id,i);
+  }
+  checkDrillDone(id);
+  updateNav();
+}
+function lockItem(id,i){var el=$(id+'-'+i);var bs=el.getElementsByTagName('button');for(var k=0;k<bs.length;k++)bs[k].disabled=true;var inp=$(id+'-'+i+'-in');if(inp)inp.disabled=true;}
+function checkType(id,i){
+  var D=DRILLS[id], S=DS[id], it=D.items[i]; if(S.res[i]) return;
+  var inp=$(id+'-'+i+'-in'), v=inp.value.trim().toLowerCase(), fb=$(id+'-'+i+'-fb');
+  if(!v){fb.className='di-fb no';fb.textContent='Type the word first.';return;}
+  S.given[i]=v;
+  if(v===it.word){
+    S.res[i]=true;S.first[i]=(S.tries[i]===0);inp.className='tin good';fb.className='di-fb ok';
+    fb.innerHTML='Right — '+blocks(BEATS[it.word]);lockItem(id,i);
+  } else {
+    S.tries[i]++;MISSES.push({drill:missKey(id),word:it.word,given:v});
+    if(D.forced){
+      inp.className='tin bad';fb.className='di-fb no';
+      var extra=(it.word==='licence'&&v==='license')?' Your school uses British spelling: the paper is spelled with <b>-ce</b>.':'';
+      fb.innerHTML='Not quite.'+extra+'<div class="stuck"><b>Stuck card</b> — say it in beats, then type it again:<br>'+blocks(BEATS[it.word])+'</div>'+
+        (S.tries[i]>=3?'<div class="walk"><b>This one is tricky. Read the stuck card and have one more go — or move on. Naomi will see what you tried.</b><br><button class="btn ghost" onclick="moveType(\''+id+'\','+i+')">Move on</button></div>':'');
+    } else {
+      S.res[i]=true;S.first[i]=false;inp.className='tin bad';fb.className='di-fb no';
+      fb.innerHTML='Look again — it is spelled <b>'+it.word+'</b>: '+blocks(BEATS[it.word]);lockItem(id,i);
+    }
+  }
+  checkDrillDone(id);updateNav();
+}
+function moveType(id,i){
+  var S=DS[id], it=DRILLS[id].items[i]; if(S.res[i]) return;
+  S.res[i]=true;S.moved[i]=true;MOVED.push(it.word);
+  var fb=$(id+'-'+i+'-fb');fb.className='di-fb ok';
+  fb.innerHTML='OK — moving on. What you typed is kept in your report.<div class="stuck">'+blocks(BEATS[it.word])+'</div>';lockItem(id,i);
+  checkDrillDone(id);updateNav();
+}
+function firstTry(id){var S=DS[id];if(!S)return 0;var n=0;S.first.forEach(function(f){if(f)n++;});return n;}
+function scRoute(){
+  var D=DRILLS.SC,S=DS.SC,seen={},names=[],links=[];
+  D.items.forEach(function(it,i){
+    if(S.first[i]) return;
+    var k=it.kind;
+    if(seen[k]) return; seen[k]=1;
+    if(k==='type'){names.push('beat blocks (screen 2)');links.push('<a href="#" onclick="jumpTo(\'s1\');return false"><b>beat blocks</b> (screen 2)</a>');}
+    else if(k==='mcq'){names.push('picture cards (screen 5)');links.push('<a href="#" onclick="jumpTo(\'s4\');return false"><b>picture cards</b> (screen 5)</a>');}
+    else{names.push('the word-box plan (screen 7)');links.push('<a href="#" onclick="jumpTo(\'s6\');return false"><b>the word-box plan</b> (screen 7)</a>');}
+  });
+  return {names:names,links:links};
+}
+function checkDrillDone(id){
+  var D=DRILLS[id], S=DS[id]; for(var k=0;k<S.res.length;k++) if(!S.res[k]) return;
+  var n=firstTry(id), sc=$(id+'-score');sc.classList.add('show');
+  if(D.forced){sc.innerHTML='Drill complete ✅ — '+n+' of '+S.res.length+' right on the first go.';}
+  else{
+    var ready=n>=(D.need||5);
+    if(ready){ROUTE_SENT="";sc.innerHTML='<b>'+n+' out of '+S.res.length+'</b><br>'+READY_MSG;}
+    else{var r=scRoute();ROUTE_SENT=r.names.join(', ');
+      sc.innerHTML='<b>'+n+' out of '+S.res.length+'</b><br>Not quite there yet. Go back to '+r.links.join(' and ')+', then try this check again.<br><button class="btn" onclick="SC_TRIES++;buildDrill(\'SC\');updateNav();">Try the self-check again</button>';}
+    sc.className='drill-score show '+(ready?'ready':'retry');
+  }
+}
+/* ---------- the little routine on screen 3 ---------- */
+function lscwCover(){$('lscw-word').textContent='▒▒▒▒▒▒▒▒▒▒▒▒';$('lscw-box').classList.remove('hidden');$('lscw-btns').classList.add('hidden');$('lscw-in').focus();}
+function lscwCheck(){
+  var v=$('lscw-in').value.trim().toLowerCase(), m=$('lscw-msg');
+  if(v==='considerable'){$('lscw-word').textContent='considerable';m.className='pfmsg ok';m.textContent='✓ Yes — five beats, none dropped.';}
+  else{$('lscw-word').textContent='considerable';m.className='pfmsg no';m.textContent='Look at it again, count the beats, then cover and write it once more.';$('lscw-btns').classList.remove('hidden');$('lscw-box').classList.add('hidden');$('lscw-in').value='';}
+}
+/* ---------- navigation ---------- */
+function gotIt(){GOTIT=true;$('gotItBtn').disabled=true;$('gotItBtn').textContent='Got it ✓';updateNav();}
+function screenLocked(sid){
+  var d=SCREEN_DRILLS[sid]||[];
+  for(var k=0;k<d.length;k++){var id=d[k],S=DS[id];if(!S) continue;for(var j=0;j<S.res.length;j++) if(!S.res[j]) return DRILLS[id].forced?'Finish every question to go on.':'Answer all the questions to go on.';}
+  if(sid==='s9'&&!GOTIT) return 'Read the two answers, then press “Got it”.';
+  return '';
+}
+function show(i){
+  cur=i;SCREENS.forEach(function(s,k){$(s).classList.toggle('active',k===i);});
+  $('navPill').textContent=LESSON_TAG+' · '+(i+1)+'/'+SCREENS.length;window.scrollTo(0,0);
+  if(SCREENS[i]===REPORT_ID){ON_REPORT=true;buildReport();}
+  updateNav();
+}
+function updateNav(){
+  var sid=SCREENS[cur],lock=screenLocked(sid);
+  $('prevBtn').disabled=(cur===0);
+  $('nextBtn').disabled=(cur===SCREENS.length-1)||!!lock;
+  var ln=$('lockNote-'+sid);if(ln){ln.textContent=lock;ln.className='lock-note'+(lock?' show':'');}
+}
+function goScreen(d){var n=cur+d;if(n<0||n>=SCREENS.length)return;if(d>0&&screenLocked(SCREENS[cur]))return;show(n);}
+function jumpTo(sid){var i=SCREENS.indexOf(sid);if(i>=0)show(i);}
+/* ---------- report + save ---------- */
+function buildReport(){
+  if(FIN_SECS===null) FIN_SECS=Math.round((Date.now()-OPENED_MS)/1000);
+  var r3=firstTry('R3A')+firstTry('R3B'), sc=firstTry('SC');
+  var rows=[['Drill 1','type the word',firstTry('R1')+' / '+DS.R1.res.length],['Drill 2','what it means',firstTry('R2')+' / '+DS.R2.res.length],['Drill 3','fill from the box',r3+' / '+(DS.R3A.res.length+DS.R3B.res.length)],['Self-check','need 5 of 6',sc+' / '+DS.SC.res.length]];
+  var h='<div class="report-grid">';
+  rows.forEach(function(r){h+='<div class="rep"><div class="rep-t">'+r[0]+'</div><div class="rep-n">'+r[2]+'</div><div class="rep-s">'+r[1]+'</div></div>';});
+  h+='</div><p><b>'+(sc>=5?READY_MSG:'Self-check: not 5 of 6 yet — you can go back and try it again before you save.')+'</b></p>';
+  $('reportWrap').innerHTML=h;
+}
+function buildRecord(){
+  var secs=(FIN_SECS===null?Math.round((Date.now()-OPENED_MS)/1000):FIN_SECS), sc=firstTry('SC');
+  var drills={R1:firstTry('R1')+'/'+DS.R1.res.length,R2:firstTry('R2')+'/'+DS.R2.res.length,R3:(firstTry('R3A')+firstTry('R3B'))+'/'+(DS.R3A.res.length+DS.R3B.res.length)};
+  return {student:'Prem',unit:48,lesson:LESSON_ID,lessonDone:true,dateDone:new Date().toISOString().slice(0,10),
+    openedAt:OPENED_ISO,finishedAt:new Date().toISOString(),minutesSpent:Math.round(secs/60),secondsSpent:secs,
+    drills:drills,misses:MISSES,selfCheck:sc,selfCheckOutOf:DS.SC.res.length,ready:sc>=5,routeSent:ROUTE_SENT,selfCheckTries:SC_TRIES+1,movedOn:MOVED};
+}
+function unlockNext(){var b=$('btn-next');if(b)b.style.display='inline-block';}
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+window.addEventListener('beforeunload',function(e){if(!SAVED&&ON_REPORT){e.preventDefault();e.returnValue='';}});
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
+async function saveDone(){
+  var rec=buildRecord(), filename='ENG_U048_'+LESSON_ID+'_Done_'+rec.dateDone+'.json', json=JSON.stringify(rec,null,2), st=$('saveStatus');
+  st.className='reminder';st.textContent='Saving…';
+  if(!window.showDirectoryPicker){downloadInstead(filename,json,st);SAVED=true;unlockNext();return;}
+  try{
+    await saveToResults(filename,json);
+    SAVED=true;st.className='done';st.textContent='✅ Saved in Results as '+filename+'.';unlockNext();
+  }catch(e){
+    if(e&&e.name==='AbortError'){st.textContent='Not saved yet — you closed the window. Press the blue button again.';}
+    else if(e&&e.name==='WrongFolder'){st.textContent='That folder is called “'+e.picked+'”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.';}
+    else{SAVE_FAILS++;if(SAVE_FAILS>=2){downloadInstead(filename,json,st);SAVED=true;unlockNext();}else{st.textContent='Something went wrong while saving. Press the blue button again.';}}
+  }
+}
+function initAll(){Object.keys(DRILLS).forEach(buildDrill);show(0);}
+initAll();
+</script>
+</body>
+</html>
