@@ -1,0 +1,668 @@
+{
+  "student": "Prem",
+  "unit": 48,
+  "unitTitle": "School Test 5-6 — Vocabulary and Reading (Thursday paper)",
+  "dateTaken": "2026-11-03",
+  "openedAt": "2026-11-03T13:37:31.260Z",
+  "finishedAt": "2026-11-03T13:55:06.470Z",
+  "minutesSpent": 18,
+  "secondsSpent": 1055,
+  "autoScore": 39,
+  "autoOutOf": 39,
+  "writtenMarks": 16,
+  "writtenScore": null,
+  "total": 55,
+  "passBar": 44,
+  "passed": null,
+  "strands": {
+    "L": {
+      "score": 6,
+      "outOf": 6,
+      "writtenMarks": 2
+    },
+    "U": {
+      "score": 3,
+      "outOf": 3,
+      "writtenMarks": 9
+    },
+    "E": {
+      "score": 0,
+      "outOf": 0,
+      "writtenMarks": 5
+    }
+  },
+  "tiers": {
+    "Basic": {
+      "c": 16,
+      "t": 16
+    },
+    "Intermediate": {
+      "c": 23,
+      "t": 23
+    },
+    "Applied": {
+      "c": 0,
+      "t": 7
+    }
+  },
+  "sections": [
+    {
+      "name": "spell",
+      "score": 10,
+      "outOf": 10
+    },
+    {
+      "name": "meaning",
+      "score": 10,
+      "outOf": 10
+    },
+    {
+      "name": "boxcloze",
+      "score": 10,
+      "outOf": 10
+    },
+    {
+      "name": "mcq",
+      "score": 9,
+      "outOf": 9
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "nephew",
+      "correct": "nephew",
+      "isCorrect": true
+    },
+    {
+      "q": 2,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "resemblance",
+      "correct": "resemblance",
+      "isCorrect": true
+    },
+    {
+      "q": 3,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "catastrophe",
+      "correct": "catastrophe",
+      "isCorrect": true
+    },
+    {
+      "q": 4,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "licence",
+      "correct": "licence",
+      "isCorrect": true
+    },
+    {
+      "q": 5,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "frantically",
+      "correct": "frantically",
+      "isCorrect": true
+    },
+    {
+      "q": 6,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "inaccessible",
+      "correct": "inaccessible",
+      "isCorrect": true
+    },
+    {
+      "q": 7,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "dehydrating",
+      "correct": "dehydrating",
+      "isCorrect": true
+    },
+    {
+      "q": 8,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "considerable",
+      "correct": "considerable",
+      "isCorrect": true
+    },
+    {
+      "q": 9,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "reinforced",
+      "correct": "reinforced",
+      "isCorrect": true
+    },
+    {
+      "q": 10,
+      "section": "spell",
+      "type": "spell",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": "repellent",
+      "correct": "repellent",
+      "isCorrect": true
+    },
+    {
+      "q": 11,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "givenText": "D"
+    },
+    {
+      "q": 12,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 6,
+      "correct": 6,
+      "isCorrect": true,
+      "givenText": "F"
+    },
+    {
+      "q": 13,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 5,
+      "correct": 5,
+      "isCorrect": true,
+      "givenText": "E"
+    },
+    {
+      "q": 14,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 10,
+      "correct": 10,
+      "isCorrect": true,
+      "givenText": "J"
+    },
+    {
+      "q": 15,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 7,
+      "correct": 7,
+      "isCorrect": true,
+      "givenText": "G"
+    },
+    {
+      "q": 16,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "givenText": "A"
+    },
+    {
+      "q": 17,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "givenText": "B"
+    },
+    {
+      "q": 18,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "givenText": "C"
+    },
+    {
+      "q": 19,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 8,
+      "correct": 8,
+      "isCorrect": true,
+      "givenText": "H"
+    },
+    {
+      "q": 20,
+      "section": "meaning",
+      "type": "select",
+      "strand": null,
+      "tier": "Basic",
+      "given": 9,
+      "correct": 9,
+      "isCorrect": true,
+      "givenText": "I"
+    },
+    {
+      "q": 21,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 5,
+      "correct": 5,
+      "isCorrect": true,
+      "givenText": "muttered"
+    },
+    {
+      "q": 22,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "givenText": "chaos"
+    },
+    {
+      "q": 23,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 6,
+      "correct": 6,
+      "isCorrect": true,
+      "givenText": "overseas"
+    },
+    {
+      "q": 24,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "givenText": "champion"
+    },
+    {
+      "q": 25,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "givenText": "innocent"
+    },
+    {
+      "q": 26,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 11,
+      "correct": 11,
+      "isCorrect": true,
+      "givenText": "terrain"
+    },
+    {
+      "q": 27,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 8,
+      "correct": 8,
+      "isCorrect": true,
+      "givenText": "puncture"
+    },
+    {
+      "q": 28,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 9,
+      "correct": 9,
+      "isCorrect": true,
+      "givenText": "rugged"
+    },
+    {
+      "q": 29,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "givenText": "absorb"
+    },
+    {
+      "q": 30,
+      "section": "boxcloze",
+      "type": "select",
+      "strand": null,
+      "tier": "Intermediate",
+      "given": 7,
+      "correct": 7,
+      "isCorrect": true,
+      "givenText": "protective"
+    },
+    {
+      "q": 31,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 32,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 33,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 34,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 35,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 36,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "So they will be happy that their kids know how to ride a bike.",
+      "proof": "Skill sessions every month",
+      "isCorrect": null
+    },
+    {
+      "q": 37,
+      "section": "t1",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "Because we can have fun eat yummy food and stay with our family.",
+      "proof": "An end-of-term family ride, followed by a barbecue at the club hut.",
+      "isCorrect": null
+    },
+    {
+      "q": 38,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 39,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 40,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 41,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 42,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": "Because he thinks that it is a real person and thinks it’s important.",
+      "proof": "Each time he dropped his wooden spoon and rush across the kitchen and each time there was nobody there the fifth time he drew his tea towel on the floor",
+      "isCorrect": null
+    },
+    {
+      "q": 43,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "So he was nervous that Ms.Okafor would be mad",
+      "proof": "Before that she had sent back Leo’s Football with a note that said please keep it on your side",
+      "isCorrect": null
+    },
+    {
+      "q": 44,
+      "section": "t2",
+      "type": "written",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": "Pickles recognized it and came down.",
+      "proof": "Search his tablet and played a recording of the microwave beep",
+      "isCorrect": null
+    },
+    {
+      "q": 45,
+      "section": "t2",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "She changed from sad to happy.",
+      "proof": "Mrs. Okafor laughed so hard she had to hold on to the fence",
+      "isCorrect": null
+    },
+    {
+      "q": 46,
+      "section": "t2",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "He was clever about the microwave beep and was honest about telling grandma.",
+      "proof": "He could’ve said that pickles had opened the door by himself, but he told her that he had forgotten to shut it",
+      "isCorrect": null
+    }
+  ],
+  "written": [
+    {
+      "q": 36,
+      "strand": "U",
+      "marks": 3,
+      "markScheme": [
+        "Reason 1 from the flyer (e.g. trained ride leaders · helmets are a must · free bike check · safe-riding skills · free Try-it Ride first).",
+        "Reason 2 — a different one from the flyer.",
+        "Says why a parent would like it (their child is safe / learns skills / makes friends / can try before paying) — in full sentences."
+      ],
+      "proof": "Skill sessions every month",
+      "proofTries": 2,
+      "proofAccepted": false,
+      "proofGaveUp": true,
+      "response": "So they will be happy that their kids know how to ride a bike.",
+      "wordCount": 14,
+      "longestRun": 2
+    },
+    {
+      "q": 37,
+      "strand": "E",
+      "marks": 3,
+      "markScheme": [
+        "Names one thing from the flyer as the best.",
+        "Gives a reason why it is the best.",
+        "The reason is explained with his own view or experience — in full sentences."
+      ],
+      "proof": "An end-of-term family ride, followed by a barbecue at the club hut.",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "Because we can have fun eat yummy food and stay with our family.",
+      "wordCount": 13,
+      "longestRun": 2
+    },
+    {
+      "q": 42,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "Pickles was copying the sound of the phone ringing.",
+        "So Dad thought a real call was coming (and nobody was there)."
+      ],
+      "proof": "Each time he dropped his wooden spoon and rush across the kitchen and each time there was nobody there the fifth time he drew his tea towel on the floor",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "Because he thinks that it is a real person and thinks it’s important.",
+      "wordCount": 13,
+      "longestRun": 1
+    },
+    {
+      "q": 43,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "He was scared / worried she would be cross with him.",
+        "Because she had complained before (the lawnmower / the football note)."
+      ],
+      "proof": "Before that she had sent back Leo’s Football with a note that said please keep it on your side",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "So he was nervous that Ms.Okafor would be mad",
+      "wordCount": 9,
+      "longestRun": 1
+    },
+    {
+      "q": 44,
+      "strand": "L",
+      "marks": 2,
+      "markScheme": [
+        "He played a recording of the microwave beep on his tablet.",
+        "Pickles copies sounds, so he beeped back and flew down to Leo."
+      ],
+      "proof": "Search his tablet and played a recording of the microwave beep",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "Pickles recognized it and came down.",
+      "wordCount": 6,
+      "longestRun": 1
+    },
+    {
+      "q": 45,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "At first she was unfriendly / cross (arms crossed, complaints).",
+        "By the end she was friendly / amused — she laughed and invited Pickles to visit."
+      ],
+      "proof": "Mrs. Okafor laughed so hard she had to hold on to the fence",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "She changed from sad to happy.",
+      "wordCount": 6,
+      "longestRun": 1
+    },
+    {
+      "q": 46,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "Clever: he thought of playing the recorded microwave beep to bring Pickles down.",
+        "Honest: he told Grandma he forgot to shut the door, when he could have blamed Pickles."
+      ],
+      "proof": "He could’ve said that pickles had opened the door by himself, but he told her that he had forgotten to shut it",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "He was clever about the microwave beep and was honest about telling grandma.",
+      "wordCount": 13,
+      "longestRun": 3
+    }
+  ]
+}

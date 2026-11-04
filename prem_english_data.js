@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '3 Nov 2026',
+  updated:        '4 Nov 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           48,
-    heroLabel:   "Unit 48 - School Test 5-6 (Thu), Wednesday: Lesson + Paper",
-    status:      "&#127979; UNIT 48 &mdash; School Test 5-6 prep (Thursday paper), built 3 Nov. Wednesday: a ~20-minute spelling-and-vocabulary lesson on 40 words from <em>How Do You Hide a Crocodile?</em> and <em>Mountain Biking</em>, ending with a save that reveals the paper link; then the paper &mdash; spelling, definitions, a word-box cloze, a flyer and a story &mdash; 46 questions, 55 marks, pass bar 44, with the proof box on every written question. Unit 47 (Answer the Question It Asks) is built and still waiting &mdash; Prem does it later. Unit 49 (Friday half) is next.",
+    n:           49,
+    heroLabel:   "Unit 49 - School Test 5-6 (Fri), Thursday: 2 Lessons + 2 Papers",
+    status:      "&#127979; UNIT 49 &mdash; School Test 5-6 prep (Friday half), built 4 Nov. Thursday: a grammar lesson then a 22-question grammar paper (pass bar 18, all marked by the page), and a writing lesson (Answer the Prompt, can be done early) then a writing paper &mdash; seven prompt boxes and a typed four-part story. Unit 48 is sat; its written marks wait for Naomi. Unit 47 (Answer the Question It Asks) is built and still waiting &mdash; Prem does it later.",
     testPending: true
   },
 

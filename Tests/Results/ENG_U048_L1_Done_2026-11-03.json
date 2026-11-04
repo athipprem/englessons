@@ -1,0 +1,134 @@
+{
+  "student": "Prem",
+  "unit": 48,
+  "lesson": "L1",
+  "lessonDone": true,
+  "dateDone": "2026-11-03",
+  "openedAt": "2026-11-03T13:26:31.483Z",
+  "finishedAt": "2026-11-03T13:37:08.078Z",
+  "minutesSpent": 11,
+  "secondsSpent": 634,
+  "drills": {
+    "R1": "3/12",
+    "R2": "13/14",
+    "R3": "10/10"
+  },
+  "misses": [
+    {
+      "drill": "R1",
+      "word": "nephew",
+      "given": "nohew"
+    },
+    {
+      "drill": "R1",
+      "word": "resemblance",
+      "given": "reality"
+    },
+    {
+      "drill": "R1",
+      "word": "catastrophe",
+      "given": "catrastophe"
+    },
+    {
+      "drill": "R1",
+      "word": "licence",
+      "given": "letter"
+    },
+    {
+      "drill": "R1",
+      "word": "licence",
+      "given": "license"
+    },
+    {
+      "drill": "R1",
+      "word": "frantically",
+      "given": "ferociosly"
+    },
+    {
+      "drill": "R1",
+      "word": "frantically",
+      "given": "ferociosly"
+    },
+    {
+      "drill": "R1",
+      "word": "frantically",
+      "given": "framtically"
+    },
+    {
+      "drill": "R1",
+      "word": "inaccessible",
+      "given": "is"
+    },
+    {
+      "drill": "R1",
+      "word": "inaccessible",
+      "given": "inacessible"
+    },
+    {
+      "drill": "R1",
+      "word": "considerable",
+      "given": "clump"
+    },
+    {
+      "drill": "R1",
+      "word": "absent-minded",
+      "given": "a"
+    },
+    {
+      "drill": "R1",
+      "word": "absent-minded",
+      "given": "absent minded"
+    },
+    {
+      "drill": "R1",
+      "word": "absent-minded",
+      "given": "absent minded"
+    },
+    {
+      "drill": "R1",
+      "word": "absent-minded",
+      "given": "absent minded"
+    },
+    {
+      "drill": "R1",
+      "word": "irritable",
+      "given": "imoatient"
+    },
+    {
+      "drill": "R2",
+      "word": "observant",
+      "given": "often forgetting things because you are thinking about something else"
+    },
+    {
+      "drill": "R2",
+      "word": "observant",
+      "given": "easily made cross"
+    },
+    {
+      "drill": "SC",
+      "word": "catastrophe",
+      "given": "h"
+    },
+    {
+      "drill": "SC",
+      "word": "rugged",
+      "given": "shudder"
+    },
+    {
+      "drill": "SC",
+      "word": "protective",
+      "given": "warily"
+    },
+    {
+      "drill": "SC",
+      "word": "protective",
+      "given": "chaos"
+    }
+  ],
+  "selfCheck": 5,
+  "selfCheckOutOf": 6,
+  "ready": true,
+  "routeSent": "",
+  "selfCheckTries": 2,
+  "movedOn": []
+}

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 49 Test — School Test 5-6: Grammar</title>
+<!-- Built from BUILD_PLAN_ENG_U049_SchoolTest56_Fri.md v1 section 6. Engine: the Unit 48 paper (select / mcq, banner, Save to Results) with the reading sections and proof box removed. All 22 items auto-marked. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --t1:#00695c; --t1-fill:#B2DFDB; --t1-text:#00695c;
+    --t2:#0d47a1; --t2-fill:#BBDEFB; --t2-text:#0d47a1;
+    --t3:#bf360c; --t3-fill:#FFE0B2; --t3-text:#bf360c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .xclose{position:absolute;top:8px;left:10px;z-index:30;font-size:.9rem;line-height:1;color:var(--grey);text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:50%;width:26px;height:26px;text-align:center;padding-top:5px}
+  .xclose:hover{background:#f3e8ff;color:#4A148C}
+  .wrap{max-width:1120px;margin:0 auto;padding:40px 16px 16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #timer-chip{font-size:.95rem;font-weight:800;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 16px 10px 44px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:10px;text-align:center}
+  .readfirst.two{background:#fff3e0;border-color:#f6993f;color:#7a4a00;font-weight:600}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 10px;text-align:center}
+  .band.t1{background:var(--t1-fill);color:var(--t1-text)}
+  .band.t2{background:var(--t2-fill);color:var(--t2-text)}
+  .band.t3{background:var(--t3-fill);color:var(--t3-text)}
+  .grp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:16px;align-items:start}
+  .grp .passage{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;margin-bottom:14px}
+  @media (max-width:900px){.grp{grid-template-columns:1fr}.grp .passage{position:static;max-height:none}}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.92rem;line-height:1.7}
+  .passage h4{margin:0 0 8px;font-size:1rem}
+  .t1 .passage h4,.passage.t1 h4{color:var(--t1-text)} .passage.t2 h4{color:var(--t2-text)} .passage.t3 h4{color:var(--t3-text)}
+  .passage p{margin:0 0 10px}
+  .passage h5{margin:12px 0 4px;font-size:.95rem;color:var(--t3-text)}
+  .passage table{border-collapse:collapse;width:100%;font-size:.84rem;margin:6px 0}
+  .passage th,.passage td{border:1.5px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+  .passage th{background:#e3f2fd}
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.t1{border-left-color:var(--t1)} .q.t2{border-left-color:var(--t2)} .q.t3{border-left-color:var(--t3)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:6px 0;cursor:pointer;font-size:.93rem;font-family:inherit}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  label.fld{display:block;font-size:.82rem;font-weight:800;color:#4A148C;margin:10px 0 4px}
+  input.proofin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  input.proofin.good{border-color:var(--ok);background:var(--ok-l)}
+  input.proofin.badp{border-color:var(--bad);background:var(--bad-l)}
+  .proofmsg{font-size:.82rem;font-weight:700;margin-top:4px;min-height:1em;color:var(--bad)}
+  .proofmsg.good{color:var(--ok)}
+  .btn.chk{background:#eceff1;color:#4A148C;padding:6px 14px;font-size:.8rem;margin-top:6px}
+  .btn.chk.skip{background:#fff3e0;color:#8a5a00;margin-left:8px}
+  textarea.writtenin{width:100%;min-height:110px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{background:#fff;border-top:1.5px solid var(--line);padding:14px 16px;margin-top:20px;border-radius:12px;box-shadow:0 -2px 10px #0001;display:flex;justify-content:center}
+  #submit-bar.sticky{position:sticky;bottom:0;border-radius:12px 12px 0 0}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:1rem;line-height:1.7}
+  .save-steps ol{margin:8px 0 8px 22px}
+  .save-steps p{font-size:.9rem;margin:4px 0 0}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.95rem;text-align:center;margin-top:10px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}#save-status.done{color:var(--ok)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:340px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.88rem;color:var(--grey);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center}
+  .confirm-actions .btn{padding:10px 18px;font-size:.88rem}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+
+  .hint{font-size:.85rem;color:var(--grey);font-weight:600;margin:0 0 10px;text-align:center}
+  .band.spell{background:#FEEBC8;color:#8A5A00}.band.meaning{background:#E1BEE7;color:#4A148C}.band.boxcloze{background:#B2DFDB;color:#00695c}
+  .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:700px){.qgrid{grid-template-columns:1fr}}
+  .qgrid .q{margin:0}
+  .q.spell{border-left-color:#8A5A00}.q.meaning{border-left-color:#7B1FA2}.q.boxcloze{border-left-color:#00695c}
+  .defpanel,.boxpanel{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.9rem}
+  .defpanel table{width:100%;border-collapse:collapse}
+  .defpanel td{padding:4px 6px;vertical-align:top}
+  .defpanel td.letter{font-weight:800;color:#4A148C;width:26px}
+  .boxpanel{text-align:center;font-weight:700;color:#00695c;letter-spacing:.3px;line-height:1.9}
+  select.selin,input.spellin{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.95rem;font-family:inherit;background:#fff}
+  select.selin.correct,input.spellin.correct{border-color:var(--ok);background:var(--ok-l)}
+  select.selin.wrong,input.spellin.wrong{border-color:var(--bad);background:var(--bad-l)}
+  .q p.body u{text-decoration-thickness:2px;text-underline-offset:3px}
+  .fixline{font-size:.82rem;color:var(--bad);margin-top:5px}
+  .passage h3{margin:0 0 8px;font-size:1.1rem;color:var(--t1-text)}
+  .passage h4{margin-top:10px}.passage h4:first-child,.passage h3:first-child{margin-top:0}
+  .passage ul{margin:4px 0 10px 20px;padding:0}
+  .flyer-box{border:2px dashed var(--t1);background:#f1faf8;border-radius:10px;padding:8px 12px;margin:8px 0}
+  .flyer-box h4{margin-top:0}
+
+  .band.forms{background:#FEEBC8;color:#8A5A00}.band.pronoun{background:#E1BEE7;color:#4A148C}.band.circle{background:#BBDEFB;color:#0d47a1}.band.prefix{background:#B2DFDB;color:#00695c}
+  .q.forms{border-left-color:#8A5A00}.q.pronoun{border-left-color:#7B1FA2}.q.circle{border-left-color:#0d47a1}.q.prefix{border-left-color:#00695c}
+  .pronpass{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:1rem;line-height:1.9}
+</style>
+</head>
+<body>
+<a class="xclose" href="../index.html" title="Back to Hub" aria-label="Back to Hub">✕</a>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Unit 49 Test — School Test 5-6 · Friday Paper: Grammar</b>
+      <span class="sub" id="hdr-sub">Word forms · Pronouns · Circle the answer · Prefixes</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+    <div id="timer-chip">&#9201; <span id="timer">00:00</span></div>
+  </div>
+  <div id="progress-bar">
+    <span id="progress-label">0 / 22 answered</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <div class="readfirst">Type it yourself — microphone off.</div>
+  <div id="score-banner">
+    <div id="score-big"></div>
+    <div id="score-msg"></div>
+    <div id="section-scores"></div>
+  </div>
+  <div id="quiz"></div>
+  <div id="submit-bar" class="sticky">
+    <div style="width:100%;text-align:center">
+      <button class="btn submit" id="btn-submit" onclick="askConfirmSubmit()">Submit</button>
+      <div id="save-area" style="display:none">
+        <div class="save-steps"><b>📁 Save your work for Naomi — you can't finish until it's saved.</b>
+        <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+        <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+        <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+        <li>Wait for <b>✅ Saved in Results</b>.</li></ol>
+        <p>After the first time, the window opens in Results by itself.</p></div>
+        <button class="btn save" id="btn-save" onclick="saveResults()">💾 Save to Results</button>
+      </div>
+      <div id="save-status"></div>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Submit the test?</h3>
+    <p>Once you submit, you can't change your answers. Make sure you're happy with all of them!</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" onclick="closeConfirm()">Go back</button>
+      <button class="btn submit" onclick="doSubmit()">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = 49;
+const UNIT_TITLE = "School Test 5-6 — Grammar (Friday paper, part 1)";
+const PASS_BAR   = 18;                 // out of 22
+const TOTAL_MARKS = 22;
+const AUTO_OUT_OF = 22;
+const SECTION_ORDER = ['forms','pronoun','circle','prefix'];
+const SECTION_LABEL = {
+ "forms": "SECTION C — Grammar · Part 1: Finish the sentence with the correct form of the word",
+ "pronoun": "SECTION C — Grammar · Part 2: Fill in the blanks with the correct pronoun. Each word is used once.",
+ "circle": "SECTION C — Grammar · Part 3: Choose the most appropriate answer",
+ "prefix": "SECTION C — Grammar · Part 4: Choose the prefix that makes the opposite"
+};
+const SECTION_HINT = {
+ "forms": "Read the whole sentence. Pick the form of the word that fits the gap.",
+ "pronoun": "Use each box word once. Read the whole paragraph first.",
+ "circle": "Read the sentence with each choice in the gap. Pick the best one.",
+ "prefix": "Pick the prefix that makes a real word with the opposite meaning."
+};
+const PRON_BOX = ["her", "we", "my", "they", "me", "she"];
+const Q = [
+ {
+  "n": 1,
+  "section": "forms",
+  "type": "select",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Uncle Cedric was so ______ that he called Ike “Zac” all week.",
+  "options": [
+   "forget",
+   "forgetful",
+   "forgetfully",
+   "forgetfulness"
+  ],
+  "ans": 2,
+  "why": "The gap needs a describing word for Uncle Cedric. The ending -ful makes “forget” describe a person."
+ },
+ {
+  "n": 2,
+  "section": "forms",
+  "type": "select",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "The ______ of the huge crate in the hallway made Phoebe scream.",
+  "options": [
+   "arrive",
+   "arrived",
+   "arrival",
+   "arriving"
+  ],
+  "ans": 3,
+  "why": "After “the” and before “of”, the gap needs a naming word. The ending -al makes “arrive” a naming word."
+ },
+ {
+  "n": 3,
+  "section": "forms",
+  "type": "select",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "On loose gravel, you should always ride ______.",
+  "options": [
+   "carefully",
+   "careful",
+   "care",
+   "careless"
+  ],
+  "ans": 1,
+  "why": "The gap tells how to ride, so it needs a how word. How words end -ly."
+ },
+ {
+  "n": 4,
+  "section": "forms",
+  "type": "select",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "A mountain bike frame must be ______ enough to cope with rocks and bumps.",
+  "options": [
+   "strength",
+   "strongly",
+   "strengthen",
+   "strong"
+  ],
+  "ans": 4,
+  "why": "The gap describes the frame, so it needs a describing word. Here the plain describing word, with no ending added, is the one that fits."
+ },
+ {
+  "n": 5,
+  "section": "forms",
+  "type": "select",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Wear bright clothes so that drivers can see you ______.",
+  "options": [
+   "easy",
+   "easily",
+   "ease",
+   "eased"
+  ],
+  "ans": 2,
+  "why": "The gap tells how drivers can see you, so it needs a how word. Take the -y off and add -ily."
+ },
+ {
+  "n": 6,
+  "section": "forms",
+  "type": "select",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Ike felt great ______ when Priscilla walked back into the room.",
+  "options": [
+   "relieve",
+   "relieved",
+   "relieving",
+   "relief"
+  ],
+  "ans": 4,
+  "why": "“felt great ___” needs a naming word. The naming word for “relieve” is relief."
+ },
+ {
+  "n": 7,
+  "section": "pronoun",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "(7)",
+  "options": [
+   "her",
+   "we",
+   "my",
+   "they",
+   "me",
+   "she"
+  ],
+  "ans": 3,
+  "why": "It owns “best friend”, so use the owning word: my."
+ },
+ {
+  "n": 8,
+  "section": "pronoun",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "(8)",
+  "options": [
+   "her",
+   "we",
+   "my",
+   "they",
+   "me",
+   "she"
+  ],
+  "ans": 6,
+  "why": "Phoebe is the one who lives next door, so use a doing word for a girl: she."
+ },
+ {
+  "n": 9,
+  "section": "pronoun",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "(9)",
+  "options": [
+   "her",
+   "we",
+   "my",
+   "they",
+   "me",
+   "she"
+  ],
+  "ans": 5,
+  "why": "Phoebe came to help the writer, so the writer is receiving the help: me."
+ },
+ {
+  "n": 10,
+  "section": "pronoun",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "(10)",
+  "options": [
+   "her",
+   "we",
+   "my",
+   "they",
+   "me",
+   "she"
+  ],
+  "ans": 2,
+  "why": "The writer and Phoebe are doing the hiding, so use: we."
+ },
+ {
+  "n": 11,
+  "section": "pronoun",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "(11)",
+  "options": [
+   "her",
+   "we",
+   "my",
+   "they",
+   "me",
+   "she"
+  ],
+  "ans": 4,
+  "why": "The three animals were not easy to hide, so use a doing word for more than one: they."
+ },
+ {
+  "n": 12,
+  "section": "pronoun",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "(12)",
+  "options": [
+   "her",
+   "we",
+   "my",
+   "they",
+   "me",
+   "she"
+  ],
+  "ans": 1,
+  "why": "Phoebe screamed, so Uncle Cedric ran to help Phoebe: her."
+ },
+ {
+  "n": 13,
+  "section": "circle",
+  "type": "mcq",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "This is the ______ trail in the whole park.",
+  "options": [
+   "steeper",
+   "most steepest",
+   "steepest",
+   "more steep"
+  ],
+  "ans": 3,
+  "why": "The whole park has many trails, so use -est. Never put most and -est together."
+ },
+ {
+  "n": 14,
+  "section": "circle",
+  "type": "mcq",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Ike found ______ old bird cage in ______ garage.",
+  "options": [
+   "a; the",
+   "an; the",
+   "an; a",
+   "the; an"
+  ],
+  "ans": 2,
+  "why": "“old” starts with a vowel sound, so use an. This is the garage the reader already knows about, so use the."
+ },
+ {
+  "n": 15,
+  "section": "circle",
+  "type": "mcq",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Reggie the python slid ______ the back of the television.",
+  "options": [
+   "into",
+   "onto",
+   "above",
+   "across"
+  ],
+  "ans": 1,
+  "why": "She slid inside the back of the television, and into is the word for going in."
+ },
+ {
+  "n": 16,
+  "section": "circle",
+  "type": "mcq",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Phoebe had never ______ a real crocodile before that day.",
+  "options": [
+   "see",
+   "saw",
+   "seed",
+   "seen"
+  ],
+  "ans": 4,
+  "why": "“had never” needs the third form: see → saw → seen."
+ },
+ {
+  "n": 17,
+  "section": "circle",
+  "type": "mcq",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "Ike had ______ all the towels into the bath.",
+  "options": [
+   "throwed",
+   "threw",
+   "thrown",
+   "throw"
+  ],
+  "ans": 3,
+  "why": "“had” needs the third form: throw → threw → thrown."
+ },
+ {
+  "n": 18,
+  "section": "circle",
+  "type": "mcq",
+  "strand": null,
+  "tier": "Intermediate",
+  "marks": 1,
+  "body": "If the water comes up ______ the hub of your wheels, do not ride into it.",
+  "options": [
+   "between",
+   "above",
+   "beside",
+   "under"
+  ],
+  "ans": 2,
+  "why": "Water that is higher than the hub is above the hub. The other words put the water somewhere else."
+ },
+ {
+  "n": 19,
+  "section": "prefix",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "Priscilla the chook ___appeared, and nobody could find her all day.",
+  "options": [
+   "un",
+   "dis",
+   "im",
+   "mis"
+  ],
+  "ans": 2,
+  "why": "dis- turns “appeared” into its opposite."
+ },
+ {
+  "n": 20,
+  "section": "prefix",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "With the path flooded, it was ___possible to reach the cave.",
+  "options": [
+   "un",
+   "dis",
+   "im",
+   "mis"
+  ],
+  "ans": 3,
+  "why": "im- turns “possible” into its opposite. (im- goes in front of words that start with p.)"
+ },
+ {
+  "n": 21,
+  "section": "prefix",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "Phoebe looked very ___happy about sharing a room with a skunk.",
+  "options": [
+   "un",
+   "dis",
+   "im",
+   "mis"
+  ],
+  "ans": 1,
+  "why": "un- turns “happy” into its opposite."
+ },
+ {
+  "n": 22,
+  "section": "prefix",
+  "type": "select",
+  "strand": null,
+  "tier": "Basic",
+  "marks": 1,
+  "body": "Ike ___understood the message on the phone.",
+  "options": [
+   "un",
+   "dis",
+   "im",
+   "mis"
+  ],
+  "ans": 4,
+  "why": "mis- means “wrongly”: he understood the message wrongly."
+ }
+];
+const PASSAGES = {"pron": "(7) ______ best friend is Phoebe, and (8) ______ lives next door. When Aunt Popsie left a python, a skunk and a crocodile at our house, Phoebe came over to help (9) ______. (10) ______ had to hide all three animals from Uncle Cedric. (11) ______ were not easy to hide! Once, Uncle Cedric nearly saw the crocodile, but Phoebe screamed so loudly that he ran to help (12) ______ instead."};
+/* ---------- END EDIT PER UNIT ---------- */
+
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
+
+document.getElementById('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+const chosen = {};      // qn -> option index (1-based)
+let submitted = false;
+const openedAtMs = Date.now();
+const openedAt = new Date().toISOString();
+let frozenSecs = null;
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function elapsedSecs(){ return frozenSecs !== null ? frozenSecs : Math.round((Date.now()-openedAtMs)/1000); }
+function tick(){ document.getElementById('timer').textContent = fmtClock(elapsedSecs()); }
+setInterval(tick, 1000); tick();
+
+function qHtml(q){
+  let h = `<div class="q ${q.section}" id="q-${q.n}">
+    <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+      <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+      <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+    </p>`;
+  if (q.type === 'mcq'){
+    h += `<div>`;
+    q.options.forEach((opt, idx) => {
+      h += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${'ABCD'[idx]}. ${opt}</button>`;
+    });
+    h += `</div>`;
+  } else {
+    h += `<select class="selin" id="in-${q.n}" onchange="choose(${q.n}, this.selectedIndex)"><option value="">— choose —</option>`;
+    q.options.forEach((opt, idx) => { h += `<option value="${idx+1}">${opt}</option>`; });
+    h += `</select>`;
+  }
+  h += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+  return h + `</div>`;
+}
+
+function render(){
+  let html = '';
+  SECTION_ORDER.forEach(sec => {
+    html += `<div class="band ${sec}">${SECTION_LABEL[sec]}</div>`;
+    html += `<div class="hint">${SECTION_HINT[sec]}</div>`;
+    const qs = Q.filter(q => q.section === sec);
+    if (sec === 'pronoun'){
+      html += `<div class="boxpanel">BOX: ${PRON_BOX.join(' · ')}</div>`;
+      html += `<div class="pronpass">${PASSAGES.pron}</div>`;
+    }
+    html += `<div class="qgrid">${qs.map(qHtml).join('')}</div>`;
+  });
+  document.getElementById('quiz').innerHTML = html;
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  const q = Q.find(x => x.n === qn);
+  if (q.type === 'select'){ if (idx > 0) chosen[qn] = idx; else delete chosen[qn]; updateProgress(); return; }
+  chosen[qn] = idx;
+  q.options.forEach((_, i) => document.getElementById(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  document.getElementById(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress();
+}
+function isAnswered(q){ const v = chosen[q.n]; return v !== undefined && v !== ''; }
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  document.getElementById('progress-label').textContent = `${n} / ${Q.length} answered`;
+  document.getElementById('progress-fill').style.width = (n/Q.length*100) + '%';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = false;
+  btn.textContent = (n === Q.length) ? 'Submit the test' : `Submit (${Q.length-n} not answered yet) — tap to jump there`;
+}
+function firstUnanswered(){ return Q.find(q => !isAnswered(q)); }
+function askConfirmSubmit(){
+  const missing = firstUnanswered();
+  if (missing){
+    const el = document.getElementById(`q-${missing.n}`);
+    if (el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('jump-highlight');
+      setTimeout(() => el.classList.remove('jump-highlight'), 2000);
+    }
+    return;
+  }
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('show'); }
+
+let lastResults = null;
+const SEC_RES = ['forms','pronoun','circle','prefix'];
+const SEC_RES_NAME = {forms:'Word forms', pronoun:'Pronouns', circle:'Circle the answer', prefix:'Prefixes'};
+
+function doSubmit(){
+  if (submitted) return;
+  closeConfirm();
+  submitted = true;
+  frozenSecs = Math.round((Date.now()-openedAtMs)/1000); tick();
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('select.selin').forEach(s => s.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SEC_RES.forEach(s => sectionTally[s]={c:0,t:0});
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    const isCorrect = given === q.ans;
+    let givenText;
+    if (q.type === 'select'){
+      const el = document.getElementById(`in-${q.n}`);
+      el.classList.add(isCorrect?'correct':'wrong');
+      givenText = given ? q.options[given-1] : null;
+      if (!isCorrect) el.insertAdjacentHTML('afterend', `<div class="fixline">Correct: <b>${q.options[q.ans-1]}</b></div>`);
+    } else {
+      document.getElementById(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong');
+      if (!isCorrect) document.getElementById(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    }
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    document.getElementById(`why-${q.n}`).classList.add('show');
+    document.getElementById(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    const rec = { q:q.n, section:q.section, type:q.type, tier:q.tier, given: (given === undefined ? null : given), correct:q.ans, isCorrect };
+    if (givenText !== undefined) rec.givenText = givenText;
+    return rec;
+  });
+
+  const banner = document.getElementById('score-banner');
+  const passed = autoScore >= PASS_BAR;
+  banner.classList.add('show', passed ? 'pass' : 'fail');
+  document.getElementById('score-big').textContent = `Score: ${autoScore} / ${TOTAL_MARKS}`;
+  document.getElementById('score-msg').textContent = `Pass bar is ${PASS_BAR}/${TOTAL_MARKS}. Every question is marked by the page.`;
+  document.getElementById('section-scores').innerHTML =
+    SEC_RES.map(s => `<div class="sec-chip">${SEC_RES_NAME[s]}: ${sectionTally[s].c}/${sectionTally[s].t}</div>`).join('') +
+    `<div class="sec-chip">Time: ${fmtClock(frozenSecs)}</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('submit-bar').classList.remove('sticky');
+  document.getElementById('save-area').style.display = 'block';
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Press the blue Save button — your results are NOT saved yet.';
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    paper: "G",
+    dateTaken: new Date().toISOString().slice(0,10),
+    openedAt: openedAt,
+    finishedAt: new Date().toISOString(),
+    minutesSpent: Math.round(frozenSecs/60),
+    secondsSpent: frozenSecs,
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed,
+    tiers: tierTally,
+    sections: SEC_RES.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    answers
+  };
+}
+
+window.addEventListener('beforeunload', function(e){ if (submitted && !SAVED){ e.preventDefault(); e.returnValue = ''; } });
+
+async function saveResults(){
+  const filename = `ENG_U049P1_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = document.getElementById('save-status');
+  st.className = 'reminder'; st.textContent = 'Saving…';
+  if (!window.showDirectoryPicker){ downloadInstead(filename, json, st); SAVED = true; return; }
+  try {
+    await saveToResults(filename, json);
+    SAVED = true; st.className = 'done'; st.textContent = '✅ Saved in Results as ' + filename + '. Well done!';
+  } catch(e){
+    if (e && e.name === 'AbortError'){ st.textContent = 'Not saved yet — you closed the window. Press the blue button again.'; }
+    else if (e && e.name === 'WrongFolder'){ st.textContent = 'That folder is called “' + e.picked + '”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.'; }
+    else { SAVE_FAILS++; if (SAVE_FAILS>=2){ downloadInstead(filename, json, st); SAVED = true; } else { st.textContent = 'Something went wrong while saving. Press the blue button again.'; } }
+  }
+}
+
+render();
+updateProgress();
+
+</script>
+</body>
+</html>
