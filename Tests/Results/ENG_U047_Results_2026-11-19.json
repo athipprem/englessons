@@ -1,0 +1,317 @@
+{
+  "student": "Prem",
+  "unit": 47,
+  "unitTitle": "Answer the Question It Asks",
+  "dateTaken": "2026-11-19",
+  "openedAt": "2026-11-19T13:26:39.487Z",
+  "finishedAt": "2026-11-19T13:38:43.399Z",
+  "minutesSpent": 12,
+  "secondsSpent": 724,
+  "autoScore": 8,
+  "autoOutOf": 8,
+  "writtenMarks": 12,
+  "writtenScore": null,
+  "total": 20,
+  "passBar": 16,
+  "passed": null,
+  "strands": {
+    "L": {
+      "score": 6,
+      "outOf": 6,
+      "writtenMarks": 2
+    },
+    "U": {
+      "score": 2,
+      "outOf": 2,
+      "writtenMarks": 6
+    },
+    "E": {
+      "score": 0,
+      "outOf": 0,
+      "writtenMarks": 4
+    }
+  },
+  "tiers": {
+    "Basic": {
+      "c": 4,
+      "t": 4
+    },
+    "Intermediate": {
+      "c": 4,
+      "t": 4
+    },
+    "Applied": {
+      "c": 0,
+      "t": 6
+    }
+  },
+  "sections": [
+    {
+      "name": "t1",
+      "score": 3,
+      "outOf": 3
+    },
+    {
+      "name": "t2",
+      "score": 2,
+      "outOf": 2
+    },
+    {
+      "name": "t3",
+      "score": 3,
+      "outOf": 3
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 2,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 3,
+      "section": "t1",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 4,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "Granddad put it over there because Esme said that there was nothing to do so granddad put it there if she changed her mind. And he said “ in case you change your mind”.",
+      "proof": "In case you change your mind.",
+      "isCorrect": null
+    },
+    {
+      "q": 5,
+      "section": "t1",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "At first, Esme said there’s nothing to do here because there was no phone signal and chops and cinemas. But in the end, she wanted to come back because she was happy be with her granddad.",
+      "proof": "There’s nothing to do here.",
+      "isCorrect": null
+    },
+    {
+      "q": 6,
+      "section": "t1",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "She said that because it was yummy and nicely made.",
+      "proof": "Esme grinned and didn’t wipe the flour of her face.",
+      "isCorrect": null
+    },
+    {
+      "q": 7,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 8,
+      "section": "t2",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 9,
+      "section": "t2",
+      "type": "written",
+      "strand": "L",
+      "tier": "Applied",
+      "given": "Puffin often would be the best because it runs on Saturday and reaches the mainland before 4 PM and it’s less than five dollars.",
+      "proof": "",
+      "isCorrect": null
+    },
+    {
+      "q": 10,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true
+    },
+    {
+      "q": 11,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "U",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 12,
+      "section": "t3",
+      "type": "written",
+      "strand": "U",
+      "tier": "Applied",
+      "given": "I think it will rise by a bit because it is over 60°C.",
+      "proof": "",
+      "isCorrect": null
+    },
+    {
+      "q": 13,
+      "section": "t3",
+      "type": "written",
+      "strand": "E",
+      "tier": "Applied",
+      "given": "No, and I don’t really understand the question.",
+      "proof": "",
+      "isCorrect": null
+    },
+    {
+      "q": 14,
+      "section": "t3",
+      "type": "mcq",
+      "strand": "L",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    }
+  ],
+  "written": [
+    {
+      "q": 4,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) He wants Esme to choose to help for herself / he hopes she will change her mind, without forcing her — in a full sentence.",
+        "(2) The proof: accepted within two tries — “didn’t argue” · “hung it on the hook” · “In case you change your mind”."
+      ],
+      "proof": "In case you change your mind.",
+      "proofTries": 1,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "Granddad put it over there because Esme said that there was nothing to do so granddad put it there if she changed her mind. And he said “ in case you change your mind”.",
+      "wordCount": 34,
+      "answerTries": 2,
+      "answerGaveUp": true,
+      "longestRun": 6
+    },
+    {
+      "q": 5,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) Both ends: at first she is bored / fed up with the island (arms folded, nothing to do); by the end she is proud / happy and wants to come back — in a full sentence.",
+        "(2) The proof: accepted within two tries — either end."
+      ],
+      "proof": "There’s nothing to do here.",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "At first, Esme said there’s nothing to do here because there was no phone signal and chops and cinemas. But in the end, she wanted to come back because she was happy be with her granddad.",
+      "wordCount": 36,
+      "answerTries": 1,
+      "answerGaveUp": false,
+      "longestRun": 5
+    },
+    {
+      "q": 6,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "(1) To show that Esme’s hard night’s work was worth it / to make Esme (and the reader) feel proud — the writer’s reason, not a retelling.",
+        "(2) The proof: accepted within two tries — “best ever” · “grinned” · “didn’t wipe the flour”."
+      ],
+      "proof": "Esme grinned and didn’t wipe the flour of her face.",
+      "proofTries": 0,
+      "proofAccepted": true,
+      "proofGaveUp": false,
+      "response": "She said that because it was yummy and nicely made.",
+      "wordCount": 10,
+      "answerTries": 3,
+      "answerGaveUp": true,
+      "longestRun": 2
+    },
+    {
+      "q": 9,
+      "strand": "L",
+      "marks": 2,
+      "markScheme": [
+        "(1) The Puffin, in a full sentence, with a reason it fits (runs on Saturday · arrives 3:45, before 4:00 · £4, within £5) or why another fails (Seagull: weekdays only · Kittiwake: arrives 4:30 · Gannet Express: £7).",
+        "(2) The proof: accepted within two tries — a timetable row."
+      ],
+      "proof": "",
+      "proofTries": 2,
+      "proofAccepted": false,
+      "proofGaveUp": true,
+      "response": "Puffin often would be the best because it runs on Saturday and reaches the mainland before 4 PM and it’s less than five dollars.",
+      "wordCount": 24,
+      "answerTries": 3,
+      "answerGaveUp": true,
+      "longestRun": 2
+    },
+    {
+      "q": 12,
+      "strand": "U",
+      "marks": 2,
+      "markScheme": [
+        "(1) No — it will not rise, because above 60 °C the heat kills the yeast, and dead yeast cannot make the gas bubbles that make dough rise (two ideas linked).",
+        "(2) The proof: accepted within two tries — “kills the yeast” · “above 60” · “never right next to a hot oven” · gas sentences."
+      ],
+      "proof": "",
+      "proofTries": 2,
+      "proofAccepted": false,
+      "proofGaveUp": true,
+      "response": "I think it will rise by a bit because it is over 60°C.",
+      "wordCount": 13,
+      "answerTries": 0,
+      "answerGaveUp": false,
+      "longestRun": 2
+    },
+    {
+      "q": 13,
+      "strand": "E",
+      "marks": 2,
+      "markScheme": [
+        "(1) A view (yes / no / partly) with one reason from the text (e.g. the balloon comparison, the holes in a slice, the microscope fact) and one of his own.",
+        "(2) The proof: accepted within two tries — any sentence carrying an anchor."
+      ],
+      "proof": "",
+      "proofTries": 2,
+      "proofAccepted": false,
+      "proofGaveUp": true,
+      "response": "No, and I don’t really understand the question.",
+      "wordCount": 8,
+      "answerTries": 3,
+      "answerGaveUp": true,
+      "longestRun": 1
+    }
+  ]
+}

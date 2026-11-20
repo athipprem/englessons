@@ -1,0 +1,97 @@
+{
+  "student": "Prem",
+  "unit": 49,
+  "lesson": "L1",
+  "lessonDone": true,
+  "dateDone": "2026-11-16",
+  "openedAt": "2026-11-16T12:33:19.553Z",
+  "finishedAt": "2026-11-16T12:35:26.586Z",
+  "minutesSpent": 2,
+  "secondsSpent": 125,
+  "drills": {
+    "W": "2/6",
+    "G": "5/7",
+    "P": "4/4"
+  },
+  "misses": [
+    {
+      "drill": "W2",
+      "word": "Ike waited ______ for Aunt Popsie to phone.",
+      "given": "hopeless"
+    },
+    {
+      "drill": "W2",
+      "word": "Ike waited ______ for Aunt Popsie to phone.",
+      "given": "hope"
+    },
+    {
+      "drill": "W3",
+      "word": "The ______ of the race made everyone cheer.",
+      "given": "excitedly"
+    },
+    {
+      "drill": "W3",
+      "word": "The ______ of the race made everyone cheer.",
+      "given": "excite"
+    },
+    {
+      "drill": "W5",
+      "word": "The python moved ______ across the carpet.",
+      "given": "slowed"
+    },
+    {
+      "drill": "W6",
+      "word": "Please keep the gate shut for the ______ of the animals.",
+      "given": "safe"
+    },
+    {
+      "drill": "G5",
+      "word": "By lunchtime, Phoebe had ______ two bananas.",
+      "given": "ate"
+    },
+    {
+      "drill": "G5",
+      "word": "By lunchtime, Phoebe had ______ two bananas.",
+      "given": "eated"
+    },
+    {
+      "drill": "G5",
+      "word": "By lunchtime, Phoebe had ______ two bananas.",
+      "given": "eat"
+    },
+    {
+      "drill": "G7",
+      "word": "This trail is ______ than the one we rode yesterday.",
+      "given": "muddiest"
+    },
+    {
+      "drill": "G7",
+      "word": "This trail is ______ than the one we rode yesterday.",
+      "given": "more muddier"
+    },
+    {
+      "drill": "G7",
+      "word": "This trail is ______ than the one we rode yesterday.",
+      "given": "muddy"
+    },
+    {
+      "drill": "SC2",
+      "word": "She has ______ her lunch at home again.",
+      "given": "forgot"
+    },
+    {
+      "drill": "SC3",
+      "word": "Jo is the ______ girl in her class.",
+      "given": "tall"
+    },
+    {
+      "drill": "SC4",
+      "word": "Telling lies is ___honest.",
+      "given": "im"
+    }
+  ],
+  "selfCheck": 4,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "movedOn": []
+}

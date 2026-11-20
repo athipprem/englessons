@@ -1,0 +1,48 @@
+{
+  "student": "Prem",
+  "unit": 47,
+  "lesson": "L1",
+  "lessonDone": true,
+  "dateDone": "2026-11-19",
+  "openedAt": "2026-11-19T13:19:59.542Z",
+  "finishedAt": "2026-11-19T13:26:26.277Z",
+  "minutesSpent": 6,
+  "secondsSpent": 385,
+  "drills": {
+    "A": "5/5",
+    "B": "2/4"
+  },
+  "write": [
+    {
+      "item": 1,
+      "proof": "Leaving her seat for him",
+      "proofTries": 0,
+      "answer": "She stands up because she wants the old man to have the seat.",
+      "answerTries": 1
+    },
+    {
+      "item": 2,
+      "proof": "Hugo was reading to it",
+      "proofTries": 0,
+      "answer": "At first, Hugo was sad, but then he was happy in the end.",
+      "answerTries": 3
+    }
+  ],
+  "fix": [
+    {
+      "q": 5,
+      "answer": "To make Ravi show how to do it. So she slides the sketchbook to Ravi.",
+      "answerTries": 1
+    },
+    {
+      "q": 13,
+      "answer": "Because she is showing a example in the letter. So she writes about her little brother.",
+      "answerTries": 2
+    }
+  ],
+  "selfCheck": 3,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "stuckOpened": 0,
+  "movedOn": []
+}

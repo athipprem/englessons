@@ -1,0 +1,268 @@
+{
+  "student": "Prem",
+  "unit": 49,
+  "unitTitle": "School Test 5-6 — Grammar (Friday paper, part 1)",
+  "paper": "G",
+  "dateTaken": "2026-11-16",
+  "openedAt": "2026-11-16T12:35:38.819Z",
+  "finishedAt": "2026-11-16T12:38:38.394Z",
+  "minutesSpent": 3,
+  "secondsSpent": 180,
+  "autoScore": 20,
+  "autoOutOf": 22,
+  "total": 22,
+  "passBar": 18,
+  "passed": true,
+  "tiers": {
+    "Basic": {
+      "c": 9,
+      "t": 10
+    },
+    "Intermediate": {
+      "c": 11,
+      "t": 12
+    },
+    "Applied": {
+      "c": 0,
+      "t": 0
+    }
+  },
+  "sections": [
+    {
+      "name": "forms",
+      "score": 6,
+      "outOf": 6
+    },
+    {
+      "name": "pronoun",
+      "score": 5,
+      "outOf": 6
+    },
+    {
+      "name": "circle",
+      "score": 5,
+      "outOf": 6
+    },
+    {
+      "name": "prefix",
+      "score": 4,
+      "outOf": 4
+    }
+  ],
+  "answers": [
+    {
+      "q": 1,
+      "section": "forms",
+      "type": "select",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "givenText": "forgetful"
+    },
+    {
+      "q": 2,
+      "section": "forms",
+      "type": "select",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "givenText": "arrival"
+    },
+    {
+      "q": 3,
+      "section": "forms",
+      "type": "select",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "givenText": "carefully"
+    },
+    {
+      "q": 4,
+      "section": "forms",
+      "type": "select",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "givenText": "strong"
+    },
+    {
+      "q": 5,
+      "section": "forms",
+      "type": "select",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "givenText": "easily"
+    },
+    {
+      "q": 6,
+      "section": "forms",
+      "type": "select",
+      "tier": "Intermediate",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "givenText": "relief"
+    },
+    {
+      "q": 7,
+      "section": "pronoun",
+      "type": "select",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 3,
+      "isCorrect": false,
+      "givenText": "her"
+    },
+    {
+      "q": 8,
+      "section": "pronoun",
+      "type": "select",
+      "tier": "Basic",
+      "given": 6,
+      "correct": 6,
+      "isCorrect": true,
+      "givenText": "she"
+    },
+    {
+      "q": 9,
+      "section": "pronoun",
+      "type": "select",
+      "tier": "Basic",
+      "given": 5,
+      "correct": 5,
+      "isCorrect": true,
+      "givenText": "me"
+    },
+    {
+      "q": 10,
+      "section": "pronoun",
+      "type": "select",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "givenText": "we"
+    },
+    {
+      "q": 11,
+      "section": "pronoun",
+      "type": "select",
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "givenText": "they"
+    },
+    {
+      "q": 12,
+      "section": "pronoun",
+      "type": "select",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "givenText": "her"
+    },
+    {
+      "q": 13,
+      "section": "circle",
+      "type": "mcq",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 14,
+      "section": "circle",
+      "type": "mcq",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 15,
+      "section": "circle",
+      "type": "mcq",
+      "tier": "Intermediate",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true
+    },
+    {
+      "q": 16,
+      "section": "circle",
+      "type": "mcq",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 4,
+      "isCorrect": false
+    },
+    {
+      "q": 17,
+      "section": "circle",
+      "type": "mcq",
+      "tier": "Intermediate",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true
+    },
+    {
+      "q": 18,
+      "section": "circle",
+      "type": "mcq",
+      "tier": "Intermediate",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true
+    },
+    {
+      "q": 19,
+      "section": "prefix",
+      "type": "select",
+      "tier": "Basic",
+      "given": 2,
+      "correct": 2,
+      "isCorrect": true,
+      "givenText": "dis"
+    },
+    {
+      "q": 20,
+      "section": "prefix",
+      "type": "select",
+      "tier": "Basic",
+      "given": 3,
+      "correct": 3,
+      "isCorrect": true,
+      "givenText": "im"
+    },
+    {
+      "q": 21,
+      "section": "prefix",
+      "type": "select",
+      "tier": "Basic",
+      "given": 1,
+      "correct": 1,
+      "isCorrect": true,
+      "givenText": "un"
+    },
+    {
+      "q": 22,
+      "section": "prefix",
+      "type": "select",
+      "tier": "Basic",
+      "given": 4,
+      "correct": 4,
+      "isCorrect": true,
+      "givenText": "mis"
+    }
+  ]
+}

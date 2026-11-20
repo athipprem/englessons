@@ -15,15 +15,15 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '4 Nov 2026',
+  updated:        '20 Nov 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           49,
-    heroLabel:   "Unit 49 - School Test 5-6 (Fri), Thursday: 2 Lessons + 2 Papers",
-    status:      "&#127979; UNIT 49 &mdash; School Test 5-6 prep (Friday half), built 4 Nov. Thursday: a grammar lesson then a 22-question grammar paper (pass bar 18, all marked by the page), and a writing lesson (Answer the Prompt, can be done early) then a writing paper &mdash; seven prompt boxes and a typed four-part story. Unit 48 is sat; its written marks wait for Naomi. Unit 47 (Answer the Question It Asks) is built and still waiting &mdash; Prem does it later.",
+    n:           50,
+    heroLabel:   "Unit 50 - Opinion essay (Five Moves): Lesson + Essay",
+    status:      "&#9997;&#65039; UNIT 50 &mdash; writing, opinion essay. A lesson (Five Moves: opinion, reason with an example, a second reason with an example, the other side, an ending) then an essay on screen: seven prompt boxes, a five-paragraph essay, a Fix-it round with a same-word check, and a moves check. Units 47, 48 and 49 are sat and marked.",
     testPending: true
   },
 
@@ -36,20 +36,20 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 44 -- updated after each test)
   lastUnit: {
-    n: 46, label: 'Unit 46', score: 11, outOf: 25, pct: 44, delta: null, prevScore: 16, prevOutOf: 20,
+    n: 47, label: 'Unit 47', score: 14, outOf: 20, pct: 70, delta: null, prevScore: 11, prevOutOf: 25,
 
-    patternLabel:   "Unit 46 &mdash; 25 Oct 2026 &middot; 11/25 &middot; Scene 3/5",
-    patternInsight: "<strong>11/25 on the school rubric (Ideas 2 &middot; Organisation 3 &middot; Style 2 &middot; Word Choice 2 &middot; Conventions 2), range 10&ndash;13; Scene 3/5; moment chosen: no.</strong> Marked by Naomi. Draft 1 had 0 &ldquo;and then&rdquo; and the longest sentence was 25 words &mdash; the unit&rsquo;s bar, as the page counts it. The Fix-it round had nothing to flag. Typed: 1% dictated; the page refused 4 attempts to dictate on the story and 4 on the lesson. Story 14 min 30 s, lesson 9 min 52 s, sat 15 seconds apart.",
+    patternLabel:   "Unit 47 &mdash; 19 Nov 2026 &middot; 14/20 &middot; auto 8/8 &middot; written 6/12",
+    patternInsight: "<strong>14/20 (70%), below the 16 bar; streak 0 of 4.</strong> Auto-marked 8/8. Written 6/12, marked by Naomi: Q4 2 &middot; Q5 2 &middot; Q6 1 &middot; Q9 1 &middot; Q12 0 &middot; Q13 0. First ticks 3/6, second ticks 3/6. The answer check was left as it is on 4 of 6 written answers. Three proofs were given up, all on the harder items. One sitting, 19 minutes.",
 
-    analysisLabel:   "Unit 46 Result Analysis &mdash; 25 Oct 2026",
-    analysisInsight: "<strong>The sentence rule is followed literally; the rubric did not move.</strong> Five sentences now open with &ldquo;Then&rdquo;. None of the picture&rsquo;s objects appears in the story. See TEST_RECORD_U046.md for provenance and the flags.",
+    analysisLabel:   "Unit 47 Result Record &mdash; 19 Nov 2026",
+    analysisInsight: "See TEST_RECORD_U047.md for the per-question record and provenance.",
 
-    qSummary: "<strong>11/25 &mdash; equal to Unit 44.</strong> Scene 3/5 &middot; taps 0&ndash;1/4.",
+    qSummary: "<strong>14/20 &mdash; written 6/12.</strong> Q12 (threshold) and Q13 (evaluate) scored 0.",
 
     qBreakdown: [
-      { q:"Draft-1 sentence control", topic:"Writing", pass:true, note:"&#9650; 0 &ldquo;and then&rdquo;, longest sentence 25 words (the bar)." },
-      { q:"School rubric", topic:"Writing", pass:false, note:"11/25 &mdash; the same trait pattern as Unit 44 (2&middot;3&middot;2&middot;2&middot;2)." },
-      { q:"Scene score", topic:"Writing", pass:false, note:"3/5; the big moment ran on as a chain; SHOW note copied the SEE note." }
+      { q:"Auto-marked items", topic:"Reading", pass:true, note:"8 of 8." },
+      { q:"Written answers", topic:"Reading", pass:false, note:"6 of 12; Q12 and Q13 scored 0." },
+      { q:"First / second ticks", topic:"Reading", pass:false, note:"3/6 and 3/6; three proofs given up." }
     ]
   },
 
@@ -141,11 +141,53 @@ var PREM_ENGLISH = {
     { n:43, score:13, outOf:25, delta:null, color:'#f6993f', star:false, label:'U43 W' },
     { n:44, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U44 W' },
     { n:45, score:16, outOf:20, delta:null, color:'#89F336', star:false, label:'U45' },
-    { n:46, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U46 W' }
+    { n:46, score:11, outOf:25, delta:null, color:'#f6993f', star:false, label:'U46 W' },
+    { n:48, score:46, outOf:55, delta:null, color:'#89F336', star:false, label:'U48 🏫' },
+    { n:'49P1', score:20, outOf:22, delta:null, color:'#89F336', star:false, label:'U49 P1 🏫' },
+    { n:'49P2', score:12, outOf:25, delta:null, color:'#f6993f', star:false, label:'U49 P2 W' },
+    { n:47, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U47' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 47,
+      title: "Unit 47 &mdash; &#128214; Answer the Question It Asks (reading)",
+      badge: '#f6993f',
+      status: 'done',
+      note: "14/20 (70%), below the 16 bar; streak 0 of 4. Auto 8/8, written 6/12 (Q4 2, Q5 2, Q6 1, Q9 1, Q12 0, Q13 0), marked by Naomi. First ticks 3/6, second ticks 3/6. Sat Thu 19 Nov in one 19-minute sitting. <strong>Unit 50 is writing, an opinion essay.</strong>",
+      tags: [
+        { t:"14/20", s:"background:#fff8e1;color:#744210" },
+        { t:"Auto 8/8", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Written 6/12", s:"background:#fff0f0;color:#c53030" },
+        { t:"&rarr; Unit 50 Opinion essay", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
+    {
+      n: 49,
+      title: "Unit 49 &mdash; &#127979; School Test 5-6 prep, Friday half (grammar and writing)",
+      badge: '#00695c',
+      status: 'done',
+      note: "Grammar paper 20/22 (bar 18, pass). Story 12/25 marked by Naomi: Ideas 3 &middot; Organisation 3 &middot; Style &amp; Voice 2 &middot; Word Choice 2 &middot; Conventions 2. Prompt questions answered: 5 of 6. Sat Mon 16 Nov, after the school test.",
+      tags: [
+        { t:"Grammar 20/22", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Story 12/25", s:"background:#fff8e1;color:#744210" },
+        { t:"Prompt 5/6", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"&rarr; Unit 47 sat, then Unit 50", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
+    {
+      n: 48,
+      title: "Unit 48 &mdash; &#127979; School Test 5-6 prep, Thursday half (vocabulary and reading)",
+      badge: '#00695c',
+      status: 'done',
+      note: "46/55 (84%), pass (bar 44). Auto 39/39; written 7/16, marked by Naomi. Sat Tue 3 Nov.",
+      tags: [
+        { t:"46/55", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Auto 39/39", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"Written 7/16", s:"background:#fff8e1;color:#744210" }
+      ]
+    },
     {
       n: 46,
       title: "Unit 46 &mdash; &#9999;&#65039; Full Stops: one idea, one sentence (writing, typed)",

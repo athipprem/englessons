@@ -1,0 +1,126 @@
+{
+  "student": "Prem",
+  "unit": 49,
+  "paper": "W",
+  "mode": "digital",
+  "dateTaken": "2026-11-16",
+  "openedAt": "2026-11-16T12:44:28.699Z",
+  "startedAt": "2026-11-16T12:44:29.791Z",
+  "finishedAt": "2026-11-16T12:59:06.929Z",
+  "secondsSpent": 877,
+  "minutesSpent": 15,
+  "title": "ROLLERCOSTER",
+  "promptBoxes": {
+    "what": "I tried roding a rollercoster I was at DisneyLand",
+    "see": "I could see a track and a cart.",
+    "hear": "I could hear the chaos at Tokyo DisneyLand",
+    "feel": "I could feel my hands shaking because it was scary.",
+    "start": "I felt nervous I was gonna get a headache ir vomit.",
+    "hardest": "It was the curves because we were almost going sideways",
+    "end": "I felt happy because it was fun I even did it a gain."
+  },
+  "sections": {
+    "beginning": "I tried riding a rollercoster one time in disneyland. I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+    "middle": "I could see another cart in front of me that was also going high speed like mine. I heard the unlimited chaos that happens at disneyland everyday and I could also hear the other peoples screaming because it was very scary. At first I thought I was going to get a headache or vomit due to how unpridictably the ride was.",
+    "hardest": "Thr hardest moment(s) was when we hit the curves and the drops. The curves were hard or more likely scary was because when we curved we almost went sideways. And the drops was when we dropped and it was hard / scary because of how high it was, but in the end it was fun.",
+    "ending": "When I reached the end I didn't fell nervous and scared anymore I felt like I wanted to do it again. So I did go and do it again, it was very fun."
+  },
+  "words": {
+    "beginning": 41,
+    "middle": 61,
+    "hardest": 54,
+    "ending": 33,
+    "total": 189
+  },
+  "sentences": {
+    "beginning": 2,
+    "middle": 3,
+    "hardest": 3,
+    "ending": 2
+  },
+  "sectionSeconds": {
+    "beginning": 116,
+    "middle": 231,
+    "hardest": 147,
+    "ending": 91
+  },
+  "draft1": {
+    "beginning": "I tried riding a rollercoster one time in disneyland. I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+    "middle": "I could see another cart in front of me that was also going high speed like mine. I heard the unlimited chaos that happens at disneyland everyday and I could also hear the other peoples screaming because it was very scary. At first I thought I was going to get a headache or vomit due to how unpridictably the ride was.",
+    "hardest": "Thr hardest moment(s) was when we hit the curves and the drops. The curves were hard or more likely scary was because when we curved we almost went sideways. And the drops was when we dropped and it was hard / scary because of how high it was, but in the end it was fun.",
+    "ending": " When I reached the end I didn't fell nervous and scared anymore I felt like I wanted to do it again. So I did go and do it again, it was very fun."
+  },
+  "fixes": [
+    {
+      "part": "beginning",
+      "before": "I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+      "after": "I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+      "action": "fixed",
+      "reasons": [
+        "25+ words",
+        "spoken word: kind of"
+      ]
+    },
+    {
+      "part": "beginning",
+      "before": "I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+      "after": "I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+      "action": "fixed",
+      "reasons": [
+        "25+ words",
+        "spoken word: kind of"
+      ]
+    },
+    {
+      "part": "beginning",
+      "before": "I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+      "after": "I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.",
+      "action": "fixed",
+      "reasons": [
+        "25+ words",
+        "spoken word: kind of"
+      ]
+    }
+  ],
+  "andThen": {
+    "before": 0,
+    "after": 0
+  },
+  "longSentences": {
+    "before": 1,
+    "after": 1
+  },
+  "spoken": {
+    "before": 1,
+    "after": 1
+  },
+  "senses": {
+    "see": {
+      "tapped": "I could see another cart in front of me that was also going high speed like mine.",
+      "added": null,
+      "part": "middle"
+    },
+    "hear": {
+      "tapped": "I heard the unlimited chaos that happens at disneyland everyday and I could also hear the other peoples screaming because it was very scary.",
+      "added": null,
+      "part": "middle"
+    },
+    "feel": {
+      "tapped": "And the drops was when we dropped and it was hard / scary because of how high it was, but in the end it was fun.",
+      "added": null,
+      "part": "hardest"
+    }
+  },
+  "typedChars": 1390,
+  "addedChars": 1413,
+  "dictatedShare": 0.02,
+  "dictationBlocked": 7,
+  "pasteBlocked": 0,
+  "repeatBlocks": 0,
+  "planUsedBlocks": 0,
+  "reviewSeconds": 83,
+  "editedOnReview": false,
+  "stuckExit": false,
+  "restored": false,
+  "story": "ROLLERCOSTER\n\nI tried riding a rollercoster one time in disneyland. I felt happy that I was going to ride a rollercoster one coster for the first time inmy life even though it was fun it was also kind of scary and high.\n\nI could see another cart in front of me that was also going high speed like mine. I heard the unlimited chaos that happens at disneyland everyday and I could also hear the other peoples screaming because it was very scary. At first I thought I was going to get a headache or vomit due to how unpridictably the ride was.\n\nThr hardest moment(s) was when we hit the curves and the drops. The curves were hard or more likely scary was because when we curved we almost went sideways. And the drops was when we dropped and it was hard / scary because of how high it was, but in the end it was fun.\n\nWhen I reached the end I didn't fell nervous and scared anymore I felt like I wanted to do it again. So I did go and do it again, it was very fun."
+}

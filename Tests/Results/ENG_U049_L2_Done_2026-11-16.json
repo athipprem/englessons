@@ -1,0 +1,99 @@
+{
+  "student": "Prem",
+  "unit": 49,
+  "lesson": "L2",
+  "lessonDone": true,
+  "dateDone": "2026-11-16",
+  "openedAt": "2026-11-16T12:39:07.887Z",
+  "finishedAt": "2026-11-16T12:44:11.088Z",
+  "minutesSpent": 5,
+  "secondsSpent": 302,
+  "drills": {
+    "Q": "1/3",
+    "SW": "3/5",
+    "taps": "1/4"
+  },
+  "misses": [
+    {
+      "drill": "Q1",
+      "word": "Prompt: “Think about a rainy day at home. What do you do? What can you hear? How do you feel? Write a story.” How many boxes does your plan need?",
+      "given": "five"
+    },
+    {
+      "drill": "Q1",
+      "word": "Prompt: “Think about a rainy day at home. What do you do? What can you hear? How do you feel? Write a story.” How many boxes does your plan need?",
+      "given": "two"
+    },
+    {
+      "drill": "Q3",
+      "word": "Prompt: “Write about a meal you love. How does it look, taste and smell?” Which plan answers every question?",
+      "given": "Look · Taste"
+    },
+    {
+      "drill": "Q3",
+      "word": "Prompt: “Write about a meal you love. How does it look, taste and smell?” Which plan answers every question?",
+      "given": "Taste · Smell · Who made it"
+    },
+    {
+      "drill": "SW2",
+      "word": "Your line: “The sushi is very yummy and good.” Which is the written version?",
+      "given": "The sushi is yummy and nice."
+    },
+    {
+      "drill": "SW4",
+      "word": "Your line: “I think that Disneyland is a good place.” Which shows it instead?",
+      "given": "Disneyland is good and I think it is good."
+    },
+    {
+      "drill": "T2",
+      "word": "Tap the sentence where we HEAR something.",
+      "given": "Through a gap in the planks, I could see a row of yellow teeth and one cold green eye."
+    },
+    {
+      "drill": "T2",
+      "word": "Tap the sentence where we HEAR something.",
+      "given": "When I touched the lid, the wood was damp and slimy under my fingers."
+    },
+    {
+      "drill": "T3",
+      "word": "Tap the sentence where we SMELL something.",
+      "given": "Through a gap in the planks, I could see a row of yellow teeth and one cold green eye."
+    },
+    {
+      "drill": "T3",
+      "word": "Tap the sentence where we SMELL something.",
+      "given": "When I touched the lid, the wood was damp and slimy under my fingers."
+    },
+    {
+      "drill": "T3",
+      "word": "Tap the sentence where we SMELL something.",
+      "given": "A low hiss came from inside, like air escaping from a balloon."
+    },
+    {
+      "drill": "T4",
+      "word": "Tap the sentence where we FEEL something with touch.",
+      "given": "Through a gap in the planks, I could see a row of yellow teeth and one cold green eye."
+    },
+    {
+      "drill": "SC2",
+      "word": "Which sentence is written, not spoken?",
+      "given": "The waves were like super big and stuff."
+    }
+  ],
+  "practice": {
+    "boxes": {
+      "look": "A long giant body",
+      "sound": "A big meow",
+      "feel": "I'm very scared"
+    },
+    "text": "I opened the box it had a crocodile inside. I felr scared because it kept hissing and meowing. It had a long giant body... it was a tiger! After that we had to bring it to the kitchen and put it down, I was very scared.",
+    "tries": 1,
+    "unusedBoxes": []
+  },
+  "selfCheck": 3,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "dictationBlocked": 3,
+  "pasteBlocked": 0,
+  "movedOn": []
+}
