@@ -1,0 +1,191 @@
+{
+  "student": "Prem",
+  "unit": 50,
+  "paper": "W",
+  "mode": "digital",
+  "dateTaken": "2026-11-20",
+  "openedAt": "2026-11-20T13:35:12.940Z",
+  "startedAt": "2026-11-20T13:35:13.813Z",
+  "finishedAt": "2026-11-20T13:39:47.954Z",
+  "secondsSpent": 274,
+  "minutesSpent": 5,
+  "title": "Money vs. No Money",
+  "promptBoxes": {
+    "opinion": "Yes because we need to learn.",
+    "r1": "Learn something that like HOW to earn money as a kid if you learn it. When you are an adult or a teen you would already know how to.",
+    "ex1": "If someone never learns that then they would be clueless as an adult.",
+    "r2": "Kids would be motivated.",
+    "ex2": "Kids would be motivated to do chores because they would earn money.",
+    "other": "They say if we give kids money they would be clueless\"steal\" all our money.",
+    "end": "So I think kids should earn money from chires."
+  },
+  "boxesUsed": {
+    "opinion": true,
+    "r1": true,
+    "ex1": true,
+    "r2": true,
+    "ex2": true,
+    "other": true,
+    "end": true
+  },
+  "sections": {
+    "opinion": "I feel like kids should get money for doing chores. Because they would be able to earn moneyand have a budget at 7-1q or something.",
+    "reason1": "So I fell like kids should get money for doing chores because they would be able to learn as a kid how to make money. Example. So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+    "reason2": "It is also because they would have motivation. When I say this I mean normally kids don't do chores if they are not forced right? Well if we have money they would want to do the chores. Example. A kid doesn't want to do chores because it is boring. So, if you have money they ( kids ) would want to do the chores.",
+    "otherSide": "While I explained lots on this side let's move on to the other side. Somost people on the other side would say no. Because if we have this, kids will just wabt to do it a lot and  the parents will eventually go broke.",
+    "ending": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores. So my opinion is yes. Kids should get miney for doing chores."
+  },
+  "words": {
+    "opinion": 25,
+    "reason1": 56,
+    "reason2": 62,
+    "otherSide": 44,
+    "ending": 40,
+    "total": 227
+  },
+  "sentences": {
+    "opinion": 2,
+    "reason1": 2,
+    "reason2": 5,
+    "otherSide": 3,
+    "ending": 3
+  },
+  "sectionSeconds": {
+    "opinion": 0,
+    "reason1": 0,
+    "reason2": 22,
+    "otherSide": 119,
+    "ending": 100
+  },
+  "draft1": {
+    "opinion": "I feel like kids should get money for doing chores. Because they would be able to earn moneyand have a budget at 7-1q or something.",
+    "reason1": "So I fell like kids should get money for doing chores because they would be able to learn as a kid how to make money. Example. So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+    "reason2": "It is also because they would have motivation. When I say this I mean normally kids don't do chores if they are not forced right? Well if we have money they would want to do the chores. Example. A kid doesn't want to do chores because it is boring. So, if you have money they ( kids ) would want to do the chores.",
+    "otherSide": "While I explained lots on this side let's move on to the other side. Somost people on the other side would say no. Because if we have this, kids will just wabt to do it a lot and  the parents will eventually go broke.",
+    "ending": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores. So my opinion is yes. Kids should get miney for doing chores."
+  },
+  "fixRounds": 1,
+  "fixes": [
+    {
+      "part": "reason1",
+      "before": "So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+      "after": "So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+      "action": "unchanged",
+      "reasons": [
+        "25+ words"
+      ]
+    },
+    {
+      "part": "ending",
+      "before": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores.",
+      "after": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores.",
+      "action": "unchanged",
+      "reasons": [
+        "25+ words"
+      ]
+    },
+    {
+      "part": "reason1",
+      "before": "So I fell like kids should get money for doing chores because they would be able to learn as a kid how to make money.",
+      "after": "So I fell like kids should get money for doing chores because they would be able to learn as a kid how to make money.",
+      "action": "unchanged",
+      "reasons": [
+        "same word: kid"
+      ]
+    },
+    {
+      "part": "reason1",
+      "before": "So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+      "after": "So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+      "action": "unchanged",
+      "reasons": [
+        "same word: kid"
+      ]
+    },
+    {
+      "part": "reason2",
+      "before": "A kid doesn't want to do chores because it is boring.",
+      "after": "A kid doesn't want to do chores because it is boring.",
+      "action": "unchanged",
+      "reasons": [
+        "same word: kid"
+      ]
+    },
+    {
+      "part": "ending",
+      "before": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores.",
+      "after": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores.",
+      "action": "unchanged",
+      "reasons": [
+        "same word: kid"
+      ]
+    }
+  ],
+  "andThen": {
+    "before": 0,
+    "after": 0
+  },
+  "longSentences": {
+    "before": 2,
+    "after": 2
+  },
+  "spoken": {
+    "before": 0,
+    "after": 0
+  },
+  "repeats": {
+    "before": [
+      {
+        "word": "kid",
+        "count": 5
+      }
+    ],
+    "after": [
+      {
+        "word": "kid",
+        "count": 5
+      }
+    ]
+  },
+  "repeatActions": [
+    {
+      "word": "kid",
+      "action": "change",
+      "changed": 0
+    }
+  ],
+  "moves": {
+    "opinion": {
+      "tapped": "I feel like kids should get money for doing chores.",
+      "added": null,
+      "part": "opinion"
+    },
+    "ex1": {
+      "tapped": "So I fell like kids should get money for doing chores because they would be able to learn as a kid how to make money.",
+      "added": null,
+      "part": "reason1"
+    },
+    "ex2": {
+      "tapped": "So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.",
+      "added": null,
+      "part": "reason1"
+    },
+    "ending": {
+      "tapped": "So I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores.",
+      "added": null,
+      "part": "ending"
+    }
+  },
+  "provenance": "alone",
+  "typedChars": 506,
+  "addedChars": 513,
+  "dictatedShare": 0.01,
+  "dictationBlocked": 1,
+  "pasteBlocked": 0,
+  "repeatBlocks": 0,
+  "reviewSeconds": 28,
+  "editedOnReview": false,
+  "stuckExit": false,
+  "restored": true,
+  "essay": "Money vs. No Money\n\nI feel like kids should get money for doing chores. Because they would be able to earn moneyand have a budget at 7-1q or something.\n\nSo I fell like kids should get money for doing chores because they would be able to learn as a kid how to make money. Example. So, a kid doesnt do chores or earn money as a kid so when he / she grows up they would not know how to make money without begging thier parents.\n\nIt is also because they would have motivation. When I say this I mean normally kids don't do chores if they are not forced right? Well if we have money they would want to do the chores. Example. A kid doesn't want to do chores because it is boring. So, if you have money they ( kids ) would want to do the chores.\n\nWhile I explained lots on this side let's move on to the other side. Somost people on the other side would say no. Because if we have this, kids will just wabt to do it a lot and  the parents will eventually go broke.\n\nSo I feel like kids should get money because they will know how to earn money as a kid and they will have motivation to do the chores. So my opinion is yes. Kids should get miney for doing chores."
+}

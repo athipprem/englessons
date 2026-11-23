@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milestone 5 — Paper R: Reading</title>
+<!-- Built from BUILD_PLAN_ENG_M05_ISA_Checkpoint.md v1, section 5. Engine: the Unit 47 test page with the proof box, the answer check and the "move on" buttons removed (real conditions).
+     Added: a 50-minute guide clock that never locks, Submit that always works (blank items are listed, he can still submit), a restore-safe draft (answers + clock + counters),
+     the provenance tick, and 44 px tap targets. No codes. Save stands alone; the X top-left is the only way back to the Hub. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{
+    --t1:#00695c; --t1-fill:#B2DFDB; --t1-text:#00695c;
+    --t2:#0d47a1; --t2-fill:#BBDEFB; --t2-text:#0d47a1;
+    --t3:#bf360c; --t3-fill:#FFE0B2; --t3-text:#bf360c;
+    --t4:#4a148c; --t4-fill:#E1BEE7; --t4-text:#4a148c;
+    --amber-l:#fff3e8;
+    --ink:#2d3748; --grey:#718096; --line:#e2e8f0;
+    --ok:#2e7d32; --ok-l:#e8f5e9; --bad:#c62828; --bad-l:#fdecea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .xclose{position:absolute;top:6px;left:8px;z-index:30;display:flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;width:44px;height:44px;font-size:1.1rem;line-height:1;color:var(--grey);text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:50%}
+  .xclose:hover{background:#f3e8ff;color:#4A148C}
+  .wrap{max-width:1120px;margin:0 auto;padding:56px 16px 16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:8px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #timer-chip{font-size:.95rem;font-weight:800;color:#4A148C;background:#f3e8ff;padding:6px 12px;border-radius:10px;white-space:nowrap}
+  #timer-chip.amber{background:#fff3e0;color:#b45309}
+  #timer-chip.over{background:#fdecea;color:#b71c1c}
+  #progress-track{flex:1;height:8px;background:#ece4f4;border-radius:6px;overflow:hidden;min-width:40px}
+  #progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#4A148C,#AB47BC);transition:width .25s}
+  #progress-label{font-size:.82rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  #timeup{display:none;background:#fff3e0;border:2px solid #f6993f;color:#7a4a00;border-radius:10px;padding:10px 16px;font-weight:800;margin-bottom:10px;text-align:center}
+  #timeup.show{display:block}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:10px;text-align:center}
+  .readfirst.two{background:#fff3e0;border-color:#f6993f;color:#7a4a00;font-weight:600}
+  .band{border-radius:10px;padding:9px 16px;font-weight:800;font-size:.95rem;margin:18px 0 10px;text-align:center}
+  .band.t1{background:var(--t1-fill);color:var(--t1-text)}
+  .band.t2{background:var(--t2-fill);color:var(--t2-text)}
+  .band.t3{background:var(--t3-fill);color:var(--t3-text)}
+  .band.t4{background:var(--t4-fill);color:var(--t4-text)}
+  .grp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:16px;align-items:start}
+  .grp .passage{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;margin-bottom:14px}
+  @media (max-width:900px){.grp{grid-template-columns:1fr}.grp .passage{position:static;max-height:none}}
+  .passage{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.92rem;line-height:1.7}
+  .passage h4{margin:0 0 8px;font-size:1rem}
+  .passage.t1 h4{color:var(--t1-text)} .passage.t2 h4{color:var(--t2-text)} .passage.t3 h4{color:var(--t3-text)} .passage.t4 h4{color:var(--t4-text)}
+  .passage p{margin:0 0 10px}
+  .passage p.sub{color:var(--grey);margin-bottom:6px}
+  .passage p.sign{text-align:right;margin:0 0 2px;font-style:italic}
+  .passage h5{margin:12px 0 4px;font-size:.95rem;color:var(--t3-text)}
+  .passage ul.notes{margin:8px 0 0 18px;padding:0;font-size:.88rem}
+  .passage ul.notes li{margin:3px 0}
+  .passage .fact{border:2px dashed var(--t3);background:#fff8f0;border-radius:10px;padding:8px 12px;margin-top:10px;font-weight:600}
+  .passage table{border-collapse:collapse;width:100%;font-size:.8rem;margin:6px 0}
+  .passage th,.passage td{border:1.5px solid var(--line);padding:5px 6px;text-align:left;vertical-align:top}
+  .passage th{background:#e0f2f1}
+  .marks-tag{white-space:nowrap}
+  @media (max-width:560px){ .passage table{font-size:.66rem} .passage th,.passage td{padding:4px 2px} }
+  .q{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;border-left:6px solid var(--line);transition:box-shadow .3s,background .3s}
+  .q.jump-highlight{box-shadow:0 0 0 3px #f6993f;background:#fff8e1}
+  .q.t1{border-left-color:var(--t1)} .q.t2{border-left-color:var(--t2)} .q.t3{border-left-color:var(--t3)} .q.t4{border-left-color:var(--t4)}
+  .q p.body{font-weight:700;margin:0 0 10px;font-size:.98rem}
+  .q p.body .qnum{color:#1565c0}
+  .q p.body .marks-tag{font-size:.72rem;font-weight:800;color:#7B1FA2;margin-left:6px}
+  .q p.usetwo{font-size:.85rem;font-style:italic;color:#7B1FA2;margin:-4px 0 8px;font-weight:700}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:11px 13px;margin:8px 0;cursor:pointer;font-size:.93rem;font-family:inherit;min-height:44px;min-width:44px;scroll-margin:90px 0}
+  .opt:hover{border-color:#1565c0}
+  .opt.selected{border-color:#1b5e20;background:#f1f8f2;font-weight:700}
+  .opt.correct{background:var(--ok-l);border-color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-l);border-color:var(--bad);font-weight:700}
+  .opt:disabled{cursor:default}
+  label.fld{display:block;font-size:.82rem;font-weight:800;color:#4A148C;margin:10px 0 4px}
+  textarea.writtenin{width:100%;min-height:120px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:.93rem;font-family:inherit;scroll-margin:90px 0}
+  .type-note{font-size:.82rem;color:#b71c1c;font-weight:700;margin-top:4px}
+  .markscheme{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.85rem;background:#eef7ee;border-left:5px solid #2e7d32;color:#1b5e20}
+  .markscheme.show{display:block}
+  .markscheme ul{margin:6px 0 0 18px;padding:0}
+  .why{display:none;margin-top:10px;padding:10px 13px;border-radius:9px;font-size:.87rem;background:var(--amber-l);border-left:5px solid #e65100;color:#7a4a00}
+  .why.show{display:block}
+  .result-tag{display:none;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .result-tag.show{display:inline-block}
+  .result-tag.ok{background:var(--ok-l);color:var(--ok)}
+  .result-tag.bad{background:var(--bad-l);color:var(--bad)}
+  .result-tag.pending{background:#eee;color:#666}
+  #submit-bar{background:#fff;border:1.5px solid var(--line);padding:16px;margin-top:20px;border-radius:12px;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;min-height:44px;min-width:44px;scroll-margin:90px 0}
+  .btn:disabled{opacity:.45;cursor:default}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+  .save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:1rem;line-height:1.7}
+  .save-steps ol{margin:8px 0 8px 22px}
+  .save-steps p{font-size:.9rem;margin:4px 0 0}
+  .provbox{background:#f3e8ff;border:2px solid #9b59b6;border-radius:12px;padding:12px 16px;margin:12px 0;text-align:left}
+  label.prov{display:flex;align-items:center;gap:12px;min-height:44px;cursor:pointer;font-weight:700}
+  label.prov input{width:28px;height:28px;flex:0 0 28px;margin:0}
+  #score-banner{display:none;text-align:center;border-radius:16px;padding:22px;margin-bottom:16px}
+  #score-banner.show{display:block}
+  #score-banner.pass{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20}
+  #score-big{font-size:2.2rem;font-weight:900;color:#1b5e20}
+  #score-msg{font-size:.95rem;margin-top:4px;color:var(--ink)}
+  #section-scores{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sec-chip{background:#fff;border-radius:10px;padding:6px 12px;font-size:.76rem;font-weight:700;border:1.5px solid var(--line)}
+  #save-status{font-size:.95rem;text-align:center;margin-top:10px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}#save-status.done{color:var(--ok)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99;padding:16px}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:360px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.9rem;color:var(--ink);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .startcard{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:20px 18px;text-align:center;margin:14px 0}
+  .startcard p{margin:0 0 12px}
+  .screen{display:none}.screen.active{display:block}
+</style>
+</head>
+<body>
+<a class="xclose" href="../index.html" title="Back to Hub" aria-label="Back to Hub">✕</a>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b id="hdr-title">Milestone 5 — Paper R: Reading</b>
+      <span class="sub" id="hdr-sub">A trail guide · a story · an information text · a letter</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="screen active" id="scr-start">
+    <div class="readfirst">Type it yourself — microphone off.</div>
+    <div class="readfirst two">For the written questions, answer in full sentences and use words from the text to prove your answer.</div>
+    <div class="readfirst two">You have 50 minutes. The clock is a guide — you can still finish after it reaches 0.</div>
+    <div class="startcard">
+      <p><b>When you are ready, press Start. The clock starts when you press it.</b></p>
+      <button class="btn submit" id="btn-start" onclick="startPaper()">Start</button>
+    </div>
+  </div>
+
+  <div class="screen" id="scr-paper">
+    <div id="progress-bar">
+      <span id="timer-chip">&#9201; <span id="timer">50:00</span></span>
+      <span id="progress-label">0 / 30 answered</span>
+      <div id="progress-track"><div id="progress-fill"></div></div>
+    </div>
+    <div id="timeup">Time’s up — finish your answer and press Submit.</div>
+    <div class="readfirst">Type it yourself — microphone off.</div>
+    <div class="readfirst two">For the written questions, answer in full sentences and use words from the text to prove your answer.</div>
+    <div class="readfirst two">You have 50 minutes. The clock is a guide — you can still finish after it reaches 0.</div>
+    <div id="score-banner">
+      <div id="score-big"></div>
+      <div id="score-msg"></div>
+      <div id="section-scores"></div>
+    </div>
+    <div id="quiz"></div>
+    <div id="submit-bar">
+      <div style="width:100%;text-align:center">
+        <button class="btn submit" id="btn-submit" onclick="askSubmit()">Submit</button>
+        <div id="save-area" style="display:none">
+          <div class="save-steps"><b>📁 Save your work for Naomi — you can't finish until it's saved.</b>
+          <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+          <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+          <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+          <li>Wait for <b>✅ Saved in Results</b>.</li></ol>
+          <p>After the first time, the window opens in Results by itself.</p></div>
+          <div class="provbox"><b>Who helped you with this paper?</b>
+            <label class="prov"><input type="radio" name="prov" id="prov-alone" value="alone" onchange="provChosen()">Nobody — I did it on my own</label>
+            <label class="prov"><input type="radio" name="prov" id="prov-helped" value="helped" onchange="provChosen()">Someone helped me</label>
+          </div>
+          <button class="btn save" id="btn-save" onclick="saveResults()" disabled>💾 Save to Results</button>
+        </div>
+        <div id="save-status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3 id="cf-title">Submit the paper?</h3>
+    <p id="cf-text">Once you submit, you can't change your answers.</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" id="cf-back" onclick="goBack()">Go back</button>
+      <button class="btn submit" id="cf-yes" onclick="doSubmit(false)">Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT_NUM   = "M5R";
+const UNIT_TITLE = "Milestone 5 — Paper R: Reading";
+const PASS_BAR   = 35;                 // out of 43
+const TOTAL_MARKS = 43;
+const AUTO_OUT_OF = 17;
+const WRITTEN_MARKS = 26;
+const TIME_LIMIT_SEC = 3000;           // 50 minutes — a guide, never a lock
+
+const SECTION_ORDER = ['t1','t2','t3','t4'];
+const SECTION_LABEL = {
+  t1: "TEXT 1 — Trail guide (table)",
+  t2: "TEXT 2 — Second Place (story)",
+  t3: "TEXT 3 — Hot Sand, Cool Sand (information)",
+  t4: "TEXT 4 — Let's Pop the Balloon Release (letter)"
+};
+const SECTION_SHORT = { t1:"Trail guide", t2:"Story", t3:"Information", t4:"Letter" };
+
+const Q = [
+ {
+  "n": 1,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "Which trail takes the shortest time to walk?",
+  "options": [
+   "Bluebell Wood",
+   "Duck Pond Loop",
+   "Old Mill Trail",
+   "Fern Gully"
+  ],
+  "ans": 2,
+  "why": "Read down the “Time to walk” column. Duck Pond Loop takes 30 minutes — the shortest of the five."
+ },
+ {
+  "n": 2,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "On which trail are bikes allowed?",
+  "options": [
+   "Duck Pond Loop",
+   "Hilltop View",
+   "Bluebell Wood",
+   "Old Mill Trail"
+  ],
+  "ans": 4,
+  "why": "A note under the table says bikes are allowed on Old Mill Trail only."
+ },
+ {
+  "n": 3,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "Why are Fern Gully and Bluebell Wood closed from November to March?",
+  "options": [
+   "to protect the paths from winter flooding",
+   "because it gets dark too early in winter",
+   "so that the café can close for the winter",
+   "because dogs are not allowed on them"
+  ],
+  "ans": 1,
+  "why": "A note under the table says the two trails are closed from November to March to protect the paths from winter flooding."
+ },
+ {
+  "n": 4,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "At which trail will you NOT find toilets at the start?",
+  "options": [
+   "Fern Gully",
+   "Old Mill Trail",
+   "Hilltop View",
+   "Duck Pond Loop"
+  ],
+  "ans": 3,
+  "why": "A note under the table says there are toilets at the start of every trail except Hilltop View."
+ },
+ {
+  "n": 5,
+  "section": "t1",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t1",
+  "body": "“Allow extra time with young children.” This tells us that…",
+  "options": [
+   "young children must walk faster than adults",
+   "children under ten are not allowed to walk on the Hilltop View trail at all",
+   "the café opens later for families",
+   "the times are for adults, and children usually walk more slowly"
+  ],
+  "ans": 4,
+  "why": "The note before it says the times are for an adult walking at a steady pace, so children usually need longer."
+ },
+ {
+  "n": 6,
+  "section": "t1",
+  "type": "written",
+  "strand": "L",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Mia wants a walk in December. She is bringing her dog and her baby brother in his buggy, and the walk must take less than one hour. Which trail should she choose? Use the guide to explain.",
+  "markScheme": [
+   "Duck Pond Loop, in a full sentence.",
+   "A reason from the guide that it fits (open all year · dogs on a lead · smooth path good for buggies · 30 min) — or why another fails (Fern Gully / Bluebell Wood closed and no dogs; Hilltop View 2 hr and rocky; Old Mill gravel, not a buggy path)."
+  ]
+ },
+ {
+  "n": 7,
+  "section": "t1",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t1",
+  "body": "Which trail would you choose for a first visit with a grandparent? Explain using the guide and what you know about grandparents.",
+  "markScheme": [
+   "A trail from the guide, in a full sentence.",
+   "A reason from the guide (short / easy / smooth path / toilets / café at Old Mill) joined to his own knowledge (e.g. older people may tire or need a rest)."
+  ]
+ },
+ {
+  "n": 8,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Who won the 400 metres this year?",
+  "options": [
+   "Nia",
+   "Sam",
+   "Lily Chen",
+   "a girl from Year 3"
+  ],
+  "ans": 3,
+  "why": "The story says that by the time Nia crossed the line, Lily Chen was already holding her arms up in the air."
+ },
+ {
+  "n": 9,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "What did Nia pick up from the grass?",
+  "options": [
+   "the gold medal",
+   "the boy’s glasses",
+   "her muddy trainers",
+   "a red ribbon"
+  ],
+  "ans": 2,
+  "why": "After the boy fell, the story says Nia “picked up the glasses”."
+ },
+ {
+  "n": 10,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "“Footsteps thundered behind her.” This tells us that…",
+  "options": [
+   "the other runners were catching up with Nia",
+   "a storm was starting over the field",
+   "the teacher was running to help",
+   "the crowd at the finish line was clapping and cheering very loudly"
+  ],
+  "ans": 1,
+  "why": "Footsteps that “thundered behind her” means other runners were close behind and catching up."
+ },
+ {
+  "n": 11,
+  "section": "t2",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t2",
+  "body": "Who is Sam?",
+  "options": [
+   "Nia’s little brother",
+   "the teacher at the side of the track",
+   "a runner from Nia’s class",
+   "the boy who fell in the race"
+  ],
+  "ans": 4,
+  "why": "The envelope on Nia’s desk is signed FROM SAM. Sam is the small boy Nia helped on the bend."
+ },
+ {
+  "n": 12,
+  "section": "t2",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "Why do you think Nia stopped to help the boy? Use two parts of the story in your answer.",
+  "markScheme": [
+   "She remembered last year, when a girl fell at the same bend and every runner — Nia too — raced past.",
+   "She did not want to do that again / helping the boy mattered more to her than winning."
+  ]
+ },
+ {
+  "n": 13,
+  "section": "t2",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "How do Nia’s feelings about coming second change from the prize-giving to the end of the story?",
+  "markScheme": [
+   "At first she is unhappy / disappointed — she takes the medal without looking, stuffs it in her bag, says nothing.",
+   "By the end she is proud / happy — after Sam’s drawing she cleans the medal and hangs it on her wall."
+  ]
+ },
+ {
+  "n": 14,
+  "section": "t2",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "Why do you think the writer tells us what happened last year, near the start of the story?",
+  "markScheme": [
+   "To explain why Nia stops later / to get the reader ready for her choice.",
+   "To show that Nia has changed or learned from last year (the writer’s purpose, not a retelling)."
+  ]
+ },
+ {
+  "n": 15,
+  "section": "t2",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t2",
+  "body": "Sam wrote “YOU WON.” But Nia came second. Do you agree with Sam? Explain using the story and your own ideas.",
+  "markScheme": [
+   "A clear view (yes / no / partly), in a full sentence.",
+   "A reason from the story (she helped Sam / she did the right thing / she lost the race) plus his own idea."
+  ]
+ },
+ {
+  "n": 16,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "About how many eggs does a sea turtle lay in one nest?",
+  "options": [
+   "10",
+   "28",
+   "100",
+   "300"
+  ],
+  "ans": 3,
+  "why": "The first paragraph says each turtle lays “around 100 eggs”."
+ },
+ {
+  "n": 17,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "How long do the eggs stay buried in the sand?",
+  "options": [
+   "about two weeks",
+   "about two months",
+   "about one year",
+   "one night"
+  ],
+  "ans": 2,
+  "why": "The second paragraph says the eggs stay buried “for about two months”."
+ },
+ {
+  "n": 18,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "“She never sees her babies hatch.” Why not?",
+  "options": [
+   "She has already gone back to the sea.",
+   "The babies hatch in the middle of the day.",
+   "The nest is too deep for her to see into.",
+   "She is asleep under the sand."
+  ],
+  "ans": 1,
+  "why": "The first paragraph says she covers the nest with sand and returns to the sea, so she is not there when the eggs hatch."
+ },
+ {
+  "n": 19,
+  "section": "t3",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t3",
+  "body": "Why is the middle of a nest usually warmer than its edges?",
+  "options": [
+   "The sun shines only on the middle of the nest.",
+   "The growing eggs give off a little heat.",
+   "The mother turtle lies on top of the middle.",
+   "The sand in the middle is a darker colour."
+  ],
+  "ans": 2,
+  "why": "The text says the middle is usually warmer because the eggs give off a little heat as they grow."
+ },
+ {
+  "n": 20,
+  "section": "t3",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "A nest is laid in sand that stays at 32 °C. Will most of the babies be boys or girls? Explain using the text.",
+  "markScheme": [
+   "Most will be girls, in a full sentence.",
+   "Because 32 °C is above 31 °C, and above 31 °C almost all the babies are girls."
+  ]
+ },
+ {
+  "n": 21,
+  "section": "t3",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Why might there one day be “too few males for turtles to have babies at all”? Use two ideas from the text.",
+  "markScheme": [
+   "The sand on some beaches is getting hotter every year.",
+   "Hotter sand makes more girls (99 of 100 were female), so there are too few boys/males."
+  ]
+ },
+ {
+  "n": 22,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "The writer says these ideas “are new” and scientists are “still checking”. Why do you think the writer adds this?",
+  "markScheme": [
+   "To show that nobody knows yet which way of helping works best.",
+   "So readers do not think the problem is already solved / to be honest about what scientists know."
+  ]
+ },
+ {
+  "n": 23,
+  "section": "t3",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t3",
+  "body": "Which way of helping in “Lending a hand” do you think is best? Explain using the text and what you know.",
+  "markScheme": [
+   "A way of helping from the text, in a full sentence.",
+   "A reason that links it to keeping the sand cooler, plus his own knowledge."
+  ]
+ },
+ {
+  "n": 24,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Basic",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "How many balloons float up at the end of Sports Day?",
+  "options": [
+   "10",
+   "41",
+   "100",
+   "300"
+  ],
+  "ans": 4,
+  "why": "The second paragraph of the letter says “300 helium balloons float up into the sky”. Ten is the countdown."
+ },
+ {
+  "n": 25,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "L",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "What did the volunteers find on the beach clean-up?",
+  "options": [
+   "a sea turtle caught in a net",
+   "300 burst balloons",
+   "41 pieces of balloon and ribbon",
+   "a broken fishing rod"
+  ],
+  "ans": 3,
+  "why": "The letter says volunteers found “41 pieces of balloon and ribbon in one morning”."
+ },
+ {
+  "n": 26,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "U",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "Amira writes “What goes up must come down.” She uses this saying to show that…",
+  "options": [
+   "balloons fall back to earth somewhere",
+   "balloons can fly very high",
+   "helium is lighter than air",
+   "people should look up more often"
+  ],
+  "ans": 1,
+  "why": "The saying means that whatever goes up comes down again, so the balloons land somewhere. The next sentences explain where."
+ },
+ {
+  "n": 27,
+  "section": "t4",
+  "type": "mcq",
+  "strand": "E",
+  "tier": "Intermediate",
+  "marks": 1,
+  "passageId": "t4",
+  "body": "Which of these is an OPINION, not a fact?",
+  "options": [
+   "“300 helium balloons float up into the sky.”",
+   "“There are better ways to celebrate.”",
+   "“Sports Day ends with a countdown from ten.”",
+   "“Volunteers found 41 pieces of balloon and ribbon.”"
+  ],
+  "ans": 2,
+  "why": "A fact can be checked. “There are better ways to celebrate” is what Amira believes — her opinion. The other three can be checked."
+ },
+ {
+  "n": 28,
+  "section": "t4",
+  "type": "written",
+  "strand": "U",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t4",
+  "body": "Give two reasons Amira uses to persuade the school to stop the balloon release.",
+  "markScheme": [
+   "Balloons come back down as litter, far away (e.g. 41 pieces found on the beach).",
+   "Animals are harmed — turtles think balloons are jellyfish and cannot digest them; birds and cows get tangled."
+  ]
+ },
+ {
+  "n": 29,
+  "section": "t4",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t4",
+  "body": "Some people say the balloons look beautiful. How does Amira answer them? Do you think her answer works?",
+  "markScheme": [
+   "Her answer: they are beautiful only for about a minute, then they become rubbish and an animal’s problem.",
+   "His judgement (it works / does not) with a reason."
+  ]
+ },
+ {
+  "n": 30,
+  "section": "t4",
+  "type": "written",
+  "strand": "E",
+  "tier": "Applied",
+  "marks": 2,
+  "passageId": "t4",
+  "body": "Use BOTH “Hot Sand, Cool Sand” and Amira’s letter. Explain why balloons in the sea could be a special problem for green turtles.",
+  "markScheme": [
+   "From the letter: turtles mistake balloon pieces for jellyfish and cannot digest them.",
+   "From the turtle text: green turtles already face a problem (warming sand, too few males), so extra harm matters even more."
+  ]
+ }
+];
+
+const PASSAGES = {
+ "t1": "<h4>Greenfield Park — Trail Guide</h4>\n<p><i>Five trails start from the main car park. Pick the one that suits you!</i></p>\n<table>\n<tr><th>Trail</th><th>Length</th><th>Time to walk</th><th>Difficulty</th><th>Surface</th><th>Dogs</th><th>Open</th></tr>\n<tr><td>Duck Pond Loop</td><td>1.5 km</td><td>30 min</td><td>Easy</td><td>Smooth path (good for buggies)</td><td>On a lead</td><td>All year</td></tr>\n<tr><td>Fern Gully</td><td>3 km</td><td>1 hr 15 min</td><td>Medium</td><td>Mud and steps</td><td>No dogs</td><td>April–October</td></tr>\n<tr><td>Hilltop View</td><td>4.5 km</td><td>2 hr</td><td>Hard</td><td>Rocky</td><td>On a lead</td><td>All year</td></tr>\n<tr><td>Old Mill Trail</td><td>2.5 km</td><td>50 min</td><td>Easy</td><td>Gravel</td><td>On a lead</td><td>All year</td></tr>\n<tr><td>Bluebell Wood</td><td>2 km</td><td>45 min</td><td>Easy</td><td>Grass</td><td>No dogs</td><td>April–October</td></tr>\n</table>\n<ul class=\"notes\">\n<li>Times are for an adult walking at a steady pace. Allow extra time with young children.</li>\n<li>Fern Gully and Bluebell Wood are closed from November to March to protect the paths from winter flooding.</li>\n<li>Bikes are allowed on Old Mill Trail only.</li>\n<li>There are toilets at the start of every trail except Hilltop View.</li>\n<li>The Old Mill Café is open from 10 a.m. to 4 p.m. The car park gate closes at 6 p.m.</li>\n</ul>",
+ "t2": "<h4>Second Place</h4>\n<p>Nia had won the 400 metres every year since Year 2. This year, the gold medal hung on its red ribbon on the prize table, and everyone at Westbrook School expected it to be hers.</p>\n<p>As she walked to the start line, she looked at the tight bend near the old oak tree. Last year, a younger girl had tripped there and lain on the track, crying, while every runner raced past her. Nia had raced past too.</p>\n<p>The whistle blew. Nia shot ahead. By the oak tree, she was ten metres in front. Then, just ahead of her, a small boy from the Year 3 race, who had wandered back onto the track, slipped and fell hard on the bend. His knee was bleeding, and his glasses had skidded across the grass.</p>\n<p>Nia slowed. Footsteps thundered behind her. She stopped, knelt down and picked up the glasses. “Can you stand?” she asked. The boy nodded, and she walked him to the side of the track, where a teacher came running.</p>\n<p>By the time Nia crossed the finish line, Lily Chen was already holding her arms up in the air.</p>\n<p>At the prize-giving, Nia took the silver medal without looking at it. She stuffed it in the bottom of her bag, under her muddy trainers, and didn’t say a word on the drive home.</p>\n<p>On Monday morning, there was an envelope on her desk. Inside was a drawing in thick crayon: a tall girl with a ponytail, holding a small boy’s hand, with a gold star coloured above her head. Underneath, someone had written in wobbly letters: TO NIA. YOU WON. FROM SAM.</p>\n<p>That evening, Nia took the silver medal out of her bag, wiped off the mud and hung it on the wall above her bed. Next to it, she pinned the drawing.</p>",
+ "t3": "<h4>Hot Sand, Cool Sand</h4>\n<p>Every summer, female sea turtles crawl up sandy beaches at night. Each one digs a hole with her back flippers and lays around 100 eggs, each about the size of a ping-pong ball. Then she covers the nest with sand and returns to the sea. She never sees her babies hatch.</p>\n<p>The eggs stay buried for about two months. During that time, something surprising happens: the temperature of the sand decides whether each baby turtle will be a boy or a girl.</p>\n<h5>Warm sand, more girls</h5>\n<p>Scientists have found a simple pattern. If the sand around the eggs stays below 28 °C, almost all the babies will be boys. If it stays above 31 °C, almost all will be girls. At about 29 °C, the nest will hatch roughly half boys and half girls.</p>\n<p>The middle of a nest is usually warmer than its edges, because the eggs give off a little heat as they grow. So even one nest can hold more girls in the middle and more boys near the outside.</p>\n<h5>A warming world</h5>\n<p>On some beaches, the sand is getting hotter every year. In one study in Australia, 99 out of every 100 young green turtles were female. If beaches keep warming, there may one day be too few males for turtles to have babies at all.</p>\n<h5>Lending a hand</h5>\n<p>People are trying to help. On some beaches, volunteers plant shady trees or put up palm-leaf shades over nests. Others carefully move eggs to cooler spots. Spraying nests with cool water has also been tried. These ideas are new, and scientists are still checking which ones work best.</p>\n<div class=\"fact\">Fun fact: when the babies hatch, they wait just under the sand until night, then race to the sea together, using the light of the sky over the water to find the way.</div>",
+ "t4": "<h4>Let’s Pop the Balloon Release</h4>\n<p class=\"sub\"><i>A letter to the Hillside Herald</i></p>\n<p>Dear Editor,</p>\n<p>Every year, Sports Day at Hillside Primary ends the same way. We count down from ten, and 300 helium balloons float up into the sky. Everyone cheers. I used to cheer too. This year, I think we should stop.</p>\n<p>What goes up must come down. Balloons do not disappear when they float out of sight. When they burst or slowly lose their helium, the pieces fall back to earth — often far away, in fields, rivers and the sea. Last spring, volunteers on our local beach clean-up found 41 pieces of balloon and ribbon in one morning.</p>\n<p>Animals pay the price. Sea turtles eat jellyfish, and a floating piece of balloon looks very like one. A turtle that swallows rubber cannot digest it. Birds and cows can also get tangled in the ribbons.</p>\n<p>There are better ways to celebrate. We could blow giant bubbles, which burst into nothing. We could hang bright flags across the field and use them again every year. Or each class could plant a tree to remember the day.</p>\n<p>Some people say that it is only one day and that the balloons look beautiful. They do look beautiful — for about a minute. After that, they become someone else’s rubbish, and some animal’s problem.</p>\n<p>I am asking the school council to vote on this at their next meeting. Let’s keep the cheering and lose the balloons.</p>\n<p class=\"sign\">Yours faithfully,</p>\n<p class=\"sign\">Amira Hassan, Year 6</p>"
+};
+/* ---------- END EDIT PER UNIT ---------- */
+
+/* ---------- TYPE IT YOURSELF (verbatim, from U46) ---------- */
+var LAST_KEY_AT=0, dictationBlocked=0;
+document.addEventListener('keydown',function(){LAST_KEY_AT=Date.now();},true);
+function showTypeNote(box){var n=box.parentNode.querySelector('.type-note');if(!n){n=document.createElement('div');n.className='type-note';box.parentNode.appendChild(n);}n.textContent='Type it with the keyboard — voice typing is off for writing.';}
+function guardTyping(box){
+  var prev=box.value;
+  box.addEventListener('input',function(){
+    var added=box.value.length-prev.length, keyed=(Date.now()-LAST_KEY_AT)<400;
+    if(added>2&&!keyed){box.value=prev;dictationBlocked++;showTypeNote(box);return;}
+    prev=box.value;
+  });
+}
+/* ---------- END TYPE IT YOURSELF ---------- */
+
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
+
+const $ = id => document.getElementById(id);
+const DRAFT_KEY = 'ENG_M05R_draft';
+$('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+const chosen = {};            // qn -> mcq index (1-based) or written answer text
+let submitted = false, started = false, provenance = null, lastResults = null;
+let startedAt = null, finishedAt = null, restoreCount = 0, activeSeconds = 0;
+let typedChars = 0, addedChars = 0, pasteBlocked = 0, unanswered = [];
+const openedAt = new Date().toISOString();
+let firstOpenedAt = openedAt;
+const lastLen = {};
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function overTime(){ return Math.max(0, activeSeconds - TIME_LIMIT_SEC); }
+function paintClock(){
+  const rem = TIME_LIMIT_SEC - activeSeconds, chip = $('timer-chip');
+  if (rem > 0){ $('timer').textContent = fmtClock(rem); chip.className = rem <= 300 ? 'amber' : ''; $('timeup').classList.remove('show'); }
+  else { $('timer').textContent = '+' + fmtClock(-rem); chip.className = 'over'; $('timeup').classList.toggle('show', !submitted); }
+}
+function tick(){
+  if (started && !submitted && !document.hidden) activeSeconds++;
+  paintClock();
+  if (started && !submitted && activeSeconds % 5 === 0) saveDraft();
+}
+setInterval(tick, 1000);
+
+/* ---------- restore-safe draft: answers + clock + counters ---------- */
+function saveDraft(){
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({
+      started: started, submitted: submitted, chosen: chosen, firstOpenedAt: firstOpenedAt, startedAt: startedAt,
+      activeSeconds: activeSeconds, typedChars: typedChars, addedChars: addedChars, dictationBlocked: dictationBlocked,
+      pasteBlocked: pasteBlocked, restoreCount: restoreCount
+    }));
+  } catch(e){}
+}
+function loadDraft(){
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY); if (!raw) return null;
+    const d = JSON.parse(raw); if (!d || !d.started) return null;
+    started = true; startedAt = d.startedAt; firstOpenedAt = d.firstOpenedAt || openedAt;
+    activeSeconds = d.activeSeconds || 0; typedChars = d.typedChars || 0; addedChars = d.addedChars || 0;
+    dictationBlocked = d.dictationBlocked || 0; pasteBlocked = d.pasteBlocked || 0;
+    restoreCount = (d.restoreCount || 0) + 1;
+    Object.keys(d.chosen || {}).forEach(k => { chosen[k] = d.chosen[k]; });
+    return d;
+  } catch(e){ return null; }
+}
+function clearDraft(){ try { localStorage.removeItem(DRAFT_KEY); } catch(e){} }
+document.addEventListener('visibilitychange', saveDraft);
+window.addEventListener('pagehide', saveDraft);
+
+function showPaper(){ $('scr-start').classList.remove('active'); $('scr-paper').classList.add('active'); window.scrollTo(0,0); }
+function startPaper(){
+  started = true; startedAt = new Date().toISOString(); saveDraft(); showPaper(); paintClock();
+}
+
+/* ---------- render ---------- */
+function render(){
+  let html = '';
+  SECTION_ORDER.forEach(sec => {
+    html += `<div class="band ${sec}">${SECTION_LABEL[sec]}</div>`;
+    html += `<div class="grp"><div class="passage ${sec}">${PASSAGES[sec]}</div><div class="qs">`;
+    Q.filter(q => q.section === sec).forEach(q => {
+      html += `<div class="q ${q.section}" id="q-${q.n}">
+        <p class="body"><span class="qnum">Q${q.n}.</span> ${q.body}
+          ${q.type==='written' ? `<span class="marks-tag">(${q.marks} mks)</span>` : ''}
+          <span class="result-tag ok" id="tag-ok-${q.n}">&#10003; correct</span>
+          <span class="result-tag bad" id="tag-bad-${q.n}">&#10007; not quite</span>
+          <span class="result-tag pending" id="tag-pending-${q.n}">awaiting Naomi</span>
+        </p>`;
+      if (q.n === 30) html += `<p class="usetwo">(Use Text 3 and Text 4)</p>`;
+      if (q.type === 'mcq'){
+        html += `<div>`;
+        q.options.forEach((opt, idx) => {
+          html += `<button class="opt" id="opt-${q.n}-${idx+1}" onclick="choose(${q.n}, ${idx+1})">${'ABCD'[idx]}. ${opt}</button>`;
+        });
+        html += `</div>`;
+      } else {
+        html += `<label class="fld" for="in-${q.n}">Your answer — full sentences</label>
+          <textarea class="writtenin" id="in-${q.n}" spellcheck="false" placeholder="Write your answer in full sentences..."></textarea>`;
+      }
+      if (q.type === 'mcq') html += `<div class="why" id="why-${q.n}">💡 <b>Why:</b> ${q.why||''}</div>`;
+      if (q.type === 'written'){
+        html += `<div class="markscheme" id="ms-${q.n}"><b>Mark scheme (${q.marks} marks):</b><ul>${(q.markScheme||[]).map(m=>'<li>'+m+'</li>').join('')}</ul></div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  $('quiz').innerHTML = html;
+}
+function pasteNote(el){
+  let n = el.parentNode.querySelector('.type-note');
+  if (!n){ n = document.createElement('div'); n.className = 'type-note'; el.parentNode.appendChild(n); }
+  n.textContent = 'Pasting is turned off — type it yourself.';
+}
+/* every written box: typed only (guardTyping), paste blocked, typed and added characters counted.
+   The restored text is put in the box BEFORE guardTyping is attached, so a blocked burst can never wipe it. */
+function instrument(el, qn){
+  lastLen[qn] = el.value.length;
+  guardTyping(el);
+  el.addEventListener('keydown', e => { if (e.key && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) typedChars++; });
+  el.addEventListener('input', () => {
+    const len = el.value.length;
+    if (len > lastLen[qn]) addedChars += len - lastLen[qn];
+    lastLen[qn] = len;
+    if (submitted) return;
+    chosen[qn] = el.value; updateProgress(); saveDraft();
+  });
+  el.addEventListener('paste', e => { e.preventDefault(); pasteBlocked++; pasteNote(el); });
+}
+function applyDraft(){
+  Q.forEach(q => {
+    const v = chosen[q.n];
+    if (q.type === 'mcq' && v){ const b = $(`opt-${q.n}-${v}`); if (b) b.classList.add('selected'); }
+    if (q.type === 'written' && typeof v === 'string') $(`in-${q.n}`).value = v;
+  });
+  Q.filter(q => q.type === 'written').forEach(q => instrument($(`in-${q.n}`), q.n));
+}
+
+function choose(qn, idx){
+  if (submitted) return;
+  chosen[qn] = idx;
+  const q = Q.find(x => x.n === qn);
+  q.options.forEach((_, i) => $(`opt-${qn}-${i+1}`).classList.remove('selected'));
+  $(`opt-${qn}-${idx}`).classList.add('selected');
+  updateProgress(); saveDraft();
+}
+function isAnswered(q){
+  const v = chosen[q.n];
+  if (q.type === 'written') return typeof v === 'string' && v.trim().length > 0;
+  return v !== undefined && v !== '';
+}
+function updateProgress(){
+  const n = Q.filter(isAnswered).length;
+  $('progress-label').textContent = `${n} / ${Q.length} answered`;
+  $('progress-fill').style.width = (n/Q.length*100) + '%';
+}
+
+/* ---------- submit: always possible; blanks are listed, never a block ---------- */
+function askSubmit(){
+  if (submitted) return;
+  const miss = Q.filter(q => !isAnswered(q)).map(q => q.n);
+  if (miss.length){
+    $('cf-title').textContent = 'Some questions are blank';
+    $('cf-text').textContent = 'You have not answered: Q' + miss.join(', Q') + '.';
+    $('cf-yes').textContent = 'Submit anyway';
+  } else {
+    $('cf-title').textContent = 'Submit the paper?';
+    $('cf-text').textContent = "Once you submit, you can't change your answers.";
+    $('cf-yes').textContent = 'Yes, submit';
+  }
+  $('confirm-overlay').classList.add('show');
+}
+function closeConfirm(){ $('confirm-overlay').classList.remove('show'); }
+function goBack(){
+  closeConfirm();
+  const missing = Q.find(q => !isAnswered(q));
+  if (missing){
+    const el = $(`q-${missing.n}`);
+    if (el){ el.scrollIntoView({behavior:'smooth', block:'center'}); el.classList.add('jump-highlight'); setTimeout(() => el.classList.remove('jump-highlight'), 2000); }
+  }
+}
+
+function doSubmit(silent){
+  if (submitted) return;
+  closeConfirm();
+  unanswered = Q.filter(q => !isAnswered(q)).map(q => q.n);
+  submitted = true; finishedAt = new Date().toISOString(); paintClock(); saveDraft();
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('textarea.writtenin').forEach(t => t.disabled = true);
+
+  let autoScore = 0;
+  const tierTally = {Basic:{c:0,t:0},Intermediate:{c:0,t:0},Applied:{c:0,t:0}};
+  const sectionTally = {}; SECTION_ORDER.forEach(s => sectionTally[s]={c:0,t:0});
+  const strandTally = {L:{c:0,t:0,w:0}, U:{c:0,t:0,w:0}, E:{c:0,t:0,w:0}};
+  const written = [];
+
+  const answers = Q.map(q => {
+    const given = chosen[q.n];
+    if (q.type === 'written'){
+      const resp = typeof given === 'string' ? given : '';
+      const w = resp.trim().split(/\s+/).filter(Boolean).length;
+      written.push({ q:q.n, strand:q.strand, marks:q.marks, markScheme:q.markScheme, response: resp, words: w });
+      $(`ms-${q.n}`).classList.add('show');
+      $(`tag-pending-${q.n}`).classList.add('show');
+      tierTally.Applied.t++;
+      strandTally[q.strand].w += q.marks;
+      return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given: resp, words: w, isCorrect:null };
+    }
+    const isCorrect = given === q.ans;
+    if (given){ $(`opt-${q.n}-${given}`).classList.add(isCorrect?'correct':'wrong'); }
+    if (!isCorrect) $(`opt-${q.n}-${q.ans}`).classList.add('correct');
+    if (isCorrect) autoScore++;
+    tierTally[q.tier].t++; if (isCorrect) tierTally[q.tier].c++;
+    sectionTally[q.section].t++; if (isCorrect) sectionTally[q.section].c++;
+    strandTally[q.strand].t++; if (isCorrect) strandTally[q.strand].c++;
+    $(`why-${q.n}`).classList.add('show');
+    $(isCorrect?`tag-ok-${q.n}`:`tag-bad-${q.n}`).classList.add('show');
+    return { q:q.n, section:q.section, type:q.type, strand:q.strand, tier:q.tier, given: given === undefined ? null : given, correct:q.ans, isCorrect };
+  });
+
+  const banner = $('score-banner');
+  banner.classList.add('show','pass');
+  $('score-big').textContent = `Auto score: ${autoScore} / ${AUTO_OUT_OF}`;
+  $('score-msg').textContent = 'Your written answers are waiting for Naomi.';
+  $('section-scores').innerHTML =
+    SECTION_ORDER.map(s => {
+      const wrT = Q.filter(q=>q.section===s && q.type==='written').length;
+      return `<div class="sec-chip">${SECTION_SHORT[s]}: ${sectionTally[s].c}/${sectionTally[s].t} auto (+${wrT} written)</div>`;
+    }).join('') +
+    `<div class="sec-chip">Time: ${fmtClock(activeSeconds)}</div>`;
+
+  banner.scrollIntoView({behavior:'smooth'});
+  $('btn-submit').style.display = 'none';
+  $('save-area').style.display = 'block';
+  const st = $('save-status');
+  st.className = 'reminder'; st.textContent = 'Choose who helped you, then press the blue Save button — your results are NOT saved yet.';
+
+  const strands = {};
+  ['L','U','E'].forEach(k => strands[k] = { score:strandTally[k].c, outOf:strandTally[k].t, writtenMarks:strandTally[k].w });
+
+  lastResults = {
+    student: "Prem",
+    unit: UNIT_NUM,
+    unitTitle: UNIT_TITLE,
+    dateTaken: new Date().toISOString().slice(0,10),
+    openedAt: openedAt,
+    firstOpenedAt: firstOpenedAt,
+    startedAt: startedAt,
+    finishedAt: finishedAt,
+    restoreCount: restoreCount,
+    activeSeconds: activeSeconds,
+    minutesSpent: Math.round(activeSeconds/60*10)/10,
+    overTimeSec: overTime(),
+    unanswered: unanswered,
+    autoScore, autoOutOf: AUTO_OUT_OF,
+    writtenMarks: WRITTEN_MARKS, writtenScore: null,
+    total: TOTAL_MARKS, passBar: PASS_BAR, passed: null,
+    strands,
+    tiers: tierTally,
+    sections: SECTION_ORDER.map(s => ({ name:s, score:sectionTally[s].c, outOf:sectionTally[s].t })),
+    typedChars: typedChars, addedChars: addedChars,
+    dictatedShare: addedChars > 0 ? Math.max(0, Math.round((1 - typedChars/addedChars)*100)/100) : 0,
+    dictationBlocked: dictationBlocked, pasteBlocked: pasteBlocked,
+    provenance: null,
+    answers,
+    written
+  };
+}
+function provChosen(){
+  provenance = $('prov-alone').checked ? 'alone' : ($('prov-helped').checked ? 'helped' : null);
+  $('btn-save').disabled = (provenance === null);
+}
+
+window.addEventListener('beforeunload', function(e){ if (submitted && !SAVED){ e.preventDefault(); e.returnValue = ''; } });
+
+async function saveResults(){
+  if (provenance === null){ $('save-status').textContent = 'Choose one answer above first.'; return; }
+  lastResults.provenance = provenance;
+  const filename = `ENG_M05R_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = $('save-status');
+  st.className = 'reminder'; st.textContent = 'Saving…';
+  if (!window.showDirectoryPicker){ downloadInstead(filename, json, st); SAVED = true; clearDraft(); return; }
+  try {
+    await saveToResults(filename, json);
+    SAVED = true; clearDraft(); st.className = 'done'; st.textContent = '✅ Saved in Results as ' + filename + '. Well done!';
+  } catch(e){
+    if (e && e.name === 'AbortError'){ st.textContent = 'Not saved yet — you closed the window. Press the blue button again.'; }
+    else if (e && e.name === 'WrongFolder'){ st.textContent = 'That folder is called “' + e.picked + '”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.'; }
+    else { SAVE_FAILS++; if (SAVE_FAILS>=2){ downloadInstead(filename, json, st); SAVED = true; clearDraft(); } else { st.textContent = 'Something went wrong while saving. Press the blue button again.'; } }
+  }
+}
+
+render();
+const _d = loadDraft();
+applyDraft();
+updateProgress();
+if (_d){
+  showPaper(); saveDraft();
+  if (_d.submitted) doSubmit(true);
+}
+paintClock();
+</script>
+</body>
+</html>

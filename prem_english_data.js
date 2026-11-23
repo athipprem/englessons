@@ -15,20 +15,20 @@
 var PREM_ENGLISH = {
 
   // ── Meta ─────────────────────────────────────────────────────────
-  updated:        '20 Nov 2026',
+  updated:        '22 Nov 2026',
   coachStartDate: '2026-05-23',
   isaDate:        '2027-02-26',
 
   // ── Current state ────────────────────────────────────────────────
   currentUnit: {
-    n:           50,
-    heroLabel:   "Unit 50 - Opinion essay (Five Moves): Lesson + Essay",
-    status:      "&#9997;&#65039; UNIT 50 &mdash; writing, opinion essay. A lesson (Five Moves: opinion, reason with an example, a second reason with an example, the other side, an ending) then an essay on screen: seven prompt boxes, a five-paragraph essay, a Fix-it round with a same-word check, and a moves check. Units 47, 48 and 49 are sat and marked.",
+    n:           'M5',
+    heroLabel:   "Milestone 5 - ISA checkpoint: Paper R (reading) + Paper W (picture story)",
+    status:      "&#127937; MILESTONE 5 &mdash; two papers, no lesson. Day 1: Paper R, four texts and 30 questions (50 minutes). Day 2: Paper W, a story from one picture (30 minutes). Both are sat like the real thing and marked by Naomi. Units 47 to 50 are sat and marked.",
     testPending: true
   },
 
 
-  // Baseline = ASMOPSS 2025 assessment (reference — scores hardcoded in renderHero)
+    // Baseline = ASMOPSS 2025 assessment (reference — scores hardcoded in renderHero)
   baseline: {
     n: 'BL', label: 'Baseline', score: 67, outOf: 100, pct: 67,
     patternInsight: 'ASMOPSS 2025 &mdash; 67/100 (90th pct Thailand) &middot; Rank 227 / 2,441. Conversation 20/20 &#127775;. Cloze 10/20 (50%) with Basic-level error (red flag). Vocabulary &amp; Grammar 12/20 (60%) each &mdash; gaps at Intermediate/Applied. Reading 13/20 (65%) &mdash; strong on hard Qs but missed a Basic.',
@@ -36,20 +36,20 @@ var PREM_ENGLISH = {
 
   // Last completed assessment (Unit 44 -- updated after each test)
   lastUnit: {
-    n: 47, label: 'Unit 47', score: 14, outOf: 20, pct: 70, delta: null, prevScore: 11, prevOutOf: 25,
+    n: 50, label: 'Unit 50', score: 12, outOf: 25, pct: 48, delta: null, prevScore: 14, prevOutOf: 20,
 
-    patternLabel:   "Unit 47 &mdash; 19 Nov 2026 &middot; 14/20 &middot; auto 8/8 &middot; written 6/12",
-    patternInsight: "<strong>14/20 (70%), below the 16 bar; streak 0 of 4.</strong> Auto-marked 8/8. Written 6/12, marked by Naomi: Q4 2 &middot; Q5 2 &middot; Q6 1 &middot; Q9 1 &middot; Q12 0 &middot; Q13 0. First ticks 3/6, second ticks 3/6. The answer check was left as it is on 4 of 6 written answers. Three proofs were given up, all on the harder items. One sitting, 19 minutes.",
+    patternLabel:   "Unit 50 &mdash; 20 Nov 2026 &middot; 12/25 &middot; opinion essay",
+    patternInsight: "<strong>12/25 (48%), marked by Naomi:</strong> Ideas 3 &middot; Organisation 3 &middot; Style &amp; Voice 2 &middot; Word Choice 2 &middot; Conventions 2. Examples 0 of 2; two reasons given; ending given. He ticked <em>Nobody &mdash; I did it on my own</em>. The essay was saved after a restored draft.",
 
-    analysisLabel:   "Unit 47 Result Record &mdash; 19 Nov 2026",
-    analysisInsight: "See TEST_RECORD_U047.md for the per-question record and provenance.",
+    analysisLabel:   "Unit 50 Result Record &mdash; 22 Nov 2026",
+    analysisInsight: "See TEST_RECORD_U050.md for the per-question record and provenance.",
 
-    qSummary: "<strong>14/20 &mdash; written 6/12.</strong> Q12 (threshold) and Q13 (evaluate) scored 0.",
+    qSummary: "<strong>12/25 &mdash; examples 0 of 2.</strong> Two reasons and an ending were given.",
 
     qBreakdown: [
-      { q:"Auto-marked items", topic:"Reading", pass:true, note:"8 of 8." },
-      { q:"Written answers", topic:"Reading", pass:false, note:"6 of 12; Q12 and Q13 scored 0." },
-      { q:"First / second ticks", topic:"Reading", pass:false, note:"3/6 and 3/6; three proofs given up." }
+      { q:"Reasons", topic:"Writing", pass:true, note:"Two reasons given." },
+      { q:"Examples", topic:"Writing", pass:false, note:"0 of 2." },
+      { q:"Ending", topic:"Writing", pass:true, note:"Ending given." }
     ]
   },
 
@@ -145,11 +145,25 @@ var PREM_ENGLISH = {
     { n:48, score:46, outOf:55, delta:null, color:'#89F336', star:false, label:'U48 🏫' },
     { n:'49P1', score:20, outOf:22, delta:null, color:'#89F336', star:false, label:'U49 P1 🏫' },
     { n:'49P2', score:12, outOf:25, delta:null, color:'#f6993f', star:false, label:'U49 P2 W' },
-    { n:47, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U47' }
+    { n:47, score:14, outOf:20, delta:null, color:'#f6993f', star:false, label:'U47' },
+    { n:50, score:12, outOf:25, delta:null, color:'#f6993f', star:false, label:'U50 W' }
   ],
 
   // ── Unit log (newest first) ────────────────────────────────────────
   unitLog: [
+    {
+      n: 50,
+      title: "Unit 50 &mdash; &#9997;&#65039; Opinion Essay: Five Moves (writing, typed)",
+      badge: '#f6993f',
+      status: 'done',
+      note: "12/25 (48%), marked by Naomi: Ideas 3, Organisation 3, Style &amp; Voice 2, Word Choice 2, Conventions 2. Examples 0 of 2; two reasons and an ending given. Sat Fri 20 Nov; provenance: on his own. <strong>Next: Milestone 5, two papers.</strong>",
+      tags: [
+        { t:"12/25", s:"background:#fff8e1;color:#744210" },
+        { t:"Examples 0/2", s:"background:#fff0f0;color:#c53030" },
+        { t:"Own work", s:"background:#e8f5e9;color:#1b5e20" },
+        { t:"&rarr; Milestone 5", s:"background:#ebf8ff;color:#2c5282" }
+      ]
+    },
     {
       n: 47,
       title: "Unit 47 &mdash; &#128214; Answer the Question It Asks (reading)",

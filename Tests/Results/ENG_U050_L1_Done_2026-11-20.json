@@ -1,0 +1,126 @@
+{
+  "student": "Prem",
+  "unit": 50,
+  "lesson": "L1",
+  "lessonDone": true,
+  "dateDone": "2026-11-20",
+  "openedAt": "2026-11-20T13:19:19.799Z",
+  "finishedAt": "2026-11-20T13:24:01.433Z",
+  "minutesSpent": 5,
+  "secondsSpent": 280,
+  "drills": {
+    "M": "1/6",
+    "E": "1/3",
+    "N": "2/3",
+    "W": "3/4"
+  },
+  "misses": [
+    {
+      "drill": "M2",
+      "word": "Last Saturday, my cousin Mali made pancakes for six people without any help.",
+      "given": "Reason"
+    },
+    {
+      "drill": "M3",
+      "word": "Cooking teaches children to look after themselves.",
+      "given": "Other side"
+    },
+    {
+      "drill": "M3",
+      "word": "Cooking teaches children to look after themselves.",
+      "given": "Opinion"
+    },
+    {
+      "drill": "M3",
+      "word": "Cooking teaches children to look after themselves.",
+      "given": "Example"
+    },
+    {
+      "drill": "M4",
+      "word": "Some people say the kitchen is too dangerous for children.",
+      "given": "Ending"
+    },
+    {
+      "drill": "M4",
+      "word": "Some people say the kitchen is too dangerous for children.",
+      "given": "Opinion"
+    },
+    {
+      "drill": "M4",
+      "word": "Some people say the kitchen is too dangerous for children.",
+      "given": "Example"
+    },
+    {
+      "drill": "M5",
+      "word": "In conclusion, cooking keeps children healthy and teaches them to look after themselves.",
+      "given": "Other side"
+    },
+    {
+      "drill": "M5",
+      "word": "In conclusion, cooking keeps children healthy and teaches them to look after themselves.",
+      "given": "Opinion"
+    },
+    {
+      "drill": "M5",
+      "word": "In conclusion, cooking keeps children healthy and teaches them to look after themselves.",
+      "given": "Example"
+    },
+    {
+      "drill": "M6",
+      "word": "Secondly, children who cook eat more vegetables.",
+      "given": "Opinion"
+    },
+    {
+      "drill": "E1",
+      "word": "Reason: “Pets teach children to be responsible.” Which example could you picture?",
+      "given": "They might learn lots of things and then maybe later on they will hopefully become much better people when they grow up."
+    },
+    {
+      "drill": "E1",
+      "word": "Reason: “Pets teach children to be responsible.” Which example could you picture?",
+      "given": "Pets are good and children like them a lot."
+    },
+    {
+      "drill": "E2",
+      "word": "Reason: “Reading every night makes you a better writer.” Which example could you picture?",
+      "given": "If you read every night then maybe you will get a bit better and then one day you could hopefully win a writing prize."
+    },
+    {
+      "drill": "N1",
+      "word": "The reasons were: (1) pets teach responsibility, (2) pets help people feel calm. Which ending fits?",
+      "given": "In conclusion, pets are not very expensive to buy and they are really cute, so every single person should get one soon."
+    },
+    {
+      "drill": "W3",
+      "word": "“Learning to swim is good for children.” Which word is sharper than good?",
+      "given": "goodly"
+    },
+    {
+      "drill": "W3",
+      "word": "“Learning to swim is good for children.” Which word is sharper than good?",
+      "given": "well"
+    },
+    {
+      "drill": "S4",
+      "word": "“A school garden is good because we learn about plants.” Which word is the best swap for good?",
+      "given": "goodly"
+    }
+  ],
+  "tryIt": {
+    "boxes": {
+      "opinion": "No because we will end up sleeping at midnight.",
+      "reason": "We will sleep at 3 am",
+      "example": "I don't have a example"
+    },
+    "text": "I dont think we should get to choose our own bedtime. Because if we get to chise our own bedtime we would probably sleep at midnight or 3am. But, I don't have an example because I never slept late purposly",
+    "tries": 1,
+    "unusedBoxes": [],
+    "exampleTapped": "Because if we get to chise our own bedtime we would probably sleep at midnight or 3am."
+  },
+  "selfCheck": 3,
+  "selfCheckOutOf": 4,
+  "ready": true,
+  "dictationBlocked": 0,
+  "pasteBlocked": 0,
+  "movedOn": []
+}

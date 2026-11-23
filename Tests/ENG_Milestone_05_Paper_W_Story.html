@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milestone 5 — Paper W: Picture Story</title>
+<!-- Built from BUILD_PLAN_ENG_M05_ISA_Checkpoint.md v1, section 6. Engine: the Unit 50 paper with every checker, hint and minimum removed (real conditions).
+     One picture, one blank box, a 30-minute guide clock that never locks, a restore-safe draft, the provenance tick, 44 px tap targets. No codes.
+     Save stands alone; the X top-left is the only way back to the Hub. -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root{ --ink:#2d3748; --grey:#718096; --line:#e2e8f0; --ok:#2e7d32; }
+  *{box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f7f7fb;color:var(--ink);line-height:1.5;padding-bottom:40px}
+  .xclose{position:absolute;top:6px;left:8px;z-index:30;display:flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;width:44px;height:44px;font-size:1.1rem;line-height:1;color:var(--grey);text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:50%}
+  .xclose:hover{background:#f3e8ff;color:#4A148C}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 16px 16px}
+  .hdr{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:14px 20px;border-radius:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .hdr b{font-size:1.15rem;display:block}
+  .hdr .sub{font-size:.8rem;opacity:.9}
+  .hdr .meta{font-size:.82rem;background:#ffffff26;padding:6px 12px;border-radius:10px;text-align:right}
+  #progress-bar{position:sticky;top:0;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:8px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 8px #0001}
+  #timer-chip{font-size:.95rem;font-weight:800;color:#4A148C;background:#f3e8ff;padding:6px 12px;border-radius:10px;white-space:nowrap}
+  #timer-chip.amber{background:#fff3e0;color:#b45309}
+  #timer-chip.over{background:#fdecea;color:#b71c1c}
+  #wc-label{font-size:.85rem;font-weight:700;color:#4A148C;white-space:nowrap}
+  #timeup{display:none;background:#fff3e0;border:2px solid #f6993f;color:#7a4a00;border-radius:10px;padding:10px 16px;font-weight:800;margin-bottom:10px;text-align:center}
+  #timeup.show{display:block}
+  .readfirst{background:#f3e8ff;border:1.5px solid #9b59b6;color:#5c0f8b;border-radius:10px;padding:10px 16px;font-size:.9rem;font-weight:700;margin-bottom:10px;text-align:center}
+  .readfirst.two{background:#fff3e0;border-color:#f6993f;color:#7a4a00;font-weight:600}
+  .pic{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:8px;margin:0 0 14px}
+  .pic svg{display:block;width:100%;height:auto;border-radius:8px}
+  .prompt{font-weight:800;font-size:1.02rem;margin:4px 0 12px;color:#4A148C}
+  .box{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+  label.fld{display:block;font-size:.85rem;font-weight:800;color:#4A148C;margin:0 0 6px}
+  textarea,input.title{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:1rem;font-family:inherit;scroll-margin:90px 0}
+  input.title{min-height:44px}
+  textarea#b-notes{min-height:90px}
+  textarea#b-story{min-height:300px;line-height:1.6}
+  .type-note{font-size:.82rem;color:#b71c1c;font-weight:700;margin-top:4px}
+  #save-area{scroll-margin-top:70px}
+  #submit-bar{background:#fff;border:1.5px solid var(--line);padding:16px;margin-top:20px;border-radius:12px;display:flex;justify-content:center}
+  .btn{border:none;border-radius:10px;padding:13px 28px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;min-height:44px;min-width:44px;scroll-margin:90px 0}
+  .btn:disabled{opacity:.45;cursor:default}
+  .btn.submit{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff}
+  .btn.save{background:linear-gradient(135deg,#0d47a1,#1e88e5);color:#fff;margin-top:10px}
+  .btn.cancel{background:#eceff1;color:#546e7a}
+  .save-steps{background:#FFF9C4;border:3px solid #F9A825;border-radius:12px;padding:14px 18px;margin:14px 0;text-align:left;font-size:1rem;line-height:1.7}
+  .save-steps ol{margin:8px 0 8px 22px}
+  .save-steps p{font-size:.9rem;margin:4px 0 0}
+  .provbox{background:#f3e8ff;border:2px solid #9b59b6;border-radius:12px;padding:12px 16px;margin:12px 0;text-align:left}
+  label.prov{display:flex;align-items:center;gap:12px;min-height:44px;cursor:pointer;font-weight:700}
+  label.prov input{width:28px;height:28px;flex:0 0 28px;margin:0}
+  #done-banner{display:none;text-align:center;border-radius:16px;padding:18px;margin-bottom:16px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #1b5e20;font-weight:800;color:#1b5e20}
+  #done-banner.show{display:block}
+  #save-status{font-size:.95rem;text-align:center;margin-top:10px;color:var(--grey);font-weight:700}
+  #save-status.reminder{color:#b71c1c}#save-status.done{color:var(--ok)}
+  #confirm-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,30,.55);align-items:center;justify-content:center;z-index:99;padding:16px}
+  #confirm-overlay.show{display:flex}
+  .confirm-box{background:#fff;border-radius:16px;padding:26px 24px;max-width:360px;text-align:center;box-shadow:0 12px 40px #0004}
+  .confirm-box h3{color:#4A148C;margin:0 0 8px}
+  .confirm-box p{font-size:.9rem;color:var(--ink);margin-bottom:18px}
+  .confirm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .startcard{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:20px 18px;text-align:center;margin:14px 0}
+  .startcard p{margin:0 0 12px}
+  .screen{display:none}.screen.active{display:block}
+</style>
+</head>
+<body>
+<a class="xclose" href="../index.html" title="Back to Hub" aria-label="Back to Hub">✕</a>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <b>Milestone 5 — Paper W: Picture Story</b>
+      <span class="sub">One picture · one story</span>
+    </div>
+    <div class="meta">Name: Prem<br>Date: <span id="hdr-date"></span></div>
+  </div>
+
+  <div class="screen active" id="scr-start">
+    <div class="readfirst">Type it yourself — microphone off.</div>
+    <div class="readfirst two">Look at the picture. Write a story about what happened here. Use details from the picture.</div>
+    <div class="readfirst two">You have 30 minutes. The clock is a guide — you can still finish after it reaches 0.</div>
+    <div class="startcard">
+      <p><b>When you are ready, press Start. The clock starts when you press it.</b></p>
+      <button class="btn submit" id="btn-start" onclick="startPaper()">Start</button>
+    </div>
+  </div>
+
+  <div class="screen" id="scr-paper">
+    <div id="progress-bar">
+      <span id="timer-chip">&#9201; <span id="timer">30:00</span></span>
+      <span id="wc-label">0 words</span>
+    </div>
+    <div id="timeup">Time’s up — finish your sentence and press Done.</div>
+    <div class="readfirst">Type it yourself — microphone off.</div>
+    <div class="readfirst two">You have 30 minutes. The clock is a guide — you can still finish after it reaches 0.</div>
+    <div id="done-banner">Your story is finished. It is waiting for Naomi.</div>
+
+    <div class="pic"><svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pic-title pic-desc">
+<title id="pic-title">A snowy hut at dusk</title>
+<desc id="pic-desc">a small wooden hut in deep snow at dusk
+a lantern glowing in the hut’s window
+a wooden sledge on its side with one runner snapped
+a large dog with a red collar standing beside the sledge
+a line of footprints leading away into dark pine trees
+a red scarf caught on a low branch at the edge of the trees
+a pale moon rising over a mountain</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#171a45"/>
+    <stop offset="0.55" stop-color="#4b3f7a"/>
+    <stop offset="1" stop-color="#e59a6a"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#ffd36b" stop-opacity="0.95"/>
+    <stop offset="1" stop-color="#ffd36b" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="moonglow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f6f2dc" stop-opacity="0.7"/>
+    <stop offset="1" stop-color="#f6f2dc" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#dfe7f6"/>
+    <stop offset="1" stop-color="#b9c6e4"/>
+  </linearGradient>
+</defs>
+
+<!-- sky -->
+<rect x="0" y="0" width="800" height="500" fill="url(#sky)"/>
+<circle cx="90" cy="60" r="2" fill="#fff"/><circle cx="220" cy="40" r="1.6" fill="#fff"/><circle cx="330" cy="85" r="1.8" fill="#fff"/>
+<circle cx="440" cy="35" r="1.6" fill="#fff"/><circle cx="520" cy="95" r="1.4" fill="#fff"/><circle cx="760" cy="70" r="1.8" fill="#fff"/>
+<circle cx="150" cy="120" r="1.4" fill="#fff"/><circle cx="700" cy="30" r="1.6" fill="#fff"/>
+
+<!-- moon rising over the mountain -->
+<circle cx="620" cy="165" r="62" fill="url(#moonglow)"/>
+<circle cx="620" cy="165" r="30" fill="#f6f2dc"/>
+<circle cx="610" cy="158" r="5" fill="#e4dfc4"/><circle cx="630" cy="174" r="4" fill="#e4dfc4"/>
+
+<!-- far mountain (moon sits just above its peak) -->
+<path d="M 400 330 L 520 250 L 565 278 L 625 205 L 700 262 L 740 238 L 800 290 L 800 335 Z" fill="#59578f"/>
+<path d="M 625 205 L 597 238 L 612 232 L 625 246 L 640 230 L 655 238 Z" fill="#e9eefb"/>
+<path d="M 520 250 L 498 267 L 512 263 L 525 273 L 540 262 Z" fill="#e9eefb"/>
+
+<!-- snow ground -->
+<path d="M 0 335 Q 120 312 260 332 T 520 330 T 800 322 L 800 500 L 0 500 Z" fill="url(#snow)"/>
+<path d="M 0 420 Q 200 395 400 425 T 800 410 L 800 500 L 0 500 Z" fill="#c9d4ee"/>
+
+<!-- footprints from the sledge into the pines -->
+<g fill="#98a6cc">
+  <ellipse cx="404" cy="474" rx="7.5" ry="4.2"/><ellipse cx="430" cy="481" rx="7.5" ry="4.2"/><ellipse cx="458" cy="485" rx="7" ry="4"/>
+  <ellipse cx="487" cy="485" rx="7" ry="4"/><ellipse cx="516" cy="480" rx="6.6" ry="3.8"/><ellipse cx="544" cy="472" rx="6.2" ry="3.6"/>
+  <ellipse cx="571" cy="464" rx="5.8" ry="3.4"/><ellipse cx="596" cy="456" rx="5.4" ry="3.2"/><ellipse cx="617" cy="450" rx="5" ry="3"/>
+</g>
+
+<!-- pine trees (dark) -->
+<g fill="#0f2018">
+  <path d="M 690 190 L 676 232 L 684 232 L 668 276 L 678 276 L 660 320 L 722 320 L 706 276 L 716 276 L 700 232 L 708 232 Z" transform="translate(66,24)"/>
+  <path d="M 740 215 L 722 262 L 732 262 L 712 310 L 724 310 L 702 352 L 778 352 L 756 310 L 768 310 L 748 262 L 758 262 Z" transform="translate(-6,60)"/>
+</g>
+<g fill="#13291f">
+  <path d="M 690 250 L 660 320 L 676 320 L 648 380 L 668 380 L 636 440 L 744 440 L 712 380 L 732 380 L 704 320 L 720 320 Z" transform="translate(-40,0)"/>
+  <path d="M 770 270 L 748 325 L 760 325 L 738 380 L 752 380 L 728 430 L 800 430 L 800 380 L 792 380 L 780 325 L 790 325 Z" transform="translate(14,4)"/>
+</g>
+<g fill="#e9eefb" opacity="0.9">
+  <path d="M 650 262 L 636 296 L 664 296 Z"/><path d="M 800 285 L 770 330 L 800 330 Z"/>
+</g>
+<rect x="640" y="438" width="16" height="14" fill="#3b2a1a"/>
+
+<!-- the hut -->
+<ellipse cx="135" cy="372" rx="115" ry="14" fill="#f4f7ff"/>
+<rect x="55" y="290" width="160" height="84" fill="#6b4a2b"/>
+<g stroke="#4f3520" stroke-width="2"><line x1="55" y1="310" x2="215" y2="310"/><line x1="55" y1="330" x2="215" y2="330"/><line x1="55" y1="350" x2="215" y2="350"/></g>
+<path d="M 38 294 L 135 226 L 232 294 Z" fill="#46301d"/>
+<path d="M 38 294 L 135 226 L 232 294 L 218 294 L 135 238 L 52 294 Z" fill="#f4f7ff"/>
+<rect x="172" y="232" width="20" height="40" fill="#5a3f27"/><rect x="168" y="228" width="28" height="8" fill="#f4f7ff"/>
+<rect x="150" y="318" width="40" height="56" fill="#3a2716"/>
+<circle cx="182" cy="348" r="2.5" fill="#d9b25f"/>
+<!-- lantern window -->
+<circle cx="95" cy="331" r="48" fill="url(#glow)"/>
+<rect x="76" y="313" width="38" height="38" fill="#ffd36b" stroke="#3a2716" stroke-width="4"/>
+<line x1="95" y1="313" x2="95" y2="351" stroke="#3a2716" stroke-width="3"/><line x1="76" y1="332" x2="114" y2="332" stroke="#3a2716" stroke-width="3"/>
+<!-- the lantern itself, hanging inside the glass -->
+<line x1="85" y1="315" x2="85" y2="321" stroke="#3a2716" stroke-width="2"/>
+<rect x="80" y="321" width="10" height="13" rx="2" fill="#fff1b8" stroke="#8a5a00" stroke-width="1.5"/>
+<rect x="79" y="319" width="12" height="3" fill="#8a5a00"/>
+<rect x="79" y="333" width="12" height="3" fill="#8a5a00"/>
+<!-- drift in front of the door -->
+<path d="M 130 376 Q 170 360 215 376 Z" fill="#f4f7ff"/>
+
+<!-- the sledge, tipped on its side, one runner snapped -->
+<g transform="translate(-20,0)">
+  <ellipse cx="350" cy="456" rx="110" ry="12" fill="#a9b7da"/>
+  <!-- rope coiled on the snow -->
+  <path d="M 262 426 Q 232 436 238 452 Q 246 464 276 458" fill="none" stroke="#d8c9a4" stroke-width="4" stroke-linecap="round"/>
+  <!-- the bed, standing on its edge -->
+  <path d="M 262 444 L 274 346 L 322 342 L 316 446 Z" fill="#a0693a" stroke="#5b3a1e" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="298" y1="344" x2="294" y2="445" stroke="#5b3a1e" stroke-width="3"/>
+  <!-- posts joining the bed to its runners -->
+  <rect x="318" y="356" width="12" height="14" fill="#5b3a1e"/>
+  <rect x="318" y="436" width="12" height="14" fill="#5b3a1e"/>
+  <!-- the whole runner, on the snow, curling up at the front -->
+  <path d="M 304 452 L 424 452 Q 444 452 446 434" fill="none" stroke="#4a2f19" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- the other runner, up in the air: a short stub, then the snap -->
+  <path d="M 326 366 L 366 366" fill="none" stroke="#4a2f19" stroke-width="9" stroke-linecap="butt"/>
+  <path d="M 366 361 L 374 366 L 368 369 L 375 373" fill="none" stroke="#c9a06a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- the broken piece, lying in the snow -->
+  <path d="M 392 472 L 448 468 Q 466 466 468 452" fill="none" stroke="#4a2f19" stroke-width="9" stroke-linecap="butt" stroke-linejoin="round"/>
+  <path d="M 392 467 L 386 472 L 393 475 L 388 479" fill="none" stroke="#c9a06a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+
+<!-- the dog, standing beside the sledge, looking towards the trees -->
+<g transform="translate(60,70) scale(0.85)">
+  <ellipse cx="500" cy="447" rx="58" ry="5" fill="#a9b7da"/>
+  <path d="M 428 378 Q 410 360 418 344 Q 432 352 438 372 Z" fill="#8c6e5a"/>
+  <rect x="440" y="400" width="14" height="46" rx="5" fill="#7a5d4a"/><rect x="458" y="402" width="14" height="44" rx="5" fill="#8c6e5a"/>
+  <rect x="510" y="402" width="14" height="44" rx="5" fill="#7a5d4a"/><rect x="528" y="400" width="14" height="46" rx="5" fill="#8c6e5a"/>
+  <ellipse cx="486" cy="386" rx="62" ry="30" fill="#9a7b66"/>
+  <ellipse cx="486" cy="398" rx="46" ry="16" fill="#e8dccf"/>
+  <path d="M 524 374 L 552 336 L 586 346 L 552 392 Z" fill="#9a7b66"/>
+  <ellipse cx="578" cy="342" rx="28" ry="23" fill="#a6867a"/>
+  <path d="M 590 346 L 622 352 Q 628 358 620 364 L 590 366 Z" fill="#e8dccf"/>
+  <circle cx="624" cy="355" r="4.5" fill="#1b1b1b"/>
+  <circle cx="584" cy="336" r="3.6" fill="#1b1b1b"/><circle cx="585" cy="335" r="1.2" fill="#fff"/>
+  <path d="M 566 322 L 556 296 L 582 314 Z" fill="#7a5d4a"/>
+  <path d="M 536 372 L 560 352 L 568 364 L 546 386 Z" fill="#d32f2f" stroke="#8e1b1b" stroke-width="1.5"/>
+  <circle cx="552" cy="383" r="4" fill="#f2c94c"/>
+</g>
+
+<!-- low branch at the edge of the trees, with the red scarf caught on it -->
+<path d="M 650 404 L 604 410" fill="none" stroke="#3b2a1a" stroke-width="6" stroke-linecap="round"/>
+<g stroke="#8e1b1b" stroke-width="1.5" stroke-linejoin="round">
+  <path d="M 610 404 Q 622 396 636 402 L 640 410 Q 624 412 612 414 Z" fill="#d32f2f"/>
+  <path d="M 614 410 Q 606 424 612 438 Q 622 440 624 428 Q 620 418 624 411 Z" fill="#c62828"/>
+  <path d="M 630 410 Q 640 424 634 442 Q 644 444 648 430 Q 644 418 640 410 Z" fill="#e24b4b"/>
+</g>
+
+<!-- a little falling snow -->
+<g fill="#fff" opacity="0.8">
+  <circle cx="60" cy="150" r="2"/><circle cx="170" cy="190" r="2"/><circle cx="260" cy="130" r="2.2"/><circle cx="360" cy="200" r="2"/>
+  <circle cx="450" cy="160" r="2"/><circle cx="520" cy="215" r="2"/><circle cx="740" cy="190" r="2"/><circle cx="300" cy="260" r="2"/>
+</g>
+</svg></div>
+    <div class="prompt">Look at the picture. Write a story about what happened here. Use details from the picture.</div>
+
+    <div class="box">
+      <label class="fld" for="b-notes">Plan here if you want to (this box is not marked).</label>
+      <textarea id="b-notes" spellcheck="false"></textarea>
+    </div>
+    <div class="box">
+      <label class="fld" for="b-title">Title (if you want one)</label>
+      <input class="title" id="b-title" type="text" spellcheck="false" autocomplete="off">
+      <label class="fld" for="b-story" style="margin-top:12px">Your story</label>
+      <textarea id="b-story" spellcheck="false"></textarea>
+    </div>
+
+    <div id="submit-bar">
+      <div style="width:100%;text-align:center">
+        <button class="btn submit" id="btn-done" onclick="askDone()">Done</button>
+        <div id="save-area" style="display:none">
+          <div class="save-steps"><b>📁 Save your work for Naomi — you can't finish until it's saved.</b>
+          <ol><li>Press the blue button <b>💾 Save to Results</b>.</li>
+          <li>A window opens. Go to <b>English Workspace → Lessons → Tests → Results</b>. Click <b>Results</b> once, then press <b>Select Folder</b>.</li>
+          <li>If it asks to let the page edit files, press <b>Edit files</b>.</li>
+          <li>Wait for <b>✅ Saved in Results</b>.</li></ol>
+          <p>After the first time, the window opens in Results by itself.</p></div>
+          <div class="provbox"><b>Who helped you with this story?</b>
+            <label class="prov"><input type="radio" name="prov" id="prov-alone" value="alone" onchange="provChosen()">Nobody — I did it on my own</label>
+            <label class="prov"><input type="radio" name="prov" id="prov-helped" value="helped" onchange="provChosen()">Someone helped me</label>
+          </div>
+          <button class="btn save" id="btn-save" onclick="saveResults()" disabled>💾 Save to Results</button>
+        </div>
+        <div id="save-status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3 id="cf-title">Your story is short</h3>
+    <p id="cf-text">Your story is short — keep writing, or finish now?</p>
+    <div class="confirm-actions">
+      <button class="btn cancel" id="cf-back" onclick="closeConfirm()">Keep writing</button>
+      <button class="btn submit" id="cf-yes" onclick="doDone()">Finish now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- EDIT PER UNIT ---------- */
+const UNIT = 'M5W';
+const TIME_LIMIT_SEC = 1800;
+const LONG_SENTENCE = 25;
+const REPEAT_MIN = 4;
+const REPEAT_SKIP = [];
+/* ---------- END EDIT ---------- */
+
+/* ---------- TYPE IT YOURSELF (verbatim, from U46) ---------- */
+var LAST_KEY_AT=0, dictationBlocked=0;
+document.addEventListener('keydown',function(){LAST_KEY_AT=Date.now();},true);
+function showTypeNote(box){var n=box.parentNode.querySelector('.type-note');if(!n){n=document.createElement('div');n.className='type-note';box.parentNode.appendChild(n);}n.textContent='Type it with the keyboard — voice typing is off for writing.';}
+function guardTyping(box){
+  var prev=box.value;
+  box.addEventListener('input',function(){
+    var added=box.value.length-prev.length, keyed=(Date.now()-LAST_KEY_AT)<400;
+    if(added>2&&!keyed){box.value=prev;dictationBlocked++;showTypeNote(box);return;}
+    prev=box.value;
+  });
+}
+/* ---------- END TYPE IT YOURSELF ---------- */
+
+/* ---------- U44 WRITING HELPERS (verbatim) ---------- */
+function countWords(t){return (t||'').trim().split(/\s+/).filter(function(w){return /[A-Za-z0-9]/.test(w);}).length;}
+function splitSentences(t){var s=(t||'').replace(/[“”]/g,'"').replace(/[‘’]/g,"'").trim();if(!s)return [];return s.split(/(?<=[.!?])["']?\s+(?=["']?[A-Z])/).filter(function(p){return countWords(p)>=1;});}
+function countSentences(t){return splitSentences(t).filter(function(p){return countWords(p)>=3;}).length;}
+function hasSpeech(t){return /["“”][^"“”]{2,}["“”]/.test(t||'');}
+function repeatedSentence(t){var seen={},hit=null;(t||'').toLowerCase().split(/[.!?]+/).map(function(p){return p.replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();}).forEach(function(p){if(p.split(' ').length>=4){if(seen[p])hit=p;seen[p]=1;}});return hit;}
+var PLAN_STOP=['that','this','with','from','they','them','then','there','their','have','were','what','when','your','into','just','very','some','like','about','would','could','said','says'];
+function planStem(w){return w.replace(/(ing|ed|es|s)$/,'');}
+function planUsed(note,text){var tw=(text||'').toLowerCase().match(/[a-z]+/g)||[],ts={};tw.forEach(function(w){ts[planStem(w)]=1;});var nw=(note||'').toLowerCase().match(/[a-z]+/g)||[];var key=nw.filter(function(w){return w.length>=4&&PLAN_STOP.indexOf(w)<0;});if(!key.length)return nw.length>0&&(' '+tw.join(' ')+' ').indexOf(' '+nw.join(' ')+' ')>=0;return key.some(function(w){return ts[planStem(w)]===1;});}
+function noteHasKeyword(note){return ((note||'').toLowerCase().match(/[a-z]+/g)||[]).some(function(w){return w.length>=4&&PLAN_STOP.indexOf(w)<0;});}
+/* ---------- END HELPERS ---------- */
+
+/* ---------- U46 SENTENCE CHECKS (verbatim) ---------- */
+function andThenCount(t){return ((t||'').toLowerCase().match(/\b(and|so) then\b/g)||[]).length;}
+function longestSentence(t){return splitSentences(t).reduce(function(m,s){return Math.max(m,countWords(s));},0);}
+function flagSentences(t,maxWords){return splitSentences(t).map(function(s,i){return {i:i,text:s,words:countWords(s),andThen:andThenCount(s)};}).filter(function(x){return x.words>maxWords||x.andThen>0;});}
+/* ---------- END SENTENCE CHECKS ---------- */
+
+/* ---------- U49 SPOKEN WORDS (verbatim) ---------- */
+var SPOKEN_WORDS=['thing','things','stuff','yummy','super','gonna','wanna','kinda','sorta','awesome','cool','okay','ok'];
+var SPOKEN_PHRASES=['so fun','kind of','sort of'];
+function spokenIn(t){var s=' '+(t||'').toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z' ]+/g,' ').replace(/\s+/g,' ')+' ',hits=[];SPOKEN_PHRASES.forEach(function(p){if(s.indexOf(' '+p+' ')>=0)hits.push(p);});s.split(' ').forEach(function(w){if(SPOKEN_WORDS.indexOf(w)>=0&&hits.indexOf(w)<0)hits.push(w);});return hits;}
+function spokenCount(t){var s=' '+(t||'').toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z' ]+/g,' ').replace(/\s+/g,' ')+' ',n=0;SPOKEN_PHRASES.forEach(function(p){n+=s.split(' '+p+' ').length-1;});s.split(' ').forEach(function(w){if(SPOKEN_WORDS.indexOf(w)>=0)n++;});return n;}
+function flagSentencesU49(t,maxWords){return splitSentences(t).map(function(s,i){return {i:i,text:s,words:countWords(s),andThen:andThenCount(s),spoken:spokenIn(s)};}).filter(function(x){return x.words>maxWords||x.andThen>0||x.spoken.length>0;});}
+/* ---------- END SPOKEN WORDS ---------- */
+
+/* ---------- U50 SAME WORD CHECK (verbatim) ---------- */
+var REPEAT_STOP=['the','and','but','was','were','are','that','this','these','those','with','for','you','your','they','them','their','there','then','have','has','had','not','because','when','what','also','very','can','could','would','will','should','from','into','about','like','just','some','more','most','one','all','our','out','get','got','did','does','its',"it's",'she','her','him','his','who','which','than','too','any','been','being',"i'm","don't","didn't","can't",'even','think','thought','going','other','people','many','much','first','firstly','secondly','conclusion','reason','reasons','example','opinion','other side'];
+function repeatedWords(t,minCount,skip){var c={};((t||'').toLowerCase().replace(/[’‘]/g,"'").match(/[a-z']+/g)||[]).forEach(function(w){w=w.replace(/^'+|'+$/g,'');if(w.length<3||REPEAT_STOP.indexOf(w)>=0||(skip||[]).indexOf(w)>=0)return;c[w]=(c[w]||0)+1;});return Object.keys(c).filter(function(w){return c[w]>=minCount;}).sort(function(a,b){return c[b]-c[a]||(a<b?-1:1);}).map(function(w){return {word:w,count:c[w]};});}
+function sentencesWith(t,word){return splitSentences(t).filter(function(s){return (' '+s.toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z' ]+/g,' ')+' ').indexOf(' '+word+' ')>=0;});}
+/* ---------- END SAME WORD CHECK ---------- */
+
+/* ---------- SAVE TO RESULTS (verbatim, from U43 v1.1) ---------- */
+var RESULTS_DIR_NAME='Results', SAVED=false;
+function idbOpen(){return new Promise(function(res,rej){var r=indexedDB.open('prem-english',1);r.onupgradeneeded=function(){r.result.createObjectStore('h');};r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+async function idbGet(k){try{var db=await idbOpen();return await new Promise(function(res){var q=db.transaction('h').objectStore('h').get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};});}catch(e){return null;}}
+async function idbSet(k,v){try{var db=await idbOpen();await new Promise(function(res){var q=db.transaction('h','readwrite').objectStore('h').put(v,k);q.onsuccess=res;q.onerror=res;});}catch(e){}}
+async function getResultsDir(){
+  var d=await idbGet('resultsDir');
+  if(d){try{var p=await d.queryPermission({mode:'readwrite'});if(p!=='granted')p=await d.requestPermission({mode:'readwrite'});if(p==='granted'&&d.name===RESULTS_DIR_NAME)return d;}catch(e){}}
+  d=await window.showDirectoryPicker({id:'prem-results',mode:'readwrite'});
+  if(d.name!==RESULTS_DIR_NAME){var err=new Error('wrong folder');err.name='WrongFolder';err.picked=d.name;throw err;}
+  await idbSet('resultsDir',d);return d;
+}
+async function saveToResults(filename,json){
+  var d=await getResultsDir();
+  var fh=await d.getFileHandle(filename,{create:true});
+  var w=await fh.createWritable();await w.write(json);await w.close();
+  var back=await (await fh.getFile()).text();
+  if(back!==json){var err=new Error('verify failed');err.name='VerifyFailed';throw err;}
+  return true;
+}
+/* ---------- END SAVE TO RESULTS ---------- */
+var SAVE_FAILS=0;
+function downloadInstead(filename,json,st){
+  try{var blob=new Blob([json],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();}catch(e0){}
+  st.className='done';st.textContent='Your file downloaded as '+filename+'. Open your Downloads folder and move it into Results (English Workspace → Lessons → Tests → Results).';
+}
+
+const $ = id => document.getElementById(id);
+const DRAFT_KEY = 'ENG_M05W_draft';
+const PROMPT_TEXT = 'Look at the picture. Write a story about what happened here. Use details from the picture.';
+$('hdr-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+let submitted = false, started = false, provenance = null, lastResults = null;
+let startedAt = null, finishedAt = null, restoreCount = 0, activeSeconds = 0;
+let typedChars = 0, addedChars = 0, pasteBlocked = 0, lastLen = 0;
+const openedAt = new Date().toISOString();
+let firstOpenedAt = openedAt;
+
+function fmtClock(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0'); }
+function overTimeSec(){ return Math.max(0, activeSeconds - TIME_LIMIT_SEC); }
+function paintClock(){
+  const rem = TIME_LIMIT_SEC - activeSeconds, chip = $('timer-chip');
+  if (rem > 0){ $('timer').textContent = fmtClock(rem); chip.className = rem <= 300 ? 'amber' : ''; $('timeup').classList.remove('show'); }
+  else { $('timer').textContent = '+' + fmtClock(-rem); chip.className = 'over'; $('timeup').classList.toggle('show', !submitted); }
+}
+function tick(){
+  if (started && !submitted && !document.hidden) activeSeconds++;
+  paintClock();
+  if (started && !submitted && activeSeconds % 5 === 0) saveDraft();
+}
+setInterval(tick, 1000);
+
+/* ---------- restore-safe draft: words + clock + counters ---------- */
+function saveDraft(){
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({
+      started: started, submitted: submitted, story: $('b-story').value, notes: $('b-notes').value, title: $('b-title').value,
+      firstOpenedAt: firstOpenedAt, startedAt: startedAt, activeSeconds: activeSeconds, typedChars: typedChars, addedChars: addedChars,
+      dictationBlocked: dictationBlocked, pasteBlocked: pasteBlocked, restoreCount: restoreCount
+    }));
+  } catch(e){}
+}
+function loadDraft(){
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY); if (!raw) return null;
+    const d = JSON.parse(raw); if (!d || !d.started) return null;
+    started = true; startedAt = d.startedAt; firstOpenedAt = d.firstOpenedAt || openedAt;
+    activeSeconds = d.activeSeconds || 0; typedChars = d.typedChars || 0; addedChars = d.addedChars || 0;
+    dictationBlocked = d.dictationBlocked || 0; pasteBlocked = d.pasteBlocked || 0;
+    restoreCount = (d.restoreCount || 0) + 1;
+    $('b-story').value = d.story || ''; $('b-notes').value = d.notes || ''; $('b-title').value = d.title || '';
+    return d;
+  } catch(e){ return null; }
+}
+function clearDraft(){ try { localStorage.removeItem(DRAFT_KEY); } catch(e){} }
+document.addEventListener('visibilitychange', saveDraft);
+window.addEventListener('pagehide', saveDraft);
+
+function showPaper(){ $('scr-start').classList.remove('active'); $('scr-paper').classList.add('active'); window.scrollTo(0,0); }
+function startPaper(){ started = true; startedAt = new Date().toISOString(); saveDraft(); showPaper(); paintClock(); }
+
+function wordCount(){ return countWords($('b-story').value); }
+function paintWords(){ const n = wordCount(); $('wc-label').textContent = n + (n === 1 ? ' word' : ' words'); }
+
+function pasteNote(el){
+  let n = el.parentNode.querySelector('.type-note');
+  if (!n){ n = document.createElement('div'); n.className = 'type-note'; el.parentNode.appendChild(n); }
+  n.textContent = 'Pasting is turned off — type it yourself.';
+}
+/* typed only (guardTyping), paste blocked, typed and added characters counted. Restored text is already in the box BEFORE guardTyping attaches. */
+function instrument(el, counted){
+  guardTyping(el);
+  if (counted){
+    el.addEventListener('keydown', e => { if (e.key && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) typedChars++; });
+  }
+  let prevLen = el.value.length;
+  el.addEventListener('input', () => {
+    const len = el.value.length;
+    if (counted && len > prevLen) addedChars += len - prevLen;
+    prevLen = len;
+    if (submitted) return;
+    paintWords(); saveDraft();
+  });
+  el.addEventListener('paste', e => { e.preventDefault(); pasteBlocked++; pasteNote(el); });
+}
+
+/* ---------- Done: always possible; a short story gets one gentle question ---------- */
+function askDone(){
+  if (submitted) return;
+  if (wordCount() < 80){ $('confirm-overlay').classList.add('show'); return; }
+  doDone();
+}
+function closeConfirm(){ $('confirm-overlay').classList.remove('show'); }
+
+function doDone(){
+  if (submitted) return;
+  closeConfirm();
+  submitted = true; finishedAt = new Date().toISOString(); paintClock(); saveDraft();
+  ['b-story','b-notes','b-title'].forEach(id => $(id).disabled = true);
+  const story = $('b-story').value;
+  $('done-banner').classList.add('show');
+  $('btn-done').style.display = 'none';
+  $('save-area').style.display = 'block';
+  const st = $('save-status');
+  st.className = 'reminder'; st.textContent = 'Choose who helped you, then press the blue Save button — your story is NOT saved yet.';
+  $('save-area').scrollIntoView({block:'start'});
+
+  const sp = spokenIn(story);
+  lastResults = {
+    student: "Prem",
+    unit: UNIT,
+    prompt: PROMPT_TEXT,
+    dateTaken: new Date().toISOString().slice(0,10),
+    title: $('b-title').value,
+    notes: $('b-notes').value,
+    story: story,
+    wordCount: wordCount(),
+    sentences: countSentences(story),
+    andThen: andThenCount(story),
+    longestSentence: longestSentence(story),
+    longSentences: splitSentences(story).filter(s => countWords(s) > LONG_SENTENCE).length,
+    spoken: { count: spokenCount(story), words: sp },
+    repeats: repeatedWords(story, REPEAT_MIN, REPEAT_SKIP),
+    dictationBlocked: dictationBlocked, pasteBlocked: pasteBlocked,
+    typedChars: typedChars, addedChars: addedChars,
+    dictatedShare: addedChars > 0 ? Math.max(0, Math.round((1 - typedChars/addedChars)*100)/100) : 0,
+    openedAt: openedAt, firstOpenedAt: firstOpenedAt, startedAt: startedAt, finishedAt: finishedAt,
+    restoreCount: restoreCount, activeSeconds: activeSeconds,
+    minutesSpent: Math.round(activeSeconds/60*10)/10,
+    overTimeSec: overTimeSec(),
+    provenance: null,
+    rubric: null
+  };
+}
+function provChosen(){
+  provenance = $('prov-alone').checked ? 'alone' : ($('prov-helped').checked ? 'helped' : null);
+  $('btn-save').disabled = (provenance === null);
+}
+
+window.addEventListener('beforeunload', function(e){ if (submitted && !SAVED){ e.preventDefault(); e.returnValue = ''; } });
+
+async function saveResults(){
+  if (provenance === null){ $('save-status').textContent = 'Choose one answer above first.'; return; }
+  lastResults.provenance = provenance;
+  const filename = `ENG_M05W_Results_${lastResults.dateTaken}.json`;
+  const json = JSON.stringify(lastResults, null, 2);
+  const st = $('save-status');
+  st.className = 'reminder'; st.textContent = 'Saving…';
+  if (!window.showDirectoryPicker){ downloadInstead(filename, json, st); SAVED = true; clearDraft(); return; }
+  try {
+    await saveToResults(filename, json);
+    SAVED = true; clearDraft(); st.className = 'done'; st.textContent = '✅ Saved in Results as ' + filename + '. Well done!';
+  } catch(e){
+    if (e && e.name === 'AbortError'){ st.textContent = 'Not saved yet — you closed the window. Press the blue button again.'; }
+    else if (e && e.name === 'WrongFolder'){ st.textContent = 'That folder is called “' + e.picked + '”. Pick the folder called Results: English Workspace → Lessons → Tests → Results.'; }
+    else { SAVE_FAILS++; if (SAVE_FAILS>=2){ downloadInstead(filename, json, st); SAVED = true; clearDraft(); } else { st.textContent = 'Something went wrong while saving. Press the blue button again.'; } }
+  }
+}
+
+const _d = loadDraft();          // restored text goes in first …
+instrument($('b-story'), true);  // … then the guards attach
+instrument($('b-notes'), false);
+instrument($('b-title'), false);
+paintWords();
+if (_d){
+  showPaper(); saveDraft();
+  if (_d.submitted) doDone();
+}
+paintClock();
+</script>
+</body>
+</html>
